@@ -1,0 +1,5266 @@
+[
+  {
+    "id": "mario-kart-8-deluxe",
+    "title": "Mario Kart 8 Deluxe",
+    "platforms": [
+      "handheld"
+    ],
+    "year": 2017,
+    "genres": [
+      "racing",
+      "party",
+      "multiplayer"
+    ],
+    "time_tags": [
+      15,
+      30,
+      60
+    ],
+    "energy": "medium",
+    "moods": [
+      "fun",
+      "competitive",
+      "social",
+      "exciting"
+    ],
+    "play_style": [
+      "action"
+    ],
+    "time_to_fun": "short",
+    "stop_friendliness": "anytime",
+    "multiplayer": [
+      "solo",
+      "local_coop",
+      "online_coop",
+      "competitive"
+    ],
+    "description": "Race Nintendo characters across creative tracks.",
+    "fun_fact": "The game has been on Nintendo's best-sellers list for over 7 years straight!",
+    "franchise": "mario_kart"
+  },
+  {
+    "id": "fall-guys",
+    "title": "Fall Guys",
+    "platforms": [
+      "pc",
+      "console",
+      "handheld"
+    ],
+    "year": 2020,
+    "genres": [
+      "battle-royale",
+      "party",
+      "platformer"
+    ],
+    "time_tags": [
+      15,
+      30
+    ],
+    "energy": "medium",
+    "moods": [
+      "fun",
+      "silly",
+      "chaotic",
+      "competitive"
+    ],
+    "play_style": [
+      "action"
+    ],
+    "time_to_fun": "short",
+    "stop_friendliness": "checkpoints",
+    "multiplayer": [
+      "solo",
+      "online_coop",
+      "competitive"
+    ],
+    "description": "Compete as a wobbly bean in chaotic obstacle courses.",
+    "fun_fact": "The beans have no bones - they're literally just beans in costumes!"
+  },
+  {
+    "id": "among-us",
+    "title": "Among Us",
+    "platforms": [
+      "pc",
+      "console",
+      "handheld"
+    ],
+    "year": 2018,
+    "genres": [
+      "social-deduction",
+      "party",
+      "multiplayer"
+    ],
+    "time_tags": [
+      15,
+      30
+    ],
+    "energy": "medium",
+    "moods": [
+      "social",
+      "suspicious",
+      "fun",
+      "strategic"
+    ],
+    "play_style": [
+      "puzzle_strategy"
+    ],
+    "time_to_fun": "short",
+    "stop_friendliness": "checkpoints",
+    "multiplayer": [
+      "online_coop"
+    ],
+    "description": "Find the impostor among your crewmates or deceive them all.",
+    "fun_fact": "The game was released in 2018 but didn't become popular until 2020!"
+  },
+  {
+    "id": "rocket-league",
+    "title": "Rocket League",
+    "platforms": [
+      "pc",
+      "console",
+      "handheld"
+    ],
+    "year": 2015,
+    "genres": [
+      "sports",
+      "racing",
+      "competitive"
+    ],
+    "time_tags": [
+      15,
+      30
+    ],
+    "energy": "medium",
+    "moods": [
+      "exciting",
+      "competitive",
+      "fun",
+      "skill-based"
+    ],
+    "play_style": [
+      "action"
+    ],
+    "time_to_fun": "short",
+    "stop_friendliness": "checkpoints",
+    "multiplayer": [
+      "solo",
+      "local_coop",
+      "online_coop",
+      "competitive"
+    ],
+    "description": "Play soccer with rocket-powered cars.",
+    "fun_fact": "The game was originally called 'Supersonic Acrobatic Rocket-Powered Battle-Cars'!"
+  },
+  {
+    "id": "overcooked-2",
+    "title": "Overcooked 2",
+    "platforms": [
+      "pc",
+      "console",
+      "handheld"
+    ],
+    "year": 2018,
+    "genres": [
+      "cooking",
+      "co-op",
+      "party"
+    ],
+    "time_tags": [
+      15,
+      30,
+      60
+    ],
+    "energy": "medium",
+    "moods": [
+      "chaotic",
+      "fun",
+      "cooperative",
+      "frantic"
+    ],
+    "play_style": [
+      "puzzle_strategy"
+    ],
+    "time_to_fun": "short",
+    "stop_friendliness": "checkpoints",
+    "multiplayer": [
+      "solo",
+      "local_coop",
+      "online_coop"
+    ],
+    "description": "Cook meals in chaotic kitchens with friends.",
+    "fun_fact": "The game was designed to test relationships - it's infamous for causing friendly arguments!",
+    "franchise": "overcooked"
+  },
+  {
+    "id": "minecraft",
+    "title": "Minecraft",
+    "platforms": [
+      "pc",
+      "console",
+      "handheld"
+    ],
+    "year": 2011,
+    "genres": [
+      "sandbox",
+      "survival",
+      "creative"
+    ],
+    "time_tags": [
+      30,
+      60,
+      90
+    ],
+    "energy": "medium",
+    "moods": [
+      "creative",
+      "adventurous",
+      "relaxing",
+      "social"
+    ],
+    "play_style": [
+      "sandbox_creative"
+    ],
+    "time_to_fun": "short",
+    "stop_friendliness": "anytime",
+    "multiplayer": [
+      "solo",
+      "local_coop",
+      "online_coop"
+    ],
+    "description": "Build anything you can imagine in a blocky procedural world.",
+    "fun_fact": "The game has sold over 300 million copies, making it the best-selling video game of all time!",
+    "subscriptions": [
+      "xbox_game_pass"
+    ]
+  },
+  {
+    "id": "terraria",
+    "title": "Terraria",
+    "platforms": [
+      "pc",
+      "console",
+      "handheld"
+    ],
+    "year": 2011,
+    "genres": [
+      "sandbox",
+      "action",
+      "adventure"
+    ],
+    "time_tags": [
+      30,
+      60,
+      90
+    ],
+    "energy": "medium",
+    "moods": [
+      "adventurous",
+      "creative",
+      "challenging",
+      "rewarding"
+    ],
+    "play_style": [
+      "sandbox_creative",
+      "action"
+    ],
+    "time_to_fun": "short",
+    "stop_friendliness": "anytime",
+    "multiplayer": [
+      "solo",
+      "local_coop",
+      "online_coop"
+    ],
+    "description": "Dig, fight, explore, and build in a 2D sandbox world.",
+    "fun_fact": "The game has received over 50 major content updates since its 2011 launch!"
+  },
+  {
+    "id": "splatoon-3",
+    "title": "Splatoon 3",
+    "platforms": [
+      "handheld"
+    ],
+    "year": 2022,
+    "genres": [
+      "shooter",
+      "multiplayer",
+      "colorful"
+    ],
+    "time_tags": [
+      15,
+      30
+    ],
+    "energy": "medium",
+    "moods": [
+      "fun",
+      "colorful",
+      "competitive",
+      "energetic"
+    ],
+    "play_style": [
+      "action"
+    ],
+    "time_to_fun": "short",
+    "stop_friendliness": "checkpoints",
+    "multiplayer": [
+      "solo",
+      "local_coop",
+      "online_coop",
+      "competitive"
+    ],
+    "description": "Ink-based multiplayer battles with style.",
+    "fun_fact": "The Splatoon world exists 12,000 years after humanity went extinct from rising sea levels.",
+    "franchise": "splatoon"
+  },
+  {
+    "id": "fortnite",
+    "title": "Fortnite",
+    "platforms": [
+      "pc",
+      "console",
+      "handheld"
+    ],
+    "year": 2017,
+    "genres": [
+      "battle-royale",
+      "shooter",
+      "building"
+    ],
+    "time_tags": [
+      15,
+      30
+    ],
+    "energy": "medium",
+    "moods": [
+      "competitive",
+      "exciting",
+      "social",
+      "creative"
+    ],
+    "play_style": [
+      "action"
+    ],
+    "time_to_fun": "short",
+    "stop_friendliness": "checkpoints",
+    "multiplayer": [
+      "solo",
+      "online_coop",
+      "competitive"
+    ],
+    "description": "Battle royale with building mechanics and pop culture crossovers.",
+    "fun_fact": "The game started as a zombie survival game before Battle Royale was added!"
+  },
+  {
+    "id": "super-smash-bros-ultimate",
+    "title": "Super Smash Bros. Ultimate",
+    "platforms": [
+      "handheld"
+    ],
+    "year": 2018,
+    "genres": [
+      "fighting",
+      "party",
+      "platform-fighter"
+    ],
+    "time_tags": [
+      15,
+      30,
+      60
+    ],
+    "energy": "medium",
+    "moods": [
+      "exciting",
+      "competitive",
+      "nostalgic",
+      "fun"
+    ],
+    "play_style": [
+      "action"
+    ],
+    "time_to_fun": "short",
+    "stop_friendliness": "checkpoints",
+    "multiplayer": [
+      "solo",
+      "local_coop",
+      "competitive"
+    ],
+    "description": "Nintendo characters battle in the ultimate crossover.",
+    "fun_fact": "With 89 playable fighters, it has the largest roster of any fighting game!"
+  },
+  {
+    "id": "portal-2",
+    "title": "Portal 2",
+    "platforms": [
+      "pc",
+      "console"
+    ],
+    "year": 2011,
+    "genres": [
+      "puzzle",
+      "first-person",
+      "comedy"
+    ],
+    "time_tags": [
+      30,
+      60,
+      90
+    ],
+    "energy": "medium",
+    "moods": [
+      "clever",
+      "funny",
+      "challenging",
+      "satisfying"
+    ],
+    "play_style": [
+      "puzzle_strategy"
+    ],
+    "time_to_fun": "short",
+    "stop_friendliness": "checkpoints",
+    "multiplayer": [
+      "solo",
+      "local_coop",
+      "online_coop"
+    ],
+    "description": "Think with portals in this brilliant puzzle-comedy.",
+    "fun_fact": "The companion cube has its own Twitter account and has become one of gaming's most beloved characters.",
+    "franchise": "portal"
+  },
+  {
+    "id": "it-takes-two",
+    "title": "It Takes Two",
+    "platforms": [
+      "pc",
+      "console"
+    ],
+    "year": 2021,
+    "genres": [
+      "co-op",
+      "adventure",
+      "platformer"
+    ],
+    "time_tags": [
+      60,
+      90
+    ],
+    "energy": "medium",
+    "moods": [
+      "cooperative",
+      "fun",
+      "creative",
+      "emotional"
+    ],
+    "play_style": [
+      "action",
+      "puzzle_strategy"
+    ],
+    "time_to_fun": "short",
+    "stop_friendliness": "checkpoints",
+    "multiplayer": [
+      "local_coop",
+      "online_coop"
+    ],
+    "description": "A couple turned into dolls must work together to save their marriage.",
+    "fun_fact": "It won Game of the Year 2021 - the first co-op only game ever to win this award!",
+    "subscriptions": [
+      "xbox_game_pass",
+      "ea_play"
+    ]
+  },
+  {
+    "id": "jackbox-party-pack-9",
+    "title": "The Jackbox Party Pack 9",
+    "platforms": [
+      "pc",
+      "console",
+      "handheld"
+    ],
+    "year": 2022,
+    "genres": [
+      "party",
+      "trivia",
+      "social"
+    ],
+    "time_tags": [
+      30,
+      60
+    ],
+    "energy": "medium",
+    "moods": [
+      "fun",
+      "social",
+      "hilarious",
+      "creative"
+    ],
+    "play_style": [
+      "sandbox_creative"
+    ],
+    "time_to_fun": "short",
+    "stop_friendliness": "anytime",
+    "multiplayer": [
+      "local_coop"
+    ],
+    "description": "Party games playable on phones with friends.",
+    "fun_fact": "Each game in the packs is made by a different team at Jackbox Games."
+  },
+  {
+    "id": "golf-with-friends",
+    "title": "Golf With Your Friends",
+    "platforms": [
+      "pc",
+      "console",
+      "handheld"
+    ],
+    "year": 2020,
+    "genres": [
+      "sports",
+      "party",
+      "mini-golf"
+    ],
+    "time_tags": [
+      15,
+      30,
+      60
+    ],
+    "energy": "medium",
+    "moods": [
+      "fun",
+      "competitive",
+      "silly",
+      "social"
+    ],
+    "play_style": [
+      "action"
+    ],
+    "time_to_fun": "short",
+    "stop_friendliness": "anytime",
+    "multiplayer": [
+      "solo",
+      "local_coop",
+      "online_coop",
+      "competitive"
+    ],
+    "description": "Mini-golf with wacky courses and power-ups.",
+    "fun_fact": "The game started as a university project before becoming a Steam hit!"
+  },
+  {
+    "id": "gang-beasts",
+    "title": "Gang Beasts",
+    "platforms": [
+      "pc",
+      "console"
+    ],
+    "year": 2017,
+    "genres": [
+      "fighting",
+      "party",
+      "comedy"
+    ],
+    "time_tags": [
+      15,
+      30
+    ],
+    "energy": "medium",
+    "moods": [
+      "silly",
+      "chaotic",
+      "fun",
+      "hilarious"
+    ],
+    "play_style": [
+      "action"
+    ],
+    "time_to_fun": "short",
+    "stop_friendliness": "checkpoints",
+    "multiplayer": [
+      "local_coop",
+      "online_coop",
+      "competitive"
+    ],
+    "description": "Gelatinous characters brawl in absurd environments.",
+    "fun_fact": "The physics are intentionally terrible to make every fight hilarious."
+  },
+  {
+    "id": "moving-out",
+    "title": "Moving Out",
+    "platforms": [
+      "pc",
+      "console",
+      "handheld"
+    ],
+    "year": 2020,
+    "genres": [
+      "co-op",
+      "puzzle",
+      "comedy"
+    ],
+    "time_tags": [
+      15,
+      30
+    ],
+    "energy": "medium",
+    "moods": [
+      "chaotic",
+      "fun",
+      "cooperative",
+      "silly"
+    ],
+    "play_style": [
+      "puzzle_strategy"
+    ],
+    "time_to_fun": "short",
+    "stop_friendliness": "checkpoints",
+    "multiplayer": [
+      "solo",
+      "local_coop"
+    ],
+    "description": "Move furniture in increasingly absurd scenarios.",
+    "fun_fact": "The developers literally moved furniture IRL to understand the physics!"
+  },
+  {
+    "id": "human-fall-flat",
+    "title": "Human: Fall Flat",
+    "platforms": [
+      "pc",
+      "console",
+      "handheld"
+    ],
+    "year": 2016,
+    "genres": [
+      "puzzle",
+      "platformer",
+      "comedy"
+    ],
+    "time_tags": [
+      30,
+      60
+    ],
+    "energy": "medium",
+    "moods": [
+      "silly",
+      "fun",
+      "creative",
+      "cooperative"
+    ],
+    "play_style": [
+      "puzzle_strategy"
+    ],
+    "time_to_fun": "short",
+    "stop_friendliness": "anytime",
+    "multiplayer": [
+      "solo",
+      "local_coop",
+      "online_coop"
+    ],
+    "description": "Wobbly physics puzzle platforming with friends.",
+    "fun_fact": "The game has sold over 40 million copies thanks to its streaming popularity."
+  },
+  {
+    "id": "ultimate-chicken-horse",
+    "title": "Ultimate Chicken Horse",
+    "platforms": [
+      "pc",
+      "console",
+      "handheld"
+    ],
+    "year": 2016,
+    "genres": [
+      "platformer",
+      "party",
+      "creative"
+    ],
+    "time_tags": [
+      15,
+      30
+    ],
+    "energy": "medium",
+    "moods": [
+      "competitive",
+      "creative",
+      "fun",
+      "devious"
+    ],
+    "play_style": [
+      "action",
+      "sandbox_creative"
+    ],
+    "time_to_fun": "short",
+    "stop_friendliness": "checkpoints",
+    "multiplayer": [
+      "local_coop",
+      "online_coop",
+      "competitive"
+    ],
+    "description": "Build levels to challenge your friends while beating them yourself.",
+    "fun_fact": "Players often create impossible levels just to watch their friends fail."
+  },
+  {
+    "id": "stick-fight",
+    "title": "Stick Fight: The Game",
+    "platforms": [
+      "pc",
+      "console",
+      "handheld"
+    ],
+    "year": 2017,
+    "genres": [
+      "fighting",
+      "party",
+      "physics"
+    ],
+    "time_tags": [
+      15,
+      30
+    ],
+    "energy": "medium",
+    "moods": [
+      "chaotic",
+      "fun",
+      "competitive",
+      "fast"
+    ],
+    "play_style": [
+      "action"
+    ],
+    "time_to_fun": "short",
+    "stop_friendliness": "checkpoints",
+    "multiplayer": [
+      "local_coop",
+      "online_coop",
+      "competitive"
+    ],
+    "description": "Stick figures battle with physics-based combat.",
+    "fun_fact": "Inspired by classic stick figure animations from the early internet."
+  },
+  {
+    "id": "pummel-party",
+    "title": "Pummel Party",
+    "platforms": [
+      "pc"
+    ],
+    "year": 2018,
+    "genres": [
+      "party",
+      "board-game",
+      "mini-games"
+    ],
+    "time_tags": [
+      30,
+      60,
+      90
+    ],
+    "energy": "medium",
+    "moods": [
+      "fun",
+      "competitive",
+      "chaotic",
+      "social"
+    ],
+    "play_style": [
+      "action"
+    ],
+    "time_to_fun": "short",
+    "stop_friendliness": "checkpoints",
+    "multiplayer": [
+      "local_coop",
+      "online_coop"
+    ],
+    "description": "Board game party with brutal mini-games.",
+    "fun_fact": "The game was designed as a more mature alternative to Mario Party."
+  },
+  {
+    "id": "speedrunners",
+    "title": "SpeedRunners",
+    "platforms": [
+      "pc",
+      "console"
+    ],
+    "year": 2016,
+    "genres": [
+      "racing",
+      "platformer",
+      "competitive"
+    ],
+    "time_tags": [
+      15,
+      30
+    ],
+    "energy": "medium",
+    "moods": [
+      "competitive",
+      "fast",
+      "fun",
+      "intense"
+    ],
+    "play_style": [
+      "action"
+    ],
+    "time_to_fun": "short",
+    "stop_friendliness": "checkpoints",
+    "multiplayer": [
+      "local_coop",
+      "online_coop",
+      "competitive"
+    ],
+    "description": "Race through obstacle courses as superheroes.",
+    "fun_fact": "Falling behind means getting eliminated by an ever-shrinking screen."
+  },
+  {
+    "id": "boomerang-fu",
+    "title": "Boomerang Fu",
+    "platforms": [
+      "pc",
+      "console",
+      "handheld"
+    ],
+    "year": 2020,
+    "genres": [
+      "party",
+      "fighting",
+      "multiplayer"
+    ],
+    "time_tags": [
+      15,
+      30
+    ],
+    "energy": "medium",
+    "moods": [
+      "fun",
+      "chaotic",
+      "competitive",
+      "cute"
+    ],
+    "play_style": [
+      "action"
+    ],
+    "time_to_fun": "short",
+    "stop_friendliness": "checkpoints",
+    "multiplayer": [
+      "local_coop"
+    ],
+    "description": "Food characters battle with deadly boomerangs.",
+    "fun_fact": "All characters are cute food items that violently slice each other."
+  },
+  {
+    "id": "unravel-two",
+    "title": "Unravel Two",
+    "platforms": [
+      "pc",
+      "console",
+      "handheld"
+    ],
+    "year": 2018,
+    "genres": [
+      "platformer",
+      "puzzle",
+      "co-op"
+    ],
+    "time_tags": [
+      30,
+      60
+    ],
+    "energy": "medium",
+    "moods": [
+      "cooperative",
+      "charming",
+      "adventurous",
+      "beautiful"
+    ],
+    "play_style": [
+      "puzzle_strategy"
+    ],
+    "time_to_fun": "short",
+    "stop_friendliness": "checkpoints",
+    "multiplayer": [
+      "solo",
+      "local_coop"
+    ],
+    "description": "Two yarn creatures solve puzzles together.",
+    "fun_fact": "The yarn physics are based on real textile mathematics!",
+    "franchise": "unravel"
+  },
+  {
+    "id": "sackboy-adventure",
+    "title": "Sackboy: A Big Adventure",
+    "platforms": [
+      "pc",
+      "console"
+    ],
+    "year": 2020,
+    "genres": [
+      "platformer",
+      "co-op",
+      "3d"
+    ],
+    "time_tags": [
+      30,
+      60
+    ],
+    "energy": "medium",
+    "moods": [
+      "fun",
+      "charming",
+      "cooperative",
+      "colorful"
+    ],
+    "play_style": [
+      "action"
+    ],
+    "time_to_fun": "short",
+    "stop_friendliness": "checkpoints",
+    "multiplayer": [
+      "solo",
+      "local_coop",
+      "online_coop"
+    ],
+    "description": "3D platforming adventure with the loveable Sackboy.",
+    "fun_fact": "LittleBigPlanet's Sackboy has appeared in over 10 different games!",
+    "subscriptions": [
+      "playstation_plus"
+    ]
+  },
+  {
+    "id": "kirby-forgotten-land",
+    "title": "Kirby and the Forgotten Land",
+    "platforms": [
+      "handheld"
+    ],
+    "year": 2022,
+    "genres": [
+      "platformer",
+      "3d",
+      "adventure"
+    ],
+    "time_tags": [
+      30,
+      60
+    ],
+    "energy": "medium",
+    "moods": [
+      "cute",
+      "fun",
+      "adventurous",
+      "relaxing"
+    ],
+    "play_style": [
+      "action"
+    ],
+    "time_to_fun": "short",
+    "stop_friendliness": "checkpoints",
+    "multiplayer": [
+      "solo",
+      "local_coop"
+    ],
+    "description": "Kirby's first 3D platforming adventure.",
+    "fun_fact": "Kirby can swallow cars and vending machines with his new Mouthful Mode.",
+    "franchise": "kirby"
+  },
+  {
+    "id": "yoshis-crafted-world",
+    "title": "Yoshi's Crafted World",
+    "platforms": [
+      "handheld"
+    ],
+    "year": 2019,
+    "genres": [
+      "platformer",
+      "2.5d",
+      "collectathon"
+    ],
+    "time_tags": [
+      30,
+      60
+    ],
+    "energy": "medium",
+    "moods": [
+      "cute",
+      "charming",
+      "relaxing",
+      "creative"
+    ],
+    "play_style": [
+      "action"
+    ],
+    "time_to_fun": "short",
+    "stop_friendliness": "checkpoints",
+    "multiplayer": [
+      "solo",
+      "local_coop"
+    ],
+    "description": "Explore levels made of cardboard and crafts.",
+    "fun_fact": "Every level is made to look like real crafts with visible tape and cardboard.",
+    "franchise": "yoshi"
+  },
+  {
+    "id": "lego-star-wars-skywalker",
+    "title": "LEGO Star Wars: The Skywalker Saga",
+    "platforms": [
+      "pc",
+      "console",
+      "handheld"
+    ],
+    "year": 2022,
+    "genres": [
+      "action",
+      "adventure",
+      "comedy"
+    ],
+    "time_tags": [
+      30,
+      60,
+      90
+    ],
+    "energy": "medium",
+    "moods": [
+      "fun",
+      "nostalgic",
+      "humorous",
+      "adventurous"
+    ],
+    "play_style": [
+      "action"
+    ],
+    "time_to_fun": "short",
+    "stop_friendliness": "anytime",
+    "multiplayer": [
+      "solo",
+      "local_coop"
+    ],
+    "description": "All 9 Star Wars movies in LEGO form.",
+    "fun_fact": "The game contains over 300 playable characters and 23 planets!",
+    "franchise": "lego_star_wars"
+  },
+  {
+    "id": "lego-marvel-superheroes-2",
+    "title": "LEGO Marvel Super Heroes 2",
+    "platforms": [
+      "pc",
+      "console",
+      "handheld"
+    ],
+    "year": 2017,
+    "genres": [
+      "action",
+      "adventure",
+      "superhero"
+    ],
+    "time_tags": [
+      30,
+      60,
+      90
+    ],
+    "energy": "medium",
+    "moods": [
+      "fun",
+      "humorous",
+      "heroic",
+      "family-friendly"
+    ],
+    "play_style": [
+      "action"
+    ],
+    "time_to_fun": "short",
+    "stop_friendliness": "anytime",
+    "multiplayer": [
+      "solo",
+      "local_coop"
+    ],
+    "description": "Marvel heroes unite in LEGO form to save the multiverse.",
+    "fun_fact": "Features time-traveling characters from multiple Marvel eras.",
+    "franchise": "lego_marvel"
+  },
+  {
+    "id": "lego-dc-supervillains",
+    "title": "LEGO DC Super-Villains",
+    "platforms": [
+      "pc",
+      "console",
+      "handheld"
+    ],
+    "year": 2018,
+    "genres": [
+      "action",
+      "adventure",
+      "superhero"
+    ],
+    "time_tags": [
+      30,
+      60,
+      90
+    ],
+    "energy": "medium",
+    "moods": [
+      "fun",
+      "villainous",
+      "humorous",
+      "creative"
+    ],
+    "play_style": [
+      "action"
+    ],
+    "time_to_fun": "short",
+    "stop_friendliness": "anytime",
+    "multiplayer": [
+      "solo",
+      "local_coop"
+    ],
+    "description": "Play as DC villains in this comedy adventure.",
+    "fun_fact": "For the first time in LEGO games, you can create your own custom villain.",
+    "franchise": "lego_dc"
+  },
+  {
+    "id": "crash-bandicoot-4",
+    "title": "Crash Bandicoot 4",
+    "platforms": [
+      "pc",
+      "console",
+      "handheld"
+    ],
+    "year": 2020,
+    "genres": [
+      "platformer",
+      "3d",
+      "challenging"
+    ],
+    "time_tags": [
+      30,
+      60
+    ],
+    "energy": "medium",
+    "moods": [
+      "challenging",
+      "nostalgic",
+      "fun",
+      "rewarding"
+    ],
+    "play_style": [
+      "action"
+    ],
+    "time_to_fun": "short",
+    "stop_friendliness": "checkpoints",
+    "multiplayer": [
+      "solo",
+      "local_coop"
+    ],
+    "description": "Classic Crash platforming with new abilities.",
+    "fun_fact": "The game ignores Crash games after Warped, making this the true 4th game.",
+    "franchise": "crash_bandicoot"
+  },
+  {
+    "id": "spyro-reignited",
+    "title": "Spyro Reignited Trilogy",
+    "platforms": [
+      "pc",
+      "console",
+      "handheld"
+    ],
+    "year": 2018,
+    "genres": [
+      "platformer",
+      "3d",
+      "collectathon"
+    ],
+    "time_tags": [
+      30,
+      60
+    ],
+    "energy": "medium",
+    "moods": [
+      "nostalgic",
+      "charming",
+      "adventurous",
+      "relaxing"
+    ],
+    "play_style": [
+      "action"
+    ],
+    "time_to_fun": "short",
+    "stop_friendliness": "anytime",
+    "multiplayer": [
+      "solo"
+    ],
+    "description": "Three classic Spyro games beautifully remastered.",
+    "fun_fact": "The remaster completely rebuilt all three games from scratch.",
+    "franchise": "spyro"
+  },
+  {
+    "id": "crash-team-racing-nf",
+    "title": "Crash Team Racing Nitro-Fueled",
+    "platforms": [
+      "pc",
+      "console",
+      "handheld"
+    ],
+    "year": 2019,
+    "genres": [
+      "racing",
+      "kart",
+      "multiplayer"
+    ],
+    "time_tags": [
+      15,
+      30,
+      60
+    ],
+    "energy": "medium",
+    "moods": [
+      "competitive",
+      "nostalgic",
+      "fun",
+      "exciting"
+    ],
+    "play_style": [
+      "action"
+    ],
+    "time_to_fun": "short",
+    "stop_friendliness": "checkpoints",
+    "multiplayer": [
+      "solo",
+      "local_coop",
+      "online_coop",
+      "competitive"
+    ],
+    "description": "Classic Crash racing rebuilt for modern consoles.",
+    "fun_fact": "The original CTR was considered by many to be better than Mario Kart!",
+    "franchise": "crash_bandicoot"
+  },
+  {
+    "id": "new-super-mario-bros-u",
+    "title": "New Super Mario Bros. U Deluxe",
+    "platforms": [
+      "handheld"
+    ],
+    "year": 2019,
+    "genres": [
+      "platformer",
+      "2d",
+      "multiplayer"
+    ],
+    "time_tags": [
+      15,
+      30,
+      60
+    ],
+    "energy": "medium",
+    "moods": [
+      "classic",
+      "fun",
+      "cooperative",
+      "nostalgic"
+    ],
+    "play_style": [
+      "action"
+    ],
+    "time_to_fun": "short",
+    "stop_friendliness": "checkpoints",
+    "multiplayer": [
+      "solo",
+      "local_coop"
+    ],
+    "description": "Classic 2D Mario platforming with friends.",
+    "fun_fact": "Adds Nabbit and Toadette as easier playable characters.",
+    "franchise": "super_mario"
+  },
+  {
+    "id": "super-mario-3d-world",
+    "title": "Super Mario 3D World + Bowser's Fury",
+    "platforms": [
+      "handheld"
+    ],
+    "year": 2021,
+    "genres": [
+      "platformer",
+      "3d",
+      "multiplayer"
+    ],
+    "time_tags": [
+      30,
+      60
+    ],
+    "energy": "medium",
+    "moods": [
+      "fun",
+      "cooperative",
+      "creative",
+      "adventurous"
+    ],
+    "play_style": [
+      "action"
+    ],
+    "time_to_fun": "short",
+    "stop_friendliness": "checkpoints",
+    "multiplayer": [
+      "solo",
+      "local_coop"
+    ],
+    "description": "3D platforming with cat suits and open-world bonus content.",
+    "fun_fact": "Bowser's Fury was added as a completely new open-world experience.",
+    "franchise": "super_mario"
+  },
+  {
+    "id": "luigis-mansion-3",
+    "title": "Luigi's Mansion 3",
+    "platforms": [
+      "handheld"
+    ],
+    "year": 2019,
+    "genres": [
+      "adventure",
+      "puzzle",
+      "ghost"
+    ],
+    "time_tags": [
+      30,
+      60
+    ],
+    "energy": "medium",
+    "moods": [
+      "spooky",
+      "charming",
+      "fun",
+      "adventurous"
+    ],
+    "play_style": [
+      "puzzle_strategy",
+      "action"
+    ],
+    "time_to_fun": "short",
+    "stop_friendliness": "checkpoints",
+    "multiplayer": [
+      "solo",
+      "local_coop",
+      "online_coop"
+    ],
+    "description": "Luigi busts ghosts in a haunted hotel.",
+    "fun_fact": "Each floor of the hotel was designed by a different team at Nintendo.",
+    "franchise": "luigi_mansion"
+  },
+  {
+    "id": "captain-toad",
+    "title": "Captain Toad: Treasure Tracker",
+    "platforms": [
+      "handheld"
+    ],
+    "year": 2018,
+    "genres": [
+      "puzzle",
+      "platformer",
+      "diorama"
+    ],
+    "time_tags": [
+      15,
+      30
+    ],
+    "energy": "medium",
+    "moods": [
+      "cute",
+      "clever",
+      "relaxing",
+      "charming"
+    ],
+    "play_style": [
+      "puzzle_strategy"
+    ],
+    "time_to_fun": "short",
+    "stop_friendliness": "anytime",
+    "multiplayer": [
+      "solo",
+      "local_coop"
+    ],
+    "description": "Solve diorama puzzles as the adorable Captain Toad.",
+    "fun_fact": "Toad can't jump because his backpack is too heavy!"
+  },
+  {
+    "id": "donkey-kong-country-tropical-freeze",
+    "title": "Donkey Kong Country: Tropical Freeze",
+    "platforms": [
+      "handheld"
+    ],
+    "year": 2018,
+    "genres": [
+      "platformer",
+      "2d",
+      "challenging"
+    ],
+    "time_tags": [
+      30,
+      60
+    ],
+    "energy": "medium",
+    "moods": [
+      "challenging",
+      "nostalgic",
+      "fun",
+      "rhythmic"
+    ],
+    "play_style": [
+      "action"
+    ],
+    "time_to_fun": "short",
+    "stop_friendliness": "checkpoints",
+    "multiplayer": [
+      "solo",
+      "local_coop"
+    ],
+    "description": "Classic DK platforming with incredible music.",
+    "fun_fact": "The soundtrack was composed by David Wise, who scored the original SNES games.",
+    "franchise": "donkey_kong"
+  },
+  {
+    "id": "rayman-legends",
+    "title": "Rayman Legends",
+    "platforms": [
+      "pc",
+      "console",
+      "handheld"
+    ],
+    "year": 2013,
+    "genres": [
+      "platformer",
+      "2d",
+      "musical"
+    ],
+    "time_tags": [
+      30,
+      60
+    ],
+    "energy": "medium",
+    "moods": [
+      "fun",
+      "musical",
+      "cooperative",
+      "charming"
+    ],
+    "play_style": [
+      "action"
+    ],
+    "time_to_fun": "short",
+    "stop_friendliness": "checkpoints",
+    "multiplayer": [
+      "solo",
+      "local_coop"
+    ],
+    "description": "Beautiful hand-drawn platforming with musical levels.",
+    "fun_fact": "The musical levels sync gameplay to classic songs reimagined."
+  },
+  {
+    "id": "cuphead",
+    "title": "Cuphead",
+    "platforms": [
+      "pc",
+      "console",
+      "handheld"
+    ],
+    "year": 2017,
+    "genres": [
+      "run-and-gun",
+      "boss-rush",
+      "artistic"
+    ],
+    "time_tags": [
+      15,
+      30,
+      60
+    ],
+    "energy": "medium",
+    "moods": [
+      "challenging",
+      "artistic",
+      "nostalgic",
+      "satisfying"
+    ],
+    "play_style": [
+      "action"
+    ],
+    "time_to_fun": "short",
+    "stop_friendliness": "checkpoints",
+    "multiplayer": [
+      "solo",
+      "local_coop"
+    ],
+    "description": "Run-and-gun action in 1930s cartoon style.",
+    "fun_fact": "Every frame of animation was hand-drawn - over 45,000 frames total!",
+    "subscriptions": [
+      "xbox_game_pass"
+    ],
+    "franchise": "cuphead"
+  },
+  {
+    "id": "cuphead-dlc",
+    "title": "Cuphead: The Delicious Last Course",
+    "platforms": [
+      "pc",
+      "console",
+      "handheld"
+    ],
+    "year": 2022,
+    "genres": [
+      "run-and-gun",
+      "boss-rush",
+      "artistic"
+    ],
+    "time_tags": [
+      15,
+      30,
+      60
+    ],
+    "energy": "medium",
+    "moods": [
+      "challenging",
+      "artistic",
+      "rewarding",
+      "beautiful"
+    ],
+    "play_style": [
+      "action"
+    ],
+    "time_to_fun": "short",
+    "stop_friendliness": "checkpoints",
+    "multiplayer": [
+      "solo",
+      "local_coop"
+    ],
+    "description": "New bosses and Ms. Chalice as a playable character.",
+    "fun_fact": "The DLC took 5 years to develop due to the painstaking animation process.",
+    "subscriptions": [
+      "xbox_game_pass"
+    ],
+    "franchise": "cuphead"
+  },
+  {
+    "id": "shovel-knight",
+    "title": "Shovel Knight: Treasure Trove",
+    "platforms": [
+      "pc",
+      "console",
+      "handheld"
+    ],
+    "year": 2014,
+    "genres": [
+      "platformer",
+      "retro",
+      "action"
+    ],
+    "time_tags": [
+      30,
+      60
+    ],
+    "energy": "medium",
+    "moods": [
+      "nostalgic",
+      "challenging",
+      "charming",
+      "rewarding"
+    ],
+    "play_style": [
+      "action"
+    ],
+    "time_to_fun": "short",
+    "stop_friendliness": "checkpoints",
+    "multiplayer": [
+      "solo",
+      "local_coop"
+    ],
+    "description": "Retro-style platforming with a shovel-wielding knight.",
+    "fun_fact": "The game was inspired by classic NES platformers but adds modern quality-of-life features."
+  },
+  {
+    "id": "hollow-knight",
+    "title": "Hollow Knight",
+    "platforms": [
+      "pc",
+      "console",
+      "handheld"
+    ],
+    "year": 2017,
+    "genres": [
+      "metroidvania",
+      "action",
+      "exploration"
+    ],
+    "time_tags": [
+      60,
+      90
+    ],
+    "energy": "medium",
+    "moods": [
+      "mysterious",
+      "challenging",
+      "atmospheric",
+      "rewarding"
+    ],
+    "play_style": [
+      "action"
+    ],
+    "time_to_fun": "medium",
+    "stop_friendliness": "checkpoints",
+    "multiplayer": [
+      "solo"
+    ],
+    "description": "Explore a vast underground kingdom of bugs.",
+    "fun_fact": "Team Cherry (just 3 people) created over 140 unique enemies and made the world entirely interconnected.",
+    "franchise": "hollow_knight",
+    "subscriptions": [
+      "xbox_game_pass",
+      "playstation_plus"
+    ]
+  },
+  {
+    "id": "ori-collection",
+    "title": "Ori: The Collection",
+    "platforms": [
+      "pc",
+      "console",
+      "handheld"
+    ],
+    "year": 2020,
+    "genres": [
+      "metroidvania",
+      "platformer",
+      "artistic"
+    ],
+    "time_tags": [
+      30,
+      60,
+      90
+    ],
+    "energy": "medium",
+    "moods": [
+      "emotional",
+      "beautiful",
+      "challenging",
+      "rewarding"
+    ],
+    "play_style": [
+      "action"
+    ],
+    "time_to_fun": "short",
+    "stop_friendliness": "checkpoints",
+    "multiplayer": [
+      "solo"
+    ],
+    "description": "Both Ori games in one beautiful package.",
+    "fun_fact": "Moon Studios developed both games while being a fully remote team from 40+ countries!",
+    "subscriptions": [
+      "xbox_game_pass"
+    ],
+    "franchise": "ori"
+  },
+  {
+    "id": "celeste",
+    "title": "Celeste",
+    "platforms": [
+      "pc",
+      "console",
+      "handheld"
+    ],
+    "year": 2018,
+    "genres": [
+      "platformer",
+      "precision",
+      "narrative"
+    ],
+    "time_tags": [
+      30,
+      60,
+      90
+    ],
+    "energy": "medium",
+    "moods": [
+      "challenging",
+      "emotional",
+      "rewarding",
+      "personal"
+    ],
+    "play_style": [
+      "action"
+    ],
+    "time_to_fun": "short",
+    "stop_friendliness": "checkpoints",
+    "multiplayer": [
+      "solo"
+    ],
+    "description": "Climb a mountain while facing inner demons.",
+    "fun_fact": "The game's developer, Maddy Thorson, has said the game is partly autobiographical.",
+    "subscriptions": [
+      "xbox_game_pass",
+      "playstation_plus"
+    ]
+  },
+  {
+    "id": "super-meat-boy",
+    "title": "Super Meat Boy",
+    "platforms": [
+      "pc",
+      "console",
+      "handheld"
+    ],
+    "year": 2010,
+    "genres": [
+      "platformer",
+      "precision",
+      "challenging"
+    ],
+    "time_tags": [
+      15,
+      30,
+      60
+    ],
+    "energy": "medium",
+    "moods": [
+      "challenging",
+      "fast",
+      "satisfying",
+      "frustrating"
+    ],
+    "play_style": [
+      "action"
+    ],
+    "time_to_fun": "short",
+    "stop_friendliness": "checkpoints",
+    "multiplayer": [
+      "solo"
+    ],
+    "description": "Precision platforming as a boy made of meat.",
+    "fun_fact": "The game was made in just 18 months by two people!"
+  },
+  {
+    "id": "the-messenger",
+    "title": "The Messenger",
+    "platforms": [
+      "pc",
+      "console",
+      "handheld"
+    ],
+    "year": 2018,
+    "genres": [
+      "platformer",
+      "metroidvania",
+      "retro"
+    ],
+    "time_tags": [
+      30,
+      60,
+      90
+    ],
+    "energy": "medium",
+    "moods": [
+      "nostalgic",
+      "funny",
+      "challenging",
+      "surprising"
+    ],
+    "play_style": [
+      "action"
+    ],
+    "time_to_fun": "short",
+    "stop_friendliness": "checkpoints",
+    "multiplayer": [
+      "solo"
+    ],
+    "description": "A ninja adventure that transforms halfway through.",
+    "fun_fact": "The game secretly switches from 8-bit to 16-bit graphics mid-story."
+  },
+  {
+    "id": "dead-cells",
+    "title": "Dead Cells",
+    "platforms": [
+      "pc",
+      "console",
+      "handheld"
+    ],
+    "year": 2018,
+    "genres": [
+      "roguelike",
+      "metroidvania",
+      "action"
+    ],
+    "time_tags": [
+      30,
+      60
+    ],
+    "energy": "medium",
+    "moods": [
+      "challenging",
+      "fast",
+      "satisfying",
+      "addictive"
+    ],
+    "play_style": [
+      "action"
+    ],
+    "time_to_fun": "short",
+    "stop_friendliness": "checkpoints",
+    "multiplayer": [
+      "solo"
+    ],
+    "description": "Fast-paced roguelike with tight combat.",
+    "fun_fact": "The game has been updated with new content for over 5 years since launch!",
+    "franchise": "dead_cells",
+    "subscriptions": [
+      "xbox_game_pass",
+      "playstation_plus"
+    ]
+  },
+  {
+    "id": "hades",
+    "title": "Hades",
+    "platforms": [
+      "pc",
+      "console",
+      "handheld"
+    ],
+    "year": 2020,
+    "genres": [
+      "roguelike",
+      "action",
+      "narrative"
+    ],
+    "time_tags": [
+      30,
+      60
+    ],
+    "energy": "medium",
+    "moods": [
+      "exciting",
+      "story-rich",
+      "challenging",
+      "addictive"
+    ],
+    "play_style": [
+      "action",
+      "narrative"
+    ],
+    "time_to_fun": "short",
+    "stop_friendliness": "checkpoints",
+    "multiplayer": [
+      "solo"
+    ],
+    "description": "Escape the Underworld as the son of Hades.",
+    "fun_fact": "Voice actors recorded over 20,000 lines of dialogue for incredible variety.",
+    "subscriptions": [
+      "xbox_game_pass",
+      "playstation_plus"
+    ],
+    "franchise": "hades"
+  },
+  {
+    "id": "hades-2",
+    "title": "Hades II",
+    "platforms": [
+      "pc"
+    ],
+    "year": 2024,
+    "genres": [
+      "roguelike",
+      "action",
+      "narrative"
+    ],
+    "time_tags": [
+      30,
+      60
+    ],
+    "energy": "medium",
+    "moods": [
+      "exciting",
+      "story-rich",
+      "challenging",
+      "mystical"
+    ],
+    "play_style": [
+      "action",
+      "narrative"
+    ],
+    "time_to_fun": "short",
+    "stop_friendliness": "checkpoints",
+    "multiplayer": [
+      "solo"
+    ],
+    "description": "Play as Melinoë fighting to defeat Chronos.",
+    "fun_fact": "Supergiant Games is one of the few studios where every employee works on every game together.",
+    "franchise": "hades"
+  },
+  {
+    "id": "vampire-survivors",
+    "title": "Vampire Survivors",
+    "platforms": [
+      "pc",
+      "console",
+      "handheld"
+    ],
+    "year": 2022,
+    "genres": [
+      "roguelike",
+      "bullet-hell",
+      "casual"
+    ],
+    "time_tags": [
+      15,
+      30
+    ],
+    "energy": "medium",
+    "moods": [
+      "addictive",
+      "satisfying",
+      "chaotic",
+      "simple"
+    ],
+    "play_style": [
+      "action"
+    ],
+    "time_to_fun": "short",
+    "stop_friendliness": "checkpoints",
+    "multiplayer": [
+      "solo",
+      "local_coop"
+    ],
+    "description": "Survive waves of monsters with auto-attacking weapons.",
+    "fun_fact": "Created as a passion project, the game made over $100 million in its first year!",
+    "subscriptions": [
+      "xbox_game_pass"
+    ]
+  },
+  {
+    "id": "cult-of-the-lamb",
+    "title": "Cult of the Lamb",
+    "platforms": [
+      "pc",
+      "console",
+      "handheld"
+    ],
+    "year": 2022,
+    "genres": [
+      "roguelike",
+      "management",
+      "dark-comedy"
+    ],
+    "time_tags": [
+      30,
+      60
+    ],
+    "energy": "medium",
+    "moods": [
+      "quirky",
+      "dark",
+      "addictive",
+      "cute"
+    ],
+    "play_style": [
+      "action",
+      "sandbox_creative"
+    ],
+    "time_to_fun": "short",
+    "stop_friendliness": "anytime",
+    "multiplayer": [
+      "solo"
+    ],
+    "description": "Build a cult while dungeon crawling as a cute lamb.",
+    "fun_fact": "The art style was inspired by Cartoon Network shows from the 2000s."
+  },
+  {
+    "id": "enter-the-gungeon",
+    "title": "Enter the Gungeon",
+    "platforms": [
+      "pc",
+      "console",
+      "handheld"
+    ],
+    "year": 2016,
+    "genres": [
+      "roguelike",
+      "bullet-hell",
+      "dungeon-crawler"
+    ],
+    "time_tags": [
+      30,
+      60
+    ],
+    "energy": "medium",
+    "moods": [
+      "challenging",
+      "fun",
+      "chaotic",
+      "rewarding"
+    ],
+    "play_style": [
+      "action"
+    ],
+    "time_to_fun": "short",
+    "stop_friendliness": "checkpoints",
+    "multiplayer": [
+      "solo",
+      "local_coop"
+    ],
+    "description": "Blast through a dungeon made of guns.",
+    "fun_fact": "There are over 300 unique guns in the game, including one that shoots bees!"
+  },
+  {
+    "id": "binding-of-isaac",
+    "title": "The Binding of Isaac: Repentance",
+    "platforms": [
+      "pc",
+      "console",
+      "handheld"
+    ],
+    "year": 2021,
+    "genres": [
+      "roguelike",
+      "dungeon-crawler",
+      "dark"
+    ],
+    "time_tags": [
+      30,
+      60
+    ],
+    "energy": "medium",
+    "moods": [
+      "dark",
+      "challenging",
+      "addictive",
+      "weird"
+    ],
+    "play_style": [
+      "action"
+    ],
+    "time_to_fun": "short",
+    "stop_friendliness": "checkpoints",
+    "multiplayer": [
+      "solo",
+      "local_coop"
+    ],
+    "description": "A dark roguelike with tears as weapons.",
+    "fun_fact": "The game has had so many updates that it's essentially been remade twice!",
+    "warnings": [
+      "dark_themes",
+      "religious_imagery"
+    ]
+  },
+  {
+    "id": "risk-of-rain-2",
+    "title": "Risk of Rain 2",
+    "platforms": [
+      "pc",
+      "console"
+    ],
+    "year": 2020,
+    "genres": [
+      "roguelike",
+      "third-person",
+      "co-op"
+    ],
+    "time_tags": [
+      30,
+      60,
+      90
+    ],
+    "energy": "medium",
+    "moods": [
+      "challenging",
+      "cooperative",
+      "chaotic",
+      "rewarding"
+    ],
+    "play_style": [
+      "action"
+    ],
+    "time_to_fun": "short",
+    "stop_friendliness": "checkpoints",
+    "multiplayer": [
+      "solo",
+      "online_coop"
+    ],
+    "description": "Survive alien planets with escalating difficulty.",
+    "fun_fact": "The transition from 2D to 3D only took the developers 8 months to prototype!"
+  },
+  {
+    "id": "spelunky-2",
+    "title": "Spelunky 2",
+    "platforms": [
+      "pc",
+      "console",
+      "handheld"
+    ],
+    "year": 2020,
+    "genres": [
+      "roguelike",
+      "platformer",
+      "challenging"
+    ],
+    "time_tags": [
+      15,
+      30,
+      60
+    ],
+    "energy": "medium",
+    "moods": [
+      "challenging",
+      "surprising",
+      "tense",
+      "rewarding"
+    ],
+    "play_style": [
+      "action"
+    ],
+    "time_to_fun": "short",
+    "stop_friendliness": "checkpoints",
+    "multiplayer": [
+      "solo",
+      "local_coop",
+      "online_coop"
+    ],
+    "description": "Explore deadly caves with procedural generation.",
+    "fun_fact": "Secrets in the game took the community months to discover and solve."
+  },
+  {
+    "id": "slay-the-spire",
+    "title": "Slay the Spire",
+    "platforms": [
+      "pc",
+      "console",
+      "handheld"
+    ],
+    "year": 2019,
+    "genres": [
+      "roguelike",
+      "deck-builder",
+      "strategy"
+    ],
+    "time_tags": [
+      30,
+      60,
+      90
+    ],
+    "energy": "medium",
+    "moods": [
+      "strategic",
+      "challenging",
+      "addictive",
+      "rewarding"
+    ],
+    "play_style": [
+      "puzzle_strategy"
+    ],
+    "time_to_fun": "short",
+    "stop_friendliness": "anytime",
+    "multiplayer": [
+      "solo"
+    ],
+    "description": "Build a deck while climbing a spire.",
+    "fun_fact": "The game invented the 'roguelike deckbuilder' genre, spawning hundreds of similar games!"
+  },
+  {
+    "id": "balatro",
+    "title": "Balatro",
+    "platforms": [
+      "pc",
+      "console",
+      "handheld"
+    ],
+    "year": 2024,
+    "genres": [
+      "roguelike",
+      "deck-builder",
+      "poker"
+    ],
+    "time_tags": [
+      30,
+      60
+    ],
+    "energy": "medium",
+    "moods": [
+      "strategic",
+      "addictive",
+      "satisfying",
+      "clever"
+    ],
+    "play_style": [
+      "puzzle_strategy"
+    ],
+    "time_to_fun": "short",
+    "stop_friendliness": "anytime",
+    "multiplayer": [
+      "solo"
+    ],
+    "description": "A poker-based roguelike deck-builder.",
+    "fun_fact": "The game sold over 1 million copies in its first month, surprising even the developer."
+  },
+  {
+    "id": "inscryption",
+    "title": "Inscryption",
+    "platforms": [
+      "pc",
+      "console",
+      "handheld"
+    ],
+    "year": 2021,
+    "genres": [
+      "roguelike",
+      "deck-builder",
+      "horror"
+    ],
+    "time_tags": [
+      60,
+      90
+    ],
+    "energy": "medium",
+    "moods": [
+      "mysterious",
+      "creepy",
+      "surprising",
+      "meta"
+    ],
+    "play_style": [
+      "puzzle_strategy"
+    ],
+    "time_to_fun": "short",
+    "stop_friendliness": "checkpoints",
+    "multiplayer": [
+      "solo"
+    ],
+    "description": "A card game that breaks the fourth wall.",
+    "fun_fact": "The game contains secrets that took the community months to uncover, including hidden ARGs."
+  },
+  {
+    "id": "monster-train",
+    "title": "Monster Train",
+    "platforms": [
+      "pc",
+      "console",
+      "handheld"
+    ],
+    "year": 2020,
+    "genres": [
+      "roguelike",
+      "deck-builder",
+      "tower-defense"
+    ],
+    "time_tags": [
+      30,
+      60
+    ],
+    "energy": "medium",
+    "moods": [
+      "strategic",
+      "challenging",
+      "rewarding",
+      "creative"
+    ],
+    "play_style": [
+      "puzzle_strategy"
+    ],
+    "time_to_fun": "short",
+    "stop_friendliness": "anytime",
+    "multiplayer": [
+      "solo",
+      "online_coop"
+    ],
+    "description": "Defend a train carrying Hell's last ember.",
+    "fun_fact": "Combining two clan decks creates unique strategies not possible in single-clan runs."
+  },
+  {
+    "id": "dicey-dungeons",
+    "title": "Dicey Dungeons",
+    "platforms": [
+      "pc",
+      "console",
+      "handheld"
+    ],
+    "year": 2019,
+    "genres": [
+      "roguelike",
+      "deck-builder",
+      "dice"
+    ],
+    "time_tags": [
+      30,
+      60
+    ],
+    "energy": "medium",
+    "moods": [
+      "strategic",
+      "fun",
+      "quirky",
+      "challenging"
+    ],
+    "play_style": [
+      "puzzle_strategy"
+    ],
+    "time_to_fun": "short",
+    "stop_friendliness": "checkpoints",
+    "multiplayer": [
+      "solo"
+    ],
+    "description": "Dice-based dungeon crawling in a game show.",
+    "fun_fact": "Each of the six characters plays completely differently, essentially being six games in one."
+  },
+  {
+    "id": "one-step-from-eden",
+    "title": "One Step From Eden",
+    "platforms": [
+      "pc",
+      "console",
+      "handheld"
+    ],
+    "year": 2020,
+    "genres": [
+      "roguelike",
+      "deck-builder",
+      "action"
+    ],
+    "time_tags": [
+      30,
+      60
+    ],
+    "energy": "medium",
+    "moods": [
+      "fast",
+      "challenging",
+      "strategic",
+      "intense"
+    ],
+    "play_style": [
+      "action",
+      "puzzle_strategy"
+    ],
+    "time_to_fun": "short",
+    "stop_friendliness": "checkpoints",
+    "multiplayer": [
+      "solo",
+      "local_coop"
+    ],
+    "description": "Mega Man Battle Network meets roguelike.",
+    "fun_fact": "Inspired by the combat system of Mega Man Battle Network games."
+  },
+  {
+    "id": "into-the-breach",
+    "title": "Into the Breach",
+    "platforms": [
+      "pc",
+      "console",
+      "handheld"
+    ],
+    "year": 2018,
+    "genres": [
+      "strategy",
+      "roguelike",
+      "tactics"
+    ],
+    "time_tags": [
+      15,
+      30,
+      60
+    ],
+    "energy": "medium",
+    "moods": [
+      "strategic",
+      "puzzle-like",
+      "satisfying",
+      "challenging"
+    ],
+    "play_style": [
+      "puzzle_strategy"
+    ],
+    "time_to_fun": "short",
+    "stop_friendliness": "anytime",
+    "multiplayer": [
+      "solo"
+    ],
+    "description": "Tactical mech combat where you see enemy moves.",
+    "fun_fact": "Made by the creators of FTL, it shows all enemy intentions for pure strategy."
+  },
+  {
+    "id": "ftl",
+    "title": "FTL: Faster Than Light",
+    "platforms": [
+      "pc"
+    ],
+    "year": 2012,
+    "genres": [
+      "roguelike",
+      "strategy",
+      "space"
+    ],
+    "time_tags": [
+      30,
+      60,
+      90
+    ],
+    "energy": "medium",
+    "moods": [
+      "tense",
+      "strategic",
+      "challenging",
+      "satisfying"
+    ],
+    "play_style": [
+      "puzzle_strategy"
+    ],
+    "time_to_fun": "short",
+    "stop_friendliness": "anytime",
+    "multiplayer": [
+      "solo"
+    ],
+    "description": "Command a spaceship fleeing across the galaxy.",
+    "fun_fact": "The game was funded on Kickstarter for $200,000 and became a massive indie hit."
+  },
+  {
+    "id": "brotato",
+    "title": "Brotato",
+    "platforms": [
+      "pc",
+      "console",
+      "handheld"
+    ],
+    "year": 2022,
+    "genres": [
+      "roguelike",
+      "bullet-hell",
+      "arena"
+    ],
+    "time_tags": [
+      15,
+      30
+    ],
+    "energy": "medium",
+    "moods": [
+      "chaotic",
+      "fun",
+      "addictive",
+      "simple"
+    ],
+    "play_style": [
+      "action"
+    ],
+    "time_to_fun": "short",
+    "stop_friendliness": "checkpoints",
+    "multiplayer": [
+      "solo"
+    ],
+    "description": "A potato with guns fights alien hordes.",
+    "fun_fact": "The game was inspired by the auto-battler genre and Vampire Survivors."
+  },
+  {
+    "id": "loop-hero",
+    "title": "Loop Hero",
+    "platforms": [
+      "pc",
+      "console",
+      "handheld"
+    ],
+    "year": 2021,
+    "genres": [
+      "roguelike",
+      "strategy",
+      "idle"
+    ],
+    "time_tags": [
+      30,
+      60
+    ],
+    "energy": "medium",
+    "moods": [
+      "strategic",
+      "mysterious",
+      "addictive",
+      "nostalgic"
+    ],
+    "play_style": [
+      "puzzle_strategy"
+    ],
+    "time_to_fun": "short",
+    "stop_friendliness": "anytime",
+    "multiplayer": [
+      "solo"
+    ],
+    "description": "Build the world your hero loops through.",
+    "fun_fact": "The developers intentionally made the game look like a lost NES title."
+  },
+  {
+    "id": "neon-abyss",
+    "title": "Neon Abyss",
+    "platforms": [
+      "pc",
+      "console",
+      "handheld"
+    ],
+    "year": 2020,
+    "genres": [
+      "roguelike",
+      "platformer",
+      "shooter"
+    ],
+    "time_tags": [
+      30,
+      60
+    ],
+    "energy": "medium",
+    "moods": [
+      "chaotic",
+      "fun",
+      "neon",
+      "intense"
+    ],
+    "play_style": [
+      "action"
+    ],
+    "time_to_fun": "short",
+    "stop_friendliness": "checkpoints",
+    "multiplayer": [
+      "solo",
+      "local_coop"
+    ],
+    "description": "Run-and-gun roguelike with hatching eggs.",
+    "fun_fact": "Pet eggs hatch into creatures that evolve as you play."
+  },
+  {
+    "id": "gunfire-reborn",
+    "title": "Gunfire Reborn",
+    "platforms": [
+      "pc",
+      "console"
+    ],
+    "year": 2021,
+    "genres": [
+      "roguelike",
+      "fps",
+      "co-op"
+    ],
+    "time_tags": [
+      30,
+      60
+    ],
+    "energy": "medium",
+    "moods": [
+      "cooperative",
+      "challenging",
+      "fun",
+      "action-packed"
+    ],
+    "play_style": [
+      "action"
+    ],
+    "time_to_fun": "short",
+    "stop_friendliness": "checkpoints",
+    "multiplayer": [
+      "solo",
+      "online_coop"
+    ],
+    "description": "FPS roguelike with animal characters.",
+    "fun_fact": "Developed by a small Chinese studio that listened extensively to community feedback."
+  },
+  {
+    "id": "returnal",
+    "title": "Returnal",
+    "platforms": [
+      "pc",
+      "console"
+    ],
+    "year": 2021,
+    "genres": [
+      "roguelike",
+      "shooter",
+      "sci-fi"
+    ],
+    "time_tags": [
+      60,
+      90
+    ],
+    "energy": "medium",
+    "moods": [
+      "intense",
+      "mysterious",
+      "challenging",
+      "atmospheric"
+    ],
+    "play_style": [
+      "action"
+    ],
+    "time_to_fun": "medium",
+    "stop_friendliness": "checkpoints",
+    "multiplayer": [
+      "solo",
+      "online_coop"
+    ],
+    "description": "A stranded astronaut dies and loops on an alien planet.",
+    "fun_fact": "The entire game was inspired by the developer's recurring nightmares.",
+    "subscriptions": [
+      "playstation_plus"
+    ]
+  },
+  {
+    "id": "tetris-99",
+    "title": "Tetris 99",
+    "platforms": [
+      "handheld"
+    ],
+    "year": 2019,
+    "genres": [
+      "puzzle",
+      "battle-royale",
+      "competitive"
+    ],
+    "time_tags": [
+      15,
+      30
+    ],
+    "energy": "medium",
+    "moods": [
+      "competitive",
+      "fast",
+      "intense",
+      "addictive"
+    ],
+    "play_style": [
+      "puzzle_strategy"
+    ],
+    "time_to_fun": "short",
+    "stop_friendliness": "checkpoints",
+    "multiplayer": [
+      "competitive"
+    ],
+    "description": "Tetris battle royale against 98 players.",
+    "fun_fact": "You can target opponents to send garbage blocks and be the last one standing."
+  },
+  {
+    "id": "puyo-puyo-tetris-2",
+    "title": "Puyo Puyo Tetris 2",
+    "platforms": [
+      "pc",
+      "console",
+      "handheld"
+    ],
+    "year": 2020,
+    "genres": [
+      "puzzle",
+      "multiplayer",
+      "competitive"
+    ],
+    "time_tags": [
+      15,
+      30
+    ],
+    "energy": "medium",
+    "moods": [
+      "competitive",
+      "fun",
+      "strategic",
+      "colorful"
+    ],
+    "play_style": [
+      "puzzle_strategy"
+    ],
+    "time_to_fun": "short",
+    "stop_friendliness": "checkpoints",
+    "multiplayer": [
+      "solo",
+      "local_coop",
+      "online_coop",
+      "competitive"
+    ],
+    "description": "Two classic puzzlers combine in one game.",
+    "fun_fact": "Mixing Puyo Puyo and Tetris players creates unique asymmetric battles."
+  },
+  {
+    "id": "dr-mario-world",
+    "title": "Dr. Mario",
+    "platforms": [
+      "handheld"
+    ],
+    "year": 2019,
+    "genres": [
+      "puzzle",
+      "classic",
+      "medical"
+    ],
+    "time_tags": [
+      15,
+      30
+    ],
+    "energy": "medium",
+    "moods": [
+      "classic",
+      "strategic",
+      "satisfying",
+      "nostalgic"
+    ],
+    "play_style": [
+      "puzzle_strategy"
+    ],
+    "time_to_fun": "short",
+    "stop_friendliness": "checkpoints",
+    "multiplayer": [
+      "solo",
+      "competitive"
+    ],
+    "description": "Match pills to eliminate viruses.",
+    "fun_fact": "The original Dr. Mario was designed by Gunpei Yokoi, creator of the Game Boy."
+  },
+  {
+    "id": "warioware-get-it-together",
+    "title": "WarioWare: Get It Together!",
+    "platforms": [
+      "handheld"
+    ],
+    "year": 2021,
+    "genres": [
+      "party",
+      "microgames",
+      "comedy"
+    ],
+    "time_tags": [
+      15,
+      30
+    ],
+    "energy": "medium",
+    "moods": [
+      "chaotic",
+      "silly",
+      "fun",
+      "frantic"
+    ],
+    "play_style": [
+      "action"
+    ],
+    "time_to_fun": "short",
+    "stop_friendliness": "checkpoints",
+    "multiplayer": [
+      "solo",
+      "local_coop"
+    ],
+    "description": "Rapid-fire microgames lasting seconds each.",
+    "fun_fact": "Each character plays the same microgames completely differently."
+  },
+  {
+    "id": "rhythm-heaven",
+    "title": "Rhythm Heaven Megamix",
+    "platforms": [
+      "handheld"
+    ],
+    "year": 2016,
+    "genres": [
+      "rhythm",
+      "mini-games",
+      "quirky"
+    ],
+    "time_tags": [
+      15,
+      30
+    ],
+    "energy": "medium",
+    "moods": [
+      "quirky",
+      "fun",
+      "musical",
+      "charming"
+    ],
+    "play_style": [
+      "action"
+    ],
+    "time_to_fun": "short",
+    "stop_friendliness": "checkpoints",
+    "multiplayer": [
+      "solo"
+    ],
+    "description": "Eccentric rhythm mini-games.",
+    "fun_fact": "Features over 100 rhythm games collected from the entire series."
+  },
+  {
+    "id": "snipperclips",
+    "title": "Snipperclips",
+    "platforms": [
+      "handheld"
+    ],
+    "year": 2017,
+    "genres": [
+      "puzzle",
+      "co-op",
+      "creative"
+    ],
+    "time_tags": [
+      15,
+      30,
+      60
+    ],
+    "energy": "medium",
+    "moods": [
+      "cooperative",
+      "creative",
+      "fun",
+      "clever"
+    ],
+    "play_style": [
+      "puzzle_strategy"
+    ],
+    "time_to_fun": "short",
+    "stop_friendliness": "anytime",
+    "multiplayer": [
+      "local_coop"
+    ],
+    "description": "Cut each other into shapes to solve puzzles.",
+    "fun_fact": "The game started as a university project by a solo developer."
+  },
+  {
+    "id": "death-squared",
+    "title": "Death Squared",
+    "platforms": [
+      "pc",
+      "console",
+      "handheld"
+    ],
+    "year": 2017,
+    "genres": [
+      "puzzle",
+      "co-op",
+      "robots"
+    ],
+    "time_tags": [
+      15,
+      30
+    ],
+    "energy": "medium",
+    "moods": [
+      "cooperative",
+      "funny",
+      "challenging",
+      "tricky"
+    ],
+    "play_style": [
+      "puzzle_strategy"
+    ],
+    "time_to_fun": "short",
+    "stop_friendliness": "checkpoints",
+    "multiplayer": [
+      "solo",
+      "local_coop"
+    ],
+    "description": "Robots solve deadly puzzles together.",
+    "fun_fact": "The game is designed to make players accidentally kill each other."
+  },
+  {
+    "id": "heave-ho",
+    "title": "Heave Ho",
+    "platforms": [
+      "pc",
+      "handheld"
+    ],
+    "year": 2019,
+    "genres": [
+      "co-op",
+      "platformer",
+      "physics"
+    ],
+    "time_tags": [
+      15,
+      30
+    ],
+    "energy": "medium",
+    "moods": [
+      "cooperative",
+      "silly",
+      "chaotic",
+      "fun"
+    ],
+    "play_style": [
+      "action"
+    ],
+    "time_to_fun": "short",
+    "stop_friendliness": "checkpoints",
+    "multiplayer": [
+      "local_coop"
+    ],
+    "description": "Grab hands and swing to safety.",
+    "fun_fact": "Made by the studio behind TowerFall with similarly chaotic multiplayer."
+  },
+  {
+    "id": "keep-talking-nobody-explodes",
+    "title": "Keep Talking and Nobody Explodes",
+    "platforms": [
+      "pc",
+      "console",
+      "handheld"
+    ],
+    "year": 2015,
+    "genres": [
+      "puzzle",
+      "party",
+      "communication"
+    ],
+    "time_tags": [
+      15,
+      30
+    ],
+    "energy": "medium",
+    "moods": [
+      "tense",
+      "cooperative",
+      "fun",
+      "stressful"
+    ],
+    "play_style": [
+      "puzzle_strategy"
+    ],
+    "time_to_fun": "short",
+    "stop_friendliness": "checkpoints",
+    "multiplayer": [
+      "local_coop"
+    ],
+    "description": "One person defuses a bomb while others read the manual.",
+    "fun_fact": "The physical bomb manual is available for free, so anyone can be an expert."
+  },
+  {
+    "id": "towerfall",
+    "title": "TowerFall Ascension",
+    "platforms": [
+      "pc",
+      "console",
+      "handheld"
+    ],
+    "year": 2014,
+    "genres": [
+      "arena",
+      "archery",
+      "multiplayer"
+    ],
+    "time_tags": [
+      15,
+      30
+    ],
+    "energy": "medium",
+    "moods": [
+      "competitive",
+      "fast",
+      "fun",
+      "intense"
+    ],
+    "play_style": [
+      "action"
+    ],
+    "time_to_fun": "short",
+    "stop_friendliness": "checkpoints",
+    "multiplayer": [
+      "local_coop",
+      "competitive"
+    ],
+    "description": "Archery combat in pixel art arenas.",
+    "fun_fact": "Made by the creator who later developed Celeste."
+  },
+  {
+    "id": "lethal-company",
+    "title": "Lethal Company",
+    "platforms": [
+      "pc"
+    ],
+    "year": 2023,
+    "genres": [
+      "horror",
+      "co-op",
+      "survival"
+    ],
+    "time_tags": [
+      30,
+      60
+    ],
+    "energy": "medium",
+    "moods": [
+      "scary",
+      "fun",
+      "cooperative",
+      "chaotic"
+    ],
+    "play_style": [
+      "action"
+    ],
+    "time_to_fun": "short",
+    "stop_friendliness": "checkpoints",
+    "multiplayer": [
+      "online_coop"
+    ],
+    "description": "Scavenge haunted moons for corporate profit.",
+    "fun_fact": "Made by a single developer in just 6 months, it became a viral sensation!"
+  },
+  {
+    "id": "phasmophobia",
+    "title": "Phasmophobia",
+    "platforms": [
+      "pc"
+    ],
+    "year": 2020,
+    "genres": [
+      "horror",
+      "co-op",
+      "ghost-hunting"
+    ],
+    "time_tags": [
+      30,
+      60
+    ],
+    "energy": "medium",
+    "moods": [
+      "scary",
+      "cooperative",
+      "tense",
+      "investigative"
+    ],
+    "play_style": [
+      "puzzle_strategy"
+    ],
+    "time_to_fun": "short",
+    "stop_friendliness": "checkpoints",
+    "multiplayer": [
+      "solo",
+      "online_coop"
+    ],
+    "description": "Hunt ghosts with friends using real equipment.",
+    "fun_fact": "The ghost AI actually listens to players through their microphones!"
+  },
+  {
+    "id": "content-warning",
+    "title": "Content Warning",
+    "platforms": [
+      "pc"
+    ],
+    "year": 2024,
+    "genres": [
+      "horror",
+      "co-op",
+      "found-footage"
+    ],
+    "time_tags": [
+      15,
+      30
+    ],
+    "energy": "medium",
+    "moods": [
+      "scary",
+      "fun",
+      "silly",
+      "cooperative"
+    ],
+    "play_style": [
+      "action"
+    ],
+    "time_to_fun": "short",
+    "stop_friendliness": "checkpoints",
+    "multiplayer": [
+      "online_coop"
+    ],
+    "description": "Film spooky content for viral views.",
+    "fun_fact": "The game's 'Spook Tube' is based on real early 2000s video sharing sites."
+  },
+  {
+    "id": "devour",
+    "title": "DEVOUR",
+    "platforms": [
+      "pc"
+    ],
+    "year": 2021,
+    "genres": [
+      "horror",
+      "co-op",
+      "survival"
+    ],
+    "time_tags": [
+      30,
+      60
+    ],
+    "energy": "medium",
+    "moods": [
+      "scary",
+      "cooperative",
+      "intense",
+      "challenging"
+    ],
+    "play_style": [
+      "action"
+    ],
+    "time_to_fun": "short",
+    "stop_friendliness": "checkpoints",
+    "multiplayer": [
+      "online_coop"
+    ],
+    "description": "Stop possessed cultists with your friends.",
+    "fun_fact": "Each map features a different demon with unique mechanics."
+  },
+  {
+    "id": "labyrinthine",
+    "title": "Labyrinthine",
+    "platforms": [
+      "pc"
+    ],
+    "year": 2021,
+    "genres": [
+      "horror",
+      "maze",
+      "co-op"
+    ],
+    "time_tags": [
+      30,
+      60
+    ],
+    "energy": "medium",
+    "moods": [
+      "scary",
+      "tense",
+      "cooperative",
+      "atmospheric"
+    ],
+    "play_style": [
+      "puzzle_strategy"
+    ],
+    "time_to_fun": "short",
+    "stop_friendliness": "checkpoints",
+    "multiplayer": [
+      "solo",
+      "online_coop"
+    ],
+    "description": "Navigate procedural mazes while avoiding monsters.",
+    "fun_fact": "The mazes are procedurally generated, so no two runs are the same."
+  },
+  {
+    "id": "plate-up",
+    "title": "PlateUp!",
+    "platforms": [
+      "pc",
+      "console"
+    ],
+    "year": 2022,
+    "genres": [
+      "cooking",
+      "roguelike",
+      "management"
+    ],
+    "time_tags": [
+      30,
+      60
+    ],
+    "energy": "medium",
+    "moods": [
+      "chaotic",
+      "cooperative",
+      "strategic",
+      "fun"
+    ],
+    "play_style": [
+      "puzzle_strategy"
+    ],
+    "time_to_fun": "short",
+    "stop_friendliness": "checkpoints",
+    "multiplayer": [
+      "solo",
+      "local_coop",
+      "online_coop"
+    ],
+    "description": "Run a restaurant that gets harder each day.",
+    "fun_fact": "Automating your kitchen with conveyor belts is key to surviving later days."
+  },
+  {
+    "id": "dave-the-diver",
+    "title": "Dave the Diver",
+    "platforms": [
+      "pc",
+      "console",
+      "handheld"
+    ],
+    "year": 2023,
+    "genres": [
+      "adventure",
+      "management",
+      "fishing"
+    ],
+    "time_tags": [
+      30,
+      60
+    ],
+    "energy": "medium",
+    "moods": [
+      "relaxing",
+      "fun",
+      "cozy",
+      "quirky"
+    ],
+    "play_style": [
+      "sandbox_creative"
+    ],
+    "time_to_fun": "short",
+    "stop_friendliness": "anytime",
+    "multiplayer": [
+      "solo"
+    ],
+    "description": "Dive by day, run a sushi restaurant by night.",
+    "fun_fact": "The game blends 4 different genres: diving, cooking, farming, and RPG elements!"
+  },
+  {
+    "id": "dredge",
+    "title": "Dredge",
+    "platforms": [
+      "pc",
+      "console",
+      "handheld"
+    ],
+    "year": 2023,
+    "genres": [
+      "fishing",
+      "horror",
+      "adventure"
+    ],
+    "time_tags": [
+      30,
+      60
+    ],
+    "energy": "medium",
+    "moods": [
+      "mysterious",
+      "atmospheric",
+      "unsettling",
+      "relaxing"
+    ],
+    "play_style": [
+      "sandbox_creative"
+    ],
+    "time_to_fun": "short",
+    "stop_friendliness": "anytime",
+    "multiplayer": [
+      "solo"
+    ],
+    "description": "Fish in an unsettling ocean with dark secrets.",
+    "fun_fact": "The art style was inspired by old nautical horror stories and H.P. Lovecraft."
+  },
+  {
+    "id": "subnautica",
+    "title": "Subnautica",
+    "platforms": [
+      "pc",
+      "console",
+      "handheld"
+    ],
+    "year": 2018,
+    "genres": [
+      "survival",
+      "exploration",
+      "underwater"
+    ],
+    "time_tags": [
+      60,
+      90
+    ],
+    "energy": "medium",
+    "moods": [
+      "immersive",
+      "mysterious",
+      "beautiful",
+      "tense"
+    ],
+    "play_style": [
+      "sandbox_creative"
+    ],
+    "time_to_fun": "medium",
+    "stop_friendliness": "anytime",
+    "multiplayer": [
+      "solo"
+    ],
+    "description": "Survive on an alien ocean planet.",
+    "fun_fact": "The game takes place on planet 4546B, which was procedurally generated but then hand-crafted.",
+    "subscriptions": [
+      "xbox_game_pass"
+    ]
+  },
+  {
+    "id": "subnautica-below-zero",
+    "title": "Subnautica: Below Zero",
+    "platforms": [
+      "pc",
+      "console",
+      "handheld"
+    ],
+    "year": 2021,
+    "genres": [
+      "survival",
+      "exploration",
+      "underwater"
+    ],
+    "time_tags": [
+      60,
+      90
+    ],
+    "energy": "medium",
+    "moods": [
+      "immersive",
+      "mysterious",
+      "cold",
+      "beautiful"
+    ],
+    "play_style": [
+      "sandbox_creative"
+    ],
+    "time_to_fun": "medium",
+    "stop_friendliness": "anytime",
+    "multiplayer": [
+      "solo"
+    ],
+    "description": "Explore an arctic alien ocean.",
+    "fun_fact": "The game features more land-based exploration than the original."
+  },
+  {
+    "id": "valheim",
+    "title": "Valheim",
+    "platforms": [
+      "pc",
+      "console"
+    ],
+    "year": 2021,
+    "genres": [
+      "survival",
+      "crafting",
+      "viking"
+    ],
+    "time_tags": [
+      60,
+      90
+    ],
+    "energy": "medium",
+    "moods": [
+      "adventurous",
+      "cooperative",
+      "satisfying",
+      "epic"
+    ],
+    "play_style": [
+      "sandbox_creative"
+    ],
+    "time_to_fun": "medium",
+    "stop_friendliness": "anytime",
+    "multiplayer": [
+      "solo",
+      "online_coop"
+    ],
+    "description": "Build and survive in a Viking purgatory.",
+    "fun_fact": "Made by a team of just 5 people, it sold 10 million copies in its first year!"
+  },
+  {
+    "id": "raft",
+    "title": "Raft",
+    "platforms": [
+      "pc"
+    ],
+    "year": 2022,
+    "genres": [
+      "survival",
+      "crafting",
+      "ocean"
+    ],
+    "time_tags": [
+      60,
+      90
+    ],
+    "energy": "medium",
+    "moods": [
+      "relaxing",
+      "cooperative",
+      "adventurous",
+      "creative"
+    ],
+    "play_style": [
+      "sandbox_creative"
+    ],
+    "time_to_fun": "short",
+    "stop_friendliness": "anytime",
+    "multiplayer": [
+      "solo",
+      "online_coop"
+    ],
+    "description": "Build a raft and survive the ocean.",
+    "fun_fact": "Started as a student project and became a Steam best-seller."
+  },
+  {
+    "id": "the-forest",
+    "title": "The Forest",
+    "platforms": [
+      "pc",
+      "console"
+    ],
+    "year": 2018,
+    "genres": [
+      "survival",
+      "horror",
+      "crafting"
+    ],
+    "time_tags": [
+      60,
+      90
+    ],
+    "energy": "medium",
+    "moods": [
+      "scary",
+      "tense",
+      "cooperative",
+      "survival"
+    ],
+    "play_style": [
+      "action",
+      "sandbox_creative"
+    ],
+    "time_to_fun": "short",
+    "stop_friendliness": "anytime",
+    "multiplayer": [
+      "solo",
+      "online_coop"
+    ],
+    "description": "Survive on an island inhabited by cannibals.",
+    "fun_fact": "The game features a day-night cycle that drastically changes gameplay.",
+    "warnings": [
+      "horror",
+      "violence"
+    ]
+  },
+  {
+    "id": "sons-of-the-forest",
+    "title": "Sons of the Forest",
+    "platforms": [
+      "pc"
+    ],
+    "year": 2023,
+    "genres": [
+      "survival",
+      "horror",
+      "crafting"
+    ],
+    "time_tags": [
+      60,
+      90
+    ],
+    "energy": "medium",
+    "moods": [
+      "scary",
+      "tense",
+      "cooperative",
+      "survival"
+    ],
+    "play_style": [
+      "action",
+      "sandbox_creative"
+    ],
+    "time_to_fun": "short",
+    "stop_friendliness": "anytime",
+    "multiplayer": [
+      "solo",
+      "online_coop"
+    ],
+    "description": "Survive with an AI companion on a cannibal island.",
+    "fun_fact": "Kelvin, your AI companion, can be given tasks and has become a fan favorite.",
+    "warnings": [
+      "horror",
+      "violence"
+    ]
+  },
+  {
+    "id": "green-hell",
+    "title": "Green Hell",
+    "platforms": [
+      "pc",
+      "console",
+      "handheld"
+    ],
+    "year": 2019,
+    "genres": [
+      "survival",
+      "simulation",
+      "jungle"
+    ],
+    "time_tags": [
+      60,
+      90
+    ],
+    "energy": "medium",
+    "moods": [
+      "challenging",
+      "realistic",
+      "tense",
+      "survival"
+    ],
+    "play_style": [
+      "sandbox_creative"
+    ],
+    "time_to_fun": "medium",
+    "stop_friendliness": "anytime",
+    "multiplayer": [
+      "solo",
+      "online_coop"
+    ],
+    "description": "Survive the Amazon rainforest.",
+    "fun_fact": "The game features medically accurate wound treatment and disease systems."
+  },
+  {
+    "id": "grounded",
+    "title": "Grounded",
+    "platforms": [
+      "pc",
+      "console"
+    ],
+    "year": 2022,
+    "genres": [
+      "survival",
+      "crafting",
+      "miniature"
+    ],
+    "time_tags": [
+      60,
+      90
+    ],
+    "energy": "medium",
+    "moods": [
+      "adventurous",
+      "cooperative",
+      "fun",
+      "scary"
+    ],
+    "play_style": [
+      "action",
+      "sandbox_creative"
+    ],
+    "time_to_fun": "short",
+    "stop_friendliness": "anytime",
+    "multiplayer": [
+      "solo",
+      "local_coop",
+      "online_coop"
+    ],
+    "description": "Survive a backyard after being shrunk.",
+    "fun_fact": "Obsidian added an arachnophobia mode that makes spiders less scary.",
+    "subscriptions": [
+      "xbox_game_pass"
+    ]
+  },
+  {
+    "id": "no-mans-sky",
+    "title": "No Man's Sky",
+    "platforms": [
+      "pc",
+      "console",
+      "handheld"
+    ],
+    "year": 2016,
+    "genres": [
+      "exploration",
+      "survival",
+      "space"
+    ],
+    "time_tags": [
+      60,
+      90
+    ],
+    "energy": "medium",
+    "moods": [
+      "exploratory",
+      "relaxing",
+      "vast",
+      "creative"
+    ],
+    "play_style": [
+      "sandbox_creative"
+    ],
+    "time_to_fun": "medium",
+    "stop_friendliness": "anytime",
+    "multiplayer": [
+      "solo",
+      "online_coop"
+    ],
+    "description": "Explore 18 quintillion procedural planets.",
+    "fun_fact": "The game contains 18 quintillion procedurally generated planets - you could never visit them all.",
+    "subscriptions": [
+      "xbox_game_pass"
+    ]
+  },
+  {
+    "id": "astroneer",
+    "title": "Astroneer",
+    "platforms": [
+      "pc",
+      "console",
+      "handheld"
+    ],
+    "year": 2019,
+    "genres": [
+      "survival",
+      "exploration",
+      "space"
+    ],
+    "time_tags": [
+      30,
+      60,
+      90
+    ],
+    "energy": "medium",
+    "moods": [
+      "creative",
+      "relaxing",
+      "exploratory",
+      "colorful"
+    ],
+    "play_style": [
+      "sandbox_creative"
+    ],
+    "time_to_fun": "short",
+    "stop_friendliness": "anytime",
+    "multiplayer": [
+      "solo",
+      "online_coop"
+    ],
+    "description": "Terraform planets with friends.",
+    "fun_fact": "The terrain deformation system was the game's core innovation.",
+    "subscriptions": [
+      "xbox_game_pass"
+    ]
+  },
+  {
+    "id": "deep-rock-galactic",
+    "title": "Deep Rock Galactic",
+    "platforms": [
+      "pc",
+      "console"
+    ],
+    "year": 2020,
+    "genres": [
+      "co-op",
+      "shooter",
+      "mining"
+    ],
+    "time_tags": [
+      30,
+      60
+    ],
+    "energy": "medium",
+    "moods": [
+      "cooperative",
+      "fun",
+      "chaotic",
+      "satisfying"
+    ],
+    "play_style": [
+      "action"
+    ],
+    "time_to_fun": "short",
+    "stop_friendliness": "checkpoints",
+    "multiplayer": [
+      "solo",
+      "online_coop"
+    ],
+    "description": "Dwarven miners blast through procedural caves.",
+    "fun_fact": "The iconic 'Rock and Stone!' voice line was recorded by the game's actual sound designer.",
+    "subscriptions": [
+      "xbox_game_pass"
+    ]
+  },
+  {
+    "id": "deep-rock-galactic-survivor",
+    "title": "Deep Rock Galactic: Survivor",
+    "platforms": [
+      "pc"
+    ],
+    "year": 2024,
+    "genres": [
+      "roguelike",
+      "survivor",
+      "auto-shooter"
+    ],
+    "time_tags": [
+      15,
+      30
+    ],
+    "energy": "medium",
+    "moods": [
+      "chaotic",
+      "addictive",
+      "satisfying",
+      "simple"
+    ],
+    "play_style": [
+      "action"
+    ],
+    "time_to_fun": "short",
+    "stop_friendliness": "checkpoints",
+    "multiplayer": [
+      "solo"
+    ],
+    "description": "DRG meets Vampire Survivors.",
+    "fun_fact": "Spinoff that combines the DRG universe with auto-shooter gameplay."
+  },
+  {
+    "id": "core-keeper",
+    "title": "Core Keeper",
+    "platforms": [
+      "pc",
+      "console"
+    ],
+    "year": 2022,
+    "genres": [
+      "survival",
+      "mining",
+      "crafting"
+    ],
+    "time_tags": [
+      30,
+      60,
+      90
+    ],
+    "energy": "medium",
+    "moods": [
+      "exploratory",
+      "cooperative",
+      "satisfying",
+      "mysterious"
+    ],
+    "play_style": [
+      "sandbox_creative"
+    ],
+    "time_to_fun": "short",
+    "stop_friendliness": "anytime",
+    "multiplayer": [
+      "solo",
+      "online_coop"
+    ],
+    "description": "Mine an underground world with friends.",
+    "fun_fact": "The game combines Terraria-style mining with survival crafting elements."
+  },
+  {
+    "id": "dont-starve-together",
+    "title": "Don't Starve Together",
+    "platforms": [
+      "pc",
+      "console"
+    ],
+    "year": 2016,
+    "genres": [
+      "survival",
+      "crafting",
+      "dark"
+    ],
+    "time_tags": [
+      60,
+      90
+    ],
+    "energy": "medium",
+    "moods": [
+      "challenging",
+      "cooperative",
+      "quirky",
+      "dark"
+    ],
+    "play_style": [
+      "sandbox_creative"
+    ],
+    "time_to_fun": "short",
+    "stop_friendliness": "anytime",
+    "multiplayer": [
+      "online_coop"
+    ],
+    "description": "Survive a dark, whimsical world with friends.",
+    "fun_fact": "The game was inspired by the developers' love of survival reality shows."
+  },
+  {
+    "id": "portal-companion-collection",
+    "title": "Portal Companion Collection",
+    "platforms": [
+      "handheld"
+    ],
+    "year": 2022,
+    "genres": [
+      "puzzle",
+      "first-person",
+      "comedy"
+    ],
+    "time_tags": [
+      30,
+      60,
+      90
+    ],
+    "energy": "medium",
+    "moods": [
+      "clever",
+      "funny",
+      "challenging",
+      "satisfying"
+    ],
+    "play_style": [
+      "puzzle_strategy"
+    ],
+    "time_to_fun": "short",
+    "stop_friendliness": "checkpoints",
+    "multiplayer": [
+      "solo",
+      "local_coop",
+      "online_coop"
+    ],
+    "description": "Both Portal games on Nintendo Switch.",
+    "fun_fact": "Perfect portable version of the classic puzzle games."
+  },
+  {
+    "id": "pikmin-4",
+    "title": "Pikmin 4",
+    "platforms": [
+      "handheld"
+    ],
+    "year": 2023,
+    "genres": [
+      "strategy",
+      "adventure",
+      "puzzle"
+    ],
+    "time_tags": [
+      30,
+      60
+    ],
+    "energy": "medium",
+    "moods": [
+      "charming",
+      "strategic",
+      "relaxing",
+      "cute"
+    ],
+    "play_style": [
+      "puzzle_strategy"
+    ],
+    "time_to_fun": "short",
+    "stop_friendliness": "anytime",
+    "multiplayer": [
+      "solo",
+      "local_coop"
+    ],
+    "description": "Command tiny plant creatures to solve puzzles.",
+    "fun_fact": "Features a dog companion named Oatchi who can carry Pikmin and fight enemies."
+  },
+  {
+    "id": "sea-of-thieves",
+    "title": "Sea of Thieves",
+    "platforms": [
+      "pc",
+      "console"
+    ],
+    "year": 2018,
+    "genres": [
+      "adventure",
+      "pirate",
+      "multiplayer"
+    ],
+    "time_tags": [
+      60,
+      90
+    ],
+    "energy": "medium",
+    "moods": [
+      "adventurous",
+      "social",
+      "fun",
+      "chaotic"
+    ],
+    "play_style": [
+      "action",
+      "sandbox_creative"
+    ],
+    "time_to_fun": "short",
+    "stop_friendliness": "anytime",
+    "multiplayer": [
+      "solo",
+      "online_coop"
+    ],
+    "description": "Sail the seas as pirates with friends.",
+    "fun_fact": "The game has no progression gates - day one players can access everything.",
+    "subscriptions": [
+      "xbox_game_pass"
+    ]
+  },
+  {
+    "id": "sea-of-stars",
+    "title": "Sea of Stars",
+    "platforms": [
+      "pc",
+      "console",
+      "handheld"
+    ],
+    "year": 2023,
+    "genres": [
+      "jrpg",
+      "retro",
+      "turn-based"
+    ],
+    "time_tags": [
+      30,
+      60,
+      90
+    ],
+    "energy": "medium",
+    "moods": [
+      "nostalgic",
+      "charming",
+      "adventurous",
+      "epic"
+    ],
+    "play_style": [
+      "narrative",
+      "puzzle_strategy"
+    ],
+    "time_to_fun": "short",
+    "stop_friendliness": "anytime",
+    "multiplayer": [
+      "solo",
+      "local_coop"
+    ],
+    "description": "A love letter to classic JRPGs.",
+    "fun_fact": "The pixel art team animated every single frame by hand - over 25,000 frames total.",
+    "subscriptions": [
+      "xbox_game_pass"
+    ]
+  },
+  {
+    "id": "eastward",
+    "title": "Eastward",
+    "platforms": [
+      "pc",
+      "console",
+      "handheld"
+    ],
+    "year": 2021,
+    "genres": [
+      "adventure",
+      "rpg",
+      "pixel-art"
+    ],
+    "time_tags": [
+      60,
+      90
+    ],
+    "energy": "medium",
+    "moods": [
+      "charming",
+      "emotional",
+      "nostalgic",
+      "quirky"
+    ],
+    "play_style": [
+      "action",
+      "narrative"
+    ],
+    "time_to_fun": "short",
+    "stop_friendliness": "checkpoints",
+    "multiplayer": [
+      "solo"
+    ],
+    "description": "A miner and a mysterious girl travel east.",
+    "fun_fact": "The game took 8 years to develop by a small Shanghai studio."
+  },
+  {
+    "id": "crosscode",
+    "title": "CrossCode",
+    "platforms": [
+      "pc",
+      "console",
+      "handheld"
+    ],
+    "year": 2018,
+    "genres": [
+      "action-rpg",
+      "retro",
+      "puzzle"
+    ],
+    "time_tags": [
+      60,
+      90
+    ],
+    "energy": "medium",
+    "moods": [
+      "nostalgic",
+      "challenging",
+      "clever",
+      "immersive"
+    ],
+    "play_style": [
+      "action",
+      "puzzle_strategy"
+    ],
+    "time_to_fun": "short",
+    "stop_friendliness": "anytime",
+    "multiplayer": [
+      "solo"
+    ],
+    "description": "An action RPG set in an MMORPG.",
+    "fun_fact": "The protagonist can't speak due to a glitch, adding unique storytelling."
+  },
+  {
+    "id": "chained-echoes",
+    "title": "Chained Echoes",
+    "platforms": [
+      "pc",
+      "console",
+      "handheld"
+    ],
+    "year": 2022,
+    "genres": [
+      "jrpg",
+      "retro",
+      "mech"
+    ],
+    "time_tags": [
+      60,
+      90
+    ],
+    "energy": "medium",
+    "moods": [
+      "epic",
+      "nostalgic",
+      "adventurous",
+      "strategic"
+    ],
+    "play_style": [
+      "puzzle_strategy",
+      "narrative"
+    ],
+    "time_to_fun": "short",
+    "stop_friendliness": "anytime",
+    "multiplayer": [
+      "solo"
+    ],
+    "description": "A 16-bit style JRPG with mechs.",
+    "fun_fact": "Made almost entirely by one developer over 7 years.",
+    "subscriptions": [
+      "xbox_game_pass"
+    ]
+  },
+  {
+    "id": "octopath-traveler-2",
+    "title": "Octopath Traveler II",
+    "platforms": [
+      "pc",
+      "console",
+      "handheld"
+    ],
+    "year": 2023,
+    "genres": [
+      "jrpg",
+      "hd-2d",
+      "turn-based"
+    ],
+    "time_tags": [
+      60,
+      90
+    ],
+    "energy": "medium",
+    "moods": [
+      "epic",
+      "beautiful",
+      "nostalgic",
+      "strategic"
+    ],
+    "play_style": [
+      "puzzle_strategy",
+      "narrative"
+    ],
+    "time_to_fun": "short",
+    "stop_friendliness": "anytime",
+    "multiplayer": [
+      "solo"
+    ],
+    "description": "Eight travelers with intertwining stories.",
+    "fun_fact": "The HD-2D art style combines 2D sprites with 3D environments and lighting.",
+    "franchise": "octopath"
+  },
+  {
+    "id": "live-a-live",
+    "title": "Live A Live",
+    "platforms": [
+      "pc",
+      "console",
+      "handheld"
+    ],
+    "year": 2022,
+    "genres": [
+      "jrpg",
+      "anthology",
+      "hd-2d"
+    ],
+    "time_tags": [
+      60,
+      90
+    ],
+    "energy": "medium",
+    "moods": [
+      "unique",
+      "nostalgic",
+      "varied",
+      "surprising"
+    ],
+    "play_style": [
+      "puzzle_strategy",
+      "narrative"
+    ],
+    "time_to_fun": "short",
+    "stop_friendliness": "checkpoints",
+    "multiplayer": [
+      "solo"
+    ],
+    "description": "Seven different stories across time periods.",
+    "fun_fact": "Originally a 1994 Super Famicom game that never left Japan until this remake."
+  },
+  {
+    "id": "triangle-strategy",
+    "title": "Triangle Strategy",
+    "platforms": [
+      "pc",
+      "handheld"
+    ],
+    "year": 2022,
+    "genres": [
+      "tactics",
+      "srpg",
+      "hd-2d"
+    ],
+    "time_tags": [
+      60,
+      90
+    ],
+    "energy": "medium",
+    "moods": [
+      "strategic",
+      "political",
+      "dramatic",
+      "challenging"
+    ],
+    "play_style": [
+      "puzzle_strategy",
+      "narrative"
+    ],
+    "time_to_fun": "medium",
+    "stop_friendliness": "checkpoints",
+    "multiplayer": [
+      "solo"
+    ],
+    "description": "Tactical RPG with branching decisions.",
+    "fun_fact": "Your party members vote on key decisions, forcing moral compromises."
+  },
+  {
+    "id": "fire-emblem-engage",
+    "title": "Fire Emblem Engage",
+    "platforms": [
+      "handheld"
+    ],
+    "year": 2023,
+    "genres": [
+      "tactics",
+      "srpg",
+      "strategy"
+    ],
+    "time_tags": [
+      30,
+      60,
+      90
+    ],
+    "energy": "medium",
+    "moods": [
+      "strategic",
+      "epic",
+      "nostalgic",
+      "challenging"
+    ],
+    "play_style": [
+      "puzzle_strategy"
+    ],
+    "time_to_fun": "short",
+    "stop_friendliness": "checkpoints",
+    "multiplayer": [
+      "solo"
+    ],
+    "description": "Tactical RPG with heroes from FE history.",
+    "fun_fact": "The game features characters from every previous Fire Emblem game as summonable 'Emblems'.",
+    "franchise": "fire_emblem"
+  },
+  {
+    "id": "mario-rabbids-sparks",
+    "title": "Mario + Rabbids Sparks of Hope",
+    "platforms": [
+      "handheld"
+    ],
+    "year": 2022,
+    "genres": [
+      "tactics",
+      "strategy",
+      "comedy"
+    ],
+    "time_tags": [
+      30,
+      60
+    ],
+    "energy": "medium",
+    "moods": [
+      "fun",
+      "strategic",
+      "charming",
+      "creative"
+    ],
+    "play_style": [
+      "puzzle_strategy"
+    ],
+    "time_to_fun": "short",
+    "stop_friendliness": "checkpoints",
+    "multiplayer": [
+      "solo",
+      "local_coop"
+    ],
+    "description": "Mario and Rabbids in tactical battles.",
+    "fun_fact": "Removed the grid system from the first game for more fluid movement."
+  },
+  {
+    "id": "wargroove-2",
+    "title": "Wargroove 2",
+    "platforms": [
+      "pc",
+      "console",
+      "handheld"
+    ],
+    "year": 2023,
+    "genres": [
+      "tactics",
+      "strategy",
+      "pixel-art"
+    ],
+    "time_tags": [
+      30,
+      60
+    ],
+    "energy": "medium",
+    "moods": [
+      "strategic",
+      "charming",
+      "challenging",
+      "creative"
+    ],
+    "play_style": [
+      "puzzle_strategy"
+    ],
+    "time_to_fun": "short",
+    "stop_friendliness": "anytime",
+    "multiplayer": [
+      "solo",
+      "local_coop",
+      "online_coop",
+      "competitive"
+    ],
+    "description": "Advance Wars-style tactics with online play.",
+    "fun_fact": "Includes a full level editor for creating and sharing custom campaigns."
+  },
+  {
+    "id": "advance-wars-reboot",
+    "title": "Advance Wars 1+2: Re-Boot Camp",
+    "platforms": [
+      "handheld"
+    ],
+    "year": 2023,
+    "genres": [
+      "tactics",
+      "strategy",
+      "military"
+    ],
+    "time_tags": [
+      30,
+      60
+    ],
+    "energy": "medium",
+    "moods": [
+      "strategic",
+      "nostalgic",
+      "challenging",
+      "satisfying"
+    ],
+    "play_style": [
+      "puzzle_strategy"
+    ],
+    "time_to_fun": "short",
+    "stop_friendliness": "anytime",
+    "multiplayer": [
+      "solo",
+      "local_coop",
+      "competitive"
+    ],
+    "description": "Classic GBA tactics games remastered.",
+    "fun_fact": "The remake was delayed a year due to the real-world invasion of Ukraine."
+  },
+  {
+    "id": "tactics-ogre-reborn",
+    "title": "Tactics Ogre: Reborn",
+    "platforms": [
+      "pc",
+      "console",
+      "handheld"
+    ],
+    "year": 2022,
+    "genres": [
+      "tactics",
+      "srpg",
+      "political"
+    ],
+    "time_tags": [
+      60,
+      90
+    ],
+    "energy": "medium",
+    "moods": [
+      "strategic",
+      "dark",
+      "complex",
+      "epic"
+    ],
+    "play_style": [
+      "puzzle_strategy",
+      "narrative"
+    ],
+    "time_to_fun": "medium",
+    "stop_friendliness": "checkpoints",
+    "multiplayer": [
+      "solo"
+    ],
+    "description": "A classic tactical RPG remastered.",
+    "fun_fact": "The original director also created Final Fantasy Tactics."
+  },
+  {
+    "id": "symphony-of-war",
+    "title": "Symphony of War",
+    "platforms": [
+      "pc",
+      "handheld"
+    ],
+    "year": 2022,
+    "genres": [
+      "tactics",
+      "srpg",
+      "indie"
+    ],
+    "time_tags": [
+      60,
+      90
+    ],
+    "energy": "medium",
+    "moods": [
+      "strategic",
+      "epic",
+      "challenging",
+      "rewarding"
+    ],
+    "play_style": [
+      "puzzle_strategy"
+    ],
+    "time_to_fun": "short",
+    "stop_friendliness": "anytime",
+    "multiplayer": [
+      "solo"
+    ],
+    "description": "Squad-based tactical RPG.",
+    "fun_fact": "Allows you to customize unit classes with incredible depth."
+  },
+  {
+    "id": "wildermyth",
+    "title": "Wildermyth",
+    "platforms": [
+      "pc",
+      "console",
+      "handheld"
+    ],
+    "year": 2021,
+    "genres": [
+      "tactics",
+      "rpg",
+      "procedural"
+    ],
+    "time_tags": [
+      60,
+      90
+    ],
+    "energy": "medium",
+    "moods": [
+      "story-rich",
+      "creative",
+      "charming",
+      "emergent"
+    ],
+    "play_style": [
+      "puzzle_strategy",
+      "narrative"
+    ],
+    "time_to_fun": "short",
+    "stop_friendliness": "anytime",
+    "multiplayer": [
+      "solo",
+      "online_coop"
+    ],
+    "description": "Procedural storytelling tactical RPG.",
+    "fun_fact": "Your heroes age across campaigns and their stories continue for generations."
+  },
+  {
+    "id": "marvel-snap",
+    "title": "Marvel Snap",
+    "platforms": [
+      "pc",
+      "handheld"
+    ],
+    "year": 2022,
+    "genres": [
+      "card-game",
+      "strategy",
+      "marvel"
+    ],
+    "time_tags": [
+      15,
+      30
+    ],
+    "energy": "medium",
+    "moods": [
+      "strategic",
+      "quick",
+      "competitive",
+      "addictive"
+    ],
+    "play_style": [
+      "puzzle_strategy"
+    ],
+    "time_to_fun": "short",
+    "stop_friendliness": "anytime",
+    "multiplayer": [
+      "solo",
+      "competitive"
+    ],
+    "description": "Fast Marvel card battles.",
+    "fun_fact": "Ben Brode, the designer, previously created Hearthstone at Blizzard!"
+  },
+  {
+    "id": "legends-of-runeterra",
+    "title": "Legends of Runeterra",
+    "platforms": [
+      "pc",
+      "handheld"
+    ],
+    "year": 2020,
+    "genres": [
+      "card-game",
+      "strategy",
+      "league"
+    ],
+    "time_tags": [
+      15,
+      30,
+      60
+    ],
+    "energy": "medium",
+    "moods": [
+      "strategic",
+      "competitive",
+      "deep",
+      "fair"
+    ],
+    "play_style": [
+      "puzzle_strategy"
+    ],
+    "time_to_fun": "short",
+    "stop_friendliness": "checkpoints",
+    "multiplayer": [
+      "solo",
+      "competitive"
+    ],
+    "description": "Card game in the League of Legends universe.",
+    "fun_fact": "The game uses characters from League of Legends' 14-year history."
+  },
+  {
+    "id": "gwent",
+    "title": "Gwent: The Witcher Card Game",
+    "platforms": [
+      "pc",
+      "console",
+      "handheld"
+    ],
+    "year": 2018,
+    "genres": [
+      "card-game",
+      "strategy",
+      "witcher"
+    ],
+    "time_tags": [
+      15,
+      30
+    ],
+    "energy": "medium",
+    "moods": [
+      "strategic",
+      "atmospheric",
+      "competitive",
+      "deep"
+    ],
+    "play_style": [
+      "puzzle_strategy"
+    ],
+    "time_to_fun": "short",
+    "stop_friendliness": "checkpoints",
+    "multiplayer": [
+      "solo",
+      "competitive"
+    ],
+    "description": "The Witcher 3's card game standalone.",
+    "fun_fact": "The card game from The Witcher 3 was so popular it became its own game!"
+  },
+  {
+    "id": "magic-arena",
+    "title": "Magic: The Gathering Arena",
+    "platforms": [
+      "pc",
+      "handheld"
+    ],
+    "year": 2018,
+    "genres": [
+      "card-game",
+      "strategy",
+      "tcg"
+    ],
+    "time_tags": [
+      15,
+      30,
+      60
+    ],
+    "energy": "medium",
+    "moods": [
+      "strategic",
+      "competitive",
+      "deep",
+      "complex"
+    ],
+    "play_style": [
+      "puzzle_strategy"
+    ],
+    "time_to_fun": "short",
+    "stop_friendliness": "checkpoints",
+    "multiplayer": [
+      "solo",
+      "competitive"
+    ],
+    "description": "Digital Magic: The Gathering.",
+    "fun_fact": "Magic: The Gathering has over 25,000 unique cards created since 1993!"
+  },
+  {
+    "id": "pokemon-tcg-live",
+    "title": "Pokemon TCG Live",
+    "platforms": [
+      "pc",
+      "handheld"
+    ],
+    "year": 2022,
+    "genres": [
+      "card-game",
+      "pokemon",
+      "tcg"
+    ],
+    "time_tags": [
+      15,
+      30
+    ],
+    "energy": "medium",
+    "moods": [
+      "nostalgic",
+      "strategic",
+      "colorful",
+      "accessible"
+    ],
+    "play_style": [
+      "puzzle_strategy"
+    ],
+    "time_to_fun": "short",
+    "stop_friendliness": "checkpoints",
+    "multiplayer": [
+      "solo",
+      "competitive"
+    ],
+    "description": "Official digital Pokemon card game.",
+    "fun_fact": "Physical Pokemon card packs include codes for digital packs."
+  },
+  {
+    "id": "yu-gi-oh-master-duel",
+    "title": "Yu-Gi-Oh! Master Duel",
+    "platforms": [
+      "pc",
+      "console",
+      "handheld"
+    ],
+    "year": 2022,
+    "genres": [
+      "card-game",
+      "anime",
+      "tcg"
+    ],
+    "time_tags": [
+      30,
+      60
+    ],
+    "energy": "medium",
+    "moods": [
+      "strategic",
+      "complex",
+      "nostalgic",
+      "competitive"
+    ],
+    "play_style": [
+      "puzzle_strategy"
+    ],
+    "time_to_fun": "short",
+    "stop_friendliness": "checkpoints",
+    "multiplayer": [
+      "solo",
+      "competitive"
+    ],
+    "description": "The definitive Yu-Gi-Oh digital game.",
+    "fun_fact": "Features every card ever printed in the real game's history."
+  },
+  {
+    "id": "hearthstone",
+    "title": "Hearthstone",
+    "platforms": [
+      "pc",
+      "handheld"
+    ],
+    "year": 2014,
+    "genres": [
+      "card-game",
+      "strategy",
+      "blizzard"
+    ],
+    "time_tags": [
+      15,
+      30
+    ],
+    "energy": "medium",
+    "moods": [
+      "strategic",
+      "accessible",
+      "competitive",
+      "charming"
+    ],
+    "play_style": [
+      "puzzle_strategy"
+    ],
+    "time_to_fun": "short",
+    "stop_friendliness": "checkpoints",
+    "multiplayer": [
+      "solo",
+      "competitive"
+    ],
+    "description": "Blizzard's accessible card game.",
+    "fun_fact": "Originally titled 'Hearthstone: Heroes of Warcraft' and set in the Warcraft universe."
+  },
+  {
+    "id": "backpack-hero",
+    "title": "Backpack Hero",
+    "platforms": [
+      "pc",
+      "console",
+      "handheld"
+    ],
+    "year": 2023,
+    "genres": [
+      "roguelike",
+      "inventory",
+      "strategy"
+    ],
+    "time_tags": [
+      30,
+      60
+    ],
+    "energy": "medium",
+    "moods": [
+      "strategic",
+      "satisfying",
+      "creative",
+      "addictive"
+    ],
+    "play_style": [
+      "puzzle_strategy"
+    ],
+    "time_to_fun": "short",
+    "stop_friendliness": "anytime",
+    "multiplayer": [
+      "solo"
+    ],
+    "description": "Arrange your backpack to fight monsters.",
+    "fun_fact": "The entire combat system is based on inventory Tetris."
+  },
+  {
+    "id": "nba-2k24",
+    "title": "NBA 2K24",
+    "platforms": [
+      "pc",
+      "console"
+    ],
+    "year": 2023,
+    "genres": [
+      "sports",
+      "basketball",
+      "simulation"
+    ],
+    "time_tags": [
+      30,
+      60
+    ],
+    "energy": "medium",
+    "moods": [
+      "competitive",
+      "exciting",
+      "realistic",
+      "skill-based"
+    ],
+    "play_style": [
+      "action"
+    ],
+    "time_to_fun": "short",
+    "stop_friendliness": "checkpoints",
+    "multiplayer": [
+      "solo",
+      "local_coop",
+      "online_coop",
+      "competitive"
+    ],
+    "description": "The premier basketball simulation.",
+    "fun_fact": "The motion capture for players uses over 50 cameras to capture every movement."
+  },
+  {
+    "id": "ea-fc-25",
+    "title": "EA Sports FC 25",
+    "platforms": [
+      "pc",
+      "console"
+    ],
+    "year": 2024,
+    "genres": [
+      "sports",
+      "soccer",
+      "simulation"
+    ],
+    "time_tags": [
+      15,
+      30,
+      60
+    ],
+    "energy": "medium",
+    "moods": [
+      "competitive",
+      "exciting",
+      "realistic",
+      "social"
+    ],
+    "play_style": [
+      "action"
+    ],
+    "time_to_fun": "short",
+    "stop_friendliness": "checkpoints",
+    "multiplayer": [
+      "solo",
+      "local_coop",
+      "online_coop",
+      "competitive"
+    ],
+    "description": "The new era of football games.",
+    "fun_fact": "This is the first FIFA-style game without the FIFA name after EA and FIFA split!"
+  },
+  {
+    "id": "mlb-the-show-24",
+    "title": "MLB The Show 24",
+    "platforms": [
+      "pc",
+      "console"
+    ],
+    "year": 2024,
+    "genres": [
+      "sports",
+      "baseball",
+      "simulation"
+    ],
+    "time_tags": [
+      30,
+      60,
+      90
+    ],
+    "energy": "medium",
+    "moods": [
+      "competitive",
+      "strategic",
+      "realistic",
+      "authentic"
+    ],
+    "play_style": [
+      "action"
+    ],
+    "time_to_fun": "short",
+    "stop_friendliness": "checkpoints",
+    "multiplayer": [
+      "solo",
+      "local_coop",
+      "online_coop",
+      "competitive"
+    ],
+    "description": "The definitive baseball experience.",
+    "fun_fact": "The game tracks real-world stats daily to update player ratings!"
+  },
+  {
+    "id": "madden-25",
+    "title": "Madden NFL 25",
+    "platforms": [
+      "pc",
+      "console"
+    ],
+    "year": 2024,
+    "genres": [
+      "sports",
+      "football",
+      "simulation"
+    ],
+    "time_tags": [
+      30,
+      60
+    ],
+    "energy": "medium",
+    "moods": [
+      "competitive",
+      "exciting",
+      "strategic",
+      "realistic"
+    ],
+    "play_style": [
+      "action",
+      "puzzle_strategy"
+    ],
+    "time_to_fun": "short",
+    "stop_friendliness": "checkpoints",
+    "multiplayer": [
+      "solo",
+      "local_coop",
+      "online_coop",
+      "competitive"
+    ],
+    "description": "American football simulation.",
+    "fun_fact": "Named after legendary coach and commentator John Madden."
+  },
+  {
+    "id": "wwe-2k24",
+    "title": "WWE 2K24",
+    "platforms": [
+      "pc",
+      "console"
+    ],
+    "year": 2024,
+    "genres": [
+      "sports",
+      "wrestling",
+      "fighting"
+    ],
+    "time_tags": [
+      15,
+      30,
+      60
+    ],
+    "energy": "medium",
+    "moods": [
+      "exciting",
+      "dramatic",
+      "fun",
+      "nostalgic"
+    ],
+    "play_style": [
+      "action"
+    ],
+    "time_to_fun": "short",
+    "stop_friendliness": "checkpoints",
+    "multiplayer": [
+      "solo",
+      "local_coop",
+      "competitive"
+    ],
+    "description": "WWE wrestling entertainment.",
+    "fun_fact": "Features wrestlers from 40 years of WrestleMania history."
+  },
+  {
+    "id": "pga-tour-2k24",
+    "title": "PGA Tour 2K24",
+    "platforms": [
+      "pc",
+      "console"
+    ],
+    "year": 2024,
+    "genres": [
+      "sports",
+      "golf",
+      "simulation"
+    ],
+    "time_tags": [
+      30,
+      60,
+      90
+    ],
+    "energy": "medium",
+    "moods": [
+      "relaxing",
+      "strategic",
+      "realistic",
+      "satisfying"
+    ],
+    "play_style": [
+      "action"
+    ],
+    "time_to_fun": "short",
+    "stop_friendliness": "anytime",
+    "multiplayer": [
+      "solo",
+      "local_coop",
+      "online_coop",
+      "competitive"
+    ],
+    "description": "Professional golf simulation.",
+    "fun_fact": "Real PGA courses are recreated using laser-scanned topographical data."
+  },
+  {
+    "id": "riders-republic",
+    "title": "Riders Republic",
+    "platforms": [
+      "pc",
+      "console"
+    ],
+    "year": 2021,
+    "genres": [
+      "sports",
+      "extreme",
+      "open-world"
+    ],
+    "time_tags": [
+      15,
+      30,
+      60
+    ],
+    "energy": "medium",
+    "moods": [
+      "thrilling",
+      "social",
+      "free",
+      "exciting"
+    ],
+    "play_style": [
+      "action"
+    ],
+    "time_to_fun": "short",
+    "stop_friendliness": "anytime",
+    "multiplayer": [
+      "solo",
+      "online_coop",
+      "competitive"
+    ],
+    "description": "Extreme sports in US national parks.",
+    "fun_fact": "The open world contains real locations from 7 different US national parks.",
+    "subscriptions": [
+      "ubisoft_plus"
+    ]
+  },
+  {
+    "id": "steep",
+    "title": "Steep",
+    "platforms": [
+      "pc",
+      "console"
+    ],
+    "year": 2016,
+    "genres": [
+      "sports",
+      "winter",
+      "open-world"
+    ],
+    "time_tags": [
+      15,
+      30,
+      60
+    ],
+    "energy": "medium",
+    "moods": [
+      "thrilling",
+      "beautiful",
+      "free",
+      "zen"
+    ],
+    "play_style": [
+      "action"
+    ],
+    "time_to_fun": "short",
+    "stop_friendliness": "anytime",
+    "multiplayer": [
+      "solo",
+      "online_coop",
+      "competitive"
+    ],
+    "description": "Open-world winter sports.",
+    "fun_fact": "The Alps are recreated using satellite data for accuracy."
+  },
+  {
+    "id": "tony-hawks-pro-skater",
+    "title": "Tony Hawk's Pro Skater 1+2",
+    "platforms": [
+      "pc",
+      "console",
+      "handheld"
+    ],
+    "year": 2020,
+    "genres": [
+      "sports",
+      "skateboarding",
+      "arcade"
+    ],
+    "time_tags": [
+      15,
+      30,
+      60
+    ],
+    "energy": "medium",
+    "moods": [
+      "nostalgic",
+      "fun",
+      "challenging",
+      "stylish"
+    ],
+    "play_style": [
+      "action"
+    ],
+    "time_to_fun": "short",
+    "stop_friendliness": "anytime",
+    "multiplayer": [
+      "solo",
+      "local_coop",
+      "online_coop",
+      "competitive"
+    ],
+    "description": "Classic skating games remastered.",
+    "fun_fact": "The remaster uses many of the same developers from the original 1999 game!"
+  },
+  {
+    "id": "skate",
+    "title": "Skate 3",
+    "platforms": [
+      "console"
+    ],
+    "year": 2010,
+    "genres": [
+      "sports",
+      "skateboarding",
+      "simulation"
+    ],
+    "time_tags": [
+      15,
+      30,
+      60
+    ],
+    "energy": "medium",
+    "moods": [
+      "creative",
+      "relaxing",
+      "fun",
+      "satisfying"
+    ],
+    "play_style": [
+      "action",
+      "sandbox_creative"
+    ],
+    "time_to_fun": "short",
+    "stop_friendliness": "anytime",
+    "multiplayer": [
+      "solo",
+      "online_coop"
+    ],
+    "description": "Skateboarding simulation.",
+    "fun_fact": "The 'flick-it' control system revolutionized skateboarding game controls."
+  },
+  {
+    "id": "olli-olli-world",
+    "title": "OlliOlli World",
+    "platforms": [
+      "pc",
+      "console",
+      "handheld"
+    ],
+    "year": 2022,
+    "genres": [
+      "sports",
+      "skateboarding",
+      "platformer"
+    ],
+    "time_tags": [
+      15,
+      30
+    ],
+    "energy": "medium",
+    "moods": [
+      "colorful",
+      "fun",
+      "challenging",
+      "stylish"
+    ],
+    "play_style": [
+      "action"
+    ],
+    "time_to_fun": "short",
+    "stop_friendliness": "checkpoints",
+    "multiplayer": [
+      "solo"
+    ],
+    "description": "2D skating with personality.",
+    "fun_fact": "The art style is inspired by adventure time and aims for pure joy."
+  },
+  {
+    "id": "hot-wheels-unleashed-2",
+    "title": "Hot Wheels Unleashed 2",
+    "platforms": [
+      "pc",
+      "console",
+      "handheld"
+    ],
+    "year": 2023,
+    "genres": [
+      "racing",
+      "arcade",
+      "toys"
+    ],
+    "time_tags": [
+      15,
+      30
+    ],
+    "energy": "medium",
+    "moods": [
+      "fun",
+      "nostalgic",
+      "exciting",
+      "creative"
+    ],
+    "play_style": [
+      "action"
+    ],
+    "time_to_fun": "short",
+    "stop_friendliness": "checkpoints",
+    "multiplayer": [
+      "solo",
+      "local_coop",
+      "online_coop",
+      "competitive"
+    ],
+    "description": "Race iconic Hot Wheels cars.",
+    "fun_fact": "Real Hot Wheels designers helped create exclusive cars for the game."
+  },
+  {
+    "id": "forza-horizon-5",
+    "title": "Forza Horizon 5",
+    "platforms": [
+      "pc",
+      "console"
+    ],
+    "year": 2021,
+    "genres": [
+      "racing",
+      "open-world",
+      "simulation"
+    ],
+    "time_tags": [
+      15,
+      30,
+      60
+    ],
+    "energy": "medium",
+    "moods": [
+      "exciting",
+      "beautiful",
+      "free",
+      "satisfying"
+    ],
+    "play_style": [
+      "action"
+    ],
+    "time_to_fun": "short",
+    "stop_friendliness": "anytime",
+    "multiplayer": [
+      "solo",
+      "online_coop",
+      "competitive"
+    ],
+    "description": "Open-world racing in Mexico.",
+    "fun_fact": "The map is based on a real section of Mexico, recreated with satellite data.",
+    "subscriptions": [
+      "xbox_game_pass"
+    ]
+  },
+  {
+    "id": "gran-turismo-7",
+    "title": "Gran Turismo 7",
+    "platforms": [
+      "console"
+    ],
+    "year": 2022,
+    "genres": [
+      "racing",
+      "simulation",
+      "realistic"
+    ],
+    "time_tags": [
+      30,
+      60,
+      90
+    ],
+    "energy": "medium",
+    "moods": [
+      "realistic",
+      "satisfying",
+      "challenging",
+      "beautiful"
+    ],
+    "play_style": [
+      "action"
+    ],
+    "time_to_fun": "short",
+    "stop_friendliness": "checkpoints",
+    "multiplayer": [
+      "solo",
+      "online_coop",
+      "competitive"
+    ],
+    "description": "The real driving simulator.",
+    "fun_fact": "Professional race car drivers use the game for training and practice!"
+  },
+  {
+    "id": "need-for-speed-unbound",
+    "title": "Need for Speed Unbound",
+    "platforms": [
+      "pc",
+      "console"
+    ],
+    "year": 2022,
+    "genres": [
+      "racing",
+      "arcade",
+      "street"
+    ],
+    "time_tags": [
+      30,
+      60
+    ],
+    "energy": "medium",
+    "moods": [
+      "stylish",
+      "exciting",
+      "urban",
+      "rebellious"
+    ],
+    "play_style": [
+      "action"
+    ],
+    "time_to_fun": "short",
+    "stop_friendliness": "checkpoints",
+    "multiplayer": [
+      "solo",
+      "online_coop",
+      "competitive"
+    ],
+    "description": "Street racing with unique art style.",
+    "fun_fact": "Mixes realistic cars with anime-inspired visual effects.",
+    "subscriptions": [
+      "ea_play"
+    ]
+  }
+]

@@ -1,0 +1,107 @@
+# PlayNxt Mobile App - EAS Build Pipeline
+# Triggers EAS builds on push to main
+
+name: Mobile Build
+
+on:
+  push:
+    branches: [main]
+    paths:
+      - 'mobile-app/**'
+      - '.github/workflows/mobile-build.yml'
+  workflow_dispatch:
+    inputs:
+      platform:
+        description: 'Platform to build'
+        required: true
+        default: 'all'
+        type: choice
+        options:
+          - all
+          - ios
+          - android
+      profile:
+        description: 'Build profile'
+        required: true
+        default: 'preview'
+        type: choice
+        options:
+          - development
+          - preview
+          - production
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    defaults:
+      run:
+        working-directory: mobile-app
+
+    steps:
+      - uses: actions/checkout@v4
+
+      - name: Set up Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: '20'
+          cache: 'npm'
+          cache-dependency-path: mobile-app/package-lock.json
+
+      - name: Setup Expo
+        uses: expo/expo-github-action@v8
+        with:
+          eas-version: latest
+          token: ${{ secrets.EXPO_TOKEN }}
+
+      - name: Install dependencies
+        run: npm ci
+
+      - name: Run type check
+        run: npx tsc --noEmit
+        continue-on-error: true
+
+      - name: Determine build parameters
+        id: build-params
+        run: |
+          if [ "${{ github.event_name }}" == "workflow_dispatch" ]; then
+            echo "platform=${{ github.event.inputs.platform }}" >> $GITHUB_OUTPUT
+            echo "profile=${{ github.event.inputs.profile }}" >> $GITHUB_OUTPUT
+          else
+            echo "platform=all" >> $GITHUB_OUTPUT
+            echo "profile=preview" >> $GITHUB_OUTPUT
+          fi
+
+      - name: Build (all platforms)
+        if: steps.build-params.outputs.platform == 'all'
+        run: eas build --platform all --profile ${{ steps.build-params.outputs.profile }} --non-interactive
+
+      - name: Build (iOS only)
+        if: steps.build-params.outputs.platform == 'ios'
+        run: eas build --platform ios --profile ${{ steps.build-params.outputs.profile }} --non-interactive
+
+      - name: Build (Android only)
+        if: steps.build-params.outputs.platform == 'android'
+        run: eas build --platform android --profile ${{ steps.build-params.outputs.profile }} --non-interactive
+
+  submit-production:
+    needs: build
+    runs-on: ubuntu-latest
+    if: github.event.inputs.profile == 'production'
+    defaults:
+      run:
+        working-directory: mobile-app
+
+    steps:
+      - uses: actions/checkout@v4
+
+      - name: Setup Expo
+        uses: expo/expo-github-action@v8
+        with:
+          eas-version: latest
+          token: ${{ secrets.EXPO_TOKEN }}
+
+      - name: Submit to stores
+        run: |
+          echo "Production build complete. Submit manually via EAS dashboard or run:"
+          echo "eas submit --platform ios --latest"
+          echo "eas submit --platform android --latest"

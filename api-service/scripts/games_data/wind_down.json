@@ -1,0 +1,5955 @@
+[
+  {
+    "id": "stardew-valley",
+    "title": "Stardew Valley",
+    "platforms": [
+      "pc",
+      "console",
+      "handheld"
+    ],
+    "year": 2016,
+    "genres": [
+      "farming",
+      "simulation",
+      "rpg",
+      "indie"
+    ],
+    "time_tags": [
+      15,
+      30,
+      60,
+      90
+    ],
+    "energy": "low",
+    "moods": [
+      "relaxing",
+      "cozy",
+      "creative"
+    ],
+    "play_style": [
+      "sandbox_creative"
+    ],
+    "time_to_fun": "short",
+    "stop_friendliness": "anytime",
+    "multiplayer": [
+      "solo",
+      "online_coop"
+    ],
+    "description": "Build your dream farm, befriend villagers, and escape to the countryside.",
+    "fun_fact": "Creator Eric Barone spent 4 years developing this entire game by himself, including all art, music, and code!",
+    "subscriptions": [
+      "xbox_game_pass"
+    ]
+  },
+  {
+    "id": "animal-crossing-nh",
+    "title": "Animal Crossing: New Horizons",
+    "platforms": [
+      "handheld"
+    ],
+    "year": 2020,
+    "genres": [
+      "simulation",
+      "life-sim",
+      "relaxing"
+    ],
+    "time_tags": [
+      15,
+      30,
+      60,
+      90
+    ],
+    "energy": "low",
+    "moods": [
+      "relaxing",
+      "cozy",
+      "creative",
+      "social"
+    ],
+    "play_style": [
+      "sandbox_creative"
+    ],
+    "time_to_fun": "short",
+    "stop_friendliness": "anytime",
+    "multiplayer": [
+      "solo",
+      "local_coop",
+      "online_coop"
+    ],
+    "description": "Create your paradise on a deserted island.",
+    "fun_fact": "The game sold 13.4 million copies in its first 6 weeks, breaking the record for most digital sales!"
+  },
+  {
+    "id": "unpacking",
+    "title": "Unpacking",
+    "platforms": [
+      "pc",
+      "console",
+      "handheld"
+    ],
+    "year": 2021,
+    "genres": [
+      "puzzle",
+      "zen",
+      "narrative",
+      "indie"
+    ],
+    "time_tags": [
+      15,
+      30,
+      60
+    ],
+    "energy": "low",
+    "moods": [
+      "relaxing",
+      "cozy",
+      "thoughtful",
+      "nostalgic"
+    ],
+    "play_style": [
+      "puzzle_strategy"
+    ],
+    "time_to_fun": "short",
+    "stop_friendliness": "anytime",
+    "multiplayer": [
+      "solo"
+    ],
+    "description": "Unpack belongings and discover life stories through the objects we carry.",
+    "fun_fact": "The developers spent months studying real-world items to make pixel art objects immediately recognizable.",
+    "subscriptions": [
+      "xbox_game_pass"
+    ],
+    "franchise": "unpacking"
+  },
+  {
+    "id": "a-short-hike",
+    "title": "A Short Hike",
+    "platforms": [
+      "pc",
+      "console",
+      "handheld"
+    ],
+    "year": 2019,
+    "genres": [
+      "adventure",
+      "exploration",
+      "indie",
+      "relaxing"
+    ],
+    "time_tags": [
+      15,
+      30,
+      60
+    ],
+    "energy": "low",
+    "moods": [
+      "relaxing",
+      "charming",
+      "peaceful",
+      "exploratory"
+    ],
+    "play_style": [
+      "sandbox_creative"
+    ],
+    "time_to_fun": "short",
+    "stop_friendliness": "anytime",
+    "multiplayer": [
+      "solo"
+    ],
+    "description": "Hike up a mountain at your own pace in this charming little adventure.",
+    "fun_fact": "This cozy game was made in just 1 month as part of a game jam and later expanded into a full release!"
+  },
+  {
+    "id": "coffee-talk",
+    "title": "Coffee Talk",
+    "platforms": [
+      "pc",
+      "console",
+      "handheld"
+    ],
+    "year": 2020,
+    "genres": [
+      "visual-novel",
+      "narrative",
+      "indie",
+      "relaxing"
+    ],
+    "time_tags": [
+      30,
+      60
+    ],
+    "energy": "low",
+    "moods": [
+      "cozy",
+      "story-rich",
+      "relaxing",
+      "thoughtful"
+    ],
+    "play_style": [
+      "narrative"
+    ],
+    "time_to_fun": "short",
+    "stop_friendliness": "anytime",
+    "multiplayer": [
+      "solo"
+    ],
+    "description": "Listen to people's stories and serve them coffee in this cozy visual novel.",
+    "fun_fact": "The game is inspired by classic 90s coffee shop culture in Seattle.",
+    "subscriptions": [
+      "xbox_game_pass"
+    ],
+    "franchise": "coffee_talk"
+  },
+  {
+    "id": "spiritfarer",
+    "title": "Spiritfarer",
+    "platforms": [
+      "pc",
+      "console",
+      "handheld"
+    ],
+    "year": 2020,
+    "genres": [
+      "management",
+      "adventure",
+      "indie",
+      "emotional"
+    ],
+    "time_tags": [
+      30,
+      60,
+      90
+    ],
+    "energy": "low",
+    "moods": [
+      "emotional",
+      "cozy",
+      "thoughtful",
+      "heartwarming"
+    ],
+    "play_style": [
+      "sandbox_creative",
+      "narrative"
+    ],
+    "time_to_fun": "short",
+    "stop_friendliness": "anytime",
+    "multiplayer": [
+      "solo",
+      "local_coop"
+    ],
+    "description": "A cozy management game about dying where you care for spirits before releasing them.",
+    "fun_fact": "The developers consulted with grief counselors during development to handle themes of death sensitively.",
+    "subscriptions": [
+      "xbox_game_pass"
+    ],
+    "warnings": [
+      "themes_of_death"
+    ]
+  },
+  {
+    "id": "powerwash-simulator",
+    "title": "PowerWash Simulator",
+    "platforms": [
+      "pc",
+      "console"
+    ],
+    "year": 2022,
+    "genres": [
+      "simulation",
+      "relaxing",
+      "casual"
+    ],
+    "time_tags": [
+      15,
+      30,
+      60
+    ],
+    "energy": "low",
+    "moods": [
+      "zen",
+      "satisfying",
+      "relaxing"
+    ],
+    "play_style": [
+      "sandbox_creative"
+    ],
+    "time_to_fun": "short",
+    "stop_friendliness": "anytime",
+    "multiplayer": [
+      "solo",
+      "online_coop"
+    ],
+    "description": "Wash away your worries with the soothing power of water.",
+    "fun_fact": "The game features over 40 vehicles and locations to clean with surprisingly accurate water physics!",
+    "subscriptions": [
+      "xbox_game_pass"
+    ]
+  },
+  {
+    "id": "dorfromantik",
+    "title": "Dorfromantik",
+    "platforms": [
+      "pc",
+      "handheld"
+    ],
+    "year": 2022,
+    "genres": [
+      "puzzle",
+      "strategy",
+      "relaxing",
+      "indie"
+    ],
+    "time_tags": [
+      15,
+      30,
+      60
+    ],
+    "energy": "low",
+    "moods": [
+      "zen",
+      "relaxing",
+      "creative"
+    ],
+    "play_style": [
+      "puzzle_strategy"
+    ],
+    "time_to_fun": "short",
+    "stop_friendliness": "anytime",
+    "multiplayer": [
+      "solo"
+    ],
+    "description": "Build a beautiful landscape by placing tiles in this relaxing puzzle game.",
+    "fun_fact": "The word 'Dorfromantik' is German and roughly translates to 'village romanticism' - a longing for rural life."
+  },
+  {
+    "id": "lego-builders-journey",
+    "title": "LEGO Builder's Journey",
+    "platforms": [
+      "pc",
+      "console",
+      "handheld"
+    ],
+    "year": 2021,
+    "genres": [
+      "puzzle",
+      "relaxing",
+      "artistic"
+    ],
+    "time_tags": [
+      15,
+      30
+    ],
+    "energy": "low",
+    "moods": [
+      "relaxing",
+      "creative",
+      "nostalgic",
+      "thoughtful"
+    ],
+    "play_style": [
+      "puzzle_strategy"
+    ],
+    "time_to_fun": "short",
+    "stop_friendliness": "checkpoints",
+    "multiplayer": [
+      "solo"
+    ],
+    "description": "A poetic puzzle experience with beautiful LEGO brick-building.",
+    "fun_fact": "This was the first LEGO game developed in collaboration with LEGO's own in-house design team."
+  },
+  {
+    "id": "islanders",
+    "title": "Islanders",
+    "platforms": [
+      "pc",
+      "handheld"
+    ],
+    "year": 2019,
+    "genres": [
+      "city-builder",
+      "puzzle",
+      "minimalist",
+      "indie"
+    ],
+    "time_tags": [
+      15,
+      30
+    ],
+    "energy": "low",
+    "moods": [
+      "relaxing",
+      "zen",
+      "strategic"
+    ],
+    "play_style": [
+      "puzzle_strategy"
+    ],
+    "time_to_fun": "short",
+    "stop_friendliness": "anytime",
+    "multiplayer": [
+      "solo"
+    ],
+    "description": "A minimalist city-builder about creating beautiful islands.",
+    "fun_fact": "The entire game was created by a team of just 4 people in Germany!"
+  },
+  {
+    "id": "gardens-between",
+    "title": "The Gardens Between",
+    "platforms": [
+      "pc",
+      "console",
+      "handheld"
+    ],
+    "year": 2018,
+    "genres": [
+      "puzzle",
+      "adventure",
+      "narrative",
+      "indie"
+    ],
+    "time_tags": [
+      15,
+      30,
+      60
+    ],
+    "energy": "low",
+    "moods": [
+      "nostalgic",
+      "emotional",
+      "relaxing",
+      "thoughtful"
+    ],
+    "play_style": [
+      "puzzle_strategy"
+    ],
+    "time_to_fun": "short",
+    "stop_friendliness": "checkpoints",
+    "multiplayer": [
+      "solo"
+    ],
+    "description": "Manipulate time to solve puzzles and explore a friendship.",
+    "fun_fact": "The game has no dialogue or text - the entire story is told through visuals and environmental storytelling."
+  },
+  {
+    "id": "gris",
+    "title": "Gris",
+    "platforms": [
+      "pc",
+      "console",
+      "handheld"
+    ],
+    "year": 2018,
+    "genres": [
+      "platformer",
+      "artistic",
+      "narrative",
+      "indie"
+    ],
+    "time_tags": [
+      30,
+      60
+    ],
+    "energy": "low",
+    "moods": [
+      "emotional",
+      "artistic",
+      "peaceful",
+      "thoughtful"
+    ],
+    "play_style": [
+      "narrative"
+    ],
+    "time_to_fun": "short",
+    "stop_friendliness": "checkpoints",
+    "multiplayer": [
+      "solo"
+    ],
+    "description": "A serene, evocative experience about a young girl dealing with loss.",
+    "fun_fact": "The stunning watercolor art style was hand-painted by artist Conrad Roset, with each frame carefully crafted.",
+    "warnings": [
+      "themes_of_grief"
+    ]
+  },
+  {
+    "id": "mini-metro",
+    "title": "Mini Metro",
+    "platforms": [
+      "pc",
+      "handheld"
+    ],
+    "year": 2015,
+    "genres": [
+      "puzzle",
+      "strategy",
+      "minimalist",
+      "indie"
+    ],
+    "time_tags": [
+      15,
+      30
+    ],
+    "energy": "low",
+    "moods": [
+      "zen",
+      "strategic",
+      "relaxing"
+    ],
+    "play_style": [
+      "puzzle_strategy"
+    ],
+    "time_to_fun": "short",
+    "stop_friendliness": "checkpoints",
+    "multiplayer": [
+      "solo"
+    ],
+    "description": "Design subway lines for a growing city in this minimalist puzzle game.",
+    "fun_fact": "The game was inspired by Harry Beck's iconic 1931 London Underground map design.",
+    "subscriptions": [
+      "apple_arcade"
+    ]
+  },
+  {
+    "id": "abzu",
+    "title": "Abzu",
+    "platforms": [
+      "pc",
+      "console"
+    ],
+    "year": 2016,
+    "genres": [
+      "adventure",
+      "exploration",
+      "artistic",
+      "indie"
+    ],
+    "time_tags": [
+      30,
+      60
+    ],
+    "energy": "low",
+    "moods": [
+      "zen",
+      "peaceful",
+      "immersive",
+      "artistic"
+    ],
+    "play_style": [
+      "narrative"
+    ],
+    "time_to_fun": "short",
+    "stop_friendliness": "checkpoints",
+    "multiplayer": [
+      "solo"
+    ],
+    "description": "Dive into a beautiful underwater world full of mystery and wonder.",
+    "fun_fact": "The game's title comes from ancient Sumerian mythology - 'Abzu' refers to the primordial sea."
+  },
+  {
+    "id": "tetris-effect",
+    "title": "Tetris Effect: Connected",
+    "platforms": [
+      "pc",
+      "console",
+      "handheld"
+    ],
+    "year": 2018,
+    "genres": [
+      "puzzle",
+      "rhythm",
+      "relaxing"
+    ],
+    "time_tags": [
+      15,
+      30
+    ],
+    "energy": "low",
+    "moods": [
+      "zen",
+      "relaxing",
+      "focused"
+    ],
+    "play_style": [
+      "puzzle_strategy"
+    ],
+    "time_to_fun": "short",
+    "stop_friendliness": "checkpoints",
+    "multiplayer": [
+      "solo",
+      "online_coop",
+      "competitive"
+    ],
+    "description": "The iconic puzzle game reimagined with stunning visuals and music.",
+    "fun_fact": "Tetris was invented in 1984 by Soviet software engineer Alexey Pajitnov while working at the Soviet Academy of Sciences.",
+    "subscriptions": [
+      "xbox_game_pass"
+    ]
+  },
+  {
+    "id": "journey",
+    "title": "Journey",
+    "platforms": [
+      "pc",
+      "console"
+    ],
+    "year": 2012,
+    "genres": [
+      "adventure",
+      "artistic",
+      "indie"
+    ],
+    "time_tags": [
+      60,
+      90
+    ],
+    "energy": "low",
+    "moods": [
+      "emotional",
+      "peaceful",
+      "artistic",
+      "mysterious"
+    ],
+    "play_style": [
+      "narrative"
+    ],
+    "time_to_fun": "short",
+    "stop_friendliness": "checkpoints",
+    "multiplayer": [
+      "solo",
+      "online_coop"
+    ],
+    "description": "Travel through a mysterious desert towards a distant mountain.",
+    "fun_fact": "Players can only communicate through musical chirps, yet deep emotional bonds form between strangers."
+  },
+  {
+    "id": "flower",
+    "title": "Flower",
+    "platforms": [
+      "pc",
+      "console"
+    ],
+    "year": 2009,
+    "genres": [
+      "adventure",
+      "artistic",
+      "relaxing"
+    ],
+    "time_tags": [
+      15,
+      30
+    ],
+    "energy": "low",
+    "moods": [
+      "peaceful",
+      "zen",
+      "artistic",
+      "joyful"
+    ],
+    "play_style": [
+      "sandbox_creative"
+    ],
+    "time_to_fun": "short",
+    "stop_friendliness": "anytime",
+    "multiplayer": [
+      "solo"
+    ],
+    "description": "Guide flower petals through the wind in this serene experience.",
+    "fun_fact": "The game was designed specifically as an emotional experience, not a traditional game."
+  },
+  {
+    "id": "ori-blind-forest",
+    "title": "Ori and the Blind Forest",
+    "platforms": [
+      "pc",
+      "console",
+      "handheld"
+    ],
+    "year": 2015,
+    "genres": [
+      "platformer",
+      "metroidvania",
+      "artistic",
+      "indie"
+    ],
+    "time_tags": [
+      30,
+      60,
+      90
+    ],
+    "energy": "low",
+    "moods": [
+      "emotional",
+      "beautiful",
+      "adventurous"
+    ],
+    "play_style": [
+      "action",
+      "narrative"
+    ],
+    "time_to_fun": "short",
+    "stop_friendliness": "checkpoints",
+    "multiplayer": [
+      "solo"
+    ],
+    "description": "A stunning platformer about a guardian spirit in a dying forest.",
+    "fun_fact": "Moon Studios was a completely remote team from over 40 countries when they made this game!",
+    "subscriptions": [
+      "xbox_game_pass"
+    ],
+    "franchise": "ori"
+  },
+  {
+    "id": "ori-will-of-wisps",
+    "title": "Ori and the Will of the Wisps",
+    "platforms": [
+      "pc",
+      "console",
+      "handheld"
+    ],
+    "year": 2020,
+    "genres": [
+      "platformer",
+      "metroidvania",
+      "artistic",
+      "indie"
+    ],
+    "time_tags": [
+      30,
+      60,
+      90
+    ],
+    "energy": "low",
+    "moods": [
+      "emotional",
+      "beautiful",
+      "adventurous"
+    ],
+    "play_style": [
+      "action",
+      "narrative"
+    ],
+    "time_to_fun": "short",
+    "stop_friendliness": "checkpoints",
+    "multiplayer": [
+      "solo"
+    ],
+    "description": "Continue Ori's journey in this breathtaking sequel.",
+    "fun_fact": "The soundtrack was recorded by a full symphony orchestra!",
+    "subscriptions": [
+      "xbox_game_pass"
+    ],
+    "franchise": "ori"
+  },
+  {
+    "id": "firewatch",
+    "title": "Firewatch",
+    "platforms": [
+      "pc",
+      "console",
+      "handheld"
+    ],
+    "year": 2016,
+    "genres": [
+      "adventure",
+      "narrative",
+      "mystery",
+      "indie"
+    ],
+    "time_tags": [
+      60,
+      90
+    ],
+    "energy": "low",
+    "moods": [
+      "mysterious",
+      "thoughtful",
+      "immersive",
+      "lonely"
+    ],
+    "play_style": [
+      "narrative"
+    ],
+    "time_to_fun": "medium",
+    "stop_friendliness": "anytime",
+    "multiplayer": [
+      "solo"
+    ],
+    "description": "A mystery set in the Wyoming wilderness, told through radio conversations.",
+    "fun_fact": "The entire game takes place in a single summer and can be completed in one sitting."
+  },
+  {
+    "id": "what-remains-edith-finch",
+    "title": "What Remains of Edith Finch",
+    "platforms": [
+      "pc",
+      "console",
+      "handheld"
+    ],
+    "year": 2017,
+    "genres": [
+      "adventure",
+      "narrative",
+      "walking-sim",
+      "indie"
+    ],
+    "time_tags": [
+      60,
+      90
+    ],
+    "energy": "low",
+    "moods": [
+      "emotional",
+      "mysterious",
+      "thoughtful",
+      "melancholic"
+    ],
+    "play_style": [
+      "narrative"
+    ],
+    "time_to_fun": "short",
+    "stop_friendliness": "checkpoints",
+    "multiplayer": [
+      "solo"
+    ],
+    "description": "Explore a family's history through surreal, interconnected stories.",
+    "fun_fact": "Each family member's story uses a completely different gameplay mechanic.",
+    "subscriptions": [
+      "xbox_game_pass"
+    ]
+  },
+  {
+    "id": "gone-home",
+    "title": "Gone Home",
+    "platforms": [
+      "pc",
+      "console",
+      "handheld"
+    ],
+    "year": 2013,
+    "genres": [
+      "adventure",
+      "narrative",
+      "exploration",
+      "indie"
+    ],
+    "time_tags": [
+      60,
+      90
+    ],
+    "energy": "low",
+    "moods": [
+      "nostalgic",
+      "mysterious",
+      "intimate",
+      "emotional"
+    ],
+    "play_style": [
+      "narrative"
+    ],
+    "time_to_fun": "short",
+    "stop_friendliness": "anytime",
+    "multiplayer": [
+      "solo"
+    ],
+    "description": "Return home to an empty house and uncover your family's secrets.",
+    "fun_fact": "The game is set in 1995 and features authentic details from that era, including cassette tapes."
+  },
+  {
+    "id": "dear-esther",
+    "title": "Dear Esther",
+    "platforms": [
+      "pc",
+      "console"
+    ],
+    "year": 2012,
+    "genres": [
+      "adventure",
+      "narrative",
+      "artistic",
+      "indie"
+    ],
+    "time_tags": [
+      60
+    ],
+    "energy": "low",
+    "moods": [
+      "melancholic",
+      "poetic",
+      "mysterious",
+      "lonely"
+    ],
+    "play_style": [
+      "narrative"
+    ],
+    "time_to_fun": "medium",
+    "stop_friendliness": "checkpoints",
+    "multiplayer": [
+      "solo"
+    ],
+    "description": "Wander a desolate Hebridean island, piecing together a tragic story.",
+    "fun_fact": "Originally a free Half-Life 2 mod, it helped pioneer the 'walking simulator' genre."
+  },
+  {
+    "id": "everybody-gone-to-rapture",
+    "title": "Everybody's Gone to the Rapture",
+    "platforms": [
+      "pc",
+      "console"
+    ],
+    "year": 2015,
+    "genres": [
+      "adventure",
+      "narrative",
+      "mystery",
+      "indie"
+    ],
+    "time_tags": [
+      60,
+      90
+    ],
+    "energy": "low",
+    "moods": [
+      "mysterious",
+      "melancholic",
+      "peaceful",
+      "thoughtful"
+    ],
+    "play_style": [
+      "narrative"
+    ],
+    "time_to_fun": "medium",
+    "stop_friendliness": "anytime",
+    "multiplayer": [
+      "solo"
+    ],
+    "description": "Explore an English village where everyone has vanished.",
+    "fun_fact": "The game features an original orchestral score recorded at Abbey Road Studios."
+  },
+  {
+    "id": "return-obra-dinn",
+    "title": "Return of the Obra Dinn",
+    "platforms": [
+      "pc",
+      "console",
+      "handheld"
+    ],
+    "year": 2018,
+    "genres": [
+      "puzzle",
+      "mystery",
+      "detective",
+      "indie"
+    ],
+    "time_tags": [
+      60,
+      90
+    ],
+    "energy": "low",
+    "moods": [
+      "mysterious",
+      "thoughtful",
+      "challenging",
+      "unique"
+    ],
+    "play_style": [
+      "puzzle_strategy"
+    ],
+    "time_to_fun": "medium",
+    "stop_friendliness": "anytime",
+    "multiplayer": [
+      "solo"
+    ],
+    "description": "Solve the mystery of a ghost ship using a magical pocket watch.",
+    "fun_fact": "Creator Lucas Pope spent 5 years developing this game entirely by himself.",
+    "subscriptions": [
+      "xbox_game_pass"
+    ]
+  },
+  {
+    "id": "outer-wilds",
+    "title": "Outer Wilds",
+    "platforms": [
+      "pc",
+      "console"
+    ],
+    "year": 2019,
+    "genres": [
+      "adventure",
+      "exploration",
+      "puzzle",
+      "indie"
+    ],
+    "time_tags": [
+      60,
+      90
+    ],
+    "energy": "low",
+    "moods": [
+      "curious",
+      "mysterious",
+      "adventurous",
+      "thoughtful"
+    ],
+    "play_style": [
+      "puzzle_strategy",
+      "narrative"
+    ],
+    "time_to_fun": "medium",
+    "stop_friendliness": "checkpoints",
+    "multiplayer": [
+      "solo"
+    ],
+    "description": "Explore a solar system stuck in a 22-minute time loop.",
+    "fun_fact": "The game's 22-minute time loop is exactly synced to the sun's supernova cycle.",
+    "subscriptions": [
+      "xbox_game_pass"
+    ]
+  },
+  {
+    "id": "witness",
+    "title": "The Witness",
+    "platforms": [
+      "pc",
+      "console"
+    ],
+    "year": 2016,
+    "genres": [
+      "puzzle",
+      "exploration",
+      "indie"
+    ],
+    "time_tags": [
+      30,
+      60,
+      90
+    ],
+    "energy": "low",
+    "moods": [
+      "thoughtful",
+      "challenging",
+      "peaceful",
+      "mysterious"
+    ],
+    "play_style": [
+      "puzzle_strategy"
+    ],
+    "time_to_fun": "short",
+    "stop_friendliness": "anytime",
+    "multiplayer": [
+      "solo"
+    ],
+    "description": "Explore a beautiful island filled with line puzzles that teach you their rules.",
+    "fun_fact": "There are over 650 puzzles in the game, and creator Jonathan Blow spent 8 years designing them."
+  },
+  {
+    "id": "baba-is-you",
+    "title": "Baba Is You",
+    "platforms": [
+      "pc",
+      "handheld"
+    ],
+    "year": 2019,
+    "genres": [
+      "puzzle",
+      "indie",
+      "unique"
+    ],
+    "time_tags": [
+      15,
+      30,
+      60
+    ],
+    "energy": "low",
+    "moods": [
+      "challenging",
+      "clever",
+      "satisfying"
+    ],
+    "play_style": [
+      "puzzle_strategy"
+    ],
+    "time_to_fun": "short",
+    "stop_friendliness": "anytime",
+    "multiplayer": [
+      "solo"
+    ],
+    "description": "Push words around to change the rules of each puzzle.",
+    "fun_fact": "The game was originally created for a game jam in just 48 hours!"
+  },
+  {
+    "id": "monument-valley",
+    "title": "Monument Valley",
+    "platforms": [
+      "handheld"
+    ],
+    "year": 2014,
+    "genres": [
+      "puzzle",
+      "artistic",
+      "indie"
+    ],
+    "time_tags": [
+      15,
+      30
+    ],
+    "energy": "low",
+    "moods": [
+      "zen",
+      "beautiful",
+      "peaceful",
+      "creative"
+    ],
+    "play_style": [
+      "puzzle_strategy"
+    ],
+    "time_to_fun": "short",
+    "stop_friendliness": "anytime",
+    "multiplayer": [
+      "solo"
+    ],
+    "description": "Guide a princess through impossible architecture and optical illusions.",
+    "fun_fact": "The game was inspired by the impossible constructions of M.C. Escher.",
+    "franchise": "monument_valley",
+    "subscriptions": [
+      "apple_arcade"
+    ]
+  },
+  {
+    "id": "monument-valley-2",
+    "title": "Monument Valley 2",
+    "platforms": [
+      "handheld"
+    ],
+    "year": 2017,
+    "genres": [
+      "puzzle",
+      "artistic",
+      "indie"
+    ],
+    "time_tags": [
+      15,
+      30
+    ],
+    "energy": "low",
+    "moods": [
+      "zen",
+      "beautiful",
+      "emotional",
+      "peaceful"
+    ],
+    "play_style": [
+      "puzzle_strategy"
+    ],
+    "time_to_fun": "short",
+    "stop_friendliness": "anytime",
+    "multiplayer": [
+      "solo"
+    ],
+    "description": "A mother and daughter journey through impossible architecture.",
+    "fun_fact": "The game explores themes of motherhood and letting go as children grow.",
+    "franchise": "monument_valley",
+    "subscriptions": [
+      "apple_arcade"
+    ]
+  },
+  {
+    "id": "alto-adventure",
+    "title": "Alto's Adventure",
+    "platforms": [
+      "pc",
+      "handheld"
+    ],
+    "year": 2015,
+    "genres": [
+      "endless-runner",
+      "relaxing",
+      "indie"
+    ],
+    "time_tags": [
+      15,
+      30
+    ],
+    "energy": "low",
+    "moods": [
+      "zen",
+      "peaceful",
+      "beautiful",
+      "meditative"
+    ],
+    "play_style": [
+      "action"
+    ],
+    "time_to_fun": "short",
+    "stop_friendliness": "anytime",
+    "multiplayer": [
+      "solo"
+    ],
+    "description": "Snowboard through serene alpine landscapes in this endless journey.",
+    "fun_fact": "The game has a dedicated 'Zen Mode' with no scores or coins - just pure snowboarding.",
+    "franchise": "alto",
+    "subscriptions": [
+      "apple_arcade"
+    ]
+  },
+  {
+    "id": "alto-odyssey",
+    "title": "Alto's Odyssey",
+    "platforms": [
+      "pc",
+      "handheld"
+    ],
+    "year": 2018,
+    "genres": [
+      "endless-runner",
+      "relaxing",
+      "indie"
+    ],
+    "time_tags": [
+      15,
+      30
+    ],
+    "energy": "low",
+    "moods": [
+      "zen",
+      "peaceful",
+      "beautiful",
+      "adventurous"
+    ],
+    "play_style": [
+      "action"
+    ],
+    "time_to_fun": "short",
+    "stop_friendliness": "anytime",
+    "multiplayer": [
+      "solo"
+    ],
+    "description": "Sandboard through stunning desert landscapes in this zen sequel.",
+    "fun_fact": "The day-night cycle and weather system were procedurally generated for endless variety.",
+    "franchise": "alto",
+    "subscriptions": [
+      "apple_arcade"
+    ]
+  },
+  {
+    "id": "prune",
+    "title": "Prune",
+    "platforms": [
+      "handheld"
+    ],
+    "year": 2015,
+    "genres": [
+      "puzzle",
+      "artistic",
+      "relaxing",
+      "indie"
+    ],
+    "time_tags": [
+      15,
+      30
+    ],
+    "energy": "low",
+    "moods": [
+      "zen",
+      "meditative",
+      "beautiful",
+      "satisfying"
+    ],
+    "play_style": [
+      "puzzle_strategy"
+    ],
+    "time_to_fun": "short",
+    "stop_friendliness": "anytime",
+    "multiplayer": [
+      "solo"
+    ],
+    "description": "Shape trees to reach the light in this meditative puzzle game.",
+    "fun_fact": "The game was designed as a meditation on growth and the beauty of nature."
+  },
+  {
+    "id": "hidden-folks",
+    "title": "Hidden Folks",
+    "platforms": [
+      "pc",
+      "handheld"
+    ],
+    "year": 2017,
+    "genres": [
+      "puzzle",
+      "hidden-object",
+      "indie"
+    ],
+    "time_tags": [
+      15,
+      30,
+      60
+    ],
+    "energy": "low",
+    "moods": [
+      "charming",
+      "relaxing",
+      "fun",
+      "quirky"
+    ],
+    "play_style": [
+      "puzzle_strategy"
+    ],
+    "time_to_fun": "short",
+    "stop_friendliness": "anytime",
+    "multiplayer": [
+      "solo"
+    ],
+    "description": "Find hidden characters in hand-drawn landscapes full of interactive details.",
+    "fun_fact": "All sound effects were made with the developer's mouth - no instruments or synthesizers!"
+  },
+  {
+    "id": "gorogoa",
+    "title": "Gorogoa",
+    "platforms": [
+      "pc",
+      "console",
+      "handheld"
+    ],
+    "year": 2017,
+    "genres": [
+      "puzzle",
+      "artistic",
+      "indie"
+    ],
+    "time_tags": [
+      30,
+      60
+    ],
+    "energy": "low",
+    "moods": [
+      "mysterious",
+      "beautiful",
+      "thoughtful",
+      "unique"
+    ],
+    "play_style": [
+      "puzzle_strategy"
+    ],
+    "time_to_fun": "short",
+    "stop_friendliness": "anytime",
+    "multiplayer": [
+      "solo"
+    ],
+    "description": "Manipulate illustrated panels to solve puzzles in this hand-drawn masterpiece.",
+    "fun_fact": "The game took over 7 years to create, with all art hand-drawn by a single artist."
+  },
+  {
+    "id": "donut-county",
+    "title": "Donut County",
+    "platforms": [
+      "pc",
+      "console",
+      "handheld"
+    ],
+    "year": 2018,
+    "genres": [
+      "puzzle",
+      "comedy",
+      "indie"
+    ],
+    "time_tags": [
+      15,
+      30
+    ],
+    "energy": "low",
+    "moods": [
+      "fun",
+      "silly",
+      "relaxing",
+      "quirky"
+    ],
+    "play_style": [
+      "puzzle_strategy"
+    ],
+    "time_to_fun": "short",
+    "stop_friendliness": "anytime",
+    "multiplayer": [
+      "solo"
+    ],
+    "description": "Control a growing hole that swallows up an entire town.",
+    "fun_fact": "The game was made by a single developer over 6 years and started as a Twitter joke."
+  },
+  {
+    "id": "untitled-goose-game",
+    "title": "Untitled Goose Game",
+    "platforms": [
+      "pc",
+      "console",
+      "handheld"
+    ],
+    "year": 2019,
+    "genres": [
+      "puzzle",
+      "comedy",
+      "stealth",
+      "indie"
+    ],
+    "time_tags": [
+      30,
+      60
+    ],
+    "energy": "low",
+    "moods": [
+      "fun",
+      "mischievous",
+      "charming",
+      "silly"
+    ],
+    "play_style": [
+      "puzzle_strategy"
+    ],
+    "time_to_fun": "short",
+    "stop_friendliness": "anytime",
+    "multiplayer": [
+      "solo",
+      "local_coop"
+    ],
+    "description": "Be a horrible goose and ruin everyone's day in a quaint English village.",
+    "fun_fact": "The game started as a joke about a stock photo of a goose and became a viral sensation."
+  },
+  {
+    "id": "slime-rancher",
+    "title": "Slime Rancher",
+    "platforms": [
+      "pc",
+      "console"
+    ],
+    "year": 2017,
+    "genres": [
+      "farming",
+      "simulation",
+      "adventure",
+      "indie"
+    ],
+    "time_tags": [
+      30,
+      60
+    ],
+    "energy": "low",
+    "moods": [
+      "cheerful",
+      "relaxing",
+      "cute",
+      "fun"
+    ],
+    "play_style": [
+      "sandbox_creative"
+    ],
+    "time_to_fun": "short",
+    "stop_friendliness": "anytime",
+    "multiplayer": [
+      "solo"
+    ],
+    "description": "Wrangle adorable slimes on an alien planet far from Earth.",
+    "fun_fact": "The game has over 150 different slime combinations you can create by feeding slimes to each other.",
+    "subscriptions": [
+      "xbox_game_pass"
+    ],
+    "franchise": "slime_rancher"
+  },
+  {
+    "id": "slime-rancher-2",
+    "title": "Slime Rancher 2",
+    "platforms": [
+      "pc",
+      "console"
+    ],
+    "year": 2022,
+    "genres": [
+      "farming",
+      "simulation",
+      "adventure",
+      "indie"
+    ],
+    "time_tags": [
+      30,
+      60
+    ],
+    "energy": "low",
+    "moods": [
+      "cheerful",
+      "relaxing",
+      "cute",
+      "exploratory"
+    ],
+    "play_style": [
+      "sandbox_creative"
+    ],
+    "time_to_fun": "short",
+    "stop_friendliness": "anytime",
+    "multiplayer": [
+      "solo"
+    ],
+    "description": "Continue ranching cute slimes on a mysterious rainbow island.",
+    "fun_fact": "The sequel features a new conservatory system letting you build custom slime habitats.",
+    "subscriptions": [
+      "xbox_game_pass"
+    ],
+    "franchise": "slime_rancher"
+  },
+  {
+    "id": "house-flipper",
+    "title": "House Flipper",
+    "platforms": [
+      "pc",
+      "console"
+    ],
+    "year": 2018,
+    "genres": [
+      "simulation",
+      "renovation",
+      "indie"
+    ],
+    "time_tags": [
+      30,
+      60,
+      90
+    ],
+    "energy": "low",
+    "moods": [
+      "satisfying",
+      "creative",
+      "relaxing"
+    ],
+    "play_style": [
+      "sandbox_creative"
+    ],
+    "time_to_fun": "short",
+    "stop_friendliness": "anytime",
+    "multiplayer": [
+      "solo"
+    ],
+    "description": "Buy, renovate, and sell houses in this satisfying simulation.",
+    "fun_fact": "The game was made by a small Polish studio and became one of Steam's top sellers."
+  },
+  {
+    "id": "garden-story",
+    "title": "Garden Story",
+    "platforms": [
+      "pc",
+      "console",
+      "handheld"
+    ],
+    "year": 2021,
+    "genres": [
+      "adventure",
+      "rpg",
+      "cozy",
+      "indie"
+    ],
+    "time_tags": [
+      30,
+      60
+    ],
+    "energy": "low",
+    "moods": [
+      "cozy",
+      "charming",
+      "relaxing",
+      "cute"
+    ],
+    "play_style": [
+      "sandbox_creative",
+      "action"
+    ],
+    "time_to_fun": "short",
+    "stop_friendliness": "anytime",
+    "multiplayer": [
+      "solo"
+    ],
+    "description": "Play as a grape rebuilding your community one garden at a time.",
+    "fun_fact": "The game was funded through Kickstarter with overwhelming support from the cozy gaming community."
+  },
+  {
+    "id": "littlewood",
+    "title": "Littlewood",
+    "platforms": [
+      "pc",
+      "handheld"
+    ],
+    "year": 2020,
+    "genres": [
+      "simulation",
+      "rpg",
+      "town-builder",
+      "indie"
+    ],
+    "time_tags": [
+      30,
+      60,
+      90
+    ],
+    "energy": "low",
+    "moods": [
+      "cozy",
+      "relaxing",
+      "charming",
+      "nostalgic"
+    ],
+    "play_style": [
+      "sandbox_creative"
+    ],
+    "time_to_fun": "short",
+    "stop_friendliness": "anytime",
+    "multiplayer": [
+      "solo"
+    ],
+    "description": "Rebuild your town after saving the world, with no memory of how you did it.",
+    "fun_fact": "The game was made entirely by one developer who learned to code specifically to make this game."
+  },
+  {
+    "id": "my-time-at-portia",
+    "title": "My Time at Portia",
+    "platforms": [
+      "pc",
+      "console",
+      "handheld"
+    ],
+    "year": 2019,
+    "genres": [
+      "simulation",
+      "crafting",
+      "rpg",
+      "life-sim"
+    ],
+    "time_tags": [
+      30,
+      60,
+      90
+    ],
+    "energy": "low",
+    "moods": [
+      "cozy",
+      "creative",
+      "relaxing",
+      "adventurous"
+    ],
+    "play_style": [
+      "sandbox_creative"
+    ],
+    "time_to_fun": "short",
+    "stop_friendliness": "anytime",
+    "multiplayer": [
+      "solo"
+    ],
+    "description": "Run your own workshop in a charming post-apocalyptic world.",
+    "fun_fact": "The game is set in a post-apocalyptic world where society has rebuilt into a cozy civilization.",
+    "franchise": "my_time"
+  },
+  {
+    "id": "my-time-at-sandrock",
+    "title": "My Time at Sandrock",
+    "platforms": [
+      "pc",
+      "console"
+    ],
+    "year": 2023,
+    "genres": [
+      "simulation",
+      "crafting",
+      "rpg",
+      "life-sim"
+    ],
+    "time_tags": [
+      30,
+      60,
+      90
+    ],
+    "energy": "low",
+    "moods": [
+      "cozy",
+      "creative",
+      "relaxing",
+      "adventurous"
+    ],
+    "play_style": [
+      "sandbox_creative"
+    ],
+    "time_to_fun": "short",
+    "stop_friendliness": "anytime",
+    "multiplayer": [
+      "solo",
+      "online_coop"
+    ],
+    "description": "Build your workshop in a desert oasis community.",
+    "fun_fact": "The sequel adds multiplayer so you can build your workshop with friends!",
+    "franchise": "my_time"
+  },
+  {
+    "id": "ooblets",
+    "title": "Ooblets",
+    "platforms": [
+      "pc",
+      "console",
+      "handheld"
+    ],
+    "year": 2022,
+    "genres": [
+      "farming",
+      "creature-collector",
+      "life-sim",
+      "indie"
+    ],
+    "time_tags": [
+      30,
+      60
+    ],
+    "energy": "low",
+    "moods": [
+      "cute",
+      "cozy",
+      "fun",
+      "quirky"
+    ],
+    "play_style": [
+      "sandbox_creative"
+    ],
+    "time_to_fun": "short",
+    "stop_friendliness": "anytime",
+    "multiplayer": [
+      "solo"
+    ],
+    "description": "Farm, befriend ooblets, and compete in dance battles.",
+    "fun_fact": "Instead of fighting, all conflicts in this game are resolved through dance battles!"
+  },
+  {
+    "id": "wylde-flowers",
+    "title": "Wylde Flowers",
+    "platforms": [
+      "pc",
+      "console",
+      "handheld"
+    ],
+    "year": 2022,
+    "genres": [
+      "farming",
+      "life-sim",
+      "witchcraft",
+      "indie"
+    ],
+    "time_tags": [
+      30,
+      60
+    ],
+    "energy": "low",
+    "moods": [
+      "cozy",
+      "magical",
+      "charming",
+      "relaxing"
+    ],
+    "play_style": [
+      "sandbox_creative",
+      "narrative"
+    ],
+    "time_to_fun": "short",
+    "stop_friendliness": "anytime",
+    "multiplayer": [
+      "solo"
+    ],
+    "description": "Farm by day, practice witchcraft by night in this magical life sim.",
+    "fun_fact": "The game features fully voice-acted characters with over 30 hours of dialogue."
+  },
+  {
+    "id": "coral-island",
+    "title": "Coral Island",
+    "platforms": [
+      "pc",
+      "console"
+    ],
+    "year": 2023,
+    "genres": [
+      "farming",
+      "life-sim",
+      "simulation"
+    ],
+    "time_tags": [
+      30,
+      60,
+      90
+    ],
+    "energy": "low",
+    "moods": [
+      "cozy",
+      "tropical",
+      "relaxing",
+      "charming"
+    ],
+    "play_style": [
+      "sandbox_creative"
+    ],
+    "time_to_fun": "short",
+    "stop_friendliness": "anytime",
+    "multiplayer": [
+      "solo",
+      "local_coop"
+    ],
+    "description": "Farm and dive in a tropical paradise while restoring coral reefs.",
+    "fun_fact": "The game was developed in Indonesia and features Southeast Asian-inspired aesthetics."
+  },
+  {
+    "id": "sun-haven",
+    "title": "Sun Haven",
+    "platforms": [
+      "pc"
+    ],
+    "year": 2023,
+    "genres": [
+      "farming",
+      "rpg",
+      "fantasy",
+      "simulation"
+    ],
+    "time_tags": [
+      30,
+      60,
+      90
+    ],
+    "energy": "low",
+    "moods": [
+      "cozy",
+      "magical",
+      "adventurous",
+      "relaxing"
+    ],
+    "play_style": [
+      "sandbox_creative"
+    ],
+    "time_to_fun": "short",
+    "stop_friendliness": "anytime",
+    "multiplayer": [
+      "solo",
+      "online_coop"
+    ],
+    "description": "Farm in a fantasy world with magic, monsters, and dragons.",
+    "fun_fact": "The game features 8 playable races including elves, demons, and elementals."
+  },
+  {
+    "id": "cattails",
+    "title": "Cattails",
+    "platforms": [
+      "pc",
+      "console",
+      "handheld"
+    ],
+    "year": 2017,
+    "genres": [
+      "simulation",
+      "rpg",
+      "cats",
+      "indie"
+    ],
+    "time_tags": [
+      30,
+      60
+    ],
+    "energy": "low",
+    "moods": [
+      "cozy",
+      "cute",
+      "relaxing",
+      "adventurous"
+    ],
+    "play_style": [
+      "sandbox_creative"
+    ],
+    "time_to_fun": "short",
+    "stop_friendliness": "anytime",
+    "multiplayer": [
+      "solo"
+    ],
+    "description": "Live as a cat in the wild, hunting, exploring, and raising kittens.",
+    "fun_fact": "The game was inspired by the Warriors book series about wild cat clans."
+  },
+  {
+    "id": "calico",
+    "title": "Calico",
+    "platforms": [
+      "pc",
+      "console",
+      "handheld"
+    ],
+    "year": 2020,
+    "genres": [
+      "simulation",
+      "casual",
+      "cats",
+      "indie"
+    ],
+    "time_tags": [
+      30,
+      60
+    ],
+    "energy": "low",
+    "moods": [
+      "cute",
+      "cozy",
+      "magical",
+      "relaxing"
+    ],
+    "play_style": [
+      "sandbox_creative"
+    ],
+    "time_to_fun": "short",
+    "stop_friendliness": "anytime",
+    "multiplayer": [
+      "solo"
+    ],
+    "description": "Run a cat cafe in a magical world where you can ride giant cats.",
+    "fun_fact": "The game features rideable giant cats, including cats you can make enormous with potions!"
+  },
+  {
+    "id": "bear-and-breakfast",
+    "title": "Bear and Breakfast",
+    "platforms": [
+      "pc",
+      "handheld"
+    ],
+    "year": 2022,
+    "genres": [
+      "management",
+      "adventure",
+      "cozy",
+      "indie"
+    ],
+    "time_tags": [
+      30,
+      60
+    ],
+    "energy": "low",
+    "moods": [
+      "cozy",
+      "fun",
+      "charming",
+      "quirky"
+    ],
+    "play_style": [
+      "sandbox_creative"
+    ],
+    "time_to_fun": "short",
+    "stop_friendliness": "anytime",
+    "multiplayer": [
+      "solo"
+    ],
+    "description": "Build and run a bed and breakfast as an adorable bear.",
+    "fun_fact": "The game was made by a tiny Romanian studio called Gummy Cat."
+  },
+  {
+    "id": "lemon-cake",
+    "title": "Lemon Cake",
+    "platforms": [
+      "pc",
+      "handheld"
+    ],
+    "year": 2021,
+    "genres": [
+      "simulation",
+      "bakery",
+      "renovation",
+      "indie"
+    ],
+    "time_tags": [
+      30,
+      60
+    ],
+    "energy": "low",
+    "moods": [
+      "cozy",
+      "cute",
+      "satisfying",
+      "relaxing"
+    ],
+    "play_style": [
+      "sandbox_creative"
+    ],
+    "time_to_fun": "short",
+    "stop_friendliness": "anytime",
+    "multiplayer": [
+      "solo"
+    ],
+    "description": "Restore an old bakery and serve delicious treats to forest creatures.",
+    "fun_fact": "The game features a ghost cat named Mango who helps you run your bakery."
+  },
+  {
+    "id": "snacko",
+    "title": "Snacko",
+    "platforms": [
+      "pc"
+    ],
+    "year": 2024,
+    "genres": [
+      "farming",
+      "life-sim",
+      "cats",
+      "indie"
+    ],
+    "time_tags": [
+      30,
+      60
+    ],
+    "energy": "low",
+    "moods": [
+      "cute",
+      "cozy",
+      "charming",
+      "relaxing"
+    ],
+    "play_style": [
+      "sandbox_creative"
+    ],
+    "time_to_fun": "short",
+    "stop_friendliness": "anytime",
+    "multiplayer": [
+      "solo"
+    ],
+    "description": "Play as cats building a farm and community on a mysterious island.",
+    "fun_fact": "All characters in the game are adorable cats with distinct personalities."
+  },
+  {
+    "id": "disney-dreamlight-valley",
+    "title": "Disney Dreamlight Valley",
+    "platforms": [
+      "pc",
+      "console",
+      "handheld"
+    ],
+    "year": 2022,
+    "genres": [
+      "life-sim",
+      "adventure",
+      "simulation"
+    ],
+    "time_tags": [
+      30,
+      60,
+      90
+    ],
+    "energy": "low",
+    "moods": [
+      "magical",
+      "cozy",
+      "nostalgic",
+      "charming"
+    ],
+    "play_style": [
+      "sandbox_creative"
+    ],
+    "time_to_fun": "short",
+    "stop_friendliness": "anytime",
+    "multiplayer": [
+      "solo"
+    ],
+    "description": "Build your dream Disney neighborhood with beloved characters.",
+    "fun_fact": "Voice actors from the original Disney movies return to voice their characters in the game."
+  },
+  {
+    "id": "palia",
+    "title": "Palia",
+    "platforms": [
+      "pc",
+      "handheld"
+    ],
+    "year": 2023,
+    "genres": [
+      "mmo",
+      "life-sim",
+      "farming",
+      "cozy"
+    ],
+    "time_tags": [
+      30,
+      60,
+      90
+    ],
+    "energy": "low",
+    "moods": [
+      "cozy",
+      "social",
+      "relaxing",
+      "adventurous"
+    ],
+    "play_style": [
+      "sandbox_creative"
+    ],
+    "time_to_fun": "short",
+    "stop_friendliness": "anytime",
+    "multiplayer": [
+      "solo",
+      "online_coop"
+    ],
+    "description": "A cozy MMO where you farm, build, and explore with friends.",
+    "fun_fact": "This is one of the first MMOs designed specifically for cozy gaming with no combat stress."
+  },
+  {
+    "id": "cozy-grove",
+    "title": "Cozy Grove",
+    "platforms": [
+      "pc",
+      "console",
+      "handheld"
+    ],
+    "year": 2021,
+    "genres": [
+      "life-sim",
+      "adventure",
+      "camping",
+      "indie"
+    ],
+    "time_tags": [
+      15,
+      30
+    ],
+    "energy": "low",
+    "moods": [
+      "cozy",
+      "cute",
+      "heartwarming",
+      "relaxing"
+    ],
+    "play_style": [
+      "sandbox_creative"
+    ],
+    "time_to_fun": "short",
+    "stop_friendliness": "anytime",
+    "multiplayer": [
+      "solo"
+    ],
+    "description": "Camp on a haunted island and help ghost bears find peace.",
+    "fun_fact": "The game is designed for short daily play sessions - new content unlocks each real-world day."
+  },
+  {
+    "id": "fae-farm",
+    "title": "Fae Farm",
+    "platforms": [
+      "pc",
+      "handheld"
+    ],
+    "year": 2023,
+    "genres": [
+      "farming",
+      "life-sim",
+      "fantasy",
+      "cozy"
+    ],
+    "time_tags": [
+      30,
+      60
+    ],
+    "energy": "low",
+    "moods": [
+      "magical",
+      "cozy",
+      "charming",
+      "adventurous"
+    ],
+    "play_style": [
+      "sandbox_creative"
+    ],
+    "time_to_fun": "short",
+    "stop_friendliness": "anytime",
+    "multiplayer": [
+      "solo",
+      "online_coop"
+    ],
+    "description": "Farm in a magical world where you can explore the realm of the fae.",
+    "fun_fact": "The game supports 4-player co-op farming adventures."
+  },
+  {
+    "id": "spirittea",
+    "title": "Spirittea",
+    "platforms": [
+      "pc",
+      "console",
+      "handheld"
+    ],
+    "year": 2023,
+    "genres": [
+      "life-sim",
+      "management",
+      "supernatural",
+      "indie"
+    ],
+    "time_tags": [
+      30,
+      60
+    ],
+    "energy": "low",
+    "moods": [
+      "cozy",
+      "quirky",
+      "charming",
+      "relaxing"
+    ],
+    "play_style": [
+      "sandbox_creative"
+    ],
+    "time_to_fun": "short",
+    "stop_friendliness": "anytime",
+    "multiplayer": [
+      "solo"
+    ],
+    "description": "Run a bathhouse for spirits in a rural town inspired by Spirited Away.",
+    "fun_fact": "The game is heavily inspired by Spirited Away and Japanese rural life."
+  },
+  {
+    "id": "stray",
+    "title": "Stray",
+    "platforms": [
+      "pc",
+      "console"
+    ],
+    "year": 2022,
+    "genres": [
+      "adventure",
+      "puzzle",
+      "cats",
+      "indie"
+    ],
+    "time_tags": [
+      30,
+      60
+    ],
+    "energy": "low",
+    "moods": [
+      "curious",
+      "immersive",
+      "beautiful",
+      "mysterious"
+    ],
+    "play_style": [
+      "narrative",
+      "puzzle_strategy"
+    ],
+    "time_to_fun": "short",
+    "stop_friendliness": "checkpoints",
+    "multiplayer": [
+      "solo"
+    ],
+    "description": "Play as a stray cat navigating a mysterious cyberpunk city.",
+    "fun_fact": "The cat's movements were motion-captured from real cats, and a dedicated meow button exists.",
+    "subscriptions": [
+      "playstation_plus"
+    ]
+  },
+  {
+    "id": "toem",
+    "title": "TOEM",
+    "platforms": [
+      "pc",
+      "console",
+      "handheld"
+    ],
+    "year": 2021,
+    "genres": [
+      "adventure",
+      "photography",
+      "puzzle",
+      "indie"
+    ],
+    "time_tags": [
+      15,
+      30,
+      60
+    ],
+    "energy": "low",
+    "moods": [
+      "charming",
+      "relaxing",
+      "quirky",
+      "heartwarming"
+    ],
+    "play_style": [
+      "puzzle_strategy"
+    ],
+    "time_to_fun": "short",
+    "stop_friendliness": "anytime",
+    "multiplayer": [
+      "solo"
+    ],
+    "description": "Embark on a photography adventure to capture the mysterious TOEM.",
+    "fun_fact": "The entire game fits in under 500MB despite having hundreds of photos to take."
+  },
+  {
+    "id": "tunic",
+    "title": "Tunic",
+    "platforms": [
+      "pc",
+      "console",
+      "handheld"
+    ],
+    "year": 2022,
+    "genres": [
+      "adventure",
+      "action",
+      "puzzle",
+      "indie"
+    ],
+    "time_tags": [
+      30,
+      60,
+      90
+    ],
+    "energy": "low",
+    "moods": [
+      "curious",
+      "mysterious",
+      "challenging",
+      "nostalgic"
+    ],
+    "play_style": [
+      "action",
+      "puzzle_strategy"
+    ],
+    "time_to_fun": "short",
+    "stop_friendliness": "checkpoints",
+    "multiplayer": [
+      "solo"
+    ],
+    "description": "An isometric adventure where you discover the game's secrets through an in-game manual.",
+    "fun_fact": "The in-game manual is written in a fictional language that players decoded!",
+    "subscriptions": [
+      "xbox_game_pass"
+    ]
+  },
+  {
+    "id": "chicory",
+    "title": "Chicory: A Colorful Tale",
+    "platforms": [
+      "pc",
+      "console",
+      "handheld"
+    ],
+    "year": 2021,
+    "genres": [
+      "adventure",
+      "puzzle",
+      "artistic",
+      "indie"
+    ],
+    "time_tags": [
+      30,
+      60
+    ],
+    "energy": "low",
+    "moods": [
+      "creative",
+      "emotional",
+      "charming",
+      "thoughtful"
+    ],
+    "play_style": [
+      "puzzle_strategy"
+    ],
+    "time_to_fun": "short",
+    "stop_friendliness": "anytime",
+    "multiplayer": [
+      "solo",
+      "local_coop"
+    ],
+    "description": "Paint the world back to life after all color mysteriously vanishes.",
+    "fun_fact": "The game explores themes of imposter syndrome and creative burnout."
+  },
+  {
+    "id": "webbed",
+    "title": "Webbed",
+    "platforms": [
+      "pc",
+      "console",
+      "handheld"
+    ],
+    "year": 2021,
+    "genres": [
+      "platformer",
+      "adventure",
+      "indie"
+    ],
+    "time_tags": [
+      30,
+      60
+    ],
+    "energy": "low",
+    "moods": [
+      "cute",
+      "fun",
+      "creative",
+      "charming"
+    ],
+    "play_style": [
+      "action"
+    ],
+    "time_to_fun": "short",
+    "stop_friendliness": "anytime",
+    "multiplayer": [
+      "solo"
+    ],
+    "description": "Play as a tiny spider swinging through the world on webs.",
+    "fun_fact": "You can actually create functional web structures using real spider physics!"
+  },
+  {
+    "id": "tinykin",
+    "title": "Tinykin",
+    "platforms": [
+      "pc",
+      "console",
+      "handheld"
+    ],
+    "year": 2022,
+    "genres": [
+      "platformer",
+      "adventure",
+      "puzzle",
+      "indie"
+    ],
+    "time_tags": [
+      30,
+      60
+    ],
+    "energy": "low",
+    "moods": [
+      "charming",
+      "fun",
+      "nostalgic",
+      "creative"
+    ],
+    "play_style": [
+      "puzzle_strategy"
+    ],
+    "time_to_fun": "short",
+    "stop_friendliness": "anytime",
+    "multiplayer": [
+      "solo"
+    ],
+    "description": "Explore a giant house with tiny creatures like a 3D Pikmin.",
+    "fun_fact": "The animation team studied real ant behavior for months to make the Tinykin feel alive."
+  },
+  {
+    "id": "a-little-to-the-left",
+    "title": "A Little to the Left",
+    "platforms": [
+      "pc",
+      "console",
+      "handheld"
+    ],
+    "year": 2022,
+    "genres": [
+      "puzzle",
+      "cozy",
+      "organizing",
+      "indie"
+    ],
+    "time_tags": [
+      15,
+      30
+    ],
+    "energy": "low",
+    "moods": [
+      "satisfying",
+      "relaxing",
+      "zen",
+      "quirky"
+    ],
+    "play_style": [
+      "puzzle_strategy"
+    ],
+    "time_to_fun": "short",
+    "stop_friendliness": "anytime",
+    "multiplayer": [
+      "solo"
+    ],
+    "description": "Organize household objects into satisfying arrangements.",
+    "fun_fact": "A mischievous cat occasionally disrupts your perfectly organized items."
+  },
+  {
+    "id": "assemble-with-care",
+    "title": "Assemble with Care",
+    "platforms": [
+      "pc",
+      "console",
+      "handheld"
+    ],
+    "year": 2019,
+    "genres": [
+      "puzzle",
+      "narrative",
+      "relaxing",
+      "indie"
+    ],
+    "time_tags": [
+      30,
+      60
+    ],
+    "energy": "low",
+    "moods": [
+      "heartwarming",
+      "relaxing",
+      "nostalgic",
+      "thoughtful"
+    ],
+    "play_style": [
+      "puzzle_strategy",
+      "narrative"
+    ],
+    "time_to_fun": "short",
+    "stop_friendliness": "checkpoints",
+    "multiplayer": [
+      "solo"
+    ],
+    "description": "Repair broken objects and discover the stories behind them.",
+    "fun_fact": "Made by the creators of Monument Valley as an Apple Arcade exclusive.",
+    "subscriptions": [
+      "apple_arcade"
+    ]
+  },
+  {
+    "id": "strange-horticulture",
+    "title": "Strange Horticulture",
+    "platforms": [
+      "pc",
+      "console",
+      "handheld"
+    ],
+    "year": 2022,
+    "genres": [
+      "puzzle",
+      "mystery",
+      "occult",
+      "indie"
+    ],
+    "time_tags": [
+      30,
+      60
+    ],
+    "energy": "low",
+    "moods": [
+      "mysterious",
+      "cozy",
+      "intriguing",
+      "thoughtful"
+    ],
+    "play_style": [
+      "puzzle_strategy"
+    ],
+    "time_to_fun": "short",
+    "stop_friendliness": "anytime",
+    "multiplayer": [
+      "solo"
+    ],
+    "description": "Run an occult plant shop and solve a dark mystery.",
+    "fun_fact": "The game features over 70 unique plants, each with mysterious magical properties."
+  },
+  {
+    "id": "potion-craft",
+    "title": "Potion Craft",
+    "platforms": [
+      "pc",
+      "console"
+    ],
+    "year": 2022,
+    "genres": [
+      "simulation",
+      "alchemy",
+      "crafting",
+      "indie"
+    ],
+    "time_tags": [
+      30,
+      60
+    ],
+    "energy": "low",
+    "moods": [
+      "creative",
+      "relaxing",
+      "mysterious",
+      "satisfying"
+    ],
+    "play_style": [
+      "sandbox_creative"
+    ],
+    "time_to_fun": "short",
+    "stop_friendliness": "anytime",
+    "multiplayer": [
+      "solo"
+    ],
+    "description": "Brew potions by navigating an alchemical map of ingredients.",
+    "fun_fact": "The potion-making system uses a unique map-based mechanic unlike any other crafting game."
+  },
+  {
+    "id": "venba",
+    "title": "Venba",
+    "platforms": [
+      "pc",
+      "console",
+      "handheld"
+    ],
+    "year": 2023,
+    "genres": [
+      "narrative",
+      "cooking",
+      "indie"
+    ],
+    "time_tags": [
+      60,
+      90
+    ],
+    "energy": "low",
+    "moods": [
+      "emotional",
+      "heartwarming",
+      "nostalgic",
+      "thoughtful"
+    ],
+    "play_style": [
+      "narrative"
+    ],
+    "time_to_fun": "short",
+    "stop_friendliness": "checkpoints",
+    "multiplayer": [
+      "solo"
+    ],
+    "description": "Cook traditional Tamil recipes while exploring immigrant family life.",
+    "fun_fact": "The recipes in the game are real Tamil dishes that you can actually cook at home.",
+    "subscriptions": [
+      "xbox_game_pass"
+    ]
+  },
+  {
+    "id": "season-story-beneath",
+    "title": "Season: A Letter to the Future",
+    "platforms": [
+      "pc",
+      "console"
+    ],
+    "year": 2023,
+    "genres": [
+      "adventure",
+      "exploration",
+      "narrative",
+      "indie"
+    ],
+    "time_tags": [
+      60,
+      90
+    ],
+    "energy": "low",
+    "moods": [
+      "melancholic",
+      "peaceful",
+      "thoughtful",
+      "beautiful"
+    ],
+    "play_style": [
+      "narrative"
+    ],
+    "time_to_fun": "medium",
+    "stop_friendliness": "anytime",
+    "multiplayer": [
+      "solo"
+    ],
+    "description": "Document a dying world by bicycle before it's too late.",
+    "fun_fact": "The game was inspired by real-world anthropology and the act of preserving culture."
+  },
+  {
+    "id": "i-was-teenage-exocolonist",
+    "title": "I Was a Teenage Exocolonist",
+    "platforms": [
+      "pc",
+      "console",
+      "handheld"
+    ],
+    "year": 2022,
+    "genres": [
+      "rpg",
+      "narrative",
+      "life-sim",
+      "indie"
+    ],
+    "time_tags": [
+      60,
+      90
+    ],
+    "energy": "low",
+    "moods": [
+      "emotional",
+      "thoughtful",
+      "sci-fi",
+      "coming-of-age"
+    ],
+    "play_style": [
+      "narrative"
+    ],
+    "time_to_fun": "medium",
+    "stop_friendliness": "anytime",
+    "multiplayer": [
+      "solo"
+    ],
+    "description": "Grow up on an alien planet, making choices that shape your life.",
+    "fun_fact": "The game has multiple endings that span 10 years of in-game time."
+  },
+  {
+    "id": "coffee-talk-2",
+    "title": "Coffee Talk Episode 2",
+    "platforms": [
+      "pc",
+      "console",
+      "handheld"
+    ],
+    "year": 2023,
+    "genres": [
+      "visual-novel",
+      "narrative",
+      "indie",
+      "relaxing"
+    ],
+    "time_tags": [
+      30,
+      60
+    ],
+    "energy": "low",
+    "moods": [
+      "cozy",
+      "story-rich",
+      "relaxing",
+      "thoughtful"
+    ],
+    "play_style": [
+      "narrative"
+    ],
+    "time_to_fun": "short",
+    "stop_friendliness": "anytime",
+    "multiplayer": [
+      "solo"
+    ],
+    "description": "Return to the late-night coffee shop for more heartfelt stories.",
+    "fun_fact": "The original developer passed away before this sequel was completed; the team finished it in their honor.",
+    "franchise": "coffee_talk"
+  },
+  {
+    "id": "wayward-strand",
+    "title": "Wayward Strand",
+    "platforms": [
+      "pc",
+      "console",
+      "handheld"
+    ],
+    "year": 2022,
+    "genres": [
+      "narrative",
+      "adventure",
+      "indie"
+    ],
+    "time_tags": [
+      60,
+      90
+    ],
+    "energy": "low",
+    "moods": [
+      "heartwarming",
+      "thoughtful",
+      "gentle",
+      "emotional"
+    ],
+    "play_style": [
+      "narrative"
+    ],
+    "time_to_fun": "medium",
+    "stop_friendliness": "checkpoints",
+    "multiplayer": [
+      "solo"
+    ],
+    "description": "Spend time with elderly patients on a floating hospital airship.",
+    "fun_fact": "The game runs in real-time - characters have their own schedules and you can't see everything."
+  },
+  {
+    "id": "garden-in",
+    "title": "Garden In!",
+    "platforms": [
+      "pc",
+      "handheld"
+    ],
+    "year": 2023,
+    "genres": [
+      "puzzle",
+      "gardening",
+      "relaxing",
+      "indie"
+    ],
+    "time_tags": [
+      15,
+      30
+    ],
+    "energy": "low",
+    "moods": [
+      "zen",
+      "creative",
+      "relaxing",
+      "satisfying"
+    ],
+    "play_style": [
+      "puzzle_strategy"
+    ],
+    "time_to_fun": "short",
+    "stop_friendliness": "anytime",
+    "multiplayer": [
+      "solo"
+    ],
+    "description": "Arrange plants in a tiny digital zen garden.",
+    "fun_fact": "The game features over 100 unique plants inspired by real botanical species."
+  },
+  {
+    "id": "growbot",
+    "title": "Growbot",
+    "platforms": [
+      "pc",
+      "handheld"
+    ],
+    "year": 2021,
+    "genres": [
+      "adventure",
+      "puzzle",
+      "artistic",
+      "indie"
+    ],
+    "time_tags": [
+      30,
+      60
+    ],
+    "energy": "low",
+    "moods": [
+      "whimsical",
+      "creative",
+      "charming",
+      "beautiful"
+    ],
+    "play_style": [
+      "puzzle_strategy"
+    ],
+    "time_to_fun": "short",
+    "stop_friendliness": "anytime",
+    "multiplayer": [
+      "solo"
+    ],
+    "description": "A young robot saves her space station using the power of flowers.",
+    "fun_fact": "The entire game was illustrated in a handmade botanical art style."
+  },
+  {
+    "id": "behind-frame",
+    "title": "Behind the Frame",
+    "platforms": [
+      "pc",
+      "console",
+      "handheld"
+    ],
+    "year": 2021,
+    "genres": [
+      "puzzle",
+      "narrative",
+      "artistic",
+      "indie"
+    ],
+    "time_tags": [
+      60
+    ],
+    "energy": "low",
+    "moods": [
+      "beautiful",
+      "romantic",
+      "nostalgic",
+      "emotional"
+    ],
+    "play_style": [
+      "puzzle_strategy",
+      "narrative"
+    ],
+    "time_to_fun": "short",
+    "stop_friendliness": "checkpoints",
+    "multiplayer": [
+      "solo"
+    ],
+    "description": "Complete paintings while uncovering a touching love story.",
+    "fun_fact": "The game's art style was inspired by Studio Ghibli animations."
+  },
+  {
+    "id": "unpacking-2",
+    "title": "Unpacking DLC",
+    "platforms": [
+      "pc",
+      "console",
+      "handheld"
+    ],
+    "year": 2024,
+    "genres": [
+      "puzzle",
+      "zen",
+      "narrative",
+      "indie"
+    ],
+    "time_tags": [
+      15,
+      30,
+      60
+    ],
+    "energy": "low",
+    "moods": [
+      "relaxing",
+      "cozy",
+      "thoughtful",
+      "nostalgic"
+    ],
+    "play_style": [
+      "puzzle_strategy"
+    ],
+    "time_to_fun": "short",
+    "stop_friendliness": "anytime",
+    "multiplayer": [
+      "solo"
+    ],
+    "description": "More rooms to unpack, more stories to discover.",
+    "fun_fact": "The developers added new life stages based on player feedback.",
+    "subscriptions": [
+      "xbox_game_pass"
+    ],
+    "franchise": "unpacking"
+  },
+  {
+    "id": "botany-manor",
+    "title": "Botany Manor",
+    "platforms": [
+      "pc",
+      "console",
+      "handheld"
+    ],
+    "year": 2024,
+    "genres": [
+      "puzzle",
+      "exploration",
+      "gardening",
+      "indie"
+    ],
+    "time_tags": [
+      30,
+      60
+    ],
+    "energy": "low",
+    "moods": [
+      "peaceful",
+      "curious",
+      "relaxing",
+      "beautiful"
+    ],
+    "play_style": [
+      "puzzle_strategy"
+    ],
+    "time_to_fun": "short",
+    "stop_friendliness": "anytime",
+    "multiplayer": [
+      "solo"
+    ],
+    "description": "Grow rare plants by solving environmental puzzles in a Victorian manor.",
+    "fun_fact": "Each plant requires unique conditions to grow, creating natural puzzle solutions.",
+    "subscriptions": [
+      "xbox_game_pass"
+    ]
+  },
+  {
+    "id": "japanese-countryside-seasons",
+    "title": "Japanese Rural Life Adventure",
+    "platforms": [
+      "pc",
+      "console",
+      "handheld"
+    ],
+    "year": 2023,
+    "genres": [
+      "life-sim",
+      "simulation",
+      "relaxing"
+    ],
+    "time_tags": [
+      30,
+      60
+    ],
+    "energy": "low",
+    "moods": [
+      "peaceful",
+      "nostalgic",
+      "relaxing",
+      "charming"
+    ],
+    "play_style": [
+      "sandbox_creative"
+    ],
+    "time_to_fun": "short",
+    "stop_friendliness": "anytime",
+    "multiplayer": [
+      "solo"
+    ],
+    "description": "Live a peaceful life in the Japanese countryside.",
+    "fun_fact": "The game recreates authentic Japanese rural traditions and seasons."
+  },
+  {
+    "id": "a-building-full-of-cats",
+    "title": "A Building Full of Cats",
+    "platforms": [
+      "pc",
+      "handheld"
+    ],
+    "year": 2022,
+    "genres": [
+      "hidden-object",
+      "cats",
+      "pixel-art",
+      "indie"
+    ],
+    "time_tags": [
+      15,
+      30
+    ],
+    "energy": "low",
+    "moods": [
+      "cute",
+      "relaxing",
+      "fun",
+      "charming"
+    ],
+    "play_style": [
+      "puzzle_strategy"
+    ],
+    "time_to_fun": "short",
+    "stop_friendliness": "anytime",
+    "multiplayer": [
+      "solo"
+    ],
+    "description": "Find hidden cats throughout a pixelated apartment building.",
+    "fun_fact": "Each apartment tells a mini story about its residents through environmental details."
+  },
+  {
+    "id": "tracks-train-simulator",
+    "title": "Tracks - Train Set Game",
+    "platforms": [
+      "pc",
+      "console"
+    ],
+    "year": 2019,
+    "genres": [
+      "simulation",
+      "creative",
+      "trains",
+      "indie"
+    ],
+    "time_tags": [
+      15,
+      30,
+      60
+    ],
+    "energy": "low",
+    "moods": [
+      "creative",
+      "relaxing",
+      "nostalgic",
+      "fun"
+    ],
+    "play_style": [
+      "sandbox_creative"
+    ],
+    "time_to_fun": "short",
+    "stop_friendliness": "anytime",
+    "multiplayer": [
+      "solo"
+    ],
+    "description": "Build wooden train tracks and watch your trains go round.",
+    "fun_fact": "The game recreates the feeling of playing with a real wooden train set."
+  },
+  {
+    "id": "summerhouse",
+    "title": "Summerhouse",
+    "platforms": [
+      "pc"
+    ],
+    "year": 2024,
+    "genres": [
+      "building",
+      "creative",
+      "relaxing",
+      "indie"
+    ],
+    "time_tags": [
+      15,
+      30
+    ],
+    "energy": "low",
+    "moods": [
+      "creative",
+      "peaceful",
+      "relaxing",
+      "charming"
+    ],
+    "play_style": [
+      "sandbox_creative"
+    ],
+    "time_to_fun": "short",
+    "stop_friendliness": "anytime",
+    "multiplayer": [
+      "solo"
+    ],
+    "description": "Build cozy little houses in peaceful scenes.",
+    "fun_fact": "There are no goals or objectives - just pure creative building bliss."
+  },
+  {
+    "id": "townscaper",
+    "title": "Townscaper",
+    "platforms": [
+      "pc",
+      "console",
+      "handheld"
+    ],
+    "year": 2021,
+    "genres": [
+      "building",
+      "creative",
+      "relaxing",
+      "indie"
+    ],
+    "time_tags": [
+      15,
+      30
+    ],
+    "energy": "low",
+    "moods": [
+      "creative",
+      "zen",
+      "satisfying",
+      "peaceful"
+    ],
+    "play_style": [
+      "sandbox_creative"
+    ],
+    "time_to_fun": "short",
+    "stop_friendliness": "anytime",
+    "multiplayer": [
+      "solo"
+    ],
+    "description": "Build quaint island towns by clicking and watching them grow.",
+    "fun_fact": "The algorithm automatically generates doors, roofs, and details as you build."
+  },
+  {
+    "id": "cloud-gardens",
+    "title": "Cloud Gardens",
+    "platforms": [
+      "pc",
+      "console",
+      "handheld"
+    ],
+    "year": 2021,
+    "genres": [
+      "puzzle",
+      "gardening",
+      "post-apocalyptic",
+      "indie"
+    ],
+    "time_tags": [
+      15,
+      30
+    ],
+    "energy": "low",
+    "moods": [
+      "zen",
+      "creative",
+      "peaceful",
+      "contemplative"
+    ],
+    "play_style": [
+      "sandbox_creative"
+    ],
+    "time_to_fun": "short",
+    "stop_friendliness": "anytime",
+    "multiplayer": [
+      "solo"
+    ],
+    "description": "Grow plants over abandoned structures in meditative dioramas.",
+    "fun_fact": "The game creates beauty from decay - nature reclaiming human structures."
+  },
+  {
+    "id": "tiny-glade",
+    "title": "Tiny Glade",
+    "platforms": [
+      "pc"
+    ],
+    "year": 2024,
+    "genres": [
+      "building",
+      "creative",
+      "relaxing",
+      "indie"
+    ],
+    "time_tags": [
+      15,
+      30
+    ],
+    "energy": "low",
+    "moods": [
+      "creative",
+      "peaceful",
+      "zen",
+      "satisfying"
+    ],
+    "play_style": [
+      "sandbox_creative"
+    ],
+    "time_to_fun": "short",
+    "stop_friendliness": "anytime",
+    "multiplayer": [
+      "solo"
+    ],
+    "description": "Build cute castles and cottages with satisfying procedural tools.",
+    "fun_fact": "Buildings automatically adapt and connect in pleasing ways as you draw."
+  },
+  {
+    "id": "europa",
+    "title": "Europa",
+    "platforms": [
+      "pc",
+      "console"
+    ],
+    "year": 2024,
+    "genres": [
+      "adventure",
+      "exploration",
+      "artistic",
+      "indie"
+    ],
+    "time_tags": [
+      30,
+      60
+    ],
+    "energy": "low",
+    "moods": [
+      "peaceful",
+      "melancholic",
+      "beautiful",
+      "contemplative"
+    ],
+    "play_style": [
+      "narrative"
+    ],
+    "time_to_fun": "short",
+    "stop_friendliness": "checkpoints",
+    "multiplayer": [
+      "solo"
+    ],
+    "description": "Glide across the terraformed moon Europa in a Ghibli-inspired adventure.",
+    "fun_fact": "The art style was directly inspired by the pastoral scenes of Studio Ghibli films."
+  },
+  {
+    "id": "heaven-vault",
+    "title": "Heaven's Vault",
+    "platforms": [
+      "pc",
+      "console",
+      "handheld"
+    ],
+    "year": 2019,
+    "genres": [
+      "adventure",
+      "narrative",
+      "archaeology",
+      "indie"
+    ],
+    "time_tags": [
+      60,
+      90
+    ],
+    "energy": "low",
+    "moods": [
+      "mysterious",
+      "thoughtful",
+      "immersive",
+      "cerebral"
+    ],
+    "play_style": [
+      "narrative",
+      "puzzle_strategy"
+    ],
+    "time_to_fun": "medium",
+    "stop_friendliness": "anytime",
+    "multiplayer": [
+      "solo"
+    ],
+    "description": "Translate an ancient language while uncovering a celestial civilization.",
+    "fun_fact": "The game features a fully functional constructed language you must actually learn."
+  },
+  {
+    "id": "mutazione",
+    "title": "Mutazione",
+    "platforms": [
+      "pc",
+      "console",
+      "handheld"
+    ],
+    "year": 2019,
+    "genres": [
+      "adventure",
+      "narrative",
+      "gardening",
+      "indie"
+    ],
+    "time_tags": [
+      30,
+      60
+    ],
+    "energy": "low",
+    "moods": [
+      "emotional",
+      "quirky",
+      "cozy",
+      "mysterious"
+    ],
+    "play_style": [
+      "narrative"
+    ],
+    "time_to_fun": "short",
+    "stop_friendliness": "anytime",
+    "multiplayer": [
+      "solo"
+    ],
+    "description": "Explore a mutant community and tend magical musical gardens.",
+    "fun_fact": "The musical gardens actually generate ambient music based on how you plant them."
+  },
+  {
+    "id": "norco",
+    "title": "NORCO",
+    "platforms": [
+      "pc",
+      "console"
+    ],
+    "year": 2022,
+    "genres": [
+      "adventure",
+      "narrative",
+      "mystery",
+      "indie"
+    ],
+    "time_tags": [
+      60,
+      90
+    ],
+    "energy": "low",
+    "moods": [
+      "mysterious",
+      "atmospheric",
+      "haunting",
+      "thoughtful"
+    ],
+    "play_style": [
+      "narrative"
+    ],
+    "time_to_fun": "medium",
+    "stop_friendliness": "anytime",
+    "multiplayer": [
+      "solo"
+    ],
+    "description": "Investigate your mother's disappearance in industrial Louisiana.",
+    "fun_fact": "The game is set in a real Louisiana refinery town and explores climate change themes."
+  },
+  {
+    "id": "immortality",
+    "title": "Immortality",
+    "platforms": [
+      "pc",
+      "console"
+    ],
+    "year": 2022,
+    "genres": [
+      "interactive-movie",
+      "mystery",
+      "narrative"
+    ],
+    "time_tags": [
+      60,
+      90
+    ],
+    "energy": "low",
+    "moods": [
+      "mysterious",
+      "haunting",
+      "intriguing",
+      "mature"
+    ],
+    "play_style": [
+      "narrative"
+    ],
+    "time_to_fun": "medium",
+    "stop_friendliness": "anytime",
+    "multiplayer": [
+      "solo"
+    ],
+    "description": "Investigate the disappearance of an actress across three decades of films.",
+    "fun_fact": "The game features full-length films that you scrub through to find hidden secrets.",
+    "warnings": [
+      "mature_content"
+    ]
+  },
+  {
+    "id": "genesis-noir",
+    "title": "Genesis Noir",
+    "platforms": [
+      "pc",
+      "console",
+      "handheld"
+    ],
+    "year": 2021,
+    "genres": [
+      "adventure",
+      "puzzle",
+      "artistic",
+      "indie"
+    ],
+    "time_tags": [
+      60,
+      90
+    ],
+    "energy": "low",
+    "moods": [
+      "artistic",
+      "mysterious",
+      "romantic",
+      "cosmic"
+    ],
+    "play_style": [
+      "narrative",
+      "puzzle_strategy"
+    ],
+    "time_to_fun": "medium",
+    "stop_friendliness": "checkpoints",
+    "multiplayer": [
+      "solo"
+    ],
+    "description": "A noir love story set before, during, and after the Big Bang.",
+    "fun_fact": "The game spans 14 billion years of cosmic history told through jazz and noir aesthetics."
+  },
+  {
+    "id": "umurangi-generation",
+    "title": "Umurangi Generation",
+    "platforms": [
+      "pc",
+      "console",
+      "handheld"
+    ],
+    "year": 2020,
+    "genres": [
+      "photography",
+      "adventure",
+      "indie"
+    ],
+    "time_tags": [
+      30,
+      60
+    ],
+    "energy": "low",
+    "moods": [
+      "atmospheric",
+      "rebellious",
+      "artistic",
+      "thoughtful"
+    ],
+    "play_style": [
+      "sandbox_creative"
+    ],
+    "time_to_fun": "short",
+    "stop_friendliness": "anytime",
+    "multiplayer": [
+      "solo"
+    ],
+    "description": "Document the end of the world through photography in a cyberpunk city.",
+    "fun_fact": "The game was made by a Maori developer as commentary on climate change and colonialism."
+  },
+  {
+    "id": "pentiment",
+    "title": "Pentiment",
+    "platforms": [
+      "pc",
+      "console"
+    ],
+    "year": 2022,
+    "genres": [
+      "narrative",
+      "mystery",
+      "historical",
+      "indie"
+    ],
+    "time_tags": [
+      60,
+      90
+    ],
+    "energy": "low",
+    "moods": [
+      "thoughtful",
+      "historical",
+      "mysterious",
+      "immersive"
+    ],
+    "play_style": [
+      "narrative"
+    ],
+    "time_to_fun": "medium",
+    "stop_friendliness": "anytime",
+    "multiplayer": [
+      "solo"
+    ],
+    "description": "Solve murders in 16th century Bavaria as an illuminated manuscript artist.",
+    "fun_fact": "The art style mimics actual medieval illuminated manuscripts with period-accurate typography.",
+    "subscriptions": [
+      "xbox_game_pass"
+    ]
+  },
+  {
+    "id": "eliza",
+    "title": "Eliza",
+    "platforms": [
+      "pc",
+      "console",
+      "handheld"
+    ],
+    "year": 2019,
+    "genres": [
+      "visual-novel",
+      "narrative",
+      "indie"
+    ],
+    "time_tags": [
+      60,
+      90
+    ],
+    "energy": "low",
+    "moods": [
+      "thoughtful",
+      "melancholic",
+      "introspective",
+      "modern"
+    ],
+    "play_style": [
+      "narrative"
+    ],
+    "time_to_fun": "medium",
+    "stop_friendliness": "anytime",
+    "multiplayer": [
+      "solo"
+    ],
+    "description": "Work as a counselor for an AI therapy app while questioning technology's role.",
+    "fun_fact": "Made by the studio behind Opus Magnum and Infinifactory, this is their first narrative game."
+  },
+  {
+    "id": "necrobarista",
+    "title": "Necrobarista",
+    "platforms": [
+      "pc",
+      "console",
+      "handheld"
+    ],
+    "year": 2020,
+    "genres": [
+      "visual-novel",
+      "narrative",
+      "indie"
+    ],
+    "time_tags": [
+      30,
+      60
+    ],
+    "energy": "low",
+    "moods": [
+      "quirky",
+      "emotional",
+      "stylish",
+      "heartwarming"
+    ],
+    "play_style": [
+      "narrative"
+    ],
+    "time_to_fun": "short",
+    "stop_friendliness": "checkpoints",
+    "multiplayer": [
+      "solo"
+    ],
+    "description": "Run a coffee shop in Melbourne where the dead get one last night with the living.",
+    "fun_fact": "The game was made by an Australian team and features Melbourne landmarks."
+  },
+  {
+    "id": "boyfriend-dungeon",
+    "title": "Boyfriend Dungeon",
+    "platforms": [
+      "pc",
+      "console",
+      "handheld"
+    ],
+    "year": 2021,
+    "genres": [
+      "dating-sim",
+      "dungeon-crawler",
+      "indie"
+    ],
+    "time_tags": [
+      30,
+      60
+    ],
+    "energy": "low",
+    "moods": [
+      "romantic",
+      "fun",
+      "quirky",
+      "charming"
+    ],
+    "play_style": [
+      "narrative",
+      "action"
+    ],
+    "time_to_fun": "short",
+    "stop_friendliness": "checkpoints",
+    "multiplayer": [
+      "solo"
+    ],
+    "description": "Date weapons that transform into attractive people.",
+    "fun_fact": "The game includes a cat you can date who transforms into a brass knuckle."
+  },
+  {
+    "id": "unpacking-zen",
+    "title": "Unpacking Zen Mode",
+    "platforms": [
+      "pc",
+      "console",
+      "handheld"
+    ],
+    "year": 2021,
+    "genres": [
+      "puzzle",
+      "zen",
+      "narrative",
+      "indie"
+    ],
+    "time_tags": [
+      15,
+      30,
+      60
+    ],
+    "energy": "low",
+    "moods": [
+      "relaxing",
+      "cozy",
+      "thoughtful",
+      "nostalgic"
+    ],
+    "play_style": [
+      "puzzle_strategy"
+    ],
+    "time_to_fun": "short",
+    "stop_friendliness": "anytime",
+    "multiplayer": [
+      "solo"
+    ],
+    "description": "Zen mode removes all hints for a pure unpacking experience.",
+    "fun_fact": "Zen mode was added after players requested an even more relaxed experience.",
+    "subscriptions": [
+      "xbox_game_pass"
+    ],
+    "franchise": "unpacking"
+  },
+  {
+    "id": "lonely-mountains-downhill",
+    "title": "Lonely Mountains: Downhill",
+    "platforms": [
+      "pc",
+      "console",
+      "handheld"
+    ],
+    "year": 2019,
+    "genres": [
+      "sports",
+      "racing",
+      "indie"
+    ],
+    "time_tags": [
+      15,
+      30
+    ],
+    "energy": "low",
+    "moods": [
+      "zen",
+      "challenging",
+      "peaceful",
+      "focused"
+    ],
+    "play_style": [
+      "action"
+    ],
+    "time_to_fun": "short",
+    "stop_friendliness": "checkpoints",
+    "multiplayer": [
+      "solo"
+    ],
+    "description": "Mountain bike down scenic trails at your own pace.",
+    "fun_fact": "The low-poly art style was chosen to evoke the feeling of being alone in nature."
+  },
+  {
+    "id": "art-of-rally",
+    "title": "Art of Rally",
+    "platforms": [
+      "pc",
+      "console",
+      "handheld"
+    ],
+    "year": 2020,
+    "genres": [
+      "racing",
+      "sports",
+      "indie"
+    ],
+    "time_tags": [
+      15,
+      30,
+      60
+    ],
+    "energy": "low",
+    "moods": [
+      "zen",
+      "nostalgic",
+      "focused",
+      "beautiful"
+    ],
+    "play_style": [
+      "action"
+    ],
+    "time_to_fun": "short",
+    "stop_friendliness": "checkpoints",
+    "multiplayer": [
+      "solo"
+    ],
+    "description": "A stylized rally game celebrating the golden era of racing.",
+    "fun_fact": "The developer grew up watching rally racing with his father, inspiring this homage."
+  },
+  {
+    "id": "short-hike",
+    "title": "A Short Hike",
+    "platforms": [
+      "pc",
+      "console",
+      "handheld"
+    ],
+    "year": 2019,
+    "genres": [
+      "adventure",
+      "exploration",
+      "indie",
+      "relaxing"
+    ],
+    "time_tags": [
+      15,
+      30,
+      60
+    ],
+    "energy": "low",
+    "moods": [
+      "relaxing",
+      "charming",
+      "peaceful",
+      "exploratory"
+    ],
+    "play_style": [
+      "sandbox_creative"
+    ],
+    "time_to_fun": "short",
+    "stop_friendliness": "anytime",
+    "multiplayer": [
+      "solo"
+    ],
+    "description": "Hike up a mountain at your own pace in this charming adventure.",
+    "fun_fact": "This cozy game was made in just 1 month for a game jam and later expanded!"
+  },
+  {
+    "id": "alba-wildlife-adventure",
+    "title": "Alba: A Wildlife Adventure",
+    "platforms": [
+      "pc",
+      "console",
+      "handheld"
+    ],
+    "year": 2020,
+    "genres": [
+      "adventure",
+      "exploration",
+      "nature",
+      "indie"
+    ],
+    "time_tags": [
+      30,
+      60
+    ],
+    "energy": "low",
+    "moods": [
+      "peaceful",
+      "heartwarming",
+      "adventurous",
+      "ecological"
+    ],
+    "play_style": [
+      "sandbox_creative"
+    ],
+    "time_to_fun": "short",
+    "stop_friendliness": "anytime",
+    "multiplayer": [
+      "solo"
+    ],
+    "description": "Save a nature reserve during a Mediterranean summer vacation.",
+    "fun_fact": "The studio plants a real tree for every copy of the game sold."
+  },
+  {
+    "id": "lake",
+    "title": "Lake",
+    "platforms": [
+      "pc",
+      "console"
+    ],
+    "year": 2021,
+    "genres": [
+      "adventure",
+      "narrative",
+      "life-sim",
+      "indie"
+    ],
+    "time_tags": [
+      30,
+      60
+    ],
+    "energy": "low",
+    "moods": [
+      "peaceful",
+      "nostalgic",
+      "relaxing",
+      "charming"
+    ],
+    "play_style": [
+      "narrative"
+    ],
+    "time_to_fun": "short",
+    "stop_friendliness": "anytime",
+    "multiplayer": [
+      "solo"
+    ],
+    "description": "Deliver mail in a small Oregon town during a 1980s summer.",
+    "fun_fact": "The game was inspired by the feeling of returning to your hometown after years away."
+  },
+  {
+    "id": "after-party",
+    "title": "Afterparty",
+    "platforms": [
+      "pc",
+      "console"
+    ],
+    "year": 2019,
+    "genres": [
+      "adventure",
+      "narrative",
+      "comedy",
+      "indie"
+    ],
+    "time_tags": [
+      60,
+      90
+    ],
+    "energy": "low",
+    "moods": [
+      "funny",
+      "quirky",
+      "social",
+      "adventurous"
+    ],
+    "play_style": [
+      "narrative"
+    ],
+    "time_to_fun": "short",
+    "stop_friendliness": "checkpoints",
+    "multiplayer": [
+      "solo"
+    ],
+    "description": "Outdrink Satan to escape from Hell.",
+    "fun_fact": "Made by the creators of Oxenfree, featuring the same unique dialogue system."
+  },
+  {
+    "id": "kind-words",
+    "title": "Kind Words",
+    "platforms": [
+      "pc"
+    ],
+    "year": 2019,
+    "genres": [
+      "social",
+      "relaxing",
+      "indie"
+    ],
+    "time_tags": [
+      15,
+      30
+    ],
+    "energy": "low",
+    "moods": [
+      "heartwarming",
+      "supportive",
+      "peaceful",
+      "emotional"
+    ],
+    "play_style": [
+      "sandbox_creative"
+    ],
+    "time_to_fun": "short",
+    "stop_friendliness": "anytime",
+    "multiplayer": [
+      "online_coop"
+    ],
+    "description": "Write and receive anonymous letters of support with strangers.",
+    "fun_fact": "The game has facilitated millions of kind messages between strangers worldwide."
+  },
+  {
+    "id": "art-sqool",
+    "title": "Art Sqool",
+    "platforms": [
+      "pc",
+      "handheld"
+    ],
+    "year": 2019,
+    "genres": [
+      "creative",
+      "art",
+      "educational",
+      "indie"
+    ],
+    "time_tags": [
+      15,
+      30
+    ],
+    "energy": "low",
+    "moods": [
+      "creative",
+      "quirky",
+      "relaxing",
+      "experimental"
+    ],
+    "play_style": [
+      "sandbox_creative"
+    ],
+    "time_to_fun": "short",
+    "stop_friendliness": "anytime",
+    "multiplayer": [
+      "solo"
+    ],
+    "description": "Attend art school with an AI professor that grades your creations.",
+    "fun_fact": "The AI professor 'Froshmin' uses neural networks to generate absurd art prompts."
+  },
+  {
+    "id": "nainai-recipe",
+    "title": "Nainai's Recipe",
+    "platforms": [
+      "pc",
+      "handheld"
+    ],
+    "year": 2022,
+    "genres": [
+      "cooking",
+      "narrative",
+      "family",
+      "indie"
+    ],
+    "time_tags": [
+      30,
+      60
+    ],
+    "energy": "low",
+    "moods": [
+      "heartwarming",
+      "nostalgic",
+      "family",
+      "emotional"
+    ],
+    "play_style": [
+      "narrative"
+    ],
+    "time_to_fun": "short",
+    "stop_friendliness": "checkpoints",
+    "multiplayer": [
+      "solo"
+    ],
+    "description": "Cook with your Chinese grandmother while sharing family memories.",
+    "fun_fact": "The game was created to preserve the developer's own family recipes and stories."
+  },
+  {
+    "id": "making-it-home",
+    "title": "Making it Home",
+    "platforms": [
+      "pc"
+    ],
+    "year": 2024,
+    "genres": [
+      "simulation",
+      "moving",
+      "life-sim",
+      "indie"
+    ],
+    "time_tags": [
+      30,
+      60
+    ],
+    "energy": "low",
+    "moods": [
+      "emotional",
+      "hopeful",
+      "realistic",
+      "thoughtful"
+    ],
+    "play_style": [
+      "sandbox_creative"
+    ],
+    "time_to_fun": "short",
+    "stop_friendliness": "anytime",
+    "multiplayer": [
+      "solo"
+    ],
+    "description": "Navigate the emotional and practical challenges of moving homes.",
+    "fun_fact": "The game explores the real emotional weight of moving and starting fresh."
+  },
+  {
+    "id": "last-stop",
+    "title": "Last Stop",
+    "platforms": [
+      "pc",
+      "console",
+      "handheld"
+    ],
+    "year": 2021,
+    "genres": [
+      "adventure",
+      "narrative",
+      "supernatural",
+      "indie"
+    ],
+    "time_tags": [
+      60,
+      90
+    ],
+    "energy": "low",
+    "moods": [
+      "mysterious",
+      "emotional",
+      "supernatural",
+      "British"
+    ],
+    "play_style": [
+      "narrative"
+    ],
+    "time_to_fun": "medium",
+    "stop_friendliness": "checkpoints",
+    "multiplayer": [
+      "solo"
+    ],
+    "description": "Three strangers in London have their lives intertwined by supernatural events.",
+    "fun_fact": "Made by the creators of Virginia, featuring distinct British voice acting."
+  },
+  {
+    "id": "summertime-madness",
+    "title": "Summertime Madness",
+    "platforms": [
+      "pc",
+      "console"
+    ],
+    "year": 2021,
+    "genres": [
+      "puzzle",
+      "adventure",
+      "artistic",
+      "indie"
+    ],
+    "time_tags": [
+      60,
+      90
+    ],
+    "energy": "low",
+    "moods": [
+      "artistic",
+      "mysterious",
+      "contemplative",
+      "beautiful"
+    ],
+    "play_style": [
+      "puzzle_strategy"
+    ],
+    "time_to_fun": "medium",
+    "stop_friendliness": "checkpoints",
+    "multiplayer": [
+      "solo"
+    ],
+    "description": "Explore living paintings to escape a deal with the devil.",
+    "fun_fact": "Each painting world is inspired by different art movements from Impressionism to Surrealism."
+  },
+  {
+    "id": "eastshade",
+    "title": "Eastshade",
+    "platforms": [
+      "pc",
+      "console"
+    ],
+    "year": 2019,
+    "genres": [
+      "adventure",
+      "exploration",
+      "painting",
+      "indie"
+    ],
+    "time_tags": [
+      60,
+      90
+    ],
+    "energy": "low",
+    "moods": [
+      "peaceful",
+      "creative",
+      "immersive",
+      "beautiful"
+    ],
+    "play_style": [
+      "sandbox_creative",
+      "narrative"
+    ],
+    "time_to_fun": "short",
+    "stop_friendliness": "anytime",
+    "multiplayer": [
+      "solo"
+    ],
+    "description": "Travel as a painter capturing the beauty of a fantastical island.",
+    "fun_fact": "You actually paint in-game canvases that you can display in your inventory."
+  },
+  {
+    "id": "shelter-2",
+    "title": "Shelter 2",
+    "platforms": [
+      "pc"
+    ],
+    "year": 2015,
+    "genres": [
+      "adventure",
+      "survival",
+      "nature",
+      "indie"
+    ],
+    "time_tags": [
+      30,
+      60
+    ],
+    "energy": "low",
+    "moods": [
+      "emotional",
+      "beautiful",
+      "tense",
+      "maternal"
+    ],
+    "play_style": [
+      "narrative"
+    ],
+    "time_to_fun": "short",
+    "stop_friendliness": "checkpoints",
+    "multiplayer": [
+      "solo"
+    ],
+    "description": "Survive as a lynx mother raising your cubs in the wild.",
+    "fun_fact": "The game has no UI - everything is told through visuals and sound."
+  },
+  {
+    "id": "wandersong",
+    "title": "Wandersong",
+    "platforms": [
+      "pc",
+      "console",
+      "handheld"
+    ],
+    "year": 2018,
+    "genres": [
+      "adventure",
+      "musical",
+      "platformer",
+      "indie"
+    ],
+    "time_tags": [
+      30,
+      60
+    ],
+    "energy": "low",
+    "moods": [
+      "joyful",
+      "colorful",
+      "heartwarming",
+      "musical"
+    ],
+    "play_style": [
+      "narrative"
+    ],
+    "time_to_fun": "short",
+    "stop_friendliness": "checkpoints",
+    "multiplayer": [
+      "solo"
+    ],
+    "description": "Save the world by singing! A bard's musical adventure.",
+    "fun_fact": "Every puzzle is solved through singing using a color-wheel interface."
+  },
+  {
+    "id": "spirit-of-the-north",
+    "title": "Spirit of the North",
+    "platforms": [
+      "pc",
+      "console",
+      "handheld"
+    ],
+    "year": 2020,
+    "genres": [
+      "adventure",
+      "exploration",
+      "artistic",
+      "indie"
+    ],
+    "time_tags": [
+      30,
+      60
+    ],
+    "energy": "low",
+    "moods": [
+      "peaceful",
+      "mystical",
+      "beautiful",
+      "lonely"
+    ],
+    "play_style": [
+      "narrative"
+    ],
+    "time_to_fun": "short",
+    "stop_friendliness": "checkpoints",
+    "multiplayer": [
+      "solo"
+    ],
+    "description": "Explore Iceland's landscapes as a fox guided by the Northern Lights.",
+    "fun_fact": "The game features no dialogue - the story is told entirely through environmental details."
+  },
+  {
+    "id": "abzu-2",
+    "title": "ABZU: The Depths",
+    "platforms": [
+      "pc",
+      "console"
+    ],
+    "year": 2016,
+    "genres": [
+      "adventure",
+      "exploration",
+      "artistic",
+      "indie"
+    ],
+    "time_tags": [
+      30,
+      60
+    ],
+    "energy": "low",
+    "moods": [
+      "zen",
+      "peaceful",
+      "immersive",
+      "artistic"
+    ],
+    "play_style": [
+      "narrative"
+    ],
+    "time_to_fun": "short",
+    "stop_friendliness": "checkpoints",
+    "multiplayer": [
+      "solo"
+    ],
+    "description": "Dive deeper into the beautiful underwater world full of mystery.",
+    "fun_fact": "The game's title comes from ancient Sumerian mythology - 'Abzu' refers to the primordial sea."
+  },
+  {
+    "id": "rime",
+    "title": "RiME",
+    "platforms": [
+      "pc",
+      "console",
+      "handheld"
+    ],
+    "year": 2017,
+    "genres": [
+      "adventure",
+      "puzzle",
+      "artistic",
+      "indie"
+    ],
+    "time_tags": [
+      60,
+      90
+    ],
+    "energy": "low",
+    "moods": [
+      "emotional",
+      "beautiful",
+      "mysterious",
+      "melancholic"
+    ],
+    "play_style": [
+      "puzzle_strategy",
+      "narrative"
+    ],
+    "time_to_fun": "short",
+    "stop_friendliness": "checkpoints",
+    "multiplayer": [
+      "solo"
+    ],
+    "description": "A boy washes up on a mysterious island and begins an emotional journey.",
+    "fun_fact": "The final chapter recontextualizes the entire game in a deeply emotional way."
+  },
+  {
+    "id": "sayonara-wild-hearts",
+    "title": "Sayonara Wild Hearts",
+    "platforms": [
+      "pc",
+      "console",
+      "handheld"
+    ],
+    "year": 2019,
+    "genres": [
+      "rhythm",
+      "action",
+      "arcade",
+      "indie"
+    ],
+    "time_tags": [
+      30,
+      60
+    ],
+    "energy": "low",
+    "moods": [
+      "stylish",
+      "musical",
+      "dreamy",
+      "exhilarating"
+    ],
+    "play_style": [
+      "action"
+    ],
+    "time_to_fun": "short",
+    "stop_friendliness": "checkpoints",
+    "multiplayer": [
+      "solo"
+    ],
+    "description": "A pop album video game about heartbreak and motorcycles.",
+    "fun_fact": "The game was designed as a playable pop album with each level as a song.",
+    "subscriptions": [
+      "apple_arcade"
+    ]
+  },
+  {
+    "id": "bound",
+    "title": "Bound",
+    "platforms": [
+      "pc",
+      "console"
+    ],
+    "year": 2016,
+    "genres": [
+      "platformer",
+      "artistic",
+      "narrative",
+      "indie"
+    ],
+    "time_tags": [
+      30,
+      60
+    ],
+    "energy": "low",
+    "moods": [
+      "artistic",
+      "emotional",
+      "beautiful",
+      "expressive"
+    ],
+    "play_style": [
+      "narrative"
+    ],
+    "time_to_fun": "short",
+    "stop_friendliness": "checkpoints",
+    "multiplayer": [
+      "solo"
+    ],
+    "description": "Dance through abstract worlds as a princess protecting her kingdom.",
+    "fun_fact": "The protagonist's movements were motion-captured from a real ballerina."
+  },
+  {
+    "id": "omno",
+    "title": "Omno",
+    "platforms": [
+      "pc",
+      "console",
+      "handheld"
+    ],
+    "year": 2021,
+    "genres": [
+      "adventure",
+      "puzzle",
+      "exploration",
+      "indie"
+    ],
+    "time_tags": [
+      30,
+      60
+    ],
+    "energy": "low",
+    "moods": [
+      "peaceful",
+      "mysterious",
+      "beautiful",
+      "contemplative"
+    ],
+    "play_style": [
+      "puzzle_strategy"
+    ],
+    "time_to_fun": "short",
+    "stop_friendliness": "checkpoints",
+    "multiplayer": [
+      "solo"
+    ],
+    "description": "Journey through ancient wonders in a land of mystical creatures.",
+    "fun_fact": "The entire game was made by a single developer over five years."
+  },
+  {
+    "id": "arise-simple-story",
+    "title": "Arise: A Simple Story",
+    "platforms": [
+      "pc",
+      "console"
+    ],
+    "year": 2019,
+    "genres": [
+      "adventure",
+      "puzzle",
+      "narrative",
+      "indie"
+    ],
+    "time_tags": [
+      60,
+      90
+    ],
+    "energy": "low",
+    "moods": [
+      "emotional",
+      "beautiful",
+      "nostalgic",
+      "heartfelt"
+    ],
+    "play_style": [
+      "puzzle_strategy",
+      "narrative"
+    ],
+    "time_to_fun": "short",
+    "stop_friendliness": "checkpoints",
+    "multiplayer": [
+      "solo",
+      "local_coop"
+    ],
+    "description": "Relive memories by controlling time in this emotional journey.",
+    "fun_fact": "The game tells a love story spanning an entire lifetime through wordless chapters."
+  },
+  {
+    "id": "sable",
+    "title": "Sable",
+    "platforms": [
+      "pc",
+      "console"
+    ],
+    "year": 2021,
+    "genres": [
+      "adventure",
+      "exploration",
+      "open-world",
+      "indie"
+    ],
+    "time_tags": [
+      60,
+      90
+    ],
+    "energy": "low",
+    "moods": [
+      "contemplative",
+      "beautiful",
+      "peaceful",
+      "adventurous"
+    ],
+    "play_style": [
+      "sandbox_creative"
+    ],
+    "time_to_fun": "medium",
+    "stop_friendliness": "anytime",
+    "multiplayer": [
+      "solo"
+    ],
+    "description": "Explore a vast desert on your hoverbike during a coming-of-age journey.",
+    "fun_fact": "The unique art style was inspired by French comic artist Moebius."
+  },
+  {
+    "id": "lost-ember",
+    "title": "Lost Ember",
+    "platforms": [
+      "pc",
+      "console"
+    ],
+    "year": 2019,
+    "genres": [
+      "adventure",
+      "exploration",
+      "animals",
+      "indie"
+    ],
+    "time_tags": [
+      30,
+      60
+    ],
+    "energy": "low",
+    "moods": [
+      "peaceful",
+      "emotional",
+      "beautiful",
+      "contemplative"
+    ],
+    "play_style": [
+      "narrative"
+    ],
+    "time_to_fun": "short",
+    "stop_friendliness": "checkpoints",
+    "multiplayer": [
+      "solo"
+    ],
+    "description": "Possess different animals to explore a post-human world.",
+    "fun_fact": "You can play as over 10 different animals from fish to parrots to elephants."
+  },
+  {
+    "id": "lost-winds",
+    "title": "LostWinds",
+    "platforms": [
+      "pc",
+      "handheld"
+    ],
+    "year": 2008,
+    "genres": [
+      "platformer",
+      "adventure",
+      "puzzle",
+      "indie"
+    ],
+    "time_tags": [
+      30,
+      60
+    ],
+    "energy": "low",
+    "moods": [
+      "charming",
+      "relaxing",
+      "nostalgic",
+      "adventurous"
+    ],
+    "play_style": [
+      "puzzle_strategy"
+    ],
+    "time_to_fun": "short",
+    "stop_friendliness": "checkpoints",
+    "multiplayer": [
+      "solo"
+    ],
+    "description": "Control the wind to guide a boy through beautiful landscapes.",
+    "fun_fact": "Originally a WiiWare launch title, it pioneered motion control puzzle design."
+  },
+  {
+    "id": "the-artful-escape",
+    "title": "The Artful Escape",
+    "platforms": [
+      "pc",
+      "console"
+    ],
+    "year": 2021,
+    "genres": [
+      "adventure",
+      "musical",
+      "narrative",
+      "indie"
+    ],
+    "time_tags": [
+      60,
+      90
+    ],
+    "energy": "low",
+    "moods": [
+      "psychedelic",
+      "musical",
+      "creative",
+      "joyful"
+    ],
+    "play_style": [
+      "narrative"
+    ],
+    "time_to_fun": "short",
+    "stop_friendliness": "checkpoints",
+    "multiplayer": [
+      "solo"
+    ],
+    "description": "A teenage guitar prodigy embarks on a cosmic musical journey.",
+    "fun_fact": "Features voice acting from Carl Weathers and other surprise Hollywood talent.",
+    "subscriptions": [
+      "xbox_game_pass"
+    ]
+  },
+  {
+    "id": "neverending-nightmares",
+    "title": "Neverending Nightmares",
+    "platforms": [
+      "pc",
+      "console",
+      "handheld"
+    ],
+    "year": 2014,
+    "genres": [
+      "horror",
+      "psychological",
+      "indie"
+    ],
+    "time_tags": [
+      30,
+      60
+    ],
+    "energy": "low",
+    "moods": [
+      "atmospheric",
+      "unsettling",
+      "artistic",
+      "dark"
+    ],
+    "play_style": [
+      "narrative"
+    ],
+    "time_to_fun": "short",
+    "stop_friendliness": "checkpoints",
+    "multiplayer": [
+      "solo"
+    ],
+    "description": "Navigate nightmares in a hand-drawn psychological horror game.",
+    "fun_fact": "The developer created the game based on his real experiences with OCD and depression.",
+    "warnings": [
+      "psychological_horror",
+      "dark_themes"
+    ]
+  },
+  {
+    "id": "feather",
+    "title": "Feather",
+    "platforms": [
+      "pc",
+      "console",
+      "handheld"
+    ],
+    "year": 2019,
+    "genres": [
+      "exploration",
+      "relaxing",
+      "flying",
+      "indie"
+    ],
+    "time_tags": [
+      15,
+      30
+    ],
+    "energy": "low",
+    "moods": [
+      "zen",
+      "peaceful",
+      "beautiful",
+      "free"
+    ],
+    "play_style": [
+      "sandbox_creative"
+    ],
+    "time_to_fun": "short",
+    "stop_friendliness": "anytime",
+    "multiplayer": [
+      "solo",
+      "online_coop"
+    ],
+    "description": "Fly as a bird through serene island landscapes.",
+    "fun_fact": "There are no goals, enemies, or points - just pure flight exploration."
+  },
+  {
+    "id": "aer-memories-of-old",
+    "title": "AER: Memories of Old",
+    "platforms": [
+      "pc",
+      "console",
+      "handheld"
+    ],
+    "year": 2017,
+    "genres": [
+      "adventure",
+      "exploration",
+      "flying",
+      "indie"
+    ],
+    "time_tags": [
+      30,
+      60
+    ],
+    "energy": "low",
+    "moods": [
+      "peaceful",
+      "mysterious",
+      "beautiful",
+      "adventurous"
+    ],
+    "play_style": [
+      "narrative"
+    ],
+    "time_to_fun": "short",
+    "stop_friendliness": "checkpoints",
+    "multiplayer": [
+      "solo"
+    ],
+    "description": "Transform into a bird to explore floating islands and ancient ruins.",
+    "fun_fact": "The transformation between human and bird forms is seamless and instant."
+  },
+  {
+    "id": "tasomachi",
+    "title": "Tasomachi: Behind the Twilight",
+    "platforms": [
+      "pc",
+      "console"
+    ],
+    "year": 2021,
+    "genres": [
+      "exploration",
+      "platformer",
+      "artistic",
+      "indie"
+    ],
+    "time_tags": [
+      30,
+      60
+    ],
+    "energy": "low",
+    "moods": [
+      "peaceful",
+      "beautiful",
+      "contemplative",
+      "zen"
+    ],
+    "play_style": [
+      "sandbox_creative"
+    ],
+    "time_to_fun": "short",
+    "stop_friendliness": "anytime",
+    "multiplayer": [
+      "solo"
+    ],
+    "description": "Explore abandoned towns in a mystical Far Eastern setting.",
+    "fun_fact": "The game was almost entirely created by one Japanese developer."
+  },
+  {
+    "id": "haven",
+    "title": "Haven",
+    "platforms": [
+      "pc",
+      "console",
+      "handheld"
+    ],
+    "year": 2020,
+    "genres": [
+      "rpg",
+      "adventure",
+      "romance",
+      "indie"
+    ],
+    "time_tags": [
+      30,
+      60,
+      90
+    ],
+    "energy": "low",
+    "moods": [
+      "romantic",
+      "cozy",
+      "adventurous",
+      "intimate"
+    ],
+    "play_style": [
+      "narrative",
+      "action"
+    ],
+    "time_to_fun": "short",
+    "stop_friendliness": "anytime",
+    "multiplayer": [
+      "solo",
+      "local_coop"
+    ],
+    "description": "A couple in love stranded on a strange planet, surviving together.",
+    "fun_fact": "The game was designed for couples to play together on the couch."
+  },
+  {
+    "id": "garden-paws",
+    "title": "Garden Paws",
+    "platforms": [
+      "pc",
+      "handheld"
+    ],
+    "year": 2018,
+    "genres": [
+      "farming",
+      "simulation",
+      "animals",
+      "indie"
+    ],
+    "time_tags": [
+      30,
+      60
+    ],
+    "energy": "low",
+    "moods": [
+      "cute",
+      "cozy",
+      "relaxing",
+      "charming"
+    ],
+    "play_style": [
+      "sandbox_creative"
+    ],
+    "time_to_fun": "short",
+    "stop_friendliness": "anytime",
+    "multiplayer": [
+      "solo",
+      "online_coop"
+    ],
+    "description": "Run a farm as an adorable animal in a magical world.",
+    "fun_fact": "You can play as various cute animals including bunnies, cats, and dragons."
+  },
+  {
+    "id": "sumire",
+    "title": "Sumire",
+    "platforms": [
+      "pc",
+      "console",
+      "handheld"
+    ],
+    "year": 2021,
+    "genres": [
+      "adventure",
+      "narrative",
+      "emotional",
+      "indie"
+    ],
+    "time_tags": [
+      60,
+      90
+    ],
+    "energy": "low",
+    "moods": [
+      "emotional",
+      "beautiful",
+      "bittersweet",
+      "hopeful"
+    ],
+    "play_style": [
+      "narrative"
+    ],
+    "time_to_fun": "short",
+    "stop_friendliness": "checkpoints",
+    "multiplayer": [
+      "solo"
+    ],
+    "description": "Experience one perfect day guided by a magical flower.",
+    "fun_fact": "The game takes place over a single day and explores themes of grief and hope."
+  },
+  {
+    "id": "where-cards-fall",
+    "title": "Where Cards Fall",
+    "platforms": [
+      "pc",
+      "console",
+      "handheld"
+    ],
+    "year": 2019,
+    "genres": [
+      "puzzle",
+      "narrative",
+      "indie"
+    ],
+    "time_tags": [
+      30,
+      60
+    ],
+    "energy": "low",
+    "moods": [
+      "nostalgic",
+      "contemplative",
+      "beautiful",
+      "dreamlike"
+    ],
+    "play_style": [
+      "puzzle_strategy"
+    ],
+    "time_to_fun": "short",
+    "stop_friendliness": "checkpoints",
+    "multiplayer": [
+      "solo"
+    ],
+    "description": "Build houses of cards to navigate memories and dreams.",
+    "fun_fact": "The game explores the delicate nature of relationships through card house metaphors."
+  },
+  {
+    "id": "the-pathless",
+    "title": "The Pathless",
+    "platforms": [
+      "pc",
+      "console"
+    ],
+    "year": 2020,
+    "genres": [
+      "adventure",
+      "action",
+      "exploration",
+      "indie"
+    ],
+    "time_tags": [
+      60,
+      90
+    ],
+    "energy": "low",
+    "moods": [
+      "mystical",
+      "beautiful",
+      "adventurous",
+      "flowing"
+    ],
+    "play_style": [
+      "action"
+    ],
+    "time_to_fun": "short",
+    "stop_friendliness": "checkpoints",
+    "multiplayer": [
+      "solo"
+    ],
+    "description": "Run and glide through a mystical forest as a hunter with an eagle.",
+    "fun_fact": "Made by the creators of ABZU, featuring similarly fluid movement."
+  },
+  {
+    "id": "hohokum",
+    "title": "Hohokum",
+    "platforms": [
+      "console"
+    ],
+    "year": 2014,
+    "genres": [
+      "adventure",
+      "exploration",
+      "artistic",
+      "indie"
+    ],
+    "time_tags": [
+      30,
+      60
+    ],
+    "energy": "low",
+    "moods": [
+      "psychedelic",
+      "playful",
+      "zen",
+      "colorful"
+    ],
+    "play_style": [
+      "sandbox_creative"
+    ],
+    "time_to_fun": "short",
+    "stop_friendliness": "anytime",
+    "multiplayer": [
+      "solo"
+    ],
+    "description": "Float through vibrant worlds as a colorful snake-like creature.",
+    "fun_fact": "The game has no UI, tutorials, or text - pure exploration and discovery."
+  },
+  {
+    "id": "pikuniku",
+    "title": "Pikuniku",
+    "platforms": [
+      "pc",
+      "console",
+      "handheld"
+    ],
+    "year": 2019,
+    "genres": [
+      "adventure",
+      "puzzle",
+      "comedy",
+      "indie"
+    ],
+    "time_tags": [
+      30,
+      60
+    ],
+    "energy": "low",
+    "moods": [
+      "silly",
+      "charming",
+      "quirky",
+      "fun"
+    ],
+    "play_style": [
+      "puzzle_strategy"
+    ],
+    "time_to_fun": "short",
+    "stop_friendliness": "checkpoints",
+    "multiplayer": [
+      "solo",
+      "local_coop"
+    ],
+    "description": "A blob-like creature solves puzzles and kicks things in a silly world.",
+    "fun_fact": "The game features a dedicated kick button that solves most problems."
+  },
+  {
+    "id": "old-mans-journey",
+    "title": "Old Man's Journey",
+    "platforms": [
+      "pc",
+      "console",
+      "handheld"
+    ],
+    "year": 2017,
+    "genres": [
+      "adventure",
+      "puzzle",
+      "narrative",
+      "indie"
+    ],
+    "time_tags": [
+      30,
+      60
+    ],
+    "energy": "low",
+    "moods": [
+      "emotional",
+      "beautiful",
+      "nostalgic",
+      "contemplative"
+    ],
+    "play_style": [
+      "puzzle_strategy",
+      "narrative"
+    ],
+    "time_to_fun": "short",
+    "stop_friendliness": "checkpoints",
+    "multiplayer": [
+      "solo"
+    ],
+    "description": "Reshape hills and valleys as an old man reflects on his life.",
+    "fun_fact": "The game was created by a team in Vienna and won multiple awards for its narrative."
+  },
+  {
+    "id": "wattam",
+    "title": "Wattam",
+    "platforms": [
+      "pc",
+      "console"
+    ],
+    "year": 2019,
+    "genres": [
+      "puzzle",
+      "sandbox",
+      "quirky",
+      "indie"
+    ],
+    "time_tags": [
+      30,
+      60
+    ],
+    "energy": "low",
+    "moods": [
+      "joyful",
+      "silly",
+      "colorful",
+      "heartwarming"
+    ],
+    "play_style": [
+      "sandbox_creative"
+    ],
+    "time_to_fun": "short",
+    "stop_friendliness": "anytime",
+    "multiplayer": [
+      "solo",
+      "local_coop"
+    ],
+    "description": "Make friends in a colorful world where everything wants to hold hands.",
+    "fun_fact": "Made by the creator of Katamari Damacy, featuring the same joyful absurdity."
+  },
+  {
+    "id": "niche",
+    "title": "Niche",
+    "platforms": [
+      "pc",
+      "console",
+      "handheld"
+    ],
+    "year": 2017,
+    "genres": [
+      "simulation",
+      "strategy",
+      "genetics",
+      "indie"
+    ],
+    "time_tags": [
+      30,
+      60,
+      90
+    ],
+    "energy": "low",
+    "moods": [
+      "educational",
+      "strategic",
+      "relaxing",
+      "curious"
+    ],
+    "play_style": [
+      "puzzle_strategy"
+    ],
+    "time_to_fun": "medium",
+    "stop_friendliness": "anytime",
+    "multiplayer": [
+      "solo"
+    ],
+    "description": "Evolve your own species of animals through genetics.",
+    "fun_fact": "The game teaches real genetics principles used in biology education."
+  },
+  {
+    "id": "equilinox",
+    "title": "Equilinox",
+    "platforms": [
+      "pc"
+    ],
+    "year": 2018,
+    "genres": [
+      "simulation",
+      "nature",
+      "sandbox",
+      "indie"
+    ],
+    "time_tags": [
+      30,
+      60
+    ],
+    "energy": "low",
+    "moods": [
+      "relaxing",
+      "creative",
+      "peaceful",
+      "educational"
+    ],
+    "play_style": [
+      "sandbox_creative"
+    ],
+    "time_to_fun": "short",
+    "stop_friendliness": "anytime",
+    "multiplayer": [
+      "solo"
+    ],
+    "description": "Create and nurture your own living ecosystem.",
+    "fun_fact": "Made by a solo developer who also created Thin Matrix's OpenGL tutorials."
+  },
+  {
+    "id": "the-gardens-between",
+    "title": "The Gardens Between",
+    "platforms": [
+      "pc",
+      "console",
+      "handheld"
+    ],
+    "year": 2018,
+    "genres": [
+      "puzzle",
+      "adventure",
+      "narrative",
+      "indie"
+    ],
+    "time_tags": [
+      15,
+      30,
+      60
+    ],
+    "energy": "low",
+    "moods": [
+      "nostalgic",
+      "emotional",
+      "relaxing",
+      "thoughtful"
+    ],
+    "play_style": [
+      "puzzle_strategy"
+    ],
+    "time_to_fun": "short",
+    "stop_friendliness": "checkpoints",
+    "multiplayer": [
+      "solo"
+    ],
+    "description": "Manipulate time to solve puzzles and explore a friendship.",
+    "fun_fact": "The game has no dialogue or text - the entire story is told through visuals."
+  },
+  {
+    "id": "night-in-the-woods",
+    "title": "Night in the Woods",
+    "platforms": [
+      "pc",
+      "console",
+      "handheld"
+    ],
+    "year": 2017,
+    "genres": [
+      "adventure",
+      "narrative",
+      "platformer",
+      "indie"
+    ],
+    "time_tags": [
+      60,
+      90
+    ],
+    "energy": "low",
+    "moods": [
+      "nostalgic",
+      "emotional",
+      "quirky",
+      "coming-of-age"
+    ],
+    "play_style": [
+      "narrative"
+    ],
+    "time_to_fun": "medium",
+    "stop_friendliness": "checkpoints",
+    "multiplayer": [
+      "solo"
+    ],
+    "description": "Return to your hometown as a cat who dropped out of college.",
+    "fun_fact": "The game was crowdfunded and explores themes of mental health and small-town decay."
+  },
+  {
+    "id": "oxenfree",
+    "title": "Oxenfree",
+    "platforms": [
+      "pc",
+      "console",
+      "handheld"
+    ],
+    "year": 2016,
+    "genres": [
+      "adventure",
+      "narrative",
+      "supernatural",
+      "indie"
+    ],
+    "time_tags": [
+      60,
+      90
+    ],
+    "energy": "low",
+    "moods": [
+      "mysterious",
+      "atmospheric",
+      "teen",
+      "supernatural"
+    ],
+    "play_style": [
+      "narrative"
+    ],
+    "time_to_fun": "short",
+    "stop_friendliness": "checkpoints",
+    "multiplayer": [
+      "solo"
+    ],
+    "description": "Tune into supernatural signals on a mysterious island with friends.",
+    "fun_fact": "The dialogue system allows characters to talk over each other naturally."
+  },
+  {
+    "id": "oxenfree-2",
+    "title": "Oxenfree II: Lost Signals",
+    "platforms": [
+      "pc",
+      "console",
+      "handheld"
+    ],
+    "year": 2023,
+    "genres": [
+      "adventure",
+      "narrative",
+      "supernatural",
+      "indie"
+    ],
+    "time_tags": [
+      60,
+      90
+    ],
+    "energy": "low",
+    "moods": [
+      "mysterious",
+      "atmospheric",
+      "adult",
+      "supernatural"
+    ],
+    "play_style": [
+      "narrative"
+    ],
+    "time_to_fun": "short",
+    "stop_friendliness": "checkpoints",
+    "multiplayer": [
+      "solo"
+    ],
+    "description": "Return to the supernatural mystery years later as an adult.",
+    "fun_fact": "The sequel explores what happens when you grow up but the supernatural still calls."
+  },
+  {
+    "id": "heaven-dust-2",
+    "title": "Heaven Dust 2",
+    "platforms": [
+      "pc",
+      "console",
+      "handheld"
+    ],
+    "year": 2022,
+    "genres": [
+      "survival-horror",
+      "puzzle",
+      "indie"
+    ],
+    "time_tags": [
+      30,
+      60
+    ],
+    "energy": "low",
+    "moods": [
+      "tense",
+      "mysterious",
+      "retro",
+      "puzzle"
+    ],
+    "play_style": [
+      "puzzle_strategy"
+    ],
+    "time_to_fun": "short",
+    "stop_friendliness": "checkpoints",
+    "multiplayer": [
+      "solo"
+    ],
+    "description": "Solve puzzles and survive in a zombie-filled mansion.",
+    "fun_fact": "The game is an homage to classic Resident Evil with isometric pixel art."
+  },
+  {
+    "id": "we-are-obeah",
+    "title": "We Are OFK",
+    "platforms": [
+      "pc",
+      "console"
+    ],
+    "year": 2022,
+    "genres": [
+      "narrative",
+      "musical",
+      "indie"
+    ],
+    "time_tags": [
+      60,
+      90
+    ],
+    "energy": "low",
+    "moods": [
+      "musical",
+      "emotional",
+      "modern",
+      "stylish"
+    ],
+    "play_style": [
+      "narrative"
+    ],
+    "time_to_fun": "medium",
+    "stop_friendliness": "checkpoints",
+    "multiplayer": [
+      "solo"
+    ],
+    "description": "Follow an indie band's journey through the LA music scene.",
+    "fun_fact": "Features real songs by the fictional band OFK that you can stream."
+  },
+  {
+    "id": "inmost",
+    "title": "Inmost",
+    "platforms": [
+      "pc",
+      "console",
+      "handheld"
+    ],
+    "year": 2020,
+    "genres": [
+      "platformer",
+      "puzzle",
+      "narrative",
+      "indie"
+    ],
+    "time_tags": [
+      30,
+      60
+    ],
+    "energy": "low",
+    "moods": [
+      "atmospheric",
+      "emotional",
+      "dark",
+      "contemplative"
+    ],
+    "play_style": [
+      "narrative",
+      "puzzle_strategy"
+    ],
+    "time_to_fun": "short",
+    "stop_friendliness": "checkpoints",
+    "multiplayer": [
+      "solo"
+    ],
+    "description": "Three characters' stories intertwine in a dark, emotional puzzle platformer.",
+    "fun_fact": "The game deals with heavy themes of loss and depression through metaphor.",
+    "warnings": [
+      "dark_themes"
+    ]
+  },
+  {
+    "id": "little-misfortune",
+    "title": "Little Misfortune",
+    "platforms": [
+      "pc",
+      "console",
+      "handheld"
+    ],
+    "year": 2019,
+    "genres": [
+      "adventure",
+      "narrative",
+      "dark-comedy",
+      "indie"
+    ],
+    "time_tags": [
+      30,
+      60
+    ],
+    "energy": "low",
+    "moods": [
+      "dark",
+      "charming",
+      "quirky",
+      "emotional"
+    ],
+    "play_style": [
+      "narrative"
+    ],
+    "time_to_fun": "short",
+    "stop_friendliness": "checkpoints",
+    "multiplayer": [
+      "solo"
+    ],
+    "description": "A dark fairytale about a child following a mysterious voice.",
+    "fun_fact": "Made by the creators of Fran Bow, featuring the same dark whimsy.",
+    "warnings": [
+      "dark_themes"
+    ]
+  },
+  {
+    "id": "fran-bow",
+    "title": "Fran Bow",
+    "platforms": [
+      "pc",
+      "handheld"
+    ],
+    "year": 2015,
+    "genres": [
+      "adventure",
+      "horror",
+      "puzzle",
+      "indie"
+    ],
+    "time_tags": [
+      60,
+      90
+    ],
+    "energy": "low",
+    "moods": [
+      "dark",
+      "psychological",
+      "mysterious",
+      "surreal"
+    ],
+    "play_style": [
+      "puzzle_strategy",
+      "narrative"
+    ],
+    "time_to_fun": "medium",
+    "stop_friendliness": "checkpoints",
+    "multiplayer": [
+      "solo"
+    ],
+    "description": "A young girl with mental illness searches for her cat in a dark world.",
+    "fun_fact": "The game features two parallel realities accessed through mysterious pills.",
+    "warnings": [
+      "psychological_horror",
+      "mental_health"
+    ]
+  },
+  {
+    "id": "creaks",
+    "title": "Creaks",
+    "platforms": [
+      "pc",
+      "console",
+      "handheld"
+    ],
+    "year": 2020,
+    "genres": [
+      "puzzle",
+      "adventure",
+      "artistic",
+      "indie"
+    ],
+    "time_tags": [
+      30,
+      60
+    ],
+    "energy": "low",
+    "moods": [
+      "mysterious",
+      "beautiful",
+      "quirky",
+      "atmospheric"
+    ],
+    "play_style": [
+      "puzzle_strategy"
+    ],
+    "time_to_fun": "short",
+    "stop_friendliness": "checkpoints",
+    "multiplayer": [
+      "solo"
+    ],
+    "description": "Descend through a strange mansion filled with furniture monsters.",
+    "fun_fact": "Made by the creators of Machinarium with hand-drawn animation."
+  },
+  {
+    "id": "machinarium",
+    "title": "Machinarium",
+    "platforms": [
+      "pc",
+      "console",
+      "handheld"
+    ],
+    "year": 2009,
+    "genres": [
+      "adventure",
+      "puzzle",
+      "artistic",
+      "indie"
+    ],
+    "time_tags": [
+      30,
+      60
+    ],
+    "energy": "low",
+    "moods": [
+      "charming",
+      "nostalgic",
+      "clever",
+      "beautiful"
+    ],
+    "play_style": [
+      "puzzle_strategy"
+    ],
+    "time_to_fun": "short",
+    "stop_friendliness": "anytime",
+    "multiplayer": [
+      "solo"
+    ],
+    "description": "A little robot solves puzzles in a hand-drawn steampunk city.",
+    "fun_fact": "The entire game was hand-drawn by one artist over several years."
+  },
+  {
+    "id": "botanicula",
+    "title": "Botanicula",
+    "platforms": [
+      "pc",
+      "handheld"
+    ],
+    "year": 2012,
+    "genres": [
+      "adventure",
+      "puzzle",
+      "artistic",
+      "indie"
+    ],
+    "time_tags": [
+      30,
+      60
+    ],
+    "energy": "low",
+    "moods": [
+      "whimsical",
+      "charming",
+      "joyful",
+      "cute"
+    ],
+    "play_style": [
+      "puzzle_strategy"
+    ],
+    "time_to_fun": "short",
+    "stop_friendliness": "anytime",
+    "multiplayer": [
+      "solo"
+    ],
+    "description": "Five tiny creatures save their tree from evil parasites.",
+    "fun_fact": "Made by Amanita Design, featuring unique sound design by DVA."
+  },
+  {
+    "id": "samorost-3",
+    "title": "Samorost 3",
+    "platforms": [
+      "pc",
+      "handheld"
+    ],
+    "year": 2016,
+    "genres": [
+      "adventure",
+      "puzzle",
+      "artistic",
+      "indie"
+    ],
+    "time_tags": [
+      30,
+      60
+    ],
+    "energy": "low",
+    "moods": [
+      "dreamlike",
+      "curious",
+      "beautiful",
+      "mysterious"
+    ],
+    "play_style": [
+      "puzzle_strategy"
+    ],
+    "time_to_fun": "short",
+    "stop_friendliness": "anytime",
+    "multiplayer": [
+      "solo"
+    ],
+    "description": "A space gnome explores surreal planets with his magic flute.",
+    "fun_fact": "The backgrounds combine real photographs with hand-drawn art."
+  },
+  {
+    "id": "chuchel",
+    "title": "Chuchel",
+    "platforms": [
+      "pc",
+      "handheld"
+    ],
+    "year": 2018,
+    "genres": [
+      "adventure",
+      "comedy",
+      "puzzle",
+      "indie"
+    ],
+    "time_tags": [
+      30,
+      60
+    ],
+    "energy": "low",
+    "moods": [
+      "silly",
+      "fun",
+      "colorful",
+      "absurd"
+    ],
+    "play_style": [
+      "puzzle_strategy"
+    ],
+    "time_to_fun": "short",
+    "stop_friendliness": "anytime",
+    "multiplayer": [
+      "solo"
+    ],
+    "description": "A fuzzy creature chases a cherry through absurd situations.",
+    "fun_fact": "The main character was redesigned after release due to unintended racial parallels."
+  },
+  {
+    "id": "pilgrims",
+    "title": "Pilgrims",
+    "platforms": [
+      "pc",
+      "handheld"
+    ],
+    "year": 2019,
+    "genres": [
+      "adventure",
+      "puzzle",
+      "indie"
+    ],
+    "time_tags": [
+      30,
+      60
+    ],
+    "energy": "low",
+    "moods": [
+      "charming",
+      "quirky",
+      "fun",
+      "medieval"
+    ],
+    "play_style": [
+      "puzzle_strategy"
+    ],
+    "time_to_fun": "short",
+    "stop_friendliness": "anytime",
+    "multiplayer": [
+      "solo"
+    ],
+    "description": "A playful card-based adventure game about helping strangers.",
+    "fun_fact": "Made by Amanita Design as a smaller experimental project."
+  },
+  {
+    "id": "happy-game",
+    "title": "Happy Game",
+    "platforms": [
+      "pc",
+      "console",
+      "handheld"
+    ],
+    "year": 2021,
+    "genres": [
+      "puzzle",
+      "horror",
+      "surreal",
+      "indie"
+    ],
+    "time_tags": [
+      30,
+      60
+    ],
+    "energy": "low",
+    "moods": [
+      "unsettling",
+      "surreal",
+      "dreamlike",
+      "dark"
+    ],
+    "play_style": [
+      "puzzle_strategy"
+    ],
+    "time_to_fun": "short",
+    "stop_friendliness": "checkpoints",
+    "multiplayer": [
+      "solo"
+    ],
+    "description": "A boy's happy dreams turn into surreal nightmares.",
+    "fun_fact": "Despite the name, this is Amanita Design's darkest and most disturbing game.",
+    "warnings": [
+      "disturbing_imagery"
+    ]
+  },
+  {
+    "id": "cocoon",
+    "title": "Cocoon",
+    "platforms": [
+      "pc",
+      "console",
+      "handheld"
+    ],
+    "year": 2023,
+    "genres": [
+      "puzzle",
+      "adventure",
+      "artistic",
+      "indie"
+    ],
+    "time_tags": [
+      30,
+      60
+    ],
+    "energy": "low",
+    "moods": [
+      "mysterious",
+      "beautiful",
+      "clever",
+      "otherworldly"
+    ],
+    "play_style": [
+      "puzzle_strategy"
+    ],
+    "time_to_fun": "short",
+    "stop_friendliness": "checkpoints",
+    "multiplayer": [
+      "solo"
+    ],
+    "description": "Carry worlds within worlds and use them to solve puzzles.",
+    "fun_fact": "Made by the lead designer of LIMBO and INSIDE!",
+    "subscriptions": [
+      "xbox_game_pass"
+    ]
+  },
+  {
+    "id": "limbo",
+    "title": "Limbo",
+    "platforms": [
+      "pc",
+      "console",
+      "handheld"
+    ],
+    "year": 2010,
+    "genres": [
+      "platformer",
+      "puzzle",
+      "artistic",
+      "indie"
+    ],
+    "time_tags": [
+      30,
+      60
+    ],
+    "energy": "low",
+    "moods": [
+      "atmospheric",
+      "dark",
+      "mysterious",
+      "haunting"
+    ],
+    "play_style": [
+      "puzzle_strategy"
+    ],
+    "time_to_fun": "short",
+    "stop_friendliness": "checkpoints",
+    "multiplayer": [
+      "solo"
+    ],
+    "description": "A boy searches for his sister in a dark, hostile world.",
+    "fun_fact": "The game uses only black, white, and gray to create its haunting atmosphere."
+  },
+  {
+    "id": "inside",
+    "title": "Inside",
+    "platforms": [
+      "pc",
+      "console",
+      "handheld"
+    ],
+    "year": 2016,
+    "genres": [
+      "platformer",
+      "puzzle",
+      "narrative",
+      "indie"
+    ],
+    "time_tags": [
+      60,
+      90
+    ],
+    "energy": "low",
+    "moods": [
+      "atmospheric",
+      "dark",
+      "mysterious",
+      "unsettling"
+    ],
+    "play_style": [
+      "puzzle_strategy",
+      "narrative"
+    ],
+    "time_to_fun": "short",
+    "stop_friendliness": "checkpoints",
+    "multiplayer": [
+      "solo"
+    ],
+    "description": "A boy infiltrates a sinister facility in this wordless puzzle platformer.",
+    "fun_fact": "The animation system uses inverse kinematics to create eerily realistic movement."
+  },
+  {
+    "id": "the-last-campfire",
+    "title": "The Last Campfire",
+    "platforms": [
+      "pc",
+      "console",
+      "handheld"
+    ],
+    "year": 2020,
+    "genres": [
+      "adventure",
+      "puzzle",
+      "indie"
+    ],
+    "time_tags": [
+      30,
+      60
+    ],
+    "energy": "low",
+    "moods": [
+      "heartwarming",
+      "contemplative",
+      "beautiful",
+      "hopeful"
+    ],
+    "play_style": [
+      "puzzle_strategy"
+    ],
+    "time_to_fun": "short",
+    "stop_friendliness": "checkpoints",
+    "multiplayer": [
+      "solo"
+    ],
+    "description": "Help lost souls find their way in a mysterious ember's journey.",
+    "fun_fact": "Made by Hello Games (No Man's Sky) as a small passion project."
+  },
+  {
+    "id": "forgotton-anne",
+    "title": "Forgotton Anne",
+    "platforms": [
+      "pc",
+      "console",
+      "handheld"
+    ],
+    "year": 2018,
+    "genres": [
+      "adventure",
+      "platformer",
+      "narrative",
+      "indie"
+    ],
+    "time_tags": [
+      60,
+      90
+    ],
+    "energy": "low",
+    "moods": [
+      "emotional",
+      "beautiful",
+      "mysterious",
+      "anime"
+    ],
+    "play_style": [
+      "narrative"
+    ],
+    "time_to_fun": "short",
+    "stop_friendliness": "checkpoints",
+    "multiplayer": [
+      "solo"
+    ],
+    "description": "Rule a world of forgotten things as an enforcer seeking to return home.",
+    "fun_fact": "The game was animated entirely frame-by-frame in a classic anime style."
+  }
+]

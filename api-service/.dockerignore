@@ -1,0 +1,25 @@
+# Docker ignore for API service
+.git
+.gitignore
+.env
+.env.*
+!.env.example
+.pytest_cache
+__pycache__
+*.pyc
+*.pyo
+*.pyd
+.Python
+venv/
+.venv/
+logs/
+*.log
+.coverage
+htmlcov/
+.idea/
+.vscode/
+*.md
+tests/
+Makefile
+docker-compose*.yml
+serviceAccountKey.json

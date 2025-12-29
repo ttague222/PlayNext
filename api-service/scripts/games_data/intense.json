@@ -1,0 +1,4776 @@
+[
+  {
+    "id": "elden-ring",
+    "title": "Elden Ring",
+    "platforms": [
+      "pc",
+      "console"
+    ],
+    "year": 2022,
+    "genres": [
+      "souls-like",
+      "open-world",
+      "action-rpg"
+    ],
+    "time_tags": [
+      60,
+      90
+    ],
+    "energy": "high",
+    "moods": [
+      "epic",
+      "challenging",
+      "immersive",
+      "rewarding"
+    ],
+    "play_style": [
+      "action"
+    ],
+    "time_to_fun": "medium",
+    "stop_friendliness": "checkpoints",
+    "multiplayer": [
+      "solo",
+      "online_coop",
+      "competitive"
+    ],
+    "description": "An epic open-world souls experience.",
+    "fun_fact": "George R.R. Martin (Game of Thrones author) wrote the game's background mythology.",
+    "franchise": "elden_ring"
+  },
+  {
+    "id": "dark-souls-3",
+    "title": "Dark Souls III",
+    "platforms": [
+      "pc",
+      "console"
+    ],
+    "year": 2016,
+    "genres": [
+      "souls-like",
+      "action-rpg",
+      "dark-fantasy"
+    ],
+    "time_tags": [
+      60,
+      90
+    ],
+    "energy": "high",
+    "moods": [
+      "dark",
+      "challenging",
+      "atmospheric",
+      "rewarding"
+    ],
+    "play_style": [
+      "action"
+    ],
+    "time_to_fun": "medium",
+    "stop_friendliness": "checkpoints",
+    "multiplayer": [
+      "solo",
+      "online_coop",
+      "competitive"
+    ],
+    "description": "The final chapter of the Dark Souls trilogy.",
+    "fun_fact": "Director Hidetaka Miyazaki originally envisioned the series as a dungeon crawler.",
+    "franchise": "souls"
+  },
+  {
+    "id": "sekiro",
+    "title": "Sekiro: Shadows Die Twice",
+    "platforms": [
+      "pc",
+      "console"
+    ],
+    "year": 2019,
+    "genres": [
+      "souls-like",
+      "action",
+      "ninja"
+    ],
+    "time_tags": [
+      60,
+      90
+    ],
+    "energy": "high",
+    "moods": [
+      "intense",
+      "precise",
+      "Japanese",
+      "rewarding"
+    ],
+    "play_style": [
+      "action"
+    ],
+    "time_to_fun": "medium",
+    "stop_friendliness": "checkpoints",
+    "multiplayer": [
+      "solo"
+    ],
+    "description": "Precision swordplay in feudal Japan.",
+    "fun_fact": "The game won Game of the Year 2019 - FromSoftware's first GOTY win!"
+  },
+  {
+    "id": "bloodborne",
+    "title": "Bloodborne",
+    "platforms": [
+      "console"
+    ],
+    "year": 2015,
+    "genres": [
+      "souls-like",
+      "action-rpg",
+      "gothic-horror"
+    ],
+    "time_tags": [
+      60,
+      90
+    ],
+    "energy": "high",
+    "moods": [
+      "gothic",
+      "aggressive",
+      "lovecraftian",
+      "atmospheric"
+    ],
+    "play_style": [
+      "action"
+    ],
+    "time_to_fun": "medium",
+    "stop_friendliness": "checkpoints",
+    "multiplayer": [
+      "solo",
+      "online_coop",
+      "competitive"
+    ],
+    "description": "Hunt beasts in a Victorian nightmare.",
+    "fun_fact": "The game shifts from gothic horror to cosmic horror midway through.",
+    "subscriptions": [
+      "playstation_plus"
+    ]
+  },
+  {
+    "id": "demons-souls-remake",
+    "title": "Demon's Souls Remake",
+    "platforms": [
+      "console"
+    ],
+    "year": 2020,
+    "genres": [
+      "souls-like",
+      "action-rpg",
+      "dark-fantasy"
+    ],
+    "time_tags": [
+      60,
+      90
+    ],
+    "energy": "high",
+    "moods": [
+      "atmospheric",
+      "challenging",
+      "beautiful",
+      "classic"
+    ],
+    "play_style": [
+      "action"
+    ],
+    "time_to_fun": "medium",
+    "stop_friendliness": "checkpoints",
+    "multiplayer": [
+      "solo",
+      "online_coop",
+      "competitive"
+    ],
+    "description": "The game that started it all, remade.",
+    "fun_fact": "The original PS3 game pioneered the souls-like genre.",
+    "franchise": "souls",
+    "subscriptions": [
+      "playstation_plus"
+    ]
+  },
+  {
+    "id": "armored-core-6",
+    "title": "Armored Core VI",
+    "platforms": [
+      "pc",
+      "console"
+    ],
+    "year": 2023,
+    "genres": [
+      "mech",
+      "action",
+      "souls-like"
+    ],
+    "time_tags": [
+      60,
+      90
+    ],
+    "energy": "high",
+    "moods": [
+      "intense",
+      "mechanical",
+      "strategic",
+      "challenging"
+    ],
+    "play_style": [
+      "action"
+    ],
+    "time_to_fun": "short",
+    "stop_friendliness": "checkpoints",
+    "multiplayer": [
+      "solo",
+      "competitive"
+    ],
+    "description": "FromSoftware's mech combat returns.",
+    "fun_fact": "FromSoftware hadn't made an Armored Core game in 10 years before this entry!"
+  },
+  {
+    "id": "doom-eternal",
+    "title": "DOOM Eternal",
+    "platforms": [
+      "pc",
+      "console",
+      "handheld"
+    ],
+    "year": 2020,
+    "genres": [
+      "fps",
+      "action",
+      "demon-slaying"
+    ],
+    "time_tags": [
+      30,
+      60,
+      90
+    ],
+    "energy": "high",
+    "moods": [
+      "intense",
+      "aggressive",
+      "fast",
+      "visceral"
+    ],
+    "play_style": [
+      "action"
+    ],
+    "time_to_fun": "short",
+    "stop_friendliness": "checkpoints",
+    "multiplayer": [
+      "solo",
+      "competitive"
+    ],
+    "description": "Rip and tear through Hell.",
+    "fun_fact": "The Doom Slayer's rage is literally too angry for Hell to contain!",
+    "subscriptions": [
+      "xbox_game_pass"
+    ],
+    "franchise": "doom"
+  },
+  {
+    "id": "doom-2016",
+    "title": "DOOM (2016)",
+    "platforms": [
+      "pc",
+      "console",
+      "handheld"
+    ],
+    "year": 2016,
+    "genres": [
+      "fps",
+      "action",
+      "demon-slaying"
+    ],
+    "time_tags": [
+      30,
+      60
+    ],
+    "energy": "high",
+    "moods": [
+      "intense",
+      "fast",
+      "aggressive",
+      "brutal"
+    ],
+    "play_style": [
+      "action"
+    ],
+    "time_to_fun": "short",
+    "stop_friendliness": "checkpoints",
+    "multiplayer": [
+      "solo",
+      "competitive"
+    ],
+    "description": "The legendary FPS rebooted.",
+    "fun_fact": "The Glory Kill system was designed to keep players constantly aggressive.",
+    "subscriptions": [
+      "xbox_game_pass"
+    ],
+    "franchise": "doom"
+  },
+  {
+    "id": "ultrakill",
+    "title": "ULTRAKILL",
+    "platforms": [
+      "pc"
+    ],
+    "year": 2020,
+    "genres": [
+      "fps",
+      "retro",
+      "stylish"
+    ],
+    "time_tags": [
+      30,
+      60
+    ],
+    "energy": "high",
+    "moods": [
+      "stylish",
+      "fast",
+      "intense",
+      "skill-based"
+    ],
+    "play_style": [
+      "action"
+    ],
+    "time_to_fun": "short",
+    "stop_friendliness": "checkpoints",
+    "multiplayer": [
+      "solo"
+    ],
+    "description": "Blood is fuel. Kill is style.",
+    "fun_fact": "The game is inspired by 90s shooters like Quake and Devil May Cry combat!"
+  },
+  {
+    "id": "dusk",
+    "title": "DUSK",
+    "platforms": [
+      "pc",
+      "console",
+      "handheld"
+    ],
+    "year": 2018,
+    "genres": [
+      "fps",
+      "retro",
+      "horror"
+    ],
+    "time_tags": [
+      30,
+      60
+    ],
+    "energy": "high",
+    "moods": [
+      "retro",
+      "fast",
+      "creepy",
+      "nostalgic"
+    ],
+    "play_style": [
+      "action"
+    ],
+    "time_to_fun": "short",
+    "stop_friendliness": "checkpoints",
+    "multiplayer": [
+      "solo",
+      "competitive"
+    ],
+    "description": "Retro shooter with horror vibes.",
+    "fun_fact": "A love letter to classic shooters like Quake and Blood."
+  },
+  {
+    "id": "turbo-overkill",
+    "title": "Turbo Overkill",
+    "platforms": [
+      "pc",
+      "console"
+    ],
+    "year": 2022,
+    "genres": [
+      "fps",
+      "cyberpunk",
+      "retro"
+    ],
+    "time_tags": [
+      30,
+      60
+    ],
+    "energy": "high",
+    "moods": [
+      "cyberpunk",
+      "fast",
+      "stylish",
+      "brutal"
+    ],
+    "play_style": [
+      "action"
+    ],
+    "time_to_fun": "short",
+    "stop_friendliness": "checkpoints",
+    "multiplayer": [
+      "solo"
+    ],
+    "description": "Cyberpunk chainsaw-leg mayhem.",
+    "fun_fact": "Your leg is a chainsaw. That's the whole pitch."
+  },
+  {
+    "id": "prodeus",
+    "title": "Prodeus",
+    "platforms": [
+      "pc",
+      "console",
+      "handheld"
+    ],
+    "year": 2022,
+    "genres": [
+      "fps",
+      "retro",
+      "modern"
+    ],
+    "time_tags": [
+      30,
+      60
+    ],
+    "energy": "high",
+    "moods": [
+      "retro",
+      "brutal",
+      "satisfying",
+      "creative"
+    ],
+    "play_style": [
+      "action"
+    ],
+    "time_to_fun": "short",
+    "stop_friendliness": "checkpoints",
+    "multiplayer": [
+      "solo",
+      "online_coop",
+      "competitive"
+    ],
+    "description": "Modern retro FPS with a level editor.",
+    "fun_fact": "Features a level editor with thousands of community maps."
+  },
+  {
+    "id": "amid-evil",
+    "title": "Amid Evil",
+    "platforms": [
+      "pc",
+      "console"
+    ],
+    "year": 2019,
+    "genres": [
+      "fps",
+      "retro",
+      "fantasy"
+    ],
+    "time_tags": [
+      30,
+      60
+    ],
+    "energy": "high",
+    "moods": [
+      "retro",
+      "fantasy",
+      "brutal",
+      "stylish"
+    ],
+    "play_style": [
+      "action"
+    ],
+    "time_to_fun": "short",
+    "stop_friendliness": "checkpoints",
+    "multiplayer": [
+      "solo"
+    ],
+    "description": "Retro FPS with fantasy weapons.",
+    "fun_fact": "Made by the New Blood Interactive team behind DUSK."
+  },
+  {
+    "id": "devil-may-cry-5",
+    "title": "Devil May Cry 5",
+    "platforms": [
+      "pc",
+      "console"
+    ],
+    "year": 2019,
+    "genres": [
+      "action",
+      "hack-and-slash",
+      "stylish"
+    ],
+    "time_tags": [
+      30,
+      60,
+      90
+    ],
+    "energy": "high",
+    "moods": [
+      "stylish",
+      "intense",
+      "dramatic",
+      "skill-based"
+    ],
+    "play_style": [
+      "action"
+    ],
+    "time_to_fun": "short",
+    "stop_friendliness": "checkpoints",
+    "multiplayer": [
+      "solo"
+    ],
+    "description": "Stylish demon hunting action.",
+    "fun_fact": "The style ranking system encourages creative combat combos.",
+    "subscriptions": [
+      "xbox_game_pass"
+    ]
+  },
+  {
+    "id": "bayonetta-3",
+    "title": "Bayonetta 3",
+    "platforms": [
+      "handheld"
+    ],
+    "year": 2022,
+    "genres": [
+      "action",
+      "hack-and-slash",
+      "stylish"
+    ],
+    "time_tags": [
+      30,
+      60,
+      90
+    ],
+    "energy": "high",
+    "moods": [
+      "stylish",
+      "bombastic",
+      "over-the-top",
+      "fun"
+    ],
+    "play_style": [
+      "action"
+    ],
+    "time_to_fun": "short",
+    "stop_friendliness": "checkpoints",
+    "multiplayer": [
+      "solo"
+    ],
+    "description": "Witch combat across realities.",
+    "fun_fact": "Features kaiju-scale demon summons."
+  },
+  {
+    "id": "hi-fi-rush",
+    "title": "Hi-Fi Rush",
+    "platforms": [
+      "pc",
+      "console",
+      "handheld"
+    ],
+    "year": 2023,
+    "genres": [
+      "action",
+      "rhythm",
+      "stylish"
+    ],
+    "time_tags": [
+      30,
+      60
+    ],
+    "energy": "high",
+    "moods": [
+      "musical",
+      "stylish",
+      "fun",
+      "energetic"
+    ],
+    "play_style": [
+      "action"
+    ],
+    "time_to_fun": "short",
+    "stop_friendliness": "checkpoints",
+    "multiplayer": [
+      "solo"
+    ],
+    "description": "Rhythm-action combat.",
+    "fun_fact": "The entire game syncs to the beat of the music - even enemy attacks!",
+    "subscriptions": [
+      "xbox_game_pass"
+    ]
+  },
+  {
+    "id": "metal-gear-rising",
+    "title": "Metal Gear Rising: Revengeance",
+    "platforms": [
+      "pc",
+      "console"
+    ],
+    "year": 2013,
+    "genres": [
+      "action",
+      "hack-and-slash",
+      "mech"
+    ],
+    "time_tags": [
+      30,
+      60
+    ],
+    "energy": "high",
+    "moods": [
+      "intense",
+      "over-the-top",
+      "memeable",
+      "stylish"
+    ],
+    "play_style": [
+      "action"
+    ],
+    "time_to_fun": "short",
+    "stop_friendliness": "checkpoints",
+    "multiplayer": [
+      "solo"
+    ],
+    "description": "Cyborg ninja combat.",
+    "fun_fact": "The blade mode lets you cut anything into hundreds of pieces."
+  },
+  {
+    "id": "god-of-war-ragnarok",
+    "title": "God of War Ragnarök",
+    "platforms": [
+      "pc",
+      "console"
+    ],
+    "year": 2022,
+    "genres": [
+      "action-adventure",
+      "mythology",
+      "narrative"
+    ],
+    "time_tags": [
+      60,
+      90
+    ],
+    "energy": "high",
+    "moods": [
+      "epic",
+      "emotional",
+      "brutal",
+      "cinematic"
+    ],
+    "play_style": [
+      "action",
+      "narrative"
+    ],
+    "time_to_fun": "short",
+    "stop_friendliness": "checkpoints",
+    "multiplayer": [
+      "solo"
+    ],
+    "description": "Kratos faces Ragnarök.",
+    "fun_fact": "The game features over 70 unique boss encounters!",
+    "franchise": "god_of_war"
+  },
+  {
+    "id": "god-of-war-2018",
+    "title": "God of War (2018)",
+    "platforms": [
+      "pc",
+      "console"
+    ],
+    "year": 2018,
+    "genres": [
+      "action-adventure",
+      "mythology",
+      "narrative"
+    ],
+    "time_tags": [
+      60,
+      90
+    ],
+    "energy": "high",
+    "moods": [
+      "epic",
+      "emotional",
+      "brutal",
+      "fatherhood"
+    ],
+    "play_style": [
+      "action",
+      "narrative"
+    ],
+    "time_to_fun": "short",
+    "stop_friendliness": "checkpoints",
+    "multiplayer": [
+      "solo"
+    ],
+    "description": "Kratos returns as a father.",
+    "fun_fact": "The entire game appears as one continuous camera shot.",
+    "franchise": "god_of_war",
+    "subscriptions": [
+      "playstation_plus"
+    ]
+  },
+  {
+    "id": "spider-man-2",
+    "title": "Marvel's Spider-Man 2",
+    "platforms": [
+      "console"
+    ],
+    "year": 2023,
+    "genres": [
+      "action-adventure",
+      "superhero",
+      "open-world"
+    ],
+    "time_tags": [
+      60,
+      90
+    ],
+    "energy": "high",
+    "moods": [
+      "heroic",
+      "exciting",
+      "emotional",
+      "epic"
+    ],
+    "play_style": [
+      "action"
+    ],
+    "time_to_fun": "short",
+    "stop_friendliness": "anytime",
+    "multiplayer": [
+      "solo"
+    ],
+    "description": "Peter and Miles face Venom.",
+    "fun_fact": "The game's New York City is twice the size of the first game's map!",
+    "franchise": "spider_man"
+  },
+  {
+    "id": "spider-man-remastered",
+    "title": "Marvel's Spider-Man Remastered",
+    "platforms": [
+      "pc",
+      "console"
+    ],
+    "year": 2022,
+    "genres": [
+      "action-adventure",
+      "superhero",
+      "open-world"
+    ],
+    "time_tags": [
+      60,
+      90
+    ],
+    "energy": "high",
+    "moods": [
+      "heroic",
+      "exciting",
+      "cinematic",
+      "fun"
+    ],
+    "play_style": [
+      "action"
+    ],
+    "time_to_fun": "short",
+    "stop_friendliness": "anytime",
+    "multiplayer": [
+      "solo"
+    ],
+    "description": "Be Spider-Man in NYC.",
+    "fun_fact": "Web-swinging physics took years to perfect.",
+    "franchise": "spider_man",
+    "subscriptions": [
+      "playstation_plus"
+    ]
+  },
+  {
+    "id": "spider-man-miles-morales",
+    "title": "Spider-Man: Miles Morales",
+    "platforms": [
+      "pc",
+      "console"
+    ],
+    "year": 2020,
+    "genres": [
+      "action-adventure",
+      "superhero",
+      "open-world"
+    ],
+    "time_tags": [
+      30,
+      60
+    ],
+    "energy": "high",
+    "moods": [
+      "heroic",
+      "heartfelt",
+      "stylish",
+      "exciting"
+    ],
+    "play_style": [
+      "action"
+    ],
+    "time_to_fun": "short",
+    "stop_friendliness": "anytime",
+    "multiplayer": [
+      "solo"
+    ],
+    "description": "Miles becomes Spider-Man.",
+    "fun_fact": "Features unique Venom powers not available to Peter.",
+    "franchise": "spider_man",
+    "subscriptions": [
+      "playstation_plus"
+    ]
+  },
+  {
+    "id": "hogwarts-legacy",
+    "title": "Hogwarts Legacy",
+    "platforms": [
+      "pc",
+      "console",
+      "handheld"
+    ],
+    "year": 2023,
+    "genres": [
+      "action-rpg",
+      "open-world",
+      "wizarding"
+    ],
+    "time_tags": [
+      60,
+      90
+    ],
+    "energy": "high",
+    "moods": [
+      "magical",
+      "adventurous",
+      "immersive",
+      "nostalgic"
+    ],
+    "play_style": [
+      "action",
+      "sandbox_creative"
+    ],
+    "time_to_fun": "short",
+    "stop_friendliness": "anytime",
+    "multiplayer": [
+      "solo"
+    ],
+    "description": "Attend Hogwarts in the 1800s.",
+    "fun_fact": "The game is set 100 years before Harry Potter was born."
+  },
+  {
+    "id": "star-wars-jedi-survivor",
+    "title": "Star Wars Jedi: Survivor",
+    "platforms": [
+      "pc",
+      "console"
+    ],
+    "year": 2023,
+    "genres": [
+      "action-adventure",
+      "souls-lite",
+      "star-wars"
+    ],
+    "time_tags": [
+      60,
+      90
+    ],
+    "energy": "high",
+    "moods": [
+      "epic",
+      "Star Wars",
+      "challenging",
+      "adventurous"
+    ],
+    "play_style": [
+      "action"
+    ],
+    "time_to_fun": "short",
+    "stop_friendliness": "checkpoints",
+    "multiplayer": [
+      "solo"
+    ],
+    "description": "Cal continues his Jedi journey.",
+    "fun_fact": "Cal Kestis is voiced by Cameron Monaghan, who also does motion capture.",
+    "franchise": "star_wars_jedi",
+    "subscriptions": [
+      "ea_play"
+    ]
+  },
+  {
+    "id": "star-wars-jedi-fallen-order",
+    "title": "Star Wars Jedi: Fallen Order",
+    "platforms": [
+      "pc",
+      "console"
+    ],
+    "year": 2019,
+    "genres": [
+      "action-adventure",
+      "souls-lite",
+      "star-wars"
+    ],
+    "time_tags": [
+      60,
+      90
+    ],
+    "energy": "high",
+    "moods": [
+      "epic",
+      "Star Wars",
+      "adventurous",
+      "nostalgic"
+    ],
+    "play_style": [
+      "action"
+    ],
+    "time_to_fun": "short",
+    "stop_friendliness": "checkpoints",
+    "multiplayer": [
+      "solo"
+    ],
+    "description": "Become a Jedi after Order 66.",
+    "fun_fact": "Features exploration inspired by Metroid.",
+    "subscriptions": [
+      "xbox_game_pass",
+      "ea_play"
+    ],
+    "franchise": "star_wars_jedi"
+  },
+  {
+    "id": "helldivers-2",
+    "title": "Helldivers 2",
+    "platforms": [
+      "pc",
+      "console"
+    ],
+    "year": 2024,
+    "genres": [
+      "shooter",
+      "co-op",
+      "satirical"
+    ],
+    "time_tags": [
+      30,
+      60
+    ],
+    "energy": "high",
+    "moods": [
+      "chaotic",
+      "cooperative",
+      "satirical",
+      "intense"
+    ],
+    "play_style": [
+      "action"
+    ],
+    "time_to_fun": "short",
+    "stop_friendliness": "checkpoints",
+    "multiplayer": [
+      "solo",
+      "online_coop"
+    ],
+    "description": "Spread democracy with extreme prejudice.",
+    "fun_fact": "The game supports 'friendly fire' - your bullets really do hurt teammates!"
+  },
+  {
+    "id": "destiny-2",
+    "title": "Destiny 2",
+    "platforms": [
+      "pc",
+      "console"
+    ],
+    "year": 2017,
+    "genres": [
+      "looter-shooter",
+      "mmo-lite",
+      "sci-fi"
+    ],
+    "time_tags": [
+      30,
+      60,
+      90
+    ],
+    "energy": "high",
+    "moods": [
+      "epic",
+      "cooperative",
+      "addictive",
+      "challenging"
+    ],
+    "play_style": [
+      "action"
+    ],
+    "time_to_fun": "short",
+    "stop_friendliness": "checkpoints",
+    "multiplayer": [
+      "solo",
+      "online_coop",
+      "competitive"
+    ],
+    "description": "Sci-fi looter shooter with MMO elements.",
+    "fun_fact": "Bungie previously created the Halo franchise before creating Destiny."
+  },
+  {
+    "id": "warframe",
+    "title": "Warframe",
+    "platforms": [
+      "pc",
+      "console",
+      "handheld"
+    ],
+    "year": 2013,
+    "genres": [
+      "looter-shooter",
+      "free-to-play",
+      "sci-fi"
+    ],
+    "time_tags": [
+      30,
+      60,
+      90
+    ],
+    "energy": "high",
+    "moods": [
+      "fast",
+      "stylish",
+      "complex",
+      "free"
+    ],
+    "play_style": [
+      "action"
+    ],
+    "time_to_fun": "short",
+    "stop_friendliness": "checkpoints",
+    "multiplayer": [
+      "solo",
+      "online_coop"
+    ],
+    "description": "Space ninja looter shooter.",
+    "fun_fact": "Has been constantly updated for over 10 years with massive expansions."
+  },
+  {
+    "id": "the-division-2",
+    "title": "The Division 2",
+    "platforms": [
+      "pc",
+      "console"
+    ],
+    "year": 2019,
+    "genres": [
+      "looter-shooter",
+      "tactical",
+      "open-world"
+    ],
+    "time_tags": [
+      60,
+      90
+    ],
+    "energy": "high",
+    "moods": [
+      "tactical",
+      "cooperative",
+      "immersive",
+      "intense"
+    ],
+    "play_style": [
+      "action"
+    ],
+    "time_to_fun": "short",
+    "stop_friendliness": "checkpoints",
+    "multiplayer": [
+      "solo",
+      "online_coop"
+    ],
+    "description": "Tactical combat in post-pandemic DC.",
+    "fun_fact": "Washington DC was recreated at 1:1 scale.",
+    "subscriptions": [
+      "ubisoft_plus"
+    ]
+  },
+  {
+    "id": "outriders",
+    "title": "Outriders",
+    "platforms": [
+      "pc",
+      "console"
+    ],
+    "year": 2021,
+    "genres": [
+      "looter-shooter",
+      "co-op",
+      "sci-fi"
+    ],
+    "time_tags": [
+      60,
+      90
+    ],
+    "energy": "high",
+    "moods": [
+      "intense",
+      "cooperative",
+      "power-fantasy",
+      "brutal"
+    ],
+    "play_style": [
+      "action"
+    ],
+    "time_to_fun": "short",
+    "stop_friendliness": "checkpoints",
+    "multiplayer": [
+      "solo",
+      "online_coop"
+    ],
+    "description": "Sci-fi looter shooter with abilities.",
+    "fun_fact": "Aggressive gameplay is encouraged - standing still gets you killed.",
+    "subscriptions": [
+      "xbox_game_pass"
+    ]
+  },
+  {
+    "id": "borderlands-3",
+    "title": "Borderlands 3",
+    "platforms": [
+      "pc",
+      "console"
+    ],
+    "year": 2019,
+    "genres": [
+      "looter-shooter",
+      "co-op",
+      "comedy"
+    ],
+    "time_tags": [
+      60,
+      90
+    ],
+    "energy": "high",
+    "moods": [
+      "chaotic",
+      "humorous",
+      "cooperative",
+      "explosive"
+    ],
+    "play_style": [
+      "action"
+    ],
+    "time_to_fun": "short",
+    "stop_friendliness": "checkpoints",
+    "multiplayer": [
+      "solo",
+      "local_coop",
+      "online_coop"
+    ],
+    "description": "Bazillions of guns and mayhem.",
+    "fun_fact": "Features over 1 billion procedurally generated guns.",
+    "franchise": "borderlands"
+  },
+  {
+    "id": "tiny-tinas-wonderlands",
+    "title": "Tiny Tina's Wonderlands",
+    "platforms": [
+      "pc",
+      "console"
+    ],
+    "year": 2022,
+    "genres": [
+      "looter-shooter",
+      "fantasy",
+      "comedy"
+    ],
+    "time_tags": [
+      60,
+      90
+    ],
+    "energy": "high",
+    "moods": [
+      "funny",
+      "chaotic",
+      "fantasy",
+      "creative"
+    ],
+    "play_style": [
+      "action"
+    ],
+    "time_to_fun": "short",
+    "stop_friendliness": "checkpoints",
+    "multiplayer": [
+      "solo",
+      "local_coop",
+      "online_coop"
+    ],
+    "description": "Fantasy Borderlands with D&D vibes.",
+    "fun_fact": "Spin-off based on a beloved Borderlands 2 DLC.",
+    "franchise": "borderlands"
+  },
+  {
+    "id": "diablo-4",
+    "title": "Diablo IV",
+    "platforms": [
+      "pc",
+      "console"
+    ],
+    "year": 2023,
+    "genres": [
+      "arpg",
+      "dungeon-crawler",
+      "dark-fantasy"
+    ],
+    "time_tags": [
+      60,
+      90
+    ],
+    "energy": "high",
+    "moods": [
+      "dark",
+      "addictive",
+      "intense",
+      "gothic"
+    ],
+    "play_style": [
+      "action"
+    ],
+    "time_to_fun": "short",
+    "stop_friendliness": "anytime",
+    "multiplayer": [
+      "solo",
+      "online_coop"
+    ],
+    "description": "Return to sanctuary.",
+    "fun_fact": "The game world is the largest in Diablo history, taking hours to cross on foot.",
+    "franchise": "diablo"
+  },
+  {
+    "id": "path-of-exile-2",
+    "title": "Path of Exile 2",
+    "platforms": [
+      "pc",
+      "console"
+    ],
+    "year": 2024,
+    "genres": [
+      "arpg",
+      "free-to-play",
+      "complex"
+    ],
+    "time_tags": [
+      60,
+      90
+    ],
+    "energy": "high",
+    "moods": [
+      "complex",
+      "challenging",
+      "dark",
+      "deep"
+    ],
+    "play_style": [
+      "action"
+    ],
+    "time_to_fun": "medium",
+    "stop_friendliness": "anytime",
+    "multiplayer": [
+      "solo",
+      "online_coop"
+    ],
+    "description": "The ultimate free ARPG.",
+    "fun_fact": "The skill gem system allows for millions of possible build combinations!",
+    "franchise": "path_of_exile"
+  },
+  {
+    "id": "path-of-exile",
+    "title": "Path of Exile",
+    "platforms": [
+      "pc",
+      "console"
+    ],
+    "year": 2013,
+    "genres": [
+      "arpg",
+      "free-to-play",
+      "complex"
+    ],
+    "time_tags": [
+      60,
+      90
+    ],
+    "energy": "high",
+    "moods": [
+      "complex",
+      "dark",
+      "rewarding",
+      "deep"
+    ],
+    "play_style": [
+      "action"
+    ],
+    "time_to_fun": "medium",
+    "stop_friendliness": "anytime",
+    "multiplayer": [
+      "solo",
+      "online_coop"
+    ],
+    "description": "The spiritual successor to Diablo 2.",
+    "fun_fact": "The passive skill tree has over 1,300 nodes.",
+    "franchise": "path_of_exile"
+  },
+  {
+    "id": "last-epoch",
+    "title": "Last Epoch",
+    "platforms": [
+      "pc"
+    ],
+    "year": 2024,
+    "genres": [
+      "arpg",
+      "time-travel",
+      "dungeon-crawler"
+    ],
+    "time_tags": [
+      60,
+      90
+    ],
+    "energy": "high",
+    "moods": [
+      "addictive",
+      "strategic",
+      "satisfying",
+      "time-travel"
+    ],
+    "play_style": [
+      "action"
+    ],
+    "time_to_fun": "short",
+    "stop_friendliness": "anytime",
+    "multiplayer": [
+      "solo",
+      "online_coop"
+    ],
+    "description": "Time-traveling ARPG.",
+    "fun_fact": "Features time travel as a core gameplay mechanic."
+  },
+  {
+    "id": "torchlight-3",
+    "title": "Torchlight III",
+    "platforms": [
+      "pc",
+      "console",
+      "handheld"
+    ],
+    "year": 2020,
+    "genres": [
+      "arpg",
+      "colorful",
+      "accessible"
+    ],
+    "time_tags": [
+      30,
+      60
+    ],
+    "energy": "high",
+    "moods": [
+      "colorful",
+      "accessible",
+      "fun",
+      "cooperative"
+    ],
+    "play_style": [
+      "action"
+    ],
+    "time_to_fun": "short",
+    "stop_friendliness": "anytime",
+    "multiplayer": [
+      "solo",
+      "online_coop"
+    ],
+    "description": "Colorful dungeon crawling.",
+    "fun_fact": "Made by some of the original Diablo developers."
+  },
+  {
+    "id": "grim-dawn",
+    "title": "Grim Dawn",
+    "platforms": [
+      "pc"
+    ],
+    "year": 2016,
+    "genres": [
+      "arpg",
+      "dark",
+      "complex"
+    ],
+    "time_tags": [
+      60,
+      90
+    ],
+    "energy": "high",
+    "moods": [
+      "dark",
+      "complex",
+      "satisfying",
+      "gritty"
+    ],
+    "play_style": [
+      "action"
+    ],
+    "time_to_fun": "medium",
+    "stop_friendliness": "anytime",
+    "multiplayer": [
+      "solo",
+      "online_coop"
+    ],
+    "description": "Dark ARPG in a dying world.",
+    "fun_fact": "Made by former Titan Quest developers."
+  },
+  {
+    "id": "valorant",
+    "title": "Valorant",
+    "platforms": [
+      "pc",
+      "console"
+    ],
+    "year": 2020,
+    "genres": [
+      "fps",
+      "tactical",
+      "competitive"
+    ],
+    "time_tags": [
+      30,
+      60
+    ],
+    "energy": "high",
+    "moods": [
+      "competitive",
+      "tactical",
+      "team-based",
+      "precise"
+    ],
+    "play_style": [
+      "action"
+    ],
+    "time_to_fun": "short",
+    "stop_friendliness": "commitment",
+    "multiplayer": [
+      "competitive"
+    ],
+    "description": "Tactical hero shooter.",
+    "fun_fact": "Riot Games spent 6 years developing the game in secret before announcing it."
+  },
+  {
+    "id": "counter-strike-2",
+    "title": "Counter-Strike 2",
+    "platforms": [
+      "pc"
+    ],
+    "year": 2023,
+    "genres": [
+      "fps",
+      "tactical",
+      "competitive"
+    ],
+    "time_tags": [
+      30,
+      60
+    ],
+    "energy": "high",
+    "moods": [
+      "competitive",
+      "tactical",
+      "precise",
+      "intense"
+    ],
+    "play_style": [
+      "action"
+    ],
+    "time_to_fun": "short",
+    "stop_friendliness": "commitment",
+    "multiplayer": [
+      "competitive"
+    ],
+    "description": "The legendary tactical shooter.",
+    "fun_fact": "The original Counter-Strike started as a mod for Half-Life in 1999!"
+  },
+  {
+    "id": "apex-legends",
+    "title": "Apex Legends",
+    "platforms": [
+      "pc",
+      "console",
+      "handheld"
+    ],
+    "year": 2019,
+    "genres": [
+      "battle-royale",
+      "fps",
+      "hero-shooter"
+    ],
+    "time_tags": [
+      30,
+      60
+    ],
+    "energy": "high",
+    "moods": [
+      "fast",
+      "competitive",
+      "team-based",
+      "exciting"
+    ],
+    "play_style": [
+      "action"
+    ],
+    "time_to_fun": "short",
+    "stop_friendliness": "checkpoints",
+    "multiplayer": [
+      "online_coop",
+      "competitive"
+    ],
+    "description": "Fast-paced battle royale with legends.",
+    "fun_fact": "The game launched with no marketing and gained 25 million players in its first week!"
+  },
+  {
+    "id": "call-of-duty-warzone",
+    "title": "Call of Duty: Warzone",
+    "platforms": [
+      "pc",
+      "console"
+    ],
+    "year": 2020,
+    "genres": [
+      "battle-royale",
+      "fps",
+      "military"
+    ],
+    "time_tags": [
+      30,
+      60
+    ],
+    "energy": "high",
+    "moods": [
+      "intense",
+      "competitive",
+      "tactical",
+      "explosive"
+    ],
+    "play_style": [
+      "action"
+    ],
+    "time_to_fun": "short",
+    "stop_friendliness": "checkpoints",
+    "multiplayer": [
+      "solo",
+      "online_coop",
+      "competitive"
+    ],
+    "description": "Massive Call of Duty battle royale.",
+    "fun_fact": "Warzone uses the same engine that powered Modern Warfare 2019."
+  },
+  {
+    "id": "pubg",
+    "title": "PUBG: Battlegrounds",
+    "platforms": [
+      "pc",
+      "console",
+      "handheld"
+    ],
+    "year": 2017,
+    "genres": [
+      "battle-royale",
+      "tactical",
+      "survival"
+    ],
+    "time_tags": [
+      30,
+      60
+    ],
+    "energy": "high",
+    "moods": [
+      "tense",
+      "tactical",
+      "competitive",
+      "survival"
+    ],
+    "play_style": [
+      "action"
+    ],
+    "time_to_fun": "short",
+    "stop_friendliness": "checkpoints",
+    "multiplayer": [
+      "solo",
+      "online_coop",
+      "competitive"
+    ],
+    "description": "The game that popularized battle royale.",
+    "fun_fact": "Started as an ARMA mod and defined the battle royale genre."
+  },
+  {
+    "id": "hunt-showdown",
+    "title": "Hunt: Showdown",
+    "platforms": [
+      "pc",
+      "console"
+    ],
+    "year": 2019,
+    "genres": [
+      "extraction",
+      "horror",
+      "pvpve"
+    ],
+    "time_tags": [
+      30,
+      60
+    ],
+    "energy": "high",
+    "moods": [
+      "tense",
+      "atmospheric",
+      "competitive",
+      "horror"
+    ],
+    "play_style": [
+      "action"
+    ],
+    "time_to_fun": "medium",
+    "stop_friendliness": "checkpoints",
+    "multiplayer": [
+      "solo",
+      "online_coop",
+      "competitive"
+    ],
+    "description": "Bounty hunting in a monster-filled swamp.",
+    "fun_fact": "Features permadeath for hunters you lose."
+  },
+  {
+    "id": "escape-from-tarkov",
+    "title": "Escape from Tarkov",
+    "platforms": [
+      "pc"
+    ],
+    "year": 2020,
+    "genres": [
+      "extraction",
+      "tactical",
+      "hardcore"
+    ],
+    "time_tags": [
+      60,
+      90
+    ],
+    "energy": "high",
+    "moods": [
+      "hardcore",
+      "tense",
+      "realistic",
+      "punishing"
+    ],
+    "play_style": [
+      "action"
+    ],
+    "time_to_fun": "long",
+    "stop_friendliness": "commitment",
+    "multiplayer": [
+      "solo",
+      "online_coop",
+      "competitive"
+    ],
+    "description": "Hardcore extraction shooter.",
+    "fun_fact": "Losing in a raid means losing all your gear permanently."
+  },
+  {
+    "id": "the-finals",
+    "title": "THE FINALS",
+    "platforms": [
+      "pc",
+      "console"
+    ],
+    "year": 2023,
+    "genres": [
+      "fps",
+      "destruction",
+      "competitive"
+    ],
+    "time_tags": [
+      15,
+      30
+    ],
+    "energy": "high",
+    "moods": [
+      "chaotic",
+      "destructive",
+      "competitive",
+      "fun"
+    ],
+    "play_style": [
+      "action"
+    ],
+    "time_to_fun": "short",
+    "stop_friendliness": "checkpoints",
+    "multiplayer": [
+      "competitive"
+    ],
+    "description": "Destructible arena FPS.",
+    "fun_fact": "Buildings can be completely destroyed during matches."
+  },
+  {
+    "id": "xdefiant",
+    "title": "XDefiant",
+    "platforms": [
+      "pc",
+      "console"
+    ],
+    "year": 2024,
+    "genres": [
+      "fps",
+      "arena",
+      "free-to-play"
+    ],
+    "time_tags": [
+      15,
+      30
+    ],
+    "energy": "high",
+    "moods": [
+      "fast",
+      "competitive",
+      "accessible",
+      "nostalgic"
+    ],
+    "play_style": [
+      "action"
+    ],
+    "time_to_fun": "short",
+    "stop_friendliness": "checkpoints",
+    "multiplayer": [
+      "competitive"
+    ],
+    "description": "Arena shooter with Ubisoft factions.",
+    "fun_fact": "Features factions from various Ubisoft games.",
+    "subscriptions": [
+      "ubisoft_plus"
+    ]
+  },
+  {
+    "id": "rainbow-six-siege",
+    "title": "Rainbow Six Siege",
+    "platforms": [
+      "pc",
+      "console"
+    ],
+    "year": 2015,
+    "genres": [
+      "fps",
+      "tactical",
+      "destructible"
+    ],
+    "time_tags": [
+      30,
+      60
+    ],
+    "energy": "high",
+    "moods": [
+      "tactical",
+      "competitive",
+      "team-based",
+      "intense"
+    ],
+    "play_style": [
+      "action",
+      "puzzle_strategy"
+    ],
+    "time_to_fun": "medium",
+    "stop_friendliness": "commitment",
+    "multiplayer": [
+      "competitive"
+    ],
+    "description": "Tactical destruction with operators.",
+    "fun_fact": "Every wall and surface can potentially be destroyed.",
+    "subscriptions": [
+      "ubisoft_plus"
+    ]
+  },
+  {
+    "id": "overwatch-2",
+    "title": "Overwatch 2",
+    "platforms": [
+      "pc",
+      "console",
+      "handheld"
+    ],
+    "year": 2022,
+    "genres": [
+      "fps",
+      "hero-shooter",
+      "team-based"
+    ],
+    "time_tags": [
+      15,
+      30,
+      60
+    ],
+    "energy": "high",
+    "moods": [
+      "fast",
+      "team-based",
+      "competitive",
+      "colorful"
+    ],
+    "play_style": [
+      "action"
+    ],
+    "time_to_fun": "short",
+    "stop_friendliness": "checkpoints",
+    "multiplayer": [
+      "competitive"
+    ],
+    "description": "Team-based hero shooter.",
+    "fun_fact": "The original Overwatch took inspiration from the canceled Blizzard project 'Titan'."
+  },
+  {
+    "id": "team-fortress-2",
+    "title": "Team Fortress 2",
+    "platforms": [
+      "pc"
+    ],
+    "year": 2007,
+    "genres": [
+      "fps",
+      "hero-shooter",
+      "classic"
+    ],
+    "time_tags": [
+      15,
+      30,
+      60
+    ],
+    "energy": "high",
+    "moods": [
+      "classic",
+      "humorous",
+      "chaotic",
+      "timeless"
+    ],
+    "play_style": [
+      "action"
+    ],
+    "time_to_fun": "short",
+    "stop_friendliness": "checkpoints",
+    "multiplayer": [
+      "competitive"
+    ],
+    "description": "The legendary class-based shooter.",
+    "fun_fact": "Still actively played after 17+ years."
+  },
+  {
+    "id": "paladins",
+    "title": "Paladins",
+    "platforms": [
+      "pc",
+      "console",
+      "handheld"
+    ],
+    "year": 2018,
+    "genres": [
+      "fps",
+      "hero-shooter",
+      "free-to-play"
+    ],
+    "time_tags": [
+      15,
+      30
+    ],
+    "energy": "high",
+    "moods": [
+      "fast",
+      "accessible",
+      "team-based",
+      "fantasy"
+    ],
+    "play_style": [
+      "action"
+    ],
+    "time_to_fun": "short",
+    "stop_friendliness": "checkpoints",
+    "multiplayer": [
+      "competitive"
+    ],
+    "description": "Free-to-play fantasy hero shooter.",
+    "fun_fact": "Features a card-based loadout system for customization."
+  },
+  {
+    "id": "street-fighter-6",
+    "title": "Street Fighter 6",
+    "platforms": [
+      "pc",
+      "console"
+    ],
+    "year": 2023,
+    "genres": [
+      "fighting",
+      "competitive",
+      "2d"
+    ],
+    "time_tags": [
+      15,
+      30,
+      60
+    ],
+    "energy": "high",
+    "moods": [
+      "competitive",
+      "stylish",
+      "accessible",
+      "deep"
+    ],
+    "play_style": [
+      "action"
+    ],
+    "time_to_fun": "short",
+    "stop_friendliness": "checkpoints",
+    "multiplayer": [
+      "solo",
+      "local_coop",
+      "competitive"
+    ],
+    "description": "The next generation of Street Fighter.",
+    "fun_fact": "The game's art director studied real martial arts for years to make animations authentic."
+  },
+  {
+    "id": "tekken-8",
+    "title": "Tekken 8",
+    "platforms": [
+      "pc",
+      "console"
+    ],
+    "year": 2024,
+    "genres": [
+      "fighting",
+      "3d",
+      "competitive"
+    ],
+    "time_tags": [
+      15,
+      30,
+      60
+    ],
+    "energy": "high",
+    "moods": [
+      "competitive",
+      "dramatic",
+      "technical",
+      "intense"
+    ],
+    "play_style": [
+      "action"
+    ],
+    "time_to_fun": "short",
+    "stop_friendliness": "checkpoints",
+    "multiplayer": [
+      "solo",
+      "local_coop",
+      "competitive"
+    ],
+    "description": "The King of Iron Fist returns.",
+    "fun_fact": "Each character has over 100 unique moves, making it one of the deepest fighting games ever."
+  },
+  {
+    "id": "mortal-kombat-1",
+    "title": "Mortal Kombat 1",
+    "platforms": [
+      "pc",
+      "console",
+      "handheld"
+    ],
+    "year": 2023,
+    "genres": [
+      "fighting",
+      "brutal",
+      "competitive"
+    ],
+    "time_tags": [
+      15,
+      30,
+      60
+    ],
+    "energy": "high",
+    "moods": [
+      "brutal",
+      "competitive",
+      "cinematic",
+      "over-the-top"
+    ],
+    "play_style": [
+      "action"
+    ],
+    "time_to_fun": "short",
+    "stop_friendliness": "checkpoints",
+    "multiplayer": [
+      "solo",
+      "local_coop",
+      "competitive"
+    ],
+    "description": "A new era for Mortal Kombat.",
+    "fun_fact": "The MK franchise has been restarted 3 times now with different timelines!"
+  },
+  {
+    "id": "guilty-gear-strive",
+    "title": "Guilty Gear Strive",
+    "platforms": [
+      "pc",
+      "console"
+    ],
+    "year": 2021,
+    "genres": [
+      "fighting",
+      "anime",
+      "rock"
+    ],
+    "time_tags": [
+      15,
+      30,
+      60
+    ],
+    "energy": "high",
+    "moods": [
+      "stylish",
+      "musical",
+      "competitive",
+      "anime"
+    ],
+    "play_style": [
+      "action"
+    ],
+    "time_to_fun": "short",
+    "stop_friendliness": "checkpoints",
+    "multiplayer": [
+      "solo",
+      "local_coop",
+      "competitive"
+    ],
+    "description": "Heavy metal anime fighting.",
+    "fun_fact": "Features a hard rock/metal soundtrack that plays during fights."
+  },
+  {
+    "id": "dragon-ball-fighterz",
+    "title": "Dragon Ball FighterZ",
+    "platforms": [
+      "pc",
+      "console",
+      "handheld"
+    ],
+    "year": 2018,
+    "genres": [
+      "fighting",
+      "anime",
+      "tag-team"
+    ],
+    "time_tags": [
+      15,
+      30,
+      60
+    ],
+    "energy": "high",
+    "moods": [
+      "fast",
+      "anime",
+      "flashy",
+      "accessible"
+    ],
+    "play_style": [
+      "action"
+    ],
+    "time_to_fun": "short",
+    "stop_friendliness": "checkpoints",
+    "multiplayer": [
+      "solo",
+      "local_coop",
+      "competitive"
+    ],
+    "description": "Dragon Ball anime fighting.",
+    "fun_fact": "Considered the best Dragon Ball game ever made."
+  },
+  {
+    "id": "granblue-fantasy-versus-rising",
+    "title": "Granblue Fantasy Versus: Rising",
+    "platforms": [
+      "pc",
+      "console"
+    ],
+    "year": 2023,
+    "genres": [
+      "fighting",
+      "anime",
+      "fantasy"
+    ],
+    "time_tags": [
+      15,
+      30,
+      60
+    ],
+    "energy": "high",
+    "moods": [
+      "beautiful",
+      "accessible",
+      "competitive",
+      "fantasy"
+    ],
+    "play_style": [
+      "action"
+    ],
+    "time_to_fun": "short",
+    "stop_friendliness": "checkpoints",
+    "multiplayer": [
+      "solo",
+      "local_coop",
+      "competitive"
+    ],
+    "description": "Fantasy anime fighting.",
+    "fun_fact": "Based on one of Japan's most popular mobile games."
+  },
+  {
+    "id": "under-night-in-birth-2",
+    "title": "Under Night In-Birth II",
+    "platforms": [
+      "pc",
+      "console"
+    ],
+    "year": 2024,
+    "genres": [
+      "fighting",
+      "anime",
+      "technical"
+    ],
+    "time_tags": [
+      15,
+      30,
+      60
+    ],
+    "energy": "high",
+    "moods": [
+      "technical",
+      "anime",
+      "dark",
+      "deep"
+    ],
+    "play_style": [
+      "action"
+    ],
+    "time_to_fun": "short",
+    "stop_friendliness": "checkpoints",
+    "multiplayer": [
+      "solo",
+      "local_coop",
+      "competitive"
+    ],
+    "description": "Technical anime fighting.",
+    "fun_fact": "Known for its deep and rewarding combat system."
+  },
+  {
+    "id": "brawlhalla",
+    "title": "Brawlhalla",
+    "platforms": [
+      "pc",
+      "console",
+      "handheld"
+    ],
+    "year": 2017,
+    "genres": [
+      "platform-fighter",
+      "free-to-play",
+      "competitive"
+    ],
+    "time_tags": [
+      15,
+      30
+    ],
+    "energy": "high",
+    "moods": [
+      "fast",
+      "accessible",
+      "competitive",
+      "fun"
+    ],
+    "play_style": [
+      "action"
+    ],
+    "time_to_fun": "short",
+    "stop_friendliness": "checkpoints",
+    "multiplayer": [
+      "solo",
+      "local_coop",
+      "online_coop",
+      "competitive"
+    ],
+    "description": "Free-to-play platform fighter.",
+    "fun_fact": "Features crossovers from many franchises including WWE and TMNT."
+  },
+  {
+    "id": "multiversus",
+    "title": "MultiVersus",
+    "platforms": [
+      "pc",
+      "console"
+    ],
+    "year": 2024,
+    "genres": [
+      "platform-fighter",
+      "crossover",
+      "free-to-play"
+    ],
+    "time_tags": [
+      15,
+      30
+    ],
+    "energy": "high",
+    "moods": [
+      "fun",
+      "nostalgic",
+      "competitive",
+      "team-based"
+    ],
+    "play_style": [
+      "action"
+    ],
+    "time_to_fun": "short",
+    "stop_friendliness": "checkpoints",
+    "multiplayer": [
+      "local_coop",
+      "online_coop",
+      "competitive"
+    ],
+    "description": "Warner Bros crossover platform fighter.",
+    "fun_fact": "Features Batman, Shaggy, Bugs Bunny, and more in one game."
+  },
+  {
+    "id": "rivals-of-aether-2",
+    "title": "Rivals of Aether II",
+    "platforms": [
+      "pc",
+      "console"
+    ],
+    "year": 2024,
+    "genres": [
+      "platform-fighter",
+      "indie",
+      "competitive"
+    ],
+    "time_tags": [
+      15,
+      30
+    ],
+    "energy": "high",
+    "moods": [
+      "competitive",
+      "precise",
+      "indie",
+      "community-driven"
+    ],
+    "play_style": [
+      "action"
+    ],
+    "time_to_fun": "short",
+    "stop_friendliness": "checkpoints",
+    "multiplayer": [
+      "local_coop",
+      "online_coop",
+      "competitive"
+    ],
+    "description": "Community-driven platform fighter.",
+    "fun_fact": "Features a workshop for community-made characters."
+  },
+  {
+    "id": "dead-by-daylight",
+    "title": "Dead by Daylight",
+    "platforms": [
+      "pc",
+      "console",
+      "handheld"
+    ],
+    "year": 2016,
+    "genres": [
+      "asymmetric",
+      "horror",
+      "multiplayer"
+    ],
+    "time_tags": [
+      15,
+      30
+    ],
+    "energy": "high",
+    "moods": [
+      "scary",
+      "tense",
+      "competitive",
+      "asymmetric"
+    ],
+    "play_style": [
+      "action"
+    ],
+    "time_to_fun": "short",
+    "stop_friendliness": "checkpoints",
+    "multiplayer": [
+      "competitive"
+    ],
+    "description": "4v1 asymmetric horror.",
+    "fun_fact": "The game has featured licensed killers from over 20 horror franchises!",
+    "warnings": [
+      "horror"
+    ]
+  },
+  {
+    "id": "texas-chain-saw-massacre",
+    "title": "The Texas Chain Saw Massacre",
+    "platforms": [
+      "pc",
+      "console"
+    ],
+    "year": 2023,
+    "genres": [
+      "asymmetric",
+      "horror",
+      "multiplayer"
+    ],
+    "time_tags": [
+      15,
+      30
+    ],
+    "energy": "high",
+    "moods": [
+      "scary",
+      "tense",
+      "asymmetric",
+      "brutal"
+    ],
+    "play_style": [
+      "action"
+    ],
+    "time_to_fun": "short",
+    "stop_friendliness": "checkpoints",
+    "multiplayer": [
+      "competitive"
+    ],
+    "description": "3v4 asymmetric horror.",
+    "fun_fact": "Licensed from the classic 1974 horror film.",
+    "warnings": [
+      "horror",
+      "violence"
+    ]
+  },
+  {
+    "id": "propnight",
+    "title": "Propnight",
+    "platforms": [
+      "pc"
+    ],
+    "year": 2021,
+    "genres": [
+      "asymmetric",
+      "horror",
+      "prop-hunt"
+    ],
+    "time_tags": [
+      15,
+      30
+    ],
+    "energy": "high",
+    "moods": [
+      "scary",
+      "fun",
+      "silly",
+      "tense"
+    ],
+    "play_style": [
+      "action"
+    ],
+    "time_to_fun": "short",
+    "stop_friendliness": "checkpoints",
+    "multiplayer": [
+      "competitive"
+    ],
+    "description": "Prop Hunt meets horror.",
+    "fun_fact": "Combines prop hunt gameplay with horror chase mechanics.",
+    "warnings": [
+      "horror"
+    ]
+  },
+  {
+    "id": "world-war-z",
+    "title": "World War Z: Aftermath",
+    "platforms": [
+      "pc",
+      "console"
+    ],
+    "year": 2021,
+    "genres": [
+      "co-op",
+      "zombie",
+      "shooter"
+    ],
+    "time_tags": [
+      30,
+      60
+    ],
+    "energy": "high",
+    "moods": [
+      "intense",
+      "cooperative",
+      "zombie-horde",
+      "action-packed"
+    ],
+    "play_style": [
+      "action"
+    ],
+    "time_to_fun": "short",
+    "stop_friendliness": "checkpoints",
+    "multiplayer": [
+      "solo",
+      "online_coop"
+    ],
+    "description": "Fight zombie hordes worldwide.",
+    "fun_fact": "Features swarms of 500+ zombies on screen.",
+    "warnings": [
+      "violence",
+      "horror"
+    ]
+  },
+  {
+    "id": "back-4-blood",
+    "title": "Back 4 Blood",
+    "platforms": [
+      "pc",
+      "console"
+    ],
+    "year": 2021,
+    "genres": [
+      "co-op",
+      "zombie",
+      "shooter"
+    ],
+    "time_tags": [
+      30,
+      60
+    ],
+    "energy": "high",
+    "moods": [
+      "intense",
+      "cooperative",
+      "zombie",
+      "nostalgic"
+    ],
+    "play_style": [
+      "action"
+    ],
+    "time_to_fun": "short",
+    "stop_friendliness": "checkpoints",
+    "multiplayer": [
+      "solo",
+      "online_coop"
+    ],
+    "description": "Spiritual successor to Left 4 Dead.",
+    "fun_fact": "Made by the original Left 4 Dead developers.",
+    "subscriptions": [
+      "xbox_game_pass"
+    ],
+    "warnings": [
+      "violence",
+      "horror"
+    ]
+  },
+  {
+    "id": "left-4-dead-2",
+    "title": "Left 4 Dead 2",
+    "platforms": [
+      "pc",
+      "console"
+    ],
+    "year": 2009,
+    "genres": [
+      "co-op",
+      "zombie",
+      "shooter"
+    ],
+    "time_tags": [
+      30,
+      60
+    ],
+    "energy": "high",
+    "moods": [
+      "intense",
+      "cooperative",
+      "classic",
+      "zombie"
+    ],
+    "play_style": [
+      "action"
+    ],
+    "time_to_fun": "short",
+    "stop_friendliness": "checkpoints",
+    "multiplayer": [
+      "solo",
+      "local_coop",
+      "online_coop",
+      "competitive"
+    ],
+    "description": "The legendary zombie co-op shooter.",
+    "fun_fact": "Still has an active modding community 15+ years later.",
+    "warnings": [
+      "violence",
+      "gore"
+    ]
+  },
+  {
+    "id": "killing-floor-2",
+    "title": "Killing Floor 2",
+    "platforms": [
+      "pc",
+      "console"
+    ],
+    "year": 2016,
+    "genres": [
+      "co-op",
+      "zombie",
+      "horde"
+    ],
+    "time_tags": [
+      30,
+      60
+    ],
+    "energy": "high",
+    "moods": [
+      "intense",
+      "brutal",
+      "cooperative",
+      "metal"
+    ],
+    "play_style": [
+      "action"
+    ],
+    "time_to_fun": "short",
+    "stop_friendliness": "checkpoints",
+    "multiplayer": [
+      "solo",
+      "online_coop"
+    ],
+    "description": "Wave-based zombie slaying.",
+    "fun_fact": "Features a slow-motion system called Zed Time.",
+    "warnings": [
+      "violence",
+      "gore"
+    ]
+  },
+  {
+    "id": "payday-3",
+    "title": "PAYDAY 3",
+    "platforms": [
+      "pc",
+      "console"
+    ],
+    "year": 2023,
+    "genres": [
+      "co-op",
+      "heist",
+      "shooter"
+    ],
+    "time_tags": [
+      30,
+      60
+    ],
+    "energy": "high",
+    "moods": [
+      "tense",
+      "cooperative",
+      "criminal",
+      "tactical"
+    ],
+    "play_style": [
+      "action",
+      "puzzle_strategy"
+    ],
+    "time_to_fun": "short",
+    "stop_friendliness": "checkpoints",
+    "multiplayer": [
+      "solo",
+      "online_coop"
+    ],
+    "description": "Co-op heist shooter.",
+    "fun_fact": "Heists can be completed stealthily or guns blazing.",
+    "subscriptions": [
+      "xbox_game_pass"
+    ]
+  },
+  {
+    "id": "gtfo",
+    "title": "GTFO",
+    "platforms": [
+      "pc"
+    ],
+    "year": 2021,
+    "genres": [
+      "co-op",
+      "horror",
+      "tactical"
+    ],
+    "time_tags": [
+      60,
+      90
+    ],
+    "energy": "high",
+    "moods": [
+      "terrifying",
+      "tactical",
+      "cooperative",
+      "punishing"
+    ],
+    "play_style": [
+      "action"
+    ],
+    "time_to_fun": "medium",
+    "stop_friendliness": "commitment",
+    "multiplayer": [
+      "online_coop"
+    ],
+    "description": "Hardcore co-op horror.",
+    "fun_fact": "Requires extreme coordination and communication to survive.",
+    "warnings": [
+      "horror"
+    ]
+  },
+  {
+    "id": "ready-or-not",
+    "title": "Ready or Not",
+    "platforms": [
+      "pc"
+    ],
+    "year": 2023,
+    "genres": [
+      "tactical",
+      "shooter",
+      "swat"
+    ],
+    "time_tags": [
+      30,
+      60
+    ],
+    "energy": "high",
+    "moods": [
+      "tactical",
+      "intense",
+      "realistic",
+      "team-based"
+    ],
+    "play_style": [
+      "action",
+      "puzzle_strategy"
+    ],
+    "time_to_fun": "medium",
+    "stop_friendliness": "checkpoints",
+    "multiplayer": [
+      "solo",
+      "online_coop"
+    ],
+    "description": "Realistic SWAT tactical shooter.",
+    "fun_fact": "Non-lethal options are often the best approach.",
+    "warnings": [
+      "violence",
+      "mature_themes"
+    ]
+  },
+  {
+    "id": "zero-hour",
+    "title": "Zero Hour",
+    "platforms": [
+      "pc"
+    ],
+    "year": 2020,
+    "genres": [
+      "tactical",
+      "shooter",
+      "swat"
+    ],
+    "time_tags": [
+      30,
+      60
+    ],
+    "energy": "high",
+    "moods": [
+      "tactical",
+      "intense",
+      "cooperative",
+      "precise"
+    ],
+    "play_style": [
+      "action",
+      "puzzle_strategy"
+    ],
+    "time_to_fun": "short",
+    "stop_friendliness": "checkpoints",
+    "multiplayer": [
+      "solo",
+      "online_coop",
+      "competitive"
+    ],
+    "description": "Tactical shooter with planning phase.",
+    "fun_fact": "Features a planning phase before each mission."
+  },
+  {
+    "id": "ground-branch",
+    "title": "Ground Branch",
+    "platforms": [
+      "pc"
+    ],
+    "year": 2018,
+    "genres": [
+      "tactical",
+      "shooter",
+      "milsim"
+    ],
+    "time_tags": [
+      30,
+      60
+    ],
+    "energy": "high",
+    "moods": [
+      "tactical",
+      "realistic",
+      "cooperative",
+      "hardcore"
+    ],
+    "play_style": [
+      "action"
+    ],
+    "time_to_fun": "medium",
+    "stop_friendliness": "checkpoints",
+    "multiplayer": [
+      "solo",
+      "online_coop",
+      "competitive"
+    ],
+    "description": "Hardcore military simulation.",
+    "fun_fact": "Made by former Red Storm developers (Ghost Recon, Rainbow Six)."
+  },
+  {
+    "id": "squad",
+    "title": "Squad",
+    "platforms": [
+      "pc"
+    ],
+    "year": 2020,
+    "genres": [
+      "milsim",
+      "tactical",
+      "large-scale"
+    ],
+    "time_tags": [
+      60,
+      90
+    ],
+    "energy": "high",
+    "moods": [
+      "tactical",
+      "teamwork",
+      "realistic",
+      "epic"
+    ],
+    "play_style": [
+      "action"
+    ],
+    "time_to_fun": "medium",
+    "stop_friendliness": "commitment",
+    "multiplayer": [
+      "competitive"
+    ],
+    "description": "100-player tactical warfare.",
+    "fun_fact": "Matches can last hours with 50v50 battles."
+  },
+  {
+    "id": "hell-let-loose",
+    "title": "Hell Let Loose",
+    "platforms": [
+      "pc",
+      "console"
+    ],
+    "year": 2021,
+    "genres": [
+      "milsim",
+      "ww2",
+      "large-scale"
+    ],
+    "time_tags": [
+      60,
+      90
+    ],
+    "energy": "high",
+    "moods": [
+      "tactical",
+      "historical",
+      "epic",
+      "team-based"
+    ],
+    "play_style": [
+      "action"
+    ],
+    "time_to_fun": "medium",
+    "stop_friendliness": "commitment",
+    "multiplayer": [
+      "competitive"
+    ],
+    "description": "100-player WW2 warfare.",
+    "fun_fact": "Maps are based on real WW2 battlefields."
+  },
+  {
+    "id": "insurgency-sandstorm",
+    "title": "Insurgency: Sandstorm",
+    "platforms": [
+      "pc",
+      "console"
+    ],
+    "year": 2018,
+    "genres": [
+      "tactical",
+      "shooter",
+      "realistic"
+    ],
+    "time_tags": [
+      30,
+      60
+    ],
+    "energy": "high",
+    "moods": [
+      "intense",
+      "tactical",
+      "realistic",
+      "brutal"
+    ],
+    "play_style": [
+      "action"
+    ],
+    "time_to_fun": "short",
+    "stop_friendliness": "checkpoints",
+    "multiplayer": [
+      "solo",
+      "online_coop",
+      "competitive"
+    ],
+    "description": "Hardcore modern warfare.",
+    "fun_fact": "One bullet can kill - no health bars or hit markers."
+  },
+  {
+    "id": "arma-3",
+    "title": "Arma 3",
+    "platforms": [
+      "pc"
+    ],
+    "year": 2013,
+    "genres": [
+      "milsim",
+      "sandbox",
+      "tactical"
+    ],
+    "time_tags": [
+      60,
+      90
+    ],
+    "energy": "high",
+    "moods": [
+      "realistic",
+      "sandbox",
+      "tactical",
+      "modded"
+    ],
+    "play_style": [
+      "action",
+      "sandbox_creative"
+    ],
+    "time_to_fun": "long",
+    "stop_friendliness": "anytime",
+    "multiplayer": [
+      "solo",
+      "online_coop",
+      "competitive"
+    ],
+    "description": "The ultimate military sandbox.",
+    "fun_fact": "The modding community has created everything from zombie survival to life simulation."
+  },
+  {
+    "id": "arma-reforger",
+    "title": "Arma Reforger",
+    "platforms": [
+      "pc",
+      "console"
+    ],
+    "year": 2022,
+    "genres": [
+      "milsim",
+      "sandbox",
+      "cold-war"
+    ],
+    "time_tags": [
+      60,
+      90
+    ],
+    "energy": "high",
+    "moods": [
+      "tactical",
+      "realistic",
+      "sandbox",
+      "new-engine"
+    ],
+    "play_style": [
+      "action"
+    ],
+    "time_to_fun": "medium",
+    "stop_friendliness": "anytime",
+    "multiplayer": [
+      "solo",
+      "online_coop",
+      "competitive"
+    ],
+    "description": "Next-gen Arma on new engine.",
+    "fun_fact": "Built on Bohemia's new Enfusion engine."
+  },
+  {
+    "id": "warthunder",
+    "title": "War Thunder",
+    "platforms": [
+      "pc",
+      "console"
+    ],
+    "year": 2013,
+    "genres": [
+      "vehicular",
+      "combat",
+      "free-to-play"
+    ],
+    "time_tags": [
+      30,
+      60
+    ],
+    "energy": "high",
+    "moods": [
+      "realistic",
+      "competitive",
+      "historical",
+      "varied"
+    ],
+    "play_style": [
+      "action"
+    ],
+    "time_to_fun": "short",
+    "stop_friendliness": "checkpoints",
+    "multiplayer": [
+      "solo",
+      "competitive"
+    ],
+    "description": "Planes, tanks, and ships.",
+    "fun_fact": "Players have leaked classified military documents to win arguments about accuracy."
+  },
+  {
+    "id": "world-of-tanks",
+    "title": "World of Tanks",
+    "platforms": [
+      "pc",
+      "console"
+    ],
+    "year": 2010,
+    "genres": [
+      "vehicular",
+      "tanks",
+      "competitive"
+    ],
+    "time_tags": [
+      15,
+      30,
+      60
+    ],
+    "energy": "high",
+    "moods": [
+      "tactical",
+      "competitive",
+      "historical",
+      "strategic"
+    ],
+    "play_style": [
+      "action",
+      "puzzle_strategy"
+    ],
+    "time_to_fun": "short",
+    "stop_friendliness": "checkpoints",
+    "multiplayer": [
+      "solo",
+      "competitive"
+    ],
+    "description": "Tank combat battles.",
+    "fun_fact": "Features historically accurate tank models."
+  },
+  {
+    "id": "world-of-warships",
+    "title": "World of Warships",
+    "platforms": [
+      "pc",
+      "console"
+    ],
+    "year": 2015,
+    "genres": [
+      "vehicular",
+      "naval",
+      "competitive"
+    ],
+    "time_tags": [
+      15,
+      30,
+      60
+    ],
+    "energy": "high",
+    "moods": [
+      "tactical",
+      "naval",
+      "strategic",
+      "epic"
+    ],
+    "play_style": [
+      "action",
+      "puzzle_strategy"
+    ],
+    "time_to_fun": "short",
+    "stop_friendliness": "checkpoints",
+    "multiplayer": [
+      "solo",
+      "competitive"
+    ],
+    "description": "Naval warfare with warships.",
+    "fun_fact": "Features legendary warships from WWI and WWII."
+  },
+  {
+    "id": "mechwarrior-5",
+    "title": "MechWarrior 5: Mercenaries",
+    "platforms": [
+      "pc",
+      "console"
+    ],
+    "year": 2019,
+    "genres": [
+      "mech",
+      "action",
+      "simulation"
+    ],
+    "time_tags": [
+      30,
+      60,
+      90
+    ],
+    "energy": "high",
+    "moods": [
+      "mech",
+      "tactical",
+      "destructive",
+      "epic"
+    ],
+    "play_style": [
+      "action"
+    ],
+    "time_to_fun": "short",
+    "stop_friendliness": "checkpoints",
+    "multiplayer": [
+      "solo",
+      "online_coop"
+    ],
+    "description": "BattleTech mech combat.",
+    "fun_fact": "Based on the tabletop BattleTech universe.",
+    "subscriptions": [
+      "xbox_game_pass"
+    ]
+  },
+  {
+    "id": "titanfall-2",
+    "title": "Titanfall 2",
+    "platforms": [
+      "pc",
+      "console"
+    ],
+    "year": 2016,
+    "genres": [
+      "fps",
+      "mech",
+      "movement"
+    ],
+    "time_tags": [
+      30,
+      60
+    ],
+    "energy": "high",
+    "moods": [
+      "fast",
+      "epic",
+      "emotional",
+      "movement-based"
+    ],
+    "play_style": [
+      "action"
+    ],
+    "time_to_fun": "short",
+    "stop_friendliness": "checkpoints",
+    "multiplayer": [
+      "solo",
+      "competitive"
+    ],
+    "description": "Fast pilots and giant mechs.",
+    "fun_fact": "The campaign is considered one of the best FPS campaigns ever made.",
+    "subscriptions": [
+      "ea_play"
+    ]
+  },
+  {
+    "id": "hawken",
+    "title": "Hawken Reborn",
+    "platforms": [
+      "pc"
+    ],
+    "year": 2023,
+    "genres": [
+      "mech",
+      "extraction",
+      "pvpve"
+    ],
+    "time_tags": [
+      30,
+      60
+    ],
+    "energy": "high",
+    "moods": [
+      "mech",
+      "tactical",
+      "intense",
+      "atmospheric"
+    ],
+    "play_style": [
+      "action"
+    ],
+    "time_to_fun": "short",
+    "stop_friendliness": "checkpoints",
+    "multiplayer": [
+      "solo",
+      "online_coop",
+      "competitive"
+    ],
+    "description": "Mech extraction shooter.",
+    "fun_fact": "Revived as an extraction shooter with PvPvE."
+  },
+  {
+    "id": "gundam-evolution",
+    "title": "Gundam Evolution",
+    "platforms": [
+      "pc",
+      "console"
+    ],
+    "year": 2022,
+    "genres": [
+      "fps",
+      "mech",
+      "hero-shooter"
+    ],
+    "time_tags": [
+      15,
+      30
+    ],
+    "energy": "high",
+    "moods": [
+      "anime",
+      "mech",
+      "competitive",
+      "fast"
+    ],
+    "play_style": [
+      "action"
+    ],
+    "time_to_fun": "short",
+    "stop_friendliness": "checkpoints",
+    "multiplayer": [
+      "competitive"
+    ],
+    "description": "Gundam hero shooter.",
+    "fun_fact": "Features iconic Mobile Suits from across the Gundam franchise."
+  },
+  {
+    "id": "ace-combat-7",
+    "title": "Ace Combat 7",
+    "platforms": [
+      "pc",
+      "console"
+    ],
+    "year": 2019,
+    "genres": [
+      "flight",
+      "combat",
+      "arcade"
+    ],
+    "time_tags": [
+      30,
+      60
+    ],
+    "energy": "high",
+    "moods": [
+      "epic",
+      "dramatic",
+      "flight",
+      "cinematic"
+    ],
+    "play_style": [
+      "action"
+    ],
+    "time_to_fun": "short",
+    "stop_friendliness": "checkpoints",
+    "multiplayer": [
+      "solo",
+      "competitive"
+    ],
+    "description": "Arcade flight combat.",
+    "fun_fact": "Features an original story with memorable characters."
+  },
+  {
+    "id": "project-wingman",
+    "title": "Project Wingman",
+    "platforms": [
+      "pc",
+      "console"
+    ],
+    "year": 2020,
+    "genres": [
+      "flight",
+      "combat",
+      "indie"
+    ],
+    "time_tags": [
+      30,
+      60
+    ],
+    "energy": "high",
+    "moods": [
+      "epic",
+      "intense",
+      "indie",
+      "flight"
+    ],
+    "play_style": [
+      "action"
+    ],
+    "time_to_fun": "short",
+    "stop_friendliness": "checkpoints",
+    "multiplayer": [
+      "solo"
+    ],
+    "description": "Indie arcade flight combat.",
+    "fun_fact": "Made by a small indie team inspired by Ace Combat."
+  },
+  {
+    "id": "dcs-world",
+    "title": "DCS World",
+    "platforms": [
+      "pc"
+    ],
+    "year": 2018,
+    "genres": [
+      "flight",
+      "simulation",
+      "military"
+    ],
+    "time_tags": [
+      60,
+      90
+    ],
+    "energy": "high",
+    "moods": [
+      "realistic",
+      "complex",
+      "military",
+      "immersive"
+    ],
+    "play_style": [
+      "action"
+    ],
+    "time_to_fun": "long",
+    "stop_friendliness": "anytime",
+    "multiplayer": [
+      "solo",
+      "online_coop",
+      "competitive"
+    ],
+    "description": "Ultra-realistic military flight sim.",
+    "fun_fact": "Professional pilots use DCS for training."
+  },
+  {
+    "id": "star-wars-squadrons",
+    "title": "Star Wars: Squadrons",
+    "platforms": [
+      "pc",
+      "console"
+    ],
+    "year": 2020,
+    "genres": [
+      "flight",
+      "star-wars",
+      "space"
+    ],
+    "time_tags": [
+      30,
+      60
+    ],
+    "energy": "high",
+    "moods": [
+      "Star Wars",
+      "immersive",
+      "competitive",
+      "epic"
+    ],
+    "play_style": [
+      "action"
+    ],
+    "time_to_fun": "short",
+    "stop_friendliness": "checkpoints",
+    "multiplayer": [
+      "solo",
+      "competitive"
+    ],
+    "description": "Star Wars space combat.",
+    "fun_fact": "Designed primarily for VR play."
+  },
+  {
+    "id": "everspace-2",
+    "title": "Everspace 2",
+    "platforms": [
+      "pc",
+      "console"
+    ],
+    "year": 2023,
+    "genres": [
+      "space",
+      "looter",
+      "open-world"
+    ],
+    "time_tags": [
+      60,
+      90
+    ],
+    "energy": "high",
+    "moods": [
+      "space",
+      "looter",
+      "exploratory",
+      "action-packed"
+    ],
+    "play_style": [
+      "action"
+    ],
+    "time_to_fun": "short",
+    "stop_friendliness": "anytime",
+    "multiplayer": [
+      "solo"
+    ],
+    "description": "Open-world space looter shooter.",
+    "fun_fact": "Shifted from roguelike to open-world based on community feedback."
+  },
+  {
+    "id": "chorus",
+    "title": "Chorus",
+    "platforms": [
+      "pc",
+      "console"
+    ],
+    "year": 2021,
+    "genres": [
+      "space",
+      "shooter",
+      "story"
+    ],
+    "time_tags": [
+      60,
+      90
+    ],
+    "energy": "high",
+    "moods": [
+      "space",
+      "mystical",
+      "fast",
+      "story-driven"
+    ],
+    "play_style": [
+      "action",
+      "narrative"
+    ],
+    "time_to_fun": "short",
+    "stop_friendliness": "checkpoints",
+    "multiplayer": [
+      "solo"
+    ],
+    "description": "Dark space shooter.",
+    "fun_fact": "Features a sentient starship with its own personality."
+  },
+  {
+    "id": "sifu",
+    "title": "Sifu",
+    "platforms": [
+      "pc",
+      "console",
+      "handheld"
+    ],
+    "year": 2022,
+    "genres": [
+      "action",
+      "martial-arts",
+      "roguelike"
+    ],
+    "time_tags": [
+      30,
+      60
+    ],
+    "energy": "high",
+    "moods": [
+      "intense",
+      "martial-arts",
+      "challenging",
+      "stylish"
+    ],
+    "play_style": [
+      "action"
+    ],
+    "time_to_fun": "short",
+    "stop_friendliness": "checkpoints",
+    "multiplayer": [
+      "solo"
+    ],
+    "description": "Kung fu revenge with aging mechanic.",
+    "fun_fact": "Martial arts experts consulted on every punch and kick animation."
+  },
+  {
+    "id": "absolver",
+    "title": "Absolver",
+    "platforms": [
+      "pc",
+      "console"
+    ],
+    "year": 2017,
+    "genres": [
+      "fighting",
+      "martial-arts",
+      "online"
+    ],
+    "time_tags": [
+      30,
+      60
+    ],
+    "energy": "high",
+    "moods": [
+      "martial-arts",
+      "meditative",
+      "competitive",
+      "stylish"
+    ],
+    "play_style": [
+      "action"
+    ],
+    "time_to_fun": "medium",
+    "stop_friendliness": "checkpoints",
+    "multiplayer": [
+      "solo",
+      "online_coop",
+      "competitive"
+    ],
+    "description": "Online martial arts combat.",
+    "fun_fact": "Create your own fighting style from learned moves."
+  },
+  {
+    "id": "sleeping-dogs",
+    "title": "Sleeping Dogs",
+    "platforms": [
+      "pc",
+      "console"
+    ],
+    "year": 2012,
+    "genres": [
+      "action",
+      "open-world",
+      "martial-arts"
+    ],
+    "time_tags": [
+      60,
+      90
+    ],
+    "energy": "high",
+    "moods": [
+      "dramatic",
+      "Hong Kong",
+      "undercover",
+      "martial-arts"
+    ],
+    "play_style": [
+      "action",
+      "narrative"
+    ],
+    "time_to_fun": "short",
+    "stop_friendliness": "anytime",
+    "multiplayer": [
+      "solo"
+    ],
+    "description": "Undercover cop in Hong Kong.",
+    "fun_fact": "Features authentic Hong Kong locations and culture."
+  },
+  {
+    "id": "yakuza-0",
+    "title": "Yakuza 0",
+    "platforms": [
+      "pc",
+      "console"
+    ],
+    "year": 2017,
+    "genres": [
+      "action",
+      "crime",
+      "beat-em-up"
+    ],
+    "time_tags": [
+      60,
+      90
+    ],
+    "energy": "high",
+    "moods": [
+      "dramatic",
+      "funny",
+      "Japanese",
+      "heartfelt"
+    ],
+    "play_style": [
+      "action",
+      "narrative"
+    ],
+    "time_to_fun": "short",
+    "stop_friendliness": "anytime",
+    "multiplayer": [
+      "solo"
+    ],
+    "description": "Origin story of Kiryu and Majima.",
+    "fun_fact": "Considered the best entry point to the Yakuza series.",
+    "subscriptions": [
+      "xbox_game_pass"
+    ],
+    "franchise": "yakuza"
+  },
+  {
+    "id": "judgment",
+    "title": "Judgment",
+    "platforms": [
+      "pc",
+      "console"
+    ],
+    "year": 2019,
+    "genres": [
+      "action",
+      "detective",
+      "beat-em-up"
+    ],
+    "time_tags": [
+      60,
+      90
+    ],
+    "energy": "high",
+    "moods": [
+      "dramatic",
+      "investigative",
+      "Japanese",
+      "thrilling"
+    ],
+    "play_style": [
+      "action",
+      "narrative"
+    ],
+    "time_to_fun": "short",
+    "stop_friendliness": "anytime",
+    "multiplayer": [
+      "solo"
+    ],
+    "description": "Detective thriller in Yakuza universe.",
+    "fun_fact": "Features a detective as protagonist instead of a yakuza."
+  },
+  {
+    "id": "lost-judgment",
+    "title": "Lost Judgment",
+    "platforms": [
+      "pc",
+      "console"
+    ],
+    "year": 2021,
+    "genres": [
+      "action",
+      "detective",
+      "beat-em-up"
+    ],
+    "time_tags": [
+      60,
+      90
+    ],
+    "energy": "high",
+    "moods": [
+      "dramatic",
+      "dark",
+      "school",
+      "investigative"
+    ],
+    "play_style": [
+      "action",
+      "narrative"
+    ],
+    "time_to_fun": "short",
+    "stop_friendliness": "anytime",
+    "multiplayer": [
+      "solo"
+    ],
+    "description": "Investigate a murder at a high school.",
+    "fun_fact": "Features undercover investigation at a school."
+  },
+  {
+    "id": "shadow-warrior-3",
+    "title": "Shadow Warrior 3",
+    "platforms": [
+      "pc",
+      "console"
+    ],
+    "year": 2022,
+    "genres": [
+      "fps",
+      "action",
+      "comedy"
+    ],
+    "time_tags": [
+      30,
+      60
+    ],
+    "energy": "high",
+    "moods": [
+      "funny",
+      "brutal",
+      "fast",
+      "irreverent"
+    ],
+    "play_style": [
+      "action"
+    ],
+    "time_to_fun": "short",
+    "stop_friendliness": "checkpoints",
+    "multiplayer": [
+      "solo"
+    ],
+    "description": "Irreverent ninja FPS.",
+    "fun_fact": "Features over-the-top finishing moves."
+  },
+  {
+    "id": "ghostrunner-2",
+    "title": "Ghostrunner 2",
+    "platforms": [
+      "pc",
+      "console"
+    ],
+    "year": 2023,
+    "genres": [
+      "action",
+      "cyberpunk",
+      "precision"
+    ],
+    "time_tags": [
+      30,
+      60
+    ],
+    "energy": "high",
+    "moods": [
+      "fast",
+      "cyberpunk",
+      "precise",
+      "challenging"
+    ],
+    "play_style": [
+      "action"
+    ],
+    "time_to_fun": "short",
+    "stop_friendliness": "checkpoints",
+    "multiplayer": [
+      "solo"
+    ],
+    "description": "One-hit-kill cyberpunk action.",
+    "fun_fact": "You die in one hit but so do enemies.",
+    "franchise": "ghostrunner"
+  },
+  {
+    "id": "ghostrunner",
+    "title": "Ghostrunner",
+    "platforms": [
+      "pc",
+      "console",
+      "handheld"
+    ],
+    "year": 2020,
+    "genres": [
+      "action",
+      "cyberpunk",
+      "precision"
+    ],
+    "time_tags": [
+      30,
+      60
+    ],
+    "energy": "high",
+    "moods": [
+      "fast",
+      "cyberpunk",
+      "challenging",
+      "stylish"
+    ],
+    "play_style": [
+      "action"
+    ],
+    "time_to_fun": "short",
+    "stop_friendliness": "checkpoints",
+    "multiplayer": [
+      "solo"
+    ],
+    "description": "Cyberpunk precision action.",
+    "fun_fact": "Inspired by Hotline Miami's one-hit-kill philosophy.",
+    "franchise": "ghostrunner"
+  },
+  {
+    "id": "hotline-miami-2",
+    "title": "Hotline Miami 2",
+    "platforms": [
+      "pc",
+      "console",
+      "handheld"
+    ],
+    "year": 2015,
+    "genres": [
+      "action",
+      "top-down",
+      "ultraviolent"
+    ],
+    "time_tags": [
+      30,
+      60
+    ],
+    "energy": "high",
+    "moods": [
+      "intense",
+      "stylish",
+      "brutal",
+      "surreal"
+    ],
+    "play_style": [
+      "action"
+    ],
+    "time_to_fun": "short",
+    "stop_friendliness": "checkpoints",
+    "multiplayer": [
+      "solo"
+    ],
+    "description": "Ultraviolent top-down action.",
+    "fun_fact": "Features a non-linear story across multiple timelines.",
+    "warnings": [
+      "extreme_violence"
+    ]
+  },
+  {
+    "id": "neon-white",
+    "title": "Neon White",
+    "platforms": [
+      "pc",
+      "console",
+      "handheld"
+    ],
+    "year": 2022,
+    "genres": [
+      "fps",
+      "speedrun",
+      "card"
+    ],
+    "time_tags": [
+      15,
+      30,
+      60
+    ],
+    "energy": "high",
+    "moods": [
+      "fast",
+      "stylish",
+      "competitive",
+      "addictive"
+    ],
+    "play_style": [
+      "action"
+    ],
+    "time_to_fun": "short",
+    "stop_friendliness": "checkpoints",
+    "multiplayer": [
+      "solo"
+    ],
+    "description": "Card-based FPS speedrunning.",
+    "fun_fact": "The speedrunning community helped design levels during development!"
+  },
+  {
+    "id": "katana-zero",
+    "title": "Katana Zero",
+    "platforms": [
+      "pc",
+      "console",
+      "handheld"
+    ],
+    "year": 2019,
+    "genres": [
+      "action",
+      "platformer",
+      "neo-noir"
+    ],
+    "time_tags": [
+      30,
+      60
+    ],
+    "energy": "high",
+    "moods": [
+      "stylish",
+      "neo-noir",
+      "fast",
+      "narrative"
+    ],
+    "play_style": [
+      "action",
+      "narrative"
+    ],
+    "time_to_fun": "short",
+    "stop_friendliness": "checkpoints",
+    "multiplayer": [
+      "solo"
+    ],
+    "description": "Precision platformer with time manipulation.",
+    "fun_fact": "The game's narrative changes based on your actions and dialogue choices."
+  },
+  {
+    "id": "pizza-tower",
+    "title": "Pizza Tower",
+    "platforms": [
+      "pc",
+      "handheld"
+    ],
+    "year": 2023,
+    "genres": [
+      "platformer",
+      "speedrun",
+      "wario-inspired"
+    ],
+    "time_tags": [
+      30,
+      60
+    ],
+    "energy": "high",
+    "moods": [
+      "chaotic",
+      "fast",
+      "nostalgic",
+      "funny"
+    ],
+    "play_style": [
+      "action"
+    ],
+    "time_to_fun": "short",
+    "stop_friendliness": "checkpoints",
+    "multiplayer": [
+      "solo"
+    ],
+    "description": "Wario-style chaos platformer.",
+    "fun_fact": "The game's physics were inspired by Wario Land games from the 90s."
+  },
+  {
+    "id": "deaths-door",
+    "title": "Death's Door",
+    "platforms": [
+      "pc",
+      "console",
+      "handheld"
+    ],
+    "year": 2021,
+    "genres": [
+      "action",
+      "adventure",
+      "souls-lite"
+    ],
+    "time_tags": [
+      30,
+      60
+    ],
+    "energy": "high",
+    "moods": [
+      "charming",
+      "challenging",
+      "mysterious",
+      "compact"
+    ],
+    "play_style": [
+      "action"
+    ],
+    "time_to_fun": "short",
+    "stop_friendliness": "checkpoints",
+    "multiplayer": [
+      "solo"
+    ],
+    "description": "A crow reaper collects souls.",
+    "fun_fact": "The game was made by just 2 people in under 2 years!",
+    "subscriptions": [
+      "xbox_game_pass"
+    ]
+  },
+  {
+    "id": "hyper-light-drifter",
+    "title": "Hyper Light Drifter",
+    "platforms": [
+      "pc",
+      "console",
+      "handheld"
+    ],
+    "year": 2016,
+    "genres": [
+      "action",
+      "adventure",
+      "pixel-art"
+    ],
+    "time_tags": [
+      30,
+      60,
+      90
+    ],
+    "energy": "high",
+    "moods": [
+      "mysterious",
+      "atmospheric",
+      "challenging",
+      "beautiful"
+    ],
+    "play_style": [
+      "action"
+    ],
+    "time_to_fun": "short",
+    "stop_friendliness": "checkpoints",
+    "multiplayer": [
+      "solo",
+      "local_coop"
+    ],
+    "description": "Wordless action adventure.",
+    "fun_fact": "The developer has a heart condition that inspired the game's themes.",
+    "franchise": "hyper_light"
+  },
+  {
+    "id": "hyper-light-breaker",
+    "title": "Hyper Light Breaker",
+    "platforms": [
+      "pc"
+    ],
+    "year": 2024,
+    "genres": [
+      "action",
+      "roguelike",
+      "3d"
+    ],
+    "time_tags": [
+      30,
+      60
+    ],
+    "energy": "high",
+    "moods": [
+      "stylish",
+      "cooperative",
+      "challenging",
+      "exploratory"
+    ],
+    "play_style": [
+      "action"
+    ],
+    "time_to_fun": "short",
+    "stop_friendliness": "checkpoints",
+    "multiplayer": [
+      "solo",
+      "online_coop"
+    ],
+    "description": "3D open-world Hyper Light.",
+    "fun_fact": "Brings the Hyper Light world into 3D for the first time.",
+    "franchise": "hyper_light"
+  },
+  {
+    "id": "moonlighter",
+    "title": "Moonlighter",
+    "platforms": [
+      "pc",
+      "console",
+      "handheld"
+    ],
+    "year": 2018,
+    "genres": [
+      "action",
+      "roguelite",
+      "shopkeeping"
+    ],
+    "time_tags": [
+      30,
+      60
+    ],
+    "energy": "high",
+    "moods": [
+      "charming",
+      "addictive",
+      "challenging",
+      "mercantile"
+    ],
+    "play_style": [
+      "action",
+      "sandbox_creative"
+    ],
+    "time_to_fun": "short",
+    "stop_friendliness": "checkpoints",
+    "multiplayer": [
+      "solo"
+    ],
+    "description": "Dungeon dive and run a shop.",
+    "fun_fact": "Balance dungeon crawling at night with shopkeeping by day."
+  },
+  {
+    "id": "rogue-legacy-2",
+    "title": "Rogue Legacy 2",
+    "platforms": [
+      "pc",
+      "console",
+      "handheld"
+    ],
+    "year": 2022,
+    "genres": [
+      "roguelite",
+      "platformer",
+      "action"
+    ],
+    "time_tags": [
+      30,
+      60
+    ],
+    "energy": "high",
+    "moods": [
+      "challenging",
+      "funny",
+      "addictive",
+      "procedural"
+    ],
+    "play_style": [
+      "action"
+    ],
+    "time_to_fun": "short",
+    "stop_friendliness": "checkpoints",
+    "multiplayer": [
+      "solo"
+    ],
+    "description": "Generational roguelite platformer.",
+    "fun_fact": "Each heir has unique traits like colorblindness or gigantism.",
+    "franchise": "rogue_legacy"
+  },
+  {
+    "id": "curse-of-the-dead-gods",
+    "title": "Curse of the Dead Gods",
+    "platforms": [
+      "pc",
+      "console",
+      "handheld"
+    ],
+    "year": 2021,
+    "genres": [
+      "roguelike",
+      "action",
+      "isometric"
+    ],
+    "time_tags": [
+      30,
+      60
+    ],
+    "energy": "high",
+    "moods": [
+      "dark",
+      "challenging",
+      "curse-based",
+      "strategic"
+    ],
+    "play_style": [
+      "action"
+    ],
+    "time_to_fun": "short",
+    "stop_friendliness": "checkpoints",
+    "multiplayer": [
+      "solo"
+    ],
+    "description": "Temple exploration with curses.",
+    "fun_fact": "Curses can be both helpful and harmful."
+  },
+  {
+    "id": "wizard-of-legend",
+    "title": "Wizard of Legend",
+    "platforms": [
+      "pc",
+      "console",
+      "handheld"
+    ],
+    "year": 2018,
+    "genres": [
+      "roguelike",
+      "action",
+      "magic"
+    ],
+    "time_tags": [
+      30,
+      60
+    ],
+    "energy": "high",
+    "moods": [
+      "fast",
+      "magical",
+      "challenging",
+      "cooperative"
+    ],
+    "play_style": [
+      "action"
+    ],
+    "time_to_fun": "short",
+    "stop_friendliness": "checkpoints",
+    "multiplayer": [
+      "solo",
+      "local_coop"
+    ],
+    "description": "Fast-paced wizard combat.",
+    "fun_fact": "Over 100 spells to combine and master."
+  },
+  {
+    "id": "skul-hero-slayer",
+    "title": "Skul: The Hero Slayer",
+    "platforms": [
+      "pc",
+      "console",
+      "handheld"
+    ],
+    "year": 2021,
+    "genres": [
+      "roguelike",
+      "action",
+      "2d"
+    ],
+    "time_tags": [
+      30,
+      60
+    ],
+    "energy": "high",
+    "moods": [
+      "fast",
+      "varied",
+      "challenging",
+      "cute"
+    ],
+    "play_style": [
+      "action"
+    ],
+    "time_to_fun": "short",
+    "stop_friendliness": "checkpoints",
+    "multiplayer": [
+      "solo"
+    ],
+    "description": "Swap skulls for different powers.",
+    "fun_fact": "Each skull completely changes your playstyle."
+  },
+  {
+    "id": "children-of-morta",
+    "title": "Children of Morta",
+    "platforms": [
+      "pc",
+      "console",
+      "handheld"
+    ],
+    "year": 2019,
+    "genres": [
+      "roguelike",
+      "action",
+      "family"
+    ],
+    "time_tags": [
+      30,
+      60
+    ],
+    "energy": "high",
+    "moods": [
+      "family",
+      "emotional",
+      "challenging",
+      "narrative"
+    ],
+    "play_style": [
+      "action",
+      "narrative"
+    ],
+    "time_to_fun": "short",
+    "stop_friendliness": "checkpoints",
+    "multiplayer": [
+      "solo",
+      "local_coop"
+    ],
+    "description": "A family fights corruption.",
+    "fun_fact": "Features a touching family narrative between runs."
+  },
+  {
+    "id": "anger-foot",
+    "title": "Anger Foot",
+    "platforms": [
+      "pc"
+    ],
+    "year": 2024,
+    "genres": [
+      "fps",
+      "kicking",
+      "fast"
+    ],
+    "time_tags": [
+      15,
+      30
+    ],
+    "energy": "high",
+    "moods": [
+      "chaotic",
+      "funny",
+      "fast",
+      "violent"
+    ],
+    "play_style": [
+      "action"
+    ],
+    "time_to_fun": "short",
+    "stop_friendliness": "checkpoints",
+    "multiplayer": [
+      "solo"
+    ],
+    "description": "Kick doors, kick enemies, kick everything.",
+    "fun_fact": "Kicking is the primary combat mechanic."
+  },
+  {
+    "id": "palworld",
+    "title": "Palworld",
+    "platforms": [
+      "pc",
+      "console"
+    ],
+    "year": 2024,
+    "genres": [
+      "survival",
+      "creature-collector",
+      "open-world"
+    ],
+    "time_tags": [
+      60,
+      90
+    ],
+    "energy": "high",
+    "moods": [
+      "addictive",
+      "creative",
+      "controversial",
+      "fun"
+    ],
+    "play_style": [
+      "action",
+      "sandbox_creative"
+    ],
+    "time_to_fun": "short",
+    "stop_friendliness": "anytime",
+    "multiplayer": [
+      "solo",
+      "online_coop"
+    ],
+    "description": "Pokemon with guns (sort of).",
+    "fun_fact": "The game sold 25 million copies in its first month of Early Access!",
+    "subscriptions": [
+      "xbox_game_pass"
+    ]
+  },
+  {
+    "id": "zelda-totk",
+    "title": "The Legend of Zelda: Tears of the Kingdom",
+    "platforms": [
+      "handheld"
+    ],
+    "year": 2023,
+    "genres": [
+      "adventure",
+      "open-world",
+      "physics"
+    ],
+    "time_tags": [
+      60,
+      90
+    ],
+    "energy": "high",
+    "moods": [
+      "creative",
+      "epic",
+      "exploratory",
+      "innovative"
+    ],
+    "play_style": [
+      "action",
+      "sandbox_creative"
+    ],
+    "time_to_fun": "short",
+    "stop_friendliness": "anytime",
+    "multiplayer": [
+      "solo"
+    ],
+    "description": "Build and explore Hyrule anew.",
+    "fun_fact": "The physics engine allows for creations so complex that players have built working computers in-game!"
+  },
+  {
+    "id": "breath-of-the-wild",
+    "title": "The Legend of Zelda: Breath of the Wild",
+    "platforms": [
+      "handheld"
+    ],
+    "year": 2017,
+    "genres": [
+      "adventure",
+      "open-world",
+      "exploration"
+    ],
+    "time_tags": [
+      60,
+      90
+    ],
+    "energy": "high",
+    "moods": [
+      "adventurous",
+      "free",
+      "beautiful",
+      "innovative"
+    ],
+    "play_style": [
+      "action",
+      "sandbox_creative"
+    ],
+    "time_to_fun": "short",
+    "stop_friendliness": "anytime",
+    "multiplayer": [
+      "solo"
+    ],
+    "description": "Revolutionary open-world Zelda.",
+    "fun_fact": "Development took over 4 years and inspired an entirely new type of open world."
+  },
+  {
+    "id": "links-awakening-switch",
+    "title": "Link's Awakening",
+    "platforms": [
+      "handheld"
+    ],
+    "year": 2019,
+    "genres": [
+      "adventure",
+      "puzzle",
+      "remake"
+    ],
+    "time_tags": [
+      30,
+      60
+    ],
+    "energy": "high",
+    "moods": [
+      "charming",
+      "nostalgic",
+      "dreamy",
+      "adventurous"
+    ],
+    "play_style": [
+      "action",
+      "puzzle_strategy"
+    ],
+    "time_to_fun": "short",
+    "stop_friendliness": "checkpoints",
+    "multiplayer": [
+      "solo"
+    ],
+    "description": "Dreamlike Zelda adventure.",
+    "fun_fact": "The entire island exists only in the Wind Fish's dream."
+  },
+  {
+    "id": "horizon-forbidden-west",
+    "title": "Horizon Forbidden West",
+    "platforms": [
+      "pc",
+      "console"
+    ],
+    "year": 2022,
+    "genres": [
+      "action-rpg",
+      "open-world",
+      "sci-fi"
+    ],
+    "time_tags": [
+      60,
+      90
+    ],
+    "energy": "high",
+    "moods": [
+      "epic",
+      "beautiful",
+      "adventurous",
+      "sci-fi"
+    ],
+    "play_style": [
+      "action"
+    ],
+    "time_to_fun": "short",
+    "stop_friendliness": "anytime",
+    "multiplayer": [
+      "solo"
+    ],
+    "description": "Aloy's journey continues westward.",
+    "fun_fact": "The robotic creatures are inspired by real animal behaviors and movement.",
+    "franchise": "horizon"
+  },
+  {
+    "id": "horizon-zero-dawn",
+    "title": "Horizon Zero Dawn",
+    "platforms": [
+      "pc",
+      "console"
+    ],
+    "year": 2017,
+    "genres": [
+      "action-rpg",
+      "open-world",
+      "post-apocalyptic"
+    ],
+    "time_tags": [
+      60,
+      90
+    ],
+    "energy": "high",
+    "moods": [
+      "mysterious",
+      "beautiful",
+      "epic",
+      "unique"
+    ],
+    "play_style": [
+      "action"
+    ],
+    "time_to_fun": "short",
+    "stop_friendliness": "anytime",
+    "multiplayer": [
+      "solo"
+    ],
+    "description": "Hunt robotic dinosaurs.",
+    "fun_fact": "The world was created without referencing other open-world games.",
+    "franchise": "horizon",
+    "subscriptions": [
+      "playstation_plus"
+    ]
+  },
+  {
+    "id": "cyberpunk-2077",
+    "title": "Cyberpunk 2077",
+    "platforms": [
+      "pc",
+      "console"
+    ],
+    "year": 2020,
+    "genres": [
+      "action-rpg",
+      "open-world",
+      "cyberpunk"
+    ],
+    "time_tags": [
+      60,
+      90
+    ],
+    "energy": "high",
+    "moods": [
+      "immersive",
+      "cyberpunk",
+      "mature",
+      "story-driven"
+    ],
+    "play_style": [
+      "action",
+      "narrative"
+    ],
+    "time_to_fun": "short",
+    "stop_friendliness": "anytime",
+    "multiplayer": [
+      "solo"
+    ],
+    "description": "Live in Night City.",
+    "fun_fact": "The game's Night City was modeled after real architectural principles.",
+    "warnings": [
+      "mature_content"
+    ]
+  },
+  {
+    "id": "red-dead-redemption-2",
+    "title": "Red Dead Redemption 2",
+    "platforms": [
+      "pc",
+      "console"
+    ],
+    "year": 2018,
+    "genres": [
+      "action-adventure",
+      "western",
+      "open-world"
+    ],
+    "time_tags": [
+      60,
+      90
+    ],
+    "energy": "high",
+    "moods": [
+      "epic",
+      "emotional",
+      "immersive",
+      "western"
+    ],
+    "play_style": [
+      "action",
+      "narrative"
+    ],
+    "time_to_fun": "medium",
+    "stop_friendliness": "anytime",
+    "multiplayer": [
+      "solo",
+      "online_coop",
+      "competitive"
+    ],
+    "description": "The twilight of the Old West.",
+    "fun_fact": "The game has over 500,000 lines of dialogue - more than most film franchises!"
+  },
+  {
+    "id": "the-witcher-3",
+    "title": "The Witcher 3: Wild Hunt",
+    "platforms": [
+      "pc",
+      "console",
+      "handheld"
+    ],
+    "year": 2015,
+    "genres": [
+      "action-rpg",
+      "open-world",
+      "fantasy"
+    ],
+    "time_tags": [
+      60,
+      90
+    ],
+    "energy": "high",
+    "moods": [
+      "epic",
+      "dark",
+      "immersive",
+      "choice-driven"
+    ],
+    "play_style": [
+      "action",
+      "narrative"
+    ],
+    "time_to_fun": "short",
+    "stop_friendliness": "anytime",
+    "multiplayer": [
+      "solo"
+    ],
+    "description": "Hunt monsters as Geralt of Rivia.",
+    "fun_fact": "The game has 16 different endings based on your choices throughout!"
+  },
+  {
+    "id": "assassins-creed-mirage",
+    "title": "Assassin's Creed Mirage",
+    "platforms": [
+      "pc",
+      "console"
+    ],
+    "year": 2023,
+    "genres": [
+      "action",
+      "stealth",
+      "historical"
+    ],
+    "time_tags": [
+      60,
+      90
+    ],
+    "energy": "high",
+    "moods": [
+      "stealthy",
+      "historical",
+      "focused",
+      "Baghdad"
+    ],
+    "play_style": [
+      "action"
+    ],
+    "time_to_fun": "short",
+    "stop_friendliness": "anytime",
+    "multiplayer": [
+      "solo"
+    ],
+    "description": "Return to classic Assassin's Creed.",
+    "fun_fact": "Designed as a return to the series' stealth roots.",
+    "franchise": "assassins_creed",
+    "subscriptions": [
+      "ubisoft_plus"
+    ]
+  },
+  {
+    "id": "assassins-creed-valhalla",
+    "title": "Assassin's Creed Valhalla",
+    "platforms": [
+      "pc",
+      "console"
+    ],
+    "year": 2020,
+    "genres": [
+      "action-rpg",
+      "viking",
+      "open-world"
+    ],
+    "time_tags": [
+      60,
+      90
+    ],
+    "energy": "high",
+    "moods": [
+      "epic",
+      "viking",
+      "exploration",
+      "brutal"
+    ],
+    "play_style": [
+      "action"
+    ],
+    "time_to_fun": "short",
+    "stop_friendliness": "anytime",
+    "multiplayer": [
+      "solo"
+    ],
+    "description": "Lead a Viking clan in England.",
+    "fun_fact": "Features historically accurate Viking settlements and culture.",
+    "franchise": "assassins_creed",
+    "subscriptions": [
+      "ubisoft_plus"
+    ]
+  },
+  {
+    "id": "ghost-of-tsushima",
+    "title": "Ghost of Tsushima",
+    "platforms": [
+      "pc",
+      "console"
+    ],
+    "year": 2020,
+    "genres": [
+      "action",
+      "open-world",
+      "samurai"
+    ],
+    "time_tags": [
+      60,
+      90
+    ],
+    "energy": "high",
+    "moods": [
+      "beautiful",
+      "Japanese",
+      "honorable",
+      "cinematic"
+    ],
+    "play_style": [
+      "action"
+    ],
+    "time_to_fun": "short",
+    "stop_friendliness": "anytime",
+    "multiplayer": [
+      "solo",
+      "online_coop"
+    ],
+    "description": "Become a legend on Tsushima Island.",
+    "fun_fact": "Features a 'Kurosawa Mode' that adds black-and-white film grain.",
+    "subscriptions": [
+      "playstation_plus"
+    ]
+  },
+  {
+    "id": "black-myth-wukong",
+    "title": "Black Myth: Wukong",
+    "platforms": [
+      "pc",
+      "console"
+    ],
+    "year": 2024,
+    "genres": [
+      "action-rpg",
+      "souls-like",
+      "mythology"
+    ],
+    "time_tags": [
+      60,
+      90
+    ],
+    "energy": "high",
+    "moods": [
+      "Chinese",
+      "mythological",
+      "challenging",
+      "beautiful"
+    ],
+    "play_style": [
+      "action"
+    ],
+    "time_to_fun": "short",
+    "stop_friendliness": "checkpoints",
+    "multiplayer": [
+      "solo"
+    ],
+    "description": "Journey to the West as the Monkey King.",
+    "fun_fact": "Based on the classic Chinese novel Journey to the West."
+  },
+  {
+    "id": "dragons-dogma-2",
+    "title": "Dragon's Dogma 2",
+    "platforms": [
+      "pc",
+      "console"
+    ],
+    "year": 2024,
+    "genres": [
+      "action-rpg",
+      "open-world",
+      "fantasy"
+    ],
+    "time_tags": [
+      60,
+      90
+    ],
+    "energy": "high",
+    "moods": [
+      "epic",
+      "adventurous",
+      "challenging",
+      "unique"
+    ],
+    "play_style": [
+      "action"
+    ],
+    "time_to_fun": "short",
+    "stop_friendliness": "checkpoints",
+    "multiplayer": [
+      "solo"
+    ],
+    "description": "Epic fantasy action with Pawns.",
+    "fun_fact": "Your AI companions can be shared online with other players."
+  }
+]

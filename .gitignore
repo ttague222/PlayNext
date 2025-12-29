@@ -1,0 +1,72 @@
+# PlayNxt Monorepo .gitignore
+
+# Dependencies
+node_modules/
+__pycache__/
+*.pyc
+.pnp/
+.pnp.js
+
+# Build outputs
+dist/
+build/
+*.egg-info/
+.eggs/
+
+# Environment files (keep examples)
+.env
+.env.local
+.env.*.local
+!.env.example
+
+# Firebase/Google credentials (NEVER commit)
+serviceAccountKey.json
+google-services.json
+GoogleService-Info.plist
+firebase-adminsdk*.json
+*-firebase-adminsdk-*.json
+
+# IDE
+.idea/
+.vscode/
+*.swp
+*.swo
+.DS_Store
+
+# Logs
+logs/
+*.log
+npm-debug.log*
+
+# Testing
+coverage/
+.coverage
+htmlcov/
+.pytest_cache/
+.nyc_output/
+
+# Expo/React Native
+.expo/
+*.jks
+*.p8
+*.p12
+*.key
+*.mobileprovision
+*.orig.*
+
+# Temporary files
+*.tmp
+*.temp
+.cache/
+
+# OS files
+Thumbs.db
+ehthumbs.db
+
+# Python virtual environments
+venv/
+.venv/
+ENV/
+
+# Sentry
+.sentryclirc

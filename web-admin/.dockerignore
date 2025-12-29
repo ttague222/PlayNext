@@ -1,0 +1,14 @@
+# Docker ignore for Web Admin
+.git
+.gitignore
+node_modules
+.env
+.env.*
+!.env.example
+dist
+.idea/
+.vscode/
+*.md
+*.log
+coverage/
+.nyc_output/
