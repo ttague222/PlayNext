@@ -17,7 +17,6 @@ import {
 import * as Google from 'expo-auth-session/providers/google';
 import * as AppleAuthentication from 'expo-apple-authentication';
 import * as WebBrowser from 'expo-web-browser';
-import { makeRedirectUri } from 'expo-auth-session';
 import Constants from 'expo-constants';
 import { Platform } from 'react-native';
 import { auth } from '../config/firebase';
@@ -29,23 +28,8 @@ const AuthContext = createContext({});
 
 export const useAuth = () => useContext(AuthContext);
 
-// Determine the correct redirect URI based on environment
-const getRedirectUri = () => {
-  // For Expo Go (development), use the Expo auth proxy
-  // For standalone builds, use the native scheme
-  const isExpoGo = Constants.appOwnership === 'expo';
-
-  if (isExpoGo) {
-    // Expo Go uses the auth.expo.io proxy
-    return 'https://auth.expo.io/@ttague/playnxt';
-  }
-
-  // Standalone/development builds use native redirect
-  return makeRedirectUri({
-    scheme: 'playnxt',
-    path: 'oauth',
-  });
-};
+// For production standalone builds, we use platform-native OAuth
+// No custom redirect URI needed - the native SDKs handle this automatically
 
 export const AuthProvider = ({ children }) => {
   const [user, setUser] = useState(null);
@@ -53,35 +37,23 @@ export const AuthProvider = ({ children }) => {
   const [authLoading, setAuthLoading] = useState(false);
   const [error, setError] = useState(null);
 
-  const redirectUri = getRedirectUri();
-
-  // Determine if we're in Expo Go
-  const isExpoGo = Constants.appOwnership === 'expo';
-
-  // Google Auth configuration
-  // In Expo Go, we must use the Web Client ID with the auth.expo.io redirect
-  // In standalone builds, use platform-specific client IDs
+  // Google Auth configuration for production standalone builds
+  // Uses platform-specific client IDs - the native OAuth handles redirects automatically
   const [request, response, promptAsync] = Google.useAuthRequest({
-    clientId: isExpoGo
-      ? Constants.expoConfig?.extra?.googleWebClientId
-      : undefined,
-    iosClientId: isExpoGo
-      ? undefined
-      : Constants.expoConfig?.extra?.googleIosClientId,
-    androidClientId: isExpoGo
-      ? undefined
-      : Constants.expoConfig?.extra?.googleAndroidClientId,
+    iosClientId: Constants.expoConfig?.extra?.googleIosClientId,
+    androidClientId: Constants.expoConfig?.extra?.googleAndroidClientId,
     webClientId: Constants.expoConfig?.extra?.googleWebClientId,
-    redirectUri,
     scopes: ['profile', 'email'],
   });
 
-  // Debug: Log the redirect URI being used
+  // Debug: Log OAuth configuration
   useEffect(() => {
+    console.log('[AuthContext] App ownership:', Constants.appOwnership);
+    console.log('[AuthContext] Platform:', Platform.OS);
     if (request) {
-      console.log('[AuthContext] App ownership:', Constants.appOwnership);
-      console.log('[AuthContext] Google OAuth redirect URI:', request.redirectUri);
-      console.log('[AuthContext] Google OAuth client ID:', request.clientId);
+      console.log('[AuthContext] Google OAuth ready:', !!request);
+      console.log('[AuthContext] iOS Client ID:', Constants.expoConfig?.extra?.googleIosClientId ? 'configured' : 'missing');
+      console.log('[AuthContext] Android Client ID:', Constants.expoConfig?.extra?.googleAndroidClientId ? 'configured' : 'missing');
     }
   }, [request]);
 

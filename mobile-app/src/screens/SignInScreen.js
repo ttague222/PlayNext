@@ -130,7 +130,8 @@ const SignInScreen = () => {
               )}
             </TouchableOpacity>
 
-            {/* Apple Sign In - iOS only */}
+            {/* Apple Sign In - iOS only (temporarily disabled) */}
+            {/* TODO: Re-enable after configuring Apple Developer Console
             {isAppleSignInAvailable && (
               <TouchableOpacity
                 style={[styles.signInButton, styles.appleButton]}
@@ -147,6 +148,7 @@ const SignInScreen = () => {
                 )}
               </TouchableOpacity>
             )}
+            */}
           </View>
 
           {/* Divider */}

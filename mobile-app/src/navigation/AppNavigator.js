@@ -28,6 +28,7 @@ import ProfileScreen from '../screens/ProfileScreen';
 
 // Modal Screens
 import SignInScreen from '../screens/SignInScreen';
+import PremiumScreen from '../screens/PremiumScreen';
 
 const Stack = createNativeStackNavigator();
 const Tab = createBottomTabNavigator();
@@ -148,6 +149,14 @@ const AppNavigator = () => {
         <RootStack.Screen
           name="SignIn"
           component={SignInScreen}
+          options={{
+            presentation: 'modal',
+            animation: 'slide_from_bottom',
+          }}
+        />
+        <RootStack.Screen
+          name="Premium"
+          component={PremiumScreen}
           options={{
             presentation: 'modal',
             animation: 'slide_from_bottom',

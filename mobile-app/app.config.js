@@ -2,7 +2,7 @@ export default {
   expo: {
     name: "PlayNxt",
     slug: "playnxt",
-    version: "1.0.0",
+    version: "1.0.2",
     orientation: "portrait",
     icon: "./assets/images/icon.png",
     scheme: "playnxt",
@@ -21,11 +21,18 @@ export default {
       buildNumber: "1",
       usesAppleSignIn: true,
       infoPlist: {
-        ITSAppUsesNonExemptEncryption: false
+        ITSAppUsesNonExemptEncryption: false,
+        CFBundleURLTypes: [
+          {
+            CFBundleURLSchemes: [
+              "com.googleusercontent.apps.167253232570-ce0s30bsda1gof40cvnh9n30ot38qpui"
+            ]
+          }
+        ]
       },
       config: {
         googleSignIn: {
-          reservedClientId: process.env.EXPO_PUBLIC_GOOGLE_IOS_CLIENT_ID
+          reservedClientId: "com.googleusercontent.apps.167253232570-ce0s30bsda1gof40cvnh9n30ot38qpui"
         }
       }
     },
@@ -65,7 +72,15 @@ export default {
       "expo-asset",
       "expo-font",
       "expo-web-browser",
-      "@sentry/react-native/expo"
+      "expo-updates",
+      [
+        "expo-build-properties",
+        {
+          android: {
+            extraProguardRules: "-keep class com.android.vending.billing.**"
+          }
+        }
+      ]
     ],
     extra: {
       apiBaseUrl: process.env.EXPO_PUBLIC_API_BASE_URL || "http://localhost:8000/api",

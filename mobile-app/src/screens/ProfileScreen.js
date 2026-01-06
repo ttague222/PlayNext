@@ -84,12 +84,8 @@ const ProfileScreen = () => {
     );
   };
 
-  const handleUpgrade = async () => {
-    try {
-      await upgradeToPremium();
-    } catch (error) {
-      Alert.alert('Upgrade Failed', error.message);
-    }
+  const handleUpgrade = () => {
+    navigation.navigate('Premium');
   };
 
   const handleRestore = async () => {
@@ -219,15 +215,16 @@ const ProfileScreen = () => {
             </>
           )}
 
-          {/* Premium Section - Coming in a future release
+          {/* Premium Section */}
           {renderSection(
             'Premium',
             <>
               {isPremium ? (
-                <View style={styles.premiumActive}>
+                <TouchableOpacity style={styles.premiumActive} onPress={handleUpgrade}>
                   <Ionicons name="star" size={24} color="#fbbf24" />
                   <Text style={styles.premiumActiveText}>Premium Active</Text>
-                </View>
+                  <Ionicons name="chevron-forward" size={20} color="#808080" />
+                </TouchableOpacity>
               ) : (
                 <>
                   <View style={styles.premiumInfo}>
@@ -254,7 +251,6 @@ const ProfileScreen = () => {
               )}
             </>
           )}
-          */}
 
           {/* Default Preferences Section */}
           {renderSection(
