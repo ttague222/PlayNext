@@ -10,6 +10,9 @@ import {
   onAuthStateChanged,
   signInAnonymously,
   signInWithCredential,
+  createUserWithEmailAndPassword,
+  signInWithEmailAndPassword,
+  sendPasswordResetEmail,
   GoogleAuthProvider,
   OAuthProvider,
   signOut as firebaseSignOut,
@@ -17,6 +20,7 @@ import {
 import * as Google from 'expo-auth-session/providers/google';
 import * as AppleAuthentication from 'expo-apple-authentication';
 import * as WebBrowser from 'expo-web-browser';
+import * as Crypto from 'expo-crypto';
 import Constants from 'expo-constants';
 import { Platform } from 'react-native';
 import { auth } from '../config/firebase';
@@ -145,6 +149,7 @@ export const AuthProvider = ({ children }) => {
 
   /**
    * Sign in with Apple (iOS only)
+   * Requires proper nonce generation for Firebase authentication
    */
   const signInWithApple = async () => {
     if (Platform.OS !== 'ios') {
@@ -155,24 +160,36 @@ export const AuthProvider = ({ children }) => {
       setAuthLoading(true);
       setError(null);
 
-      // Request Apple authentication
+      // Generate a random nonce for security
+      const rawNonce = Math.random().toString(36).substring(2, 10) +
+                       Math.random().toString(36).substring(2, 10);
+
+      // Create SHA256 hash of the nonce to send to Apple
+      const hashedNonce = await Crypto.digestStringAsync(
+        Crypto.CryptoDigestAlgorithm.SHA256,
+        rawNonce
+      );
+
+      // Request Apple authentication with the hashed nonce
       const appleCredential = await AppleAuthentication.signInAsync({
         requestedScopes: [
           AppleAuthentication.AppleAuthenticationScope.FULL_NAME,
           AppleAuthentication.AppleAuthenticationScope.EMAIL,
         ],
+        nonce: hashedNonce,
       });
 
       // Create Firebase credential from Apple credential
-      const { identityToken, nonce } = appleCredential;
+      const { identityToken } = appleCredential;
       if (!identityToken) {
         throw new Error('No identity token returned from Apple');
       }
 
+      // Use the raw (unhashed) nonce with Firebase
       const provider = new OAuthProvider('apple.com');
       const credential = provider.credential({
         idToken: identityToken,
-        rawNonce: nonce,
+        rawNonce: rawNonce,
       });
 
       const result = await signInWithCredential(auth, credential);
@@ -182,6 +199,57 @@ export const AuthProvider = ({ children }) => {
         // User cancelled, not an error
         return null;
       }
+      console.error('[AuthContext] Apple Sign-In error:', err);
+      setError(err.message);
+      throw err;
+    } finally {
+      setAuthLoading(false);
+    }
+  };
+
+  /**
+   * Sign up with email and password
+   */
+  const signUpWithEmail = async (email, password) => {
+    try {
+      setAuthLoading(true);
+      setError(null);
+      const result = await createUserWithEmailAndPassword(auth, email, password);
+      return result.user;
+    } catch (err) {
+      setError(err.message);
+      throw err;
+    } finally {
+      setAuthLoading(false);
+    }
+  };
+
+  /**
+   * Sign in with email and password
+   */
+  const signInWithEmail = async (email, password) => {
+    try {
+      setAuthLoading(true);
+      setError(null);
+      const result = await signInWithEmailAndPassword(auth, email, password);
+      return result.user;
+    } catch (err) {
+      setError(err.message);
+      throw err;
+    } finally {
+      setAuthLoading(false);
+    }
+  };
+
+  /**
+   * Send password reset email
+   */
+  const resetPassword = async (email) => {
+    try {
+      setAuthLoading(true);
+      setError(null);
+      await sendPasswordResetEmail(auth, email);
+    } catch (err) {
       setError(err.message);
       throw err;
     } finally {
@@ -238,6 +306,9 @@ export const AuthProvider = ({ children }) => {
     signInAnonymousUser,
     signInWithGoogle,
     signInWithApple,
+    signUpWithEmail,
+    signInWithEmail,
+    resetPassword,
     signIn,
     signOut,
     getIdToken,

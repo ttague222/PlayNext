@@ -114,6 +114,22 @@ const SignInScreen = () => {
 
           {/* Sign In Buttons */}
           <View style={styles.buttonsContainer}>
+            {/* Guest Account - Privacy-focused option */}
+            <TouchableOpacity
+              style={[styles.signInButton, styles.guestButton]}
+              onPress={handleSkip}
+              disabled={authLoading}
+            >
+              {authLoading ? (
+                <ActivityIndicator color="#ffffff" />
+              ) : (
+                <>
+                  <Ionicons name="shield-checkmark" size={22} color="#ffffff" />
+                  <Text style={styles.guestButtonText}>Continue as Guest</Text>
+                </>
+              )}
+            </TouchableOpacity>
+
             {/* Google Sign In */}
             <TouchableOpacity
               style={[styles.signInButton, styles.googleButton]}
@@ -130,8 +146,18 @@ const SignInScreen = () => {
               )}
             </TouchableOpacity>
 
-            {/* Apple Sign In - iOS only (temporarily disabled) */}
-            {/* TODO: Re-enable after configuring Apple Developer Console
+            {/* Email Sign In */}
+            <TouchableOpacity
+              style={[styles.signInButton, styles.emailButton]}
+              onPress={() => navigation.navigate('EmailSignIn')}
+              disabled={authLoading}
+            >
+              <Ionicons name="mail-outline" size={22} color="#ffffff" />
+              <Text style={styles.emailButtonText}>Continue with Email</Text>
+            </TouchableOpacity>
+
+            {/* Apple Sign In - iOS only */}
+            {/* TODO: Uncomment when Apple Developer account migration is complete
             {isAppleSignInAvailable && (
               <TouchableOpacity
                 style={[styles.signInButton, styles.appleButton]}
@@ -151,17 +177,13 @@ const SignInScreen = () => {
             */}
           </View>
 
-          {/* Divider */}
-          <View style={styles.divider}>
-            <View style={styles.dividerLine} />
-            <Text style={styles.dividerText}>or</Text>
-            <View style={styles.dividerLine} />
+          {/* Privacy Note for Guest */}
+          <View style={styles.guestNote}>
+            <Ionicons name="information-circle-outline" size={16} color="#4ade80" />
+            <Text style={styles.guestNoteText}>
+              Guest accounts collect no personal data. Your preferences stay on this device only.
+            </Text>
           </View>
-
-          {/* Skip / Continue without signing in */}
-          <TouchableOpacity style={styles.skipButton} onPress={handleSkip}>
-            <Text style={styles.skipButtonText}>Continue without signing in</Text>
-          </TouchableOpacity>
 
           {/* Privacy Note */}
           <Text style={styles.privacyNote}>
@@ -258,6 +280,14 @@ const styles = StyleSheet.create({
     borderRadius: 14,
     gap: 12,
   },
+  guestButton: {
+    backgroundColor: '#7c3aed',
+  },
+  guestButtonText: {
+    fontSize: 17,
+    fontWeight: '600',
+    color: '#ffffff',
+  },
   googleButton: {
     backgroundColor: '#ffffff',
   },
@@ -265,6 +295,14 @@ const styles = StyleSheet.create({
     fontSize: 17,
     fontWeight: '600',
     color: '#000000',
+  },
+  emailButton: {
+    backgroundColor: '#3b82f6',
+  },
+  emailButtonText: {
+    fontSize: 17,
+    fontWeight: '600',
+    color: '#ffffff',
   },
   appleButton: {
     backgroundColor: '#000000',
@@ -274,29 +312,18 @@ const styles = StyleSheet.create({
     fontWeight: '600',
     color: '#ffffff',
   },
-  divider: {
+  guestNote: {
     flexDirection: 'row',
-    alignItems: 'center',
-    marginVertical: 24,
+    alignItems: 'flex-start',
+    marginTop: 20,
+    paddingHorizontal: 8,
+    gap: 8,
   },
-  dividerLine: {
-    flex: 1,
-    height: 1,
-    backgroundColor: 'rgba(255, 255, 255, 0.1)',
-  },
-  dividerText: {
-    color: '#808080',
-    paddingHorizontal: 16,
-    fontSize: 14,
-  },
-  skipButton: {
-    alignItems: 'center',
-    paddingVertical: 16,
-  },
-  skipButtonText: {
-    fontSize: 16,
+  guestNoteText: {
+    fontSize: 13,
     color: '#a0a0a0',
-    fontWeight: '500',
+    flex: 1,
+    lineHeight: 18,
   },
   privacyNote: {
     fontSize: 12,
