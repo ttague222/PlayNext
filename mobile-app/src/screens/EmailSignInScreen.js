@@ -26,7 +26,7 @@ import { useAuth } from '../context/AuthContext';
 
 const EmailSignInScreen = () => {
   const navigation = useNavigation();
-  const { signInWithEmail, signUpWithEmail, resetPassword, authLoading } = useAuth();
+  const { signInWithEmail, signUpWithEmail, resetPassword, linkEmailToAnonymous, authLoading, isAnonymous } = useAuth();
 
   const [mode, setMode] = useState('signin'); // 'signin', 'signup', 'reset'
   const [email, setEmail] = useState('');
@@ -88,14 +88,21 @@ const EmailSignInScreen = () => {
 
     try {
       setError(null);
-      await signUpWithEmail(email, password);
+      // If user is anonymous, link account to preserve data
+      if (isAnonymous) {
+        await linkEmailToAnonymous(email, password);
+      } else {
+        await signUpWithEmail(email, password);
+      }
       // Navigate back to main app, closing all modals
       navigation.navigate('Main');
     } catch (err) {
       if (err.code === 'auth/email-already-in-use') {
-        setError('An account with this email already exists');
+        setError('An account with this email already exists. Try signing in instead.');
       } else if (err.code === 'auth/weak-password') {
         setError('Password is too weak');
+      } else if (err.code === 'auth/credential-already-in-use') {
+        setError('This email is already linked to another account');
       } else {
         setError('Failed to create account. Please try again.');
       }
@@ -143,11 +150,13 @@ const EmailSignInScreen = () => {
   const getSubtitle = () => {
     switch (mode) {
       case 'signup':
-        return 'Create an account to sync your data across devices';
+        return isAnonymous
+          ? 'Add an email to sync your existing data across devices'
+          : 'Create an account to sync your data across devices';
       case 'reset':
         return 'Enter your email to receive a password reset link';
       default:
-        return 'Sign in with your email and password';
+        return 'Sign in to access your synced data';
     }
   };
 

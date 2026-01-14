@@ -4,16 +4,17 @@
  * Required input: What's your energy level?
  */
 
-import React, { useEffect, useRef } from 'react';
+import React, { useEffect, useRef, useState } from 'react';
 import {
   View,
   Text,
-  TouchableOpacity,
+  Pressable,
   StyleSheet,
-  SafeAreaView,
   Animated,
   Dimensions,
+  ScrollView,
 } from 'react-native';
+import { SafeAreaView } from 'react-native-safe-area-context';
 import { useNavigation } from '@react-navigation/native';
 import { LinearGradient } from 'expo-linear-gradient';
 import { useRecommendation } from '../context/RecommendationContext';
@@ -57,6 +58,7 @@ const MOOD_OPTIONS = [
 const MoodSelectScreen = () => {
   const navigation = useNavigation();
   const { preferences, updatePreference } = useRecommendation();
+  const [isNavigating, setIsNavigating] = useState(false);
 
   // Staggered animation for options
   const animValues = useRef(MOOD_OPTIONS.map(() => new Animated.Value(0))).current;
@@ -90,17 +92,31 @@ const MoodSelectScreen = () => {
   };
 
   const handleSelect = (value) => {
+    if (isNavigating) return; // Prevent double-tap navigation
+    setIsNavigating(true);
     updatePreference('energyMood', value);
     navigation.navigate('OptionalFilters');
   };
+
+  // Reset navigation state when screen comes back into focus
+  useEffect(() => {
+    const unsubscribe = navigation.addListener('focus', () => {
+      setIsNavigating(false);
+    });
+    return unsubscribe;
+  }, [navigation]);
 
   return (
     <LinearGradient
       colors={['#0f0c29', '#302b63', '#24243e']}
       style={styles.container}
     >
-      <SafeAreaView style={styles.safeArea}>
-        <View style={styles.content}>
+      <SafeAreaView style={styles.safeArea} edges={['top', 'left', 'right', 'bottom']}>
+        <ScrollView
+          style={styles.scrollView}
+          contentContainerStyle={styles.content}
+          showsVerticalScrollIndicator={false}
+        >
           {/* Progress indicator */}
           <View style={styles.progress}>
             <View style={[styles.progressDot, styles.progressComplete]} />
@@ -141,16 +157,17 @@ const MoodSelectScreen = () => {
                       },
                     ]}
                   >
-                    <TouchableOpacity
-                      style={[
+                    <Pressable
+                      style={({ pressed }) => [
                         styles.optionButton,
                         isSelected && styles.optionSelected,
                         isSelected && { borderColor: option.color },
+                        pressed && styles.optionPressed,
+                        isNavigating && styles.optionDisabled,
                       ]}
                       onPress={() => handleSelect(option.value)}
                       onPressIn={() => handlePressIn(index)}
                       onPressOut={() => handlePressOut(index)}
-                      activeOpacity={1}
                     >
                       {isSelected && (
                         <LinearGradient
@@ -168,7 +185,7 @@ const MoodSelectScreen = () => {
                           <Text style={styles.checkmarkText}>✓</Text>
                         </View>
                       )}
-                    </TouchableOpacity>
+                    </Pressable>
                   </Animated.View>
                 );
               })}
@@ -198,16 +215,17 @@ const MoodSelectScreen = () => {
                       },
                     ]}
                   >
-                    <TouchableOpacity
-                      style={[
+                    <Pressable
+                      style={({ pressed }) => [
                         styles.optionButton,
                         isSelected && styles.optionSelected,
                         isSelected && { borderColor: option.color },
+                        pressed && styles.optionPressed,
+                        isNavigating && styles.optionDisabled,
                       ]}
                       onPress={() => handleSelect(option.value)}
                       onPressIn={() => handlePressIn(actualIndex)}
                       onPressOut={() => handlePressOut(actualIndex)}
-                      activeOpacity={1}
                     >
                       {isSelected && (
                         <LinearGradient
@@ -225,13 +243,13 @@ const MoodSelectScreen = () => {
                           <Text style={styles.checkmarkText}>✓</Text>
                         </View>
                       )}
-                    </TouchableOpacity>
+                    </Pressable>
                   </Animated.View>
                 );
               })}
             </View>
           </View>
-        </View>
+        </ScrollView>
       </SafeAreaView>
     </LinearGradient>
   );
@@ -244,10 +262,14 @@ const styles = StyleSheet.create({
   safeArea: {
     flex: 1,
   },
-  content: {
+  scrollView: {
     flex: 1,
+  },
+  content: {
+    flexGrow: 1,
     paddingHorizontal: GRID_PADDING - (GRID_GAP / 2),
     paddingTop: 20,
+    paddingBottom: 40,
   },
   progress: {
     flexDirection: 'row',
@@ -322,8 +344,9 @@ const styles = StyleSheet.create({
     borderWidth: 2,
     borderColor: 'rgba(255, 255, 255, 0.08)',
     alignItems: 'center',
+    justifyContent: 'center',
     overflow: 'hidden',
-    minHeight: 160,
+    height: 170,
   },
   optionSelected: {
     shadowOffset: { width: 0, height: 0 },
@@ -361,6 +384,13 @@ const styles = StyleSheet.create({
     fontSize: 14,
     color: '#ffffff',
     fontWeight: '700',
+  },
+  optionPressed: {
+    opacity: 0.8,
+    backgroundColor: 'rgba(255, 255, 255, 0.1)',
+  },
+  optionDisabled: {
+    opacity: 0.5,
   },
 });
 

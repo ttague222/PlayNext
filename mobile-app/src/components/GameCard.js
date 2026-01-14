@@ -9,12 +9,15 @@ import {
   View,
   Text,
   TouchableOpacity,
+  Pressable,
   StyleSheet,
   Animated,
   Image,
   ActivityIndicator,
+  Linking,
 } from 'react-native';
 import { LinearGradient } from 'expo-linear-gradient';
+import { Ionicons } from '@expo/vector-icons';
 import { getGameImage } from '../services/gameImages';
 
 const PLATFORM_LABELS = {
@@ -99,7 +102,60 @@ const SUBSCRIPTION_CONFIG = {
   },
 };
 
-const GameCard = ({ game, rank, onAccept, onAlreadyPlayed, isSwapping }) => {
+// Store/platform branding for purchase links
+const STORE_CONFIG = {
+  steam: {
+    name: 'Steam',
+    icon: '🎮',
+    colors: ['#1b2838', '#2a475e'],
+    textColor: '#ffffff',
+    platforms: ['pc'],
+  },
+  playstation: {
+    name: 'PlayStation',
+    icon: '🔵',
+    colors: ['#003087', '#00246d'],
+    textColor: '#ffffff',
+    platforms: ['console'],
+  },
+  xbox: {
+    name: 'Xbox',
+    icon: '🟢',
+    colors: ['#107C10', '#0e6b0e'],
+    textColor: '#ffffff',
+    platforms: ['console', 'pc'],
+  },
+  nintendo: {
+    name: 'Nintendo',
+    icon: '🔴',
+    colors: ['#e60012', '#cc0010'],
+    textColor: '#ffffff',
+    platforms: ['handheld'],
+  },
+  epic: {
+    name: 'Epic Games',
+    icon: '🎯',
+    colors: ['#313131', '#1a1a1a'],
+    textColor: '#ffffff',
+    platforms: ['pc'],
+  },
+  gog: {
+    name: 'GOG',
+    icon: '🌟',
+    colors: ['#7b5794', '#5c3d73'],
+    textColor: '#ffffff',
+    platforms: ['pc'],
+  },
+};
+
+// Map user platform preferences to store platforms
+const PLATFORM_TO_STORES = {
+  pc: ['steam', 'epic', 'gog', 'xbox'],
+  console: ['playstation', 'xbox'],
+  handheld: ['nintendo'],
+};
+
+const GameCard = ({ game, rank, onAccept, onAlreadyPlayed, onSave, isSwapping, userPlatforms }) => {
   const [imageUrl, setImageUrl] = useState(null);
   const [fallbackColors, setFallbackColors] = useState(['#667eea', '#764ba2']);
   const [imageLoading, setImageLoading] = useState(true);
@@ -306,16 +362,86 @@ const GameCard = ({ game, rank, onAccept, onAlreadyPlayed, isSwapping }) => {
           </View>
         )}
 
+        {/* Store Links */}
+        {game.store_links && Object.keys(game.store_links).length > 0 && (
+          <View style={styles.storeSection}>
+            <Text style={styles.storeLabel}>🛒 Where to buy</Text>
+            <View style={styles.storeChips}>
+              {(() => {
+                // Get available stores from store_links
+                const availableStores = Object.entries(game.store_links)
+                  .filter(([, url]) => url)
+                  .map(([store]) => store);
+
+                // Prioritize stores based on user platform preferences
+                let prioritizedStores = [];
+                let otherStores = [];
+
+                if (userPlatforms && userPlatforms.length > 0) {
+                  // Get stores that match user's platform preferences
+                  const preferredStoreIds = new Set(
+                    userPlatforms.flatMap((platform) => PLATFORM_TO_STORES[platform] || [])
+                  );
+                  prioritizedStores = availableStores.filter((store) =>
+                    preferredStoreIds.has(store)
+                  );
+                  otherStores = availableStores.filter(
+                    (store) => !preferredStoreIds.has(store)
+                  );
+                } else {
+                  prioritizedStores = availableStores;
+                }
+
+                // Show prioritized stores first, then others
+                const sortedStores = [...prioritizedStores, ...otherStores];
+
+                return sortedStores.map((store, index) => {
+                  const config = STORE_CONFIG[store];
+                  if (!config) return null;
+                  const url = game.store_links[store];
+                  const isPrioritized = prioritizedStores.includes(store);
+
+                  return (
+                    <TouchableOpacity
+                      key={store}
+                      style={[
+                        styles.storeChip,
+                        !isPrioritized && userPlatforms?.length > 0 && styles.storeChipDimmed,
+                      ]}
+                      onPress={() => Linking.openURL(url)}
+                      activeOpacity={0.8}
+                    >
+                      <LinearGradient
+                        colors={config.colors}
+                        start={{ x: 0, y: 0 }}
+                        end={{ x: 1, y: 0 }}
+                        style={styles.storeChipGradient}
+                      >
+                        <Text style={styles.storeChipIcon}>{config.icon}</Text>
+                        <Text style={[styles.storeChipText, { color: config.textColor }]}>
+                          {config.name}
+                        </Text>
+                      </LinearGradient>
+                    </TouchableOpacity>
+                  );
+                });
+              })()}
+            </View>
+          </View>
+        )}
+
         {/* Actions */}
         <View style={styles.actionsContainer}>
-          <TouchableOpacity
-            style={styles.acceptButton}
-            onPress={onAccept}
-            activeOpacity={0.9}
-            disabled={isSwapping}
+          <Pressable
+            style={({ pressed }) => [
+              styles.acceptButton,
+              isSwapping && styles.buttonDisabled,
+              pressed && !isSwapping && styles.buttonPressed,
+            ]}
+            onPress={isSwapping ? undefined : onAccept}
           >
             <LinearGradient
-              colors={['#f857a6', '#ff5858']}
+              colors={isSwapping ? ['#888', '#666'] : ['#f857a6', '#ff5858']}
               start={{ x: 0, y: 0 }}
               end={{ x: 1, y: 0 }}
               style={styles.acceptGradient}
@@ -323,24 +449,44 @@ const GameCard = ({ game, rank, onAccept, onAlreadyPlayed, isSwapping }) => {
               <Text style={styles.acceptIcon}>🎮</Text>
               <Text style={styles.acceptText}>I'll play this!</Text>
             </LinearGradient>
-          </TouchableOpacity>
+          </Pressable>
 
-          {/* Already Played Button */}
-          <TouchableOpacity
-            style={styles.alreadyPlayedButton}
-            onPress={onAlreadyPlayed}
-            activeOpacity={0.8}
-            disabled={isSwapping}
-          >
-            {isSwapping ? (
-              <ActivityIndicator color="#a0a0a0" size="small" />
-            ) : (
-              <>
-                <Text style={styles.alreadyPlayedIcon}>✓</Text>
-                <Text style={styles.alreadyPlayedText}>Already played</Text>
-              </>
+          {/* Secondary actions row */}
+          <View style={styles.secondaryActions}>
+            {/* Already Played Button */}
+            <Pressable
+              style={({ pressed }) => [
+                styles.alreadyPlayedButton,
+                isSwapping && styles.buttonDisabled,
+                pressed && !isSwapping && styles.buttonPressed,
+              ]}
+              onPress={isSwapping ? undefined : onAlreadyPlayed}
+            >
+              {isSwapping ? (
+                <ActivityIndicator color="#a0a0a0" size="small" />
+              ) : (
+                <>
+                  <Text style={styles.alreadyPlayedIcon}>✓</Text>
+                  <Text style={styles.alreadyPlayedText}>Already played</Text>
+                </>
+              )}
+            </Pressable>
+
+            {/* Save Button */}
+            {onSave && (
+              <Pressable
+                style={({ pressed }) => [
+                  styles.saveButton,
+                  isSwapping && styles.buttonDisabled,
+                  pressed && !isSwapping && styles.buttonPressed,
+                ]}
+                onPress={isSwapping ? undefined : onSave}
+              >
+                <Ionicons name="bookmark-outline" size={18} color="#f59e0b" />
+                <Text style={styles.saveButtonText}>Save</Text>
+              </Pressable>
             )}
-          </TouchableOpacity>
+          </View>
         </View>
 
         {/* Match score bar */}
@@ -581,6 +727,47 @@ const styles = StyleSheet.create({
     fontWeight: '700',
     letterSpacing: 0.3,
   },
+  storeSection: {
+    marginBottom: 18,
+  },
+  storeLabel: {
+    fontSize: 13,
+    fontWeight: '600',
+    color: '#a0a0a0',
+    marginBottom: 10,
+  },
+  storeChips: {
+    flexDirection: 'row',
+    flexWrap: 'wrap',
+    gap: 8,
+  },
+  storeChip: {
+    borderRadius: 10,
+    overflow: 'hidden',
+    elevation: 3,
+    shadowColor: '#000',
+    shadowOffset: { width: 0, height: 2 },
+    shadowOpacity: 0.2,
+    shadowRadius: 3,
+  },
+  storeChipDimmed: {
+    opacity: 0.5,
+  },
+  storeChipGradient: {
+    flexDirection: 'row',
+    alignItems: 'center',
+    paddingVertical: 8,
+    paddingHorizontal: 12,
+    gap: 6,
+  },
+  storeChipIcon: {
+    fontSize: 14,
+  },
+  storeChipText: {
+    fontSize: 13,
+    fontWeight: '700',
+    letterSpacing: 0.3,
+  },
   actionsContainer: {
     gap: 12,
   },
@@ -600,7 +787,12 @@ const styles = StyleSheet.create({
     paddingVertical: 18,
     gap: 10,
   },
+  secondaryActions: {
+    flexDirection: 'row',
+    gap: 10,
+  },
   alreadyPlayedButton: {
+    flex: 1,
     flexDirection: 'row',
     alignItems: 'center',
     justifyContent: 'center',
@@ -619,6 +811,23 @@ const styles = StyleSheet.create({
     fontSize: 15,
     fontWeight: '600',
     color: '#a0a0a0',
+  },
+  saveButton: {
+    flexDirection: 'row',
+    alignItems: 'center',
+    justifyContent: 'center',
+    paddingVertical: 14,
+    paddingHorizontal: 16,
+    borderRadius: 14,
+    backgroundColor: 'rgba(245, 158, 11, 0.15)',
+    borderWidth: 1,
+    borderColor: 'rgba(245, 158, 11, 0.3)',
+    gap: 6,
+  },
+  saveButtonText: {
+    fontSize: 15,
+    fontWeight: '600',
+    color: '#f59e0b',
   },
   acceptIcon: {
     fontSize: 20,
@@ -640,6 +849,13 @@ const styles = StyleSheet.create({
   matchScoreFill: {
     height: '100%',
     borderRadius: 2,
+  },
+  buttonDisabled: {
+    opacity: 0.5,
+  },
+  buttonPressed: {
+    opacity: 0.8,
+    transform: [{ scale: 0.98 }],
   },
 });
 

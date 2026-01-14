@@ -44,6 +44,22 @@ from .user import (
     FeedbackRequest,
 )
 
+from .bucket import (
+    BucketType,
+    BUCKET_CONFIG,
+    BucketGameBase,
+    BucketGameCreate,
+    BucketGame,
+    BucketBase,
+    BucketCreate,
+    Bucket,
+    BucketWithGames,
+    BucketSummary,
+    UserBucketsResponse,
+    AddGameToBucketRequest,
+    MoveGameRequest,
+)
+
 __all__ = [
     # Game models
     "EnergyLevel",
@@ -79,4 +95,18 @@ __all__ = [
     "SessionCreate",
     "Session",
     "FeedbackRequest",
+    # Bucket models
+    "BucketType",
+    "BUCKET_CONFIG",
+    "BucketGameBase",
+    "BucketGameCreate",
+    "BucketGame",
+    "BucketBase",
+    "BucketCreate",
+    "Bucket",
+    "BucketWithGames",
+    "BucketSummary",
+    "UserBucketsResponse",
+    "AddGameToBucketRequest",
+    "MoveGameRequest",
 ]

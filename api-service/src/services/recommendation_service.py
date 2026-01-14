@@ -24,6 +24,7 @@ from ..models import (
     TimeToFun,
     StopFriendliness,
     MultiplayerMode,
+    StoreLinks,
 )
 from ..core.config import settings
 
@@ -555,6 +556,12 @@ class RecommendationService:
             f"Great fit for your {request.time_available}-minute {request.energy_mood.value.replace('_', ' ')} session."
         )
 
+        # Build store links from game data
+        store_links_data = game.get("store_links", {})
+        store_links = None
+        if store_links_data and any(store_links_data.values()):
+            store_links = StoreLinks(**store_links_data)
+
         return GameRecommendation(
             game_id=game["game_id"],
             title=game["title"],
@@ -571,6 +578,7 @@ class RecommendationService:
             time_to_fun=TimeToFun(game.get("time_to_fun", "medium")),
             stop_friendliness=StopFriendliness(game.get("stop_friendliness", "checkpoints")),
             subscription_services=game.get("subscription_services", []),
+            store_links=store_links,
             fun_fact=game.get("fun_fact"),
             match_score=game.get("score", 0.5)
         )

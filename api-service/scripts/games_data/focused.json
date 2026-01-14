@@ -35,7 +35,14 @@
       "competitive"
     ],
     "description": "Build an empire to stand the test of time.",
-    "fun_fact": "If you played every possible game of Civ 6, there are more potential combinations than atoms in the universe!"
+    "fun_fact": "If you played every possible game of Civ 6, there are more potential combinations than atoms in the universe!",
+    "store_links": {
+      "playstation": "https://store.playstation.com/en-us/product/UP1001-CUSA15322_00-CIV6BASE00000000",
+      "xbox": "https://www.microsoft.com/en-us/p/sid-meiers-civilization-vi/9n4rsg99kv1x?cid=msft_web_chart",
+      "epic": "https://www.epicgames.com/store/en-US/product/sid-meiers-civilization-vi/home",
+      "steam": "http://store.steampowered.com/app/289070/",
+      "nintendo": "https://www.nintendo.com/games/detail/civilization-vi-switch"
+    }
   },
   {
     "id": "total-war-warhammer-3",
@@ -76,7 +83,11 @@
     "subscriptions": [
       "xbox_game_pass"
     ],
-    "franchise": "total_war_warhammer"
+    "franchise": "total_war_warhammer",
+    "store_links": {
+      "steam": "https://store.steampowered.com/app/1142710/Total_War_WARHAMMER_III/",
+      "epic": "https://www.epicgames.com/store/en-US/product/total-war-warhammer-3/home"
+    }
   },
   {
     "id": "crusader-kings-3",
@@ -116,7 +127,10 @@
     "fun_fact": "Players have created wild stories of incest, murder, and political intrigue.",
     "subscriptions": [
       "xbox_game_pass"
-    ]
+    ],
+    "store_links": {
+      "steam": "https://store.steampowered.com/app/1158310/"
+    }
   },
   {
     "id": "europa-universalis-4",
@@ -151,7 +165,12 @@
       "online_coop"
     ],
     "description": "Guide a nation through centuries of history.",
-    "fun_fact": "The game has over $300 of DLC but is constantly updated."
+    "fun_fact": "The game has over $300 of DLC but is constantly updated.",
+    "store_links": {
+      "epic": "https://store.epicgames.com/en-US/p/europa-universalis-iv",
+      "gog": "https://www.gog.com/fr/game/europa_universalis_iv",
+      "steam": "http://store.steampowered.com/app/236850/"
+    }
   },
   {
     "id": "stellaris",
@@ -190,7 +209,11 @@
     "fun_fact": "You can play as machine intelligences, hive minds, or even space snails.",
     "subscriptions": [
       "xbox_game_pass"
-    ]
+    ],
+    "store_links": {
+      "steam": "http://store.steampowered.com/app/281990/",
+      "gog": "http://www.gog.com/game/stellaris"
+    }
   },
   {
     "id": "hearts-of-iron-4",
@@ -225,7 +248,10 @@
       "online_coop"
     ],
     "description": "Command nations during World War II.",
-    "fun_fact": "Players routinely rewrite history in wild alternate scenarios."
+    "fun_fact": "Players routinely rewrite history in wild alternate scenarios.",
+    "store_links": {
+      "steam": "http://store.steampowered.com/app/394360/"
+    }
   },
   {
     "id": "victoria-3",
@@ -260,7 +286,10 @@
       "online_coop"
     ],
     "description": "Guide a nation through the Victorian era.",
-    "fun_fact": "The economic simulation is so detailed it models individual goods and factories."
+    "fun_fact": "The economic simulation is so detailed it models individual goods and factories.",
+    "store_links": {
+      "steam": "https://store.steampowered.com/app/529340/Victoria_3/"
+    }
   },
   {
     "id": "age-of-empires-4",
@@ -302,7 +331,10 @@
     "subscriptions": [
       "xbox_game_pass"
     ],
-    "franchise": "age_of_empires"
+    "franchise": "age_of_empires",
+    "store_links": {
+      "steam": "https://store.steampowered.com/app/1466860/Age_of_Empires_IV/"
+    }
   },
   {
     "id": "age-of-mythology-retold",
@@ -344,7 +376,10 @@
     "subscriptions": [
       "xbox_game_pass"
     ],
-    "franchise": "age_of_mythology"
+    "franchise": "age_of_mythology",
+    "store_links": {
+      "steam": "https://store.steampowered.com/app/1934680/"
+    }
   },
   {
     "id": "starcraft-2",
@@ -419,7 +454,10 @@
       "competitive"
     ],
     "description": "Tactical WWII combat.",
-    "fun_fact": "Features a dynamic campaign map where you make strategic decisions."
+    "fun_fact": "Features a dynamic campaign map where you make strategic decisions.",
+    "store_links": {
+      "steam": "https://store.steampowered.com/app/1677280/Company_of_Heroes_3/"
+    }
   },
   {
     "id": "homeworld-3",
@@ -455,7 +493,11 @@
       "competitive"
     ],
     "description": "3D space fleet combat returns.",
-    "fun_fact": "The original Homeworld pioneered fully 3D RTS gameplay in space."
+    "fun_fact": "The original Homeworld pioneered fully 3D RTS gameplay in space.",
+    "store_links": {
+      "steam": "https://store.steampowered.com/app/1840080",
+      "epic": "https://www.epicgames.com/store/en-US/p/homeworld-3"
+    }
   },
   {
     "id": "frostpunk-2",
@@ -490,7 +532,12 @@
     ],
     "description": "Lead society in a frozen world.",
     "fun_fact": "The game forces impossible moral choices about survival and freedom.",
-    "franchise": "frostpunk"
+    "franchise": "frostpunk",
+    "store_links": {
+      "gog": "https://www.gog.com/game/frostpunk_2",
+      "steam": "https://store.steampowered.com/app/1601580/Frostpunk_2/",
+      "epic": "https://www.epicgames.com/store/ru/p/frostpunk-2"
+    }
   },
   {
     "id": "frostpunk",
@@ -527,7 +574,13 @@
     ],
     "description": "Build the last city on Earth.",
     "fun_fact": "The 'child labor' law sparked real debates about survival ethics.",
-    "franchise": "frostpunk"
+    "franchise": "frostpunk",
+    "store_links": {
+      "playstation": "https://store.playstation.com/en-us/product/UP4361-CUSA15716_00-FROSTPUNKGAME000",
+      "xbox": "https://www.microsoft.com/en-us/p/frostpunk-console-edition/9np539lhjd8s?activetab=pivot:overviewtab",
+      "gog": "http://www.gog.com/game/frostpunk",
+      "steam": "http://store.steampowered.com/app/323190/"
+    }
   },
   {
     "id": "cities-skylines-2",
@@ -563,7 +616,10 @@
     ],
     "description": "Build the city of your dreams.",
     "fun_fact": "The traffic AI simulates every single vehicle in the city individually!",
-    "franchise": "cities_skylines"
+    "franchise": "cities_skylines",
+    "store_links": {
+      "steam": "https://store.steampowered.com/app/949230/Cities_Skylines_II/"
+    }
   },
   {
     "id": "cities-skylines",
@@ -602,7 +658,14 @@
     "subscriptions": [
       "xbox_game_pass"
     ],
-    "franchise": "cities_skylines"
+    "franchise": "cities_skylines",
+    "store_links": {
+      "steam": "http://store.steampowered.com/app/255710/",
+      "playstation": "https://store.playstation.com/en-us/product/UP4139-CUSA06548_00-CITIESPS4GAME002",
+      "xbox": "https://www.microsoft.com/en-us/p/cities-skylines-xbox-one-edition/c4gh8n6zxg5l?activetab=pivot:overviewtab",
+      "nintendo": "https://www.nintendo.com/games/detail/cities-skylines-nintendo-switch-edition",
+      "epic": "https://www.epicgames.com/store/ru/p/cities-skylines"
+    }
   },
   {
     "id": "planet-coaster-2",
@@ -637,7 +700,10 @@
       "solo"
     ],
     "description": "Build the ultimate theme park with water parks.",
-    "fun_fact": "Players have recreated real-world roller coasters with incredible accuracy."
+    "fun_fact": "Players have recreated real-world roller coasters with incredible accuracy.",
+    "store_links": {
+      "steam": "https://store.steampowered.com/app/2688950/"
+    }
   },
   {
     "id": "planet-zoo",
@@ -671,7 +737,10 @@
       "solo"
     ],
     "description": "Build conservation-focused zoos.",
-    "fun_fact": "Animals have over 30 unique behaviors based on real zoological research."
+    "fun_fact": "Animals have over 30 unique behaviors based on real zoological research.",
+    "store_links": {
+      "steam": "https://store.steampowered.com/app/703080/"
+    }
   },
   {
     "id": "jurassic-world-evolution-2",
@@ -706,7 +775,13 @@
       "solo"
     ],
     "description": "Create your own Jurassic World.",
-    "fun_fact": "Paleontologists consulted on accurate dinosaur behaviors and sounds."
+    "fun_fact": "Paleontologists consulted on accurate dinosaur behaviors and sounds.",
+    "store_links": {
+      "steam": "https://store.steampowered.com/app/1244460/Jurassic_World_Evolution_2/",
+      "epic": "https://www.epicgames.com/store/en-US/p/jurassic-world-evolution-2",
+      "xbox": "https://www.microsoft.com/en-us/p/jurassic-world-evolution-2-pre-order/9pdt8kgvh319?activetab=pivot:overviewtab",
+      "playstation": "https://store.playstation.com/en-us/product/UP2514-PPSA03287_00-JWEVOLUTION2AAAA/"
+    }
   },
   {
     "id": "two-point-campus",
@@ -747,7 +822,13 @@
     "subscriptions": [
       "xbox_game_pass"
     ],
-    "franchise": "two_point"
+    "franchise": "two_point",
+    "store_links": {
+      "playstation": "https://store.playstation.com/en-us/product/UP0177-PPSA03645_00-CAMPUSNA00000000",
+      "gog": "https://www.gog.com/en/game/two_point_hospital",
+      "steam": "https://store.steampowered.com/app/1649080/",
+      "nintendo": "https://www.nintendo.com/games/detail/two-point-campus-switch/"
+    }
   },
   {
     "id": "two-point-hospital",
@@ -788,7 +869,14 @@
     "subscriptions": [
       "xbox_game_pass"
     ],
-    "franchise": "two_point"
+    "franchise": "two_point",
+    "store_links": {
+      "gog": "https://www.gog.com/fr/game/two_point_hospital",
+      "playstation": "https://store.playstation.com/en-us/product/UP0177-CUSA16081_00-TWOPOINTHOSNA000",
+      "xbox": "https://www.microsoft.com/en-us/p/two-point-hospital/9pkm0hk8hkfl?cid=msft_web_chart",
+      "nintendo": "https://www.nintendo.com/games/detail/two-point-hospital-switch/",
+      "steam": "http://store.steampowered.com/app/535930/"
+    }
   },
   {
     "id": "prison-architect-2",
@@ -823,7 +911,15 @@
       "solo"
     ],
     "description": "Design and manage prisons in 3D.",
-    "fun_fact": "The original was inspired by Dwarf Fortress's complexity."
+    "fun_fact": "The original was inspired by Dwarf Fortress's complexity.",
+    "store_links": {
+      "epic": "https://store.epicgames.com/en-US/p/prison-architect",
+      "steam": "http://store.steampowered.com/app/233450/",
+      "gog": "http://www.gog.com/game/prison_architect",
+      "xbox": "https://www.microsoft.com/en-us/store/p/prison-architect-all-day-and-a-psych/brrdgtr9hb1x",
+      "nintendo": "https://www.nintendo.com/games/detail/prison-architect-nintendo-switch-edition",
+      "playstation": "https://store.playstation.com/en-us/product/UP4415-CUSA03481_00-PRISONBUNDLE0002"
+    }
   },
   {
     "id": "rimworld",
@@ -858,7 +954,11 @@
       "solo"
     ],
     "description": "Manage a colony on a distant planet.",
-    "fun_fact": "The AI storyteller system was inspired by the concept of a dungeon master in tabletop RPGs."
+    "fun_fact": "The AI storyteller system was inspired by the concept of a dungeon master in tabletop RPGs.",
+    "store_links": {
+      "gog": "http://www.gog.com/game/rimworld",
+      "steam": "http://store.steampowered.com/app/294100/"
+    }
   },
   {
     "id": "dwarf-fortress",
@@ -892,7 +992,10 @@
       "solo"
     ],
     "description": "The legendary colony simulation.",
-    "fun_fact": "Developed by two brothers for over 20 years, it inspired countless games."
+    "fun_fact": "Developed by two brothers for over 20 years, it inspired countless games.",
+    "store_links": {
+      "steam": "https://store.steampowered.com/app/975370/"
+    }
   },
   {
     "id": "oxygen-not-included",
@@ -926,7 +1029,11 @@
       "solo"
     ],
     "description": "Manage a space colony's resources.",
-    "fun_fact": "The physics simulation is so accurate it could be used for education!"
+    "fun_fact": "The physics simulation is so accurate it could be used for education!",
+    "store_links": {
+      "steam": "http://store.steampowered.com/app/457140/",
+      "epic": "https://www.epicgames.com/store/en-US/product/oxygen-not-included/home?lang=en-US"
+    }
   },
   {
     "id": "factorio",
@@ -964,7 +1071,12 @@
       "online_coop"
     ],
     "description": "Build and automate massive factories.",
-    "fun_fact": "The game spent 4 years in Early Access and has a 96% positive rating on Steam!"
+    "fun_fact": "The game spent 4 years in Early Access and has a 96% positive rating on Steam!",
+    "store_links": {
+      "nintendo": "https://www.nintendo.com/store/products/factorio-switch/",
+      "steam": "http://store.steampowered.com/app/427520/",
+      "gog": "http://www.gog.com/game/factorio"
+    }
   },
   {
     "id": "satisfactory",
@@ -999,7 +1111,11 @@
       "online_coop"
     ],
     "description": "First-person factory building.",
-    "fun_fact": "The conveyor belt system alone took over a year to perfect for smooth gameplay."
+    "fun_fact": "The conveyor belt system alone took over a year to perfect for smooth gameplay.",
+    "store_links": {
+      "steam": "https://store.steampowered.com/app/526870/Satisfactory/",
+      "epic": "https://www.epicgames.com/store/en-US/product/satisfactory/home?lang=en-US"
+    }
   },
   {
     "id": "dyson-sphere-program",
@@ -1033,7 +1149,10 @@
       "solo"
     ],
     "description": "Build a Dyson sphere around a star.",
-    "fun_fact": "Made by a tiny Chinese studio, it sold 2 million copies."
+    "fun_fact": "Made by a tiny Chinese studio, it sold 2 million copies.",
+    "store_links": {
+      "steam": "https://store.steampowered.com/app/1366540/Dyson_Sphere_Program/"
+    }
   },
   {
     "id": "shapez",
@@ -1068,7 +1187,10 @@
       "solo"
     ],
     "description": "Automate shape-cutting factories.",
-    "fun_fact": "The minimalist design focuses purely on the joy of optimization."
+    "fun_fact": "The minimalist design focuses purely on the joy of optimization.",
+    "store_links": {
+      "steam": "https://store.steampowered.com/app/2162800/shapez_2/"
+    }
   },
   {
     "id": "mindustry",
@@ -1106,7 +1228,10 @@
       "competitive"
     ],
     "description": "Tower defense meets factory building.",
-    "fun_fact": "Completely free and open source on some platforms."
+    "fun_fact": "Completely free and open source on some platforms.",
+    "store_links": {
+      "steam": "https://store.steampowered.com/app/1127400/"
+    }
   },
   {
     "id": "kerbal-space-program",
@@ -1142,7 +1267,13 @@
     ],
     "description": "Build rockets and explore space.",
     "fun_fact": "Real NASA engineers use this game to teach orbital mechanics!",
-    "franchise": "kerbal"
+    "franchise": "kerbal",
+    "store_links": {
+      "epic": "https://store.epicgames.com/p/kerbal-space-program",
+      "xbox": "https://www.microsoft.com/en-us/store/p/kerbal-space-program/bxg8b9h91f7x",
+      "steam": "http://store.steampowered.com/app/220200/",
+      "gog": "http://www.gog.com/game/kerbal_space_program"
+    }
   },
   {
     "id": "kerbal-space-program-2",
@@ -1178,7 +1309,11 @@
     ],
     "description": "The next generation of space exploration.",
     "fun_fact": "Features interstellar travel and colony building.",
-    "franchise": "kerbal"
+    "franchise": "kerbal",
+    "store_links": {
+      "epic": "https://store.epicgames.com/en-US/p/kerbal-space-program-2",
+      "steam": "https://store.steampowered.com/app/954850/"
+    }
   },
   {
     "id": "space-engineers",
@@ -1214,7 +1349,11 @@
       "online_coop"
     ],
     "description": "Engineer spacecraft and stations.",
-    "fun_fact": "The physics engine allows for realistic destruction and construction."
+    "fun_fact": "The physics engine allows for realistic destruction and construction.",
+    "store_links": {
+      "xbox": "https://www.microsoft.com/en-us/p/space-engineers/9n17dxq7fkwn?cid=msft_web_chart",
+      "steam": "http://store.steampowered.com/app/244850/"
+    }
   },
   {
     "id": "stormworks",
@@ -1249,7 +1388,10 @@
       "online_coop"
     ],
     "description": "Build rescue vehicles and save lives.",
-    "fun_fact": "Features a visual programming system for vehicle logic."
+    "fun_fact": "Features a visual programming system for vehicle logic.",
+    "store_links": {
+      "steam": "http://store.steampowered.com/app/573090/"
+    }
   },
   {
     "id": "teardown",
@@ -1285,7 +1427,10 @@
       "solo"
     ],
     "description": "Destroy everything to plan the perfect heist.",
-    "fun_fact": "The voxel destruction system allows for complete environmental demolition."
+    "fun_fact": "The voxel destruction system allows for complete environmental demolition.",
+    "store_links": {
+      "steam": "https://store.steampowered.com/app/1167630/Teardown/"
+    }
   },
   {
     "id": "besiege",
@@ -1321,7 +1466,11 @@
       "online_coop"
     ],
     "description": "Build medieval siege engines.",
-    "fun_fact": "Players have created flying machines, cars, and even computers."
+    "fun_fact": "Players have created flying machines, cars, and even computers.",
+    "store_links": {
+      "steam": "http://store.steampowered.com/app/346010/",
+      "gog": "http://www.gog.com/game/besiege"
+    }
   },
   {
     "id": "trailmakers",
@@ -1358,7 +1507,12 @@
       "online_coop"
     ],
     "description": "Build vehicles and race them.",
-    "fun_fact": "Features a drag-and-drop building system that's surprisingly deep."
+    "fun_fact": "Features a drag-and-drop building system that's surprisingly deep.",
+    "store_links": {
+      "xbox": "https://www.microsoft.com/en-us/p/trailmakers-game-preview/9nsfgm8j6mbj?cid=msft_web_chart",
+      "playstation": "https://store.playstation.com/en-us/product/UP3731-CUSA18032_00-TRAILMAKERS00000",
+      "steam": "http://store.steampowered.com/app/585420/"
+    }
   },
   {
     "id": "main-assembly",
@@ -1393,7 +1547,10 @@
       "online_coop"
     ],
     "description": "Build and program robots.",
-    "fun_fact": "Uses a visual programming language for robot behavior."
+    "fun_fact": "Uses a visual programming language for robot behavior.",
+    "store_links": {
+      "steam": "https://store.steampowered.com/app/1078920/"
+    }
   },
   {
     "id": "poly-bridge-3",
@@ -1430,7 +1587,10 @@
       "solo"
     ],
     "description": "Build bridges that hopefully don't collapse.",
-    "fun_fact": "Watching bridges fail spectacularly is half the fun."
+    "fun_fact": "Watching bridges fail spectacularly is half the fun.",
+    "store_links": {
+      "steam": "https://store.steampowered.com/app/1850160/"
+    }
   },
   {
     "id": "opus-magnum",
@@ -1466,7 +1626,11 @@
       "solo"
     ],
     "description": "Build alchemical machines to solve puzzles.",
-    "fun_fact": "The histograms let you compare your solutions to other players."
+    "fun_fact": "The histograms let you compare your solutions to other players.",
+    "store_links": {
+      "steam": "http://store.steampowered.com/app/558990/",
+      "gog": "http://www.gog.com/game/opus_magnum"
+    }
   },
   {
     "id": "infinifactory",
@@ -1501,7 +1665,13 @@
       "solo"
     ],
     "description": "3D factory puzzle solving.",
-    "fun_fact": "Made by the creator of SpaceChem and features dark humor."
+    "fun_fact": "Made by the creator of SpaceChem and features dark humor.",
+    "store_links": {
+      "epic": "https://store.epicgames.com/ru/p/infinifactory-ec9686",
+      "playstation": "https://store.playstation.com/en-us/product/UP2162-CUSA02841_00-0000000000000000",
+      "steam": "http://store.steampowered.com/app/300570/",
+      "gog": "http://www.gog.com/game/infinifactory"
+    }
   },
   {
     "id": "shenzhen-io",
@@ -1535,7 +1705,11 @@
       "solo"
     ],
     "description": "Program circuits in a Chinese factory.",
-    "fun_fact": "Includes a fictional solitaire game as a bonus."
+    "fun_fact": "Includes a fictional solitaire game as a bonus.",
+    "store_links": {
+      "steam": "http://store.steampowered.com/app/504210/",
+      "gog": "http://www.gog.com/game/shenzhen_io"
+    }
   },
   {
     "id": "exapunks",
@@ -1570,7 +1744,11 @@
       "competitive"
     ],
     "description": "Program viruses to hack systems.",
-    "fun_fact": "Set in a 90s-inspired cyberpunk world with zines."
+    "fun_fact": "Set in a 90s-inspired cyberpunk world with zines.",
+    "store_links": {
+      "steam": "https://store.steampowered.com/app/716490/",
+      "gog": "http://www.gog.com/game/exapunks"
+    }
   },
   {
     "id": "human-resource-machine",
@@ -1607,7 +1785,12 @@
       "solo"
     ],
     "description": "Teach an office worker to program.",
-    "fun_fact": "Made by the creators of World of Goo and Little Inferno."
+    "fun_fact": "Made by the creators of World of Goo and Little Inferno.",
+    "store_links": {
+      "steam": "http://store.steampowered.com/app/375820/",
+      "gog": "http://www.gog.com/game/human_resource_machine",
+      "nintendo": "https://www.nintendo.com/games/detail/human-resource-machine-switch"
+    }
   },
   {
     "id": "7-billion-humans",
@@ -1644,7 +1827,13 @@
       "solo"
     ],
     "description": "Program entire offices of workers.",
-    "fun_fact": "Sequel to Human Resource Machine with parallel processing."
+    "fun_fact": "Sequel to Human Resource Machine with parallel processing.",
+    "store_links": {
+      "epic": "https://www.epicgames.com/store/ru/product/7-billion-humans/home",
+      "steam": "http://store.steampowered.com/app/792100/",
+      "gog": "http://www.gog.com/game/7_billion_humans",
+      "nintendo": "https://www.nintendo.com/games/detail/7-billion-humans-switch"
+    }
   },
   {
     "id": "spacechem",
@@ -1679,7 +1868,11 @@
       "solo"
     ],
     "description": "Build machines to synthesize molecules.",
-    "fun_fact": "Considered one of the hardest puzzle games ever made."
+    "fun_fact": "Considered one of the hardest puzzle games ever made.",
+    "store_links": {
+      "gog": "http://www.gog.com/game/spacechem",
+      "steam": "http://store.steampowered.com/app/92800/"
+    }
   },
   {
     "id": "the-talos-principle-2",
@@ -1716,7 +1909,13 @@
     ],
     "description": "Philosophical puzzles in a robot world.",
     "fun_fact": "Explores what it means to be human through robot society.",
-    "franchise": "talos_principle"
+    "franchise": "talos_principle",
+    "store_links": {
+      "gog": "https://www.gog.com/fr/game/the_talos_principle_2",
+      "steam": "https://store.steampowered.com/app/835960/",
+      "playstation": "https://store.playstation.com/en-us/concept/10004172/",
+      "epic": "https://store.epicgames.com/en-US/p/the-talos-principle-2-ab1034"
+    }
   },
   {
     "id": "the-talos-principle",
@@ -1754,7 +1953,13 @@
     ],
     "description": "Solve puzzles while questioning existence.",
     "fun_fact": "Made by the creators of Serious Sam in a complete genre shift.",
-    "franchise": "talos_principle"
+    "franchise": "talos_principle",
+    "store_links": {
+      "nintendo": "https://www.nintendo.com/games/detail/the-talos-principle-deluxe-edition-switch/",
+      "epic": "https://www.epicgames.com/store/ru/product/the-talos-principle/home",
+      "xbox": "https://www.microsoft.com/en-us/p/the-talos-principle/c1tj5kt8lt9j?cid=msft_web_chart",
+      "steam": "http://store.steampowered.com/app/257510/"
+    }
   },
   {
     "id": "antichamber",
@@ -1788,7 +1993,10 @@
       "solo"
     ],
     "description": "Explore impossible geometry.",
-    "fun_fact": "Spaces connect in non-Euclidean ways that break your brain."
+    "fun_fact": "Spaces connect in non-Euclidean ways that break your brain.",
+    "store_links": {
+      "steam": "http://store.steampowered.com/app/219890/"
+    }
   },
   {
     "id": "superliminal",
@@ -1824,7 +2032,15 @@
       "solo"
     ],
     "description": "Solve puzzles using forced perspective.",
-    "fun_fact": "Objects become the size they appear, creating optical illusions."
+    "fun_fact": "Objects become the size they appear, creating optical illusions.",
+    "store_links": {
+      "epic": "https://www.epicgames.com/store/en-US/product/superliminal/home",
+      "nintendo": "https://www.nintendo.com/games/detail/superliminal-switch/",
+      "playstation": "https://store.playstation.com/en-us/product/UP3126-CUSA19488_00-SUPERLIMINALPS4A",
+      "xbox": "https://www.microsoft.com/en-us/p/superliminal/9nvr4zqknbsb?cid=msft_web_chart",
+      "gog": "https://www.gog.com/game/superliminal",
+      "steam": "https://store.steampowered.com/app/1049410/Pillow_Castle_Unannounced_Title/"
+    }
   },
   {
     "id": "maquette",
@@ -1860,7 +2076,11 @@
       "solo"
     ],
     "description": "Recursive puzzles within a love story.",
-    "fun_fact": "Objects placed in the center model affect the larger world."
+    "fun_fact": "Objects placed in the center model affect the larger world.",
+    "store_links": {
+      "steam": "https://store.steampowered.com/app/762840/Maquette/",
+      "playstation": "https://store.playstation.com/en-us/product/UP2470-CUSA24478_00-MAQUETTESIEA0000"
+    }
   },
   {
     "id": "viewfinder",
@@ -1895,7 +2115,11 @@
       "solo"
     ],
     "description": "Place photos to create new realities.",
-    "fun_fact": "The photo manipulation mechanics are based on real projective geometry!"
+    "fun_fact": "The photo manipulation mechanics are based on real projective geometry!",
+    "store_links": {
+      "gog": "https://www.gog.com/fr/game/viewfinder",
+      "steam": "https://store.steampowered.com/app/1382070/Viewfinder/"
+    }
   },
   {
     "id": "patrick-parabox",
@@ -1931,7 +2155,10 @@
       "solo"
     ],
     "description": "Push boxes inside boxes inside boxes.",
-    "fun_fact": "Boxes can contain the level you're currently in."
+    "fun_fact": "Boxes can contain the level you're currently in.",
+    "store_links": {
+      "steam": "https://store.steampowered.com/app/1260520/Patricks_Parabox/"
+    }
   },
   {
     "id": "stephen-sausage-roll",
@@ -1965,7 +2192,10 @@
       "solo"
     ],
     "description": "Cook sausages in the hardest puzzle game.",
-    "fun_fact": "Considered one of the most difficult puzzle games ever created."
+    "fun_fact": "Considered one of the most difficult puzzle games ever created.",
+    "store_links": {
+      "steam": "http://store.steampowered.com/app/353540/"
+    }
   },
   {
     "id": "the-case-of-golden-idol",
@@ -2001,7 +2231,11 @@
       "solo"
     ],
     "description": "Solve murders across 50 years.",
-    "fun_fact": "Players solve a mystery spanning 50 years of a family's history."
+    "fun_fact": "Players solve a mystery spanning 50 years of a family's history.",
+    "store_links": {
+      "gog": "https://www.gog.com/fr/game/the_case_of_the_golden_idol",
+      "steam": "https://store.steampowered.com/app/1677770/The_Case_of_the_Golden_Idol/"
+    }
   },
   {
     "id": "chants-of-sennaar",
@@ -2037,7 +2271,11 @@
       "solo"
     ],
     "description": "Decode multiple fictional languages.",
-    "fun_fact": "The game requires you to actually decode multiple fictional languages!"
+    "fun_fact": "The game requires you to actually decode multiple fictional languages!",
+    "store_links": {
+      "gog": "https://www.gog.com/fr/game/chants_of_sennaar",
+      "steam": "https://store.steampowered.com/app/1931770/"
+    }
   },
   {
     "id": "obra-dinn",
@@ -2073,7 +2311,14 @@
       "solo"
     ],
     "description": "Solve the mystery of a ghost ship.",
-    "fun_fact": "Creator Lucas Pope spent 5 years developing this game entirely by himself."
+    "fun_fact": "Creator Lucas Pope spent 5 years developing this game entirely by himself.",
+    "store_links": {
+      "nintendo": "https://www.nintendo.co.uk/Games/Nintendo-Switch-download-software/Return-of-the-Obra-Dinn-1633060.html",
+      "playstation": "https://store.playstation.com/en-us/product/UP2879-CUSA16867_00-ROTODBASEGAME001",
+      "xbox": "https://www.microsoft.com/en-us/p/return-of-the-obra-dinn/9n185ql77d27?cid=msft_web_chart",
+      "gog": "http://www.gog.com/game/return_of_the_obra_dinn",
+      "steam": "https://store.steampowered.com/app/653530/"
+    }
   },
   {
     "id": "disco-elysium",
@@ -2109,7 +2354,14 @@
       "solo"
     ],
     "description": "A revolutionary dialogue-driven detective RPG.",
-    "fun_fact": "The game started as a tabletop RPG that the developers played for years before making it into a video game."
+    "fun_fact": "The game started as a tabletop RPG that the developers played for years before making it into a video game.",
+    "store_links": {
+      "steam": "https://store.steampowered.com/app/632470/Disco_Elysium/",
+      "gog": "https://www.gog.com/game/disco_elysium",
+      "epic": "https://www.epicgames.com/store/en-US/product/disco-elysium/home",
+      "playstation": "https://store.playstation.com/en-us/product/UP6758-PPSA03268_00-6401393671841114",
+      "nintendo": "https://www.nintendo.com/games/detail/disco-elysium-the-final-cut-switch/"
+    }
   },
   {
     "id": "baldurs-gate-3",
@@ -2146,7 +2398,12 @@
       "online_coop"
     ],
     "description": "The ultimate D&D video game experience.",
-    "fun_fact": "Players have found over 17,000 possible endings based on all the choices you can make!"
+    "fun_fact": "Players have found over 17,000 possible endings based on all the choices you can make!",
+    "store_links": {
+      "playstation": "https://store.playstation.com/en-us/product/UP3526-PPSA14001_00-0507384846053057",
+      "gog": "http://www.gog.com/game/baldurs_gate_iii",
+      "steam": "https://store.steampowered.com/app/1086940/"
+    }
   },
   {
     "id": "divinity-os2",
@@ -2185,7 +2442,11 @@
       "online_coop"
     ],
     "description": "Deep tactical RPG with incredible freedom.",
-    "fun_fact": "The game has over 1 million words of dialogue - more than the entire Harry Potter series!"
+    "fun_fact": "The game has over 1 million words of dialogue - more than the entire Harry Potter series!",
+    "store_links": {
+      "steam": "http://store.steampowered.com/app/435150/",
+      "gog": "http://www.gog.com/game/divinity_original_sin_2"
+    }
   },
   {
     "id": "pillars-of-eternity-2",
@@ -2221,7 +2482,12 @@
       "solo"
     ],
     "description": "Sail and explore in this deep RPG.",
-    "fun_fact": "Features a fully customizable ship and crew management."
+    "fun_fact": "Features a fully customizable ship and crew management.",
+    "store_links": {
+      "xbox": "https://www.microsoft.com/en-us/p/pillars-of-eternity-ii-deadfire-ultimate-edition/9pjd2kmx7tz6?activetab=pivot:overviewtab",
+      "gog": "http://www.gog.com/game/pillars_of_eternity_2_game",
+      "steam": "http://store.steampowered.com/app/560130/"
+    }
   },
   {
     "id": "pathfinder-wotr",
@@ -2257,7 +2523,13 @@
       "solo"
     ],
     "description": "Lead a crusade against demon armies.",
-    "fun_fact": "Features mythic paths that transform your character into powerful beings."
+    "fun_fact": "Features mythic paths that transform your character into powerful beings.",
+    "store_links": {
+      "gog": "https://www.gog.com/game/pathfinder_wrath_of_the_righteous",
+      "steam": "https://store.steampowered.com/app/1184370/",
+      "epic": "https://www.epicgames.com/store/en-US/p/pathfinder-wrath-of-the-righteous",
+      "playstation": "https://store.playstation.com/concept/10003238/"
+    }
   },
   {
     "id": "wasteland-3",
@@ -2297,7 +2569,13 @@
     "fun_fact": "The game's dark humor contrasts with serious post-apocalyptic themes.",
     "subscriptions": [
       "xbox_game_pass"
-    ]
+    ],
+    "store_links": {
+      "gog": "http://www.gog.com/game/wasteland_3",
+      "playstation": "https://store.playstation.com/en-us/product/UP2047-CUSA13473_00-WL3USDEEPS000000",
+      "steam": "https://store.steampowered.com/app/719040/",
+      "xbox": "https://www.microsoft.com/en-us/p/wasteland-3-xbox-one/bq9t0jf0d3l4?cid=msft_web_chart"
+    }
   },
   {
     "id": "solasta",
@@ -2333,7 +2611,11 @@
       "online_coop"
     ],
     "description": "Faithful D&D 5E tactical RPG.",
-    "fun_fact": "One of the most accurate D&D 5E rule implementations."
+    "fun_fact": "One of the most accurate D&D 5E rule implementations.",
+    "store_links": {
+      "gog": "https://www.gog.com/game/solasta_crown_of_the_magister",
+      "steam": "https://store.steampowered.com/app/1096530/"
+    }
   },
   {
     "id": "gloomhaven",
@@ -2368,7 +2650,12 @@
       "online_coop"
     ],
     "description": "Tactical dungeon-crawling RPG.",
-    "fun_fact": "Based on one of the highest-rated board games ever made."
+    "fun_fact": "Based on one of the highest-rated board games ever made.",
+    "store_links": {
+      "epic": "https://store.epicgames.com/p/gloomhaven-92f741",
+      "steam": "https://store.steampowered.com/app/780290/",
+      "gog": "https://www.gog.com/game/gloomhaven"
+    }
   },
   {
     "id": "persona-5-royal",
@@ -2409,7 +2696,12 @@
     "subscriptions": [
       "xbox_game_pass"
     ],
-    "franchise": "persona"
+    "franchise": "persona",
+    "store_links": {
+      "nintendo": "https://www.nintendo.com/store/products/persona-5-royal-switch/",
+      "steam": "https://store.steampowered.com/app/1687950/Persona_5_Royal/",
+      "playstation": "https://store.playstation.com/en-us/product/UP0177-CUSA17416_00-PERSONA5R0000000"
+    }
   },
   {
     "id": "persona-4-golden",
@@ -2450,7 +2742,13 @@
     "subscriptions": [
       "xbox_game_pass"
     ],
-    "franchise": "persona"
+    "franchise": "persona",
+    "store_links": {
+      "xbox": "https://www.microsoft.com/en-US/games/store/persona-4-golden/9pk4b09smn5c",
+      "nintendo": "https://www.nintendo.com/us/store/products/persona-4-golden-switch/",
+      "steam": "https://store.steampowered.com/app/1113000/",
+      "playstation": "https://store.playstation.com/en-us/product/UP0177-CUSA33873_00-DAYLIGHT00000000"
+    }
   },
   {
     "id": "persona-3-reload",
@@ -2490,7 +2788,11 @@
     "subscriptions": [
       "xbox_game_pass"
     ],
-    "franchise": "persona"
+    "franchise": "persona",
+    "store_links": {
+      "playstation": "https://store.playstation.com/en-us/product/UP0177-PPSA10872_00-APPLICATION00000",
+      "steam": "https://store.steampowered.com/app/2161700/Persona_3_Reload/"
+    }
   },
   {
     "id": "smt-5-vengeance",
@@ -2526,7 +2828,12 @@
       "solo"
     ],
     "description": "Recruit demons in post-apocalyptic Tokyo.",
-    "fun_fact": "The parent series to Persona with darker themes."
+    "fun_fact": "The parent series to Persona with darker themes.",
+    "store_links": {
+      "steam": "https://store.steampowered.com/app/1875830/Shin_Megami_Tensei_V_Vengeance/",
+      "xbox": "https://www.microsoft.com/en-US/games/store/shin-megami-tensei-v-vengeance/9PF2Q5NMRDQF/0010",
+      "nintendo": "https://www.nintendo.com/games/detail/shin-megami-tensei-v-switch/"
+    }
   },
   {
     "id": "dragon-quest-11",
@@ -2562,7 +2869,13 @@
       "solo"
     ],
     "description": "The definitive classic JRPG experience.",
-    "fun_fact": "Features a 2D mode that recreates the 16-bit era."
+    "fun_fact": "Features a 2D mode that recreates the 16-bit era.",
+    "store_links": {
+      "nintendo": "https://www.nintendo.com/games/detail/dragon-quest-xi-s-echoes-of-an-elusive-age-definitive-edition-switch/",
+      "playstation": "https://store.playstation.com/en-us/product/UP0082-CUSA18600_00-0000000000000000",
+      "xbox": "https://www.microsoft.com/en-us/p/dragon-quest-xi-s-echoes-of-an-elusive-age-definitive-edition/9pbdc0xz8txk?source=lp&activetab=pivot:overviewtab",
+      "steam": "https://store.steampowered.com/app/1295510/"
+    }
   },
   {
     "id": "yakuza-like-a-dragon",
@@ -2602,7 +2915,13 @@
     "subscriptions": [
       "xbox_game_pass"
     ],
-    "franchise": "yakuza"
+    "franchise": "yakuza",
+    "store_links": {
+      "gog": "https://www.gog.com/fr/game/yakuza_like_a_dragon",
+      "steam": "https://store.steampowered.com/app/1235140",
+      "xbox": "https://www.microsoft.com/en-US/p/yakuza-like-a-dragon-day-ichi-edition/9p6ff3w7f0dc?activetab=pivot:overviewtab",
+      "playstation": "https://store.playstation.com/en-us/product/UP0177-CUSA16734_00-SHINRYUGAGOTOKEN"
+    }
   },
   {
     "id": "like-a-dragon-infinite-wealth",
@@ -2639,7 +2958,11 @@
     ],
     "description": "Journey to Hawaii in this crime RPG.",
     "fun_fact": "Features a full Animal Crossing-style life simulation mode.",
-    "franchise": "yakuza"
+    "franchise": "yakuza",
+    "store_links": {
+      "playstation": "https://store.playstation.com/en-us/product/UP0177-PPSA06435_00-LIKEADRAGON80000",
+      "steam": "https://store.steampowered.com/app/2072450/Like_a_Dragon_Infinite_Wealth/"
+    }
   },
   {
     "id": "final-fantasy-7-rebirth",
@@ -2674,7 +2997,11 @@
       "solo"
     ],
     "description": "Continue Cloud's journey in the remake trilogy.",
-    "fun_fact": "The Remake trilogy will span 3 full games for the original's story!"
+    "fun_fact": "The Remake trilogy will span 3 full games for the original's story!",
+    "store_links": {
+      "steam": "https://store.steampowered.com/app/2909400/",
+      "playstation": "https://store.playstation.com/en-us/concept/10003999"
+    }
   },
   {
     "id": "final-fantasy-16",
@@ -2710,7 +3037,11 @@
       "solo"
     ],
     "description": "A mature Final Fantasy with action combat.",
-    "fun_fact": "This is the first mainline FF game to be fully action-based combat."
+    "fun_fact": "This is the first mainline FF game to be fully action-based combat.",
+    "store_links": {
+      "steam": "https://store.steampowered.com/app/2515020/",
+      "playstation": "https://store.playstation.com/en-us/concept/10002100"
+    }
   },
   {
     "id": "tales-of-arise",
@@ -2747,7 +3078,12 @@
       "local_coop"
     ],
     "description": "Action RPG with anime-style combat.",
-    "fun_fact": "The most visually stunning Tales game ever made."
+    "fun_fact": "The most visually stunning Tales game ever made.",
+    "store_links": {
+      "xbox": "https://www.microsoft.com/en-us/p/tales-of-arise-xbox-series-x-s/9pf5cq35mr2b?activetab=pivot:overviewtab",
+      "playstation": "https://store.playstation.com/en-us/product/UP0700-PPSA02794_00-TOARISEPS5000001",
+      "steam": "https://store.steampowered.com/app/740130/Tales_of_Arise/"
+    }
   },
   {
     "id": "ni-no-kuni-2",
@@ -2784,7 +3120,13 @@
       "solo"
     ],
     "description": "Build a kingdom in a Ghibli-inspired world.",
-    "fun_fact": "Features kingdom building alongside traditional RPG gameplay."
+    "fun_fact": "Features kingdom building alongside traditional RPG gameplay.",
+    "store_links": {
+      "xbox": "https://www.microsoft.com/ru-by/p/ni-no-kuni-ii-%D0%92%D0%BE%D0%B7%D1%80%D0%BE%D0%B6%D0%B4%D0%B5%D0%BD%D0%B8%D0%B5-%D0%9A%D0%BE%D1%80%D0%BE%D0%BB%D1%8F-princes-edition/9n732vfpmwkt",
+      "nintendo": "https://www.nintendo.com/us/store/products/ni-no-kuni-ii-revenant-kingdom-princes-edition-switch/",
+      "steam": "http://store.steampowered.com/app/589360/",
+      "playstation": "https://store.playstation.com/en-us/product/UP0700-CUSA07345_00-NNK2GAME00000000"
+    }
   },
   {
     "id": "xenoblade-3",
@@ -2819,7 +3161,10 @@
       "solo"
     ],
     "description": "A massive RPG about life and death.",
-    "fun_fact": "Combines the worlds of Xenoblade 1 and 2."
+    "fun_fact": "Combines the worlds of Xenoblade 1 and 2.",
+    "store_links": {
+      "nintendo": "https://www.nintendo.com/games/detail/xenoblade-chronicles-3-switch/"
+    }
   },
   {
     "id": "fire-emblem-three-houses",
@@ -2855,7 +3200,10 @@
     ],
     "description": "Lead a house at a military academy.",
     "fun_fact": "Three different routes with completely different perspectives.",
-    "franchise": "fire_emblem"
+    "franchise": "fire_emblem",
+    "store_links": {
+      "nintendo": "https://www.nintendo.com/games/detail/fire-emblem-three-houses-switch"
+    }
   },
   {
     "id": "monster-hunter-rise",
@@ -2894,7 +3242,13 @@
     ],
     "description": "Hunt massive monsters with friends.",
     "fun_fact": "Capcom created entirely new monster ecologies and food chains for the game's ecosystem.",
-    "franchise": "monster_hunter"
+    "franchise": "monster_hunter",
+    "store_links": {
+      "steam": "https://store.steampowered.com/app/1446780/MONSTER_HUNTER_RISE/",
+      "playstation": "https://store.playstation.com/en-us/product/UP0102-PPSA06471_00-YOUREWELCOME0000",
+      "xbox": "https://www.xbox.com/en-US/games/store/monster-hunter-rise/9NV1GCVLBWQG",
+      "nintendo": "https://www.nintendo.com/us/store/products/monster-hunter-rise-switch/"
+    }
   },
   {
     "id": "monster-hunter-world",
@@ -2931,7 +3285,12 @@
     ],
     "description": "The game that brought Monster Hunter worldwide.",
     "fun_fact": "Capcom's best-selling game ever with over 20 million copies sold.",
-    "franchise": "monster_hunter"
+    "franchise": "monster_hunter",
+    "store_links": {
+      "steam": "https://store.steampowered.com/app/582010/",
+      "playstation": "https://store.playstation.com/en-us/product/UP0102-CUSA07713_00-0000000000000000",
+      "xbox": "https://www.microsoft.com/en-us/store/p/monster-hunter-world/bng91pt95lqn?cid=msft_web_chart"
+    }
   },
   {
     "id": "god-eater-3",
@@ -2968,7 +3327,12 @@
       "online_coop"
     ],
     "description": "Anime-style monster hunting.",
-    "fun_fact": "Features a transforming weapon that shifts between melee and gun."
+    "fun_fact": "Features a transforming weapon that shifts between melee and gun.",
+    "store_links": {
+      "playstation": "https://store.playstation.com/en-us/product/UP0700-CUSA13281_00-GODEATER30000000",
+      "nintendo": "https://www.nintendo.com/games/detail/god-eater-3-switch/",
+      "steam": "https://store.steampowered.com/app/899440/"
+    }
   },
   {
     "id": "toukiden-2",
@@ -3005,7 +3369,11 @@
       "online_coop"
     ],
     "description": "Hunt demons in feudal Japan.",
-    "fun_fact": "Features Mitama of real historical Japanese figures."
+    "fun_fact": "Features Mitama of real historical Japanese figures.",
+    "store_links": {
+      "steam": "http://store.steampowered.com/app/551730/",
+      "playstation": "https://store.playstation.com/en-us/product/UP4108-CUSA05797_00-TOUKIDEN20000000"
+    }
   },
   {
     "id": "dauntless",
@@ -3042,7 +3410,14 @@
       "online_coop"
     ],
     "description": "Free-to-play monster hunting.",
-    "fun_fact": "Cross-platform play was a priority from the start."
+    "fun_fact": "Cross-platform play was a priority from the start.",
+    "store_links": {
+      "steam": "https://store.steampowered.com/app/331370/",
+      "playstation": "https://store.playstation.com/en-us/product/UP1477-CUSA15429_00-DAUNTLESSGAME000",
+      "nintendo": "https://www.nintendo.com/games/detail/dauntless-switch/",
+      "xbox": "https://www.microsoft.com/en-us/p/dauntless/9nq0v4dwrk49?cid=msft_web_chart",
+      "epic": "https://www.epicgames.com/store/en-US/product/dauntless/home?lang=en-US"
+    }
   },
   {
     "id": "wild-hearts",
@@ -3079,7 +3454,12 @@
       "online_coop"
     ],
     "description": "Hunt monsters with ancient technology.",
-    "fun_fact": "The Karakuri building system adds unique combat options."
+    "fun_fact": "The Karakuri building system adds unique combat options.",
+    "store_links": {
+      "steam": "https://store.steampowered.com/app/1938010/WILD_HEARTS/",
+      "playstation": "https://store.playstation.com/en-us/concept/10005161",
+      "epic": "https://store.epicgames.com/en-US/p/wild-hearts"
+    }
   },
   {
     "id": "nier-automata",
@@ -3120,7 +3500,11 @@
     "subscriptions": [
       "xbox_game_pass"
     ],
-    "franchise": "nier"
+    "franchise": "nier",
+    "store_links": {
+      "steam": "http://store.steampowered.com/app/524220/",
+      "xbox": "https://www.microsoft.com/en-us/p/nierautomata-become-as-gods-edition/BPPZVT8BZ15N?activetab=pivot%3aoverviewtab"
+    }
   },
   {
     "id": "nier-replicant",
@@ -3157,7 +3541,12 @@
     ],
     "description": "The prequel to Automata, remastered.",
     "fun_fact": "Multiple playthroughs reveal entirely new story perspectives.",
-    "franchise": "nier"
+    "franchise": "nier",
+    "store_links": {
+      "steam": "https://store.steampowered.com/app/1113560/NieR_Replicant_ver122474487139/",
+      "playstation": "https://store.playstation.com/en-us/product/UP0082-CUSA18774_00-0000000000000000",
+      "xbox": "https://www.microsoft.com/en-us/p/nier-replicant-ver122474487139/9mtbzlk7nm9x?cid=msft_web_chart"
+    }
   },
   {
     "id": "deaths-stranding-dc",
@@ -3193,7 +3582,12 @@
       "solo"
     ],
     "description": "Reconnect a fractured America through deliveries.",
-    "fun_fact": "Other players' structures appear in your world to help you."
+    "fun_fact": "Other players' structures appear in your world to help you.",
+    "store_links": {
+      "epic": "https://store.epicgames.com/en-US/p/death-stranding-directors-cut?lang=en-US",
+      "playstation": "https://store.playstation.com/en-us/product/UP9000-PPSA01969_00-DEATHSTRANDINGUS",
+      "steam": "https://store.steampowered.com/app/1850570"
+    }
   },
   {
     "id": "control",
@@ -3229,7 +3623,14 @@
       "solo"
     ],
     "description": "Lead a secret agency in a shifting building.",
-    "fun_fact": "The Oldest House literally shifts and changes around you."
+    "fun_fact": "The Oldest House literally shifts and changes around you.",
+    "store_links": {
+      "playstation": "https://store.playstation.com/en-us/product/UP4040-CUSA11461_00-CONTROL000000000",
+      "gog": "https://www.gog.com/game/control_ultimate_edition",
+      "steam": "https://store.steampowered.com/app/870780/",
+      "xbox": "https://www.microsoft.com/en-us/p/control/bz6w9lrpc26w?cid=msft_web_search&activetab=pivot:overviewtab",
+      "epic": "https://www.epicgames.com/store/en-US/product/control/home"
+    }
   },
   {
     "id": "alan-wake-2",
@@ -3268,7 +3669,11 @@
     "fun_fact": "Remedy Entertainment worked on this sequel for over 13 years!",
     "warnings": [
       "horror"
-    ]
+    ],
+    "store_links": {
+      "playstation": "https://store.playstation.com/en-us/product/UP1477-PPSA02571_00-ALANWAKE20000000",
+      "epic": "https://store.epicgames.com/en-US/p/alan-wake-2"
+    }
   },
   {
     "id": "resident-evil-4-remake",
@@ -3308,7 +3713,11 @@
       "horror",
       "violence"
     ],
-    "franchise": "resident_evil"
+    "franchise": "resident_evil",
+    "store_links": {
+      "steam": "https://store.steampowered.com/app/2050650/",
+      "playstation": "https://store.playstation.com/en-us/concept/10004473/"
+    }
   },
   {
     "id": "dead-space-remake",
@@ -3350,7 +3759,13 @@
     ],
     "subscriptions": [
       "ea_play"
-    ]
+    ],
+    "store_links": {
+      "playstation": "https://store.playstation.com/en-us/product/UP0006-NPUB30569_00-DS1HDDNAEFS00001",
+      "xbox": "https://www.microsoft.com/en-us/p/dead-space/brjlj6rplqtj?cid=msft_web_chart",
+      "steam": "http://store.steampowered.com/app/17470/",
+      "gog": "http://www.gog.com/game/dead_space"
+    }
   },
   {
     "id": "silent-hill-2-remake",
@@ -3389,7 +3804,11 @@
     "warnings": [
       "psychological_horror",
       "disturbing"
-    ]
+    ],
+    "store_links": {
+      "playstation": "https://store.playstation.com/en-us/concept/10005529",
+      "steam": "https://store.steampowered.com/app/2124490/SILENT_HILL_2/"
+    }
   },
   {
     "id": "resident-evil-village",
@@ -3430,7 +3849,12 @@
       "horror",
       "violence"
     ],
-    "franchise": "resident_evil"
+    "franchise": "resident_evil",
+    "store_links": {
+      "steam": "https://store.steampowered.com/app/1196590",
+      "playstation": "https://store.playstation.com/en-us/product/UP0102-PPSA01556_00-VILLAGEFULLGAMEX",
+      "xbox": "https://www.microsoft.com/ru-ru/p/resident-evil-village/9MTNPF414F65"
+    }
   },
   {
     "id": "the-callisto-protocol",
@@ -3469,7 +3893,12 @@
     "warnings": [
       "horror",
       "gore"
-    ]
+    ],
+    "store_links": {
+      "epic": "https://store.epicgames.com/en-US/p/the-callisto-protocol",
+      "steam": "https://store.steampowered.com/app/1544020/",
+      "playstation": "https://store.playstation.com/en-us/product/UP5082-PPSA03351_00-5083427288229632"
+    }
   },
   {
     "id": "amnesia-rebirth",
@@ -3508,7 +3937,13 @@
     "warnings": [
       "horror",
       "psychological"
-    ]
+    ],
+    "store_links": {
+      "steam": "https://store.steampowered.com/app/999220/",
+      "epic": "https://www.epicgames.com/store/ru/product/amnesia-rebirth/home",
+      "gog": "https://www.gog.com/game/amnesia_rebirth",
+      "playstation": "https://store.playstation.com/ru-ru/product/EP1188-CUSA19272_00-AMNESIAREBIRTH20"
+    }
   },
   {
     "id": "soma",
@@ -3547,7 +3982,14 @@
     "warnings": [
       "horror",
       "existential_themes"
-    ]
+    ],
+    "store_links": {
+      "epic": "https://www.epicgames.com/store/ru/product/soma/home",
+      "playstation": "https://store.playstation.com/en-us/product/UP1192-CUSA03333_00-HPL3SOMAGAME2015",
+      "steam": "http://store.steampowered.com/app/282140/",
+      "gog": "http://www.gog.com/game/soma",
+      "xbox": "https://www.microsoft.com/en-us/store/p/soma/c23m2tc1zfpj?cid=msft_web_chart"
+    }
   },
   {
     "id": "signalis",
@@ -3587,7 +4029,10 @@
     "fun_fact": "Inspired by PS1-era survival horror and anime.",
     "warnings": [
       "horror"
-    ]
+    ],
+    "store_links": {
+      "steam": "https://store.steampowered.com/app/1262350/SIGNALIS/"
+    }
   },
   {
     "id": "tormented-souls",
@@ -3626,7 +4071,15 @@
     "fun_fact": "A love letter to Resident Evil and Silent Hill.",
     "warnings": [
       "horror"
-    ]
+    ],
+    "store_links": {
+      "playstation": "https://store.playstation.com/en-us/product/UP4293-CUSA29200_00-TORMENTEDSIEAPS4",
+      "nintendo": "https://www.nintendo.com/us/store/products/tormented-souls-switch/",
+      "epic": "https://store.epicgames.com/en-US/p/tormented-souls",
+      "steam": "https://store.steampowered.com/app/1367590/Tormented_Souls/",
+      "xbox": "https://www.microsoft.com/en-us/p/tormented-souls/9mwz8jv5tsqg?cid=msft_web_chart",
+      "gog": "https://www.gog.com/game/tormented_souls"
+    }
   },
   {
     "id": "outlast-trials",
@@ -3667,7 +4120,10 @@
       "horror",
       "disturbing"
     ],
-    "franchise": "outlast"
+    "franchise": "outlast",
+    "store_links": {
+      "steam": "https://store.steampowered.com/app/1304930/"
+    }
   },
   {
     "id": "layers-of-fear-2023",
@@ -3705,7 +4161,14 @@
     "fun_fact": "The environment shifts and changes when you're not looking.",
     "warnings": [
       "psychological_horror"
-    ]
+    ],
+    "store_links": {
+      "xbox": "https://www.microsoft.com/ru-tm/p/layers-of-fear-2023/9n4j5lfgpd87",
+      "gog": "https://www.gog.com/pl/game/layers_of_fear_2023",
+      "epic": "https://www.epicgames.com/p/layers-of-fears-85a02b",
+      "playstation": "https://store.playstation.com/concept/10004877",
+      "steam": "https://store.steampowered.com/app/1946700/Layers_of_Fears/"
+    }
   },
   {
     "id": "little-nightmares-2",
@@ -3746,7 +4209,14 @@
       "horror",
       "disturbing_imagery"
     ],
-    "franchise": "little_nightmares"
+    "franchise": "little_nightmares",
+    "store_links": {
+      "gog": "https://www.gog.com/game/little_nightmares_ii",
+      "playstation": "https://store.playstation.com/en-us/product/UP0700-CUSA13055_00-LITTLENIGHTS2000",
+      "xbox": "https://www.microsoft.com/en-us/p/little-nightmares-ii/c1h74n0tr8kt?cid=msft_web_chart",
+      "nintendo": "https://www.nintendo.com/games/detail/little-nightmares-ii-switch/",
+      "steam": "https://store.steampowered.com/app/860510/Little_Nightmares_II/"
+    }
   },
   {
     "id": "little-nightmares-3",
@@ -3786,7 +4256,10 @@
     "warnings": [
       "horror"
     ],
-    "franchise": "little_nightmares"
+    "franchise": "little_nightmares",
+    "store_links": {
+      "steam": "https://store.steampowered.com/app/1392860/"
+    }
   },
   {
     "id": "lies-of-p",
@@ -3824,7 +4297,12 @@
     "fun_fact": "The game is based on the story of Pinocchio but set in a dark, soulslike world.",
     "subscriptions": [
       "xbox_game_pass"
-    ]
+    ],
+    "store_links": {
+      "xbox": "https://www.microsoft.com/en-US/p/lies-of-p/9pcm4cmtppgc",
+      "playstation": "https://store.playstation.com/en-us/concept/10006052",
+      "steam": "https://store.steampowered.com/app/1627720/"
+    }
   },
   {
     "id": "lords-of-the-fallen-2023",
@@ -3860,7 +4338,10 @@
       "online_coop"
     ],
     "description": "Traverse between living and dead realms.",
-    "fun_fact": "Features two interconnected worlds you can shift between."
+    "fun_fact": "Features two interconnected worlds you can shift between.",
+    "store_links": {
+      "steam": "https://store.steampowered.com/app/1501750/The_Lords_of_the_Fallen/"
+    }
   },
   {
     "id": "wo-long",
@@ -3899,7 +4380,10 @@
     "fun_fact": "Made by Team Ninja, creators of Nioh.",
     "subscriptions": [
       "xbox_game_pass"
-    ]
+    ],
+    "store_links": {
+      "steam": "https://store.steampowered.com/app/1448440/"
+    }
   },
   {
     "id": "nioh-2",
@@ -3935,7 +4419,11 @@
       "online_coop"
     ],
     "description": "Become a half-yokai samurai.",
-    "fun_fact": "Features over 30 weapon types and styles."
+    "fun_fact": "Features over 30 weapon types and styles.",
+    "store_links": {
+      "playstation": "https://store.playstation.com/en-us/product/UP9000-CUSA15532_00-NIOH2000000000US",
+      "steam": "https://store.steampowered.com/app/1325200"
+    }
   },
   {
     "id": "thymesia",
@@ -3970,7 +4458,13 @@
       "solo"
     ],
     "description": "Fast-paced plague doctor combat.",
-    "fun_fact": "Focuses on aggressive combat with no shields."
+    "fun_fact": "Focuses on aggressive combat with no shields.",
+    "store_links": {
+      "xbox": "https://www.microsoft.com/en-us/p/thymesia/9n68f8tm7tkw?activetab=pivot:overviewtab",
+      "playstation": "https://store.playstation.com/en-us/concept/10003778",
+      "steam": "https://store.steampowered.com/app/1343240/",
+      "gog": "https://www.gog.com/game/thymesia"
+    }
   },
   {
     "id": "steelrising",
@@ -4005,7 +4499,14 @@
       "solo"
     ],
     "description": "Automaton combat in French Revolution.",
-    "fun_fact": "You play as an automaton fighting for Marie Antoinette."
+    "fun_fact": "You play as an automaton fighting for Marie Antoinette.",
+    "store_links": {
+      "epic": "https://store.epicgames.com/ru/p/steelrising",
+      "xbox": "https://www.microsoft.com/en-il/p/steelrising-standard-edition/9mt4t5zl8pvb",
+      "playstation": "https://store.playstation.com/en-us/concept/10003187",
+      "steam": "https://store.steampowered.com/app/1283400/Steelrising/",
+      "gog": "https://www.gog.com/en/game/steelrising"
+    }
   },
   {
     "id": "mortal-shell",
@@ -4040,7 +4541,14 @@
       "solo"
     ],
     "description": "Possess shells of fallen warriors.",
-    "fun_fact": "Made by a team of only 15 people."
+    "fun_fact": "Made by a team of only 15 people.",
+    "store_links": {
+      "epic": "https://store.epicgames.com/en-US/p/mortal-shell",
+      "steam": "https://store.steampowered.com/app/1110910/Mortal_Shell/",
+      "playstation": "https://store.playstation.com/en-us/product/UP3639-CUSA16364_00-0000000000000001",
+      "xbox": "https://www.microsoft.com/en-us/p/mortal-shell/9pc2bjdxr2lk?cid=msft_web_chart",
+      "gog": "https://www.gog.com/game/mortal_shell"
+    }
   },
   {
     "id": "blasphemous-2",
@@ -4077,7 +4585,14 @@
     ],
     "description": "Dark religious metroidvania.",
     "fun_fact": "The art is inspired by Spanish religious iconography and baroque paintings.",
-    "franchise": "blasphemous"
+    "franchise": "blasphemous",
+    "store_links": {
+      "gog": "https://www.gog.com/fr/game/blasphemous_2",
+      "steam": "https://store.steampowered.com/app/2114740/Blasphemous_2/",
+      "xbox": "https://www.microsoft.com/en-us/p/blasphemous-2/9nxbh70b3cvp",
+      "playstation": "https://store.playstation.com/es-es/concept/10007264",
+      "nintendo": "https://www.nintendo.com/store/products/blasphemous-2-switch/"
+    }
   },
   {
     "id": "ender-lilies",
@@ -4113,7 +4628,12 @@
       "solo"
     ],
     "description": "A priestess purifies a cursed kingdom.",
-    "fun_fact": "Features a hauntingly beautiful piano-driven soundtrack."
+    "fun_fact": "Features a hauntingly beautiful piano-driven soundtrack.",
+    "store_links": {
+      "steam": "https://store.steampowered.com/app/1369630/ENDER_LILIES_Quietus_of_the_Knights/",
+      "nintendo": "https://www.nintendo.com/games/detail/ender-lilies-quietus-of-the-knights-switch/",
+      "xbox": "https://www.microsoft.com/en-us/p/ender-lilies-quietus-of-the-knights/9plgrprmtqjt?cid=msft_web_chart"
+    }
   },
   {
     "id": "salt-and-sacrifice",
@@ -4150,7 +4670,12 @@
       "online_coop"
     ],
     "description": "Hunt mages in a dying world.",
-    "fun_fact": "Adds mage hunting and crafting to the Salt formula."
+    "fun_fact": "Adds mage hunting and crafting to the Salt formula.",
+    "store_links": {
+      "steam": "https://store.steampowered.com/app/1437400/",
+      "playstation": "https://store.playstation.com/en-au/product/EP0609-PPSA07833_00-0895794101741764",
+      "epic": "https://store.epicgames.com/en-US/p/salt-and-sacrifice"
+    }
   },
   {
     "id": "death-gambit-afterlife",
@@ -4223,7 +4748,12 @@
       "local_coop"
     ],
     "description": "Race against time to save android friends.",
-    "fun_fact": "NPCs die permanently if you don't help them in time."
+    "fun_fact": "NPCs die permanently if you don't help them in time.",
+    "store_links": {
+      "steam": "https://store.steampowered.com/app/1062110/",
+      "gog": "https://www.gog.com/game/unsighted",
+      "xbox": "https://www.microsoft.com/en-us/p/unsighted/9p31wj3n46kb?cid=msft_web_chart"
+    }
   },
   {
     "id": "axiom-verge-2",
@@ -4259,7 +4789,12 @@
       "solo"
     ],
     "description": "Explore alternate dimensions.",
-    "fun_fact": "Made entirely by one person, Tom Happ."
+    "fun_fact": "Made entirely by one person, Tom Happ.",
+    "store_links": {
+      "steam": "https://store.steampowered.com/app/946030/",
+      "nintendo": "https://www.nintendo.com/games/detail/axiom-verge-2-switch/",
+      "epic": "https://www.epicgames.com/store/en-US/product/axiom-verge-2/home"
+    }
   },
   {
     "id": "metroid-dread",
@@ -4293,7 +4828,10 @@
       "solo"
     ],
     "description": "Samus faces her deadliest threat.",
-    "fun_fact": "This game concluded a storyline that began in 1986 - 35 years earlier!"
+    "fun_fact": "This game concluded a storyline that began in 1986 - 35 years earlier!",
+    "store_links": {
+      "nintendo": "https://www.nintendo.com/games/detail/metroid-dread-switch/"
+    }
   },
   {
     "id": "castlevania-advance-collection",
@@ -4329,7 +4867,12 @@
       "solo"
     ],
     "description": "Classic GBA Castlevania games.",
-    "fun_fact": "Includes three GBA games plus Dracula X."
+    "fun_fact": "Includes three GBA games plus Dracula X.",
+    "store_links": {
+      "nintendo": "https://www.nintendo.com/games/detail/castlevania-advance-collection-switch/",
+      "steam": "https://store.steampowered.com/app/1552550/",
+      "xbox": "https://www.microsoft.com/en-us/p/castlevania-advance-collection/9mxw6jmgncxw?cid=msft_web_chart"
+    }
   },
   {
     "id": "bloodstained-ritual",
@@ -4365,7 +4908,14 @@
       "solo"
     ],
     "description": "Spiritual successor to Symphony of the Night.",
-    "fun_fact": "Made by the creator of Symphony of the Night via Kickstarter."
+    "fun_fact": "Made by the creator of Symphony of the Night via Kickstarter.",
+    "store_links": {
+      "playstation": "https://store.playstation.com/en-us/product/UP4040-CUSA07953_00-BLOODSTAINED0000",
+      "steam": "https://store.steampowered.com/app/692850/",
+      "gog": "http://www.gog.com/game/bloodstained_ritual_of_the_night",
+      "nintendo": "https://www.nintendo.com/games/detail/bloodstained-ritual-of-the-night-switch",
+      "xbox": "https://www.microsoft.com/en-us/p/bloodstained-ritual-of-the-night/9p9k78101lcw?cid=msft_web_chart"
+    }
   },
   {
     "id": "sundered",
@@ -4438,7 +4988,12 @@
       "solo"
     ],
     "description": "Absorb enemies in a living world.",
-    "fun_fact": "The parry mechanic lets you absorb enemy abilities."
+    "fun_fact": "The parry mechanic lets you absorb enemy abilities.",
+    "store_links": {
+      "epic": "https://store.epicgames.com/p/grime",
+      "steam": "https://store.steampowered.com/app/1123050/",
+      "gog": "https://www.gog.com/game/grime"
+    }
   },
   {
     "id": "prince-of-persia-lost-crown",
@@ -4474,7 +5029,13 @@
       "solo"
     ],
     "description": "Persian mythology metroidvania.",
-    "fun_fact": "First new 2D Prince of Persia in decades."
+    "fun_fact": "First new 2D Prince of Persia in decades.",
+    "store_links": {
+      "xbox": "https://www.microsoft.com/en-ae/p/prince-of-persia-the-lost-crown-deluxe-edition/9p8f2l3xkmhb#activetab=pivot:overviewtab",
+      "nintendo": "https://www.nintendo.com/us/store/products/prince-of-persia-the-lost-crown-switch/",
+      "playstation": "https://store.playstation.com/concept/10005985",
+      "epic": "https://store.epicgames.com/en-US/p/prince-of-persia-the-lost-crown"
+    }
   },
   {
     "id": "narita-boy",
@@ -4513,7 +5074,13 @@
     "fun_fact": "Heavily inspired by 80s tech aesthetics and Tron.",
     "subscriptions": [
       "xbox_game_pass"
-    ]
+    ],
+    "store_links": {
+      "steam": "https://store.steampowered.com/app/1069530/Narita_Boy/",
+      "gog": "https://www.gog.com/game/narita_boy",
+      "xbox": "https://www.microsoft.com/en-us/p/narita-boy/9nbl782wbhk6?cid=msft_web_chart",
+      "playstation": "https://store.playstation.com/en-us/product/UP4064-CUSA25802_00-NARITABOY0000000"
+    }
   },
   {
     "id": "iconoclasts",
@@ -4550,7 +5117,14 @@
       "solo"
     ],
     "description": "A mechanic fights against a theocracy.",
-    "fun_fact": "Made by one developer over 8 years."
+    "fun_fact": "Made by one developer over 8 years.",
+    "store_links": {
+      "playstation": "https://store.playstation.com/en-us/product/UP1274-PCSE01177_00-ICONOCLASTS00000",
+      "xbox": "https://www.microsoft.com/en-us/p/iconoclasts/9n7wrwnn5gzn?cid=msft_web_chart",
+      "steam": "http://store.steampowered.com/app/393520/",
+      "gog": "http://www.gog.com/game/iconoclasts",
+      "nintendo": "https://www.nintendo.com/games/detail/iconoclasts-switch"
+    }
   },
   {
     "id": "laika-aged-through-blood",
@@ -4586,7 +5160,11 @@
       "solo"
     ],
     "description": "Post-apocalyptic motorcycle combat.",
-    "fun_fact": "Inspired by Mad Max with motorcycle-based combat."
+    "fun_fact": "Inspired by Mad Max with motorcycle-based combat.",
+    "store_links": {
+      "gog": "https://www.gog.com/fr/game/laika_aged_through_blood",
+      "steam": "https://store.steampowered.com/app/1796220/"
+    }
   },
   {
     "id": "animal-well",
@@ -4622,6 +5200,9 @@
       "solo"
     ],
     "description": "Cryptic puzzle metroidvania.",
-    "fun_fact": "Contains secrets so deep the community is still discovering them."
+    "fun_fact": "Contains secrets so deep the community is still discovering them.",
+    "store_links": {
+      "steam": "https://store.steampowered.com/app/813230/"
+    }
   }
 ]

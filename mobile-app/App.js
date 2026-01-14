@@ -14,6 +14,7 @@ import { registerRootComponent } from 'expo';
 import { AuthProvider } from './src/context/AuthContext';
 import { RecommendationProvider } from './src/context/RecommendationContext';
 import { PremiumProvider } from './src/context/PremiumContext';
+import { SavedGamesProvider } from './src/context/SavedGamesContext';
 
 // Navigation
 import AppNavigator from './src/navigation/AppNavigator';
@@ -24,10 +25,12 @@ const App = () => {
       <SafeAreaProvider>
         <AuthProvider>
           <PremiumProvider>
-            <RecommendationProvider>
-              <StatusBar style="light" />
-              <AppNavigator />
-            </RecommendationProvider>
+            <SavedGamesProvider>
+              <RecommendationProvider>
+                <StatusBar style="light" />
+                <AppNavigator />
+              </RecommendationProvider>
+            </SavedGamesProvider>
           </PremiumProvider>
         </AuthProvider>
       </SafeAreaProvider>

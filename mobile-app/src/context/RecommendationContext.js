@@ -68,7 +68,7 @@ export const RecommendationProvider = ({ children }) => {
         }
       }
     } catch (err) {
-      console.error('Failed to load pending feedback:', err);
+      // Silent fail - pending feedback just won't load
     }
   };
 
@@ -99,7 +99,6 @@ export const RecommendationProvider = ({ children }) => {
       setFallbackMessage(null);
       return session;
     } catch (err) {
-      console.error('Failed to create session:', err);
       // Generate local session ID as fallback
       const localSessionId = `local-${Date.now()}`;
       setSessionId(localSessionId);
@@ -198,16 +197,12 @@ export const RecommendationProvider = ({ children }) => {
    */
   const acceptRecommendation = useCallback(
     async (gameId, gameTitle = null) => {
-      console.log('[RecommendationContext] acceptRecommendation called:', { gameId, gameTitle, sessionId });
       try {
-        const result = await api.acceptRecommendation(gameId, sessionId, gameTitle);
-        console.log('[RecommendationContext] acceptRecommendation success:', result);
+        await api.acceptRecommendation(gameId, sessionId, gameTitle);
         // Increment history version to trigger refresh in HistoryScreen
         setHistoryVersion((v) => v + 1);
         return true;
       } catch (err) {
-        console.error('[RecommendationContext] Failed to record acceptance:', err);
-        console.error('[RecommendationContext] Error details:', err.response?.data || err.message);
         return false;
       }
     },
@@ -227,7 +222,7 @@ export const RecommendationProvider = ({ children }) => {
         });
         return true;
       } catch (err) {
-        console.error('Failed to submit feedback:', err);
+        // Silent fail
         return false;
       }
     },
@@ -248,7 +243,7 @@ export const RecommendationProvider = ({ children }) => {
       };
       await AsyncStorage.setItem(PENDING_FEEDBACK_KEY, JSON.stringify(pendingData));
     } catch (err) {
-      console.error('Failed to save pending feedback:', err);
+      // Silent fail
     }
   }, [sessionId]);
 
@@ -269,7 +264,7 @@ export const RecommendationProvider = ({ children }) => {
       setPendingFeedback(null);
       return true;
     } catch (err) {
-      console.error('Failed to submit delayed feedback:', err);
+      // Silent fail
       return false;
     }
   }, [pendingFeedback]);
@@ -282,7 +277,7 @@ export const RecommendationProvider = ({ children }) => {
       await AsyncStorage.removeItem(PENDING_FEEDBACK_KEY);
       setPendingFeedback(null);
     } catch (err) {
-      console.error('Failed to dismiss pending feedback:', err);
+      // Silent fail
     }
   }, []);
 

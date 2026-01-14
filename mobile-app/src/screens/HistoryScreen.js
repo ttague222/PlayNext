@@ -23,13 +23,15 @@ import {
   SafeAreaView,
   Alert,
   RefreshControl,
+  ScrollView,
 } from 'react-native';
 import { FlatList } from 'react-native-gesture-handler';
 import { LinearGradient } from 'expo-linear-gradient';
 import { Ionicons } from '@expo/vector-icons';
-import { useFocusEffect } from '@react-navigation/native';
+import { useFocusEffect, useNavigation } from '@react-navigation/native';
 import { useAuth } from '../context/AuthContext';
 import { useRecommendation } from '../context/RecommendationContext';
+import { useSavedGames, BUCKET_CONFIG } from '../context/SavedGamesContext';
 import api from '../services/api';
 import HistoryFeedbackModal from '../components/HistoryFeedbackModal';
 
@@ -77,43 +79,43 @@ const SIGNAL_TYPE_CONFIG = {
 };
 
 const HistoryScreen = () => {
+  const navigation = useNavigation();
   const { user } = useAuth();
   const { historyVersion } = useRecommendation();
+  const { buckets, fetchBuckets, bucketsVersion, canSaveGames } = useSavedGames();
   const [history, setHistory] = useState([]);
   const [loading, setLoading] = useState(true);
   const [refreshing, setRefreshing] = useState(false);
   const [selectedItem, setSelectedItem] = useState(null);
   const [showFeedbackModal, setShowFeedbackModal] = useState(false);
 
-  // Fetch history when screen comes into focus or when historyVersion changes
+  // Fetch history and buckets when screen comes into focus
   useFocusEffect(
     useCallback(() => {
       if (user) {
         fetchHistory();
+        if (canSaveGames) {
+          fetchBuckets();
+        }
       } else {
         setHistory([]);
         setLoading(false);
       }
-    }, [user, historyVersion])
+    }, [user, historyVersion, bucketsVersion, canSaveGames])
   );
 
   const fetchHistory = async () => {
-    console.log('[HistoryScreen] fetchHistory called, user:', user?.uid);
     if (!user) {
-      console.log('[HistoryScreen] No user, clearing history');
       setHistory([]);
       setLoading(false);
       return;
     }
 
     try {
-      console.log('[HistoryScreen] Fetching signals from API...');
       const signals = await api.getSignalHistory(50);
-      console.log('[HistoryScreen] Raw signals received:', signals?.length);
 
       // Handle empty or missing response gracefully
       if (!signals || !Array.isArray(signals)) {
-        console.log('[HistoryScreen] No signals returned, showing empty state');
         setHistory([]);
         return;
       }
@@ -141,15 +143,10 @@ const HistoryScreen = () => {
         }
       }
 
-      console.log('[HistoryScreen] Filtered history items:', uniqueItems.length);
       setHistory(uniqueItems);
     } catch (error) {
-      console.error('[HistoryScreen] Error fetching history:', error);
-      console.error('[HistoryScreen] Error details:', error.response?.data || error.message);
-
       // Don't show error for 404 (no history yet) - just show empty state
       if (error.response?.status === 404) {
-        console.log('[HistoryScreen] No history found (404), showing empty state');
         setHistory([]);
       } else {
         // Only show error alert for actual errors (network issues, server errors, etc.)
@@ -185,7 +182,7 @@ const HistoryScreen = () => {
               await api.deleteSignal(itemId);
               setHistory((prev) => prev.filter((item) => item.id !== itemId));
             } catch (error) {
-              console.error('Error removing from history:', error);
+              // Error removing from history
               Alert.alert('Error', 'Failed to remove item. Please try again.');
             }
           },
@@ -212,7 +209,7 @@ const HistoryScreen = () => {
       try {
         await api.updateSignalWorked(itemId, newWorkedStatus);
       } catch (error) {
-        console.error('Error updating worked status:', error);
+        // Error updating worked status
         // Revert on error
         setHistory((prev) =>
           prev.map((h) =>
@@ -237,7 +234,7 @@ const HistoryScreen = () => {
         )
       );
     } catch (error) {
-      console.error('Error submitting feedback:', error);
+      // Error submitting feedback
       Alert.alert('Error', 'Failed to save feedback. Please try again.');
     }
   };
@@ -255,7 +252,7 @@ const HistoryScreen = () => {
     try {
       await api.updateSignalWorked(itemId, newWorkedStatus);
     } catch (error) {
-      console.error('Error updating worked status:', error);
+      // Error updating worked status
       // Revert on error
       setHistory((prev) =>
         prev.map((item) =>
@@ -342,6 +339,38 @@ const HistoryScreen = () => {
     </View>
   );
 
+  const handleBucketPress = (bucket) => {
+    navigation.navigate('BucketDetail', {
+      bucketType: bucket.bucket_type,
+      bucketName: bucket.name,
+      bucketEmoji: bucket.emoji,
+      bucketColor: bucket.color,
+    });
+  };
+
+  const renderBucketCard = (bucket) => {
+    const config = BUCKET_CONFIG[bucket.bucket_type] || {};
+    return (
+      <TouchableOpacity
+        key={bucket.bucket_type}
+        style={styles.bucketCard}
+        onPress={() => handleBucketPress(bucket)}
+        activeOpacity={0.8}
+      >
+        <LinearGradient
+          colors={[`${bucket.color}20`, `${bucket.color}10`]}
+          style={styles.bucketCardGradient}
+        >
+          <Text style={styles.bucketEmoji}>{bucket.emoji}</Text>
+          <Text style={styles.bucketName} numberOfLines={1}>{bucket.name}</Text>
+          <View style={[styles.bucketCount, { backgroundColor: bucket.color }]}>
+            <Text style={styles.bucketCountText}>{bucket.game_count}</Text>
+          </View>
+        </LinearGradient>
+      </TouchableOpacity>
+    );
+  };
+
   return (
     <LinearGradient
       colors={['#1a1a2e', '#16213e', '#0f3460']}
@@ -350,11 +379,53 @@ const HistoryScreen = () => {
       <SafeAreaView style={styles.safeArea}>
         {/* Header */}
         <View style={styles.header}>
-          <Text style={styles.headerTitle}>History</Text>
+          <Text style={styles.headerTitle}>My Games</Text>
           <Text style={styles.headerSubtitle}>
-            Tap any game to leave feedback
+            Your collections and history
           </Text>
         </View>
+
+        {/* Bucket Cards - horizontal scroll */}
+        {canSaveGames && buckets.length > 0 && (
+          <View style={styles.bucketsSection}>
+            <Text style={styles.bucketsSectionTitle}>Collections</Text>
+            <ScrollView
+              horizontal
+              showsHorizontalScrollIndicator={false}
+              contentContainerStyle={styles.bucketsScroll}
+            >
+              {buckets.map(renderBucketCard)}
+            </ScrollView>
+          </View>
+        )}
+
+        {/* Premium prompt for non-premium users */}
+        {!canSaveGames && (
+          <TouchableOpacity
+            style={styles.premiumPrompt}
+            onPress={() => navigation.navigate('Premium')}
+            activeOpacity={0.8}
+          >
+            <LinearGradient
+              colors={['rgba(248, 87, 166, 0.15)', 'rgba(255, 88, 88, 0.08)']}
+              start={{ x: 0, y: 0 }}
+              end={{ x: 1, y: 0 }}
+              style={styles.premiumPromptGradient}
+            >
+              <View style={styles.premiumPromptLeft}>
+                <Ionicons name="star" size={22} color="#f857a6" />
+                <View style={styles.premiumPromptTextContainer}>
+                  <Text style={styles.premiumPromptTitle}>Game Library</Text>
+                  <Text style={styles.premiumPromptSubtitle}>Premium feature</Text>
+                </View>
+              </View>
+              <View style={styles.premiumPromptButton}>
+                <Text style={styles.premiumPromptButtonText}>Upgrade</Text>
+                <Ionicons name="chevron-forward" size={16} color="#ffffff" />
+              </View>
+            </LinearGradient>
+          </TouchableOpacity>
+        )}
 
         {/* History List */}
         {loading ? (
@@ -444,6 +515,101 @@ const styles = StyleSheet.create({
   headerSubtitle: {
     fontSize: 14,
     color: '#808080',
+  },
+  bucketsSection: {
+    paddingBottom: 16,
+  },
+  bucketsSectionTitle: {
+    fontSize: 14,
+    fontWeight: '600',
+    color: '#909090',
+    textTransform: 'uppercase',
+    letterSpacing: 0.5,
+    paddingHorizontal: 24,
+    marginBottom: 12,
+  },
+  bucketsScroll: {
+    paddingHorizontal: 24,
+    gap: 12,
+  },
+  bucketCard: {
+    width: 120,
+    borderRadius: 16,
+    overflow: 'hidden',
+  },
+  bucketCardGradient: {
+    padding: 14,
+    alignItems: 'center',
+    borderWidth: 1,
+    borderColor: 'rgba(255, 255, 255, 0.1)',
+    borderRadius: 16,
+  },
+  bucketEmoji: {
+    fontSize: 28,
+    marginBottom: 8,
+  },
+  bucketName: {
+    fontSize: 13,
+    fontWeight: '600',
+    color: '#ffffff',
+    textAlign: 'center',
+    marginBottom: 8,
+  },
+  bucketCount: {
+    paddingHorizontal: 10,
+    paddingVertical: 4,
+    borderRadius: 12,
+  },
+  bucketCountText: {
+    fontSize: 12,
+    fontWeight: '700',
+    color: '#ffffff',
+  },
+  premiumPrompt: {
+    marginHorizontal: 24,
+    marginBottom: 16,
+    borderRadius: 14,
+    overflow: 'hidden',
+  },
+  premiumPromptGradient: {
+    flexDirection: 'row',
+    alignItems: 'center',
+    justifyContent: 'space-between',
+    padding: 14,
+    borderWidth: 1,
+    borderColor: 'rgba(248, 87, 166, 0.3)',
+    borderRadius: 14,
+  },
+  premiumPromptLeft: {
+    flexDirection: 'row',
+    alignItems: 'center',
+    gap: 12,
+  },
+  premiumPromptTextContainer: {
+    gap: 2,
+  },
+  premiumPromptTitle: {
+    fontSize: 15,
+    fontWeight: '600',
+    color: '#ffffff',
+  },
+  premiumPromptSubtitle: {
+    fontSize: 12,
+    color: '#f857a6',
+  },
+  premiumPromptButton: {
+    flexDirection: 'row',
+    alignItems: 'center',
+    backgroundColor: '#f857a6',
+    paddingHorizontal: 14,
+    paddingVertical: 8,
+    borderRadius: 10,
+    gap: 4,
+  },
+  premiumPromptButtonText: {
+    fontSize: 13,
+    fontWeight: '600',
+    color: '#ffffff',
   },
   loadingContainer: {
     flex: 1,

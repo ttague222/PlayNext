@@ -4,15 +4,16 @@
  * Required input: How much time do you have?
  */
 
-import React, { useEffect, useRef } from 'react';
+import React, { useEffect, useRef, useState } from 'react';
 import {
   View,
   Text,
-  TouchableOpacity,
+  Pressable,
   StyleSheet,
-  SafeAreaView,
   Animated,
+  ScrollView,
 } from 'react-native';
+import { SafeAreaView } from 'react-native-safe-area-context';
 import { useNavigation } from '@react-navigation/native';
 import { LinearGradient } from 'expo-linear-gradient';
 import { useRecommendation } from '../context/RecommendationContext';
@@ -28,6 +29,7 @@ const TIME_OPTIONS = [
 const TimeSelectScreen = () => {
   const navigation = useNavigation();
   const { preferences, updatePreference } = useRecommendation();
+  const [isNavigating, setIsNavigating] = useState(false);
 
   // Staggered animation for options
   const animValues = useRef(TIME_OPTIONS.map(() => new Animated.Value(0))).current;
@@ -44,7 +46,17 @@ const TimeSelectScreen = () => {
     Animated.stagger(80, animations).start();
   }, []);
 
+  // Reset navigation state when screen comes back into focus
+  useEffect(() => {
+    const unsubscribe = navigation.addListener('focus', () => {
+      setIsNavigating(false);
+    });
+    return unsubscribe;
+  }, [navigation]);
+
   const handleSelect = (value) => {
+    if (isNavigating) return; // Prevent double-tap navigation
+    setIsNavigating(true);
     updatePreference('timeAvailable', value);
     navigation.navigate('MoodSelect');
   };
@@ -54,8 +66,12 @@ const TimeSelectScreen = () => {
       colors={['#0f0c29', '#302b63', '#24243e']}
       style={styles.container}
     >
-      <SafeAreaView style={styles.safeArea}>
-        <View style={styles.content}>
+      <SafeAreaView style={styles.safeArea} edges={['top', 'left', 'right', 'bottom']}>
+        <ScrollView
+          style={styles.scrollView}
+          contentContainerStyle={styles.content}
+          showsVerticalScrollIndicator={false}
+        >
           {/* Progress indicator */}
           <View style={styles.progress}>
             <View style={[styles.progressDot, styles.progressActive]} />
@@ -88,10 +104,14 @@ const TimeSelectScreen = () => {
                     }],
                   }}
                 >
-                  <TouchableOpacity
-                    style={[styles.optionButton, isSelected && styles.optionSelected]}
+                  <Pressable
+                    style={({ pressed }) => [
+                      styles.optionButton,
+                      isSelected && styles.optionSelected,
+                      pressed && styles.optionPressed,
+                      isNavigating && styles.optionDisabled,
+                    ]}
                     onPress={() => handleSelect(option.value)}
-                    activeOpacity={0.7}
                   >
                     {isSelected && (
                       <LinearGradient
@@ -113,12 +133,12 @@ const TimeSelectScreen = () => {
                         <Text style={styles.checkmarkText}>✓</Text>
                       </View>
                     )}
-                  </TouchableOpacity>
+                  </Pressable>
                 </Animated.View>
               );
             })}
           </View>
-        </View>
+        </ScrollView>
       </SafeAreaView>
     </LinearGradient>
   );
@@ -131,10 +151,14 @@ const styles = StyleSheet.create({
   safeArea: {
     flex: 1,
   },
-  content: {
+  scrollView: {
     flex: 1,
+  },
+  content: {
+    flexGrow: 1,
     paddingHorizontal: 24,
     paddingTop: 20,
+    paddingBottom: 40,
   },
   progress: {
     flexDirection: 'row',
@@ -239,6 +263,13 @@ const styles = StyleSheet.create({
     fontSize: 16,
     color: '#ffffff',
     fontWeight: '700',
+  },
+  optionPressed: {
+    opacity: 0.8,
+    backgroundColor: 'rgba(255, 255, 255, 0.1)',
+  },
+  optionDisabled: {
+    opacity: 0.5,
   },
 });
 

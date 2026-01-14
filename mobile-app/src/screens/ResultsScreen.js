@@ -10,18 +10,20 @@ import {
   Text,
   TouchableOpacity,
   StyleSheet,
-  SafeAreaView,
   Alert,
   Animated,
   ActivityIndicator,
+  ScrollView,
 } from 'react-native';
-import { ScrollView } from 'react-native-gesture-handler';
+import { SafeAreaView } from 'react-native-safe-area-context';
 import { useNavigation } from '@react-navigation/native';
 import { LinearGradient } from 'expo-linear-gradient';
 import { useRecommendation } from '../context/RecommendationContext';
+import { usePremium } from '../context/PremiumContext';
 import GameCard from '../components/GameCard';
 import CelebrationModal from '../components/CelebrationModal';
 import AlreadyPlayedModal from '../components/AlreadyPlayedModal';
+import SaveToBucketModal from '../components/SaveToBucketModal';
 
 const ResultsScreen = () => {
   const navigation = useNavigation();
@@ -35,7 +37,9 @@ const ResultsScreen = () => {
     acceptRecommendation,
     savePendingFeedback,
     markAsPlayedAndSwap,
+    preferences,
   } = useRecommendation();
+  const { canReroll, recordReroll, getRemainingRerolls, isPremium } = usePremium();
 
   const [selectedGame, setSelectedGame] = useState(null);
   const [showCelebration, setShowCelebration] = useState(false);
@@ -43,6 +47,8 @@ const ResultsScreen = () => {
   const [swappingGameId, setSwappingGameId] = useState(null);
   const [alreadyPlayedGame, setAlreadyPlayedGame] = useState(null);
   const [showAlreadyPlayedModal, setShowAlreadyPlayedModal] = useState(false);
+  const [saveGame, setSaveGame] = useState(null);
+  const [showSaveModal, setShowSaveModal] = useState(false);
 
   // Animations
   const headerAnim = useRef(new Animated.Value(0)).current;
@@ -68,6 +74,11 @@ const ResultsScreen = () => {
     // Show modal to collect feedback before swapping
     setAlreadyPlayedGame(game);
     setShowAlreadyPlayedModal(true);
+  };
+
+  const handleSave = (game) => {
+    setSaveGame(game);
+    setShowSaveModal(true);
   };
 
   const handleAlreadyPlayedFeedback = async (signalType) => {
@@ -125,6 +136,19 @@ const ResultsScreen = () => {
   };
 
   const handleReroll = async () => {
+    // Check if user can reroll
+    if (!canReroll()) {
+      Alert.alert(
+        'Out of Rerolls',
+        'You\'ve used all your free rerolls for today. Upgrade to Premium for unlimited rerolls!',
+        [
+          { text: 'Maybe Later', style: 'cancel' },
+          { text: 'Get Premium', onPress: () => navigation.navigate('Premium') },
+        ]
+      );
+      return;
+    }
+
     setIsRerolling(true);
 
     // Spin animation
@@ -138,6 +162,8 @@ const ResultsScreen = () => {
 
     try {
       await reroll();
+      // Record the reroll for free tier tracking
+      recordReroll();
     } catch (err) {
       Alert.alert('Error', 'Failed to get new recommendations');
     } finally {
@@ -172,7 +198,7 @@ const ResultsScreen = () => {
         colors={['#0f0c29', '#302b63', '#24243e']}
         style={styles.container}
       >
-        <SafeAreaView style={styles.centered}>
+        <SafeAreaView style={styles.centered} edges={['top', 'left', 'right', 'bottom']}>
           <Animated.Text style={styles.loadingEmoji}>🎮</Animated.Text>
           <Text style={styles.loadingText}>Finding your perfect game...</Text>
           <ActivityIndicator color="#f857a6" size="large" style={{ marginTop: 20 }} />
@@ -187,7 +213,7 @@ const ResultsScreen = () => {
         colors={['#0f0c29', '#302b63', '#24243e']}
         style={styles.container}
       >
-        <SafeAreaView style={styles.centered}>
+        <SafeAreaView style={styles.centered} edges={['top', 'left', 'right', 'bottom']}>
           <Text style={styles.errorEmoji}>😕</Text>
           <Text style={styles.errorText}>Something went wrong</Text>
           <Text style={styles.errorDetail}>{error}</Text>
@@ -209,7 +235,7 @@ const ResultsScreen = () => {
       colors={['#0f0c29', '#302b63', '#24243e']}
       style={styles.container}
     >
-      <SafeAreaView style={styles.safeArea}>
+      <SafeAreaView style={styles.safeArea} edges={['top', 'left', 'right', 'bottom']}>
         <ScrollView
           style={styles.scrollView}
           contentContainerStyle={styles.content}
@@ -252,7 +278,9 @@ const ResultsScreen = () => {
                   rank={index + 1}
                   onAccept={() => handleAccept(game)}
                   onAlreadyPlayed={() => handleAlreadyPlayed(game)}
+                  onSave={() => handleSave(game)}
                   isSwapping={swappingGameId === game.game_id}
+                  userPlatforms={preferences.platforms}
                 />
               ))}
             </View>
@@ -284,9 +312,16 @@ const ResultsScreen = () => {
               >
                 🔄
               </Animated.Text>
-              <Text style={styles.rerollText}>
-                {isRerolling ? 'Finding more...' : 'Show different games'}
-              </Text>
+              <View style={styles.rerollTextContainer}>
+                <Text style={styles.rerollText}>
+                  {isRerolling ? 'Finding more...' : 'Show different games'}
+                </Text>
+                {!isPremium && !isRerolling && (
+                  <Text style={styles.rerollsRemaining}>
+                    {getRemainingRerolls()} rerolls left today
+                  </Text>
+                )}
+              </View>
             </TouchableOpacity>
 
             <TouchableOpacity
@@ -312,6 +347,16 @@ const ResultsScreen = () => {
           game={alreadyPlayedGame}
           onFeedback={handleAlreadyPlayedFeedback}
           onSkip={handleAlreadyPlayedSkip}
+        />
+
+        {/* Save to Bucket Modal */}
+        <SaveToBucketModal
+          visible={showSaveModal}
+          game={saveGame}
+          onClose={() => {
+            setShowSaveModal(false);
+            setSaveGame(null);
+          }}
         />
       </SafeAreaView>
     </LinearGradient>
@@ -411,10 +456,18 @@ const styles = StyleSheet.create({
   rerollIcon: {
     fontSize: 20,
   },
+  rerollTextContainer: {
+    alignItems: 'center',
+  },
   rerollText: {
     fontSize: 17,
     fontWeight: '600',
     color: '#ffffff',
+  },
+  rerollsRemaining: {
+    fontSize: 12,
+    color: '#909090',
+    marginTop: 4,
   },
   startOverButton: {
     paddingVertical: 14,

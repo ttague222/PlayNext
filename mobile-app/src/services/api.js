@@ -24,16 +24,12 @@ apiClient.interceptors.request.use(
   async (config) => {
     try {
       const user = auth.currentUser;
-      console.log('[API Interceptor] Request to:', config.url, 'currentUser:', user?.uid || 'null');
       if (user) {
         const token = await user.getIdToken();
         config.headers.Authorization = `Bearer ${token}`;
-        console.log('[API Interceptor] Auth token attached for user:', user.uid);
-      } else {
-        console.log('[API Interceptor] No user logged in, sending without auth');
       }
     } catch (error) {
-      console.warn('[API Interceptor] Failed to get auth token:', error);
+      // Failed to get auth token - continue without auth
     }
     return config;
   },
@@ -44,13 +40,6 @@ apiClient.interceptors.request.use(
 apiClient.interceptors.response.use(
   (response) => response,
   (error) => {
-    if (error.response) {
-      // Server responded with error
-      console.error('API Error:', error.response.status, error.response.data);
-    } else if (error.request) {
-      // No response received
-      console.error('Network Error:', error.message);
-    }
     return Promise.reject(error);
   }
 );
@@ -174,9 +163,7 @@ const api = {
    * Get user's signal history
    */
   getSignalHistory: async (limit = 50) => {
-    console.log('[API] getSignalHistory called with limit:', limit);
     const response = await apiClient.get('/signals/history', { params: { limit } });
-    console.log('[API] getSignalHistory response:', response.status, 'items:', response.data?.length);
     return response.data;
   },
 
@@ -223,6 +210,81 @@ const api = {
    */
   getGameSignals: async (gameId) => {
     const response = await apiClient.get(`/signals/game/${gameId}`);
+    return response.data;
+  },
+
+  // ============================================
+  // Buckets (Save Collections)
+  // ============================================
+
+  /**
+   * Get all buckets for the current user
+   */
+  getBuckets: async () => {
+    const response = await apiClient.get('/buckets');
+    return response.data;
+  },
+
+  /**
+   * Get a specific bucket with its games
+   * @param {string} bucketType - Bucket type (want_to_play, currently_playing, finished, not_for_me)
+   * @param {number} limit - Max games to return
+   * @param {number} offset - Pagination offset
+   */
+  getBucket: async (bucketType, limit = 50, offset = 0) => {
+    const response = await apiClient.get(`/buckets/${bucketType}`, {
+      params: { limit, offset },
+    });
+    return response.data;
+  },
+
+  /**
+   * Add a game to a bucket
+   * @param {string} bucketType - Bucket type
+   * @param {string} gameId - Game ID
+   * @param {string} gameTitle - Game title for display
+   * @param {string} [notes] - Optional notes
+   */
+  addGameToBucket: async (bucketType, gameId, gameTitle, notes = null) => {
+    const response = await apiClient.post(`/buckets/${bucketType}/games`, {
+      game_id: gameId,
+      game_title: gameTitle,
+      notes,
+    });
+    return response.data;
+  },
+
+  /**
+   * Remove a game from a bucket
+   * @param {string} bucketType - Bucket type
+   * @param {string} gameId - Game ID
+   */
+  removeGameFromBucket: async (bucketType, gameId) => {
+    const response = await apiClient.delete(`/buckets/${bucketType}/games/${gameId}`);
+    return response.data;
+  },
+
+  /**
+   * Move a game between buckets
+   * @param {string} fromBucketType - Source bucket type
+   * @param {string} toBucketType - Destination bucket type
+   * @param {string} gameId - Game ID
+   */
+  moveGame: async (fromBucketType, toBucketType, gameId) => {
+    const response = await apiClient.post('/buckets/move', {
+      from_bucket_type: fromBucketType,
+      to_bucket_type: toBucketType,
+      game_id: gameId,
+    });
+    return response.data;
+  },
+
+  /**
+   * Find which bucket a game is in
+   * @param {string} gameId - Game ID
+   */
+  getGameBucket: async (gameId) => {
+    const response = await apiClient.get(`/buckets/game/${gameId}/bucket`);
     return response.data;
   },
 

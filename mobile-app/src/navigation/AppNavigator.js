@@ -31,6 +31,9 @@ import SignInScreen from '../screens/SignInScreen';
 import EmailSignInScreen from '../screens/EmailSignInScreen';
 import PremiumScreen from '../screens/PremiumScreen';
 
+// Detail Screens
+import BucketDetailScreen from '../screens/BucketDetailScreen';
+
 const Stack = createNativeStackNavigator();
 const Tab = createBottomTabNavigator();
 const RootStack = createNativeStackNavigator();
@@ -169,6 +172,13 @@ const AppNavigator = () => {
           options={{
             presentation: 'modal',
             animation: 'slide_from_bottom',
+          }}
+        />
+        <RootStack.Screen
+          name="BucketDetail"
+          component={BucketDetailScreen}
+          options={{
+            animation: 'slide_from_right',
           }}
         />
       </RootStack.Navigator>

@@ -24,16 +24,15 @@ const ENABLE_REVENUECAT = true;
 
 // Free tier limits
 const FREE_TIER_LIMITS = {
-  dailyRerolls: 5,
+  dailyRerolls: 3,
   historyDays: 0, // No history for free tier
 };
 
 // Premium features
 const PREMIUM_FEATURES = {
-  smartHistory: true,
   unlimitedRerolls: true,
-  advancedFilters: true,
   crossDeviceSync: true,
+  gameLibrary: true,
 };
 
 // Dynamically import RevenueCat only when enabled
@@ -61,7 +60,7 @@ export const PremiumProvider = ({ children }) => {
    */
   useEffect(() => {
     if (!ENABLE_REVENUECAT || !purchaseService) {
-      console.log('[Premium] RevenueCat disabled - running in free tier mode');
+      // RevenueCat disabled - running in free tier mode
       return;
     }
 
@@ -83,7 +82,7 @@ export const PremiumProvider = ({ children }) => {
         // Load available packages
         await loadPackages();
       } catch (error) {
-        console.error('[Premium] Initialization error:', error);
+        // Initialization error - silent fail
       } finally {
         setIsLoading(false);
       }
@@ -104,7 +103,7 @@ export const PremiumProvider = ({ children }) => {
           await purchaseService.loginUser(user.uid);
           await refreshPremiumStatus();
         } catch (error) {
-          console.error('[Premium] Failed to sync user:', error);
+          // Failed to sync user - silent fail
         }
       } else {
         try {
@@ -113,7 +112,7 @@ export const PremiumProvider = ({ children }) => {
           setEntitlement(null);
           setCustomerInfo(null);
         } catch (error) {
-          console.error('[Premium] Failed to logout user:', error);
+          // Failed to logout user - silent fail
         }
       }
     };
@@ -128,7 +127,7 @@ export const PremiumProvider = ({ children }) => {
     if (!ENABLE_REVENUECAT || !purchaseService) return;
 
     const unsubscribe = purchaseService.addCustomerInfoListener((info) => {
-      console.log('[Premium] Customer info updated');
+      // Customer info updated
       setCustomerInfo(info);
 
       const premium = info.entitlements.active[purchaseService.ENTITLEMENTS.PREMIUM] !== undefined;
@@ -163,7 +162,7 @@ export const PremiumProvider = ({ children }) => {
       setCustomerInfo(status.customerInfo);
       return status.isPremium;
     } catch (error) {
-      console.error('[Premium] Failed to refresh status:', error);
+      // Failed to refresh status - silent fail
       return false;
     }
   }, []);
@@ -181,7 +180,7 @@ export const PremiumProvider = ({ children }) => {
       setPackages(availablePackages);
       return availablePackages;
     } catch (error) {
-      console.error('[Premium] Failed to load packages:', error);
+      // Failed to load packages - silent fail
       return [];
     }
   }, []);
@@ -211,14 +210,14 @@ export const PremiumProvider = ({ children }) => {
           );
         }
       } else if (result.cancelled) {
-        console.log('[Premium] Purchase cancelled by user');
+        // Purchase cancelled by user
       } else if (result.error) {
         Alert.alert('Purchase Failed', result.error.message, [{ text: 'OK' }]);
       }
 
       return result;
     } catch (error) {
-      console.error('[Premium] Purchase error:', error);
+      // Purchase error - will show alert to user
       Alert.alert('Error', 'Failed to complete purchase. Please try again.', [
         { text: 'OK' },
       ]);
@@ -266,7 +265,7 @@ export const PremiumProvider = ({ children }) => {
 
       return result;
     } catch (error) {
-      console.error('[Premium] Restore error:', error);
+      // Restore error - will show alert to user
       Alert.alert('Error', 'Failed to restore purchases. Please try again.', [
         { text: 'OK' },
       ]);
@@ -303,7 +302,7 @@ export const PremiumProvider = ({ children }) => {
         await Linking.openURL(fallbackUrl);
       }
     } catch (error) {
-      console.error('[Premium] Failed to open management URL:', error);
+      // Failed to open management URL - will show alert to user
       Alert.alert('Error', 'Could not open subscription management.', [
         { text: 'OK' },
       ]);

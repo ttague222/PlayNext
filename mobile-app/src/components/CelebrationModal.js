@@ -10,7 +10,7 @@ import React, { useEffect, useRef, useState } from 'react';
 import {
   View,
   Text,
-  TouchableOpacity,
+  Pressable,
   StyleSheet,
   Modal,
   Animated,
@@ -22,10 +22,12 @@ const CelebrationModal = ({ visible, game, onDismiss, onKeepBrowsing }) => {
   const fadeAnim = useRef(new Animated.Value(0)).current;
   const funFactAnim = useRef(new Animated.Value(0)).current;
   const buttonsAnim = useRef(new Animated.Value(0)).current;
+  const [isAnimatingOut, setIsAnimatingOut] = useState(false);
 
   useEffect(() => {
     if (visible) {
-      // Reset animations
+      // Reset animations and state
+      setIsAnimatingOut(false);
       scaleAnim.setValue(0);
       fadeAnim.setValue(0);
       funFactAnim.setValue(0);
@@ -72,6 +74,9 @@ const CelebrationModal = ({ visible, game, onDismiss, onKeepBrowsing }) => {
   }, [visible]);
 
   const animateOut = (callback) => {
+    if (isAnimatingOut) return; // Prevent double-tap
+    setIsAnimatingOut(true);
+
     Animated.parallel([
       Animated.timing(scaleAnim, {
         toValue: 0.9,
@@ -89,10 +94,12 @@ const CelebrationModal = ({ visible, game, onDismiss, onKeepBrowsing }) => {
   };
 
   const handleGoHome = () => {
+    if (isAnimatingOut) return;
     animateOut(onDismiss);
   };
 
   const handleKeepBrowsing = () => {
+    if (isAnimatingOut) return;
     animateOut(onKeepBrowsing);
   };
 
@@ -174,15 +181,19 @@ const CelebrationModal = ({ visible, game, onDismiss, onKeepBrowsing }) => {
                 }],
               },
             ]}
+            pointerEvents={isAnimatingOut ? 'none' : 'auto'}
           >
             {/* Primary: Keep Browsing */}
-            <TouchableOpacity
-              style={styles.keepBrowsingButton}
+            <Pressable
+              style={({ pressed }) => [
+                styles.keepBrowsingButton,
+                isAnimatingOut && styles.buttonDisabled,
+                pressed && !isAnimatingOut && styles.buttonPressed,
+              ]}
               onPress={handleKeepBrowsing}
-              activeOpacity={0.8}
             >
               <LinearGradient
-                colors={['#f857a6', '#ff5858']}
+                colors={isAnimatingOut ? ['#888', '#666'] : ['#f857a6', '#ff5858']}
                 start={{ x: 0, y: 0 }}
                 end={{ x: 1, y: 0 }}
                 style={styles.keepBrowsingGradient}
@@ -190,16 +201,19 @@ const CelebrationModal = ({ visible, game, onDismiss, onKeepBrowsing }) => {
                 <Text style={styles.keepBrowsingIcon}>🔍</Text>
                 <Text style={styles.keepBrowsingText}>Keep Browsing</Text>
               </LinearGradient>
-            </TouchableOpacity>
+            </Pressable>
 
             {/* Secondary: I'm Done */}
-            <TouchableOpacity
-              style={styles.doneButton}
+            <Pressable
+              style={({ pressed }) => [
+                styles.doneButton,
+                isAnimatingOut && styles.buttonDisabled,
+                pressed && !isAnimatingOut && styles.buttonPressed,
+              ]}
               onPress={handleGoHome}
-              activeOpacity={0.7}
             >
               <Text style={styles.doneText}>I'm all set</Text>
-            </TouchableOpacity>
+            </Pressable>
           </Animated.View>
         </Animated.View>
       </Animated.View>
@@ -343,6 +357,13 @@ const styles = StyleSheet.create({
     fontSize: 16,
     color: '#808090',
     fontWeight: '500',
+  },
+  buttonDisabled: {
+    opacity: 0.5,
+  },
+  buttonPressed: {
+    opacity: 0.8,
+    transform: [{ scale: 0.98 }],
   },
 });
 

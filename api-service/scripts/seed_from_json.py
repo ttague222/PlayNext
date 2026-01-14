@@ -119,6 +119,7 @@ def transform_game_data(game):
         "description_short": game.get("description", ""),
         "fun_fact": game.get("fun_fact"),
         "subscription_services": game.get("subscriptions", []),
+        "store_links": game.get("store_links", {}),
         "franchise": game.get("franchise"),
         "warnings": game.get("warnings", []),
         "explanation_templates": explanation_templates,

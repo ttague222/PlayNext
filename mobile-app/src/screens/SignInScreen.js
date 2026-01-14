@@ -1,9 +1,12 @@
 /**
  * PlayNxt Sign In Screen
  *
- * Optional sign-in for users who want to:
- * - Save their played games history across devices
- * - Get improved recommendations based on past preferences
+ * Optional sign-in for users who want to sync data across devices.
+ * Authentication types:
+ * - Anonymous (default) - data stays on device
+ * - Email/Password - sync across devices
+ * - Username/Password - sync across devices (alternative)
+ * - Google/Apple Sign-In (coming soon)
  *
  * Sign-in is completely optional - users can skip and use anonymously.
  */
@@ -26,36 +29,10 @@ import { useAuth } from '../context/AuthContext';
 const SignInScreen = () => {
   const navigation = useNavigation();
   const {
-    signInWithGoogle,
-    signInWithApple,
     signInAnonymousUser,
     authLoading,
-    isAppleSignInAvailable,
-    googleAuthReady,
   } = useAuth();
   const [error, setError] = useState(null);
-
-  const handleGoogleSignIn = async () => {
-    try {
-      setError(null);
-      await signInWithGoogle();
-      navigation.goBack();
-    } catch (err) {
-      setError('Failed to sign in with Google. Please try again.');
-    }
-  };
-
-  const handleAppleSignIn = async () => {
-    try {
-      setError(null);
-      const user = await signInWithApple();
-      if (user) {
-        navigation.goBack();
-      }
-    } catch (err) {
-      setError('Failed to sign in with Apple. Please try again.');
-    }
-  };
 
   const handleSkip = async () => {
     try {
@@ -82,9 +59,9 @@ const SignInScreen = () => {
           {/* Header */}
           <View style={styles.header}>
             <Text style={styles.logo}>Play<Text style={styles.logoAccent}>Nxt</Text></Text>
-            <Text style={styles.title}>Keep your data in sync</Text>
+            <Text style={styles.title}>Sync across devices</Text>
             <Text style={styles.subtitle}>
-              Sign in to access your history and preferences on any device
+              Create an account to access your data on any device
             </Text>
           </View>
 
@@ -92,15 +69,15 @@ const SignInScreen = () => {
           <View style={styles.benefits}>
             <View style={styles.benefitItem}>
               <Ionicons name="sync-circle" size={20} color="#4ade80" />
-              <Text style={styles.benefitText}>Sync your data across all devices</Text>
+              <Text style={styles.benefitText}>Access your data on phone, tablet, or new device</Text>
             </View>
             <View style={styles.benefitItem}>
-              <Ionicons name="time" size={20} color="#4ade80" />
-              <Text style={styles.benefitText}>Never lose your recommendation history</Text>
+              <Ionicons name="cloud-done" size={20} color="#4ade80" />
+              <Text style={styles.benefitText}>Your history and preferences are backed up</Text>
             </View>
             <View style={styles.benefitItem}>
-              <Ionicons name="sparkles" size={20} color="#4ade80" />
-              <Text style={styles.benefitText}>Smarter recommendations over time</Text>
+              <Ionicons name="shield-checkmark" size={20} color="#4ade80" />
+              <Text style={styles.benefitText}>Guest mode works great for single device use</Text>
             </View>
           </View>
 
@@ -114,39 +91,7 @@ const SignInScreen = () => {
 
           {/* Sign In Buttons */}
           <View style={styles.buttonsContainer}>
-            {/* Guest Account - Privacy-focused option */}
-            <TouchableOpacity
-              style={[styles.signInButton, styles.guestButton]}
-              onPress={handleSkip}
-              disabled={authLoading}
-            >
-              {authLoading ? (
-                <ActivityIndicator color="#ffffff" />
-              ) : (
-                <>
-                  <Ionicons name="shield-checkmark" size={22} color="#ffffff" />
-                  <Text style={styles.guestButtonText}>Continue as Guest</Text>
-                </>
-              )}
-            </TouchableOpacity>
-
-            {/* Google Sign In */}
-            <TouchableOpacity
-              style={[styles.signInButton, styles.googleButton]}
-              onPress={handleGoogleSignIn}
-              disabled={authLoading || !googleAuthReady}
-            >
-              {authLoading ? (
-                <ActivityIndicator color="#000000" />
-              ) : (
-                <>
-                  <Ionicons name="logo-google" size={22} color="#000000" />
-                  <Text style={styles.googleButtonText}>Continue with Google</Text>
-                </>
-              )}
-            </TouchableOpacity>
-
-            {/* Email Sign In */}
+            {/* Email Sign In - Primary option for sync */}
             <TouchableOpacity
               style={[styles.signInButton, styles.emailButton]}
               onPress={() => navigation.navigate('EmailSignIn')}
@@ -156,32 +101,35 @@ const SignInScreen = () => {
               <Text style={styles.emailButtonText}>Continue with Email</Text>
             </TouchableOpacity>
 
-            {/* Apple Sign In - iOS only */}
-            {/* TODO: Uncomment when Apple Developer account migration is complete
-            {isAppleSignInAvailable && (
-              <TouchableOpacity
-                style={[styles.signInButton, styles.appleButton]}
-                onPress={handleAppleSignIn}
-                disabled={authLoading}
-              >
-                {authLoading ? (
-                  <ActivityIndicator color="#ffffff" />
-                ) : (
-                  <>
-                    <Ionicons name="logo-apple" size={22} color="#ffffff" />
-                    <Text style={styles.appleButtonText}>Continue with Apple</Text>
-                  </>
-                )}
-              </TouchableOpacity>
-            )}
-            */}
+            {/* Divider */}
+            <View style={styles.divider}>
+              <View style={styles.dividerLine} />
+              <Text style={styles.dividerText}>or</Text>
+              <View style={styles.dividerLine} />
+            </View>
+
+            {/* Guest Account - Single device use */}
+            <TouchableOpacity
+              style={[styles.signInButton, styles.guestButton]}
+              onPress={handleSkip}
+              disabled={authLoading}
+            >
+              {authLoading ? (
+                <ActivityIndicator color="#ffffff" />
+              ) : (
+                <>
+                  <Ionicons name="phone-portrait-outline" size={22} color="#ffffff" />
+                  <Text style={styles.guestButtonText}>Use on this device only</Text>
+                </>
+              )}
+            </TouchableOpacity>
           </View>
 
           {/* Privacy Note for Guest */}
           <View style={styles.guestNote}>
-            <Ionicons name="information-circle-outline" size={16} color="#4ade80" />
+            <Ionicons name="information-circle-outline" size={16} color="#a0a0a0" />
             <Text style={styles.guestNoteText}>
-              Guest accounts collect no personal data. Your preferences stay on this device only.
+              Guest data stays on this device. Create an account anytime to enable sync.
             </Text>
           </View>
 
@@ -280,34 +228,34 @@ const styles = StyleSheet.create({
     borderRadius: 14,
     gap: 12,
   },
-  guestButton: {
-    backgroundColor: '#7c3aed',
-  },
-  guestButtonText: {
-    fontSize: 17,
-    fontWeight: '600',
-    color: '#ffffff',
-  },
-  googleButton: {
-    backgroundColor: '#ffffff',
-  },
-  googleButtonText: {
-    fontSize: 17,
-    fontWeight: '600',
-    color: '#000000',
-  },
   emailButton: {
-    backgroundColor: '#3b82f6',
+    backgroundColor: '#7c3aed',
   },
   emailButtonText: {
     fontSize: 17,
     fontWeight: '600',
     color: '#ffffff',
   },
-  appleButton: {
-    backgroundColor: '#000000',
+  divider: {
+    flexDirection: 'row',
+    alignItems: 'center',
+    gap: 12,
   },
-  appleButtonText: {
+  dividerLine: {
+    flex: 1,
+    height: 1,
+    backgroundColor: 'rgba(255, 255, 255, 0.15)',
+  },
+  dividerText: {
+    fontSize: 14,
+    color: '#606080',
+  },
+  guestButton: {
+    backgroundColor: 'rgba(255, 255, 255, 0.1)',
+    borderWidth: 1,
+    borderColor: 'rgba(255, 255, 255, 0.2)',
+  },
+  guestButtonText: {
     fontSize: 17,
     fontWeight: '600',
     color: '#ffffff',

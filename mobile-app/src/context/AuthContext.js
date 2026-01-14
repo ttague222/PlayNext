@@ -13,6 +13,8 @@ import {
   createUserWithEmailAndPassword,
   signInWithEmailAndPassword,
   sendPasswordResetEmail,
+  linkWithCredential,
+  EmailAuthProvider,
   GoogleAuthProvider,
   OAuthProvider,
   signOut as firebaseSignOut,
@@ -258,6 +260,40 @@ export const AuthProvider = ({ children }) => {
   };
 
   /**
+   * Link anonymous account to email/password
+   * This preserves all existing data while upgrading to a full account
+   */
+  const linkEmailToAnonymous = async (email, password) => {
+    if (!auth.currentUser) {
+      throw new Error('No user signed in');
+    }
+    if (!auth.currentUser.isAnonymous) {
+      throw new Error('Account is already linked');
+    }
+
+    try {
+      setAuthLoading(true);
+      setError(null);
+      const credential = EmailAuthProvider.credential(email, password);
+      const result = await linkWithCredential(auth.currentUser, credential);
+      // Update local user state
+      setUser({
+        uid: result.user.uid,
+        email: result.user.email,
+        displayName: result.user.displayName,
+        isAnonymous: result.user.isAnonymous,
+        photoURL: result.user.photoURL,
+      });
+      return result.user;
+    } catch (err) {
+      setError(err.message);
+      throw err;
+    } finally {
+      setAuthLoading(false);
+    }
+  };
+
+  /**
    * Generic sign in - opens sign in options
    * This is called by ProfileScreen
    */
@@ -309,6 +345,7 @@ export const AuthProvider = ({ children }) => {
     signUpWithEmail,
     signInWithEmail,
     resetPassword,
+    linkEmailToAnonymous,
     signIn,
     signOut,
     getIdToken,

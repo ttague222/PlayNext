@@ -54,13 +54,21 @@ const PlayScreen = () => {
   );
 
   const handleFeedbackSubmit = async (signalType) => {
-    await submitDelayedFeedback(signalType);
+    // Hide the modal immediately to prevent frozen screen
     setShowFeedbackPrompt(false);
+    // Then submit feedback in background (don't block UI)
+    submitDelayedFeedback(signalType).catch((err) => {
+      console.error('Failed to submit delayed feedback:', err);
+    });
   };
 
   const handleFeedbackDismiss = async () => {
-    await dismissPendingFeedback();
+    // Hide the modal immediately to prevent frozen screen
     setShowFeedbackPrompt(false);
+    // Then dismiss in background (don't block UI)
+    dismissPendingFeedback().catch((err) => {
+      console.error('Failed to dismiss pending feedback:', err);
+    });
   };
 
   useEffect(() => {

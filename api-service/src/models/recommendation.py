@@ -9,7 +9,7 @@ from enum import Enum
 from typing import Optional
 from pydantic import BaseModel, Field
 
-from .game import Platform, PlayStyle, MultiplayerMode, TimeToFun, StopFriendliness
+from .game import Platform, PlayStyle, MultiplayerMode, TimeToFun, StopFriendliness, StoreLinks
 
 
 class EnergyMood(str, Enum):
@@ -106,6 +106,7 @@ class GameRecommendation(BaseModel):
     time_to_fun: TimeToFun
     stop_friendliness: StopFriendliness
     subscription_services: list[str] = Field(default_factory=list)
+    store_links: Optional[StoreLinks] = Field(default=None, description="Links to purchase the game")
     fun_fact: Optional[str] = Field(default=None, description="Interesting trivia about the game")
     match_score: float = Field(
         ...,

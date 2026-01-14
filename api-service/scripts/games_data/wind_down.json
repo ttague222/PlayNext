@@ -39,7 +39,14 @@
     "fun_fact": "Creator Eric Barone spent 4 years developing this entire game by himself, including all art, music, and code!",
     "subscriptions": [
       "xbox_game_pass"
-    ]
+    ],
+    "store_links": {
+      "steam": "https://store.steampowered.com/app/413150/Stardew_Valley/",
+      "playstation": "https://store.playstation.com/en-us/product/UP2456-CUSA06840_00-YOUREWELCOME0000",
+      "xbox": "https://www.xbox.com/en-US/games/store/stardew-valley/C3D891Z6TNQM",
+      "nintendo": "https://www.nintendo.com/us/store/products/stardew-valley-switch/",
+      "gog": "https://www.gog.com/en/game/stardew_valley"
+    }
   },
   {
     "id": "animal-crossing-nh",
@@ -77,7 +84,10 @@
       "online_coop"
     ],
     "description": "Create your paradise on a deserted island.",
-    "fun_fact": "The game sold 13.4 million copies in its first 6 weeks, breaking the record for most digital sales!"
+    "fun_fact": "The game sold 13.4 million copies in its first 6 weeks, breaking the record for most digital sales!",
+    "store_links": {
+      "nintendo": "https://www.nintendo.com/games/detail/animal-crossing-new-horizons-switch/"
+    }
   },
   {
     "id": "unpacking",
@@ -119,7 +129,14 @@
     "subscriptions": [
       "xbox_game_pass"
     ],
-    "franchise": "unpacking"
+    "franchise": "unpacking",
+    "store_links": {
+      "steam": "https://store.steampowered.com/app/1135690/Unpacking/",
+      "playstation": "https://store.playstation.com/en-us/product/UP3864-PPSA07101_00-YOUREWELCOME0000",
+      "xbox": "https://www.xbox.com/en-US/games/store/unpacking/9PGKDKWHMQVV",
+      "nintendo": "https://www.nintendo.com/us/store/products/unpacking-switch/",
+      "gog": "https://www.gog.com/en/game/unpacking"
+    }
   },
   {
     "id": "a-short-hike",
@@ -157,7 +174,12 @@
       "solo"
     ],
     "description": "Hike up a mountain at your own pace in this charming little adventure.",
-    "fun_fact": "This cozy game was made in just 1 month as part of a game jam and later expanded into a full release!"
+    "fun_fact": "This cozy game was made in just 1 month as part of a game jam and later expanded into a full release!",
+    "store_links": {
+      "steam": "https://store.steampowered.com/app/1055540/A_Short_Hike/",
+      "nintendo": "https://www.nintendo.com/us/store/products/a-short-hike-switch/",
+      "epic": "https://store.epicgames.com/en-US/p/a-short-hike"
+    }
   },
   {
     "id": "coffee-talk",
@@ -198,7 +220,14 @@
     "subscriptions": [
       "xbox_game_pass"
     ],
-    "franchise": "coffee_talk"
+    "franchise": "coffee_talk",
+    "store_links": {
+      "steam": "https://store.steampowered.com/app/914800/Coffee_Talk/",
+      "playstation": "https://store.playstation.com/en-us/product/UP4127-CUSA17498_00-YOUREWELCOME0000",
+      "xbox": "https://www.xbox.com/en-US/games/store/coffee-talk/9PHCRFQ1F5M6",
+      "nintendo": "https://www.nintendo.com/us/store/products/coffee-talk-switch/",
+      "gog": "https://www.gog.com/en/game/coffee_talk"
+    }
   },
   {
     "id": "spiritfarer",
@@ -244,7 +273,14 @@
     ],
     "warnings": [
       "themes_of_death"
-    ]
+    ],
+    "store_links": {
+      "gog": "http://www.gog.com/game/spiritfarer",
+      "playstation": "https://store.playstation.com/en-us/product/UP2388-CUSA20182_00-0000000000000000",
+      "nintendo": "https://www.nintendo.com/games/detail/spiritfarer-switch/",
+      "xbox": "https://www.microsoft.com/en-us/p/spiritfarer/9ng5l58fd3x5?cid=msft_web_chart",
+      "steam": "https://store.steampowered.com/app/972660/Spiritfarer/?curator_clanid=32943393"
+    }
   },
   {
     "id": "powerwash-simulator",
@@ -283,7 +319,10 @@
     "fun_fact": "The game features over 40 vehicles and locations to clean with surprisingly accurate water physics!",
     "subscriptions": [
       "xbox_game_pass"
-    ]
+    ],
+    "store_links": {
+      "steam": "https://store.steampowered.com/app/1290000/"
+    }
   },
   {
     "id": "dorfromantik",
@@ -319,7 +358,12 @@
       "solo"
     ],
     "description": "Build a beautiful landscape by placing tiles in this relaxing puzzle game.",
-    "fun_fact": "The word 'Dorfromantik' is German and roughly translates to 'village romanticism' - a longing for rural life."
+    "fun_fact": "The word 'Dorfromantik' is German and roughly translates to 'village romanticism' - a longing for rural life.",
+    "store_links": {
+      "nintendo": "https://www.nintendo.com/store/products/dorfromantik-switch/",
+      "gog": "https://www.gog.com/game/dorfromantik",
+      "steam": "https://store.steampowered.com/app/1455840/"
+    }
   },
   {
     "id": "lego-builders-journey",
@@ -355,7 +399,11 @@
       "solo"
     ],
     "description": "A poetic puzzle experience with beautiful LEGO brick-building.",
-    "fun_fact": "This was the first LEGO game developed in collaboration with LEGO's own in-house design team."
+    "fun_fact": "This was the first LEGO game developed in collaboration with LEGO's own in-house design team.",
+    "store_links": {
+      "epic": "https://store.epicgames.com/ru/p/lego-builders-journey",
+      "steam": "https://store.steampowered.com/app/1544360/LEGO_Builders_Journey/"
+    }
   },
   {
     "id": "islanders",
@@ -390,7 +438,13 @@
       "solo"
     ],
     "description": "A minimalist city-builder about creating beautiful islands.",
-    "fun_fact": "The entire game was created by a team of just 4 people in Germany!"
+    "fun_fact": "The entire game was created by a team of just 4 people in Germany!",
+    "store_links": {
+      "gog": "https://www.gog.com/fr/game/islanders",
+      "steam": "https://store.steampowered.com/app/1046030/",
+      "nintendo": "https://www.nintendo.com/games/detail/islanders-switch/",
+      "xbox": "https://www.microsoft.com/en-us/p/islanders/9n2jv3xw889s?cid=msft_web_chart"
+    }
   },
   {
     "id": "gardens-between",
@@ -428,7 +482,13 @@
       "solo"
     ],
     "description": "Manipulate time to solve puzzles and explore a friendship.",
-    "fun_fact": "The game has no dialogue or text - the entire story is told through visuals and environmental storytelling."
+    "fun_fact": "The game has no dialogue or text - the entire story is told through visuals and environmental storytelling.",
+    "store_links": {
+      "nintendo": "https://www.nintendo.com/games/detail/the-gardens-between-switch",
+      "steam": "http://store.steampowered.com/app/600990/",
+      "xbox": "https://www.microsoft.com/en-us/p/the-gardens-between/9p4z4tw66lpv?cid=msft_web_chart",
+      "playstation": "https://store.playstation.com/en-us/product/UP4266-CUSA10848_00-GARDENSBETWEEN00"
+    }
   },
   {
     "id": "gris",
@@ -468,7 +528,13 @@
     "fun_fact": "The stunning watercolor art style was hand-painted by artist Conrad Roset, with each frame carefully crafted.",
     "warnings": [
       "themes_of_grief"
-    ]
+    ],
+    "store_links": {
+      "playstation": "https://store.playstation.com/en-us/product/UP3643-CUSA16694_00-GRISPS4SIEA00000",
+      "steam": "https://store.steampowered.com/app/683320/",
+      "nintendo": "https://www.nintendo.com/games/detail/gris-switch",
+      "gog": "http://www.gog.com/game/gris"
+    }
   },
   {
     "id": "mini-metro",
@@ -506,7 +572,13 @@
     "fun_fact": "The game was inspired by Harry Beck's iconic 1931 London Underground map design.",
     "subscriptions": [
       "apple_arcade"
-    ]
+    ],
+    "store_links": {
+      "playstation": "https://store.playstation.com/en-us/product/UP0551-CUSA14863_00-MINIMETRO00001NA",
+      "steam": "http://store.steampowered.com/app/287980/",
+      "gog": "http://www.gog.com/game/mini_metro",
+      "nintendo": "https://www.nintendo.com/games/detail/mini-metro-switch"
+    }
   },
   {
     "id": "abzu",
@@ -542,7 +614,15 @@
       "solo"
     ],
     "description": "Dive into a beautiful underwater world full of mystery and wonder.",
-    "fun_fact": "The game's title comes from ancient Sumerian mythology - 'Abzu' refers to the primordial sea."
+    "fun_fact": "The game's title comes from ancient Sumerian mythology - 'Abzu' refers to the primordial sea.",
+    "store_links": {
+      "playstation": "https://store.playstation.com/en-us/product/UP4040-CUSA03349_00-ABZUGAME00000000",
+      "epic": "https://www.epicgames.com/store/ru/product/abzu/home",
+      "xbox": "https://www.microsoft.com/en-us/p/abzu/bq2307m831zg?cid=msft_web_chart",
+      "steam": "http://store.steampowered.com/app/384190/",
+      "gog": "http://www.gog.com/game/abzu",
+      "nintendo": "https://www.nintendo.com/games/detail/abzu-switch"
+    }
   },
   {
     "id": "tetris-effect",
@@ -582,7 +662,11 @@
     "fun_fact": "Tetris was invented in 1984 by Soviet software engineer Alexey Pajitnov while working at the Soviet Academy of Sciences.",
     "subscriptions": [
       "xbox_game_pass"
-    ]
+    ],
+    "store_links": {
+      "xbox": "https://www.microsoft.com/en-us/p/tetris-effect-connected/9ppbvk3tk83m?cid=msft_web_chart",
+      "steam": "https://store.steampowered.com/app/1003590/"
+    }
   },
   {
     "id": "journey",
@@ -618,7 +702,12 @@
       "online_coop"
     ],
     "description": "Travel through a mysterious desert towards a distant mountain.",
-    "fun_fact": "Players can only communicate through musical chirps, yet deep emotional bonds form between strangers."
+    "fun_fact": "Players can only communicate through musical chirps, yet deep emotional bonds form between strangers.",
+    "store_links": {
+      "steam": "https://store.steampowered.com/app/638230/",
+      "playstation": "https://store.playstation.com/en-us/product/UP9000-CUSA00694_00-JOURNEYPS4061115",
+      "epic": "https://www.epicgames.com/store/en-US/product/journey/home?lang=en-US"
+    }
   },
   {
     "id": "flower",
@@ -653,7 +742,13 @@
       "solo"
     ],
     "description": "Guide flower petals through the wind in this serene experience.",
-    "fun_fact": "The game was designed specifically as an emotional experience, not a traditional game."
+    "fun_fact": "The game was designed specifically as an emotional experience, not a traditional game.",
+    "store_links": {
+      "playstation": "https://store.playstation.com/en-us/product/UP9000-NPUA80083_00-FLOWERPS3PRIVATE",
+      "steam": "https://store.steampowered.com/app/966330/",
+      "gog": "http://www.gog.com/game/flower",
+      "epic": "https://www.epicgames.com/store/en-US/product/flower/home?lang=en-US"
+    }
   },
   {
     "id": "ori-blind-forest",
@@ -695,7 +790,10 @@
     "subscriptions": [
       "xbox_game_pass"
     ],
-    "franchise": "ori"
+    "franchise": "ori",
+    "store_links": {
+      "steam": "http://store.steampowered.com/app/261570/"
+    }
   },
   {
     "id": "ori-will-of-wisps",
@@ -737,7 +835,12 @@
     "subscriptions": [
       "xbox_game_pass"
     ],
-    "franchise": "ori"
+    "franchise": "ori",
+    "store_links": {
+      "xbox": "https://www.microsoft.com/en-us/p/ori-and-the-will-of-the-wisps/9n8cd0xzklp4?cid=msft_web_chart",
+      "nintendo": "https://www.nintendo.com/games/detail/ori-and-the-will-of-the-wisps-switch/",
+      "steam": "https://store.steampowered.com/app/1057090/ori_and_the_will_of_the_wisps/"
+    }
   },
   {
     "id": "firewatch",
@@ -774,7 +877,14 @@
       "solo"
     ],
     "description": "A mystery set in the Wyoming wilderness, told through radio conversations.",
-    "fun_fact": "The entire game takes place in a single summer and can be completed in one sitting."
+    "fun_fact": "The entire game takes place in a single summer and can be completed in one sitting.",
+    "store_links": {
+      "playstation": "https://store.playstation.com/en-us/product/UP0146-CUSA04107_00-FIREWATCH0000000",
+      "xbox": "https://www.microsoft.com/en-us/store/p/firewatch/bqqkg9h2stc0?cid=msft_web_chart",
+      "steam": "http://store.steampowered.com/app/383870/",
+      "gog": "http://www.gog.com/game/firewatch",
+      "nintendo": "https://www.nintendo.com/games/detail/firewatch-switch"
+    }
   },
   {
     "id": "what-remains-edith-finch",
@@ -814,7 +924,15 @@
     "fun_fact": "Each family member's story uses a completely different gameplay mechanic.",
     "subscriptions": [
       "xbox_game_pass"
-    ]
+    ],
+    "store_links": {
+      "nintendo": "https://www.nintendo.com/games/detail/what-remains-of-edith-finch-switch/",
+      "playstation": "https://store.playstation.com/en-us/product/UP2470-CUSA06886_00-EFINCHPS4GAME001",
+      "steam": "http://store.steampowered.com/app/501300/",
+      "gog": "http://www.gog.com/game/what_remains_of_edith_finch",
+      "xbox": "https://www.microsoft.com/en-us/store/p/what-remains-of-edith-finch/bslglg8p9t01?cid=msft_web_chart",
+      "epic": "https://www.epicgames.com/store/en-US/product/what-remains-of-edith-finch/home?lang=en-US"
+    }
   },
   {
     "id": "gone-home",
@@ -851,7 +969,13 @@
       "solo"
     ],
     "description": "Return home to an empty house and uncover your family's secrets.",
-    "fun_fact": "The game is set in 1995 and features authentic details from that era, including cassette tapes."
+    "fun_fact": "The game is set in 1995 and features authentic details from that era, including cassette tapes.",
+    "store_links": {
+      "epic": "https://www.epicgames.com/store/ru/product/gone-home/home",
+      "steam": "http://store.steampowered.com/app/232430/",
+      "gog": "http://www.gog.com/game/gone_home",
+      "nintendo": "https://www.nintendo.com/games/detail/gone-home-switch"
+    }
   },
   {
     "id": "dear-esther",
@@ -886,7 +1010,10 @@
       "solo"
     ],
     "description": "Wander a desolate Hebridean island, piecing together a tragic story.",
-    "fun_fact": "Originally a free Half-Life 2 mod, it helped pioneer the 'walking simulator' genre."
+    "fun_fact": "Originally a free Half-Life 2 mod, it helped pioneer the 'walking simulator' genre.",
+    "store_links": {
+      "steam": "http://store.steampowered.com/app/203810/"
+    }
   },
   {
     "id": "everybody-gone-to-rapture",
@@ -922,7 +1049,11 @@
       "solo"
     ],
     "description": "Explore an English village where everyone has vanished.",
-    "fun_fact": "The game features an original orchestral score recorded at Abbey Road Studios."
+    "fun_fact": "The game features an original orchestral score recorded at Abbey Road Studios.",
+    "store_links": {
+      "playstation": "https://store.playstation.com/en-us/product/UP9000-CUSA02405_00-RAPTURE000000001",
+      "steam": "http://store.steampowered.com/app/417880/"
+    }
   },
   {
     "id": "return-obra-dinn",
@@ -962,7 +1093,14 @@
     "fun_fact": "Creator Lucas Pope spent 5 years developing this game entirely by himself.",
     "subscriptions": [
       "xbox_game_pass"
-    ]
+    ],
+    "store_links": {
+      "nintendo": "https://www.nintendo.co.uk/Games/Nintendo-Switch-download-software/Return-of-the-Obra-Dinn-1633060.html",
+      "playstation": "https://store.playstation.com/en-us/product/UP2879-CUSA16867_00-ROTODBASEGAME001",
+      "xbox": "https://www.microsoft.com/en-us/p/return-of-the-obra-dinn/9n185ql77d27?cid=msft_web_chart",
+      "gog": "http://www.gog.com/game/return_of_the_obra_dinn",
+      "steam": "https://store.steampowered.com/app/653530/"
+    }
   },
   {
     "id": "outer-wilds",
@@ -1002,7 +1140,14 @@
     "fun_fact": "The game's 22-minute time loop is exactly synced to the sun's supernova cycle.",
     "subscriptions": [
       "xbox_game_pass"
-    ]
+    ],
+    "store_links": {
+      "epic": "https://www.epicgames.com/store/ru/product/outerwilds/home",
+      "playstation": "https://store.playstation.com/en-us/product/UP2470-CUSA09929_00-OUTERWILDSSIEA00",
+      "nintendo": "https://www.nintendo.com/games/detail/outer-wilds-switch/",
+      "steam": "https://store.steampowered.com/app/753640/",
+      "xbox": "https://www.microsoft.com/en-us/p/outer-wilds/c596fkdkmqn7?cid=msft_web_chart"
+    }
   },
   {
     "id": "witness",
@@ -1038,7 +1183,14 @@
       "solo"
     ],
     "description": "Explore a beautiful island filled with line puzzles that teach you their rules.",
-    "fun_fact": "There are over 650 puzzles in the game, and creator Jonathan Blow spent 8 years designing them."
+    "fun_fact": "There are over 650 puzzles in the game, and creator Jonathan Blow spent 8 years designing them.",
+    "store_links": {
+      "playstation": "https://store.playstation.com/en-us/product/UP2124-CUSA00498_00-THEWITNESSPS4PS4",
+      "steam": "http://store.steampowered.com/app/210970/",
+      "gog": "http://www.gog.com/game/the_witness",
+      "xbox": "https://www.microsoft.com/en-us/p/the-witness/bx1wpt5rjsb2?cid=msft_web_chart",
+      "epic": "https://www.epicgames.com/store/en-US/product/the-witness/home"
+    }
   },
   {
     "id": "baba-is-you",
@@ -1073,7 +1225,11 @@
       "solo"
     ],
     "description": "Push words around to change the rules of each puzzle.",
-    "fun_fact": "The game was originally created for a game jam in just 48 hours!"
+    "fun_fact": "The game was originally created for a game jam in just 48 hours!",
+    "store_links": {
+      "steam": "http://store.steampowered.com/app/736260/",
+      "nintendo": "https://www.nintendo.com/games/detail/baba-is-you-switch"
+    }
   },
   {
     "id": "monument-valley",
@@ -1111,7 +1267,11 @@
     "franchise": "monument_valley",
     "subscriptions": [
       "apple_arcade"
-    ]
+    ],
+    "store_links": {
+      "epic": "https://store.epicgames.com/ru/p/monument-valley-1d99d3",
+      "steam": "https://store.steampowered.com/app/1927720/"
+    }
   },
   {
     "id": "monument-valley-2",
@@ -1149,7 +1309,11 @@
     "franchise": "monument_valley",
     "subscriptions": [
       "apple_arcade"
-    ]
+    ],
+    "store_links": {
+      "epic": "https://store.epicgames.com/ru/p/monument-valley-2-addd02",
+      "steam": "https://store.steampowered.com/app/1927740/"
+    }
   },
   {
     "id": "alto-adventure",
@@ -1188,7 +1352,10 @@
     "franchise": "alto",
     "subscriptions": [
       "apple_arcade"
-    ]
+    ],
+    "store_links": {
+      "xbox": "https://www.microsoft.com/en-us/p/altos-adventure/9nblggh4p0pf"
+    }
   },
   {
     "id": "alto-odyssey",
@@ -1262,7 +1429,10 @@
       "solo"
     ],
     "description": "Shape trees to reach the light in this meditative puzzle game.",
-    "fun_fact": "The game was designed as a meditation on growth and the beauty of nature."
+    "fun_fact": "The game was designed as a meditation on growth and the beauty of nature.",
+    "store_links": {
+      "steam": "https://store.steampowered.com/app/3903490/"
+    }
   },
   {
     "id": "hidden-folks",
@@ -1298,7 +1468,12 @@
       "solo"
     ],
     "description": "Find hidden characters in hand-drawn landscapes full of interactive details.",
-    "fun_fact": "All sound effects were made with the developer's mouth - no instruments or synthesizers!"
+    "fun_fact": "All sound effects were made with the developer's mouth - no instruments or synthesizers!",
+    "store_links": {
+      "gog": "https://www.gog.com/fr/game/hidden_folks",
+      "nintendo": "https://www.nintendo.com/games/detail/hidden-folks-switch",
+      "steam": "http://store.steampowered.com/app/435400/"
+    }
   },
   {
     "id": "gorogoa",
@@ -1334,7 +1509,15 @@
       "solo"
     ],
     "description": "Manipulate illustrated panels to solve puzzles in this hand-drawn masterpiece.",
-    "fun_fact": "The game took over 7 years to create, with all art hand-drawn by a single artist."
+    "fun_fact": "The game took over 7 years to create, with all art hand-drawn by a single artist.",
+    "store_links": {
+      "steam": "http://store.steampowered.com/app/557600/",
+      "gog": "http://www.gog.com/game/gorogoa",
+      "nintendo": "https://www.nintendo.com/games/detail/gorogoa-switch",
+      "playstation": "https://store.playstation.com/en-us/product/UP2470-CUSA11634_00-GOROGOASIEA00000",
+      "xbox": "https://www.microsoft.com/en-us/store/p/gorogoa/c41m2f4nwb2s?cid=msft_web_chart",
+      "epic": "https://www.epicgames.com/store/en-US/product/gorogoa/home?lang=en-US"
+    }
   },
   {
     "id": "donut-county",
@@ -1370,7 +1553,15 @@
       "solo"
     ],
     "description": "Control a growing hole that swallows up an entire town.",
-    "fun_fact": "The game was made by a single developer over 6 years and started as a Twitter joke."
+    "fun_fact": "The game was made by a single developer over 6 years and started as a Twitter joke.",
+    "store_links": {
+      "playstation": "https://store.playstation.com/en-us/product/UP2470-CUSA10062_00-DONUTSIEA0000000",
+      "steam": "http://store.steampowered.com/app/702670/",
+      "gog": "http://www.gog.com/game/donut_county",
+      "nintendo": "https://www.nintendo.com/games/detail/donut-county-switch",
+      "xbox": "https://www.microsoft.com/en-us/p/donut-county/9n6v2181ghlm?cid=msft_web_chart",
+      "epic": "https://www.epicgames.com/store/en-US/product/donut-county/home?lang=en-US"
+    }
   },
   {
     "id": "untitled-goose-game",
@@ -1408,7 +1599,14 @@
       "local_coop"
     ],
     "description": "Be a horrible goose and ruin everyone's day in a quaint English village.",
-    "fun_fact": "The game started as a joke about a stock photo of a goose and became a viral sensation."
+    "fun_fact": "The game started as a joke about a stock photo of a goose and became a viral sensation.",
+    "store_links": {
+      "playstation": "https://store.playstation.com/en-us/product/UP3971-CUSA23079_00-HONKHONKHONKHONK",
+      "xbox": "https://www.microsoft.com/en-us/p/untitled-goose-game/9mvtctdthh23?cid=msft_web_chart",
+      "nintendo": "https://www.nintendo.com/games/detail/untitled-goose-game-switch",
+      "steam": "https://store.steampowered.com/app/837470/",
+      "epic": "https://www.epicgames.com/store/en-US/product/untitled-goose-game/"
+    }
   },
   {
     "id": "slime-rancher",
@@ -1448,7 +1646,14 @@
     "subscriptions": [
       "xbox_game_pass"
     ],
-    "franchise": "slime_rancher"
+    "franchise": "slime_rancher",
+    "store_links": {
+      "playstation": "https://store.playstation.com/en-us/product/UP2293-CUSA11587_00-SLIMERANCHER0001",
+      "steam": "http://store.steampowered.com/app/433340/",
+      "gog": "http://www.gog.com/game/slime_rancher",
+      "xbox": "https://www.microsoft.com/en-us/store/p/slime-rancher/c2nc88m7nwz1?cid=msft_web_chart",
+      "epic": "https://www.epicgames.com/store/en-US/product/slime-rancher/home"
+    }
   },
   {
     "id": "slime-rancher-2",
@@ -1488,7 +1693,11 @@
     "subscriptions": [
       "xbox_game_pass"
     ],
-    "franchise": "slime_rancher"
+    "franchise": "slime_rancher",
+    "store_links": {
+      "steam": "https://store.steampowered.com/app/1657630/Slime_Rancher_2/",
+      "epic": "https://www.epicgames.com/store/en-US/p/slime-rancher-2"
+    }
   },
   {
     "id": "house-flipper",
@@ -1523,7 +1732,14 @@
       "solo"
     ],
     "description": "Buy, renovate, and sell houses in this satisfying simulation.",
-    "fun_fact": "The game was made by a small Polish studio and became one of Steam's top sellers."
+    "fun_fact": "The game was made by a small Polish studio and became one of Steam's top sellers.",
+    "store_links": {
+      "playstation": "https://store.playstation.com/en-us/product/UP5167-CUSA23090_00-HOUSEFLIPPER00US",
+      "xbox": "https://www.microsoft.com/en-us/p/house-flipper/9nbfgkqlmv33?cid=msft_web_chart",
+      "nintendo": "https://www.nintendo.com/games/detail/house-flipper-switch/",
+      "steam": "http://store.steampowered.com/app/613100/",
+      "gog": "http://www.gog.com/game/house_flipper"
+    }
   },
   {
     "id": "garden-story",
@@ -1561,7 +1777,12 @@
       "solo"
     ],
     "description": "Play as a grape rebuilding your community one garden at a time.",
-    "fun_fact": "The game was funded through Kickstarter with overwhelming support from the cozy gaming community."
+    "fun_fact": "The game was funded through Kickstarter with overwhelming support from the cozy gaming community.",
+    "store_links": {
+      "epic": "https://store.epicgames.com/ru/p/garden-story",
+      "nintendo": "https://www.nintendo.com/games/detail/garden-story-switch/",
+      "steam": "https://store.steampowered.com/app/1062140/"
+    }
   },
   {
     "id": "littlewood",
@@ -1598,7 +1819,11 @@
       "solo"
     ],
     "description": "Rebuild your town after saving the world, with no memory of how you did it.",
-    "fun_fact": "The game was made entirely by one developer who learned to code specifically to make this game."
+    "fun_fact": "The game was made entirely by one developer who learned to code specifically to make this game.",
+    "store_links": {
+      "gog": "http://www.gog.com/game/littlewood",
+      "steam": "https://store.steampowered.com/app/894940/"
+    }
   },
   {
     "id": "my-time-at-portia",
@@ -1637,7 +1862,15 @@
     ],
     "description": "Run your own workshop in a charming post-apocalyptic world.",
     "fun_fact": "The game is set in a post-apocalyptic world where society has rebuilt into a cozy civilization.",
-    "franchise": "my_time"
+    "franchise": "my_time",
+    "store_links": {
+      "playstation": "https://store.playstation.com/en-us/product/UP4064-CUSA10924_00-MYTIMEATPORTIA00",
+      "steam": "http://store.steampowered.com/app/666140/",
+      "gog": "http://www.gog.com/game/my_time_at_portia",
+      "epic": "https://www.epicgames.com/store/en-US/product/my-time-at-portia/home?lang=en-US",
+      "nintendo": "https://www.nintendo.com/games/detail/my-time-at-portia-switch",
+      "xbox": "https://www.microsoft.com/en-us/p/my-time-at-portia/bx1fzx1x4132?cid=msft_web_chart"
+    }
   },
   {
     "id": "my-time-at-sandrock",
@@ -1676,7 +1909,15 @@
     ],
     "description": "Build your workshop in a desert oasis community.",
     "fun_fact": "The sequel adds multiplayer so you can build your workshop with friends!",
-    "franchise": "my_time"
+    "franchise": "my_time",
+    "store_links": {
+      "playstation": "https://store.playstation.com/en-us/product/UP2011-PPSA14717_00-0297864284132060",
+      "xbox": "https://www.microsoft.com/en-ai/p/my-time-at-sandrock/9n15rztxdnpg",
+      "nintendo": "https://www.nintendo.com/us/store/products/my-time-at-sandrock-switch/",
+      "epic": "https://store.epicgames.com/en-US/p/my-time-at-sandrock",
+      "gog": "https://www.gog.com/game/my_time_at_sandrock",
+      "steam": "https://store.steampowered.com/app/1084600/"
+    }
   },
   {
     "id": "ooblets",
@@ -1713,7 +1954,12 @@
       "solo"
     ],
     "description": "Farm, befriend ooblets, and compete in dance battles.",
-    "fun_fact": "Instead of fighting, all conflicts in this game are resolved through dance battles!"
+    "fun_fact": "Instead of fighting, all conflicts in this game are resolved through dance battles!",
+    "store_links": {
+      "nintendo": "https://www.nintendo.com/store/products/ooblets-switch/",
+      "epic": "https://www.epicgames.com/store/en-US/product/ooblets/home",
+      "steam": "http://store.steampowered.com/app/593150/"
+    }
   },
   {
     "id": "wylde-flowers",
@@ -1751,7 +1997,10 @@
       "solo"
     ],
     "description": "Farm by day, practice witchcraft by night in this magical life sim.",
-    "fun_fact": "The game features fully voice-acted characters with over 30 hours of dialogue."
+    "fun_fact": "The game features fully voice-acted characters with over 30 hours of dialogue.",
+    "store_links": {
+      "steam": "https://store.steampowered.com/app/1896700/"
+    }
   },
   {
     "id": "coral-island",
@@ -1788,7 +2037,10 @@
       "local_coop"
     ],
     "description": "Farm and dive in a tropical paradise while restoring coral reefs.",
-    "fun_fact": "The game was developed in Indonesia and features Southeast Asian-inspired aesthetics."
+    "fun_fact": "The game was developed in Indonesia and features Southeast Asian-inspired aesthetics.",
+    "store_links": {
+      "steam": "https://store.steampowered.com/app/1158160/Coral_Island/"
+    }
   },
   {
     "id": "sun-haven",
@@ -1825,7 +2077,10 @@
       "online_coop"
     ],
     "description": "Farm in a fantasy world with magic, monsters, and dragons.",
-    "fun_fact": "The game features 8 playable races including elves, demons, and elementals."
+    "fun_fact": "The game features 8 playable races including elves, demons, and elementals.",
+    "store_links": {
+      "steam": "https://store.steampowered.com/app/1432860/"
+    }
   },
   {
     "id": "cattails",
@@ -1862,7 +2117,10 @@
       "solo"
     ],
     "description": "Live as a cat in the wild, hunting, exploring, and raising kittens.",
-    "fun_fact": "The game was inspired by the Warriors book series about wild cat clans."
+    "fun_fact": "The game was inspired by the Warriors book series about wild cat clans.",
+    "store_links": {
+      "nintendo": "https://www.nintendo.com/games/detail/cattails-switch"
+    }
   },
   {
     "id": "calico",
@@ -1899,7 +2157,12 @@
       "solo"
     ],
     "description": "Run a cat cafe in a magical world where you can ride giant cats.",
-    "fun_fact": "The game features rideable giant cats, including cats you can make enormous with potions!"
+    "fun_fact": "The game features rideable giant cats, including cats you can make enormous with potions!",
+    "store_links": {
+      "steam": "https://store.steampowered.com/app/1112890/",
+      "xbox": "https://www.microsoft.com/en-us/p/calico/9n7nh6dcl5lz?cid=msft_web_chart",
+      "gog": "https://www.gog.com/game/calico"
+    }
   },
   {
     "id": "bear-and-breakfast",
@@ -1935,7 +2198,13 @@
       "solo"
     ],
     "description": "Build and run a bed and breakfast as an adorable bear.",
-    "fun_fact": "The game was made by a tiny Romanian studio called Gummy Cat."
+    "fun_fact": "The game was made by a tiny Romanian studio called Gummy Cat.",
+    "store_links": {
+      "epic": "https://store.epicgames.com/ru/p/bear-and-breakfast-77c209",
+      "nintendo": "https://www.nintendo.com/games/detail/bear-and-breakfast-switch/",
+      "steam": "https://store.steampowered.com/app/1136370/Bear_and_Breakfast/",
+      "gog": "https://www.gog.com/fr/game/bear_and_breakfast"
+    }
   },
   {
     "id": "lemon-cake",
@@ -1971,7 +2240,10 @@
       "solo"
     ],
     "description": "Restore an old bakery and serve delicious treats to forest creatures.",
-    "fun_fact": "The game features a ghost cat named Mango who helps you run your bakery."
+    "fun_fact": "The game features a ghost cat named Mango who helps you run your bakery.",
+    "store_links": {
+      "steam": "https://store.steampowered.com/app/1338330/"
+    }
   },
   {
     "id": "snacko",
@@ -2006,7 +2278,11 @@
       "solo"
     ],
     "description": "Play as cats building a farm and community on a mysterious island.",
-    "fun_fact": "All characters in the game are adorable cats with distinct personalities."
+    "fun_fact": "All characters in the game are adorable cats with distinct personalities.",
+    "store_links": {
+      "steam": "https://store.steampowered.com/app/1125510/",
+      "gog": "https://www.gog.com/fr/game/snacko"
+    }
   },
   {
     "id": "disney-dreamlight-valley",
@@ -2043,7 +2319,14 @@
       "solo"
     ],
     "description": "Build your dream Disney neighborhood with beloved characters.",
-    "fun_fact": "Voice actors from the original Disney movies return to voice their characters in the game."
+    "fun_fact": "Voice actors from the original Disney movies return to voice their characters in the game.",
+    "store_links": {
+      "playstation": "https://store.playstation.com/en-us/concept/10002466/",
+      "steam": "https://store.steampowered.com/app/1401590/Disney_Dreamlight_Valley/",
+      "xbox": "https://www.microsoft.com/en-ai/p/disney-dreamlight-valley/9nsf0bgh8d86",
+      "epic": "https://store.epicgames.com/en-US/p/disney-dreamlight-valley",
+      "nintendo": "https://www.nintendo.com/store/products/disney-dreamlight-valley-switch"
+    }
   },
   {
     "id": "palia",
@@ -2081,7 +2364,12 @@
       "online_coop"
     ],
     "description": "A cozy MMO where you farm, build, and explore with friends.",
-    "fun_fact": "This is one of the first MMOs designed specifically for cozy gaming with no combat stress."
+    "fun_fact": "This is one of the first MMOs designed specifically for cozy gaming with no combat stress.",
+    "store_links": {
+      "steam": "https://store.steampowered.com/app/2707930/",
+      "epic": "https://store.epicgames.com/ru/p/palia-0d428e",
+      "nintendo": "https://www.nintendo.com/us/store/products/palia-switch/"
+    }
   },
   {
     "id": "cozy-grove",
@@ -2118,7 +2406,14 @@
       "solo"
     ],
     "description": "Camp on a haunted island and help ghost bears find peace.",
-    "fun_fact": "The game is designed for short daily play sessions - new content unlocks each real-world day."
+    "fun_fact": "The game is designed for short daily play sessions - new content unlocks each real-world day.",
+    "store_links": {
+      "xbox": "https://www.microsoft.com/en-us/p/cozy-grove/9pjcc91cz3wn?cid=msft_web_chart",
+      "steam": "https://store.steampowered.com/app/1458100/Cozy_Grove/",
+      "nintendo": "https://www.nintendo.com/games/detail/cozy-grove-switch/",
+      "playstation": "https://store.playstation.com/en-us/product/UP2199-CUSA26038_00-COZYGROVENA00000",
+      "epic": "https://www.epicgames.com/store/en-US/p/cozy-grove"
+    }
   },
   {
     "id": "fae-farm",
@@ -2155,7 +2450,12 @@
       "online_coop"
     ],
     "description": "Farm in a magical world where you can explore the realm of the fae.",
-    "fun_fact": "The game supports 4-player co-op farming adventures."
+    "fun_fact": "The game supports 4-player co-op farming adventures.",
+    "store_links": {
+      "epic": "https://store.epicgames.com/en-US/p/fae-farm",
+      "steam": "https://store.steampowered.com/app/2230110/Fae_Farm/",
+      "nintendo": "https://www.nintendo.com/store/products/fae-farm-switch/"
+    }
   },
   {
     "id": "spirittea",
@@ -2192,7 +2492,10 @@
       "solo"
     ],
     "description": "Run a bathhouse for spirits in a rural town inspired by Spirited Away.",
-    "fun_fact": "The game is heavily inspired by Spirited Away and Japanese rural life."
+    "fun_fact": "The game is heavily inspired by Spirited Away and Japanese rural life.",
+    "store_links": {
+      "steam": "https://store.steampowered.com/app/1931010/Spirittea/"
+    }
   },
   {
     "id": "stray",
@@ -2232,7 +2535,13 @@
     "fun_fact": "The cat's movements were motion-captured from real cats, and a dedicated meow button exists.",
     "subscriptions": [
       "playstation_plus"
-    ]
+    ],
+    "store_links": {
+      "nintendo": "https://www.nintendo.com/us/store/products/stray-switch/",
+      "playstation": "https://store.playstation.com/en-us/product/UP2470-PPSA02100_00-STRAYSIEA0000000",
+      "xbox": "https://www.microsoft.com/ru-tj/p/stray/9nmpdq2nrx34",
+      "steam": "https://store.steampowered.com/app/1332010/Stray/"
+    }
   },
   {
     "id": "toem",
@@ -2270,7 +2579,12 @@
       "solo"
     ],
     "description": "Embark on a photography adventure to capture the mysterious TOEM.",
-    "fun_fact": "The entire game fits in under 500MB despite having hundreds of photos to take."
+    "fun_fact": "The entire game fits in under 500MB despite having hundreds of photos to take.",
+    "store_links": {
+      "epic": "https://store.epicgames.com/ru/p/toem",
+      "gog": "https://www.gog.com/fr/game/toem",
+      "steam": "https://store.steampowered.com/app/1307580/TOEM/"
+    }
   },
   {
     "id": "tunic",
@@ -2312,7 +2626,13 @@
     "fun_fact": "The in-game manual is written in a fictional language that players decoded!",
     "subscriptions": [
       "xbox_game_pass"
-    ]
+    ],
+    "store_links": {
+      "nintendo": "https://www.nintendo.com/store/products/tunic-switch/",
+      "steam": "http://store.steampowered.com/app/553420/",
+      "gog": "https://www.gog.com/fr/game/tunic",
+      "epic": "https://store.epicgames.com/en-US/p/tunic"
+    }
   },
   {
     "id": "chicory",
@@ -2350,7 +2670,11 @@
       "local_coop"
     ],
     "description": "Paint the world back to life after all color mysteriously vanishes.",
-    "fun_fact": "The game explores themes of imposter syndrome and creative burnout."
+    "fun_fact": "The game explores themes of imposter syndrome and creative burnout.",
+    "store_links": {
+      "steam": "https://store.steampowered.com/app/1123450/",
+      "playstation": "https://store.playstation.com/en-us/product/UP0406-PPSA03039_00-2395110143285364"
+    }
   },
   {
     "id": "webbed",
@@ -2386,7 +2710,11 @@
       "solo"
     ],
     "description": "Play as a tiny spider swinging through the world on webs.",
-    "fun_fact": "You can actually create functional web structures using real spider physics!"
+    "fun_fact": "You can actually create functional web structures using real spider physics!",
+    "store_links": {
+      "steam": "https://store.steampowered.com/app/1390350/Webbed/",
+      "gog": "https://www.gog.com/game/webbed"
+    }
   },
   {
     "id": "tinykin",
@@ -2423,7 +2751,11 @@
       "solo"
     ],
     "description": "Explore a giant house with tiny creatures like a 3D Pikmin.",
-    "fun_fact": "The animation team studied real ant behavior for months to make the Tinykin feel alive."
+    "fun_fact": "The animation team studied real ant behavior for months to make the Tinykin feel alive.",
+    "store_links": {
+      "gog": "https://www.gog.com/fr/game/tinykin",
+      "steam": "https://store.steampowered.com/app/1599020/Tinykin"
+    }
   },
   {
     "id": "a-little-to-the-left",
@@ -2460,7 +2792,11 @@
       "solo"
     ],
     "description": "Organize household objects into satisfying arrangements.",
-    "fun_fact": "A mischievous cat occasionally disrupts your perfectly organized items."
+    "fun_fact": "A mischievous cat occasionally disrupts your perfectly organized items.",
+    "store_links": {
+      "nintendo": "https://www.nintendo.com/store/products/a-little-to-the-left-switch/",
+      "steam": "https://store.steampowered.com/app/1629520/A_Little_to_the_Left/"
+    }
   },
   {
     "id": "assemble-with-care",
@@ -2501,7 +2837,10 @@
     "fun_fact": "Made by the creators of Monument Valley as an Apple Arcade exclusive.",
     "subscriptions": [
       "apple_arcade"
-    ]
+    ],
+    "store_links": {
+      "steam": "https://store.steampowered.com/app/1202900/Assemble_with_Care/"
+    }
   },
   {
     "id": "strange-horticulture",
@@ -2538,7 +2877,12 @@
       "solo"
     ],
     "description": "Run an occult plant shop and solve a dark mystery.",
-    "fun_fact": "The game features over 70 unique plants, each with mysterious magical properties."
+    "fun_fact": "The game features over 70 unique plants, each with mysterious magical properties.",
+    "store_links": {
+      "gog": "https://www.gog.com/game/strange_horticulture",
+      "steam": "https://store.steampowered.com/app/1574580/",
+      "epic": "https://www.epicgames.com/store/en-US/p/strange-horticulture-360e80"
+    }
   },
   {
     "id": "potion-craft",
@@ -2613,7 +2957,12 @@
     "fun_fact": "The recipes in the game are real Tamil dishes that you can actually cook at home.",
     "subscriptions": [
       "xbox_game_pass"
-    ]
+    ],
+    "store_links": {
+      "gog": "https://www.gog.com/fr/game/venba",
+      "nintendo": "https://www.nintendo.com/store/products/venba-switch/",
+      "steam": "https://store.steampowered.com/app/1491670/Venba/"
+    }
   },
   {
     "id": "season-story-beneath",
@@ -2649,7 +2998,11 @@
       "solo"
     ],
     "description": "Document a dying world by bicycle before it's too late.",
-    "fun_fact": "The game was inspired by real-world anthropology and the act of preserving culture."
+    "fun_fact": "The game was inspired by real-world anthropology and the act of preserving culture.",
+    "store_links": {
+      "epic": "https://store.epicgames.com/en-US/p/season",
+      "steam": "https://store.steampowered.com/app/695330/SEASON_A_letter_to_the_future/"
+    }
   },
   {
     "id": "i-was-teenage-exocolonist",
@@ -2686,7 +3039,13 @@
       "solo"
     ],
     "description": "Grow up on an alien planet, making choices that shape your life.",
-    "fun_fact": "The game has multiple endings that span 10 years of in-game time."
+    "fun_fact": "The game has multiple endings that span 10 years of in-game time.",
+    "store_links": {
+      "gog": "https://www.gog.com/fr/game/i_was_a_teenage_exocolonist",
+      "nintendo": "https://www.nintendo.com/store/products/i-was-a-teenage-exocolonist-switch/",
+      "playstation": "https://store.playstation.com/de-de/concept/10005431/",
+      "steam": "https://store.steampowered.com/app/1148760/I_Was_a_Teenage_Exocolonist/"
+    }
   },
   {
     "id": "coffee-talk-2",
@@ -2724,7 +3083,12 @@
     ],
     "description": "Return to the late-night coffee shop for more heartfelt stories.",
     "fun_fact": "The original developer passed away before this sequel was completed; the team finished it in their honor.",
-    "franchise": "coffee_talk"
+    "franchise": "coffee_talk",
+    "store_links": {
+      "steam": "https://store.steampowered.com/app/1663220/Coffee_Talk_Episode_2_Hibiscus__Butterfly/",
+      "nintendo": "https://www.nintendo.com/store/products/coffee-talk-episode-2-hibiscus-and-butterfly-switch/",
+      "gog": "https://www.gog.com/game/coffee_talk_episode_2_hibiscus_butterfly"
+    }
   },
   {
     "id": "wayward-strand",
@@ -2760,7 +3124,10 @@
       "solo"
     ],
     "description": "Spend time with elderly patients on a floating hospital airship.",
-    "fun_fact": "The game runs in real-time - characters have their own schedules and you can't see everything."
+    "fun_fact": "The game runs in real-time - characters have their own schedules and you can't see everything.",
+    "store_links": {
+      "steam": "https://store.steampowered.com/app/1080450/"
+    }
   },
   {
     "id": "garden-in",
@@ -2796,7 +3163,11 @@
       "solo"
     ],
     "description": "Arrange plants in a tiny digital zen garden.",
-    "fun_fact": "The game features over 100 unique plants inspired by real botanical species."
+    "fun_fact": "The game features over 100 unique plants inspired by real botanical species.",
+    "store_links": {
+      "steam": "https://store.steampowered.com/app/1953860/",
+      "gog": "https://www.gog.com/fr/game/garden_in"
+    }
   },
   {
     "id": "growbot",
@@ -2832,7 +3203,11 @@
       "solo"
     ],
     "description": "A young robot saves her space station using the power of flowers.",
-    "fun_fact": "The entire game was illustrated in a handmade botanical art style."
+    "fun_fact": "The entire game was illustrated in a handmade botanical art style.",
+    "store_links": {
+      "gog": "https://www.gog.com/game/growbot",
+      "steam": "http://store.steampowered.com/app/661680/"
+    }
   },
   {
     "id": "behind-frame",
@@ -2869,7 +3244,12 @@
       "solo"
     ],
     "description": "Complete paintings while uncovering a touching love story.",
-    "fun_fact": "The game's art style was inspired by Studio Ghibli animations."
+    "fun_fact": "The game's art style was inspired by Studio Ghibli animations.",
+    "store_links": {
+      "epic": "https://store.epicgames.com/ru/p/behind-the-frame-the-finest-scenery",
+      "gog": "https://www.gog.com/game/behind_the_frame_the_finest_scenery",
+      "steam": "https://store.steampowered.com/app/1634150/Behind_the_Frame/"
+    }
   },
   {
     "id": "unpacking-2",
@@ -2911,7 +3291,12 @@
     "subscriptions": [
       "xbox_game_pass"
     ],
-    "franchise": "unpacking"
+    "franchise": "unpacking",
+    "store_links": {
+      "steam": "https://store.steampowered.com/app/1135690/",
+      "gog": "https://www.gog.com/game/unpacking",
+      "nintendo": "https://www.nintendo.com/games/detail/unpacking-switch/"
+    }
   },
   {
     "id": "botany-manor",
@@ -2951,7 +3336,11 @@
     "fun_fact": "Each plant requires unique conditions to grow, creating natural puzzle solutions.",
     "subscriptions": [
       "xbox_game_pass"
-    ]
+    ],
+    "store_links": {
+      "nintendo": "https://www.nintendo.com/store/products/botany-manor-switch/",
+      "steam": "https://store.steampowered.com/app/1425350/Botany_Manor/"
+    }
   },
   {
     "id": "japanese-countryside-seasons",
@@ -2987,7 +3376,10 @@
       "solo"
     ],
     "description": "Live a peaceful life in the Japanese countryside.",
-    "fun_fact": "The game recreates authentic Japanese rural traditions and seasons."
+    "fun_fact": "The game recreates authentic Japanese rural traditions and seasons.",
+    "store_links": {
+      "steam": "http://store.steampowered.com/app/511330/"
+    }
   },
   {
     "id": "a-building-full-of-cats",
@@ -3023,7 +3415,11 @@
       "solo"
     ],
     "description": "Find hidden cats throughout a pixelated apartment building.",
-    "fun_fact": "Each apartment tells a mini story about its residents through environmental details."
+    "fun_fact": "Each apartment tells a mini story about its residents through environmental details.",
+    "store_links": {
+      "gog": "https://www.gog.com/fr/game/a_building_full_of_cats",
+      "steam": "https://store.steampowered.com/app/1969080/"
+    }
   },
   {
     "id": "tracks-train-simulator",
@@ -3060,7 +3456,11 @@
       "solo"
     ],
     "description": "Build wooden train tracks and watch your trains go round.",
-    "fun_fact": "The game recreates the feeling of playing with a real wooden train set."
+    "fun_fact": "The game recreates the feeling of playing with a real wooden train set.",
+    "store_links": {
+      "xbox": "https://www.microsoft.com/en-us/p/tracks-the-train-set-game/9pctjnl0gds9?cid=msft_web_chart",
+      "steam": "http://store.steampowered.com/app/657240/"
+    }
   },
   {
     "id": "summerhouse",
@@ -3095,7 +3495,10 @@
       "solo"
     ],
     "description": "Build cozy little houses in peaceful scenes.",
-    "fun_fact": "There are no goals or objectives - just pure creative building bliss."
+    "fun_fact": "There are no goals or objectives - just pure creative building bliss.",
+    "store_links": {
+      "steam": "https://store.steampowered.com/app/2533960/"
+    }
   },
   {
     "id": "townscaper",
@@ -3132,7 +3535,12 @@
       "solo"
     ],
     "description": "Build quaint island towns by clicking and watching them grow.",
-    "fun_fact": "The algorithm automatically generates doors, roofs, and details as you build."
+    "fun_fact": "The algorithm automatically generates doors, roofs, and details as you build.",
+    "store_links": {
+      "steam": "https://store.steampowered.com/app/1291340/Townscaper/",
+      "gog": "https://www.gog.com/game/townscaper",
+      "epic": "https://www.epicgames.com/store/en-US/p/townscaper"
+    }
   },
   {
     "id": "cloud-gardens",
@@ -3169,7 +3577,12 @@
       "solo"
     ],
     "description": "Grow plants over abandoned structures in meditative dioramas.",
-    "fun_fact": "The game creates beauty from decay - nature reclaiming human structures."
+    "fun_fact": "The game creates beauty from decay - nature reclaiming human structures.",
+    "store_links": {
+      "gog": "https://www.gog.com/fr/game/cloud_gardens",
+      "steam": "https://store.steampowered.com/app/1372320/",
+      "xbox": "https://www.microsoft.com/en-us/p/cloud-gardens/9n07gs0hcnpk?cid=msft_web_chart"
+    }
   },
   {
     "id": "tiny-glade",
@@ -3204,7 +3617,10 @@
       "solo"
     ],
     "description": "Build cute castles and cottages with satisfying procedural tools.",
-    "fun_fact": "Buildings automatically adapt and connect in pleasing ways as you draw."
+    "fun_fact": "Buildings automatically adapt and connect in pleasing ways as you draw.",
+    "store_links": {
+      "steam": "https://store.steampowered.com/app/2198150/Tiny_Glade/"
+    }
   },
   {
     "id": "europa",
@@ -3240,7 +3656,11 @@
       "solo"
     ],
     "description": "Glide across the terraformed moon Europa in a Ghibli-inspired adventure.",
-    "fun_fact": "The art style was directly inspired by the pastoral scenes of Studio Ghibli films."
+    "fun_fact": "The art style was directly inspired by the pastoral scenes of Studio Ghibli films.",
+    "store_links": {
+      "nintendo": "https://www.nintendo.com/us/store/products/europa-switch/",
+      "steam": "https://store.steampowered.com/app/2214880/Europa/"
+    }
   },
   {
     "id": "heaven-vault",
@@ -3278,7 +3698,12 @@
       "solo"
     ],
     "description": "Translate an ancient language while uncovering a celestial civilization.",
-    "fun_fact": "The game features a fully functional constructed language you must actually learn."
+    "fun_fact": "The game features a fully functional constructed language you must actually learn.",
+    "store_links": {
+      "playstation": "https://store.playstation.com/en-us/product/UP3413-CUSA11885_00-HEAVENSVAULTGAME",
+      "steam": "http://store.steampowered.com/app/774201/",
+      "gog": "http://www.gog.com/game/heavens_vault"
+    }
   },
   {
     "id": "mutazione",
@@ -3315,7 +3740,14 @@
       "solo"
     ],
     "description": "Explore a mutant community and tend magical musical gardens.",
-    "fun_fact": "The musical gardens actually generate ambient music based on how you plant them."
+    "fun_fact": "The musical gardens actually generate ambient music based on how you plant them.",
+    "store_links": {
+      "gog": "http://www.gog.com/game/mutazione",
+      "playstation": "https://store.playstation.com/en-us/product/UP3385-CUSA14188_00-0000DGFMUTAZIONE",
+      "epic": "https://www.epicgames.com/store/ru/product/mutazione/home",
+      "steam": "https://store.steampowered.com/app/1080750/",
+      "xbox": "https://www.microsoft.com/en-us/p/mutazione/9njtx5vbg78v?cid=msft_web_chart"
+    }
   },
   {
     "id": "norco",
@@ -3351,7 +3783,12 @@
       "solo"
     ],
     "description": "Investigate your mother's disappearance in industrial Louisiana.",
-    "fun_fact": "The game is set in a real Louisiana refinery town and explores climate change themes."
+    "fun_fact": "The game is set in a real Louisiana refinery town and explores climate change themes.",
+    "store_links": {
+      "epic": "https://store.epicgames.com/en-US/p/norco-3ba4e2?lang=en-US",
+      "gog": "https://www.gog.com/game/norco",
+      "steam": "https://store.steampowered.com/app/1221250/NORCO/"
+    }
   },
   {
     "id": "immortality",
@@ -3389,7 +3826,11 @@
     "fun_fact": "The game features full-length films that you scrub through to find hidden secrets.",
     "warnings": [
       "mature_content"
-    ]
+    ],
+    "store_links": {
+      "gog": "https://www.gog.com/fr/game/immortality",
+      "steam": "https://store.steampowered.com/app/1350200/IMMORTALITY/"
+    }
   },
   {
     "id": "genesis-noir",
@@ -3427,7 +3868,13 @@
       "solo"
     ],
     "description": "A noir love story set before, during, and after the Big Bang.",
-    "fun_fact": "The game spans 14 billion years of cosmic history told through jazz and noir aesthetics."
+    "fun_fact": "The game spans 14 billion years of cosmic history told through jazz and noir aesthetics.",
+    "store_links": {
+      "gog": "https://www.gog.com/game/genesis_noir",
+      "steam": "https://store.steampowered.com/app/735290/",
+      "xbox": "https://www.microsoft.com/en-us/p/genesis-noir/9phk9d8clqcg?cid=msft_web_chart",
+      "epic": "https://www.epicgames.com/store/en-US/p/genesis-noir"
+    }
   },
   {
     "id": "umurangi-generation",
@@ -3463,7 +3910,10 @@
       "solo"
     ],
     "description": "Document the end of the world through photography in a cyberpunk city.",
-    "fun_fact": "The game was made by a Maori developer as commentary on climate change and colonialism."
+    "fun_fact": "The game was made by a Maori developer as commentary on climate change and colonialism.",
+    "store_links": {
+      "steam": "https://store.steampowered.com/app/1223500/Umurangi_Generation/"
+    }
   },
   {
     "id": "pentiment",
@@ -3502,7 +3952,10 @@
     "fun_fact": "The art style mimics actual medieval illuminated manuscripts with period-accurate typography.",
     "subscriptions": [
       "xbox_game_pass"
-    ]
+    ],
+    "store_links": {
+      "steam": "https://store.steampowered.com/app/1205520/Pentiment/"
+    }
   },
   {
     "id": "eliza",
@@ -3538,7 +3991,12 @@
       "solo"
     ],
     "description": "Work as a counselor for an AI therapy app while questioning technology's role.",
-    "fun_fact": "Made by the studio behind Opus Magnum and Infinifactory, this is their first narrative game."
+    "fun_fact": "Made by the studio behind Opus Magnum and Infinifactory, this is their first narrative game.",
+    "store_links": {
+      "steam": "https://store.steampowered.com/app/716500/",
+      "gog": "http://www.gog.com/game/eliza",
+      "nintendo": "https://www.nintendo.com/games/detail/eliza-switch/"
+    }
   },
   {
     "id": "necrobarista",
@@ -3574,7 +4032,12 @@
       "solo"
     ],
     "description": "Run a coffee shop in Melbourne where the dead get one last night with the living.",
-    "fun_fact": "The game was made by an Australian team and features Melbourne landmarks."
+    "fun_fact": "The game was made by an Australian team and features Melbourne landmarks.",
+    "store_links": {
+      "nintendo": "https://www.nintendo.com/games/detail/necrobarista-final-pour-switch/",
+      "gog": "http://www.gog.com/game/necrobarista",
+      "steam": "https://store.steampowered.com/app/725270/"
+    }
   },
   {
     "id": "boyfriend-dungeon",
@@ -3611,7 +4074,12 @@
       "solo"
     ],
     "description": "Date weapons that transform into attractive people.",
-    "fun_fact": "The game includes a cat you can date who transforms into a brass knuckle."
+    "fun_fact": "The game includes a cat you can date who transforms into a brass knuckle.",
+    "store_links": {
+      "nintendo": "https://www.nintendo.com/games/detail/boyfriend-dungeon-switch/",
+      "steam": "http://store.steampowered.com/app/674930/",
+      "xbox": "https://www.microsoft.com/en-us/p/boyfriend-dungeon/9n5phz0d92ld?cid=msft_web_chart"
+    }
   },
   {
     "id": "unpacking-zen",
@@ -3653,7 +4121,12 @@
     "subscriptions": [
       "xbox_game_pass"
     ],
-    "franchise": "unpacking"
+    "franchise": "unpacking",
+    "store_links": {
+      "steam": "https://store.steampowered.com/app/1135690/",
+      "gog": "https://www.gog.com/game/unpacking",
+      "nintendo": "https://www.nintendo.com/games/detail/unpacking-switch/"
+    }
   },
   {
     "id": "lonely-mountains-downhill",
@@ -3689,7 +4162,13 @@
       "solo"
     ],
     "description": "Mountain bike down scenic trails at your own pace.",
-    "fun_fact": "The low-poly art style was chosen to evoke the feeling of being alone in nature."
+    "fun_fact": "The low-poly art style was chosen to evoke the feeling of being alone in nature.",
+    "store_links": {
+      "playstation": "https://store.playstation.com/en-us/product/UP5180-CUSA15961_00-0000000000000000",
+      "xbox": "https://www.microsoft.com/en-us/p/lonely-mountains-downhill/9mv6mcvlt8gr?cid=msft_web_chart",
+      "nintendo": "https://www.nintendo.com/games/detail/lonely-mountains-downhill-switch/",
+      "steam": "http://store.steampowered.com/app/711540/"
+    }
   },
   {
     "id": "art-of-rally",
@@ -3726,7 +4205,14 @@
       "solo"
     ],
     "description": "A stylized rally game celebrating the golden era of racing.",
-    "fun_fact": "The developer grew up watching rally racing with his father, inspiring this homage."
+    "fun_fact": "The developer grew up watching rally racing with his father, inspiring this homage.",
+    "store_links": {
+      "gog": "http://www.gog.com/game/art_of_rally",
+      "steam": "https://store.steampowered.com/app/550320/",
+      "nintendo": "https://www.nintendo.com/games/detail/art-of-rally-switch/",
+      "epic": "https://www.epicgames.com/store/en-US/p/art-of-rally",
+      "xbox": "https://www.microsoft.com/en-us/p/art-of-rally/9p6jqddz2mqb?cid=msft_web_chart"
+    }
   },
   {
     "id": "short-hike",
@@ -3764,7 +4250,13 @@
       "solo"
     ],
     "description": "Hike up a mountain at your own pace in this charming adventure.",
-    "fun_fact": "This cozy game was made in just 1 month for a game jam and later expanded!"
+    "fun_fact": "This cozy game was made in just 1 month for a game jam and later expanded!",
+    "store_links": {
+      "gog": "http://www.gog.com/game/a_short_hike",
+      "epic": "https://www.epicgames.com/store/ru/product/a-short-hike/home",
+      "nintendo": "https://www.nintendo.com/games/detail/a-short-hike-switch/",
+      "steam": "https://store.steampowered.com/app/1055540/"
+    }
   },
   {
     "id": "alba-wildlife-adventure",
@@ -3801,7 +4293,14 @@
       "solo"
     ],
     "description": "Save a nature reserve during a Mediterranean summer vacation.",
-    "fun_fact": "The studio plants a real tree for every copy of the game sold."
+    "fun_fact": "The studio plants a real tree for every copy of the game sold.",
+    "store_links": {
+      "epic": "https://store.epicgames.com/ru/p/alba-a-wildlife-adventure-93736a",
+      "steam": "https://store.steampowered.com/app/1337010/",
+      "gog": "https://www.gog.com/game/alba_a_wildlife_adventure",
+      "xbox": "https://www.microsoft.com/en-us/p/alba-a-wildlife-adventure/9nc05cgpwg0z?cid=msft_web_chart",
+      "playstation": "https://store.playstation.com/en-us/product/UP1309-CUSA27084_00-ALBAADVENTUREPS4"
+    }
   },
   {
     "id": "lake",
@@ -3837,7 +4336,14 @@
       "solo"
     ],
     "description": "Deliver mail in a small Oregon town during a 1980s summer.",
-    "fun_fact": "The game was inspired by the feeling of returning to your hometown after years away."
+    "fun_fact": "The game was inspired by the feeling of returning to your hometown after years away.",
+    "store_links": {
+      "playstation": "https://store.playstation.com/en-us/product/UP5223-CUSA31992_00-LAKEPS4SIEAFULL0",
+      "steam": "https://store.steampowered.com/app/1118240/Lake/",
+      "nintendo": "https://www.nintendo.com/us/store/products/lake-switch/",
+      "xbox": "https://www.microsoft.com/en-us/p/lake/9n5glftt40sn?cid=msft_web_chart&activetab=pivot:overviewtab",
+      "epic": "https://store.epicgames.com/ru/p/lake"
+    }
   },
   {
     "id": "after-party",
@@ -3873,7 +4379,15 @@
       "solo"
     ],
     "description": "Outdrink Satan to escape from Hell.",
-    "fun_fact": "Made by the creators of Oxenfree, featuring the same unique dialogue system."
+    "fun_fact": "Made by the creators of Oxenfree, featuring the same unique dialogue system.",
+    "store_links": {
+      "epic": "https://www.epicgames.com/store/ru/product/afterparty/home",
+      "xbox": "https://www.microsoft.com/en-us/p/afterparty/9pc5vbplhwnv?cid=msft_web_chart",
+      "playstation": "https://store.playstation.com/en-us/product/UP0962-CUSA13041_00-AFTRPRTYBASE0000",
+      "gog": "https://www.gog.com/game/afterparty",
+      "nintendo": "https://www.nintendo.com/games/detail/afterparty-switch/",
+      "steam": "https://store.steampowered.com/app/762220/"
+    }
   },
   {
     "id": "kind-words",
@@ -3907,7 +4421,10 @@
       "online_coop"
     ],
     "description": "Write and receive anonymous letters of support with strangers.",
-    "fun_fact": "The game has facilitated millions of kind messages between strangers worldwide."
+    "fun_fact": "The game has facilitated millions of kind messages between strangers worldwide.",
+    "store_links": {
+      "steam": "https://store.steampowered.com/app/1070710/"
+    }
   },
   {
     "id": "art-sqool",
@@ -3943,7 +4460,10 @@
       "solo"
     ],
     "description": "Attend art school with an AI professor that grades your creations.",
-    "fun_fact": "The AI professor 'Froshmin' uses neural networks to generate absurd art prompts."
+    "fun_fact": "The AI professor 'Froshmin' uses neural networks to generate absurd art prompts.",
+    "store_links": {
+      "steam": "https://store.steampowered.com/app/953300/"
+    }
   },
   {
     "id": "nainai-recipe",
@@ -4051,7 +4571,13 @@
       "solo"
     ],
     "description": "Three strangers in London have their lives intertwined by supernatural events.",
-    "fun_fact": "Made by the creators of Virginia, featuring distinct British voice acting."
+    "fun_fact": "Made by the creators of Virginia, featuring distinct British voice acting.",
+    "store_links": {
+      "steam": "https://store.steampowered.com/app/1122690/",
+      "nintendo": "https://www.nintendo.com/games/detail/last-stop-switch/",
+      "xbox": "https://www.microsoft.com/en-us/p/last-stop/9nc6bx5r7jkc?cid=msft_web_chart",
+      "playstation": "https://store.playstation.com/en-us/product/UP2470-PPSA02287_00-LASTSTOPSIEA0000"
+    }
   },
   {
     "id": "summertime-madness",
@@ -4087,7 +4613,10 @@
       "solo"
     ],
     "description": "Explore living paintings to escape a deal with the devil.",
-    "fun_fact": "Each painting world is inspired by different art movements from Impressionism to Surrealism."
+    "fun_fact": "Each painting world is inspired by different art movements from Impressionism to Surrealism.",
+    "store_links": {
+      "steam": "https://store.steampowered.com/app/1360550/"
+    }
   },
   {
     "id": "eastshade",
@@ -4124,7 +4653,12 @@
       "solo"
     ],
     "description": "Travel as a painter capturing the beauty of a fantastical island.",
-    "fun_fact": "You actually paint in-game canvases that you can display in your inventory."
+    "fun_fact": "You actually paint in-game canvases that you can display in your inventory.",
+    "store_links": {
+      "playstation": "https://store.playstation.com/en-us/product/UP3713-CUSA14848_00-0000000EASTSHADE",
+      "xbox": "https://www.microsoft.com/en-us/p/eastshade/9plcr0fr564k?cid=msft_web_chart",
+      "steam": "https://store.steampowered.com/app/715560/"
+    }
   },
   {
     "id": "shelter-2",
@@ -4159,7 +4693,11 @@
       "solo"
     ],
     "description": "Survive as a lynx mother raising your cubs in the wild.",
-    "fun_fact": "The game has no UI - everything is told through visuals and sound."
+    "fun_fact": "The game has no UI - everything is told through visuals and sound.",
+    "store_links": {
+      "steam": "http://store.steampowered.com/app/275100/",
+      "gog": "http://www.gog.com/game/shelter_2"
+    }
   },
   {
     "id": "wandersong",
@@ -4196,7 +4734,14 @@
       "solo"
     ],
     "description": "Save the world by singing! A bard's musical adventure.",
-    "fun_fact": "Every puzzle is solved through singing using a color-wheel interface."
+    "fun_fact": "Every puzzle is solved through singing using a color-wheel interface.",
+    "store_links": {
+      "playstation": "https://store.playstation.com/en-us/product/UP3864-CUSA13934_00-APP0990000000022",
+      "xbox": "https://www.microsoft.com/en-us/p/wandersong/9nd3z0qh0nkb?cid=msft_web_chart",
+      "steam": "http://store.steampowered.com/app/530320/",
+      "nintendo": "https://www.nintendo.com/games/detail/wandersong-switch",
+      "gog": "http://www.gog.com/game/wandersong"
+    }
   },
   {
     "id": "spirit-of-the-north",
@@ -4233,7 +4778,14 @@
       "solo"
     ],
     "description": "Explore Iceland's landscapes as a fox guided by the Northern Lights.",
-    "fun_fact": "The game features no dialogue - the story is told entirely through environmental details."
+    "fun_fact": "The game features no dialogue - the story is told entirely through environmental details.",
+    "store_links": {
+      "xbox": "https://microsoft.com/en-US/p/spirit-of-the-north-enhanced-edition/9mvl42njfvz2",
+      "epic": "https://store.epicgames.com/en-US/p/spirit-of-the-north-f58a66",
+      "playstation": "https://store.playstation.com/en-us/product/UP3899-CUSA13411_00-SPIRITNORTH00001",
+      "steam": "https://store.steampowered.com/app/1213700/Spirit_of_the_North/",
+      "nintendo": "https://www.nintendo.com/games/detail/spirit-of-the-north-switch/"
+    }
   },
   {
     "id": "abzu-2",
@@ -4269,7 +4821,15 @@
       "solo"
     ],
     "description": "Dive deeper into the beautiful underwater world full of mystery.",
-    "fun_fact": "The game's title comes from ancient Sumerian mythology - 'Abzu' refers to the primordial sea."
+    "fun_fact": "The game's title comes from ancient Sumerian mythology - 'Abzu' refers to the primordial sea.",
+    "store_links": {
+      "playstation": "https://store.playstation.com/en-us/product/UP4040-CUSA03349_00-ABZUGAME00000000",
+      "epic": "https://www.epicgames.com/store/ru/product/abzu/home",
+      "xbox": "https://www.microsoft.com/en-us/p/abzu/bq2307m831zg?cid=msft_web_chart",
+      "steam": "http://store.steampowered.com/app/384190/",
+      "gog": "http://www.gog.com/game/abzu",
+      "nintendo": "https://www.nintendo.com/games/detail/abzu-switch"
+    }
   },
   {
     "id": "rime",
@@ -4307,7 +4867,15 @@
       "solo"
     ],
     "description": "A boy washes up on a mysterious island and begins an emotional journey.",
-    "fun_fact": "The final chapter recontextualizes the entire game in a deeply emotional way."
+    "fun_fact": "The final chapter recontextualizes the entire game in a deeply emotional way.",
+    "store_links": {
+      "steam": "http://store.steampowered.com/app/493200/",
+      "playstation": "https://store.playstation.com/en-us/product/UP2346-CUSA05796_00-RIMEGAME01NA0001",
+      "xbox": "https://www.microsoft.com/en-us/p/rime/bsqz03s3rv54?cid=msft_web_chart",
+      "gog": "http://www.gog.com/game/rime",
+      "nintendo": "https://www.nintendo.com/games/detail/rime-switch",
+      "epic": "https://www.epicgames.com/store/en-US/product/rime/"
+    }
   },
   {
     "id": "sayonara-wild-hearts",
@@ -4347,7 +4915,13 @@
     "fun_fact": "The game was designed as a playable pop album with each level as a song.",
     "subscriptions": [
       "apple_arcade"
-    ]
+    ],
+    "store_links": {
+      "playstation": "https://store.playstation.com/en-us/product/UP2470-CUSA14669_00-WILDHEARTSSIEA00",
+      "nintendo": "https://www.nintendo.com/games/detail/sayonara-wild-hearts-switch/",
+      "steam": "https://store.steampowered.com/app/1122720/Sayonara_Wild_Hearts/",
+      "xbox": "https://www.microsoft.com/en-us/p/sayonara-wild-hearts/9p0l4xr9d8l3?cid=msft_web_chart"
+    }
   },
   {
     "id": "bound",
@@ -4383,7 +4957,10 @@
       "solo"
     ],
     "description": "Dance through abstract worlds as a princess protecting her kingdom.",
-    "fun_fact": "The protagonist's movements were motion-captured from a real ballerina."
+    "fun_fact": "The protagonist's movements were motion-captured from a real ballerina.",
+    "store_links": {
+      "playstation": "https://store.playstation.com/en-us/product/UP9000-CUSA04193_00-BOUNDGAMEUS00001"
+    }
   },
   {
     "id": "omno",
@@ -4420,7 +4997,12 @@
       "solo"
     ],
     "description": "Journey through ancient wonders in a land of mystical creatures.",
-    "fun_fact": "The entire game was made by a single developer over five years."
+    "fun_fact": "The entire game was made by a single developer over five years.",
+    "store_links": {
+      "steam": "https://store.steampowered.com/app/969760/",
+      "xbox": "https://www.microsoft.com/en-us/p/omno/9pj6c03zllqv?cid=msft_web_chart",
+      "playstation": "https://store.playstation.com/en-us/product/UP7034-CUSA28681_00-7215395197726184/"
+    }
   },
   {
     "id": "arise-simple-story",
@@ -4458,7 +5040,14 @@
       "local_coop"
     ],
     "description": "Relive memories by controlling time in this emotional journey.",
-    "fun_fact": "The game tells a love story spanning an entire lifetime through wordless chapters."
+    "fun_fact": "The game tells a love story spanning an entire lifetime through wordless chapters.",
+    "store_links": {
+      "playstation": "https://store.playstation.com/en-us/product/UP3050-CUSA12755_00-ARISETHEGAME00NA",
+      "epic": "https://www.epicgames.com/store/es-ES/product/arise-a-simple-story/home",
+      "xbox": "https://www.microsoft.com/en-us/p/arise-a-simple-story/c2tvkwcgtgr6?cid=msft_web_chart",
+      "steam": "https://store.steampowered.com/app/866140/",
+      "gog": "https://www.gog.com/fr/game/arise_a_simple_story"
+    }
   },
   {
     "id": "sable",
@@ -4494,7 +5083,13 @@
       "solo"
     ],
     "description": "Explore a vast desert on your hoverbike during a coming-of-age journey.",
-    "fun_fact": "The unique art style was inspired by French comic artist Moebius."
+    "fun_fact": "The unique art style was inspired by French comic artist Moebius.",
+    "store_links": {
+      "epic": "https://store.epicgames.com/en-US/p/sable",
+      "steam": "https://store.steampowered.com/app/757310/",
+      "gog": "https://www.gog.com/game/sable",
+      "xbox": "https://www.microsoft.com/en-us/p/sable/9mz4v4rg0w81?cid=msft_web_chart"
+    }
   },
   {
     "id": "lost-ember",
@@ -4530,7 +5125,13 @@
       "solo"
     ],
     "description": "Possess different animals to explore a post-human world.",
-    "fun_fact": "You can play as over 10 different animals from fish to parrots to elephants."
+    "fun_fact": "You can play as over 10 different animals from fish to parrots to elephants.",
+    "store_links": {
+      "gog": "http://www.gog.com/game/lost_ember",
+      "playstation": "https://store.playstation.com/en-us/product/UP3086-CUSA17291_00-LOSTEMBER00000US",
+      "xbox": "https://www.microsoft.com/en-us/p/lost-ember/9pn11w6w1lq1?cid=msft_web_chart",
+      "steam": "http://store.steampowered.com/app/563840/"
+    }
   },
   {
     "id": "lost-winds",
@@ -4566,7 +5167,11 @@
       "solo"
     ],
     "description": "Control the wind to guide a boy through beautiful landscapes.",
-    "fun_fact": "Originally a WiiWare launch title, it pioneered motion control puzzle design."
+    "fun_fact": "Originally a WiiWare launch title, it pioneered motion control puzzle design.",
+    "store_links": {
+      "steam": "http://store.steampowered.com/app/447780/",
+      "nintendo": "https://www.nintendo.com/games/detail/5FNl6vYjoHcchY2yYEAlMKzBDNgiCUHf"
+    }
   },
   {
     "id": "the-artful-escape",
@@ -4605,7 +5210,11 @@
     "fun_fact": "Features voice acting from Carl Weathers and other surprise Hollywood talent.",
     "subscriptions": [
       "xbox_game_pass"
-    ]
+    ],
+    "store_links": {
+      "steam": "https://store.steampowered.com/app/1122680/The_Artful_Escape/",
+      "xbox": "https://www.microsoft.com/en-us/p/the-artful-escape/9ngh2mtp0t44?activetab=pivot:overviewtab"
+    }
   },
   {
     "id": "neverending-nightmares",
@@ -4645,7 +5254,12 @@
     "warnings": [
       "psychological_horror",
       "dark_themes"
-    ]
+    ],
+    "store_links": {
+      "playstation": "https://store.playstation.com/en-us/product/UP0358-PCSE00847_00-NEVERENDINGNIGHT",
+      "steam": "http://store.steampowered.com/app/253330/",
+      "gog": "http://www.gog.com/game/neverending_nightmares"
+    }
   },
   {
     "id": "feather",
@@ -4683,7 +5297,13 @@
       "online_coop"
     ],
     "description": "Fly as a bird through serene island landscapes.",
-    "fun_fact": "There are no goals, enemies, or points - just pure flight exploration."
+    "fun_fact": "There are no goals, enemies, or points - just pure flight exploration.",
+    "store_links": {
+      "playstation": "https://store.playstation.com/en-us/product/UP3310-CUSA16255_00-FEATHERFB0000000",
+      "xbox": "https://www.microsoft.com/en-us/p/feather/9ngvwnmlbwjc?cid=msft_web_chart",
+      "steam": "https://store.steampowered.com/app/545040/",
+      "nintendo": "https://www.nintendo.com/games/detail/feather-switch"
+    }
   },
   {
     "id": "aer-memories-of-old",
@@ -4720,7 +5340,15 @@
       "solo"
     ],
     "description": "Transform into a bird to explore floating islands and ancient ruins.",
-    "fun_fact": "The transformation between human and bird forms is seamless and instant."
+    "fun_fact": "The transformation between human and bird forms is seamless and instant.",
+    "store_links": {
+      "nintendo": "https://www.nintendo.com/games/detail/aer-memories-of-old-switch/",
+      "playstation": "https://store.playstation.com/en-us/product/UP1440-CUSA09210_00-DAENAAER00000001",
+      "steam": "https://store.steampowered.com/app/331870",
+      "gog": "http://www.gog.com/game/aer",
+      "xbox": "https://www.microsoft.com/en-us/p/aer-memories-of-old/bvl0gllkhz6h?cid=msft_web_chart",
+      "epic": "https://www.epicgames.com/store/ru/p/aer-memories-of-old"
+    }
   },
   {
     "id": "tasomachi",
@@ -4756,7 +5384,10 @@
       "solo"
     ],
     "description": "Explore abandoned towns in a mystical Far Eastern setting.",
-    "fun_fact": "The game was almost entirely created by one Japanese developer."
+    "fun_fact": "The game was almost entirely created by one Japanese developer.",
+    "store_links": {
+      "gog": "https://www.gog.com/game/tasomachi_behind_the_twilight"
+    }
   },
   {
     "id": "haven",
@@ -4796,7 +5427,10 @@
       "local_coop"
     ],
     "description": "A couple in love stranded on a strange planet, surviving together.",
-    "fun_fact": "The game was designed for couples to play together on the couch."
+    "fun_fact": "The game was designed for couples to play together on the couch.",
+    "store_links": {
+      "steam": "https://store.steampowered.com/app/508540/"
+    }
   },
   {
     "id": "garden-paws",
@@ -4833,7 +5467,10 @@
       "online_coop"
     ],
     "description": "Run a farm as an adorable animal in a magical world.",
-    "fun_fact": "You can play as various cute animals including bunnies, cats, and dragons."
+    "fun_fact": "You can play as various cute animals including bunnies, cats, and dragons.",
+    "store_links": {
+      "steam": "https://store.steampowered.com/app/840010/"
+    }
   },
   {
     "id": "sumire",
@@ -4870,7 +5507,10 @@
       "solo"
     ],
     "description": "Experience one perfect day guided by a magical flower.",
-    "fun_fact": "The game takes place over a single day and explores themes of grief and hope."
+    "fun_fact": "The game takes place over a single day and explores themes of grief and hope.",
+    "store_links": {
+      "steam": "https://store.steampowered.com/app/1335230/"
+    }
   },
   {
     "id": "where-cards-fall",
@@ -4906,7 +5546,12 @@
       "solo"
     ],
     "description": "Build houses of cards to navigate memories and dreams.",
-    "fun_fact": "The game explores the delicate nature of relationships through card house metaphors."
+    "fun_fact": "The game explores the delicate nature of relationships through card house metaphors.",
+    "store_links": {
+      "steam": "http://store.steampowered.com/app/589450/",
+      "nintendo": "https://www.nintendo.com/games/detail/where-cards-fall-switch/",
+      "epic": "https://www.epicgames.com/store/en-US/p/where-cards-fall"
+    }
   },
   {
     "id": "the-pathless",
@@ -4942,7 +5587,12 @@
       "solo"
     ],
     "description": "Run and glide through a mystical forest as a hunter with an eagle.",
-    "fun_fact": "Made by the creators of ABZU, featuring similarly fluid movement."
+    "fun_fact": "Made by the creators of ABZU, featuring similarly fluid movement.",
+    "store_links": {
+      "epic": "https://www.epicgames.com/store/en-US/product/the-pathless/home",
+      "playstation": "https://store.playstation.com/en-us/product/UP2470-CUSA14330_00-PATHLESSSIEA0000",
+      "steam": "https://store.steampowered.com/app/1492680"
+    }
   },
   {
     "id": "hohokum",
@@ -4977,7 +5627,11 @@
       "solo"
     ],
     "description": "Float through vibrant worlds as a colorful snake-like creature.",
-    "fun_fact": "The game has no UI, tutorials, or text - pure exploration and discovery."
+    "fun_fact": "The game has no UI, tutorials, or text - pure exploration and discovery.",
+    "store_links": {
+      "steam": "https://store.steampowered.com/app/1210550/",
+      "playstation": "https://store.playstation.com/en-us/product/UP9000-CUSA00091_00-HOHOKUMGAMEPKG01"
+    }
   },
   {
     "id": "pikuniku",
@@ -5015,7 +5669,14 @@
       "local_coop"
     ],
     "description": "A blob-like creature solves puzzles and kicks things in a silly world.",
-    "fun_fact": "The game features a dedicated kick button that solves most problems."
+    "fun_fact": "The game features a dedicated kick button that solves most problems.",
+    "store_links": {
+      "xbox": "https://www.microsoft.com/en-us/p/pikuniku/9n8wrdc25k6j?cid=msft_web_chart",
+      "steam": "https://store.steampowered.com/app/572890/",
+      "gog": "http://www.gog.com/game/pikuniku",
+      "nintendo": "https://www.nintendo.com/games/detail/pikuniku-switch",
+      "epic": "https://www.epicgames.com/store/ru/p/pikuniku"
+    }
   },
   {
     "id": "old-mans-journey",
@@ -5053,7 +5714,13 @@
       "solo"
     ],
     "description": "Reshape hills and valleys as an old man reflects on his life.",
-    "fun_fact": "The game was created by a team in Vienna and won multiple awards for its narrative."
+    "fun_fact": "The game was created by a team in Vienna and won multiple awards for its narrative.",
+    "store_links": {
+      "steam": "http://store.steampowered.com/app/581270/",
+      "nintendo": "https://www.nintendo.com/games/detail/old-mans-journey-switch",
+      "playstation": "https://store.playstation.com/en-us/product/UP3141-CUSA12206_00-USOLDMANSJOURNEY",
+      "xbox": "https://www.microsoft.com/en-us/p/old-mans-journey/9n0rsv9dhlpr?cid=msft_web_chart"
+    }
   },
   {
     "id": "wattam",
@@ -5090,7 +5757,12 @@
       "local_coop"
     ],
     "description": "Make friends in a colorful world where everything wants to hold hands.",
-    "fun_fact": "Made by the creator of Katamari Damacy, featuring the same joyful absurdity."
+    "fun_fact": "Made by the creator of Katamari Damacy, featuring the same joyful absurdity.",
+    "store_links": {
+      "playstation": "https://store.playstation.com/en-us/product/UP2470-CUSA06238_00-WATTAMPS4GAME001",
+      "epic": "https://www.epicgames.com/store/en-US/product/wattam/home",
+      "steam": "http://store.steampowered.com/app/702680/"
+    }
   },
   {
     "id": "niche",
@@ -5163,7 +5835,10 @@
       "solo"
     ],
     "description": "Create and nurture your own living ecosystem.",
-    "fun_fact": "Made by a solo developer who also created Thin Matrix's OpenGL tutorials."
+    "fun_fact": "Made by a solo developer who also created Thin Matrix's OpenGL tutorials.",
+    "store_links": {
+      "steam": "https://store.steampowered.com/app/853550/"
+    }
   },
   {
     "id": "the-gardens-between",
@@ -5201,7 +5876,13 @@
       "solo"
     ],
     "description": "Manipulate time to solve puzzles and explore a friendship.",
-    "fun_fact": "The game has no dialogue or text - the entire story is told through visuals."
+    "fun_fact": "The game has no dialogue or text - the entire story is told through visuals.",
+    "store_links": {
+      "nintendo": "https://www.nintendo.com/games/detail/the-gardens-between-switch",
+      "steam": "http://store.steampowered.com/app/600990/",
+      "xbox": "https://www.microsoft.com/en-us/p/the-gardens-between/9p4z4tw66lpv?cid=msft_web_chart",
+      "playstation": "https://store.playstation.com/en-us/product/UP4266-CUSA10848_00-GARDENSBETWEEN00"
+    }
   },
   {
     "id": "night-in-the-woods",
@@ -5238,7 +5919,15 @@
       "solo"
     ],
     "description": "Return to your hometown as a cat who dropped out of college.",
-    "fun_fact": "The game was crowdfunded and explores themes of mental health and small-town decay."
+    "fun_fact": "The game was crowdfunded and explores themes of mental health and small-town decay.",
+    "store_links": {
+      "playstation": "https://store.playstation.com/en-us/product/UP0406-CUSA05447_00-0000000000000000",
+      "steam": "http://store.steampowered.com/app/481510/",
+      "gog": "http://www.gog.com/game/night_in_the_woods",
+      "xbox": "https://www.microsoft.com/en-us/store/p/night-in-the-woods/c501vqfw8fqg?cid=msft_web_chart",
+      "nintendo": "https://www.nintendo.com/games/detail/night-in-the-woods-switch",
+      "epic": "https://www.epicgames.com/store/ru/p/night-in-the-woods"
+    }
   },
   {
     "id": "oxenfree",
@@ -5275,7 +5964,15 @@
       "solo"
     ],
     "description": "Tune into supernatural signals on a mysterious island with friends.",
-    "fun_fact": "The dialogue system allows characters to talk over each other naturally."
+    "fun_fact": "The dialogue system allows characters to talk over each other naturally.",
+    "store_links": {
+      "playstation": "https://store.playstation.com/en-us/product/UP0962-CUSA04950_00-OXENBASEENUS0000",
+      "xbox": "https://www.microsoft.com/en-us/store/p/oxenfree/bsk1gn27rb8r?cid=msft_web_chart",
+      "steam": "http://store.steampowered.com/app/388880/",
+      "gog": "http://www.gog.com/game/oxenfree",
+      "nintendo": "https://www.nintendo.com/games/detail/oxenfree-switch",
+      "epic": "https://www.epicgames.com/store/en-US/product/oxenfree/home?sessionInvalidated=true"
+    }
   },
   {
     "id": "oxenfree-2",
@@ -5312,7 +6009,11 @@
       "solo"
     ],
     "description": "Return to the supernatural mystery years later as an adult.",
-    "fun_fact": "The sequel explores what happens when you grow up but the supernatural still calls."
+    "fun_fact": "The sequel explores what happens when you grow up but the supernatural still calls.",
+    "store_links": {
+      "steam": "https://store.steampowered.com/app/1574310/OXENFREE_II_Lost_Signals/",
+      "nintendo": "https://www.nintendo.com/games/detail/oxenfree-ii-lost-signals-switch/"
+    }
   },
   {
     "id": "heaven-dust-2",
@@ -5348,7 +6049,10 @@
       "solo"
     ],
     "description": "Solve puzzles and survive in a zombie-filled mansion.",
-    "fun_fact": "The game is an homage to classic Resident Evil with isometric pixel art."
+    "fun_fact": "The game is an homage to classic Resident Evil with isometric pixel art.",
+    "store_links": {
+      "steam": "https://store.steampowered.com/app/1515900/"
+    }
   },
   {
     "id": "we-are-obeah",
@@ -5383,7 +6087,13 @@
       "solo"
     ],
     "description": "Follow an indie band's journey through the LA music scene.",
-    "fun_fact": "Features real songs by the fictional band OFK that you can stream."
+    "fun_fact": "Features real songs by the fictional band OFK that you can stream.",
+    "store_links": {
+      "playstation": "https://store.playstation.com/en-us/product/UP6084-PPSA05809_00-3162895537551176",
+      "nintendo": "https://www.nintendo.com/store/products/we-are-ofk-switch/",
+      "epic": "https://store.epicgames.com/en-US/p/we-are-ofk",
+      "steam": "https://store.steampowered.com/app/1490340/"
+    }
   },
   {
     "id": "inmost",
@@ -5424,7 +6134,12 @@
     "fun_fact": "The game deals with heavy themes of loss and depression through metaphor.",
     "warnings": [
       "dark_themes"
-    ]
+    ],
+    "store_links": {
+      "gog": "http://www.gog.com/game/inmost",
+      "steam": "https://store.steampowered.com/app/938560/",
+      "nintendo": "https://www.nintendo.com/games/detail/inmost-switch"
+    }
   },
   {
     "id": "little-misfortune",
@@ -5464,7 +6179,14 @@
     "fun_fact": "Made by the creators of Fran Bow, featuring the same dark whimsy.",
     "warnings": [
       "dark_themes"
-    ]
+    ],
+    "store_links": {
+      "gog": "http://www.gog.com/game/little_misfortune",
+      "xbox": "https://www.microsoft.com/en-us/p/little-misfortune/9mv7k6jqqwt9?cid=msft_web_chart",
+      "playstation": "https://store.playstation.com/en-us/product/UP5329-CUSA19165_00-0000000000000666",
+      "nintendo": "https://www.nintendo.com/games/detail/little-misfortune-switch/",
+      "steam": "https://store.steampowered.com/app/714120/"
+    }
   },
   {
     "id": "fran-bow",
@@ -5505,7 +6227,11 @@
     "warnings": [
       "psychological_horror",
       "mental_health"
-    ]
+    ],
+    "store_links": {
+      "steam": "http://store.steampowered.com/app/362680/",
+      "gog": "http://www.gog.com/game/fran_bow"
+    }
   },
   {
     "id": "creaks",
@@ -5542,7 +6268,14 @@
       "solo"
     ],
     "description": "Descend through a strange mansion filled with furniture monsters.",
-    "fun_fact": "Made by the creators of Machinarium with hand-drawn animation."
+    "fun_fact": "Made by the creators of Machinarium with hand-drawn animation.",
+    "store_links": {
+      "playstation": "https://store.playstation.com/en-us/product/UP4360-CUSA18647_00-CREAKSPS400001US",
+      "xbox": "https://www.microsoft.com/en-us/p/creaks/9nx3hx9z4qxz?cid=msft_web_chart",
+      "nintendo": "https://www.nintendo.com/games/detail/creaks-switch/",
+      "steam": "https://store.steampowered.com/app/956030/",
+      "gog": "http://www.gog.com/game/creaks"
+    }
   },
   {
     "id": "machinarium",
@@ -5579,7 +6312,14 @@
       "solo"
     ],
     "description": "A little robot solves puzzles in a hand-drawn steampunk city.",
-    "fun_fact": "The entire game was hand-drawn by one artist over several years."
+    "fun_fact": "The entire game was hand-drawn by one artist over several years.",
+    "store_links": {
+      "xbox": "https://www.microsoft.com/en-us/p/machinarium/9ncjpcc7jn2m?cid=msft_web_chart",
+      "nintendo": "https://www.nintendo.com/games/detail/machinarium-switch",
+      "steam": "http://store.steampowered.com/app/40700/",
+      "playstation": "https://store.playstation.com/en-us/product/UP4360-CUSA02608_00-MACHINARIUMPS4FG",
+      "gog": "https://www.gog.com/game/machinarium_collectors_edition"
+    }
   },
   {
     "id": "botanicula",
@@ -5615,7 +6355,12 @@
       "solo"
     ],
     "description": "Five tiny creatures save their tree from evil parasites.",
-    "fun_fact": "Made by Amanita Design, featuring unique sound design by DVA."
+    "fun_fact": "Made by Amanita Design, featuring unique sound design by DVA.",
+    "store_links": {
+      "epic": "https://store.epicgames.com/ru/p/botanicula-50043d",
+      "steam": "http://store.steampowered.com/app/207690/",
+      "gog": "http://www.gog.com/game/botanicula"
+    }
   },
   {
     "id": "samorost-3",
@@ -5651,7 +6396,12 @@
       "solo"
     ],
     "description": "A space gnome explores surreal planets with his magic flute.",
-    "fun_fact": "The backgrounds combine real photographs with hand-drawn art."
+    "fun_fact": "The backgrounds combine real photographs with hand-drawn art.",
+    "store_links": {
+      "epic": "https://store.epicgames.com/ru/p/samorost-3-0c4489",
+      "steam": "http://store.steampowered.com/app/421120/",
+      "gog": "http://www.gog.com/game/samorost_3"
+    }
   },
   {
     "id": "chuchel",
@@ -5687,7 +6437,12 @@
       "solo"
     ],
     "description": "A fuzzy creature chases a cherry through absurd situations.",
-    "fun_fact": "The main character was redesigned after release due to unintended racial parallels."
+    "fun_fact": "The main character was redesigned after release due to unintended racial parallels.",
+    "store_links": {
+      "epic": "https://store.epicgames.com/ru/p/chuchel-203808",
+      "steam": "http://store.steampowered.com/app/711660/",
+      "gog": "http://www.gog.com/game/chuchel"
+    }
   },
   {
     "id": "pilgrims",
@@ -5722,7 +6477,12 @@
       "solo"
     ],
     "description": "A playful card-based adventure game about helping strangers.",
-    "fun_fact": "Made by Amanita Design as a smaller experimental project."
+    "fun_fact": "Made by Amanita Design as a smaller experimental project.",
+    "store_links": {
+      "epic": "https://store.epicgames.com/ru/p/pilgrims-6d250f",
+      "steam": "https://store.steampowered.com/app/1049280/Pilgrims/",
+      "gog": "http://www.gog.com/game/pilgrims"
+    }
   },
   {
     "id": "happy-game",
@@ -5762,7 +6522,13 @@
     "fun_fact": "Despite the name, this is Amanita Design's darkest and most disturbing game.",
     "warnings": [
       "disturbing_imagery"
-    ]
+    ],
+    "store_links": {
+      "epic": "https://store.epicgames.com/ru/p/happy-game-35a105",
+      "gog": "https://www.gog.com/game/happy_game",
+      "steam": "https://store.steampowered.com/app/1206060/Happy_Game/",
+      "nintendo": "https://www.nintendo.com/games/detail/happy-game-switch/"
+    }
   },
   {
     "id": "cocoon",
@@ -5802,7 +6568,10 @@
     "fun_fact": "Made by the lead designer of LIMBO and INSIDE!",
     "subscriptions": [
       "xbox_game_pass"
-    ]
+    ],
+    "store_links": {
+      "steam": "https://store.steampowered.com/app/1497440/COCOON/"
+    }
   },
   {
     "id": "limbo",
@@ -5839,7 +6608,15 @@
       "solo"
     ],
     "description": "A boy searches for his sister in a dark, hostile world.",
-    "fun_fact": "The game uses only black, white, and gray to create its haunting atmosphere."
+    "fun_fact": "The game uses only black, white, and gray to create its haunting atmosphere.",
+    "store_links": {
+      "playstation": "https://store.playstation.com/en-us/product/UP2054-CUSA01664_00-PLAYDEADD11LIMBO",
+      "xbox": "https://www.microsoft.com/en-us/p/limbo/btqmhk78zpf9?cid=msft_web_chart",
+      "steam": "http://store.steampowered.com/app/48000/",
+      "gog": "http://www.gog.com/game/limbo",
+      "nintendo": "https://www.nintendo.com/games/detail/limbo-switch",
+      "epic": "https://www.epicgames.com/store/ru/product/limbo/home"
+    }
   },
   {
     "id": "inside",
@@ -5877,7 +6654,15 @@
       "solo"
     ],
     "description": "A boy infiltrates a sinister facility in this wordless puzzle platformer.",
-    "fun_fact": "The animation system uses inverse kinematics to create eerily realistic movement."
+    "fun_fact": "The animation system uses inverse kinematics to create eerily realistic movement.",
+    "store_links": {
+      "epic": "https://www.epicgames.com/store/ru/product/inside/home",
+      "playstation": "https://store.playstation.com/en-us/product/UP2054-CUSA05297_00-INSIDE0000000000",
+      "xbox": "https://www.microsoft.com/en-us/store/p/inside/c17gqf31d617?cid=msft_web_chart",
+      "steam": "https://store.steampowered.com/app/304430/INSIDE/",
+      "gog": "http://www.gog.com/game/inside",
+      "nintendo": "https://www.nintendo.com/games/detail/inside-switch"
+    }
   },
   {
     "id": "the-last-campfire",
@@ -5913,7 +6698,13 @@
       "solo"
     ],
     "description": "Help lost souls find their way in a mysterious ember's journey.",
-    "fun_fact": "Made by Hello Games (No Man's Sky) as a small passion project."
+    "fun_fact": "Made by Hello Games (No Man's Sky) as a small passion project.",
+    "store_links": {
+      "nintendo": "https://www.nintendo.com/games/detail/the-last-campfire-switch/",
+      "playstation": "https://store.playstation.com/en-us/product/UP2034-CUSA19507_00-CAMPFIREHG000001",
+      "xbox": "https://www.microsoft.com/en-us/p/the-last-campfire/9ppc1b9pvhqh?cid=msft_web_chart",
+      "steam": "https://store.steampowered.com/app/990630/"
+    }
   },
   {
     "id": "forgotton-anne",
@@ -5950,6 +6741,13 @@
       "solo"
     ],
     "description": "Rule a world of forgotten things as an enforcer seeking to return home.",
-    "fun_fact": "The game was animated entirely frame-by-frame in a classic anime style."
+    "fun_fact": "The game was animated entirely frame-by-frame in a classic anime style.",
+    "store_links": {
+      "playstation": "https://store.playstation.com/en-us/product/UP0082-CUSA08170_00-FORGOTTONANNE001",
+      "nintendo": "https://www.nintendo.com/games/detail/forgotton-anne-switch",
+      "steam": "http://store.steampowered.com/app/542050/",
+      "xbox": "https://www.microsoft.com/en-us/store/p/forgotton-anne/c1xjkz9jsphn?cid=msft_web_chart",
+      "gog": "http://www.gog.com/game/forgotton_anne"
+    }
   }
 ]

@@ -26,8 +26,8 @@ import {
   Alert,
   ActivityIndicator,
   Linking,
+  ScrollView,
 } from 'react-native';
-import { ScrollView } from 'react-native-gesture-handler';
 import { LinearGradient } from 'expo-linear-gradient';
 import { Ionicons } from '@expo/vector-icons';
 import { useNavigation } from '@react-navigation/native';
@@ -54,7 +54,7 @@ const SESSION_LENGTHS = [
 const ProfileScreen = () => {
   const navigation = useNavigation();
   const { user, signOut, isAnonymous } = useAuth();
-  const { isPremium, upgradeToPremium, restorePurchases, getRemainingRerolls } = usePremium();
+  const { isPremium, restorePurchases, getRemainingRerolls } = usePremium();
 
   // Default preferences (stored locally or in user profile)
   const [defaultPlatform, setDefaultPlatform] = useState(null);
@@ -115,7 +115,6 @@ const ProfileScreen = () => {
               const result = await api.clearSignalHistory();
               Alert.alert('Done', `Your history has been cleared (${result.deleted_count} items removed).`);
             } catch (error) {
-              console.error('Error clearing history:', error);
               Alert.alert('Error', 'Failed to clear history. Please try again.');
             }
           },
@@ -150,7 +149,6 @@ const ProfileScreen = () => {
                 ]
               );
             } catch (error) {
-              console.error('Error deleting user data:', error);
               Alert.alert('Error', 'Failed to delete data. Please try again.');
             }
           },
@@ -187,23 +185,38 @@ const ProfileScreen = () => {
             'Account',
             <>
               {isAnonymous ? (
-                <TouchableOpacity style={styles.signInPrompt} onPress={handleSignIn}>
-                  <View style={styles.signInPromptContent}>
-                    <Ionicons name="sync-circle-outline" size={24} color="#e94560" />
-                    <View style={styles.signInPromptText}>
-                      <Text style={styles.signInPromptTitle}>Sign in to sync your data</Text>
-                      <Text style={styles.signInPromptSubtitle}>
-                        Access your history on any device
-                      </Text>
+                <TouchableOpacity style={styles.syncPrompt} onPress={handleSignIn}>
+                  <LinearGradient
+                    colors={['rgba(124, 58, 237, 0.15)', 'rgba(124, 58, 237, 0.05)']}
+                    style={styles.syncPromptGradient}
+                  >
+                    <View style={styles.syncPromptContent}>
+                      <View style={styles.syncIconContainer}>
+                        <Ionicons name="cloud-upload-outline" size={24} color="#7c3aed" />
+                      </View>
+                      <View style={styles.syncPromptText}>
+                        <Text style={styles.syncPromptTitle}>Enable cross-device sync</Text>
+                        <Text style={styles.syncPromptSubtitle}>
+                          Create an account to access your data anywhere
+                        </Text>
+                      </View>
                     </View>
-                  </View>
-                  <Ionicons name="chevron-forward" size={20} color="#808080" />
+                    <View style={styles.syncPromptButton}>
+                      <Text style={styles.syncPromptButtonText}>Set up</Text>
+                      <Ionicons name="chevron-forward" size={16} color="#ffffff" />
+                    </View>
+                  </LinearGradient>
                 </TouchableOpacity>
               ) : (
                 <>
-                  <View style={styles.menuItem}>
-                    <Ionicons name="person-outline" size={22} color="#808080" />
-                    <Text style={styles.menuItemText}>{user?.email || 'Anonymous'}</Text>
+                  <View style={styles.accountInfo}>
+                    <View style={styles.accountIcon}>
+                      <Ionicons name="checkmark-circle" size={20} color="#4ade80" />
+                    </View>
+                    <View style={styles.accountDetails}>
+                      <Text style={styles.accountEmail}>{user?.email}</Text>
+                      <Text style={styles.accountStatus}>Synced across devices</Text>
+                    </View>
                   </View>
                   <TouchableOpacity style={styles.menuItem} onPress={handleSignOut}>
                     <Ionicons name="log-out-outline" size={22} color="#808080" />
@@ -421,30 +434,82 @@ const styles = StyleSheet.create({
     fontSize: 16,
     color: '#ffffff',
   },
-  signInPrompt: {
-    flexDirection: 'row',
-    alignItems: 'center',
-    paddingVertical: 16,
-    paddingHorizontal: 16,
+  syncPrompt: {
+    overflow: 'hidden',
   },
-  signInPromptContent: {
-    flex: 1,
+  syncPromptGradient: {
+    padding: 16,
+    borderRadius: 12,
+  },
+  syncPromptContent: {
     flexDirection: 'row',
     alignItems: 'center',
+    marginBottom: 12,
     gap: 12,
   },
-  signInPromptText: {
+  syncIconContainer: {
+    width: 44,
+    height: 44,
+    borderRadius: 22,
+    backgroundColor: 'rgba(124, 58, 237, 0.2)',
+    justifyContent: 'center',
+    alignItems: 'center',
+  },
+  syncPromptText: {
     flex: 1,
   },
-  signInPromptTitle: {
+  syncPromptTitle: {
     fontSize: 16,
     fontWeight: '600',
-    color: '#e94560',
+    color: '#ffffff',
     marginBottom: 2,
   },
-  signInPromptSubtitle: {
+  syncPromptSubtitle: {
     fontSize: 13,
     color: '#909090',
+  },
+  syncPromptButton: {
+    flexDirection: 'row',
+    alignItems: 'center',
+    justifyContent: 'center',
+    backgroundColor: '#7c3aed',
+    paddingVertical: 12,
+    borderRadius: 10,
+    gap: 4,
+  },
+  syncPromptButtonText: {
+    fontSize: 15,
+    fontWeight: '600',
+    color: '#ffffff',
+  },
+  accountInfo: {
+    flexDirection: 'row',
+    alignItems: 'center',
+    padding: 16,
+    borderBottomWidth: 1,
+    borderBottomColor: 'rgba(255, 255, 255, 0.05)',
+    gap: 12,
+  },
+  accountIcon: {
+    width: 36,
+    height: 36,
+    borderRadius: 18,
+    backgroundColor: 'rgba(74, 222, 128, 0.15)',
+    justifyContent: 'center',
+    alignItems: 'center',
+  },
+  accountDetails: {
+    flex: 1,
+  },
+  accountEmail: {
+    fontSize: 16,
+    fontWeight: '500',
+    color: '#ffffff',
+    marginBottom: 2,
+  },
+  accountStatus: {
+    fontSize: 13,
+    color: '#4ade80',
   },
   premiumActive: {
     flexDirection: 'row',

@@ -28,14 +28,9 @@ const PREMIUM_BENEFITS = [
     description: 'Get as many recommendations as you want',
   },
   {
-    icon: 'time-outline',
-    title: 'Smart History',
-    description: 'Track your gaming decisions over time',
-  },
-  {
-    icon: 'options-outline',
-    title: 'Advanced Filters',
-    description: 'Fine-tune recommendations to your taste',
+    icon: 'library-outline',
+    title: 'Game Library',
+    description: 'Organize games into collections to track your backlog',
   },
   {
     icon: 'sync-outline',

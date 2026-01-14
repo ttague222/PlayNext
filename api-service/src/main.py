@@ -18,7 +18,7 @@ from .core.config import settings
 from .core.logging_config import setup_logging
 from .core.rate_limiter import limiter
 from .db.firebase import initialize_firebase
-from .api import recommend_router, games_router, signals_router
+from .api import recommend_router, games_router, signals_router, buckets_router
 
 
 # Setup logging
@@ -139,6 +139,7 @@ async def detailed_health_check():
 app.include_router(recommend_router, prefix="/api")
 app.include_router(games_router, prefix="/api")
 app.include_router(signals_router, prefix="/api")
+app.include_router(buckets_router, prefix="/api")
 
 
 # Root endpoint

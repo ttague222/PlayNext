@@ -11,11 +11,10 @@ import {
   Text,
   TouchableOpacity,
   StyleSheet,
-  SafeAreaView,
   Animated,
-  ActivityIndicator,
+  ScrollView,
 } from 'react-native';
-import { ScrollView } from 'react-native-gesture-handler';
+import { SafeAreaView } from 'react-native-safe-area-context';
 import { useNavigation } from '@react-navigation/native';
 import { LinearGradient } from 'expo-linear-gradient';
 import { useRecommendation } from '../context/RecommendationContext';
@@ -35,7 +34,7 @@ const PLAY_STYLE_OPTIONS = [
 
 const OptionalFiltersScreen = () => {
   const navigation = useNavigation();
-  const { preferences, updatePreference, getRecommendations, loading } = useRecommendation();
+  const { preferences, updatePreference, getRecommendations } = useRecommendation();
 
   // Animations
   const pulseAnim = useRef(new Animated.Value(1)).current;
@@ -58,13 +57,13 @@ const OptionalFiltersScreen = () => {
     ).start();
   }, []);
 
-  const handleGetRecommendations = async () => {
-    try {
-      await getRecommendations();
-      navigation.navigate('Results');
-    } catch (error) {
+  const handleGetRecommendations = () => {
+    // Navigate immediately - Results screen will show loading state
+    navigation.navigate('Results');
+    // Start fetching in background
+    getRecommendations().catch((error) => {
       console.error('Failed to get recommendations:', error);
-    }
+    });
   };
 
   // Toggle a value in an array (multi-select)
@@ -115,8 +114,8 @@ const OptionalFiltersScreen = () => {
       colors={['#0f0c29', '#302b63', '#24243e']}
       style={styles.container}
     >
-      <SafeAreaView style={styles.safeArea}>
-        <ScrollView style={styles.scrollView} contentContainerStyle={styles.content}>
+      <SafeAreaView style={styles.safeArea} edges={['top', 'left', 'right', 'bottom']}>
+        <ScrollView style={styles.scrollView} contentContainerStyle={styles.content} showsVerticalScrollIndicator={false}>
           {/* Progress indicator */}
           <View style={styles.progress}>
             <View style={[styles.progressDot, styles.progressComplete]} />
@@ -214,26 +213,16 @@ const OptionalFiltersScreen = () => {
             <TouchableOpacity
               style={styles.ctaButton}
               onPress={handleGetRecommendations}
-              disabled={loading}
               activeOpacity={0.9}
             >
               <LinearGradient
-                colors={loading ? ['#666', '#888'] : ['#f857a6', '#ff5858']}
+                colors={['#f857a6', '#ff5858']}
                 start={{ x: 0, y: 0 }}
                 end={{ x: 1, y: 0 }}
                 style={styles.ctaGradient}
               >
-                {loading ? (
-                  <View style={styles.loadingContainer}>
-                    <ActivityIndicator color="#ffffff" size="small" />
-                    <Text style={styles.ctaText}>Finding games...</Text>
-                  </View>
-                ) : (
-                  <>
-                    <Text style={styles.ctaIcon}>🎯</Text>
-                    <Text style={styles.ctaText}>Show My Games</Text>
-                  </>
-                )}
+                <Text style={styles.ctaIcon}>🎯</Text>
+                <Text style={styles.ctaText}>Show My Games</Text>
               </LinearGradient>
             </TouchableOpacity>
           </Animated.View>
@@ -438,11 +427,6 @@ const styles = StyleSheet.create({
     fontSize: 20,
     fontWeight: '700',
     color: '#ffffff',
-  },
-  loadingContainer: {
-    flexDirection: 'row',
-    alignItems: 'center',
-    gap: 12,
   },
   skipText: {
     fontSize: 14,

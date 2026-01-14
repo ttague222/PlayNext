@@ -36,7 +36,10 @@
     ],
     "description": "Race Nintendo characters across creative tracks.",
     "fun_fact": "The game has been on Nintendo's best-sellers list for over 7 years straight!",
-    "franchise": "mario_kart"
+    "franchise": "mario_kart",
+    "store_links": {
+      "nintendo": "https://www.nintendo.com/us/store/products/mario-kart-8-deluxe-switch/"
+    }
   },
   {
     "id": "fall-guys",
@@ -74,7 +77,14 @@
       "competitive"
     ],
     "description": "Compete as a wobbly bean in chaotic obstacle courses.",
-    "fun_fact": "The beans have no bones - they're literally just beans in costumes!"
+    "fun_fact": "The beans have no bones - they're literally just beans in costumes!",
+    "store_links": {
+      "steam": "https://store.steampowered.com/app/1097150/Fall_Guys/",
+      "playstation": "https://store.playstation.com/en-us/product/UP4064-PPSA02029_00-FALLGUYSPS5US001",
+      "xbox": "https://www.xbox.com/en-US/games/store/fall-guys/9PMXH5249DG5",
+      "nintendo": "https://www.nintendo.com/us/store/products/fall-guys-switch/",
+      "epic": "https://store.epicgames.com/en-US/p/fall-guys"
+    }
   },
   {
     "id": "among-us",
@@ -110,7 +120,14 @@
       "online_coop"
     ],
     "description": "Find the impostor among your crewmates or deceive them all.",
-    "fun_fact": "The game was released in 2018 but didn't become popular until 2020!"
+    "fun_fact": "The game was released in 2018 but didn't become popular until 2020!",
+    "store_links": {
+      "steam": "https://store.steampowered.com/app/945360/Among_Us/",
+      "playstation": "https://store.playstation.com/en-us/product/UP2590-PPSA04893_00-YOUREWELCOME0000",
+      "xbox": "https://www.xbox.com/en-US/games/store/among-us/9NG07QJNK38J",
+      "nintendo": "https://www.nintendo.com/us/store/products/among-us-switch/",
+      "epic": "https://store.epicgames.com/en-US/p/among-us"
+    }
   },
   {
     "id": "rocket-league",
@@ -149,7 +166,14 @@
       "competitive"
     ],
     "description": "Play soccer with rocket-powered cars.",
-    "fun_fact": "The game was originally called 'Supersonic Acrobatic Rocket-Powered Battle-Cars'!"
+    "fun_fact": "The game was originally called 'Supersonic Acrobatic Rocket-Powered Battle-Cars'!",
+    "store_links": {
+      "steam": "https://store.steampowered.com/app/252950/Rocket_League/",
+      "playstation": "https://store.playstation.com/en-us/product/UP2002-CUSA01163_00-RLODDLFULLGAMENA",
+      "xbox": "https://www.xbox.com/en-US/games/store/rocket-league/C125W9BG2K0V",
+      "nintendo": "https://www.nintendo.com/us/store/products/rocket-league-switch/",
+      "epic": "https://store.epicgames.com/en-US/p/rocket-league"
+    }
   },
   {
     "id": "overcooked-2",
@@ -189,7 +213,13 @@
     ],
     "description": "Cook meals in chaotic kitchens with friends.",
     "fun_fact": "The game was designed to test relationships - it's infamous for causing friendly arguments!",
-    "franchise": "overcooked"
+    "franchise": "overcooked",
+    "store_links": {
+      "steam": "https://store.steampowered.com/app/728880/Overcooked_2/",
+      "playstation": "https://store.playstation.com/en-us/product/UP4064-CUSA10940_00-YOUREWELCOME0000",
+      "xbox": "https://www.xbox.com/en-US/games/store/overcooked-2/BNTMPL5DH4RB",
+      "nintendo": "https://www.nintendo.com/us/store/products/overcooked-2-switch/"
+    }
   },
   {
     "id": "minecraft",
@@ -231,7 +261,12 @@
     "fun_fact": "The game has sold over 300 million copies, making it the best-selling video game of all time!",
     "subscriptions": [
       "xbox_game_pass"
-    ]
+    ],
+    "store_links": {
+      "playstation": "https://store.playstation.com/en-us/product/UP4433-CUSA00744_00-YOUREWELCOME0000",
+      "xbox": "https://www.xbox.com/en-US/games/store/minecraft/9NBLGGH537BL",
+      "nintendo": "https://www.nintendo.com/us/store/products/minecraft-switch/"
+    }
   },
   {
     "id": "terraria",
@@ -271,7 +306,14 @@
       "online_coop"
     ],
     "description": "Dig, fight, explore, and build in a 2D sandbox world.",
-    "fun_fact": "The game has received over 50 major content updates since its 2011 launch!"
+    "fun_fact": "The game has received over 50 major content updates since its 2011 launch!",
+    "store_links": {
+      "steam": "https://store.steampowered.com/app/105600/Terraria/",
+      "playstation": "https://store.playstation.com/en-us/product/UP4040-CUSA00740_00-YOUREWELCOME0000",
+      "xbox": "https://www.xbox.com/en-US/games/store/terraria/BQQM9J5GJ0QH",
+      "nintendo": "https://www.nintendo.com/us/store/products/terraria-switch/",
+      "gog": "https://www.gog.com/en/game/terraria"
+    }
   },
   {
     "id": "splatoon-3",
@@ -309,7 +351,10 @@
     ],
     "description": "Ink-based multiplayer battles with style.",
     "fun_fact": "The Splatoon world exists 12,000 years after humanity went extinct from rising sea levels.",
-    "franchise": "splatoon"
+    "franchise": "splatoon",
+    "store_links": {
+      "nintendo": "https://www.nintendo.com/us/store/products/splatoon-3-switch/"
+    }
   },
   {
     "id": "fortnite",
@@ -347,7 +392,13 @@
       "competitive"
     ],
     "description": "Battle royale with building mechanics and pop culture crossovers.",
-    "fun_fact": "The game started as a zombie survival game before Battle Royale was added!"
+    "fun_fact": "The game started as a zombie survival game before Battle Royale was added!",
+    "store_links": {
+      "playstation": "https://store.playstation.com/en-us/product/UP1477-CUSA07022_00-FORTNITETESTING1",
+      "xbox": "https://www.microsoft.com/en-us/store/p/fortnite-battle-royale/bt5p2x999vh2?cid=msft_web_chart",
+      "nintendo": "https://www.nintendo.com/games/detail/fortnite-switch",
+      "epic": "https://www.epicgames.com/fortnite/en-US/buy-now/battle-royale"
+    }
   },
   {
     "id": "super-smash-bros-ultimate",
@@ -384,7 +435,10 @@
       "competitive"
     ],
     "description": "Nintendo characters battle in the ultimate crossover.",
-    "fun_fact": "With 89 playable fighters, it has the largest roster of any fighting game!"
+    "fun_fact": "With 89 playable fighters, it has the largest roster of any fighting game!",
+    "store_links": {
+      "nintendo": "https://e3.nintendo.com/games/super-smash-bros-ultimate-switch/"
+    }
   },
   {
     "id": "portal-2",
@@ -423,7 +477,12 @@
     ],
     "description": "Think with portals in this brilliant puzzle-comedy.",
     "fun_fact": "The companion cube has its own Twitter account and has become one of gaming's most beloved characters.",
-    "franchise": "portal"
+    "franchise": "portal",
+    "store_links": {
+      "xbox": "https://www.microsoft.com/en-us/p/portal-2/bt2b17v20d1p?cid=msft_web_chart",
+      "steam": "http://store.steampowered.com/app/620/",
+      "playstation": "https://store.playstation.com/en-us/product/UP2061-NPUB31077_00-PORTAL2DIGITAL01"
+    }
   },
   {
     "id": "it-takes-two",
@@ -464,7 +523,13 @@
     "subscriptions": [
       "xbox_game_pass",
       "ea_play"
-    ]
+    ],
+    "store_links": {
+      "nintendo": "https://www.nintendo.com/store/products/it-takes-two-switch/",
+      "steam": "https://store.steampowered.com/app/1426210/It_Takes_Two/",
+      "xbox": "https://www.microsoft.com/en-us/p/it-takes-two-digital-version/9nxvc0482qs5?cid=msft_web_chart",
+      "playstation": "https://store.playstation.com/en-us/product/UP0006-PPSA02342_00-ITTAKESTWORETAIL"
+    }
   },
   {
     "id": "jackbox-party-pack-9",
@@ -500,7 +565,11 @@
       "local_coop"
     ],
     "description": "Party games playable on phones with friends.",
-    "fun_fact": "Each game in the packs is made by a different team at Jackbox Games."
+    "fun_fact": "Each game in the packs is made by a different team at Jackbox Games.",
+    "store_links": {
+      "epic": "https://store.epicgames.com/en-US/p/jackbox-party-pack-9",
+      "steam": "https://store.steampowered.com/app/1850960/"
+    }
   },
   {
     "id": "golf-with-friends",
@@ -540,7 +609,14 @@
       "competitive"
     ],
     "description": "Mini-golf with wacky courses and power-ups.",
-    "fun_fact": "The game started as a university project before becoming a Steam hit!"
+    "fun_fact": "The game started as a university project before becoming a Steam hit!",
+    "store_links": {
+      "gog": "https://www.gog.com/fr/game/golf_with_your_friends",
+      "nintendo": "https://www.nintendo.com/games/detail/golf-with-your-friends-switch/",
+      "xbox": "https://www.microsoft.com/en-us/p/golf-with-your-friends/9n14g09pwg74?cid=msft_web_chart",
+      "playstation": "https://store.playstation.com/en-us/product/UP4064-CUSA17669_00-GOLFWYFRIENDS000",
+      "steam": "http://store.steampowered.com/app/431240/"
+    }
   },
   {
     "id": "gang-beasts",
@@ -577,7 +653,12 @@
       "competitive"
     ],
     "description": "Gelatinous characters brawl in absurd environments.",
-    "fun_fact": "The physics are intentionally terrible to make every fight hilarious."
+    "fun_fact": "The physics are intentionally terrible to make every fight hilarious.",
+    "store_links": {
+      "playstation": "https://store.playstation.com/en-us/product/UP2154-CUSA04794_00-GANGBEASTSPS04NA",
+      "steam": "http://store.steampowered.com/app/285900/",
+      "xbox": "https://www.microsoft.com/en-us/p/gang-beasts/bpqzt43fwd49?cid=msft_web_chart"
+    }
   },
   {
     "id": "moving-out",
@@ -614,7 +695,14 @@
       "local_coop"
     ],
     "description": "Move furniture in increasingly absurd scenarios.",
-    "fun_fact": "The developers literally moved furniture IRL to understand the physics!"
+    "fun_fact": "The developers literally moved furniture IRL to understand the physics!",
+    "store_links": {
+      "nintendo": "https://www.nintendo.com/games/detail/moving-out-switch/",
+      "xbox": "https://www.microsoft.com/en-us/p/moving-out/9nxpbsmhpltv",
+      "playstation": "https://store.playstation.com/en-us/product/UP4064-CUSA17670_00-MOVINGOUT0000000",
+      "steam": "https://store.steampowered.com/app/996770/",
+      "epic": "https://www.epicgames.com/store/en-US/p/moving-out"
+    }
   },
   {
     "id": "human-fall-flat",
@@ -652,7 +740,14 @@
       "online_coop"
     ],
     "description": "Wobbly physics puzzle platforming with friends.",
-    "fun_fact": "The game has sold over 40 million copies thanks to its streaming popularity."
+    "fun_fact": "The game has sold over 40 million copies thanks to its streaming popularity.",
+    "store_links": {
+      "gog": "http://www.gog.com/game/human_fall_flat",
+      "steam": "http://store.steampowered.com/app/477160/",
+      "playstation": "https://store.playstation.com/en-us/product/UP4395-CUSA07215_00-HUMANFF00SIEAPS4",
+      "xbox": "https://www.microsoft.com/en-us/store/p/human-fall-flat/bsmzh25v6v46?cid=msft_web_chart",
+      "nintendo": "https://www.nintendo.com/games/detail/human-fall-flat-switch"
+    }
   },
   {
     "id": "ultimate-chicken-horse",
@@ -691,7 +786,13 @@
       "competitive"
     ],
     "description": "Build levels to challenge your friends while beating them yourself.",
-    "fun_fact": "Players often create impossible levels just to watch their friends fail."
+    "fun_fact": "Players often create impossible levels just to watch their friends fail.",
+    "store_links": {
+      "steam": "http://store.steampowered.com/app/386940/",
+      "playstation": "https://store.playstation.com/en-us/product/UP1665-CUSA08580_00-CLEVENDEAVUCH000",
+      "xbox": "https://www.microsoft.com/en-us/store/p/ultimate-chicken-horse/bnnmlwzrnqf6?cid=msft_web_chart",
+      "nintendo": "https://www.nintendo.com/games/detail/ultimate-chicken-horse-switch"
+    }
   },
   {
     "id": "stick-fight",
@@ -729,7 +830,10 @@
       "competitive"
     ],
     "description": "Stick figures battle with physics-based combat.",
-    "fun_fact": "Inspired by classic stick figure animations from the early internet."
+    "fun_fact": "Inspired by classic stick figure animations from the early internet.",
+    "store_links": {
+      "steam": "http://store.steampowered.com/app/674940/"
+    }
   },
   {
     "id": "pummel-party",
@@ -765,7 +869,10 @@
       "online_coop"
     ],
     "description": "Board game party with brutal mini-games.",
-    "fun_fact": "The game was designed as a more mature alternative to Mario Party."
+    "fun_fact": "The game was designed as a more mature alternative to Mario Party.",
+    "store_links": {
+      "steam": "https://store.steampowered.com/app/880940/"
+    }
   },
   {
     "id": "speedrunners",
@@ -802,7 +909,13 @@
       "competitive"
     ],
     "description": "Race through obstacle courses as superheroes.",
-    "fun_fact": "Falling behind means getting eliminated by an ever-shrinking screen."
+    "fun_fact": "Falling behind means getting eliminated by an ever-shrinking screen.",
+    "store_links": {
+      "nintendo": "https://www.nintendo.com/games/detail/speedrunners-switch/",
+      "steam": "http://store.steampowered.com/app/207140/",
+      "playstation": "https://store.playstation.com/en-us/product/UP0097-CUSA05553_00-SPEEDRUNNERS0000",
+      "xbox": "https://www.microsoft.com/en-us/p/speedrunners/c3pb0bp0g04l?cid=msft_web_chart"
+    }
   },
   {
     "id": "boomerang-fu",
@@ -838,7 +951,11 @@
       "local_coop"
     ],
     "description": "Food characters battle with deadly boomerangs.",
-    "fun_fact": "All characters are cute food items that violently slice each other."
+    "fun_fact": "All characters are cute food items that violently slice each other.",
+    "store_links": {
+      "xbox": "https://www.microsoft.com/en-us/p/boomerang-fu/9pjdvrggfpph?cid=msft_web_chart",
+      "steam": "https://store.steampowered.com/app/965680/"
+    }
   },
   {
     "id": "unravel-two",
@@ -876,7 +993,13 @@
     ],
     "description": "Two yarn creatures solve puzzles together.",
     "fun_fact": "The yarn physics are based on real textile mathematics!",
-    "franchise": "unravel"
+    "franchise": "unravel",
+    "store_links": {
+      "steam": "https://store.steampowered.com/app/1225570/Unravel_Two/",
+      "playstation": "https://store.playstation.com/en-us/product/UP0006-CUSA10483_00-COLDWOODPIKE0000",
+      "xbox": "https://www.microsoft.com/en-us/p/unravel-two/c4vklmg1hlzw?cid=msft_web_chart",
+      "nintendo": "https://www.nintendo.com/games/detail/unravel-two-switch"
+    }
   },
   {
     "id": "sackboy-adventure",
@@ -916,7 +1039,12 @@
     "fun_fact": "LittleBigPlanet's Sackboy has appeared in over 10 different games!",
     "subscriptions": [
       "playstation_plus"
-    ]
+    ],
+    "store_links": {
+      "epic": "https://store.epicgames.com/en-US/p/sackboy-a-big-adventure",
+      "steam": "https://store.steampowered.com/app/1599660/Sackboy_A_Big_Adventure/",
+      "playstation": "https://store.playstation.com/en-us/product/UP9000-CUSA18886_00-SACKBOYADVENTURE"
+    }
   },
   {
     "id": "kirby-forgotten-land",
@@ -952,7 +1080,10 @@
     ],
     "description": "Kirby's first 3D platforming adventure.",
     "fun_fact": "Kirby can swallow cars and vending machines with his new Mouthful Mode.",
-    "franchise": "kirby"
+    "franchise": "kirby",
+    "store_links": {
+      "nintendo": "https://www.nintendo.com/games/detail/kirby-and-the-forgotten-land-switch/"
+    }
   },
   {
     "id": "yoshis-crafted-world",
@@ -988,7 +1119,10 @@
     ],
     "description": "Explore levels made of cardboard and crafts.",
     "fun_fact": "Every level is made to look like real crafts with visible tape and cardboard.",
-    "franchise": "yoshi"
+    "franchise": "yoshi",
+    "store_links": {
+      "nintendo": "https://www.nintendo.com/games/detail/yoshi-for-nintendo-switch"
+    }
   },
   {
     "id": "lego-star-wars-skywalker",
@@ -1027,7 +1161,11 @@
     ],
     "description": "All 9 Star Wars movies in LEGO form.",
     "fun_fact": "The game contains over 300 playable characters and 23 planets!",
-    "franchise": "lego_star_wars"
+    "franchise": "lego_star_wars",
+    "store_links": {
+      "epic": "https://store.epicgames.com/p/lego-star-wars-the-skywalker-saga",
+      "steam": "https://store.steampowered.com/app/920210/"
+    }
   },
   {
     "id": "lego-marvel-superheroes-2",
@@ -1066,7 +1204,13 @@
     ],
     "description": "Marvel heroes unite in LEGO form to save the multiverse.",
     "fun_fact": "Features time-traveling characters from multiple Marvel eras.",
-    "franchise": "lego_marvel"
+    "franchise": "lego_marvel",
+    "store_links": {
+      "steam": "http://store.steampowered.com/app/647830/",
+      "playstation": "https://store.playstation.com/en-us/product/UP1018-CUSA08469_00-LEGOMARVELSH2001",
+      "nintendo": "https://www.nintendo.com/games/detail/lego-marvel-super-heroes-2-switch",
+      "xbox": "https://www.microsoft.com/en-us/store/p/lego-marvel-super-heroes-2/c0g91v37489h?cid=msft_web_chart"
+    }
   },
   {
     "id": "lego-dc-supervillains",
@@ -1105,7 +1249,14 @@
     ],
     "description": "Play as DC villains in this comedy adventure.",
     "fun_fact": "For the first time in LEGO games, you can create your own custom villain.",
-    "franchise": "lego_dc"
+    "franchise": "lego_dc",
+    "store_links": {
+      "gog": "https://www.gog.com/fr/game/lego_dc_supervillains",
+      "xbox": "https://www.microsoft.com/en-us/p/lego-dc-super-villains/bqxvsgcx6k8w?cid=msft_web_chart",
+      "playstation": "https://store.playstation.com/en-us/product/UP1018-CUSA11542_00-LEGODCVILLAINS00",
+      "steam": "https://store.steampowered.com/app/829110/",
+      "nintendo": "https://www.nintendo.com/games/detail/lego-dc-super-villains-switch"
+    }
   },
   {
     "id": "crash-bandicoot-4",
@@ -1143,7 +1294,13 @@
     ],
     "description": "Classic Crash platforming with new abilities.",
     "fun_fact": "The game ignores Crash games after Warped, making this the true 4th game.",
-    "franchise": "crash_bandicoot"
+    "franchise": "crash_bandicoot",
+    "store_links": {
+      "steam": "https://store.steampowered.com/app/1378990/",
+      "playstation": "https://store.playstation.com/en-us/product/UP0002-CUSA19035_00-CB4STANDARD00001",
+      "xbox": "https://www.microsoft.com/en-us/p/crash-bandicoot-4-its-about-time/9pmxpq307z5p",
+      "nintendo": "https://www.nintendo.com/games/detail/crash-bandicoot-4-its-about-time-switch/"
+    }
   },
   {
     "id": "spyro-reignited",
@@ -1180,7 +1337,13 @@
     ],
     "description": "Three classic Spyro games beautifully remastered.",
     "fun_fact": "The remaster completely rebuilt all three games from scratch.",
-    "franchise": "spyro"
+    "franchise": "spyro",
+    "store_links": {
+      "nintendo": "https://www.nintendo.com/games/detail/spyro-reignited-trilogy-switch/",
+      "xbox": "https://www.microsoft.com/en-us/store/p/spyro-reignited-trilogy/bwhfznsl0pb5?cid=msft_web_chart",
+      "playstation": "https://store.playstation.com/en-us/product/UP0002-CUSA12125_00-SPYROTRILOGY0001",
+      "steam": "https://store.steampowered.com/app/996580/"
+    }
   },
   {
     "id": "crash-team-racing-nf",
@@ -1221,7 +1384,12 @@
     ],
     "description": "Classic Crash racing rebuilt for modern consoles.",
     "fun_fact": "The original CTR was considered by many to be better than Mario Kart!",
-    "franchise": "crash_bandicoot"
+    "franchise": "crash_bandicoot",
+    "store_links": {
+      "playstation": "https://store.playstation.com/en-us/product/UP0002-CUSA13795_00-CRASHTEAMRACING1",
+      "xbox": "https://www.microsoft.com/en-us/p/crash-team-racing-nitro-fueled/bqrb60pw2sdl?cid=msft_web_chart",
+      "nintendo": "https://www.nintendo.com/games/detail/crash-team-racing-nitro-fueled-switch"
+    }
   },
   {
     "id": "new-super-mario-bros-u",
@@ -1258,7 +1426,10 @@
     ],
     "description": "Classic 2D Mario platforming with friends.",
     "fun_fact": "Adds Nabbit and Toadette as easier playable characters.",
-    "franchise": "super_mario"
+    "franchise": "super_mario",
+    "store_links": {
+      "nintendo": "https://www.nintendo.com/games/detail/new-super-mario-bros-u-deluxe-switch"
+    }
   },
   {
     "id": "super-mario-3d-world",
@@ -1294,7 +1465,10 @@
     ],
     "description": "3D platforming with cat suits and open-world bonus content.",
     "fun_fact": "Bowser's Fury was added as a completely new open-world experience.",
-    "franchise": "super_mario"
+    "franchise": "super_mario",
+    "store_links": {
+      "nintendo": "https://www.nintendo.com/games/detail/super-mario-3d-world-plus-bowsers-fury-switch/"
+    }
   },
   {
     "id": "luigis-mansion-3",
@@ -1332,7 +1506,10 @@
     ],
     "description": "Luigi busts ghosts in a haunted hotel.",
     "fun_fact": "Each floor of the hotel was designed by a different team at Nintendo.",
-    "franchise": "luigi_mansion"
+    "franchise": "luigi_mansion",
+    "store_links": {
+      "nintendo": "https://www.nintendo.com/games/detail/luigis-mansion-3-switch/"
+    }
   },
   {
     "id": "captain-toad",
@@ -1367,7 +1544,10 @@
       "local_coop"
     ],
     "description": "Solve diorama puzzles as the adorable Captain Toad.",
-    "fun_fact": "Toad can't jump because his backpack is too heavy!"
+    "fun_fact": "Toad can't jump because his backpack is too heavy!",
+    "store_links": {
+      "nintendo": "https://www.nintendo.com/games/detail/captain-toad-treasure-tracker-wii-u"
+    }
   },
   {
     "id": "donkey-kong-country-tropical-freeze",
@@ -1403,7 +1583,10 @@
     ],
     "description": "Classic DK platforming with incredible music.",
     "fun_fact": "The soundtrack was composed by David Wise, who scored the original SNES games.",
-    "franchise": "donkey_kong"
+    "franchise": "donkey_kong",
+    "store_links": {
+      "nintendo": "https://www.nintendo.com/games/detail/donkey-kong-country-tropical-freeze-switch"
+    }
   },
   {
     "id": "rayman-legends",
@@ -1440,7 +1623,14 @@
       "local_coop"
     ],
     "description": "Beautiful hand-drawn platforming with musical levels.",
-    "fun_fact": "The musical levels sync gameplay to classic songs reimagined."
+    "fun_fact": "The musical levels sync gameplay to classic songs reimagined.",
+    "store_links": {
+      "epic": "https://www.epicgames.com/store/ru/product/rayman-legends/home",
+      "playstation": "https://store.playstation.com/en-us/product/UP0001-CUSA00069_00-RAYMANLEGENDS001",
+      "steam": "http://store.steampowered.com/app/242550/",
+      "nintendo": "https://www.nintendo.com/games/detail/rayman-legends-wii-u",
+      "xbox": "https://marketplace.xbox.com/en-US/Product/Rayman-Legends/66acd000-77fe-1000-9115-d802555308c3"
+    }
   },
   {
     "id": "cuphead",
@@ -1482,7 +1672,14 @@
     "subscriptions": [
       "xbox_game_pass"
     ],
-    "franchise": "cuphead"
+    "franchise": "cuphead",
+    "store_links": {
+      "playstation": "https://store.playstation.com/en-us/product/UP8062-CUSA20499_00-CUPHEAD000000000",
+      "gog": "http://www.gog.com/game/cuphead",
+      "steam": "http://store.steampowered.com/app/268910/",
+      "xbox": "https://www.microsoft.com/en-us/store/p/cuphead/9njrx71m5x9p?cid=msft_web_chart",
+      "nintendo": "https://www.nintendo.com/games/detail/cuphead-switch"
+    }
   },
   {
     "id": "cuphead-dlc",
@@ -1524,7 +1721,11 @@
     "subscriptions": [
       "xbox_game_pass"
     ],
-    "franchise": "cuphead"
+    "franchise": "cuphead",
+    "store_links": {
+      "steam": "https://store.steampowered.com/app/1117850/Cuphead__The_Delicious_Last_Course/",
+      "gog": "https://www.gog.com/en/game/cuphead_the_delicious_last_course"
+    }
   },
   {
     "id": "shovel-knight",
@@ -1561,7 +1762,14 @@
       "local_coop"
     ],
     "description": "Retro-style platforming with a shovel-wielding knight.",
-    "fun_fact": "The game was inspired by classic NES platformers but adds modern quality-of-life features."
+    "fun_fact": "The game was inspired by classic NES platformers but adds modern quality-of-life features.",
+    "store_links": {
+      "playstation": "https://store.playstation.com/en-us/product/UP2200-CUSA01867_00-SHOVELKNIGHT0001",
+      "gog": "http://www.gog.com/game/shovel_knight",
+      "xbox": "https://www.microsoft.com/en-us/store/p/shovel-knight-treasure-trove/bpfvsms2mn7l?cid=msft_web_chart",
+      "nintendo": "https://www.nintendo.com/games/detail/shovel-knight-treasure-trove-switch/",
+      "steam": "https://store.steampowered.com/app/250760/Shovel_Knight_Treasure_Trove/"
+    }
   },
   {
     "id": "hollow-knight",
@@ -1602,7 +1810,14 @@
     "subscriptions": [
       "xbox_game_pass",
       "playstation_plus"
-    ]
+    ],
+    "store_links": {
+      "steam": "https://store.steampowered.com/app/367520/Hollow_Knight/",
+      "playstation": "https://store.playstation.com/en-us/product/UP1822-CUSA13632_00-YOUREWELCOME0000",
+      "xbox": "https://www.xbox.com/en-US/games/store/hollow-knight-voidheart-edition/9MW9469V91LM",
+      "nintendo": "https://www.nintendo.com/us/store/products/hollow-knight-switch/",
+      "gog": "https://www.gog.com/en/game/hollow_knight"
+    }
   },
   {
     "id": "ori-collection",
@@ -1643,7 +1858,10 @@
     "subscriptions": [
       "xbox_game_pass"
     ],
-    "franchise": "ori"
+    "franchise": "ori",
+    "store_links": {
+      "xbox": "https://www.microsoft.com/en-us/p/ori-the-collection/9p5mbbff3rnt?cid=msft_web_chart"
+    }
   },
   {
     "id": "celeste",
@@ -1684,7 +1902,14 @@
     "subscriptions": [
       "xbox_game_pass",
       "playstation_plus"
-    ]
+    ],
+    "store_links": {
+      "steam": "https://store.steampowered.com/app/504230/Celeste/",
+      "playstation": "https://store.playstation.com/en-us/product/UP2120-CUSA11302_00-YOUREWELCOME0000",
+      "xbox": "https://www.xbox.com/en-US/games/store/celeste/BWMQL2RPWM3W",
+      "nintendo": "https://www.nintendo.com/us/store/products/celeste-switch/",
+      "epic": "https://store.epicgames.com/en-US/p/celeste"
+    }
   },
   {
     "id": "super-meat-boy",
@@ -1721,7 +1946,14 @@
       "solo"
     ],
     "description": "Precision platforming as a boy made of meat.",
-    "fun_fact": "The game was made in just 18 months by two people!"
+    "fun_fact": "The game was made in just 18 months by two people!",
+    "store_links": {
+      "playstation": "https://store.playstation.com/en-us/product/UP1055-CUSA02845_00-SUPERMEATBOY0000",
+      "steam": "http://store.steampowered.com/app/40800/",
+      "xbox": "https://marketplace.xbox.com/en-US/Product/Super-Meat-Boy/66acd000-77fe-1000-9115-d80258410a5a",
+      "nintendo": "https://www.nintendo.com/games/detail/super-meat-boy-wii-u",
+      "epic": "https://www.epicgames.com/store/en-US/product/super-meat-boy/home?lang=en-US"
+    }
   },
   {
     "id": "the-messenger",
@@ -1758,7 +1990,14 @@
       "solo"
     ],
     "description": "A ninja adventure that transforms halfway through.",
-    "fun_fact": "The game secretly switches from 8-bit to 16-bit graphics mid-story."
+    "fun_fact": "The game secretly switches from 8-bit to 16-bit graphics mid-story.",
+    "store_links": {
+      "epic": "https://www.epicgames.com/store/ru/product/the-messenger/home",
+      "steam": "https://store.steampowered.com/app/764790/The_Messenger/",
+      "xbox": "https://www.microsoft.com/en-us/p/the-messenger/9nnfbw3ngv9k",
+      "nintendo": "https://www.nintendo.com/games/detail/the-messenger-switch/",
+      "playstation": "https://store.playstation.com/en-us/product/UP3643-CUSA15271_00-THEMESSENGERSIEA"
+    }
   },
   {
     "id": "dead-cells",
@@ -1799,7 +2038,14 @@
     "subscriptions": [
       "xbox_game_pass",
       "playstation_plus"
-    ]
+    ],
+    "store_links": {
+      "steam": "https://store.steampowered.com/app/588650/Dead_Cells/",
+      "playstation": "https://store.playstation.com/en-us/product/UP4016-CUSA11253_00-YOUREWELCOME0000",
+      "xbox": "https://www.xbox.com/en-US/games/store/dead-cells/C1G0HBRKXVLZ",
+      "nintendo": "https://www.nintendo.com/us/store/products/dead-cells-switch/",
+      "gog": "https://www.gog.com/en/game/dead_cells"
+    }
   },
   {
     "id": "hades",
@@ -1841,7 +2087,14 @@
       "xbox_game_pass",
       "playstation_plus"
     ],
-    "franchise": "hades"
+    "franchise": "hades",
+    "store_links": {
+      "steam": "https://store.steampowered.com/app/1145360/Hades/",
+      "playstation": "https://store.playstation.com/en-us/product/UP2809-CUSA18779_00-YOUREWELCOME0000",
+      "xbox": "https://www.xbox.com/en-US/games/store/hades/9P8DL6W0JBBL",
+      "nintendo": "https://www.nintendo.com/us/store/products/hades-switch/",
+      "epic": "https://store.epicgames.com/en-US/p/hades"
+    }
   },
   {
     "id": "hades-2",
@@ -1917,7 +2170,10 @@
     "fun_fact": "Created as a passion project, the game made over $100 million in its first year!",
     "subscriptions": [
       "xbox_game_pass"
-    ]
+    ],
+    "store_links": {
+      "steam": "https://store.steampowered.com/app/1794680/"
+    }
   },
   {
     "id": "cult-of-the-lamb",
@@ -1954,7 +2210,11 @@
       "solo"
     ],
     "description": "Build a cult while dungeon crawling as a cute lamb.",
-    "fun_fact": "The art style was inspired by Cartoon Network shows from the 2000s."
+    "fun_fact": "The art style was inspired by Cartoon Network shows from the 2000s.",
+    "store_links": {
+      "steam": "https://store.steampowered.com/app/1313140/Cult_of_the_Lamb/",
+      "gog": "https://www.gog.com/fr/game/cult_of_the_lamb"
+    }
   },
   {
     "id": "enter-the-gungeon",
@@ -1991,7 +2251,15 @@
       "local_coop"
     ],
     "description": "Blast through a dungeon made of guns.",
-    "fun_fact": "There are over 300 unique guns in the game, including one that shoots bees!"
+    "fun_fact": "There are over 300 unique guns in the game, including one that shoots bees!",
+    "store_links": {
+      "playstation": "https://store.playstation.com/en-us/product/UP3643-CUSA01608_00-0000000000000000",
+      "steam": "http://store.steampowered.com/app/311690/",
+      "xbox": "https://www.microsoft.com/en-us/p/enter-the-gungeon/9nb65s6lfzrt?cid=msft_web_chart",
+      "gog": "http://www.gog.com/game/enter_the_gungeon",
+      "nintendo": "https://www.nintendo.com/games/detail/enter-the-gungeon-switch",
+      "epic": "https://www.epicgames.com/store/en-US/product/enter-the-gungeon/"
+    }
   },
   {
     "id": "binding-of-isaac",
@@ -2032,7 +2300,12 @@
     "warnings": [
       "dark_themes",
       "religious_imagery"
-    ]
+    ],
+    "store_links": {
+      "steam": "https://store.steampowered.com/app/1426300/The_Binding_of_Isaac_Repentance/",
+      "epic": "https://www.epicgames.com/store/en-US/p/the-binding-of-isaac-repentance",
+      "xbox": "https://www.microsoft.com/en-us/p/the-binding-of-isaac-repentance/9pghsk2qr07h?cid=msft_web_chart"
+    }
   },
   {
     "id": "risk-of-rain-2",
@@ -2069,7 +2342,14 @@
       "online_coop"
     ],
     "description": "Survive alien planets with escalating difficulty.",
-    "fun_fact": "The transition from 2D to 3D only took the developers 8 months to prototype!"
+    "fun_fact": "The transition from 2D to 3D only took the developers 8 months to prototype!",
+    "store_links": {
+      "epic": "https://store.epicgames.com/en-US/p/risk-of-rain-2",
+      "playstation": "https://store.playstation.com/en-us/product/UP0292-CUSA16153_00-RISKOFRAIN2SIEA0",
+      "xbox": "https://www.microsoft.com/en-us/p/risk-of-rain-2/9p6f6tbggvk3?cid=msft_web_chart",
+      "nintendo": "https://www.nintendo.com/games/detail/risk-of-rain-2-switch/",
+      "steam": "https://store.steampowered.com/app/632360/"
+    }
   },
   {
     "id": "spelunky-2",
@@ -2108,7 +2388,11 @@
       "online_coop"
     ],
     "description": "Explore deadly caves with procedural generation.",
-    "fun_fact": "Secrets in the game took the community months to discover and solve."
+    "fun_fact": "Secrets in the game took the community months to discover and solve.",
+    "store_links": {
+      "steam": "https://store.steampowered.com/app/418530/Spelunky_2/",
+      "playstation": "https://store.playstation.com/en-us/product/UP4407-CUSA20601_00-SPELUNKY20000000"
+    }
   },
   {
     "id": "slay-the-spire",
@@ -2145,7 +2429,14 @@
       "solo"
     ],
     "description": "Build a deck while climbing a spire.",
-    "fun_fact": "The game invented the 'roguelike deckbuilder' genre, spawning hundreds of similar games!"
+    "fun_fact": "The game invented the 'roguelike deckbuilder' genre, spawning hundreds of similar games!",
+    "store_links": {
+      "steam": "https://store.steampowered.com/app/646570/Slay_the_Spire/",
+      "playstation": "https://store.playstation.com/en-us/product/UP3864-CUSA14275_00-YOUREWELCOME0000",
+      "xbox": "https://www.xbox.com/en-US/games/store/slay-the-spire/9NZ4QWS2NLBX",
+      "nintendo": "https://www.nintendo.com/us/store/products/slay-the-spire-switch/",
+      "gog": "https://www.gog.com/en/game/slay_the_spire"
+    }
   },
   {
     "id": "balatro",
@@ -2181,7 +2472,10 @@
       "solo"
     ],
     "description": "A poker-based roguelike deck-builder.",
-    "fun_fact": "The game sold over 1 million copies in its first month, surprising even the developer."
+    "fun_fact": "The game sold over 1 million copies in its first month, surprising even the developer.",
+    "store_links": {
+      "steam": "https://store.steampowered.com/app/2379780/"
+    }
   },
   {
     "id": "inscryption",
@@ -2217,7 +2511,12 @@
       "solo"
     ],
     "description": "A card game that breaks the fourth wall.",
-    "fun_fact": "The game contains secrets that took the community months to uncover, including hidden ARGs."
+    "fun_fact": "The game contains secrets that took the community months to uncover, including hidden ARGs.",
+    "store_links": {
+      "nintendo": "https://www.nintendo.com/store/products/inscryption-switch/",
+      "steam": "https://store.steampowered.com/app/1092790/Inscryption/",
+      "gog": "https://www.gog.com/game/inscryption"
+    }
   },
   {
     "id": "monster-train",
@@ -2254,7 +2553,12 @@
       "online_coop"
     ],
     "description": "Defend a train carrying Hell's last ember.",
-    "fun_fact": "Combining two clan decks creates unique strategies not possible in single-clan runs."
+    "fun_fact": "Combining two clan decks creates unique strategies not possible in single-clan runs.",
+    "store_links": {
+      "steam": "https://store.steampowered.com/app/1102190/",
+      "gog": "https://www.gog.com/game/monster_train",
+      "xbox": "https://www.microsoft.com/en-us/p/monster-train/9np4bgblllxm?cid=msft_web_chart"
+    }
   },
   {
     "id": "dicey-dungeons",
@@ -2290,7 +2594,12 @@
       "solo"
     ],
     "description": "Dice-based dungeon crawling in a game show.",
-    "fun_fact": "Each of the six characters plays completely differently, essentially being six games in one."
+    "fun_fact": "Each of the six characters plays completely differently, essentially being six games in one.",
+    "store_links": {
+      "nintendo": "https://www.nintendo.com/games/detail/dicey-dungeons-switch/",
+      "steam": "https://store.steampowered.com/app/861540/",
+      "gog": "https://www.gog.com/game/dicey_dungeons"
+    }
   },
   {
     "id": "one-step-from-eden",
@@ -2328,7 +2637,13 @@
       "local_coop"
     ],
     "description": "Mega Man Battle Network meets roguelike.",
-    "fun_fact": "Inspired by the combat system of Mega Man Battle Network games."
+    "fun_fact": "Inspired by the combat system of Mega Man Battle Network games.",
+    "store_links": {
+      "gog": "http://www.gog.com/game/one_step_from_eden",
+      "playstation": "https://store.playstation.com/en-us/product/UP3864-CUSA18815_00-ONESTEPFROMEDENA",
+      "nintendo": "https://www.nintendo.com/games/detail/one-step-from-eden-switch/",
+      "steam": "https://store.steampowered.com/app/960690/"
+    }
   },
   {
     "id": "into-the-breach",
@@ -2365,7 +2680,13 @@
       "solo"
     ],
     "description": "Tactical mech combat where you see enemy moves.",
-    "fun_fact": "Made by the creators of FTL, it shows all enemy intentions for pure strategy."
+    "fun_fact": "Made by the creators of FTL, it shows all enemy intentions for pure strategy.",
+    "store_links": {
+      "steam": "https://store.steampowered.com/app/590380/Into_the_Breach/",
+      "nintendo": "https://www.nintendo.com/us/store/products/into-the-breach-switch/",
+      "gog": "https://www.gog.com/en/game/into_the_breach",
+      "epic": "https://store.epicgames.com/en-US/p/into-the-breach"
+    }
   },
   {
     "id": "ftl",
@@ -2400,7 +2721,12 @@
       "solo"
     ],
     "description": "Command a spaceship fleeing across the galaxy.",
-    "fun_fact": "The game was funded on Kickstarter for $200,000 and became a massive indie hit."
+    "fun_fact": "The game was funded on Kickstarter for $200,000 and became a massive indie hit.",
+    "store_links": {
+      "epic": "https://www.epicgames.com/store/ru/product/faster-than-light/home",
+      "steam": "http://store.steampowered.com/app/212680/",
+      "gog": "https://www.gog.com/game/faster_than_light"
+    }
   },
   {
     "id": "brotato",
@@ -2436,7 +2762,11 @@
       "solo"
     ],
     "description": "A potato with guns fights alien hordes.",
-    "fun_fact": "The game was inspired by the auto-battler genre and Vampire Survivors."
+    "fun_fact": "The game was inspired by the auto-battler genre and Vampire Survivors.",
+    "store_links": {
+      "epic": "https://store.epicgames.com/p/brotato-ed4097",
+      "steam": "https://store.steampowered.com/app/1942280/"
+    }
   },
   {
     "id": "loop-hero",
@@ -2472,7 +2802,13 @@
       "solo"
     ],
     "description": "Build the world your hero loops through.",
-    "fun_fact": "The developers intentionally made the game look like a lost NES title."
+    "fun_fact": "The developers intentionally made the game look like a lost NES title.",
+    "store_links": {
+      "steam": "https://store.steampowered.com/app/1282730/Loop_Hero/",
+      "gog": "https://www.gog.com/game/loop_hero",
+      "epic": "https://www.epicgames.com/store/en-US/p/loop-hero",
+      "nintendo": "https://www.nintendo.com/games/detail/loop-hero-switch/"
+    }
   },
   {
     "id": "neon-abyss",
@@ -2509,7 +2845,13 @@
       "local_coop"
     ],
     "description": "Run-and-gun roguelike with hatching eggs.",
-    "fun_fact": "Pet eggs hatch into creatures that evolve as you play."
+    "fun_fact": "Pet eggs hatch into creatures that evolve as you play.",
+    "store_links": {
+      "playstation": "https://store.playstation.com/en-us/product/UP4064-CUSA18917_00-NEONABYSS0000000",
+      "xbox": "https://www.microsoft.com/en-us/p/neon-abyss/9nc781dk18gn?cid=msft_web_chart",
+      "gog": "https://www.gog.com/game/neon_abyss",
+      "steam": "https://store.steampowered.com/app/788100/"
+    }
   },
   {
     "id": "gunfire-reborn",
@@ -2545,7 +2887,10 @@
       "online_coop"
     ],
     "description": "FPS roguelike with animal characters.",
-    "fun_fact": "Developed by a small Chinese studio that listened extensively to community feedback."
+    "fun_fact": "Developed by a small Chinese studio that listened extensively to community feedback.",
+    "store_links": {
+      "steam": "https://store.steampowered.com/app/1217060/Gunfire_Reborn/"
+    }
   },
   {
     "id": "returnal",
@@ -2584,7 +2929,11 @@
     "fun_fact": "The entire game was inspired by the developer's recurring nightmares.",
     "subscriptions": [
       "playstation_plus"
-    ]
+    ],
+    "store_links": {
+      "steam": "https://store.steampowered.com/app/1649240/Returnal/",
+      "playstation": "https://store.playstation.com/en-us/product/UP9000-CUSA28437_00-YOUREWELCOME0000"
+    }
   },
   {
     "id": "tetris-99",
@@ -2657,7 +3006,13 @@
       "competitive"
     ],
     "description": "Two classic puzzlers combine in one game.",
-    "fun_fact": "Mixing Puyo Puyo and Tetris players creates unique asymmetric battles."
+    "fun_fact": "Mixing Puyo Puyo and Tetris players creates unique asymmetric battles.",
+    "store_links": {
+      "playstation": "https://store.playstation.com/en-us/product/UP0177-CUSA24365_00-TENPEXTENPEX0000",
+      "nintendo": "https://www.nintendo.com/games/detail/puyo-puyo-tetris-2-switch/",
+      "steam": "https://store.steampowered.com/app/1259790/",
+      "xbox": "https://www.microsoft.com/en-us/p/puyo-puyo-tetris-2/9nm636xhh7nj?cid=msft_web_chart"
+    }
   },
   {
     "id": "dr-mario-world",
@@ -2692,7 +3047,10 @@
       "competitive"
     ],
     "description": "Match pills to eliminate viruses.",
-    "fun_fact": "The original Dr. Mario was designed by Gunpei Yokoi, creator of the Game Boy."
+    "fun_fact": "The original Dr. Mario was designed by Gunpei Yokoi, creator of the Game Boy.",
+    "store_links": {
+      "nintendo": "https://www.nintendo.com/games/detail/dr-mario-wii-u"
+    }
   },
   {
     "id": "warioware-get-it-together",
@@ -2727,7 +3085,10 @@
       "local_coop"
     ],
     "description": "Rapid-fire microgames lasting seconds each.",
-    "fun_fact": "Each character plays the same microgames completely differently."
+    "fun_fact": "Each character plays the same microgames completely differently.",
+    "store_links": {
+      "nintendo": "https://www.nintendo.com/games/detail/warioware-get-it-together-switch/"
+    }
   },
   {
     "id": "rhythm-heaven",
@@ -2761,7 +3122,10 @@
       "solo"
     ],
     "description": "Eccentric rhythm mini-games.",
-    "fun_fact": "Features over 100 rhythm games collected from the entire series."
+    "fun_fact": "Features over 100 rhythm games collected from the entire series.",
+    "store_links": {
+      "nintendo": "https://www.nintendo.com/games/detail/rhythm-heaven-megamix-3ds"
+    }
   },
   {
     "id": "snipperclips",
@@ -2796,7 +3160,10 @@
       "local_coop"
     ],
     "description": "Cut each other into shapes to solve puzzles.",
-    "fun_fact": "The game started as a university project by a solo developer."
+    "fun_fact": "The game started as a university project by a solo developer.",
+    "store_links": {
+      "nintendo": "https://www.nintendo.com/games/detail/snipperclips-switch"
+    }
   },
   {
     "id": "death-squared",
@@ -2833,7 +3200,14 @@
       "local_coop"
     ],
     "description": "Robots solve deadly puzzles together.",
-    "fun_fact": "The game is designed to make players accidentally kill each other."
+    "fun_fact": "The game is designed to make players accidentally kill each other.",
+    "store_links": {
+      "gog": "https://www.gog.com/fr/game/death_squared",
+      "playstation": "https://store.playstation.com/en-us/product/UP3490-CUSA07764_00-1111212111112112",
+      "steam": "http://store.steampowered.com/app/471810/",
+      "xbox": "https://www.microsoft.com/en-us/store/p/death-squared/bs32qfxvpwbc",
+      "nintendo": "https://www.nintendo.com/games/detail/death-squared-switch"
+    }
   },
   {
     "id": "heave-ho",
@@ -2868,7 +3242,12 @@
       "local_coop"
     ],
     "description": "Grab hands and swing to safety.",
-    "fun_fact": "Made by the studio behind TowerFall with similarly chaotic multiplayer."
+    "fun_fact": "Made by the studio behind TowerFall with similarly chaotic multiplayer.",
+    "store_links": {
+      "gog": "http://www.gog.com/game/heave_ho",
+      "nintendo": "https://www.nintendo.com/games/detail/heave-ho-switch/",
+      "steam": "https://store.steampowered.com/app/905340/"
+    }
   },
   {
     "id": "keep-talking-nobody-explodes",
@@ -2904,7 +3283,13 @@
       "local_coop"
     ],
     "description": "One person defuses a bomb while others read the manual.",
-    "fun_fact": "The physical bomb manual is available for free, so anyone can be an expert."
+    "fun_fact": "The physical bomb manual is available for free, so anyone can be an expert.",
+    "store_links": {
+      "playstation": "https://store.playstation.com/en-us/product/UP0637-CUSA06477_00-KTANEBOMBGAME001",
+      "steam": "http://store.steampowered.com/app/341800/",
+      "xbox": "https://www.microsoft.com/en-us/p/keep-talking-and-nobody-explodes/9ns2ptv2wzgg?cid=msft_web_chart",
+      "nintendo": "https://www.nintendo.com/games/detail/keep-talking-and-nobody-explodes-switch"
+    }
   },
   {
     "id": "towerfall",
@@ -2941,7 +3326,15 @@
       "competitive"
     ],
     "description": "Archery combat in pixel art arenas.",
-    "fun_fact": "Made by the creator who later developed Celeste."
+    "fun_fact": "Made by the creator who later developed Celeste.",
+    "store_links": {
+      "playstation": "https://store.playstation.com/en-us/product/UP2120-CUSA00466_00-0000TOWERFALLPS4",
+      "nintendo": "https://www.nintendo.com/games/detail/towerfall-switch",
+      "xbox": "https://www.microsoft.com/en-us/store/p/towerfall-ascension/c0qb90jxn0tf",
+      "steam": "http://store.steampowered.com/app/251470/",
+      "gog": "http://www.gog.com/game/towerfall_ascension",
+      "epic": "https://www.epicgames.com/store/ru/p/towerfall-ascension"
+    }
   },
   {
     "id": "lethal-company",
@@ -2975,7 +3368,10 @@
       "online_coop"
     ],
     "description": "Scavenge haunted moons for corporate profit.",
-    "fun_fact": "Made by a single developer in just 6 months, it became a viral sensation!"
+    "fun_fact": "Made by a single developer in just 6 months, it became a viral sensation!",
+    "store_links": {
+      "steam": "https://store.steampowered.com/app/1966720/"
+    }
   },
   {
     "id": "phasmophobia",
@@ -3010,7 +3406,10 @@
       "online_coop"
     ],
     "description": "Hunt ghosts with friends using real equipment.",
-    "fun_fact": "The ghost AI actually listens to players through their microphones!"
+    "fun_fact": "The ghost AI actually listens to players through their microphones!",
+    "store_links": {
+      "steam": "https://store.steampowered.com/app/739630/"
+    }
   },
   {
     "id": "content-warning",
@@ -3044,7 +3443,10 @@
       "online_coop"
     ],
     "description": "Film spooky content for viral views.",
-    "fun_fact": "The game's 'Spook Tube' is based on real early 2000s video sharing sites."
+    "fun_fact": "The game's 'Spook Tube' is based on real early 2000s video sharing sites.",
+    "store_links": {
+      "steam": "https://store.steampowered.com/app/2881650/Content_Warning/"
+    }
   },
   {
     "id": "devour",
@@ -3078,7 +3480,10 @@
       "online_coop"
     ],
     "description": "Stop possessed cultists with your friends.",
-    "fun_fact": "Each map features a different demon with unique mechanics."
+    "fun_fact": "Each map features a different demon with unique mechanics.",
+    "store_links": {
+      "steam": "https://store.steampowered.com/app/1274570/"
+    }
   },
   {
     "id": "labyrinthine",
@@ -3113,7 +3518,10 @@
       "online_coop"
     ],
     "description": "Navigate procedural mazes while avoiding monsters.",
-    "fun_fact": "The mazes are procedurally generated, so no two runs are the same."
+    "fun_fact": "The mazes are procedurally generated, so no two runs are the same.",
+    "store_links": {
+      "steam": "https://store.steampowered.com/app/1302240/"
+    }
   },
   {
     "id": "plate-up",
@@ -3150,7 +3558,10 @@
       "online_coop"
     ],
     "description": "Run a restaurant that gets harder each day.",
-    "fun_fact": "Automating your kitchen with conveyor belts is key to surviving later days."
+    "fun_fact": "Automating your kitchen with conveyor belts is key to surviving later days.",
+    "store_links": {
+      "steam": "https://store.steampowered.com/app/1599600/"
+    }
   },
   {
     "id": "dave-the-diver",
@@ -3186,7 +3597,10 @@
       "solo"
     ],
     "description": "Dive by day, run a sushi restaurant by night.",
-    "fun_fact": "The game blends 4 different genres: diving, cooking, farming, and RPG elements!"
+    "fun_fact": "The game blends 4 different genres: diving, cooking, farming, and RPG elements!",
+    "store_links": {
+      "steam": "https://store.steampowered.com/app/1868140/"
+    }
   },
   {
     "id": "dredge",
@@ -3222,7 +3636,13 @@
       "solo"
     ],
     "description": "Fish in an unsettling ocean with dark secrets.",
-    "fun_fact": "The art style was inspired by old nautical horror stories and H.P. Lovecraft."
+    "fun_fact": "The art style was inspired by old nautical horror stories and H.P. Lovecraft.",
+    "store_links": {
+      "epic": "https://store.epicgames.com/en-US/p/dredge-3e3a5f",
+      "playstation": "https://store.playstation.com/en-us/concept/10005693",
+      "gog": "https://www.gog.com/fr/game/dredge",
+      "steam": "https://store.steampowered.com/app/1562430/DREDGE/"
+    }
   },
   {
     "id": "subnautica",
@@ -3261,7 +3681,14 @@
     "fun_fact": "The game takes place on planet 4546B, which was procedurally generated but then hand-crafted.",
     "subscriptions": [
       "xbox_game_pass"
-    ]
+    ],
+    "store_links": {
+      "playstation": "https://store.playstation.com/en-us/product/UP5245-CUSA13529_00-2222444466669999",
+      "nintendo": "https://www.nintendo.com/games/detail/subnautica-switch/",
+      "steam": "http://store.steampowered.com/app/264710/",
+      "xbox": "https://www.microsoft.com/en-us/store/p/subnautica-game-preview/bx3s1q5dvhrd?cid=msft_web_chart",
+      "epic": "https://www.epicgames.com/store/en-US/product/subnautica/home?lang=en-US"
+    }
   },
   {
     "id": "subnautica-below-zero",
@@ -3297,7 +3724,14 @@
       "solo"
     ],
     "description": "Explore an arctic alien ocean.",
-    "fun_fact": "The game features more land-based exploration than the original."
+    "fun_fact": "The game features more land-based exploration than the original.",
+    "store_links": {
+      "nintendo": "https://www.nintendo.com/games/detail/subnautica-below-zero-switch/",
+      "steam": "https://store.steampowered.com/app/848450/",
+      "epic": "https://www.epicgames.com/store/en-US/product/subnautica-below-zero/home?lang=en-US",
+      "xbox": "https://www.microsoft.com/en-us/p/subnautica-below-zero/9ndcjxl11096?cid=msft_web_chart",
+      "playstation": "https://store.playstation.com/en-us/product/UP5245-PPSA02456_00-BELOWZERSUB38637"
+    }
   },
   {
     "id": "valheim",
@@ -3333,7 +3767,10 @@
       "online_coop"
     ],
     "description": "Build and survive in a Viking purgatory.",
-    "fun_fact": "Made by a team of just 5 people, it sold 10 million copies in its first year!"
+    "fun_fact": "Made by a team of just 5 people, it sold 10 million copies in its first year!",
+    "store_links": {
+      "steam": "https://store.steampowered.com/app/892970/"
+    }
   },
   {
     "id": "raft",
@@ -3368,7 +3805,10 @@
       "online_coop"
     ],
     "description": "Build a raft and survive the ocean.",
-    "fun_fact": "Started as a student project and became a Steam best-seller."
+    "fun_fact": "Started as a student project and became a Steam best-seller.",
+    "store_links": {
+      "steam": "http://store.steampowered.com/app/648800/"
+    }
   },
   {
     "id": "the-forest",
@@ -3409,7 +3849,11 @@
     "warnings": [
       "horror",
       "violence"
-    ]
+    ],
+    "store_links": {
+      "playstation": "https://store.playstation.com/en-us/product/UP0240-CUSA10518_00-THEFOREST0000000",
+      "steam": "http://store.steampowered.com/app/242760/"
+    }
   },
   {
     "id": "sons-of-the-forest",
@@ -3449,7 +3893,10 @@
     "warnings": [
       "horror",
       "violence"
-    ]
+    ],
+    "store_links": {
+      "steam": "https://store.steampowered.com/app/1326470/Sons_Of_The_Forest/"
+    }
   },
   {
     "id": "green-hell",
@@ -3486,7 +3933,12 @@
       "online_coop"
     ],
     "description": "Survive the Amazon rainforest.",
-    "fun_fact": "The game features medically accurate wound treatment and disease systems."
+    "fun_fact": "The game features medically accurate wound treatment and disease systems.",
+    "store_links": {
+      "steam": "https://store.steampowered.com/app/815370/",
+      "playstation": "https://store.playstation.com/en-us/product/UP6469-CUSA26546_00-2081545448677124",
+      "xbox": "https://www.microsoft.com/en-us/p/green-hell/9n39q75r7g35?cid=msft_web_chart"
+    }
   },
   {
     "id": "grounded",
@@ -3527,7 +3979,11 @@
     "fun_fact": "Obsidian added an arachnophobia mode that makes spiders less scary.",
     "subscriptions": [
       "xbox_game_pass"
-    ]
+    ],
+    "store_links": {
+      "steam": "https://store.steampowered.com/app/962130/",
+      "xbox": "https://www.microsoft.com/en-us/p/grounded/9pjthrnvh62h"
+    }
   },
   {
     "id": "no-mans-sky",
@@ -3567,7 +4023,14 @@
     "fun_fact": "The game contains 18 quintillion procedurally generated planets - you could never visit them all.",
     "subscriptions": [
       "xbox_game_pass"
-    ]
+    ],
+    "store_links": {
+      "playstation": "https://store.playstation.com/en-us/product/UP2034-CUSA04841_00-NMSDIGITAL000001",
+      "gog": "http://www.gog.com/game/no_mans_sky",
+      "steam": "http://store.steampowered.com/app/275850/",
+      "xbox": "https://www.microsoft.com/en-us/p/no-mans-sky/bqvqtl3pch05?cid=msft_web_chart",
+      "nintendo": "https://www.nintendo.com/games/detail/no-mans-sky-switch/"
+    }
   },
   {
     "id": "astroneer",
@@ -3608,7 +4071,13 @@
     "fun_fact": "The terrain deformation system was the game's core innovation.",
     "subscriptions": [
       "xbox_game_pass"
-    ]
+    ],
+    "store_links": {
+      "playstation": "https://store.playstation.com/en-us/product/UP2467-CUSA16473_00-ASTRONEER0000000",
+      "xbox": "https://www.microsoft.com/en-us/p/astroneer/9nblggh43kzb?cid=msft_web_chart",
+      "steam": "http://store.steampowered.com/app/361420/",
+      "nintendo": "https://www.nintendo.com/games/detail/astroneer-switch/"
+    }
   },
   {
     "id": "deep-rock-galactic",
@@ -3647,7 +4116,10 @@
     "fun_fact": "The iconic 'Rock and Stone!' voice line was recorded by the game's actual sound designer.",
     "subscriptions": [
       "xbox_game_pass"
-    ]
+    ],
+    "store_links": {
+      "steam": "http://store.steampowered.com/app/548430/"
+    }
   },
   {
     "id": "deep-rock-galactic-survivor",
@@ -3681,7 +4153,10 @@
       "solo"
     ],
     "description": "DRG meets Vampire Survivors.",
-    "fun_fact": "Spinoff that combines the DRG universe with auto-shooter gameplay."
+    "fun_fact": "Spinoff that combines the DRG universe with auto-shooter gameplay.",
+    "store_links": {
+      "steam": "https://store.steampowered.com/app/2321470/Deep_Rock_Galactic_Survivor/"
+    }
   },
   {
     "id": "core-keeper",
@@ -3718,7 +4193,11 @@
       "online_coop"
     ],
     "description": "Mine an underground world with friends.",
-    "fun_fact": "The game combines Terraria-style mining with survival crafting elements."
+    "fun_fact": "The game combines Terraria-style mining with survival crafting elements.",
+    "store_links": {
+      "gog": "https://www.gog.com/fr/game/core_keeper",
+      "steam": "https://store.steampowered.com/app/1621690/Core_Keeper/"
+    }
   },
   {
     "id": "dont-starve-together",
@@ -3753,7 +4232,10 @@
       "online_coop"
     ],
     "description": "Survive a dark, whimsical world with friends.",
-    "fun_fact": "The game was inspired by the developers' love of survival reality shows."
+    "fun_fact": "The game was inspired by the developers' love of survival reality shows.",
+    "store_links": {
+      "steam": "http://store.steampowered.com/app/322330/"
+    }
   },
   {
     "id": "portal-companion-collection",
@@ -3790,7 +4272,10 @@
       "online_coop"
     ],
     "description": "Both Portal games on Nintendo Switch.",
-    "fun_fact": "Perfect portable version of the classic puzzle games."
+    "fun_fact": "Perfect portable version of the classic puzzle games.",
+    "store_links": {
+      "nintendo": "https://www.nintendo.com/games/detail/portal-companion-collection-switch/"
+    }
   },
   {
     "id": "pikmin-4",
@@ -3825,7 +4310,10 @@
       "local_coop"
     ],
     "description": "Command tiny plant creatures to solve puzzles.",
-    "fun_fact": "Features a dog companion named Oatchi who can carry Pikmin and fight enemies."
+    "fun_fact": "Features a dog companion named Oatchi who can carry Pikmin and fight enemies.",
+    "store_links": {
+      "nintendo": "https://www.nintendo.com/store/products/pikmin-4-switch/"
+    }
   },
   {
     "id": "sea-of-thieves",
@@ -3865,7 +4353,11 @@
     "fun_fact": "The game has no progression gates - day one players can access everything.",
     "subscriptions": [
       "xbox_game_pass"
-    ]
+    ],
+    "store_links": {
+      "steam": "https://store.steampowered.com/app/1172620/",
+      "xbox": "https://www.microsoft.com/en-us/store/p/sea-of-thieves/9p2n57mc619k?cid=msft_web_chart"
+    }
   },
   {
     "id": "sea-of-stars",
@@ -3907,7 +4399,12 @@
     "fun_fact": "The pixel art team animated every single frame by hand - over 25,000 frames total.",
     "subscriptions": [
       "xbox_game_pass"
-    ]
+    ],
+    "store_links": {
+      "playstation": "https://store.playstation.com/pt-br/concept/10004226",
+      "steam": "https://store.steampowered.com/app/1244090/",
+      "nintendo": "https://www.nintendo.com/games/detail/sea-of-stars-switch/"
+    }
   },
   {
     "id": "eastward",
@@ -3944,7 +4441,13 @@
       "solo"
     ],
     "description": "A miner and a mysterious girl travel east.",
-    "fun_fact": "The game took 8 years to develop by a small Shanghai studio."
+    "fun_fact": "The game took 8 years to develop by a small Shanghai studio.",
+    "store_links": {
+      "steam": "https://store.steampowered.com/app/977880/",
+      "nintendo": "https://www.nintendo.com/games/detail/eastward-switch/",
+      "gog": "https://www.gog.com/game/eastward",
+      "epic": "https://www.epicgames.com/store/en-US/p/eastward"
+    }
   },
   {
     "id": "crosscode",
@@ -3981,7 +4484,14 @@
       "solo"
     ],
     "description": "An action RPG set in an MMORPG.",
-    "fun_fact": "The protagonist can't speak due to a glitch, adding unique storytelling."
+    "fun_fact": "The protagonist can't speak due to a glitch, adding unique storytelling.",
+    "store_links": {
+      "playstation": "https://store.playstation.com/en-us/product/UP0895-CUSA15452_00-CROSSCODEPLAYSTA",
+      "xbox": "https://www.microsoft.com/en-us/p/crosscode/9n04rqq64524?cid=msft_web_chart",
+      "steam": "http://store.steampowered.com/app/368340/",
+      "gog": "http://www.gog.com/game/crosscode",
+      "nintendo": "https://www.nintendo.com/games/detail/crosscode-switch"
+    }
   },
   {
     "id": "chained-echoes",
@@ -4021,7 +4531,12 @@
     "fun_fact": "Made almost entirely by one developer over 7 years.",
     "subscriptions": [
       "xbox_game_pass"
-    ]
+    ],
+    "store_links": {
+      "nintendo": "https://www.nintendo.com/store/products/chained-echoes-switch/",
+      "steam": "https://store.steampowered.com/app/1229240/",
+      "gog": "https://www.gog.com/game/chained_echoes"
+    }
   },
   {
     "id": "octopath-traveler-2",
@@ -4059,7 +4574,12 @@
     ],
     "description": "Eight travelers with intertwining stories.",
     "fun_fact": "The HD-2D art style combines 2D sprites with 3D environments and lighting.",
-    "franchise": "octopath"
+    "franchise": "octopath",
+    "store_links": {
+      "playstation": "https://store.playstation.com/es-es/product/EP0082-PPSA09809_00-OCTOPATH2PS5E000",
+      "steam": "https://store.steampowered.com/app/1971650/OCTOPATH_TRAVELER_II/",
+      "nintendo": "https://www.nintendo.com/store/products/octopath-traveler-ii-switch/"
+    }
   },
   {
     "id": "live-a-live",
@@ -4096,7 +4616,12 @@
       "solo"
     ],
     "description": "Seven different stories across time periods.",
-    "fun_fact": "Originally a 1994 Super Famicom game that never left Japan until this remake."
+    "fun_fact": "Originally a 1994 Super Famicom game that never left Japan until this remake.",
+    "store_links": {
+      "steam": "https://store.steampowered.com/app/2014380/LIVE_A_LIVE/",
+      "playstation": "https://store.playstation.com/en-us/product/UP0082-PPSA08177_00-PS5UP00LIVEALIVE",
+      "nintendo": "https://www.nintendo.com/games/detail/live-a-live-switch/"
+    }
   },
   {
     "id": "triangle-strategy",
@@ -4132,7 +4657,11 @@
       "solo"
     ],
     "description": "Tactical RPG with branching decisions.",
-    "fun_fact": "Your party members vote on key decisions, forcing moral compromises."
+    "fun_fact": "Your party members vote on key decisions, forcing moral compromises.",
+    "store_links": {
+      "steam": "https://store.steampowered.com/app/1850510/",
+      "nintendo": "https://www.nintendo.com/games/detail/project-triangle-strategy-switch/"
+    }
   },
   {
     "id": "fire-emblem-engage",
@@ -4168,7 +4697,10 @@
     ],
     "description": "Tactical RPG with heroes from FE history.",
     "fun_fact": "The game features characters from every previous Fire Emblem game as summonable 'Emblems'.",
-    "franchise": "fire_emblem"
+    "franchise": "fire_emblem",
+    "store_links": {
+      "nintendo": "https://www.nintendo.com/store/products/fire-emblem-engage-switch/"
+    }
   },
   {
     "id": "mario-rabbids-sparks",
@@ -4203,7 +4735,10 @@
       "local_coop"
     ],
     "description": "Mario and Rabbids in tactical battles.",
-    "fun_fact": "Removed the grid system from the first game for more fluid movement."
+    "fun_fact": "Removed the grid system from the first game for more fluid movement.",
+    "store_links": {
+      "nintendo": "https://www.nintendo.com/games/detail/mario-plus-rabbids-sparks-of-hope-switch/"
+    }
   },
   {
     "id": "wargroove-2",
@@ -4242,7 +4777,10 @@
       "competitive"
     ],
     "description": "Advance Wars-style tactics with online play.",
-    "fun_fact": "Includes a full level editor for creating and sharing custom campaigns."
+    "fun_fact": "Includes a full level editor for creating and sharing custom campaigns.",
+    "store_links": {
+      "steam": "https://store.steampowered.com/app/1346020/"
+    }
   },
   {
     "id": "advance-wars-reboot",
@@ -4278,7 +4816,10 @@
       "competitive"
     ],
     "description": "Classic GBA tactics games remastered.",
-    "fun_fact": "The remake was delayed a year due to the real-world invasion of Ukraine."
+    "fun_fact": "The remake was delayed a year due to the real-world invasion of Ukraine.",
+    "store_links": {
+      "nintendo": "https://www.nintendo.com/games/detail/advance-wars-1-plus-2-re-boot-camp-switch/"
+    }
   },
   {
     "id": "tactics-ogre-reborn",
@@ -4315,7 +4856,12 @@
       "solo"
     ],
     "description": "A classic tactical RPG remastered.",
-    "fun_fact": "The original director also created Final Fantasy Tactics."
+    "fun_fact": "The original director also created Final Fantasy Tactics.",
+    "store_links": {
+      "playstation": "https://store.playstation.com/en-us/concept/10001956",
+      "nintendo": "https://www.nintendo.com/store/products/tactics-ogre-reborn-switch/",
+      "steam": "https://store.steampowered.com/app/1451090/Tactics_Ogre_Reborn/"
+    }
   },
   {
     "id": "symphony-of-war",
@@ -4350,7 +4896,12 @@
       "solo"
     ],
     "description": "Squad-based tactical RPG.",
-    "fun_fact": "Allows you to customize unit classes with incredible depth."
+    "fun_fact": "Allows you to customize unit classes with incredible depth.",
+    "store_links": {
+      "gog": "https://www.gog.com/fr/game/symphony_of_war_the_nephilim_saga",
+      "epic": "https://store.epicgames.com/en-US/p/symphony-of-war-60a76e",
+      "steam": "https://store.steampowered.com/app/1488200/"
+    }
   },
   {
     "id": "wildermyth",
@@ -4388,7 +4939,12 @@
       "online_coop"
     ],
     "description": "Procedural storytelling tactical RPG.",
-    "fun_fact": "Your heroes age across campaigns and their stories continue for generations."
+    "fun_fact": "Your heroes age across campaigns and their stories continue for generations.",
+    "store_links": {
+      "gog": "https://www.gog.com/fr/game/wildermyth",
+      "epic": "https://store.epicgames.com/en-US/p/wildermyth-593344",
+      "steam": "http://store.steampowered.com/app/763890/"
+    }
   },
   {
     "id": "marvel-snap",
@@ -4424,7 +4980,10 @@
       "competitive"
     ],
     "description": "Fast Marvel card battles.",
-    "fun_fact": "Ben Brode, the designer, previously created Hearthstone at Blizzard!"
+    "fun_fact": "Ben Brode, the designer, previously created Hearthstone at Blizzard!",
+    "store_links": {
+      "steam": "https://store.steampowered.com/app/1997040/"
+    }
   },
   {
     "id": "legends-of-runeterra",
@@ -4461,7 +5020,10 @@
       "competitive"
     ],
     "description": "Card game in the League of Legends universe.",
-    "fun_fact": "The game uses characters from League of Legends' 14-year history."
+    "fun_fact": "The game uses characters from League of Legends' 14-year history.",
+    "store_links": {
+      "epic": "https://www.epicgames.com/store/en-US/p/legends-of-runeterra"
+    }
   },
   {
     "id": "gwent",
@@ -4498,7 +5060,13 @@
       "competitive"
     ],
     "description": "The Witcher 3's card game standalone.",
-    "fun_fact": "The card game from The Witcher 3 was so popular it became its own game!"
+    "fun_fact": "The card game from The Witcher 3 was so popular it became its own game!",
+    "store_links": {
+      "playstation": "https://store.playstation.com/en-us/product/UP4497-CUSA08213_00-0000000000000001",
+      "steam": "https://store.steampowered.com/app/1284410",
+      "gog": "http://www.gog.com/game/gwent_the_witcher_card_game",
+      "xbox": "https://www.microsoft.com/en-us/store/p/gwent-the-witcher-card-game-game-preview/9nblggh51qt4?cid=msft_web_chart"
+    }
   },
   {
     "id": "magic-arena",
@@ -4535,7 +5103,11 @@
       "competitive"
     ],
     "description": "Digital Magic: The Gathering.",
-    "fun_fact": "Magic: The Gathering has over 25,000 unique cards created since 1993!"
+    "fun_fact": "Magic: The Gathering has over 25,000 unique cards created since 1993!",
+    "store_links": {
+      "steam": "https://store.steampowered.com/app/2141910/",
+      "epic": "https://www.epicgames.com/store/ru/p/mtg-arena"
+    }
   },
   {
     "id": "pokemon-tcg-live",
@@ -4608,7 +5180,10 @@
       "competitive"
     ],
     "description": "The definitive Yu-Gi-Oh digital game.",
-    "fun_fact": "Features every card ever printed in the real game's history."
+    "fun_fact": "Features every card ever printed in the real game's history.",
+    "store_links": {
+      "steam": "https://store.steampowered.com/app/1449850/YuGiOh_Master_Duel/"
+    }
   },
   {
     "id": "hearthstone",
@@ -4680,7 +5255,11 @@
       "solo"
     ],
     "description": "Arrange your backpack to fight monsters.",
-    "fun_fact": "The entire combat system is based on inventory Tetris."
+    "fun_fact": "The entire combat system is based on inventory Tetris.",
+    "store_links": {
+      "gog": "https://www.gog.com/fr/game/backpack_hero",
+      "steam": "https://store.steampowered.com/app/1970580/"
+    }
   },
   {
     "id": "nba-2k24",
@@ -4718,7 +5297,13 @@
       "competitive"
     ],
     "description": "The premier basketball simulation.",
-    "fun_fact": "The motion capture for players uses over 50 cameras to capture every movement."
+    "fun_fact": "The motion capture for players uses over 50 cameras to capture every movement.",
+    "store_links": {
+      "xbox": "https://www.microsoft.com/en-us/store/r/nba-2k24-for-xbox-series-x-s/9nt7fnz0wjm1",
+      "playstation": "https://store.playstation.com/en-us/product/UP1001-CUSA42311_00-NBA2K24000000000",
+      "nintendo": "https://www.nintendo.com/us/store/products/nba-2k24-kobe-bryant-edition-switch/",
+      "steam": "https://store.steampowered.com/app/2338770/"
+    }
   },
   {
     "id": "ea-fc-25",
@@ -4757,7 +5342,10 @@
       "competitive"
     ],
     "description": "The new era of football games.",
-    "fun_fact": "This is the first FIFA-style game without the FIFA name after EA and FIFA split!"
+    "fun_fact": "This is the first FIFA-style game without the FIFA name after EA and FIFA split!",
+    "store_links": {
+      "steam": "https://store.steampowered.com/app/2669320/"
+    }
   },
   {
     "id": "mlb-the-show-24",
@@ -4796,7 +5384,10 @@
       "competitive"
     ],
     "description": "The definitive baseball experience.",
-    "fun_fact": "The game tracks real-world stats daily to update player ratings!"
+    "fun_fact": "The game tracks real-world stats daily to update player ratings!",
+    "store_links": {
+      "playstation": "https://store.playstation.com/en-us/product/UP9000-NPUA81353_00-MLB16THESHOWHDDM"
+    }
   },
   {
     "id": "madden-25",
@@ -4835,7 +5426,10 @@
       "competitive"
     ],
     "description": "American football simulation.",
-    "fun_fact": "Named after legendary coach and commentator John Madden."
+    "fun_fact": "Named after legendary coach and commentator John Madden.",
+    "store_links": {
+      "xbox": "https://www.microsoft.com/en-us/store/p/madden-nfl-25/c3cf8lr1rfkh"
+    }
   },
   {
     "id": "wwe-2k24",
@@ -4873,7 +5467,10 @@
       "competitive"
     ],
     "description": "WWE wrestling entertainment.",
-    "fun_fact": "Features wrestlers from 40 years of WrestleMania history."
+    "fun_fact": "Features wrestlers from 40 years of WrestleMania history.",
+    "store_links": {
+      "steam": "https://store.steampowered.com/app/2315690/"
+    }
   },
   {
     "id": "pga-tour-2k24",
@@ -4912,7 +5509,12 @@
       "competitive"
     ],
     "description": "Professional golf simulation.",
-    "fun_fact": "Real PGA courses are recreated using laser-scanned topographical data."
+    "fun_fact": "Real PGA courses are recreated using laser-scanned topographical data.",
+    "store_links": {
+      "playstation": "https://store.playstation.com/en-us/product/UP1001-CUSA16832_00-00000PGATOUR2K21",
+      "xbox": "https://www.microsoft.com/en-us/p/pga-tour-2k21/9pgjvfl1pmjt?cid=msft_web_chart",
+      "steam": "https://store.steampowered.com/app/1016120/"
+    }
   },
   {
     "id": "riders-republic",
@@ -4953,7 +5555,13 @@
     "fun_fact": "The open world contains real locations from 7 different US national parks.",
     "subscriptions": [
       "ubisoft_plus"
-    ]
+    ],
+    "store_links": {
+      "steam": "https://store.steampowered.com/app/2290180/",
+      "playstation": "https://store.playstation.com/en-us/product/UP0001-CUSA24360_00-MADSTANDARTED000",
+      "xbox": "https://www.microsoft.com/en-us/p/riders-republic/9nm4sd1rt8b9?cid=msft_web_chart",
+      "epic": "https://www.epicgames.com/store/en-US/product/riders-republic"
+    }
   },
   {
     "id": "steep",
@@ -4991,7 +5599,13 @@
       "competitive"
     ],
     "description": "Open-world winter sports.",
-    "fun_fact": "The Alps are recreated using satellite data for accuracy."
+    "fun_fact": "The Alps are recreated using satellite data for accuracy.",
+    "store_links": {
+      "epic": "https://www.epicgames.com/store/product/steep/home",
+      "playstation": "https://store.playstation.com/en-us/product/UP0001-CUSA05489_00-STEEPSCEA0000000",
+      "xbox": "https://www.microsoft.com/en-us/store/p/steep/c350vbggcl6p?cid=msft_web_chart",
+      "steam": "http://store.steampowered.com/app/460920/"
+    }
   },
   {
     "id": "tony-hawks-pro-skater",
@@ -5031,7 +5645,14 @@
       "competitive"
     ],
     "description": "Classic skating games remastered.",
-    "fun_fact": "The remaster uses many of the same developers from the original 1999 game!"
+    "fun_fact": "The remaster uses many of the same developers from the original 1999 game!",
+    "store_links": {
+      "steam": "https://store.steampowered.com/app/2395210/",
+      "epic": "https://www.epicgames.com/store/en-US/product/tony-hawks-pro-skater-1-and-2/home",
+      "xbox": "https://www.microsoft.com/en-us/p/tony-hawks-pro-skater-1-2/9n8xhnxgnzb5?activetab=pivot:overviewtab",
+      "playstation": "https://store.playstation.com/en-us/product/UP0002-CUSA17922_00-TH12RSTANDARD001",
+      "nintendo": "https://www.nintendo.com/games/detail/tony-hawks-pro-skater-1-and-2-switch/"
+    }
   },
   {
     "id": "skate",
@@ -5068,7 +5689,11 @@
       "online_coop"
     ],
     "description": "Skateboarding simulation.",
-    "fun_fact": "The 'flick-it' control system revolutionized skateboarding game controls."
+    "fun_fact": "The 'flick-it' control system revolutionized skateboarding game controls.",
+    "store_links": {
+      "xbox": "https://www.microsoft.com/en-us/store/p/skate-3/bnkdkqxmxrr2",
+      "playstation": "https://store.playstation.com/en-us/product/UP0006-BLUS30464_00-SKATE30000000000"
+    }
   },
   {
     "id": "olli-olli-world",
@@ -5104,7 +5729,11 @@
       "solo"
     ],
     "description": "2D skating with personality.",
-    "fun_fact": "The art style is inspired by adventure time and aims for pure joy."
+    "fun_fact": "The art style is inspired by adventure time and aims for pure joy.",
+    "store_links": {
+      "steam": "https://store.steampowered.com/app/1190170/OlliOlli_World/",
+      "nintendo": "https://www.nintendo.com/games/detail/olliolli-world-switch/"
+    }
   },
   {
     "id": "hot-wheels-unleashed-2",
@@ -5143,7 +5772,10 @@
       "competitive"
     ],
     "description": "Race iconic Hot Wheels cars.",
-    "fun_fact": "Real Hot Wheels designers helped create exclusive cars for the game."
+    "fun_fact": "Real Hot Wheels designers helped create exclusive cars for the game.",
+    "store_links": {
+      "steam": "https://store.steampowered.com/app/2051120/"
+    }
   },
   {
     "id": "forza-horizon-5",
@@ -5184,7 +5816,11 @@
     "fun_fact": "The map is based on a real section of Mexico, recreated with satellite data.",
     "subscriptions": [
       "xbox_game_pass"
-    ]
+    ],
+    "store_links": {
+      "xbox": "https://www.microsoft.com/en-us/p/forza-horizon-5-standard-edition/9nkx70bbcdrn?cid=msft_web_chart",
+      "steam": "https://store.steampowered.com/app/1551360"
+    }
   },
   {
     "id": "gran-turismo-7",
@@ -5221,7 +5857,10 @@
       "competitive"
     ],
     "description": "The real driving simulator.",
-    "fun_fact": "Professional race car drivers use the game for training and practice!"
+    "fun_fact": "Professional race car drivers use the game for training and practice!",
+    "store_links": {
+      "playstation": "https://store.playstation.com/en-us/concept/10000956"
+    }
   },
   {
     "id": "need-for-speed-unbound",
@@ -5261,6 +5900,10 @@
     "fun_fact": "Mixes realistic cars with anime-inspired visual effects.",
     "subscriptions": [
       "ea_play"
-    ]
+    ],
+    "store_links": {
+      "playstation": "https://store.playstation.com/en-us/product/UP0006-PPSA01716_00-STANDARDPREORDER",
+      "steam": "https://store.steampowered.com/app/1846380/Need_for_Speed_Unbound/"
+    }
   }
 ]
