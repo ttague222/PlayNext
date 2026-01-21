@@ -5,8 +5,8 @@
  * Authentication types:
  * - Anonymous (default) - data stays on device
  * - Email/Password - sync across devices
- * - Username/Password - sync across devices (alternative)
- * - Google/Apple Sign-In (coming soon)
+ * - Google Sign-In - sync across devices
+ * - Apple Sign-In (iOS only) - sync across devices
  *
  * Sign-in is completely optional - users can skip and use anonymously.
  */
@@ -17,10 +17,11 @@ import {
   Text,
   TouchableOpacity,
   StyleSheet,
-  SafeAreaView,
   ActivityIndicator,
   Platform,
+  Image,
 } from 'react-native';
+import { SafeAreaView } from 'react-native-safe-area-context';
 import { LinearGradient } from 'expo-linear-gradient';
 import { Ionicons } from '@expo/vector-icons';
 import { useNavigation } from '@react-navigation/native';
@@ -30,26 +31,69 @@ const SignInScreen = () => {
   const navigation = useNavigation();
   const {
     signInAnonymousUser,
+    signInWithGoogle,
+    signInWithApple,
     authLoading,
+    isAppleSignInAvailable,
+    googleAuthReady,
   } = useAuth();
   const [error, setError] = useState(null);
+  const [signingInWith, setSigningInWith] = useState(null); // 'google', 'apple', 'guest', or null
 
   const handleSkip = async () => {
     try {
+      setSigningInWith('guest');
+      setError(null);
       await signInAnonymousUser();
       navigation.goBack();
     } catch (err) {
       // If anonymous sign-in fails, just go back anyway
       navigation.goBack();
+    } finally {
+      setSigningInWith(null);
     }
   };
+
+  const handleGoogleSignIn = async () => {
+    try {
+      setSigningInWith('google');
+      setError(null);
+      await signInWithGoogle();
+      // Navigation happens automatically after successful sign-in via auth state change
+    } catch (err) {
+      console.error('[SignInScreen] Google sign-in error:', err);
+      setError('Failed to sign in with Google. Please try again.');
+    } finally {
+      setSigningInWith(null);
+    }
+  };
+
+  const handleAppleSignIn = async () => {
+    try {
+      setSigningInWith('apple');
+      setError(null);
+      const user = await signInWithApple();
+      if (user) {
+        // Successfully signed in, navigate back
+        navigation.goBack();
+      }
+      // If user is null, they cancelled - do nothing
+    } catch (err) {
+      console.error('[SignInScreen] Apple sign-in error:', err);
+      setError('Failed to sign in with Apple. Please try again.');
+    } finally {
+      setSigningInWith(null);
+    }
+  };
+
+  const isLoading = authLoading || signingInWith !== null;
 
   return (
     <LinearGradient
       colors={['#0f0c29', '#302b63', '#24243e']}
       style={styles.container}
     >
-      <SafeAreaView style={styles.safeArea}>
+      <SafeAreaView style={styles.safeArea} edges={['top', 'left', 'right', 'bottom']}>
         {/* Close Button */}
         <TouchableOpacity style={styles.closeButton} onPress={() => navigation.goBack()}>
           <Ionicons name="close" size={28} color="#ffffff" />
@@ -91,11 +135,48 @@ const SignInScreen = () => {
 
           {/* Sign In Buttons */}
           <View style={styles.buttonsContainer}>
-            {/* Email Sign In - Primary option for sync */}
+            {/* Apple Sign In - iOS only, shown first on iOS */}
+            {isAppleSignInAvailable && (
+              <TouchableOpacity
+                style={[styles.signInButton, styles.appleButton]}
+                onPress={handleAppleSignIn}
+                disabled={isLoading}
+              >
+                {signingInWith === 'apple' ? (
+                  <ActivityIndicator color="#000000" />
+                ) : (
+                  <>
+                    <Ionicons name="logo-apple" size={22} color="#000000" />
+                    <Text style={styles.appleButtonText}>Continue with Apple</Text>
+                  </>
+                )}
+              </TouchableOpacity>
+            )}
+
+            {/* Google Sign In */}
+            <TouchableOpacity
+              style={[styles.signInButton, styles.googleButton]}
+              onPress={handleGoogleSignIn}
+              disabled={isLoading || !googleAuthReady}
+            >
+              {signingInWith === 'google' ? (
+                <ActivityIndicator color="#000000" />
+              ) : (
+                <>
+                  <Image
+                    source={{ uri: 'https://developers.google.com/identity/images/g-logo.png' }}
+                    style={styles.googleIcon}
+                  />
+                  <Text style={styles.googleButtonText}>Continue with Google</Text>
+                </>
+              )}
+            </TouchableOpacity>
+
+            {/* Email Sign In */}
             <TouchableOpacity
               style={[styles.signInButton, styles.emailButton]}
               onPress={() => navigation.navigate('EmailSignIn')}
-              disabled={authLoading}
+              disabled={isLoading}
             >
               <Ionicons name="mail-outline" size={22} color="#ffffff" />
               <Text style={styles.emailButtonText}>Continue with Email</Text>
@@ -112,9 +193,9 @@ const SignInScreen = () => {
             <TouchableOpacity
               style={[styles.signInButton, styles.guestButton]}
               onPress={handleSkip}
-              disabled={authLoading}
+              disabled={isLoading}
             >
-              {authLoading ? (
+              {signingInWith === 'guest' ? (
                 <ActivityIndicator color="#ffffff" />
               ) : (
                 <>
@@ -165,7 +246,7 @@ const styles = StyleSheet.create({
   },
   header: {
     alignItems: 'center',
-    marginBottom: 40,
+    marginBottom: 32,
   },
   logo: {
     fontSize: 42,
@@ -191,7 +272,7 @@ const styles = StyleSheet.create({
     lineHeight: 24,
   },
   benefits: {
-    marginBottom: 32,
+    marginBottom: 24,
     gap: 12,
   },
   benefitItem: {
@@ -209,7 +290,7 @@ const styles = StyleSheet.create({
     backgroundColor: 'rgba(239, 68, 68, 0.1)',
     padding: 12,
     borderRadius: 10,
-    marginBottom: 20,
+    marginBottom: 16,
     gap: 8,
   },
   errorText: {
@@ -218,21 +299,41 @@ const styles = StyleSheet.create({
     flex: 1,
   },
   buttonsContainer: {
-    gap: 14,
+    gap: 12,
   },
   signInButton: {
     flexDirection: 'row',
     alignItems: 'center',
     justifyContent: 'center',
-    paddingVertical: 16,
-    borderRadius: 14,
-    gap: 12,
+    paddingVertical: 14,
+    borderRadius: 12,
+    gap: 10,
+  },
+  appleButton: {
+    backgroundColor: '#ffffff',
+  },
+  appleButtonText: {
+    fontSize: 16,
+    fontWeight: '600',
+    color: '#000000',
+  },
+  googleButton: {
+    backgroundColor: '#ffffff',
+  },
+  googleIcon: {
+    width: 20,
+    height: 20,
+  },
+  googleButtonText: {
+    fontSize: 16,
+    fontWeight: '600',
+    color: '#000000',
   },
   emailButton: {
     backgroundColor: '#7c3aed',
   },
   emailButtonText: {
-    fontSize: 17,
+    fontSize: 16,
     fontWeight: '600',
     color: '#ffffff',
   },
@@ -240,6 +341,7 @@ const styles = StyleSheet.create({
     flexDirection: 'row',
     alignItems: 'center',
     gap: 12,
+    marginVertical: 4,
   },
   dividerLine: {
     flex: 1,
@@ -256,14 +358,14 @@ const styles = StyleSheet.create({
     borderColor: 'rgba(255, 255, 255, 0.2)',
   },
   guestButtonText: {
-    fontSize: 17,
+    fontSize: 16,
     fontWeight: '600',
     color: '#ffffff',
   },
   guestNote: {
     flexDirection: 'row',
     alignItems: 'flex-start',
-    marginTop: 20,
+    marginTop: 16,
     paddingHorizontal: 8,
     gap: 8,
   },
@@ -277,7 +379,7 @@ const styles = StyleSheet.create({
     fontSize: 12,
     color: '#606080',
     textAlign: 'center',
-    marginTop: 32,
+    marginTop: 24,
     lineHeight: 18,
   },
 });

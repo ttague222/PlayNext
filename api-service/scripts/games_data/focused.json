@@ -25,7 +25,7 @@
       "addictive"
     ],
     "play_style": [
-      "puzzle_strategy"
+      "strategy"
     ],
     "time_to_fun": "medium",
     "stop_friendliness": "anytime",
@@ -68,7 +68,7 @@
       "intense"
     ],
     "play_style": [
-      "puzzle_strategy",
+      "strategy",
       "action"
     ],
     "time_to_fun": "medium",
@@ -114,7 +114,7 @@
       "emergent"
     ],
     "play_style": [
-      "puzzle_strategy",
+      "strategy",
       "narrative"
     ],
     "time_to_fun": "long",
@@ -156,7 +156,7 @@
       "immersive"
     ],
     "play_style": [
-      "puzzle_strategy"
+      "strategy"
     ],
     "time_to_fun": "long",
     "stop_friendliness": "anytime",
@@ -168,7 +168,7 @@
     "fun_fact": "The game has over $300 of DLC but is constantly updated.",
     "store_links": {
       "epic": "https://store.epicgames.com/en-US/p/europa-universalis-iv",
-      "gog": "https://www.gog.com/fr/game/europa_universalis_iv",
+      "gog": "https://www.gog.com/en/game/europa_universalis_iv",
       "steam": "http://store.steampowered.com/app/236850/"
     }
   },
@@ -197,7 +197,7 @@
       "strategic"
     ],
     "play_style": [
-      "puzzle_strategy"
+      "strategy"
     ],
     "time_to_fun": "medium",
     "stop_friendliness": "anytime",
@@ -239,7 +239,7 @@
       "complex"
     ],
     "play_style": [
-      "puzzle_strategy"
+      "strategy"
     ],
     "time_to_fun": "long",
     "stop_friendliness": "anytime",
@@ -277,7 +277,7 @@
       "historical"
     ],
     "play_style": [
-      "puzzle_strategy"
+      "strategy"
     ],
     "time_to_fun": "long",
     "stop_friendliness": "anytime",
@@ -317,7 +317,7 @@
       "satisfying"
     ],
     "play_style": [
-      "puzzle_strategy"
+      "strategy"
     ],
     "time_to_fun": "short",
     "stop_friendliness": "checkpoints",
@@ -362,7 +362,7 @@
       "epic"
     ],
     "play_style": [
-      "puzzle_strategy"
+      "strategy"
     ],
     "time_to_fun": "short",
     "stop_friendliness": "checkpoints",
@@ -405,7 +405,7 @@
       "skill-based"
     ],
     "play_style": [
-      "puzzle_strategy",
+      "strategy",
       "action"
     ],
     "time_to_fun": "short",
@@ -444,7 +444,7 @@
       "strategic"
     ],
     "play_style": [
-      "puzzle_strategy"
+      "strategy"
     ],
     "time_to_fun": "short",
     "stop_friendliness": "checkpoints",
@@ -483,7 +483,7 @@
       "beautiful"
     ],
     "play_style": [
-      "puzzle_strategy"
+      "strategy"
     ],
     "time_to_fun": "medium",
     "stop_friendliness": "checkpoints",
@@ -523,7 +523,7 @@
       "atmospheric"
     ],
     "play_style": [
-      "puzzle_strategy"
+      "strategy"
     ],
     "time_to_fun": "medium",
     "stop_friendliness": "anytime",
@@ -565,7 +565,7 @@
       "challenging"
     ],
     "play_style": [
-      "puzzle_strategy"
+      "strategy"
     ],
     "time_to_fun": "short",
     "stop_friendliness": "anytime",
@@ -871,7 +871,7 @@
     ],
     "franchise": "two_point",
     "store_links": {
-      "gog": "https://www.gog.com/fr/game/two_point_hospital",
+      "gog": "https://www.gog.com/en/game/two_point_hospital",
       "playstation": "https://store.playstation.com/en-us/product/UP0177-CUSA16081_00-TWOPOINTHOSNA000",
       "xbox": "https://www.microsoft.com/en-us/p/two-point-hospital/9pkm0hk8hkfl?cid=msft_web_chart",
       "nintendo": "https://www.nintendo.com/games/detail/two-point-hospital-switch/",
@@ -1021,7 +1021,7 @@
       "addictive"
     ],
     "play_style": [
-      "puzzle_strategy"
+      "strategy"
     ],
     "time_to_fun": "medium",
     "stop_friendliness": "anytime",
@@ -1061,8 +1061,8 @@
       "creative"
     ],
     "play_style": [
-      "puzzle_strategy",
-      "sandbox_creative"
+      "sandbox_creative",
+      "strategy"
     ],
     "time_to_fun": "medium",
     "stop_friendliness": "anytime",
@@ -1179,7 +1179,7 @@
       "logical"
     ],
     "play_style": [
-      "puzzle_strategy"
+      "strategy"
     ],
     "time_to_fun": "short",
     "stop_friendliness": "anytime",
@@ -1218,7 +1218,7 @@
       "satisfying"
     ],
     "play_style": [
-      "puzzle_strategy"
+      "strategy"
     ],
     "time_to_fun": "short",
     "stop_friendliness": "anytime",
@@ -1579,7 +1579,7 @@
       "humorous"
     ],
     "play_style": [
-      "puzzle_strategy"
+      "puzzle"
     ],
     "time_to_fun": "short",
     "stop_friendliness": "anytime",
@@ -1618,7 +1618,7 @@
       "elegant"
     ],
     "play_style": [
-      "puzzle_strategy"
+      "puzzle"
     ],
     "time_to_fun": "short",
     "stop_friendliness": "anytime",
@@ -1657,7 +1657,7 @@
       "logical"
     ],
     "play_style": [
-      "puzzle_strategy"
+      "puzzle"
     ],
     "time_to_fun": "short",
     "stop_friendliness": "anytime",
@@ -1697,7 +1697,7 @@
       "educational"
     ],
     "play_style": [
-      "puzzle_strategy"
+      "puzzle"
     ],
     "time_to_fun": "medium",
     "stop_friendliness": "anytime",
@@ -1735,7 +1735,7 @@
       "rebellious"
     ],
     "play_style": [
-      "puzzle_strategy"
+      "puzzle"
     ],
     "time_to_fun": "short",
     "stop_friendliness": "anytime",
@@ -1777,7 +1777,7 @@
       "quirky"
     ],
     "play_style": [
-      "puzzle_strategy"
+      "puzzle"
     ],
     "time_to_fun": "short",
     "stop_friendliness": "anytime",
@@ -1819,7 +1819,7 @@
       "satisfying"
     ],
     "play_style": [
-      "puzzle_strategy"
+      "puzzle"
     ],
     "time_to_fun": "short",
     "stop_friendliness": "anytime",
@@ -1860,7 +1860,7 @@
       "complex"
     ],
     "play_style": [
-      "puzzle_strategy"
+      "puzzle"
     ],
     "time_to_fun": "medium",
     "stop_friendliness": "anytime",
@@ -1899,8 +1899,8 @@
       "beautiful"
     ],
     "play_style": [
-      "puzzle_strategy",
-      "narrative"
+      "narrative",
+      "puzzle"
     ],
     "time_to_fun": "short",
     "stop_friendliness": "checkpoints",
@@ -1911,7 +1911,7 @@
     "fun_fact": "Explores what it means to be human through robot society.",
     "franchise": "talos_principle",
     "store_links": {
-      "gog": "https://www.gog.com/fr/game/the_talos_principle_2",
+      "gog": "https://www.gog.com/en/game/the_talos_principle_2",
       "steam": "https://store.steampowered.com/app/835960/",
       "playstation": "https://store.playstation.com/en-us/concept/10004172/",
       "epic": "https://store.epicgames.com/en-US/p/the-talos-principle-2-ab1034"
@@ -1943,8 +1943,8 @@
       "mysterious"
     ],
     "play_style": [
-      "puzzle_strategy",
-      "narrative"
+      "narrative",
+      "puzzle"
     ],
     "time_to_fun": "short",
     "stop_friendliness": "checkpoints",
@@ -1985,7 +1985,7 @@
       "challenging"
     ],
     "play_style": [
-      "puzzle_strategy"
+      "puzzle"
     ],
     "time_to_fun": "short",
     "stop_friendliness": "anytime",
@@ -2024,7 +2024,7 @@
       "satisfying"
     ],
     "play_style": [
-      "puzzle_strategy"
+      "puzzle"
     ],
     "time_to_fun": "short",
     "stop_friendliness": "checkpoints",
@@ -2067,8 +2067,8 @@
       "beautiful"
     ],
     "play_style": [
-      "puzzle_strategy",
-      "narrative"
+      "narrative",
+      "puzzle"
     ],
     "time_to_fun": "short",
     "stop_friendliness": "checkpoints",
@@ -2107,7 +2107,7 @@
       "clever"
     ],
     "play_style": [
-      "puzzle_strategy"
+      "puzzle"
     ],
     "time_to_fun": "short",
     "stop_friendliness": "checkpoints",
@@ -2117,7 +2117,7 @@
     "description": "Place photos to create new realities.",
     "fun_fact": "The photo manipulation mechanics are based on real projective geometry!",
     "store_links": {
-      "gog": "https://www.gog.com/fr/game/viewfinder",
+      "gog": "https://www.gog.com/en/game/viewfinder",
       "steam": "https://store.steampowered.com/app/1382070/Viewfinder/"
     }
   },
@@ -2147,7 +2147,7 @@
       "challenging"
     ],
     "play_style": [
-      "puzzle_strategy"
+      "puzzle"
     ],
     "time_to_fun": "short",
     "stop_friendliness": "anytime",
@@ -2184,7 +2184,7 @@
       "clever"
     ],
     "play_style": [
-      "puzzle_strategy"
+      "puzzle"
     ],
     "time_to_fun": "short",
     "stop_friendliness": "anytime",
@@ -2223,7 +2223,7 @@
       "satisfying"
     ],
     "play_style": [
-      "puzzle_strategy"
+      "puzzle"
     ],
     "time_to_fun": "short",
     "stop_friendliness": "anytime",
@@ -2233,7 +2233,7 @@
     "description": "Solve murders across 50 years.",
     "fun_fact": "Players solve a mystery spanning 50 years of a family's history.",
     "store_links": {
-      "gog": "https://www.gog.com/fr/game/the_case_of_the_golden_idol",
+      "gog": "https://www.gog.com/en/game/the_case_of_the_golden_idol",
       "steam": "https://store.steampowered.com/app/1677770/The_Case_of_the_Golden_Idol/"
     }
   },
@@ -2263,7 +2263,7 @@
       "beautiful"
     ],
     "play_style": [
-      "puzzle_strategy"
+      "puzzle"
     ],
     "time_to_fun": "short",
     "stop_friendliness": "checkpoints",
@@ -2273,7 +2273,7 @@
     "description": "Decode multiple fictional languages.",
     "fun_fact": "The game requires you to actually decode multiple fictional languages!",
     "store_links": {
-      "gog": "https://www.gog.com/fr/game/chants_of_sennaar",
+      "gog": "https://www.gog.com/en/game/chants_of_sennaar",
       "steam": "https://store.steampowered.com/app/1931770/"
     }
   },
@@ -2303,7 +2303,7 @@
       "unique"
     ],
     "play_style": [
-      "puzzle_strategy"
+      "puzzle"
     ],
     "time_to_fun": "medium",
     "stop_friendliness": "anytime",
@@ -2388,8 +2388,7 @@
       "adventurous"
     ],
     "play_style": [
-      "narrative",
-      "puzzle_strategy"
+      "narrative"
     ],
     "time_to_fun": "medium",
     "stop_friendliness": "anytime",
@@ -2431,8 +2430,7 @@
       "cooperative"
     ],
     "play_style": [
-      "narrative",
-      "puzzle_strategy"
+      "narrative"
     ],
     "time_to_fun": "medium",
     "stop_friendliness": "anytime",
@@ -2473,8 +2471,7 @@
       "choice-driven"
     ],
     "play_style": [
-      "narrative",
-      "puzzle_strategy"
+      "narrative"
     ],
     "time_to_fun": "medium",
     "stop_friendliness": "anytime",
@@ -2514,8 +2511,7 @@
       "tactical"
     ],
     "play_style": [
-      "narrative",
-      "puzzle_strategy"
+      "narrative"
     ],
     "time_to_fun": "medium",
     "stop_friendliness": "anytime",
@@ -2556,8 +2552,7 @@
       "tactical"
     ],
     "play_style": [
-      "narrative",
-      "puzzle_strategy"
+      "narrative"
     ],
     "time_to_fun": "short",
     "stop_friendliness": "anytime",
@@ -2602,7 +2597,7 @@
       "classic"
     ],
     "play_style": [
-      "puzzle_strategy"
+      "tactics"
     ],
     "time_to_fun": "short",
     "stop_friendliness": "anytime",
@@ -2641,7 +2636,7 @@
       "strategic"
     ],
     "play_style": [
-      "puzzle_strategy"
+      "tactics"
     ],
     "time_to_fun": "medium",
     "stop_friendliness": "checkpoints",
@@ -2683,8 +2678,7 @@
       "epic"
     ],
     "play_style": [
-      "narrative",
-      "puzzle_strategy"
+      "narrative"
     ],
     "time_to_fun": "medium",
     "stop_friendliness": "checkpoints",
@@ -2729,8 +2723,7 @@
       "social"
     ],
     "play_style": [
-      "narrative",
-      "puzzle_strategy"
+      "narrative"
     ],
     "time_to_fun": "medium",
     "stop_friendliness": "checkpoints",
@@ -2775,8 +2768,7 @@
       "dramatic"
     ],
     "play_style": [
-      "narrative",
-      "puzzle_strategy"
+      "narrative"
     ],
     "time_to_fun": "medium",
     "stop_friendliness": "checkpoints",
@@ -2820,7 +2812,7 @@
       "strategic"
     ],
     "play_style": [
-      "puzzle_strategy"
+      "narrative"
     ],
     "time_to_fun": "short",
     "stop_friendliness": "checkpoints",
@@ -2902,8 +2894,7 @@
       "epic"
     ],
     "play_style": [
-      "narrative",
-      "puzzle_strategy"
+      "narrative"
     ],
     "time_to_fun": "short",
     "stop_friendliness": "anytime",
@@ -2917,7 +2908,7 @@
     ],
     "franchise": "yakuza",
     "store_links": {
-      "gog": "https://www.gog.com/fr/game/yakuza_like_a_dragon",
+      "gog": "https://www.gog.com/en/game/yakuza_like_a_dragon",
       "steam": "https://store.steampowered.com/app/1235140",
       "xbox": "https://www.microsoft.com/en-US/p/yakuza-like-a-dragon-day-ichi-edition/9p6ff3w7f0dc?activetab=pivot:overviewtab",
       "playstation": "https://store.playstation.com/en-us/product/UP0177-CUSA16734_00-SHINRYUGAGOTOKEN"
@@ -2948,8 +2939,7 @@
       "tropical"
     ],
     "play_style": [
-      "narrative",
-      "puzzle_strategy"
+      "narrative"
     ],
     "time_to_fun": "short",
     "stop_friendliness": "anytime",
@@ -3190,8 +3180,8 @@
       "replayable"
     ],
     "play_style": [
-      "puzzle_strategy",
-      "narrative"
+      "narrative",
+      "tactics"
     ],
     "time_to_fun": "short",
     "stop_friendliness": "checkpoints",
@@ -4060,7 +4050,7 @@
       "puzzle-heavy"
     ],
     "play_style": [
-      "puzzle_strategy"
+      "puzzle"
     ],
     "time_to_fun": "short",
     "stop_friendliness": "checkpoints",
@@ -4196,7 +4186,7 @@
       "artistic"
     ],
     "play_style": [
-      "puzzle_strategy"
+      "puzzle"
     ],
     "time_to_fun": "short",
     "stop_friendliness": "checkpoints",
@@ -4243,7 +4233,7 @@
       "tense"
     ],
     "play_style": [
-      "puzzle_strategy"
+      "puzzle"
     ],
     "time_to_fun": "short",
     "stop_friendliness": "checkpoints",
@@ -4587,7 +4577,7 @@
     "fun_fact": "The art is inspired by Spanish religious iconography and baroque paintings.",
     "franchise": "blasphemous",
     "store_links": {
-      "gog": "https://www.gog.com/fr/game/blasphemous_2",
+      "gog": "https://www.gog.com/en/game/blasphemous_2",
       "steam": "https://store.steampowered.com/app/2114740/Blasphemous_2/",
       "xbox": "https://www.microsoft.com/en-us/p/blasphemous-2/9nxbh70b3cvp",
       "playstation": "https://store.playstation.com/es-es/concept/10007264",
@@ -5109,7 +5099,7 @@
     ],
     "play_style": [
       "action",
-      "puzzle_strategy"
+      "puzzle"
     ],
     "time_to_fun": "short",
     "stop_friendliness": "checkpoints",
@@ -5162,7 +5152,7 @@
     "description": "Post-apocalyptic motorcycle combat.",
     "fun_fact": "Inspired by Mad Max with motorcycle-based combat.",
     "store_links": {
-      "gog": "https://www.gog.com/fr/game/laika_aged_through_blood",
+      "gog": "https://www.gog.com/en/game/laika_aged_through_blood",
       "steam": "https://store.steampowered.com/app/1796220/"
     }
   },
@@ -5192,7 +5182,7 @@
       "cryptic"
     ],
     "play_style": [
-      "puzzle_strategy"
+      "puzzle"
     ],
     "time_to_fun": "short",
     "stop_friendliness": "checkpoints",

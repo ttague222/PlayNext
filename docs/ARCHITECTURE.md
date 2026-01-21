@@ -104,6 +104,20 @@ PlayNext/
 - **Auth Provider:** Firebase Authentication
 - **Logging:** JSON-structured (GCP compatible)
 
+## GCP Project Configuration
+
+**IMPORTANT:** PlayNxt uses the `playnxt-1a2c6` GCP project (project number: 167253232570).
+
+- **Correct API URL:** `https://playnxt-api-167253232570.us-central1.run.app/api`
+- **Firebase Project ID:** `playnxt-1a2c6`
+
+> **Note:** There is a stray API service deployed under the `playbeacon` project
+> (`playnxt-api-346141384720.us-central1.run.app`) that should NOT be used for PlayNxt.
+> This was deployed in error but is being kept temporarily to avoid breaking existing
+> app users. All new builds must use the correct `playnxt-1a2c6` project URLs.
+>
+> The PlayBeacon project (346141384720) is for the Roblox games app, not PlayNxt.
+
 ## API Endpoints
 
 ### Recommendations

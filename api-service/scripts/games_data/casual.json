@@ -112,7 +112,7 @@
       "strategic"
     ],
     "play_style": [
-      "puzzle_strategy"
+      "action"
     ],
     "time_to_fun": "short",
     "stop_friendliness": "checkpoints",
@@ -202,7 +202,7 @@
       "frantic"
     ],
     "play_style": [
-      "puzzle_strategy"
+      "puzzle"
     ],
     "time_to_fun": "short",
     "stop_friendliness": "checkpoints",
@@ -466,7 +466,7 @@
       "satisfying"
     ],
     "play_style": [
-      "puzzle_strategy"
+      "puzzle"
     ],
     "time_to_fun": "short",
     "stop_friendliness": "checkpoints",
@@ -510,7 +510,7 @@
     ],
     "play_style": [
       "action",
-      "puzzle_strategy"
+      "puzzle"
     ],
     "time_to_fun": "short",
     "stop_friendliness": "checkpoints",
@@ -611,7 +611,7 @@
     "description": "Mini-golf with wacky courses and power-ups.",
     "fun_fact": "The game started as a university project before becoming a Steam hit!",
     "store_links": {
-      "gog": "https://www.gog.com/fr/game/golf_with_your_friends",
+      "gog": "https://www.gog.com/en/game/golf_with_your_friends",
       "nintendo": "https://www.nintendo.com/games/detail/golf-with-your-friends-switch/",
       "xbox": "https://www.microsoft.com/en-us/p/golf-with-your-friends/9n14g09pwg74?cid=msft_web_chart",
       "playstation": "https://store.playstation.com/en-us/product/UP4064-CUSA17669_00-GOLFWYFRIENDS000",
@@ -686,7 +686,7 @@
       "silly"
     ],
     "play_style": [
-      "puzzle_strategy"
+      "puzzle"
     ],
     "time_to_fun": "short",
     "stop_friendliness": "checkpoints",
@@ -730,7 +730,7 @@
       "cooperative"
     ],
     "play_style": [
-      "puzzle_strategy"
+      "puzzle"
     ],
     "time_to_fun": "short",
     "stop_friendliness": "anytime",
@@ -983,7 +983,7 @@
       "beautiful"
     ],
     "play_style": [
-      "puzzle_strategy"
+      "puzzle"
     ],
     "time_to_fun": "short",
     "stop_friendliness": "checkpoints",
@@ -1251,7 +1251,7 @@
     "fun_fact": "For the first time in LEGO games, you can create your own custom villain.",
     "franchise": "lego_dc",
     "store_links": {
-      "gog": "https://www.gog.com/fr/game/lego_dc_supervillains",
+      "gog": "https://www.gog.com/en/game/lego_dc_supervillains",
       "xbox": "https://www.microsoft.com/en-us/p/lego-dc-super-villains/bqxvsgcx6k8w?cid=msft_web_chart",
       "playstation": "https://store.playstation.com/en-us/product/UP1018-CUSA11542_00-LEGODCVILLAINS00",
       "steam": "https://store.steampowered.com/app/829110/",
@@ -1494,8 +1494,8 @@
       "adventurous"
     ],
     "play_style": [
-      "puzzle_strategy",
-      "action"
+      "action",
+      "puzzle"
     ],
     "time_to_fun": "short",
     "stop_friendliness": "checkpoints",
@@ -1535,7 +1535,7 @@
       "charming"
     ],
     "play_style": [
-      "puzzle_strategy"
+      "puzzle"
     ],
     "time_to_fun": "short",
     "stop_friendliness": "anytime",
@@ -2213,7 +2213,7 @@
     "fun_fact": "The art style was inspired by Cartoon Network shows from the 2000s.",
     "store_links": {
       "steam": "https://store.steampowered.com/app/1313140/Cult_of_the_Lamb/",
-      "gog": "https://www.gog.com/fr/game/cult_of_the_lamb"
+      "gog": "https://www.gog.com/en/game/cult_of_the_lamb"
     }
   },
   {
@@ -2421,7 +2421,7 @@
       "rewarding"
     ],
     "play_style": [
-      "puzzle_strategy"
+      "card_game"
     ],
     "time_to_fun": "short",
     "stop_friendliness": "anytime",
@@ -2464,7 +2464,7 @@
       "clever"
     ],
     "play_style": [
-      "puzzle_strategy"
+      "card_game"
     ],
     "time_to_fun": "short",
     "stop_friendliness": "anytime",
@@ -2503,7 +2503,7 @@
       "meta"
     ],
     "play_style": [
-      "puzzle_strategy"
+      "card_game"
     ],
     "time_to_fun": "short",
     "stop_friendliness": "checkpoints",
@@ -2544,7 +2544,7 @@
       "creative"
     ],
     "play_style": [
-      "puzzle_strategy"
+      "card_game"
     ],
     "time_to_fun": "short",
     "stop_friendliness": "anytime",
@@ -2586,7 +2586,7 @@
       "challenging"
     ],
     "play_style": [
-      "puzzle_strategy"
+      "card_game"
     ],
     "time_to_fun": "short",
     "stop_friendliness": "checkpoints",
@@ -2628,7 +2628,7 @@
     ],
     "play_style": [
       "action",
-      "puzzle_strategy"
+      "card_game"
     ],
     "time_to_fun": "short",
     "stop_friendliness": "checkpoints",
@@ -2672,7 +2672,7 @@
       "challenging"
     ],
     "play_style": [
-      "puzzle_strategy"
+      "tactics"
     ],
     "time_to_fun": "short",
     "stop_friendliness": "anytime",
@@ -2713,7 +2713,7 @@
       "satisfying"
     ],
     "play_style": [
-      "puzzle_strategy"
+      "strategy"
     ],
     "time_to_fun": "short",
     "stop_friendliness": "anytime",
@@ -2794,7 +2794,7 @@
       "nostalgic"
     ],
     "play_style": [
-      "puzzle_strategy"
+      "strategy"
     ],
     "time_to_fun": "short",
     "stop_friendliness": "anytime",
@@ -2959,7 +2959,7 @@
       "addictive"
     ],
     "play_style": [
-      "puzzle_strategy"
+      "puzzle"
     ],
     "time_to_fun": "short",
     "stop_friendliness": "checkpoints",
@@ -2995,7 +2995,7 @@
       "colorful"
     ],
     "play_style": [
-      "puzzle_strategy"
+      "puzzle"
     ],
     "time_to_fun": "short",
     "stop_friendliness": "checkpoints",
@@ -3038,7 +3038,7 @@
       "nostalgic"
     ],
     "play_style": [
-      "puzzle_strategy"
+      "puzzle"
     ],
     "time_to_fun": "short",
     "stop_friendliness": "checkpoints",
@@ -3152,7 +3152,7 @@
       "clever"
     ],
     "play_style": [
-      "puzzle_strategy"
+      "puzzle"
     ],
     "time_to_fun": "short",
     "stop_friendliness": "anytime",
@@ -3191,7 +3191,7 @@
       "tricky"
     ],
     "play_style": [
-      "puzzle_strategy"
+      "puzzle"
     ],
     "time_to_fun": "short",
     "stop_friendliness": "checkpoints",
@@ -3202,7 +3202,7 @@
     "description": "Robots solve deadly puzzles together.",
     "fun_fact": "The game is designed to make players accidentally kill each other.",
     "store_links": {
-      "gog": "https://www.gog.com/fr/game/death_squared",
+      "gog": "https://www.gog.com/en/game/death_squared",
       "playstation": "https://store.playstation.com/en-us/product/UP3490-CUSA07764_00-1111212111112112",
       "steam": "http://store.steampowered.com/app/471810/",
       "xbox": "https://www.microsoft.com/en-us/store/p/death-squared/bs32qfxvpwbc",
@@ -3275,7 +3275,7 @@
       "stressful"
     ],
     "play_style": [
-      "puzzle_strategy"
+      "puzzle"
     ],
     "time_to_fun": "short",
     "stop_friendliness": "checkpoints",
@@ -3397,7 +3397,7 @@
       "investigative"
     ],
     "play_style": [
-      "puzzle_strategy"
+      "action"
     ],
     "time_to_fun": "short",
     "stop_friendliness": "checkpoints",
@@ -3509,7 +3509,7 @@
       "atmospheric"
     ],
     "play_style": [
-      "puzzle_strategy"
+      "action"
     ],
     "time_to_fun": "short",
     "stop_friendliness": "checkpoints",
@@ -3548,7 +3548,7 @@
       "fun"
     ],
     "play_style": [
-      "puzzle_strategy"
+      "strategy"
     ],
     "time_to_fun": "short",
     "stop_friendliness": "checkpoints",
@@ -3640,7 +3640,7 @@
     "store_links": {
       "epic": "https://store.epicgames.com/en-US/p/dredge-3e3a5f",
       "playstation": "https://store.playstation.com/en-us/concept/10005693",
-      "gog": "https://www.gog.com/fr/game/dredge",
+      "gog": "https://www.gog.com/en/game/dredge",
       "steam": "https://store.steampowered.com/app/1562430/DREDGE/"
     }
   },
@@ -4195,7 +4195,7 @@
     "description": "Mine an underground world with friends.",
     "fun_fact": "The game combines Terraria-style mining with survival crafting elements.",
     "store_links": {
-      "gog": "https://www.gog.com/fr/game/core_keeper",
+      "gog": "https://www.gog.com/en/game/core_keeper",
       "steam": "https://store.steampowered.com/app/1621690/Core_Keeper/"
     }
   },
@@ -4262,7 +4262,7 @@
       "satisfying"
     ],
     "play_style": [
-      "puzzle_strategy"
+      "puzzle"
     ],
     "time_to_fun": "short",
     "stop_friendliness": "checkpoints",
@@ -4301,7 +4301,7 @@
       "cute"
     ],
     "play_style": [
-      "puzzle_strategy"
+      "tactics"
     ],
     "time_to_fun": "short",
     "stop_friendliness": "anytime",
@@ -4386,8 +4386,7 @@
       "epic"
     ],
     "play_style": [
-      "narrative",
-      "puzzle_strategy"
+      "narrative"
     ],
     "time_to_fun": "short",
     "stop_friendliness": "anytime",
@@ -4476,7 +4475,7 @@
     ],
     "play_style": [
       "action",
-      "puzzle_strategy"
+      "puzzle"
     ],
     "time_to_fun": "short",
     "stop_friendliness": "anytime",
@@ -4519,7 +4518,6 @@
       "strategic"
     ],
     "play_style": [
-      "puzzle_strategy",
       "narrative"
     ],
     "time_to_fun": "short",
@@ -4564,7 +4562,6 @@
       "strategic"
     ],
     "play_style": [
-      "puzzle_strategy",
       "narrative"
     ],
     "time_to_fun": "short",
@@ -4607,7 +4604,6 @@
       "surprising"
     ],
     "play_style": [
-      "puzzle_strategy",
       "narrative"
     ],
     "time_to_fun": "short",
@@ -4648,8 +4644,8 @@
       "challenging"
     ],
     "play_style": [
-      "puzzle_strategy",
-      "narrative"
+      "narrative",
+      "tactics"
     ],
     "time_to_fun": "medium",
     "stop_friendliness": "checkpoints",
@@ -4688,7 +4684,7 @@
       "challenging"
     ],
     "play_style": [
-      "puzzle_strategy"
+      "tactics"
     ],
     "time_to_fun": "short",
     "stop_friendliness": "checkpoints",
@@ -4726,7 +4722,7 @@
       "creative"
     ],
     "play_style": [
-      "puzzle_strategy"
+      "tactics"
     ],
     "time_to_fun": "short",
     "stop_friendliness": "checkpoints",
@@ -4766,7 +4762,7 @@
       "creative"
     ],
     "play_style": [
-      "puzzle_strategy"
+      "tactics"
     ],
     "time_to_fun": "short",
     "stop_friendliness": "anytime",
@@ -4806,7 +4802,7 @@
       "satisfying"
     ],
     "play_style": [
-      "puzzle_strategy"
+      "tactics"
     ],
     "time_to_fun": "short",
     "stop_friendliness": "anytime",
@@ -4847,8 +4843,8 @@
       "epic"
     ],
     "play_style": [
-      "puzzle_strategy",
-      "narrative"
+      "narrative",
+      "tactics"
     ],
     "time_to_fun": "medium",
     "stop_friendliness": "checkpoints",
@@ -4888,7 +4884,7 @@
       "rewarding"
     ],
     "play_style": [
-      "puzzle_strategy"
+      "tactics"
     ],
     "time_to_fun": "short",
     "stop_friendliness": "anytime",
@@ -4898,7 +4894,7 @@
     "description": "Squad-based tactical RPG.",
     "fun_fact": "Allows you to customize unit classes with incredible depth.",
     "store_links": {
-      "gog": "https://www.gog.com/fr/game/symphony_of_war_the_nephilim_saga",
+      "gog": "https://www.gog.com/en/game/symphony_of_war_the_nephilim_saga",
       "epic": "https://store.epicgames.com/en-US/p/symphony-of-war-60a76e",
       "steam": "https://store.steampowered.com/app/1488200/"
     }
@@ -4929,8 +4925,8 @@
       "emergent"
     ],
     "play_style": [
-      "puzzle_strategy",
-      "narrative"
+      "narrative",
+      "tactics"
     ],
     "time_to_fun": "short",
     "stop_friendliness": "anytime",
@@ -4941,7 +4937,7 @@
     "description": "Procedural storytelling tactical RPG.",
     "fun_fact": "Your heroes age across campaigns and their stories continue for generations.",
     "store_links": {
-      "gog": "https://www.gog.com/fr/game/wildermyth",
+      "gog": "https://www.gog.com/en/game/wildermyth",
       "epic": "https://store.epicgames.com/en-US/p/wildermyth-593344",
       "steam": "http://store.steampowered.com/app/763890/"
     }
@@ -4971,7 +4967,7 @@
       "addictive"
     ],
     "play_style": [
-      "puzzle_strategy"
+      "card_game"
     ],
     "time_to_fun": "short",
     "stop_friendliness": "anytime",
@@ -5011,7 +5007,7 @@
       "fair"
     ],
     "play_style": [
-      "puzzle_strategy"
+      "card_game"
     ],
     "time_to_fun": "short",
     "stop_friendliness": "checkpoints",
@@ -5051,7 +5047,7 @@
       "deep"
     ],
     "play_style": [
-      "puzzle_strategy"
+      "card_game"
     ],
     "time_to_fun": "short",
     "stop_friendliness": "checkpoints",
@@ -5094,7 +5090,7 @@
       "complex"
     ],
     "play_style": [
-      "puzzle_strategy"
+      "card_game"
     ],
     "time_to_fun": "short",
     "stop_friendliness": "checkpoints",
@@ -5134,7 +5130,7 @@
       "accessible"
     ],
     "play_style": [
-      "puzzle_strategy"
+      "card_game"
     ],
     "time_to_fun": "short",
     "stop_friendliness": "checkpoints",
@@ -5171,7 +5167,7 @@
       "competitive"
     ],
     "play_style": [
-      "puzzle_strategy"
+      "card_game"
     ],
     "time_to_fun": "short",
     "stop_friendliness": "checkpoints",
@@ -5210,7 +5206,7 @@
       "charming"
     ],
     "play_style": [
-      "puzzle_strategy"
+      "card_game"
     ],
     "time_to_fun": "short",
     "stop_friendliness": "checkpoints",
@@ -5247,7 +5243,7 @@
       "addictive"
     ],
     "play_style": [
-      "puzzle_strategy"
+      "card_game"
     ],
     "time_to_fun": "short",
     "stop_friendliness": "anytime",
@@ -5257,7 +5253,7 @@
     "description": "Arrange your backpack to fight monsters.",
     "fun_fact": "The entire combat system is based on inventory Tetris.",
     "store_links": {
-      "gog": "https://www.gog.com/fr/game/backpack_hero",
+      "gog": "https://www.gog.com/en/game/backpack_hero",
       "steam": "https://store.steampowered.com/app/1970580/"
     }
   },
@@ -5414,8 +5410,7 @@
       "realistic"
     ],
     "play_style": [
-      "action",
-      "puzzle_strategy"
+      "action"
     ],
     "time_to_fun": "short",
     "stop_friendliness": "checkpoints",

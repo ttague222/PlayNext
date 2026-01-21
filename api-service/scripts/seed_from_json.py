@@ -18,14 +18,15 @@ def load_games_from_json():
     data_dir = script_dir / "games_data"
 
     all_games = []
-    files = ["wind_down.json", "casual.json", "focused.json", "intense.json"]
+    files = ["wind_down.json", "casual.json", "focused.json", "intense.json", "mobile.json"]
 
     # Map file to energy level
     energy_map = {
         "wind_down.json": "low",
         "casual.json": "medium",
         "focused.json": "medium",
-        "intense.json": "high"
+        "intense.json": "high",
+        "mobile.json": "medium"
     }
 
     for filename in files:
@@ -77,8 +78,13 @@ def generate_explanation_templates(game):
     style_messages = {
         "narrative": "Rich storytelling pulls you into the experience.",
         "action": "Fast-paced action keeps the adrenaline flowing.",
+        "puzzle": "Satisfying puzzles that reward clever thinking.",
+        "strategy": "Deep strategic gameplay for thoughtful decisions.",
+        "tactics": "Turn-based tactical combat rewards careful planning.",
+        "card_game": "Strategic deck-building and card play.",
+        "sandbox_creative": "Freedom to create and explore at your pace.",
+        # Deprecated but keeping for backwards compatibility
         "puzzle_strategy": "Satisfying puzzles and strategic thinking.",
-        "sandbox_creative": "Freedom to create and explore at your pace."
     }
     if play_styles:
         primary_style = play_styles[0]

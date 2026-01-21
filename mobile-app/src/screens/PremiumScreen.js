@@ -11,10 +11,10 @@ import {
   Text,
   TouchableOpacity,
   StyleSheet,
-  SafeAreaView,
   ActivityIndicator,
   ScrollView,
 } from 'react-native';
+import { SafeAreaView } from 'react-native-safe-area-context';
 import { LinearGradient } from 'expo-linear-gradient';
 import { Ionicons } from '@expo/vector-icons';
 import { useNavigation } from '@react-navigation/native';
@@ -23,19 +23,19 @@ import { usePremium } from '../context/PremiumContext';
 // Premium features to display
 const PREMIUM_BENEFITS = [
   {
-    icon: 'infinite-outline',
-    title: 'Unlimited Rerolls',
-    description: 'Get as many recommendations as you want',
+    icon: 'ban-outline',
+    title: 'No Ads',
+    description: 'Enjoy unlimited rerolls without any ad interruptions',
   },
   {
-    icon: 'library-outline',
-    title: 'Game Library',
-    description: 'Organize games into collections to track your backlog',
+    icon: 'flash-outline',
+    title: 'Faster Experience',
+    description: 'Skip the wait and get recommendations instantly',
   },
   {
-    icon: 'sync-outline',
-    title: 'Cross-Device Sync',
-    description: 'Access your data anywhere',
+    icon: 'heart-outline',
+    title: 'Support Development',
+    description: 'Help us keep improving PlayNxt',
   },
 ];
 
@@ -132,7 +132,7 @@ const PremiumScreen = () => {
         colors={['#1a1a2e', '#16213e', '#0f3460']}
         style={styles.container}
       >
-        <SafeAreaView style={styles.safeArea}>
+        <SafeAreaView style={styles.safeArea} edges={['top', 'left', 'right', 'bottom']}>
           <View style={styles.header}>
             <TouchableOpacity
               style={styles.backButton}
@@ -159,7 +159,7 @@ const PremiumScreen = () => {
 
             <Text style={styles.premiumActiveTitle}>You're Premium!</Text>
             <Text style={styles.premiumActiveSubtitle}>
-              Enjoy unlimited access to all features
+              Enjoying ad-free recommendations
             </Text>
 
             {entitlement && (
@@ -212,7 +212,7 @@ const PremiumScreen = () => {
       colors={['#1a1a2e', '#16213e', '#0f3460']}
       style={styles.container}
     >
-      <SafeAreaView style={styles.safeArea}>
+      <SafeAreaView style={styles.safeArea} edges={['top', 'left', 'right', 'bottom']}>
         <View style={styles.header}>
           <TouchableOpacity
             style={styles.backButton}
@@ -238,7 +238,7 @@ const PremiumScreen = () => {
             </LinearGradient>
             <Text style={styles.heroTitle}>Unlock PlayNxt Premium</Text>
             <Text style={styles.heroSubtitle}>
-              Get unlimited recommendations and powerful features
+              Enjoy an ad-free experience with instant recommendations
             </Text>
           </View>
 

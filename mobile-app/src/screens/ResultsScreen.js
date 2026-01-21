@@ -24,6 +24,8 @@ import GameCard from '../components/GameCard';
 import CelebrationModal from '../components/CelebrationModal';
 import AlreadyPlayedModal from '../components/AlreadyPlayedModal';
 import SaveToBucketModal from '../components/SaveToBucketModal';
+import AdOrPremiumModal from '../components/AdOrPremiumModal';
+import FeatureCallout from '../components/FeatureCallout';
 
 const ResultsScreen = () => {
   const navigation = useNavigation();
@@ -35,20 +37,33 @@ const ResultsScreen = () => {
     fallbackMessage,
     reroll,
     acceptRecommendation,
-    savePendingFeedback,
     markAsPlayedAndSwap,
     preferences,
   } = useRecommendation();
-  const { canReroll, recordReroll, getRemainingRerolls, isPremium } = usePremium();
+  const {
+    recordReroll,
+    isPremium,
+    isAdLoading,
+    isRewardedAdsEnabled,
+    shouldShowAdBeforeReroll,
+    showRewardedAd,
+    getRerollsUntilAd,
+    shouldShowPremiumPrompt,
+    AD_INTERVAL,
+  } = usePremium();
 
   const [selectedGame, setSelectedGame] = useState(null);
   const [showCelebration, setShowCelebration] = useState(false);
   const [isRerolling, setIsRerolling] = useState(false);
   const [swappingGameId, setSwappingGameId] = useState(null);
+  const [acceptingGameId, setAcceptingGameId] = useState(null);
   const [alreadyPlayedGame, setAlreadyPlayedGame] = useState(null);
   const [showAlreadyPlayedModal, setShowAlreadyPlayedModal] = useState(false);
   const [saveGame, setSaveGame] = useState(null);
   const [showSaveModal, setShowSaveModal] = useState(false);
+  const [showAdOrPremiumModal, setShowAdOrPremiumModal] = useState(false);
+  const [pendingRerollAction, setPendingRerollAction] = useState(null);
+  const [showRerollCallout, setShowRerollCallout] = useState(false);
 
   // Animations
   const headerAnim = useRef(new Animated.Value(0)).current;
@@ -60,14 +75,27 @@ const ResultsScreen = () => {
       duration: 600,
       useNativeDriver: true,
     }).start();
+
+    // Show reroll callout after a short delay on first view
+    const timer = setTimeout(() => {
+      setShowRerollCallout(true);
+    }, 1000);
+
+    return () => clearTimeout(timer);
   }, []);
 
   const handleAccept = async (game) => {
-    await acceptRecommendation(game.game_id, game.title);
-    // Save the game for delayed feedback later
-    await savePendingFeedback(game);
-    setSelectedGame(game);
-    setShowCelebration(true);
+    // Prevent double-tap
+    if (acceptingGameId) return;
+
+    setAcceptingGameId(game.game_id);
+    try {
+      await acceptRecommendation(game.game_id, game.title);
+      setSelectedGame(game);
+      setShowCelebration(true);
+    } finally {
+      setAcceptingGameId(null);
+    }
   };
 
   const handleAlreadyPlayed = (game) => {
@@ -136,19 +164,58 @@ const ResultsScreen = () => {
   };
 
   const handleReroll = async () => {
-    // Check if user can reroll
-    if (!canReroll()) {
-      Alert.alert(
-        'Out of Rerolls',
-        'You\'ve used all your free rerolls for today. Upgrade to Premium for unlimited rerolls!',
-        [
-          { text: 'Maybe Later', style: 'cancel' },
-          { text: 'Get Premium', onPress: () => navigation.navigate('Premium') },
-        ]
-      );
+    // Check if we need to show an ad before this reroll
+    if (shouldShowAdBeforeReroll()) {
+      // Show the choice modal instead of going straight to ad
+      setShowAdOrPremiumModal(true);
+      setPendingRerollAction(() => performReroll);
       return;
     }
 
+    await performReroll();
+  };
+
+  /**
+   * Handle user choosing to watch an ad from the modal
+   */
+  const handleWatchAd = async () => {
+    setShowAdOrPremiumModal(false);
+
+    const adCompleted = await showRewardedAd();
+    if (!adCompleted) {
+      // User didn't complete ad - don't allow reroll
+      setPendingRerollAction(null);
+      return;
+    }
+
+    // Perform the pending reroll action
+    if (pendingRerollAction) {
+      await pendingRerollAction();
+      setPendingRerollAction(null);
+    }
+  };
+
+  /**
+   * Handle user choosing to go premium from the modal
+   */
+  const handleGoPremium = () => {
+    setShowAdOrPremiumModal(false);
+    setPendingRerollAction(null);
+    navigation.navigate('Premium');
+  };
+
+  /**
+   * Handle user canceling the ad/premium choice
+   */
+  const handleCancelAdChoice = () => {
+    setShowAdOrPremiumModal(false);
+    setPendingRerollAction(null);
+  };
+
+  /**
+   * Perform the actual reroll action
+   */
+  const performReroll = async () => {
     setIsRerolling(true);
 
     // Spin animation
@@ -280,6 +347,7 @@ const ResultsScreen = () => {
                   onAlreadyPlayed={() => handleAlreadyPlayed(game)}
                   onSave={() => handleSave(game)}
                   isSwapping={swappingGameId === game.game_id}
+                  isAccepting={acceptingGameId === game.game_id}
                   userPlatforms={preferences.platforms}
                 />
               ))}
@@ -301,7 +369,7 @@ const ResultsScreen = () => {
             <TouchableOpacity
               style={styles.rerollButton}
               onPress={handleReroll}
-              disabled={isRerolling}
+              disabled={isRerolling || isAdLoading}
               activeOpacity={0.8}
             >
               <Animated.Text
@@ -314,11 +382,20 @@ const ResultsScreen = () => {
               </Animated.Text>
               <View style={styles.rerollTextContainer}>
                 <Text style={styles.rerollText}>
-                  {isRerolling ? 'Finding more...' : 'Show different games'}
+                  {isRerolling ? 'Finding more...' : isAdLoading ? 'Loading...' : 'Show different games'}
                 </Text>
-                {!isPremium && !isRerolling && (
+                {!isPremium && !isRerolling && !isAdLoading && isRewardedAdsEnabled && (
                   <Text style={styles.rerollsRemaining}>
-                    {getRemainingRerolls()} rerolls left today
+                    {getRerollsUntilAd() === AD_INTERVAL
+                      ? `${AD_INTERVAL} free rerolls`
+                      : getRerollsUntilAd() > 0
+                      ? `${getRerollsUntilAd()} free reroll${getRerollsUntilAd() > 1 ? 's' : ''} left`
+                      : 'Watch ad to reroll'}
+                  </Text>
+                )}
+                {isPremium && !isRerolling && (
+                  <Text style={styles.rerollsRemaining}>
+                    Unlimited rerolls
                   </Text>
                 )}
               </View>
@@ -357,6 +434,26 @@ const ResultsScreen = () => {
             setShowSaveModal(false);
             setSaveGame(null);
           }}
+        />
+
+        {/* Ad or Premium Choice Modal */}
+        <AdOrPremiumModal
+          visible={showAdOrPremiumModal}
+          onWatchAd={handleWatchAd}
+          onGoPremium={handleGoPremium}
+          onCancel={handleCancelAdChoice}
+          isAdLoading={isAdLoading}
+        />
+
+        {/* First-time Reroll Explanation Callout */}
+        <FeatureCallout
+          id="results_reroll_explanation"
+          emoji="🔄"
+          title="Reroll Your Picks"
+          description={`Not feeling these games? Tap "Show different games" to get new recommendations. You get ${AD_INTERVAL} free rerolls each day, then watch a quick ad to keep going. Premium users get unlimited ad-free rerolls!`}
+          visible={showRerollCallout && !loading && recommendations.length > 0}
+          onDismiss={() => setShowRerollCallout(false)}
+          position="bottom"
         />
       </SafeAreaView>
     </LinearGradient>

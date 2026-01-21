@@ -12,30 +12,30 @@ from pydantic import BaseModel, Field
 
 class BucketType(str, Enum):
     """Predefined bucket types."""
-    WANT_TO_PLAY = "want_to_play"
-    CURRENTLY_PLAYING = "currently_playing"
-    FINISHED = "finished"
+    BACKLOG = "backlog"
+    PLAYING = "playing"
+    PLAYED = "played"
     NOT_FOR_ME = "not_for_me"
 
 
 # Bucket configuration with display info
 BUCKET_CONFIG = {
-    BucketType.WANT_TO_PLAY: {
-        "name": "Want to Play",
+    BucketType.BACKLOG: {
+        "name": "Backlog",
         "icon": "bookmark-outline",
         "emoji": "📌",
         "color": "#f59e0b",
         "order": 0,
     },
-    BucketType.CURRENTLY_PLAYING: {
-        "name": "Currently Playing",
+    BucketType.PLAYING: {
+        "name": "Playing",
         "icon": "game-controller",
         "emoji": "🎮",
         "color": "#22c55e",
         "order": 1,
     },
-    BucketType.FINISHED: {
-        "name": "Finished",
+    BucketType.PLAYED: {
+        "name": "Played",
         "icon": "checkmark-circle",
         "emoji": "✅",
         "color": "#3b82f6",

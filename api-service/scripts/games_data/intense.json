@@ -339,7 +339,7 @@
     ],
     "franchise": "doom",
     "store_links": {
-      "gog": "https://www.gog.com/fr/game/doom_2016",
+      "gog": "https://www.gog.com/en/game/doom_2016",
       "steam": "https://store.steampowered.com/app/379720/DOOM/",
       "playstation": "https://store.playstation.com/en-us/product/UP1003-CUSA02085_00-DOOMNORTHAMERICA",
       "nintendo": "https://www.nintendo.com/games/detail/doom-switch",
@@ -460,7 +460,7 @@
     "description": "Cyberpunk chainsaw-leg mayhem.",
     "fun_fact": "Your leg is a chainsaw. That's the whole pitch.",
     "store_links": {
-      "gog": "https://www.gog.com/fr/game/turbo_overkill",
+      "gog": "https://www.gog.com/en/game/turbo_overkill",
       "steam": "https://store.steampowered.com/app/1328350/Turbo_Overkill/"
     }
   },
@@ -706,7 +706,7 @@
     "description": "Cyborg ninja combat.",
     "fun_fact": "The blade mode lets you cut anything into hundreds of pieces.",
     "store_links": {
-      "gog": "https://www.gog.com/fr/game/metal_gear_rising_revengeance",
+      "gog": "https://www.gog.com/en/game/metal_gear_rising_revengeance",
       "xbox": "https://www.microsoft.com/en-us/p/metal-gear-rising-revengeance/br6hqdnqt004?cid=msft_web_chart",
       "playstation": "https://store.playstation.com/en-us/product/UP0101-NPUB31057_00-MGRGAMEMAIN00001",
       "steam": "http://store.steampowered.com/app/235460/"
@@ -792,7 +792,7 @@
       "playstation_plus"
     ],
     "store_links": {
-      "gog": "https://www.gog.com/fr/game/god_of_war",
+      "gog": "https://www.gog.com/en/game/god_of_war",
       "playstation": "https://store.playstation.com/en-us/product/UP9000-CUSA07408_00-00000000GODOFWAR",
       "steam": "https://store.steampowered.com/app/1593500/God_of_War/",
       "epic": "https://www.epicgames.com/store/ru/p/god-of-war"
@@ -1996,8 +1996,7 @@
       "intense"
     ],
     "play_style": [
-      "action",
-      "puzzle_strategy"
+      "action"
     ],
     "time_to_fun": "medium",
     "stop_friendliness": "commitment",
@@ -2902,8 +2901,7 @@
       "tactical"
     ],
     "play_style": [
-      "action",
-      "puzzle_strategy"
+      "action"
     ],
     "time_to_fun": "short",
     "stop_friendliness": "checkpoints",
@@ -2978,8 +2976,7 @@
       "team-based"
     ],
     "play_style": [
-      "action",
-      "puzzle_strategy"
+      "action"
     ],
     "time_to_fun": "medium",
     "stop_friendliness": "checkpoints",
@@ -3018,8 +3015,7 @@
       "precise"
     ],
     "play_style": [
-      "action",
-      "puzzle_strategy"
+      "action"
     ],
     "time_to_fun": "short",
     "stop_friendliness": "checkpoints",
@@ -3317,8 +3313,7 @@
       "strategic"
     ],
     "play_style": [
-      "action",
-      "puzzle_strategy"
+      "action"
     ],
     "time_to_fun": "short",
     "stop_friendliness": "checkpoints",
@@ -3360,8 +3355,7 @@
       "epic"
     ],
     "play_style": [
-      "action",
-      "puzzle_strategy"
+      "action"
     ],
     "time_to_fun": "short",
     "stop_friendliness": "checkpoints",
@@ -3781,7 +3775,7 @@
     "description": "Dark space shooter.",
     "fun_fact": "Features a sentient starship with its own personality.",
     "store_links": {
-      "gog": "https://www.gog.com/fr/game/chorus",
+      "gog": "https://www.gog.com/en/game/chorus",
       "steam": "https://store.steampowered.com/app/1153640",
       "epic": "https://www.epicgames.com/store/en-US/p/chorus",
       "playstation": "https://store.playstation.com/ru-ru/product/EP4062-PPSA01592_00-PREORDERBONUSBL0/"
@@ -3952,7 +3946,7 @@
     ],
     "franchise": "yakuza",
     "store_links": {
-      "gog": "https://www.gog.com/fr/game/yakuza_0",
+      "gog": "https://www.gog.com/en/game/yakuza_0",
       "xbox": "https://www.microsoft.com/en-us/p/yakuza-0/9npp17lhj3mk?cid=msft_web_chart",
       "playstation": "https://store.playstation.com/en-us/product/UP0177-CUSA05070_00-YAKUZA0AMERICA00",
       "steam": "https://store.steampowered.com/app/638970/"
@@ -4117,7 +4111,7 @@
     "franchise": "ghostrunner",
     "store_links": {
       "epic": "https://store.epicgames.com/ru/p/ghostrunner-2",
-      "gog": "https://www.gog.com/fr/game/ghostrunner_2",
+      "gog": "https://www.gog.com/en/game/ghostrunner_2",
       "steam": "https://store.steampowered.com/app/2144740/Ghostrunner_2/"
     }
   },
@@ -4757,7 +4751,7 @@
     "fun_fact": "Kicking is the primary combat mechanic.",
     "store_links": {
       "steam": "https://store.steampowered.com/app/1978590/Anger_Foot/",
-      "gog": "https://www.gog.com/fr/game/anger_foot"
+      "gog": "https://www.gog.com/en/game/anger_foot"
     }
   },
   {
@@ -4904,7 +4898,7 @@
     ],
     "play_style": [
       "action",
-      "puzzle_strategy"
+      "puzzle"
     ],
     "time_to_fun": "short",
     "stop_friendliness": "checkpoints",

@@ -1,10 +1,11 @@
 """
 PlayNext Recommendation Service
 
-Core recommendation engine with deterministic heuristics.
+Core recommendation engine with heuristics and randomization for variety.
 """
 
 import logging
+import random
 import uuid
 from datetime import datetime, timedelta
 from typing import Optional
@@ -44,6 +45,7 @@ SESSION_TO_MULTIPLAYER = {
     SessionType.SOLO: [MultiplayerMode.SOLO],
     SessionType.COUCH_COOP: [MultiplayerMode.LOCAL_COOP],
     SessionType.ONLINE_FRIENDS: [MultiplayerMode.ONLINE_COOP, MultiplayerMode.COMPETITIVE],
+    SessionType.MULTIPLAYER: [MultiplayerMode.LOCAL_COOP, MultiplayerMode.ONLINE_COOP, MultiplayerMode.COMPETITIVE],
     SessionType.ANY: None,  # No filter
 }
 
@@ -172,13 +174,14 @@ class RecommendationService:
         if filtered:
             return filtered, True, "Showing games across all platforms"
 
-        # Fallback 2: Relax play style
-        logger.info("Applying fallback: relaxing play style filter")
+        # Fallback 2: Relax genres/play style
+        logger.info("Applying fallback: relaxing genre filter")
+        relaxed_request.genres = None
         relaxed_request.play_style = None
         relaxed_request.play_styles = None
         filtered = self._apply_filters(games, relaxed_request, strict=True)
         if filtered:
-            return filtered, True, "Showing games across all play styles"
+            return filtered, True, "Showing games across all genres"
 
         # Fallback 3: Relax time bracket
         logger.info("Applying fallback: relaxing time filter")
@@ -224,19 +227,37 @@ class RecommendationService:
                 or self._energy_compatible(g.get("energy_level"), target_energy)
             ]
 
-        # Play style filter (if specified) - support both single and list
-        play_styles = request.play_styles or ([request.play_style] if request.play_style else None)
-        if play_styles:
-            style_values = [s.value for s in play_styles]
+        # Genre filter - matches both play_style and genre_tags fields
+        # Also supports legacy play_styles for backwards compatibility
+        genres = request.genres
+        if not genres:
+            # Fallback to legacy play_styles if genres not provided
+            play_styles = request.play_styles or ([request.play_style] if request.play_style else None)
+            if play_styles:
+                genres = [s.value for s in play_styles]
+
+        if genres:
             filtered = [
                 g for g in filtered
-                if any(s in g.get("play_style", []) for s in style_values)
+                if any(genre in g.get("play_style", []) for genre in genres)
+                or any(genre in g.get("genre_tags", []) for genre in genres)
             ]
 
         # Platform filter (if specified) - support both single and list
+        # Strict matching: only match exact platform values
+        # Legacy mapping (console/handheld) only used for backwards compatibility with old database entries
         platforms = request.platforms or ([request.platform] if request.platform else None)
         if platforms:
-            platform_values = [p.value for p in platforms]
+            platform_values = set()
+            for p in platforms:
+                platform_values.add(p.value)
+                # Only map legacy values for console platforms (playstation/xbox -> console)
+                # Do NOT map mobile/switch to handheld - these should be strict matches
+                if p.value == "playstation" or p.value == "xbox":
+                    platform_values.add("console")
+                # Note: mobile and switch are now strict - they only match their exact value
+                # If database has old "handheld" entries, run migration to update to specific platforms
+
             filtered = [
                 g for g in filtered
                 if any(p in g.get("platforms", []) for p in platform_values)
@@ -268,7 +289,11 @@ class RecommendationService:
         games: list[dict],
         request: RecommendationRequest
     ) -> list[dict]:
-        """Score games based on match quality."""
+        """Score games based on match quality with randomization for variety."""
+        # Shuffle games first to eliminate any ordering bias from Firestore
+        games = games.copy()
+        random.shuffle(games)
+
         scored = []
 
         for game in games:
@@ -293,15 +318,22 @@ class RecommendationService:
             if target_energy and game.get("energy_level") == target_energy.value:
                 score += 0.2
 
-            # Play style match boost (0-0.15)
-            play_styles = request.play_styles or ([request.play_style] if request.play_style else None)
-            if play_styles:
-                style_values = [s.value for s in play_styles]
+            # Genre match boost (0-0.15)
+            # Supports new genres field and legacy play_styles
+            genres = request.genres
+            if not genres:
+                play_styles = request.play_styles or ([request.play_style] if request.play_style else None)
+                if play_styles:
+                    genres = [s.value for s in play_styles]
+
+            if genres:
                 game_styles = game.get("play_style", [])
-                matching_styles = sum(1 for s in style_values if s in game_styles)
-                if matching_styles > 0:
-                    # More matching styles = higher boost
-                    score += 0.15 * min(matching_styles / len(style_values), 1.0)
+                game_genre_tags = game.get("genre_tags", [])
+                all_game_genres = game_styles + game_genre_tags
+                matching_genres = sum(1 for g in genres if g in all_game_genres)
+                if matching_genres > 0:
+                    # More matching genres = higher boost
+                    score += 0.15 * min(matching_genres / len(genres), 1.0)
 
             # Platform match boost (0-0.1)
             req_platforms = request.platforms or ([request.platform] if request.platform else None)
@@ -317,6 +349,12 @@ class RecommendationService:
             # Subscription availability boost (0-0.1)
             if game.get("subscription_services"):
                 score += 0.1
+
+            # Add randomness factor (0-0.3) to introduce variety
+            # This ensures games with similar scores get shuffled
+            # Using a larger range to overcome score similarities
+            random_boost = random.uniform(0, 0.3)
+            score += random_boost
 
             scored.append({**game, "score": min(score, 1.0)})
 

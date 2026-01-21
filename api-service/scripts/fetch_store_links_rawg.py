@@ -30,6 +30,30 @@ STORE_ID_MAPPING = {
     11: "epic",
 }
 
+# Language codes to strip from GOG URLs (convert to English)
+GOG_LANGUAGE_CODES = [
+    "/fr/", "/de/", "/es/", "/it/", "/pt/", "/ru/", "/pl/", "/zh/", "/ja/", "/ko/",
+    "/nl/", "/cs/", "/hu/", "/tr/", "/ar/", "/th/", "/vi/", "/uk/", "/ro/", "/sv/",
+]
+
+
+def normalize_gog_url(url: str) -> str:
+    """Convert GOG URLs to English version by removing language codes."""
+    if not url or "gog.com" not in url:
+        return url
+
+    # Replace any language code with /en/
+    for lang_code in GOG_LANGUAGE_CODES:
+        if lang_code in url:
+            url = url.replace(lang_code, "/en/")
+            break
+
+    # If no language code found and URL doesn't have /en/, add it
+    if "/en/" not in url and "/game/" in url:
+        url = url.replace("/game/", "/en/game/")
+
+    return url
+
 
 def search_game(title: str) -> dict | None:
     """Search for a game on RAWG and return the first result."""
@@ -79,6 +103,9 @@ def get_game_stores(game_id: int) -> dict:
 
             if store_id in STORE_ID_MAPPING and url:
                 our_key = STORE_ID_MAPPING[store_id]
+                # Normalize GOG URLs to English
+                if our_key == "gog":
+                    url = normalize_gog_url(url)
                 # Don't overwrite if we already have a link for this store
                 if our_key not in store_links:
                     store_links[our_key] = url

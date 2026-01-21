@@ -11,7 +11,7 @@ import Purchases, { LOG_LEVEL, PURCHASES_ERROR_CODE } from 'react-native-purchas
 // RevenueCat API Keys
 const API_KEYS = {
   ios: 'appl_AvkUTiXnYHeZXzUhZOQgwaJhOqT',
-  android: 'appl_AvkUTiXnYHeZXzUhZOQgwaJhOqT', // Update with Google Play key when available
+  android: 'goog_NMqLOxXQDuisEbfGooHoKHlGNIi',
 };
 
 // Entitlement identifier
@@ -20,10 +20,13 @@ export const ENTITLEMENTS = {
 };
 
 // Product identifiers
+// Note: Google Play uses com.playnxt.app.premium, App Store uses playnxt_premium_lifetime
 export const PRODUCT_IDS = {
   MONTHLY: 'playnxt_premium_monthly',
   YEARLY: 'playnxt_premium_yearly',
   LIFETIME: 'playnxt_premium_lifetime',
+  // Google Play specific
+  LIFETIME_ANDROID: 'com.playnxt.app.premium',
 };
 
 // Track initialization state
@@ -141,11 +144,18 @@ export const getOfferings = async () => {
   try {
     const offerings = await Purchases.getOfferings();
 
+    // Debug logging to diagnose RevenueCat issues
+    console.log('[Purchases] Raw offerings response:', JSON.stringify(offerings, null, 2));
+    console.log('[Purchases] All offering keys:', Object.keys(offerings.all || {}));
+    console.log('[Purchases] Current offering:', offerings.current ? offerings.current.identifier : 'null');
+
     if (!offerings.current) {
       console.warn('[Purchases] No current offering configured');
+      console.warn('[Purchases] Available offerings:', Object.keys(offerings.all || {}));
       return null;
     }
 
+    console.log('[Purchases] Current offering packages:', offerings.current.availablePackages?.length || 0);
     return offerings;
   } catch (error) {
     console.error('[Purchases] Failed to get offerings:', error);

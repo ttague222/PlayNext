@@ -33,6 +33,8 @@ import PremiumScreen from '../screens/PremiumScreen';
 
 // Detail Screens
 import BucketDetailScreen from '../screens/BucketDetailScreen';
+import GameDetailScreen from '../screens/GameDetailScreen';
+import HelpScreen from '../screens/HelpScreen';
 
 const Stack = createNativeStackNavigator();
 const Tab = createBottomTabNavigator();
@@ -106,8 +108,8 @@ const TabNavigator = () => {
 
           if (route.name === 'Play') {
             iconName = focused ? 'game-controller' : 'game-controller-outline';
-          } else if (route.name === 'History') {
-            iconName = focused ? 'time' : 'time-outline';
+          } else if (route.name === 'Library') {
+            iconName = focused ? 'library' : 'library-outline';
           } else if (route.name === 'Profile') {
             iconName = focused ? 'person' : 'person-outline';
           }
@@ -124,10 +126,10 @@ const TabNavigator = () => {
         }}
       />
       <Tab.Screen
-        name="History"
+        name="Library"
         component={HistoryScreen}
         options={{
-          tabBarLabel: 'History',
+          tabBarLabel: 'Library',
         }}
       />
       <Tab.Screen
@@ -177,6 +179,20 @@ const AppNavigator = () => {
         <RootStack.Screen
           name="BucketDetail"
           component={BucketDetailScreen}
+          options={{
+            animation: 'slide_from_right',
+          }}
+        />
+        <RootStack.Screen
+          name="GameDetail"
+          component={GameDetailScreen}
+          options={{
+            animation: 'slide_from_right',
+          }}
+        />
+        <RootStack.Screen
+          name="Help"
+          component={HelpScreen}
           options={{
             animation: 'slide_from_right',
           }}

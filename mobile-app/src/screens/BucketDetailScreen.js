@@ -10,11 +10,11 @@ import {
   Text,
   TouchableOpacity,
   StyleSheet,
-  SafeAreaView,
   Alert,
   RefreshControl,
   ActivityIndicator,
 } from 'react-native';
+import { SafeAreaView } from 'react-native-safe-area-context';
 import { FlatList } from 'react-native-gesture-handler';
 import { LinearGradient } from 'expo-linear-gradient';
 import { Ionicons } from '@expo/vector-icons';
@@ -24,7 +24,12 @@ import { useSavedGames, BUCKET_CONFIG, BUCKET_TYPES } from '../context/SavedGame
 const BucketDetailScreen = () => {
   const navigation = useNavigation();
   const route = useRoute();
-  const { bucketType, bucketName, bucketEmoji, bucketColor } = route.params || {};
+  const { bucketType, bucketName, bucketIcon, bucketColor, bucketDescription } = route.params || {};
+  // Get config for icon if not passed (fallback)
+  const config = BUCKET_CONFIG[bucketType] || {};
+  const iconName = bucketIcon || config.icon || 'folder-outline';
+  const color = bucketColor || config.color || '#f857a6';
+  const description = bucketDescription || config.description || '';
   const { getBucketWithGames, removeGameFromBucket, moveGame, bucketsVersion } = useSavedGames();
 
   const [bucket, setBucket] = useState(null);
@@ -89,6 +94,16 @@ const BucketDetailScreen = () => {
     );
   };
 
+  const handleGamePress = (game) => {
+    navigation.navigate('GameDetail', {
+      gameId: game.game_id,
+      gameTitle: game.game_title,
+      bucketType,
+      // Pass stored game data for offline fallback display
+      savedGameData: game,
+    });
+  };
+
   const handleMoveGame = (game) => {
     // Show options to move to other buckets
     const otherBuckets = Object.values(BUCKET_TYPES).filter((t) => t !== bucketType);
@@ -118,7 +133,11 @@ const BucketDetailScreen = () => {
   };
 
   const renderGameItem = ({ item }) => (
-    <View style={styles.gameItem}>
+    <TouchableOpacity
+      style={styles.gameItem}
+      onPress={() => handleGamePress(item)}
+      activeOpacity={0.7}
+    >
       <View style={styles.gameInfo}>
         <Text style={styles.gameTitle} numberOfLines={1}>
           {item.game_title}
@@ -132,7 +151,10 @@ const BucketDetailScreen = () => {
         {/* Move button */}
         <TouchableOpacity
           style={styles.actionButton}
-          onPress={() => handleMoveGame(item)}
+          onPress={(e) => {
+            e.stopPropagation();
+            handleMoveGame(item);
+          }}
         >
           <Ionicons name="swap-horizontal" size={20} color="#808080" />
         </TouchableOpacity>
@@ -140,7 +162,10 @@ const BucketDetailScreen = () => {
         {/* Remove button */}
         <TouchableOpacity
           style={styles.actionButton}
-          onPress={() => handleRemoveGame(item.game_id, item.game_title)}
+          onPress={(e) => {
+            e.stopPropagation();
+            handleRemoveGame(item.game_id, item.game_title);
+          }}
           disabled={removingGameId === item.game_id}
         >
           {removingGameId === item.game_id ? (
@@ -150,12 +175,26 @@ const BucketDetailScreen = () => {
           )}
         </TouchableOpacity>
       </View>
-    </View>
+
+      {/* Chevron indicator */}
+      <View style={styles.chevronContainer}>
+        <Ionicons name="chevron-forward" size={18} color="#505060" />
+      </View>
+    </TouchableOpacity>
   );
+
+  const renderListHeader = () => {
+    if (!bucket?.games || bucket.games.length === 0) return null;
+    return (
+      <Text style={styles.listHint}>Tap a game to view details</Text>
+    );
+  };
 
   const renderEmptyState = () => (
     <View style={styles.emptyState}>
-      <Text style={styles.emptyEmoji}>{bucketEmoji || '📁'}</Text>
+      <View style={[styles.emptyIconContainer, { backgroundColor: `${color}20` }]}>
+        <Ionicons name={iconName} size={40} color={color} />
+      </View>
       <Text style={styles.emptyTitle}>No games yet</Text>
       <Text style={styles.emptySubtitle}>
         Save games from recommendations to add them here
@@ -168,7 +207,7 @@ const BucketDetailScreen = () => {
       colors={['#1a1a2e', '#16213e', '#0f3460']}
       style={styles.container}
     >
-      <SafeAreaView style={styles.safeArea}>
+      <SafeAreaView style={styles.safeArea} edges={['top', 'left', 'right', 'bottom']}>
         {/* Header */}
         <View style={styles.header}>
           <TouchableOpacity
@@ -179,13 +218,18 @@ const BucketDetailScreen = () => {
           </TouchableOpacity>
 
           <View style={styles.headerContent}>
-            <Text style={styles.headerEmoji}>{bucketEmoji || '📁'}</Text>
+            <View style={[styles.headerIconContainer, { backgroundColor: `${color}30` }]}>
+              <Ionicons name={iconName} size={24} color={color} />
+            </View>
             <Text style={styles.headerTitle}>{bucketName || 'Collection'}</Text>
             {bucket && (
               <Text style={styles.headerCount}>
                 {bucket.game_count} game{bucket.game_count !== 1 ? 's' : ''}
               </Text>
             )}
+            {description ? (
+              <Text style={styles.headerDescription}>{description}</Text>
+            ) : null}
           </View>
 
           <View style={styles.headerSpacer} />
@@ -194,7 +238,7 @@ const BucketDetailScreen = () => {
         {/* Games List */}
         {loading ? (
           <View style={styles.loadingContainer}>
-            <ActivityIndicator color={bucketColor || '#f857a6'} size="large" />
+            <ActivityIndicator color={color} size="large" />
           </View>
         ) : (
           <FlatList
@@ -205,6 +249,7 @@ const BucketDetailScreen = () => {
               styles.listContent,
               (!bucket?.games || bucket.games.length === 0) && styles.emptyListContent,
             ]}
+            ListHeaderComponent={renderListHeader}
             ListEmptyComponent={renderEmptyState}
             showsVerticalScrollIndicator={false}
             refreshControl={
@@ -241,9 +286,13 @@ const styles = StyleSheet.create({
     flex: 1,
     alignItems: 'center',
   },
-  headerEmoji: {
-    fontSize: 32,
-    marginBottom: 4,
+  headerIconContainer: {
+    width: 48,
+    height: 48,
+    borderRadius: 14,
+    alignItems: 'center',
+    justifyContent: 'center',
+    marginBottom: 8,
   },
   headerTitle: {
     fontSize: 20,
@@ -254,6 +303,11 @@ const styles = StyleSheet.create({
     fontSize: 14,
     color: '#808080',
     marginTop: 2,
+  },
+  headerDescription: {
+    fontSize: 13,
+    color: '#606070',
+    marginTop: 4,
   },
   headerSpacer: {
     width: 40,
@@ -270,6 +324,12 @@ const styles = StyleSheet.create({
   emptyListContent: {
     flex: 1,
     justifyContent: 'center',
+  },
+  listHint: {
+    fontSize: 13,
+    color: '#606070',
+    textAlign: 'center',
+    marginBottom: 16,
   },
   gameItem: {
     flexDirection: 'row',
@@ -301,12 +361,19 @@ const styles = StyleSheet.create({
     backgroundColor: 'rgba(255, 255, 255, 0.08)',
     borderRadius: 8,
   },
+  chevronContainer: {
+    marginLeft: 8,
+  },
   emptyState: {
     alignItems: 'center',
     paddingHorizontal: 48,
   },
-  emptyEmoji: {
-    fontSize: 64,
+  emptyIconContainer: {
+    width: 80,
+    height: 80,
+    borderRadius: 20,
+    alignItems: 'center',
+    justifyContent: 'center',
     marginBottom: 16,
   },
   emptyTitle: {

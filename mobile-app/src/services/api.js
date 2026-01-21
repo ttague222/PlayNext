@@ -10,6 +10,9 @@ import { auth } from '../config/firebase';
 
 const API_BASE_URL = Constants.expoConfig?.extra?.apiBaseUrl || 'http://localhost:8000/api';
 
+// Log API configuration for debugging
+console.log('[API] Base URL configured:', API_BASE_URL);
+
 // Create Axios instance
 const apiClient = axios.create({
   baseURL: API_BASE_URL,
@@ -40,6 +43,26 @@ apiClient.interceptors.request.use(
 apiClient.interceptors.response.use(
   (response) => response,
   (error) => {
+    // Log detailed error info for debugging
+    if (error.response) {
+      // Server responded with error status
+      console.error('[API Error]', {
+        status: error.response.status,
+        data: error.response.data,
+        url: error.config?.url,
+        method: error.config?.method,
+      });
+    } else if (error.request) {
+      // Request made but no response received (network error)
+      console.error('[API Network Error]', {
+        message: error.message,
+        url: error.config?.url,
+        method: error.config?.method,
+      });
+    } else {
+      // Error setting up request
+      console.error('[API Setup Error]', error.message);
+    }
     return Promise.reject(error);
   }
 );

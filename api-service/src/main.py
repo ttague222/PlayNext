@@ -18,7 +18,7 @@ from .core.config import settings
 from .core.logging_config import setup_logging
 from .core.rate_limiter import limiter
 from .db.firebase import initialize_firebase
-from .api import recommend_router, games_router, signals_router, buckets_router
+from .api import recommend_router, games_router, signals_router, buckets_router, config_router
 
 
 # Setup logging
@@ -140,6 +140,7 @@ app.include_router(recommend_router, prefix="/api")
 app.include_router(games_router, prefix="/api")
 app.include_router(signals_router, prefix="/api")
 app.include_router(buckets_router, prefix="/api")
+app.include_router(config_router, prefix="/api")
 
 
 # Root endpoint

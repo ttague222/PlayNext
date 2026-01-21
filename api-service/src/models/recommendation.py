@@ -25,6 +25,7 @@ class SessionType(str, Enum):
     SOLO = "solo"
     COUCH_COOP = "couch_coop"
     ONLINE_FRIENDS = "online_friends"
+    MULTIPLAYER = "multiplayer"  # Any multiplayer mode (local or online)
     ANY = "any"
 
 
@@ -52,11 +53,15 @@ class RecommendationRequest(BaseModel):
     # Optional inputs - support both single values and lists for backwards compatibility
     play_style: Optional[PlayStyle] = Field(
         default=None,
-        description="Preferred play style (single, deprecated - use play_styles)"
+        description="Preferred play style (single, deprecated - use genres)"
     )
     play_styles: Optional[list[PlayStyle]] = Field(
         default=None,
-        description="Preferred play styles (multiple allowed)"
+        description="Preferred play styles (deprecated - use genres)"
+    )
+    genres: Optional[list[str]] = Field(
+        default=None,
+        description="Genre filters - matches both play_style and genre_tags"
     )
     platform: Optional[Platform] = Field(
         default=None,

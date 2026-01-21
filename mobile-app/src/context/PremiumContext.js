@@ -3,6 +3,9 @@
  *
  * Manages premium subscription state and feature access.
  * RevenueCat integration is behind a feature toggle for development.
+ *
+ * Note: Ad management has been moved to AdContext for clean separation.
+ * This context re-exports ad functions for backward compatibility.
  */
 
 import React, {
@@ -14,6 +17,7 @@ import React, {
 } from 'react';
 import { Alert, Linking, Platform } from 'react-native';
 import { useAuth } from './AuthContext';
+import { useAds } from './AdContext';
 
 const PremiumContext = createContext({});
 
@@ -22,27 +26,36 @@ export const usePremium = () => useContext(PremiumContext);
 // Feature toggle - set to true to enable RevenueCat
 const ENABLE_REVENUECAT = true;
 
-// Free tier limits
-const FREE_TIER_LIMITS = {
-  dailyRerolls: 3,
-  historyDays: 0, // No history for free tier
-};
-
-// Premium features
+// Premium features - now only ad-free
 const PREMIUM_FEATURES = {
-  unlimitedRerolls: true,
-  crossDeviceSync: true,
-  gameLibrary: true,
+  adFree: true,
 };
 
-// Dynamically import RevenueCat only when enabled
-let purchaseService = null;
-if (ENABLE_REVENUECAT) {
-  purchaseService = require('../services/purchaseService');
-}
+// Lazy load RevenueCat service only when needed to avoid SDK initialization issues
+let _purchaseServiceModule = null;
+let _purchaseServiceLoadFailed = false;
+
+const getPurchaseService = () => {
+  if (!ENABLE_REVENUECAT) return null;
+  if (_purchaseServiceLoadFailed) return null;
+
+  if (!_purchaseServiceModule) {
+    try {
+      _purchaseServiceModule = require('../services/purchaseService');
+    } catch (error) {
+      console.warn('[PremiumContext] Failed to load purchase service:', error);
+      _purchaseServiceLoadFailed = true;
+      return null;
+    }
+  }
+  return _purchaseServiceModule;
+};
 
 export const PremiumProvider = ({ children }) => {
   const { user } = useAuth();
+
+  // Get ad functions from AdContext (for backward compatibility)
+  const ads = useAds();
 
   // Premium state
   const [isPremium, setIsPremium] = useState(false);
@@ -51,16 +64,13 @@ export const PremiumProvider = ({ children }) => {
   const [customerInfo, setCustomerInfo] = useState(null);
   const [entitlement, setEntitlement] = useState(null);
 
-  // Reroll tracking for free tier
-  const [dailyRerollsUsed, setDailyRerollsUsed] = useState(0);
-  const [rerollResetDate, setRerollResetDate] = useState(null);
-
   /**
    * Initialize RevenueCat and check subscription status (only if enabled)
    */
   useEffect(() => {
+    const purchaseService = getPurchaseService();
     if (!ENABLE_REVENUECAT || !purchaseService) {
-      // RevenueCat disabled - running in free tier mode
+      // RevenueCat disabled or failed to load - running in free tier mode
       return;
     }
 
@@ -83,6 +93,7 @@ export const PremiumProvider = ({ children }) => {
         await loadPackages();
       } catch (error) {
         // Initialization error - silent fail
+        console.warn('[PremiumContext] RevenueCat initialization error:', error);
       } finally {
         setIsLoading(false);
       }
@@ -95,6 +106,7 @@ export const PremiumProvider = ({ children }) => {
    * Sync user with RevenueCat when auth state changes
    */
   useEffect(() => {
+    const purchaseService = getPurchaseService();
     if (!ENABLE_REVENUECAT || !purchaseService) return;
 
     const syncUser = async () => {
@@ -124,6 +136,7 @@ export const PremiumProvider = ({ children }) => {
    * Listen for customer info updates
    */
   useEffect(() => {
+    const purchaseService = getPurchaseService();
     if (!ENABLE_REVENUECAT || !purchaseService) return;
 
     const unsubscribe = purchaseService.addCustomerInfoListener((info) => {
@@ -151,6 +164,7 @@ export const PremiumProvider = ({ children }) => {
    * Refresh premium status from RevenueCat
    */
   const refreshPremiumStatus = useCallback(async () => {
+    const purchaseService = getPurchaseService();
     if (!ENABLE_REVENUECAT || !purchaseService) {
       return false;
     }
@@ -171,16 +185,26 @@ export const PremiumProvider = ({ children }) => {
    * Load available subscription packages
    */
   const loadPackages = useCallback(async () => {
+    const purchaseService = getPurchaseService();
     if (!ENABLE_REVENUECAT || !purchaseService) {
+      console.log('[PremiumContext] RevenueCat disabled or service not loaded');
       return [];
     }
 
     try {
+      console.log('[PremiumContext] Loading packages...');
       const availablePackages = await purchaseService.getCurrentPackages();
+      console.log('[PremiumContext] Packages loaded:', availablePackages.length);
+      console.log('[PremiumContext] Package details:', JSON.stringify(availablePackages.map(p => ({
+        identifier: p.identifier,
+        packageType: p.packageType,
+        productId: p.product?.identifier,
+        price: p.product?.priceString,
+      })), null, 2));
       setPackages(availablePackages);
       return availablePackages;
     } catch (error) {
-      // Failed to load packages - silent fail
+      console.error('[PremiumContext] Failed to load packages:', error);
       return [];
     }
   }, []);
@@ -189,6 +213,7 @@ export const PremiumProvider = ({ children }) => {
    * Purchase a subscription package
    */
   const purchase = useCallback(async (packageToPurchase) => {
+    const purchaseService = getPurchaseService();
     if (!ENABLE_REVENUECAT || !purchaseService) {
       Alert.alert('Coming Soon', 'Premium subscriptions will be available soon!');
       return { success: false };
@@ -231,6 +256,7 @@ export const PremiumProvider = ({ children }) => {
    * Restore previous purchases
    */
   const restorePurchases = useCallback(async () => {
+    const purchaseService = getPurchaseService();
     if (!ENABLE_REVENUECAT || !purchaseService) {
       Alert.alert('Coming Soon', 'Premium subscriptions will be available soon!');
       return { success: false };
@@ -279,6 +305,7 @@ export const PremiumProvider = ({ children }) => {
    * Open subscription management (App Store / Play Store)
    */
   const manageSubscription = useCallback(async () => {
+    const purchaseService = getPurchaseService();
     if (!ENABLE_REVENUECAT || !purchaseService) {
       const fallbackUrl =
         Platform.OS === 'ios'
@@ -310,42 +337,11 @@ export const PremiumProvider = ({ children }) => {
   }, []);
 
   /**
-   * Check if user can reroll (free tier limit or premium)
+   * Check if user can reroll - always true now (unlimited rerolls with ads)
    */
   const canReroll = useCallback(() => {
-    if (isPremium) {
-      return true;
-    }
-
-    // Check if we need to reset daily count
-    const today = new Date().toDateString();
-    if (rerollResetDate !== today) {
-      setDailyRerollsUsed(0);
-      setRerollResetDate(today);
-      return true;
-    }
-
-    return dailyRerollsUsed < FREE_TIER_LIMITS.dailyRerolls;
-  }, [isPremium, dailyRerollsUsed, rerollResetDate]);
-
-  /**
-   * Record a reroll (for free tier tracking)
-   */
-  const recordReroll = useCallback(() => {
-    if (!isPremium) {
-      setDailyRerollsUsed((prev) => prev + 1);
-    }
-  }, [isPremium]);
-
-  /**
-   * Get remaining rerolls for free tier
-   */
-  const getRemainingRerolls = useCallback(() => {
-    if (isPremium) {
-      return Infinity;
-    }
-    return Math.max(0, FREE_TIER_LIMITS.dailyRerolls - dailyRerollsUsed);
-  }, [isPremium, dailyRerollsUsed]);
+    return true; // Always allow rerolls - ads handle monetization now
+  }, []);
 
   /**
    * Check if a specific premium feature is available
@@ -358,23 +354,6 @@ export const PremiumProvider = ({ children }) => {
       return false;
     },
     [isPremium]
-  );
-
-  /**
-   * Check if user should see premium upsell
-   */
-  const shouldShowPremiumPrompt = useCallback(
-    (totalAccepts = 0, totalWorkedSignals = 0) => {
-      // Don't show to premium users
-      if (isPremium) return false;
-
-      // Show when rerolls are running low
-      if (getRemainingRerolls() <= 1) return true;
-
-      // Show after positive experiences
-      return totalAccepts >= 3 && totalWorkedSignals >= 1;
-    },
-    [isPremium, getRemainingRerolls]
   );
 
   /**
@@ -410,6 +389,7 @@ export const PremiumProvider = ({ children }) => {
    */
   const formatPrice = useCallback((product) => {
     if (!product) return '';
+    const purchaseService = getPurchaseService();
     if (purchaseService) {
       return purchaseService.formatPrice(product);
     }
@@ -420,6 +400,7 @@ export const PremiumProvider = ({ children }) => {
    * Get subscription period text
    */
   const getSubscriptionPeriod = useCallback((packageItem) => {
+    const purchaseService = getPurchaseService();
     if (purchaseService) {
       return purchaseService.getSubscriptionPeriod(packageItem);
     }
@@ -427,8 +408,9 @@ export const PremiumProvider = ({ children }) => {
   }, []);
 
   const value = {
-    // Feature toggle
+    // Feature toggles
     isRevenueCatEnabled: ENABLE_REVENUECAT,
+    isRewardedAdsEnabled: ads?.adsEnabled ?? false,
 
     // State
     isPremium,
@@ -436,21 +418,31 @@ export const PremiumProvider = ({ children }) => {
     packages,
     customerInfo,
     entitlement,
-    dailyRerollsUsed,
+    dailyRerollCount: ads?.dailyRerollCount ?? 0,
+
+    // Ad state (from AdContext)
+    isAdLoading: ads?.isAdLoading ?? false,
+    isAdReady: ads?.isAdReady ?? false,
 
     // Feature checks
     canReroll,
-    getRemainingRerolls,
+    getRerollsUntilAd: () => ads?.getRerollsUntilAd(isPremium) ?? Infinity,
     hasFeature,
-    shouldShowPremiumPrompt,
+    shouldShowPremiumPrompt: () => ads?.shouldShowPremiumPrompt() ?? false,
+    shouldShowAdBeforeReroll: () => ads?.shouldShowAdBeforeReroll(isPremium) ?? false,
 
     // Actions
-    recordReroll,
+    recordReroll: ads?.recordReroll ?? (() => {}),
+    recordRecommendationFetch: ads?.recordRecommendationFetch ?? (() => {}),
     purchase,
     restorePurchases,
     manageSubscription,
     refreshPremiumStatus,
     loadPackages,
+
+    // Ad actions (from AdContext)
+    showRewardedAd: ads?.showRewardedAd ?? (async () => true),
+    preloadRewardedAd: ads?.preloadAd ?? (() => {}),
 
     // Package helpers
     getPackageByType,
@@ -460,7 +452,7 @@ export const PremiumProvider = ({ children }) => {
     willRenew,
 
     // Constants
-    FREE_TIER_LIMITS,
+    AD_INTERVAL: ads?.adInterval ?? 3,
     PREMIUM_FEATURES,
   };
 

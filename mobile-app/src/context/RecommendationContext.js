@@ -8,7 +8,8 @@ import React, { createContext, useContext, useState, useCallback, useEffect } fr
 import AsyncStorage from '@react-native-async-storage/async-storage';
 import api from '../services/api';
 
-const PENDING_FEEDBACK_KEY = '@playnxt_pending_feedback';
+const PREFERRED_PLATFORMS_KEY = '@playnxt_preferred_platforms';
+const PREFERRED_TIME_KEY = '@playnxt_preferred_time';
 
 const RecommendationContext = createContext({});
 
@@ -16,11 +17,11 @@ export const useRecommendation = () => useContext(RecommendationContext);
 
 // Default values matching PRD
 const DEFAULT_PREFERENCES = {
-  timeAvailable: 60,
-  energyMood: 'casual',
-  playStyles: [],  // Now an array for multi-select
+  timeAvailable: null,  // User must select - no default
+  energyMood: null,  // User must select - no default
+  genres: [],  // Merged play styles + game categories into single genre filter
   platforms: [],   // Now an array for multi-select
-  sessionType: 'solo',
+  sessionType: 'any',  // Default to any - user can narrow to solo or multiplayer
   discoveryMode: 'familiar',
 };
 
@@ -30,6 +31,43 @@ export const RecommendationProvider = ({ children }) => {
 
   // User preferences for current session
   const [preferences, setPreferences] = useState(DEFAULT_PREFERENCES);
+
+  // Saved preferences (persisted across sessions)
+  const [savedPlatforms, setSavedPlatforms] = useState([]);
+  const [savedTimeAvailable, setSavedTimeAvailable] = useState(null);
+
+  // Load saved preferences on mount
+  useEffect(() => {
+    const loadSavedPreferences = async () => {
+      try {
+        const [storedPlatforms, storedTime] = await Promise.all([
+          AsyncStorage.getItem(PREFERRED_PLATFORMS_KEY),
+          AsyncStorage.getItem(PREFERRED_TIME_KEY),
+        ]);
+
+        const updates = {};
+
+        if (storedPlatforms) {
+          const platforms = JSON.parse(storedPlatforms);
+          setSavedPlatforms(platforms);
+          updates.platforms = platforms;
+        }
+
+        if (storedTime) {
+          const timeAvailable = JSON.parse(storedTime);
+          setSavedTimeAvailable(timeAvailable);
+          updates.timeAvailable = timeAvailable;
+        }
+
+        if (Object.keys(updates).length > 0) {
+          setPreferences((prev) => ({ ...prev, ...updates }));
+        }
+      } catch (err) {
+        console.warn('[RecommendationContext] Failed to load saved preferences:', err);
+      }
+    };
+    loadSavedPreferences();
+  }, []);
 
   // Recommendations
   const [recommendations, setRecommendations] = useState([]);
@@ -43,48 +81,42 @@ export const RecommendationProvider = ({ children }) => {
   const [fallbackApplied, setFallbackApplied] = useState(false);
   const [fallbackMessage, setFallbackMessage] = useState(null);
 
-  // Pending feedback (games accepted but not yet rated)
-  const [pendingFeedback, setPendingFeedback] = useState(null);
-
   // History update counter - increment when signals are recorded
   // HistoryScreen watches this to know when to refresh
   const [historyVersion, setHistoryVersion] = useState(0);
 
-  // Load pending feedback from storage on mount
-  useEffect(() => {
-    loadPendingFeedback();
-  }, []);
-
-  const loadPendingFeedback = async () => {
-    try {
-      const stored = await AsyncStorage.getItem(PENDING_FEEDBACK_KEY);
-      if (stored) {
-        const parsed = JSON.parse(stored);
-        // Only show feedback prompt if game was accepted at least 30 minutes ago
-        const acceptedAt = new Date(parsed.acceptedAt).getTime();
-        const thirtyMinutes = 30 * 60 * 1000;
-        if (Date.now() - acceptedAt >= thirtyMinutes) {
-          setPendingFeedback(parsed);
-        }
-      }
-    } catch (err) {
-      // Silent fail - pending feedback just won't load
-    }
-  };
-
   /**
    * Update a single preference
+   * For platforms and timeAvailable, also persist to AsyncStorage for future sessions
    */
-  const updatePreference = useCallback((key, value) => {
+  const updatePreference = useCallback(async (key, value) => {
     setPreferences((prev) => ({ ...prev, [key]: value }));
+
+    // Persist certain preferences for future sessions
+    try {
+      if (key === 'platforms') {
+        await AsyncStorage.setItem(PREFERRED_PLATFORMS_KEY, JSON.stringify(value));
+        setSavedPlatforms(value);
+      } else if (key === 'timeAvailable') {
+        await AsyncStorage.setItem(PREFERRED_TIME_KEY, JSON.stringify(value));
+        setSavedTimeAvailable(value);
+      }
+    } catch (err) {
+      console.warn('[RecommendationContext] Failed to save preference:', err);
+    }
   }, []);
 
   /**
    * Reset preferences to defaults
+   * Preserves saved platform and time preferences for convenience
    */
   const resetPreferences = useCallback(() => {
-    setPreferences(DEFAULT_PREFERENCES);
-  }, []);
+    setPreferences({
+      ...DEFAULT_PREFERENCES,
+      platforms: savedPlatforms, // Keep saved platform preference
+      timeAvailable: savedTimeAvailable, // Keep saved time preference
+    });
+  }, [savedPlatforms, savedTimeAvailable]);
 
   /**
    * Start a new session
@@ -124,7 +156,7 @@ export const RecommendationProvider = ({ children }) => {
       const response = await api.getRecommendations({
         time_available: preferences.timeAvailable,
         energy_mood: preferences.energyMood,
-        play_styles: preferences.playStyles.length > 0 ? preferences.playStyles : null,
+        genres: preferences.genres.length > 0 ? preferences.genres : null,
         platforms: preferences.platforms.length > 0 ? preferences.platforms : null,
         session_type: preferences.sessionType,
         discovery_mode: preferences.discoveryMode,
@@ -165,7 +197,7 @@ export const RecommendationProvider = ({ children }) => {
       const response = await api.rerollRecommendations({
         time_available: preferences.timeAvailable,
         energy_mood: preferences.energyMood,
-        play_styles: preferences.playStyles.length > 0 ? preferences.playStyles : null,
+        genres: preferences.genres.length > 0 ? preferences.genres : null,
         platforms: preferences.platforms.length > 0 ? preferences.platforms : null,
         session_type: preferences.sessionType,
         discovery_mode: preferences.discoveryMode,
@@ -218,7 +250,7 @@ export const RecommendationProvider = ({ children }) => {
         await api.submitFeedback(gameId, signalType, sessionId, {
           time_selected: preferences.timeAvailable,
           mood_selected: preferences.energyMood,
-          play_styles_selected: preferences.playStyles,
+          genres_selected: preferences.genres,
         });
         return true;
       } catch (err) {
@@ -228,58 +260,6 @@ export const RecommendationProvider = ({ children }) => {
     },
     [sessionId, preferences]
   );
-
-  /**
-   * Save a game for delayed feedback
-   * Called when user accepts a recommendation
-   */
-  const savePendingFeedback = useCallback(async (game) => {
-    try {
-      const pendingData = {
-        game_id: game.game_id,
-        title: game.title,
-        acceptedAt: new Date().toISOString(),
-        sessionId: sessionId,
-      };
-      await AsyncStorage.setItem(PENDING_FEEDBACK_KEY, JSON.stringify(pendingData));
-    } catch (err) {
-      // Silent fail
-    }
-  }, [sessionId]);
-
-  /**
-   * Submit delayed feedback and clear pending
-   */
-  const submitDelayedFeedback = useCallback(async (signalType) => {
-    if (!pendingFeedback) return false;
-
-    try {
-      await api.submitFeedback(
-        pendingFeedback.game_id,
-        signalType,
-        pendingFeedback.sessionId,
-        {}
-      );
-      await AsyncStorage.removeItem(PENDING_FEEDBACK_KEY);
-      setPendingFeedback(null);
-      return true;
-    } catch (err) {
-      // Silent fail
-      return false;
-    }
-  }, [pendingFeedback]);
-
-  /**
-   * Dismiss pending feedback without submitting
-   */
-  const dismissPendingFeedback = useCallback(async () => {
-    try {
-      await AsyncStorage.removeItem(PENDING_FEEDBACK_KEY);
-      setPendingFeedback(null);
-    } catch (err) {
-      // Silent fail
-    }
-  }, []);
 
   /**
    * Mark a game as already played and get a replacement recommendation
@@ -299,7 +279,7 @@ export const RecommendationProvider = ({ children }) => {
         await api.submitFeedback(gameId, signalType, sessionId, {
           time_selected: preferences.timeAvailable,
           mood_selected: preferences.energyMood,
-          play_styles_selected: preferences.playStyles,
+          genres_selected: preferences.genres,
           game_title: gameTitle,
         });
 
@@ -314,7 +294,7 @@ export const RecommendationProvider = ({ children }) => {
         const response = await api.getRecommendations({
           time_available: preferences.timeAvailable,
           energy_mood: preferences.energyMood,
-          play_styles: preferences.playStyles.length > 0 ? preferences.playStyles : null,
+          genres: preferences.genres.length > 0 ? preferences.genres : null,
           platforms: preferences.platforms.length > 0 ? preferences.platforms : null,
           session_type: preferences.sessionType,
           discovery_mode: preferences.discoveryMode,
@@ -360,7 +340,6 @@ export const RecommendationProvider = ({ children }) => {
     fallbackApplied,
     fallbackMessage,
     shownGameIds,
-    pendingFeedback,
     historyVersion, // Increments when signals are recorded, used to trigger history refresh
 
     // Actions
@@ -371,9 +350,6 @@ export const RecommendationProvider = ({ children }) => {
     reroll,
     acceptRecommendation,
     submitFeedback,
-    savePendingFeedback,
-    submitDelayedFeedback,
-    dismissPendingFeedback,
     markAsPlayedAndSwap,
   };
 

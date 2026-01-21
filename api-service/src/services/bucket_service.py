@@ -115,20 +115,22 @@ class BucketService:
         bucket_data = bucket_doc.to_dict()
         config = BUCKET_CONFIG[bucket_type]
 
-        # Get games
+        # Get games - simple query without ordering to avoid index requirements
         games_ref = self._get_bucket_games_ref(user_id, bucket_type)
-        games_query = games_ref.order_by("added_at", direction="DESCENDING").limit(limit).offset(offset)
-        games_docs = games_query.get()
+        games_docs = games_ref.limit(limit).stream()
 
         games = []
         for doc in games_docs:
             game_data = doc.to_dict()
             games.append(BucketGame(
-                game_id=game_data["game_id"],
-                game_title=game_data["game_title"],
+                game_id=game_data.get("game_id", doc.id),
+                game_title=game_data.get("game_title", "Unknown Game"),
                 added_at=game_data.get("added_at", datetime.utcnow()),
                 notes=game_data.get("notes"),
             ))
+
+        # Sort by added_at in Python (most recent first)
+        games.sort(key=lambda g: g.added_at, reverse=True)
 
         return BucketWithGames(
             bucket_id=bucket_data.get("bucket_id", f"{user_id}_{bucket_type.value}"),

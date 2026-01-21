@@ -21,13 +21,13 @@ import {
   Text,
   TouchableOpacity,
   StyleSheet,
-  SafeAreaView,
   Switch,
   Alert,
   ActivityIndicator,
   Linking,
   ScrollView,
 } from 'react-native';
+import { SafeAreaView } from 'react-native-safe-area-context';
 import { LinearGradient } from 'expo-linear-gradient';
 import { Ionicons } from '@expo/vector-icons';
 import { useNavigation } from '@react-navigation/native';
@@ -40,8 +40,10 @@ const TERMS_OF_SERVICE_URL = 'https://watchlightinteractive.com/playnxt-terms-of
 
 const PLATFORMS = [
   { id: 'pc', label: 'PC', icon: 'desktop-outline' },
-  { id: 'console', label: 'Console', icon: 'game-controller-outline' },
-  { id: 'handheld', label: 'Handheld', icon: 'phone-portrait-outline' },
+  { id: 'playstation', label: 'PlayStation', icon: 'logo-playstation' },
+  { id: 'xbox', label: 'Xbox', icon: 'logo-xbox' },
+  { id: 'switch', label: 'Switch', icon: 'game-controller-outline' },
+  { id: 'mobile', label: 'Mobile', icon: 'phone-portrait-outline' },
 ];
 
 const SESSION_LENGTHS = [
@@ -54,7 +56,7 @@ const SESSION_LENGTHS = [
 const ProfileScreen = () => {
   const navigation = useNavigation();
   const { user, signOut, isAnonymous } = useAuth();
-  const { isPremium, restorePurchases, getRemainingRerolls } = usePremium();
+  const { isPremium, restorePurchases } = usePremium();
 
   // Default preferences (stored locally or in user profile)
   const [defaultPlatform, setDefaultPlatform] = useState(null);
@@ -169,7 +171,7 @@ const ProfileScreen = () => {
       colors={['#1a1a2e', '#16213e', '#0f3460']}
       style={styles.container}
     >
-      <SafeAreaView style={styles.safeArea}>
+      <SafeAreaView style={styles.safeArea} edges={['top', 'left', 'right', 'bottom']}>
         <ScrollView
           style={styles.scrollView}
           contentContainerStyle={styles.scrollContent}
@@ -235,15 +237,18 @@ const ProfileScreen = () => {
               {isPremium ? (
                 <TouchableOpacity style={styles.premiumActive} onPress={handleUpgrade}>
                   <Ionicons name="star" size={24} color="#fbbf24" />
-                  <Text style={styles.premiumActiveText}>Premium Active</Text>
+                  <View style={styles.premiumActiveContent}>
+                    <Text style={styles.premiumActiveText}>Premium Active</Text>
+                    <Text style={styles.premiumActiveSubtext}>Ad-free experience</Text>
+                  </View>
                   <Ionicons name="chevron-forward" size={20} color="#808080" />
                 </TouchableOpacity>
               ) : (
                 <>
                   <View style={styles.premiumInfo}>
-                    <Text style={styles.premiumInfoTitle}>Free Tier</Text>
+                    <Text style={styles.premiumInfoTitle}>Free with Ads</Text>
                     <Text style={styles.premiumInfoText}>
-                      {getRemainingRerolls()} rerolls remaining today
+                      Unlimited rerolls • Short ad every 3rd reroll
                     </Text>
                   </View>
                   <TouchableOpacity style={styles.upgradeButton} onPress={handleUpgrade}>
@@ -253,8 +258,8 @@ const ProfileScreen = () => {
                       end={{ x: 1, y: 0 }}
                       style={styles.upgradeGradient}
                     >
-                      <Ionicons name="star-outline" size={20} color="#ffffff" />
-                      <Text style={styles.upgradeText}>Upgrade to Premium</Text>
+                      <Ionicons name="ban-outline" size={20} color="#ffffff" />
+                      <Text style={styles.upgradeText}>Go Ad-Free</Text>
                     </LinearGradient>
                   </TouchableOpacity>
                   <TouchableOpacity style={styles.restoreButton} onPress={handleRestore}>
@@ -333,6 +338,21 @@ const ProfileScreen = () => {
             </>
           )}
 
+          {/* Support Section */}
+          {renderSection(
+            'Support',
+            <>
+              <TouchableOpacity
+                style={styles.menuItem}
+                onPress={() => navigation.navigate('Help')}
+              >
+                <Ionicons name="help-circle-outline" size={22} color="#808080" />
+                <Text style={styles.menuItemText}>Help & FAQ</Text>
+                <Ionicons name="chevron-forward" size={20} color="#808080" />
+              </TouchableOpacity>
+            </>
+          )}
+
           {/* Privacy Section */}
           {renderSection(
             'Privacy & Data',
@@ -394,7 +414,7 @@ const styles = StyleSheet.create({
   },
   header: {
     paddingHorizontal: 24,
-    paddingTop: 16,
+    paddingTop: 20,
     paddingBottom: 24,
   },
   headerTitle: {
@@ -514,14 +534,22 @@ const styles = StyleSheet.create({
   premiumActive: {
     flexDirection: 'row',
     alignItems: 'center',
-    justifyContent: 'center',
-    paddingVertical: 20,
-    gap: 8,
+    paddingVertical: 16,
+    paddingHorizontal: 16,
+    gap: 12,
+  },
+  premiumActiveContent: {
+    flex: 1,
   },
   premiumActiveText: {
-    fontSize: 18,
+    fontSize: 16,
     fontWeight: '600',
     color: '#fbbf24',
+  },
+  premiumActiveSubtext: {
+    fontSize: 13,
+    color: '#a0a0a0',
+    marginTop: 2,
   },
   premiumInfo: {
     padding: 16,

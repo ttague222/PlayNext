@@ -5,85 +5,49 @@
  * Entry point for the recommendation flow.
  */
 
-import React, { useEffect, useRef, useState } from 'react';
+import React, { useEffect, useRef } from 'react';
 import {
   View,
   Text,
   TouchableOpacity,
   StyleSheet,
-  SafeAreaView,
   Animated,
   Easing,
+  Dimensions,
 } from 'react-native';
-import { useNavigation, useFocusEffect } from '@react-navigation/native';
+import { SafeAreaView } from 'react-native-safe-area-context';
+import { useNavigation } from '@react-navigation/native';
 import { LinearGradient } from 'expo-linear-gradient';
+import { Ionicons } from '@expo/vector-icons';
 import { useRecommendation } from '../context/RecommendationContext';
-import ReturnFeedbackPrompt from '../components/ReturnFeedbackPrompt';
+
+const { width: SCREEN_WIDTH } = Dimensions.get('window');
 
 const PlayScreen = () => {
   const navigation = useNavigation();
   const {
     startSession,
     resetPreferences,
-    pendingFeedback,
-    submitDelayedFeedback,
-    dismissPendingFeedback,
   } = useRecommendation();
-
-  const [showFeedbackPrompt, setShowFeedbackPrompt] = useState(false);
-  const [hasShownFeedbackThisSession, setHasShownFeedbackThisSession] = useState(false);
 
   // Animations
   const pulseAnim = useRef(new Animated.Value(1)).current;
   const glowAnim = useRef(new Animated.Value(0)).current;
   const floatAnim = useRef(new Animated.Value(0)).current;
 
-  // Check for pending feedback when screen comes into focus
-  useFocusEffect(
-    React.useCallback(() => {
-      // Only show once per app session and if there's pending feedback
-      if (pendingFeedback && !hasShownFeedbackThisSession) {
-        // Small delay to let the screen fully appear
-        const timer = setTimeout(() => {
-          setShowFeedbackPrompt(true);
-          setHasShownFeedbackThisSession(true);
-        }, 500);
-        return () => clearTimeout(timer);
-      }
-    }, [pendingFeedback, hasShownFeedbackThisSession])
-  );
-
-  const handleFeedbackSubmit = async (signalType) => {
-    // Hide the modal immediately to prevent frozen screen
-    setShowFeedbackPrompt(false);
-    // Then submit feedback in background (don't block UI)
-    submitDelayedFeedback(signalType).catch((err) => {
-      console.error('Failed to submit delayed feedback:', err);
-    });
-  };
-
-  const handleFeedbackDismiss = async () => {
-    // Hide the modal immediately to prevent frozen screen
-    setShowFeedbackPrompt(false);
-    // Then dismiss in background (don't block UI)
-    dismissPendingFeedback().catch((err) => {
-      console.error('Failed to dismiss pending feedback:', err);
-    });
-  };
-
   useEffect(() => {
-    // Pulsing CTA button
+    // Subtle pulse for CTA
     Animated.loop(
       Animated.sequence([
         Animated.timing(pulseAnim, {
-          toValue: 1.05,
-          duration: 1500,
+          toValue: 1.02,
+          duration: 2000,
           easing: Easing.inOut(Easing.ease),
           useNativeDriver: true,
         }),
         Animated.timing(pulseAnim, {
           toValue: 1,
-          duration: 1500,
+          duration: 2000,
           easing: Easing.inOut(Easing.ease),
           useNativeDriver: true,
         }),
@@ -95,31 +59,31 @@ const PlayScreen = () => {
       Animated.sequence([
         Animated.timing(glowAnim, {
           toValue: 1,
-          duration: 2000,
+          duration: 2500,
           easing: Easing.inOut(Easing.ease),
           useNativeDriver: true,
         }),
         Animated.timing(glowAnim, {
           toValue: 0,
-          duration: 2000,
+          duration: 2500,
           easing: Easing.inOut(Easing.ease),
           useNativeDriver: true,
         }),
       ])
     ).start();
 
-    // Floating icon
+    // Icon float
     Animated.loop(
       Animated.sequence([
         Animated.timing(floatAnim, {
-          toValue: -10,
-          duration: 2000,
+          toValue: -8,
+          duration: 2500,
           easing: Easing.inOut(Easing.ease),
           useNativeDriver: true,
         }),
         Animated.timing(floatAnim, {
           toValue: 0,
-          duration: 2000,
+          duration: 2500,
           easing: Easing.inOut(Easing.ease),
           useNativeDriver: true,
         }),
@@ -129,40 +93,49 @@ const PlayScreen = () => {
 
   const handleStart = () => {
     resetPreferences();
-    // Start session in background - don't wait for it
-    // Session will be ready by the time we need it for recommendations
     startSession();
     navigation.navigate('TimeSelect');
   };
 
   const glowOpacity = glowAnim.interpolate({
     inputRange: [0, 1],
-    outputRange: [0.3, 0.8],
+    outputRange: [0.2, 0.5],
   });
 
   return (
     <LinearGradient
-      colors={['#0f0c29', '#302b63', '#24243e']}
+      colors={['#0a0a1a', '#1a1a2e', '#16213e']}
       style={styles.container}
     >
-      <SafeAreaView style={styles.safeArea}>
+      <SafeAreaView style={styles.safeArea} edges={['top', 'left', 'right', 'bottom']}>
+        {/* Background decoration */}
+        <View style={styles.bgDecoration}>
+          <View style={[styles.bgCircle, styles.bgCircle1]} />
+          <View style={[styles.bgCircle, styles.bgCircle2]} />
+        </View>
+
         <View style={styles.content}>
-          {/* Floating Icon */}
+          {/* Center Icon */}
           <Animated.View style={[styles.iconContainer, { transform: [{ translateY: floatAnim }] }]}>
-            <Text style={styles.heroIcon}>🎮</Text>
+            <LinearGradient
+              colors={['rgba(248, 87, 166, 0.15)', 'rgba(255, 88, 88, 0.1)']}
+              style={styles.iconBg}
+            >
+              <Ionicons name="game-controller" size={56} color="#f857a6" />
+            </LinearGradient>
           </Animated.View>
 
-          {/* Logo / Title */}
+          {/* Header */}
           <View style={styles.header}>
-            <Text style={styles.logo}>Play<Text style={styles.logoAccent}>Nxt</Text></Text>
-            <Text style={styles.tagline}>What should I play right now?</Text>
+            <Text style={styles.logo}>
+              Play<Text style={styles.logoAccent}>Nxt</Text>
+            </Text>
+            <Text style={styles.tagline}>Find your perfect game</Text>
           </View>
 
-          {/* Main CTA with glow */}
+          {/* Main CTA */}
           <View style={styles.ctaContainer}>
-            {/* Glow effect behind button */}
             <Animated.View style={[styles.ctaGlow, { opacity: glowOpacity }]} />
-
             <Animated.View style={{ transform: [{ scale: pulseAnim }] }}>
               <TouchableOpacity
                 style={styles.ctaButton}
@@ -175,46 +148,50 @@ const PlayScreen = () => {
                   end={{ x: 1, y: 0 }}
                   style={styles.ctaGradient}
                 >
-                  <Text style={styles.ctaIcon}>✨</Text>
-                  <Text style={styles.ctaText}>Find My Game</Text>
+                  <Ionicons name="play" size={24} color="#ffffff" />
+                  <Text style={styles.ctaText}>Start Playing</Text>
+                  <Ionicons name="chevron-forward" size={20} color="rgba(255,255,255,0.7)" />
                 </LinearGradient>
               </TouchableOpacity>
             </Animated.View>
           </View>
 
-          {/* Subtitle */}
-          <Text style={styles.subtitle}>
-            Get personalized recommendations in seconds
-          </Text>
-
-          {/* Features */}
+          {/* Feature Pills */}
           <View style={styles.features}>
-            <View style={styles.featureItem}>
-              <Text style={styles.featureIcon}>⚡</Text>
-              <Text style={styles.featureText}>Instant picks</Text>
+            <View style={styles.featurePill}>
+              <Ionicons name="time-outline" size={16} color="#a78bfa" />
+              <Text style={styles.featureText}>Time-matched</Text>
             </View>
-            <View style={styles.featureDivider} />
-            <View style={styles.featureItem}>
-              <Text style={styles.featureIcon}>🎯</Text>
-              <Text style={styles.featureText}>Mood matched</Text>
+            <View style={styles.featurePill}>
+              <Ionicons name="heart-outline" size={16} color="#f472b6" />
+              <Text style={styles.featureText}>Mood-based</Text>
+            </View>
+            <View style={styles.featurePill}>
+              <Ionicons name="flash-outline" size={16} color="#fbbf24" />
+              <Text style={styles.featureText}>Instant</Text>
             </View>
           </View>
         </View>
 
-        {/* Footer */}
-        <View style={styles.footer}>
-          <Text style={styles.footerText}>
-            All platforms · Personalized for you
-          </Text>
+        {/* Bottom Stats */}
+        <View style={styles.bottomSection}>
+          <View style={styles.statsRow}>
+            <View style={styles.statItem}>
+              <Text style={styles.statValue}>AI</Text>
+              <Text style={styles.statLabel}>Powered</Text>
+            </View>
+            <View style={styles.statDivider} />
+            <View style={styles.statItem}>
+              <Text style={styles.statValue}>5</Text>
+              <Text style={styles.statLabel}>Platforms</Text>
+            </View>
+            <View style={styles.statDivider} />
+            <View style={styles.statItem}>
+              <Text style={styles.statValue}>30s</Text>
+              <Text style={styles.statLabel}>To Decide</Text>
+            </View>
+          </View>
         </View>
-
-        {/* Return Feedback Prompt */}
-        <ReturnFeedbackPrompt
-          visible={showFeedbackPrompt}
-          game={pendingFeedback}
-          onFeedback={handleFeedbackSubmit}
-          onDismiss={handleFeedbackDismiss}
-        />
       </SafeAreaView>
     </LinearGradient>
   );
@@ -227,28 +204,56 @@ const styles = StyleSheet.create({
   safeArea: {
     flex: 1,
   },
+  bgDecoration: {
+    ...StyleSheet.absoluteFillObject,
+    overflow: 'hidden',
+  },
+  bgCircle: {
+    position: 'absolute',
+    borderRadius: 999,
+    opacity: 0.08,
+  },
+  bgCircle1: {
+    width: SCREEN_WIDTH * 0.8,
+    height: SCREEN_WIDTH * 0.8,
+    backgroundColor: '#f857a6',
+    top: -SCREEN_WIDTH * 0.3,
+    right: -SCREEN_WIDTH * 0.2,
+  },
+  bgCircle2: {
+    width: SCREEN_WIDTH * 0.6,
+    height: SCREEN_WIDTH * 0.6,
+    backgroundColor: '#667eea',
+    bottom: -SCREEN_WIDTH * 0.2,
+    left: -SCREEN_WIDTH * 0.2,
+  },
   content: {
     flex: 1,
     justifyContent: 'center',
     alignItems: 'center',
-    paddingHorizontal: 32,
-    paddingBottom: 20,
+    paddingHorizontal: 24,
   },
   iconContainer: {
-    marginBottom: 16,
+    marginBottom: 24,
   },
-  heroIcon: {
-    fontSize: 64,
+  iconBg: {
+    width: 120,
+    height: 120,
+    borderRadius: 60,
+    alignItems: 'center',
+    justifyContent: 'center',
+    borderWidth: 2,
+    borderColor: 'rgba(248, 87, 166, 0.3)',
   },
   header: {
     alignItems: 'center',
-    marginBottom: 40,
+    marginBottom: 32,
   },
   logo: {
-    fontSize: 48,
+    fontSize: 44,
     fontWeight: '800',
     color: '#ffffff',
-    marginBottom: 10,
+    marginBottom: 8,
     letterSpacing: -1,
   },
   logoAccent: {
@@ -256,94 +261,106 @@ const styles = StyleSheet.create({
   },
   tagline: {
     fontSize: 18,
-    color: '#b0b0b0',
-    textAlign: 'center',
+    color: 'rgba(255, 255, 255, 0.6)',
     fontWeight: '500',
   },
   ctaContainer: {
     width: '100%',
-    maxWidth: 300,
-    marginBottom: 20,
+    maxWidth: 280,
+    marginBottom: 32,
     position: 'relative',
   },
   ctaGlow: {
     position: 'absolute',
-    top: -15,
-    left: -15,
-    right: -15,
-    bottom: -15,
+    top: -20,
+    left: -20,
+    right: -20,
+    bottom: -20,
     backgroundColor: '#f857a6',
-    borderRadius: 35,
-    opacity: 0.3,
+    borderRadius: 40,
   },
   ctaButton: {
-    borderRadius: 18,
+    borderRadius: 20,
     overflow: 'hidden',
-    elevation: 10,
+    elevation: 12,
     shadowColor: '#f857a6',
-    shadowOffset: { width: 0, height: 6 },
-    shadowOpacity: 0.4,
-    shadowRadius: 12,
+    shadowOffset: { width: 0, height: 8 },
+    shadowOpacity: 0.5,
+    shadowRadius: 16,
   },
   ctaGradient: {
     paddingVertical: 18,
-    paddingHorizontal: 28,
+    paddingHorizontal: 24,
     flexDirection: 'row',
     alignItems: 'center',
     justifyContent: 'center',
-    gap: 10,
-  },
-  ctaIcon: {
-    fontSize: 22,
+    gap: 12,
   },
   ctaText: {
     fontSize: 20,
     fontWeight: '700',
     color: '#ffffff',
-    letterSpacing: 0.5,
-  },
-  subtitle: {
-    fontSize: 15,
-    color: '#909090',
+    flex: 1,
     textAlign: 'center',
-    marginBottom: 32,
-    paddingHorizontal: 20,
   },
   features: {
     flexDirection: 'row',
-    alignItems: 'center',
-    justifyContent: 'center',
     flexWrap: 'wrap',
-    gap: 8,
+    justifyContent: 'center',
+    gap: 10,
   },
-  featureItem: {
+  featurePill: {
     flexDirection: 'row',
     alignItems: 'center',
-    gap: 5,
-    paddingHorizontal: 4,
-  },
-  featureIcon: {
-    fontSize: 14,
+    backgroundColor: 'rgba(255, 255, 255, 0.06)',
+    paddingVertical: 8,
+    paddingHorizontal: 14,
+    borderRadius: 20,
+    gap: 6,
+    borderWidth: 1,
+    borderColor: 'rgba(255, 255, 255, 0.08)',
   },
   featureText: {
     fontSize: 13,
-    color: '#808080',
+    color: 'rgba(255, 255, 255, 0.7)',
     fontWeight: '500',
   },
-  featureDivider: {
-    width: 1,
-    height: 14,
-    backgroundColor: '#404060',
-    marginHorizontal: 10,
+  bottomSection: {
+    paddingHorizontal: 24,
+    paddingBottom: 16,
   },
-  footer: {
-    paddingVertical: 20,
+  statsRow: {
+    flexDirection: 'row',
+    alignItems: 'center',
+    justifyContent: 'center',
+    backgroundColor: 'rgba(255, 255, 255, 0.04)',
+    borderRadius: 16,
+    paddingVertical: 16,
+    paddingHorizontal: 20,
+    borderWidth: 1,
+    borderColor: 'rgba(255, 255, 255, 0.06)',
+  },
+  statItem: {
+    flex: 1,
     alignItems: 'center',
   },
-  footerText: {
-    fontSize: 12,
-    color: '#606080',
+  statValue: {
+    fontSize: 22,
+    fontWeight: '800',
+    color: '#ffffff',
+    marginBottom: 2,
+  },
+  statLabel: {
+    fontSize: 11,
+    color: 'rgba(255, 255, 255, 0.5)',
     fontWeight: '500',
+    textTransform: 'uppercase',
+    letterSpacing: 0.5,
+  },
+  statDivider: {
+    width: 1,
+    height: 32,
+    backgroundColor: 'rgba(255, 255, 255, 0.1)',
   },
 });
 

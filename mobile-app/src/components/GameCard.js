@@ -15,22 +15,24 @@ import {
   Image,
   ActivityIndicator,
   Linking,
+  Alert,
 } from 'react-native';
 import { LinearGradient } from 'expo-linear-gradient';
 import { Ionicons } from '@expo/vector-icons';
 import { getGameImage } from '../services/gameImages';
+import {
+  generateStoreAffiliateLink,
+  generateSubscriptionAffiliateLink,
+  trackAffiliateClick,
+} from '../services/affiliateService';
 
 const PLATFORM_LABELS = {
   pc: 'PC',
   console: 'Console',
-  handheld: 'Handheld',
+  handheld: 'Switch',
+  mobile: 'Mobile',
 };
 
-const PLATFORM_ICONS = {
-  pc: '🖥️',
-  console: '🎮',
-  handheld: '📱',
-};
 
 const TIME_TO_FUN_LABELS = {
   short: 'Jump right in',
@@ -44,61 +46,70 @@ const STOP_FRIENDLINESS_LABELS = {
   commitment: 'Block of time',
 };
 
-// Subscription service branding
+// Subscription service branding and platform mapping
 const SUBSCRIPTION_CONFIG = {
   xbox_game_pass: {
     name: 'Xbox Game Pass',
     icon: '🟢',
     colors: ['#107C10', '#0e6b0e'],
     textColor: '#ffffff',
+    platforms: ['pc', 'console'], // Available on PC and Xbox Console
   },
   playstation_plus: {
     name: 'PlayStation Plus',
     icon: '🔵',
     colors: ['#003087', '#00246d'],
     textColor: '#ffffff',
+    platforms: ['console'], // PlayStation only
   },
   ea_play: {
     name: 'EA Play',
     icon: '⚽',
     colors: ['#ff4747', '#cc3939'],
     textColor: '#ffffff',
+    platforms: ['pc', 'console'], // Available on PC, Xbox, PlayStation
   },
   ubisoft_plus: {
     name: 'Ubisoft+',
     icon: '🎯',
     colors: ['#0070ff', '#005acc'],
     textColor: '#ffffff',
+    platforms: ['pc', 'console'], // PC and consoles
   },
   nintendo_switch_online: {
     name: 'Nintendo Switch Online',
     icon: '🔴',
     colors: ['#e60012', '#cc0010'],
     textColor: '#ffffff',
+    platforms: ['handheld'], // Nintendo Switch
   },
   netflix_games: {
     name: 'Netflix Games',
     icon: '📺',
     colors: ['#E50914', '#B20710'],
     textColor: '#ffffff',
+    platforms: ['mobile'], // Mobile only
   },
   amazon_luna: {
     name: 'Amazon Luna',
     icon: '🌙',
     colors: ['#00A8E1', '#0078A8'],
     textColor: '#ffffff',
+    platforms: ['pc', 'mobile'], // Cloud gaming on multiple devices
   },
   apple_arcade: {
     name: 'Apple Arcade',
     icon: '🍎',
     colors: ['#FA243C', '#C41E32'],
     textColor: '#ffffff',
+    platforms: ['mobile', 'pc'], // iOS, macOS, tvOS
   },
   default: {
     name: 'Subscription',
     icon: '✨',
     colors: ['#6366f1', '#4f46e5'],
     textColor: '#ffffff',
+    platforms: [],
   },
 };
 
@@ -106,45 +117,51 @@ const SUBSCRIPTION_CONFIG = {
 const STORE_CONFIG = {
   steam: {
     name: 'Steam',
-    icon: '🎮',
     colors: ['#1b2838', '#2a475e'],
     textColor: '#ffffff',
     platforms: ['pc'],
   },
   playstation: {
     name: 'PlayStation',
-    icon: '🔵',
     colors: ['#003087', '#00246d'],
     textColor: '#ffffff',
     platforms: ['console'],
   },
   xbox: {
     name: 'Xbox',
-    icon: '🟢',
     colors: ['#107C10', '#0e6b0e'],
     textColor: '#ffffff',
     platforms: ['console', 'pc'],
   },
   nintendo: {
     name: 'Nintendo',
-    icon: '🔴',
     colors: ['#e60012', '#cc0010'],
     textColor: '#ffffff',
     platforms: ['handheld'],
   },
   epic: {
     name: 'Epic Games',
-    icon: '🎯',
     colors: ['#313131', '#1a1a1a'],
     textColor: '#ffffff',
     platforms: ['pc'],
   },
   gog: {
     name: 'GOG',
-    icon: '🌟',
     colors: ['#7b5794', '#5c3d73'],
     textColor: '#ffffff',
     platforms: ['pc'],
+  },
+  ios: {
+    name: 'App Store',
+    colors: ['#007AFF', '#0056CC'],
+    textColor: '#ffffff',
+    platforms: ['mobile'],
+  },
+  android: {
+    name: 'Google Play',
+    colors: ['#01875f', '#016847'],
+    textColor: '#ffffff',
+    platforms: ['mobile'],
   },
 };
 
@@ -153,9 +170,10 @@ const PLATFORM_TO_STORES = {
   pc: ['steam', 'epic', 'gog', 'xbox'],
   console: ['playstation', 'xbox'],
   handheld: ['nintendo'],
+  mobile: ['ios', 'android'],
 };
 
-const GameCard = ({ game, rank, onAccept, onAlreadyPlayed, onSave, isSwapping, userPlatforms }) => {
+const GameCard = ({ game, rank, onAccept, onAlreadyPlayed, onSave, isSwapping, isAccepting, userPlatforms }) => {
   const [imageUrl, setImageUrl] = useState(null);
   const [fallbackColors, setFallbackColors] = useState(['#667eea', '#764ba2']);
   const [imageLoading, setImageLoading] = useState(true);
@@ -197,11 +215,44 @@ const GameCard = ({ game, rank, onAccept, onAlreadyPlayed, onSave, isSwapping, u
     fetchImage();
   }, [game.game_id, game.title]);
 
-  const platformIcons = game.platforms
-    .map((p) => PLATFORM_ICONS[p] || '🎮')
-    .join(' ');
-
   const matchPercent = Math.round((game.match_score || 0.85) * 100);
+
+  // Derive platforms from store links AND subscription services
+  const validatedPlatforms = React.useMemo(() => {
+    const hasStoreLinks = game.store_links && Object.keys(game.store_links).length > 0;
+    const hasSubscriptions = game.subscription_services && game.subscription_services.length > 0;
+
+    if (!hasStoreLinks && !hasSubscriptions) {
+      return game.platforms; // No store links or subscriptions, show all platforms from data
+    }
+
+    const platformsSet = new Set();
+
+    // Add platforms from store links
+    if (hasStoreLinks) {
+      const availableStores = Object.keys(game.store_links).filter(store => game.store_links[store]);
+      availableStores.forEach(store => {
+        const storeConfig = STORE_CONFIG[store];
+        if (storeConfig?.platforms) {
+          storeConfig.platforms.forEach(platform => platformsSet.add(platform));
+        }
+      });
+    }
+
+    // Add platforms from subscription services
+    if (hasSubscriptions) {
+      game.subscription_services.forEach(service => {
+        const subConfig = SUBSCRIPTION_CONFIG[service];
+        if (subConfig?.platforms) {
+          subConfig.platforms.forEach(platform => platformsSet.add(platform));
+        }
+      });
+    }
+
+    // Return derived platforms if we have any, otherwise fall back to game.platforms
+    const derivedPlatforms = Array.from(platformsSet);
+    return derivedPlatforms.length > 0 ? derivedPlatforms : game.platforms;
+  }, [game.platforms, game.store_links, game.subscription_services]);
 
   return (
     <Animated.View
@@ -261,7 +312,7 @@ const GameCard = ({ game, rank, onAccept, onAlreadyPlayed, onSave, isSwapping, u
                 end={{ x: 1, y: 0 }}
                 style={styles.topPickGradient}
               >
-                <Text style={styles.topPickIcon}>⭐</Text>
+                <Ionicons name="star" size={14} color="#ffffff" />
                 <Text style={styles.topPickText}>TOP PICK</Text>
               </LinearGradient>
             </View>
@@ -275,18 +326,15 @@ const GameCard = ({ game, rank, onAccept, onAlreadyPlayed, onSave, isSwapping, u
         {/* Header */}
         <View style={styles.header}>
           <Text style={styles.title}>{game.title}</Text>
-          <View style={styles.platformRow}>
-            <Text style={styles.platformIcons}>{platformIcons}</Text>
-            <Text style={styles.platforms}>
-              {game.platforms.map((p) => PLATFORM_LABELS[p] || p).join(' · ')}
-            </Text>
-          </View>
+          <Text style={styles.platforms}>
+            {validatedPlatforms.map((p) => PLATFORM_LABELS[p] || p).join(' · ')}
+          </Text>
         </View>
 
         {/* Description */}
         <Text style={styles.description}>{game.description_short}</Text>
 
-        {/* Why this fits - Enhanced with individual points */}
+        {/* Why this fits - Simplified with icons */}
         {game.explanation && (
           <View style={styles.explanationBox}>
             <LinearGradient
@@ -295,23 +343,26 @@ const GameCard = ({ game, rank, onAccept, onAlreadyPlayed, onSave, isSwapping, u
               start={{ x: 0, y: 0 }}
               end={{ x: 1, y: 0 }}
             />
-            <Text style={styles.explanationLabel}>💡 Why this fits your session</Text>
+            <View style={styles.explanationHeader}>
+              <Ionicons name="bulb-outline" size={16} color="#f857a6" />
+              <Text style={styles.explanationLabel}>Why this fits</Text>
+            </View>
             <View style={styles.explanationPoints}>
               {game.explanation.mood_fit && (
                 <View style={styles.explanationPoint}>
-                  <Text style={styles.explanationBullet}>✨</Text>
+                  <Ionicons name="sparkles-outline" size={14} color="#a0a0a0" style={styles.explanationIcon} />
                   <Text style={styles.explanationText}>{game.explanation.mood_fit}</Text>
                 </View>
               )}
               {game.explanation.stop_fit && (
                 <View style={styles.explanationPoint}>
-                  <Text style={styles.explanationBullet}>⏱️</Text>
+                  <Ionicons name="time-outline" size={14} color="#a0a0a0" style={styles.explanationIcon} />
                   <Text style={styles.explanationText}>{game.explanation.stop_fit}</Text>
                 </View>
               )}
               {game.explanation.style_fit && (
                 <View style={styles.explanationPoint}>
-                  <Text style={styles.explanationBullet}>🎯</Text>
+                  <Ionicons name="checkmark-circle-outline" size={14} color="#a0a0a0" style={styles.explanationIcon} />
                   <Text style={styles.explanationText}>{game.explanation.style_fit}</Text>
                 </View>
               )}
@@ -322,13 +373,13 @@ const GameCard = ({ game, rank, onAccept, onAlreadyPlayed, onSave, isSwapping, u
         {/* Meta tags */}
         <View style={styles.metaRow}>
           <View style={styles.metaTag}>
-            <Text style={styles.metaIcon}>⚡</Text>
+            <Ionicons name="flash-outline" size={14} color="#a0a0a0" />
             <Text style={styles.metaText}>
               {TIME_TO_FUN_LABELS[game.time_to_fun] || 'Quick start'}
             </Text>
           </View>
           <View style={styles.metaTag}>
-            <Text style={styles.metaIcon}>⏸️</Text>
+            <Ionicons name="pause-circle-outline" size={14} color="#a0a0a0" />
             <Text style={styles.metaText}>
               {STOP_FRIENDLINESS_LABELS[game.stop_friendliness] || 'Flexible'}
             </Text>
@@ -338,12 +389,30 @@ const GameCard = ({ game, rank, onAccept, onAlreadyPlayed, onSave, isSwapping, u
         {/* Subscription Services */}
         {game.subscription_services?.length > 0 && (
           <View style={styles.subscriptionSection}>
-            <Text style={styles.subscriptionLabel}>🎟️ Play with your subscription</Text>
+            <View style={styles.sectionHeader}>
+              <Ionicons name="ticket-outline" size={14} color="#a0a0a0" />
+              <Text style={styles.subscriptionLabel}>Play with subscription</Text>
+            </View>
             <View style={styles.subscriptionChips}>
               {game.subscription_services.map((service) => {
                 const config = SUBSCRIPTION_CONFIG[service] || SUBSCRIPTION_CONFIG.default;
+                const affiliateUrl = generateSubscriptionAffiliateLink(service, game.title);
+
+                const handleSubscriptionPress = async () => {
+                  if (affiliateUrl) {
+                    trackAffiliateClick('subscription', service, game.game_id, game.title);
+                    await Linking.openURL(affiliateUrl);
+                  }
+                };
+
                 return (
-                  <View key={service} style={styles.subscriptionChip}>
+                  <TouchableOpacity
+                    key={service}
+                    style={styles.subscriptionChip}
+                    onPress={handleSubscriptionPress}
+                    activeOpacity={affiliateUrl ? 0.8 : 1}
+                    disabled={!affiliateUrl}
+                  >
                     <LinearGradient
                       colors={config.colors}
                       start={{ x: 0, y: 0 }}
@@ -355,7 +424,7 @@ const GameCard = ({ game, rank, onAccept, onAlreadyPlayed, onSave, isSwapping, u
                         {config.name}
                       </Text>
                     </LinearGradient>
-                  </View>
+                  </TouchableOpacity>
                 );
               })}
             </View>
@@ -365,7 +434,10 @@ const GameCard = ({ game, rank, onAccept, onAlreadyPlayed, onSave, isSwapping, u
         {/* Store Links */}
         {game.store_links && Object.keys(game.store_links).length > 0 && (
           <View style={styles.storeSection}>
-            <Text style={styles.storeLabel}>🛒 Where to buy</Text>
+            <View style={styles.sectionHeader}>
+              <Ionicons name="cart-outline" size={14} color="#a0a0a0" />
+              <Text style={styles.storeLabel}>Where to buy</Text>
+            </View>
             <View style={styles.storeChips}>
               {(() => {
                 // Get available stores from store_links
@@ -398,8 +470,31 @@ const GameCard = ({ game, rank, onAccept, onAlreadyPlayed, onSave, isSwapping, u
                 return sortedStores.map((store, index) => {
                   const config = STORE_CONFIG[store];
                   if (!config) return null;
-                  const url = game.store_links[store];
+                  const originalUrl = game.store_links[store];
+                  const affiliateUrl = generateStoreAffiliateLink(store, originalUrl, game.game_id);
                   const isPrioritized = prioritizedStores.includes(store);
+
+                  const handleStorePress = () => {
+                    Alert.alert(
+                      'Leave App?',
+                      `You're about to visit ${config.name} to purchase this game. Continue?`,
+                      [
+                        {
+                          text: 'Cancel',
+                          style: 'cancel',
+                        },
+                        {
+                          text: 'Yes, Continue',
+                          onPress: async () => {
+                            // Track the click for analytics
+                            trackAffiliateClick('store', store, game.game_id, game.title);
+                            // Open the affiliate-wrapped URL
+                            await Linking.openURL(affiliateUrl);
+                          },
+                        },
+                      ]
+                    );
+                  };
 
                   return (
                     <TouchableOpacity
@@ -408,7 +503,7 @@ const GameCard = ({ game, rank, onAccept, onAlreadyPlayed, onSave, isSwapping, u
                         styles.storeChip,
                         !isPrioritized && userPlatforms?.length > 0 && styles.storeChipDimmed,
                       ]}
-                      onPress={() => Linking.openURL(url)}
+                      onPress={handleStorePress}
                       activeOpacity={0.8}
                     >
                       <LinearGradient
@@ -417,7 +512,6 @@ const GameCard = ({ game, rank, onAccept, onAlreadyPlayed, onSave, isSwapping, u
                         end={{ x: 1, y: 0 }}
                         style={styles.storeChipGradient}
                       >
-                        <Text style={styles.storeChipIcon}>{config.icon}</Text>
                         <Text style={[styles.storeChipText, { color: config.textColor }]}>
                           {config.name}
                         </Text>
@@ -435,19 +529,20 @@ const GameCard = ({ game, rank, onAccept, onAlreadyPlayed, onSave, isSwapping, u
           <Pressable
             style={({ pressed }) => [
               styles.acceptButton,
-              isSwapping && styles.buttonDisabled,
-              pressed && !isSwapping && styles.buttonPressed,
+              (isSwapping || isAccepting) && styles.buttonDisabled,
+              pressed && !isSwapping && !isAccepting && styles.buttonPressed,
             ]}
-            onPress={isSwapping ? undefined : onAccept}
+            onPress={(isSwapping || isAccepting) ? undefined : onAccept}
+            disabled={isSwapping || isAccepting}
           >
             <LinearGradient
-              colors={isSwapping ? ['#888', '#666'] : ['#f857a6', '#ff5858']}
+              colors={(isSwapping || isAccepting) ? ['#888', '#666'] : ['#f857a6', '#ff5858']}
               start={{ x: 0, y: 0 }}
               end={{ x: 1, y: 0 }}
               style={styles.acceptGradient}
             >
-              <Text style={styles.acceptIcon}>🎮</Text>
-              <Text style={styles.acceptText}>I'll play this!</Text>
+              <Ionicons name="game-controller" size={20} color="#ffffff" />
+              <Text style={styles.acceptText}>{isAccepting ? 'Saving...' : "I'll play this!"}</Text>
             </LinearGradient>
           </Pressable>
 
@@ -474,32 +569,22 @@ const GameCard = ({ game, rank, onAccept, onAlreadyPlayed, onSave, isSwapping, u
 
             {/* Save Button */}
             {onSave && (
-              <Pressable
-                style={({ pressed }) => [
+              <TouchableOpacity
+                style={[
                   styles.saveButton,
                   isSwapping && styles.buttonDisabled,
-                  pressed && !isSwapping && styles.buttonPressed,
                 ]}
-                onPress={isSwapping ? undefined : onSave}
+                onPress={onSave}
+                disabled={isSwapping}
+                activeOpacity={0.7}
               >
                 <Ionicons name="bookmark-outline" size={18} color="#f59e0b" />
                 <Text style={styles.saveButtonText}>Save</Text>
-              </Pressable>
+              </TouchableOpacity>
             )}
           </View>
         </View>
 
-        {/* Match score bar */}
-        <View style={styles.matchScoreContainer}>
-          <View style={styles.matchScoreBar}>
-            <LinearGradient
-              colors={['#4ade80', '#22c55e']}
-              start={{ x: 0, y: 0 }}
-              end={{ x: 1, y: 0 }}
-              style={[styles.matchScoreFill, { width: `${matchPercent}%` }]}
-            />
-          </View>
-        </View>
       </View>
     </Animated.View>
   );
@@ -544,12 +629,9 @@ const styles = StyleSheet.create({
   topPickGradient: {
     flexDirection: 'row',
     alignItems: 'center',
-    paddingVertical: 8,
-    paddingHorizontal: 14,
-    gap: 6,
-  },
-  topPickIcon: {
-    fontSize: 14,
+    paddingVertical: 6,
+    paddingHorizontal: 12,
+    gap: 5,
   },
   topPickText: {
     fontSize: 12,
@@ -616,14 +698,6 @@ const styles = StyleSheet.create({
     color: '#ffffff',
     marginBottom: 6,
   },
-  platformRow: {
-    flexDirection: 'row',
-    alignItems: 'center',
-    gap: 8,
-  },
-  platformIcons: {
-    fontSize: 16,
-  },
   platforms: {
     fontSize: 14,
     color: '#909090',
@@ -637,66 +711,72 @@ const styles = StyleSheet.create({
   },
   explanationBox: {
     borderRadius: 14,
-    padding: 16,
+    padding: 14,
     marginBottom: 18,
-    borderLeftWidth: 4,
+    borderLeftWidth: 3,
     borderLeftColor: '#f857a6',
     overflow: 'hidden',
   },
+  explanationHeader: {
+    flexDirection: 'row',
+    alignItems: 'center',
+    gap: 6,
+    marginBottom: 10,
+  },
   explanationLabel: {
-    fontSize: 14,
+    fontSize: 13,
     fontWeight: '700',
     color: '#f857a6',
-    marginBottom: 12,
   },
   explanationPoints: {
-    gap: 8,
+    gap: 6,
   },
   explanationPoint: {
     flexDirection: 'row',
     alignItems: 'flex-start',
-    gap: 10,
+    gap: 8,
   },
-  explanationBullet: {
-    fontSize: 14,
-    marginTop: 1,
+  explanationIcon: {
+    marginTop: 2,
   },
   explanationText: {
-    fontSize: 14,
-    color: '#e0e0e0',
-    lineHeight: 20,
+    fontSize: 13,
+    color: '#d0d0d0',
+    lineHeight: 18,
     flex: 1,
   },
   metaRow: {
     flexDirection: 'row',
-    gap: 12,
+    gap: 10,
     marginBottom: 16,
   },
   metaTag: {
     flexDirection: 'row',
     alignItems: 'center',
     backgroundColor: 'rgba(255, 255, 255, 0.06)',
-    paddingVertical: 8,
-    paddingHorizontal: 12,
-    borderRadius: 10,
-    gap: 6,
-  },
-  metaIcon: {
-    fontSize: 14,
+    paddingVertical: 6,
+    paddingHorizontal: 10,
+    borderRadius: 8,
+    gap: 5,
   },
   metaText: {
-    fontSize: 13,
+    fontSize: 12,
     color: '#a0a0a0',
     fontWeight: '500',
   },
+  sectionHeader: {
+    flexDirection: 'row',
+    alignItems: 'center',
+    gap: 6,
+    marginBottom: 8,
+  },
   subscriptionSection: {
-    marginBottom: 18,
+    marginBottom: 16,
   },
   subscriptionLabel: {
-    fontSize: 13,
+    fontSize: 12,
     fontWeight: '600',
     color: '#a0a0a0',
-    marginBottom: 10,
   },
   subscriptionChips: {
     flexDirection: 'row',
@@ -728,13 +808,12 @@ const styles = StyleSheet.create({
     letterSpacing: 0.3,
   },
   storeSection: {
-    marginBottom: 18,
+    marginBottom: 16,
   },
   storeLabel: {
-    fontSize: 13,
+    fontSize: 12,
     fontWeight: '600',
     color: '#a0a0a0',
-    marginBottom: 10,
   },
   storeChips: {
     flexDirection: 'row',
@@ -758,10 +837,6 @@ const styles = StyleSheet.create({
     alignItems: 'center',
     paddingVertical: 8,
     paddingHorizontal: 12,
-    gap: 6,
-  },
-  storeChipIcon: {
-    fontSize: 14,
   },
   storeChipText: {
     fontSize: 13,
@@ -829,26 +904,10 @@ const styles = StyleSheet.create({
     fontWeight: '600',
     color: '#f59e0b',
   },
-  acceptIcon: {
-    fontSize: 20,
-  },
   acceptText: {
     fontSize: 18,
     fontWeight: '700',
     color: '#ffffff',
-  },
-  matchScoreContainer: {
-    marginTop: 18,
-  },
-  matchScoreBar: {
-    height: 4,
-    backgroundColor: 'rgba(255, 255, 255, 0.1)',
-    borderRadius: 2,
-    overflow: 'hidden',
-  },
-  matchScoreFill: {
-    height: '100%',
-    borderRadius: 2,
   },
   buttonDisabled: {
     opacity: 0.5,

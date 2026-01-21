@@ -34,6 +34,11 @@ class StopFriendliness(str, Enum):
 class Platform(str, Enum):
     """Supported gaming platforms."""
     PC = "pc"
+    PLAYSTATION = "playstation"
+    XBOX = "xbox"
+    SWITCH = "switch"
+    MOBILE = "mobile"
+    # Legacy value - kept for backwards compatibility during migration
     CONSOLE = "console"
     HANDHELD = "handheld"
 
@@ -42,8 +47,13 @@ class PlayStyle(str, Enum):
     """Game play styles."""
     NARRATIVE = "narrative"
     ACTION = "action"
-    PUZZLE_STRATEGY = "puzzle_strategy"
+    PUZZLE = "puzzle"  # True puzzle games (Portal, Tetris, Baba Is You)
+    STRATEGY = "strategy"  # RTS, 4X, grand strategy (Age of Empires, Civilization, Stellaris)
+    TACTICS = "tactics"  # Turn-based tactics (Fire Emblem, XCOM, Into the Breach)
+    CARD_GAME = "card_game"  # Card/deck games (Hearthstone, Slay the Spire, Marvel Snap)
     SANDBOX_CREATIVE = "sandbox_creative"
+    # Deprecated - keeping for backwards compatibility during migration
+    PUZZLE_STRATEGY = "puzzle_strategy"
 
 
 class MultiplayerMode(str, Enum):
@@ -71,6 +81,8 @@ class StoreLinks(BaseModel):
     nintendo: Optional[str] = None
     epic: Optional[str] = None
     gog: Optional[str] = None
+    ios: Optional[str] = None  # Apple App Store
+    android: Optional[str] = None  # Google Play Store
     other: Optional[dict[str, str]] = None
 
 

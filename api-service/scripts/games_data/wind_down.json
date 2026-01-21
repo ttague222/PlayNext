@@ -117,7 +117,7 @@
       "nostalgic"
     ],
     "play_style": [
-      "puzzle_strategy"
+      "puzzle"
     ],
     "time_to_fun": "short",
     "stop_friendliness": "anytime",
@@ -350,7 +350,7 @@
       "creative"
     ],
     "play_style": [
-      "puzzle_strategy"
+      "puzzle"
     ],
     "time_to_fun": "short",
     "stop_friendliness": "anytime",
@@ -391,7 +391,7 @@
       "thoughtful"
     ],
     "play_style": [
-      "puzzle_strategy"
+      "puzzle"
     ],
     "time_to_fun": "short",
     "stop_friendliness": "checkpoints",
@@ -430,7 +430,7 @@
       "strategic"
     ],
     "play_style": [
-      "puzzle_strategy"
+      "puzzle"
     ],
     "time_to_fun": "short",
     "stop_friendliness": "anytime",
@@ -440,7 +440,7 @@
     "description": "A minimalist city-builder about creating beautiful islands.",
     "fun_fact": "The entire game was created by a team of just 4 people in Germany!",
     "store_links": {
-      "gog": "https://www.gog.com/fr/game/islanders",
+      "gog": "https://www.gog.com/en/game/islanders",
       "steam": "https://store.steampowered.com/app/1046030/",
       "nintendo": "https://www.nintendo.com/games/detail/islanders-switch/",
       "xbox": "https://www.microsoft.com/en-us/p/islanders/9n2jv3xw889s?cid=msft_web_chart"
@@ -474,7 +474,7 @@
       "thoughtful"
     ],
     "play_style": [
-      "puzzle_strategy"
+      "puzzle"
     ],
     "time_to_fun": "short",
     "stop_friendliness": "checkpoints",
@@ -561,7 +561,7 @@
       "relaxing"
     ],
     "play_style": [
-      "puzzle_strategy"
+      "puzzle"
     ],
     "time_to_fun": "short",
     "stop_friendliness": "checkpoints",
@@ -649,7 +649,7 @@
       "focused"
     ],
     "play_style": [
-      "puzzle_strategy"
+      "puzzle"
     ],
     "time_to_fun": "short",
     "stop_friendliness": "checkpoints",
@@ -1082,7 +1082,7 @@
       "unique"
     ],
     "play_style": [
-      "puzzle_strategy"
+      "puzzle"
     ],
     "time_to_fun": "medium",
     "stop_friendliness": "anytime",
@@ -1128,8 +1128,8 @@
       "thoughtful"
     ],
     "play_style": [
-      "puzzle_strategy",
-      "narrative"
+      "narrative",
+      "puzzle"
     ],
     "time_to_fun": "medium",
     "stop_friendliness": "checkpoints",
@@ -1175,7 +1175,7 @@
       "mysterious"
     ],
     "play_style": [
-      "puzzle_strategy"
+      "puzzle"
     ],
     "time_to_fun": "short",
     "stop_friendliness": "anytime",
@@ -1217,7 +1217,7 @@
       "satisfying"
     ],
     "play_style": [
-      "puzzle_strategy"
+      "puzzle"
     ],
     "time_to_fun": "short",
     "stop_friendliness": "anytime",
@@ -1255,7 +1255,7 @@
       "creative"
     ],
     "play_style": [
-      "puzzle_strategy"
+      "puzzle"
     ],
     "time_to_fun": "short",
     "stop_friendliness": "anytime",
@@ -1297,7 +1297,7 @@
       "peaceful"
     ],
     "play_style": [
-      "puzzle_strategy"
+      "puzzle"
     ],
     "time_to_fun": "short",
     "stop_friendliness": "anytime",
@@ -1421,7 +1421,7 @@
       "satisfying"
     ],
     "play_style": [
-      "puzzle_strategy"
+      "puzzle"
     ],
     "time_to_fun": "short",
     "stop_friendliness": "anytime",
@@ -1460,7 +1460,7 @@
       "quirky"
     ],
     "play_style": [
-      "puzzle_strategy"
+      "puzzle"
     ],
     "time_to_fun": "short",
     "stop_friendliness": "anytime",
@@ -1470,7 +1470,7 @@
     "description": "Find hidden characters in hand-drawn landscapes full of interactive details.",
     "fun_fact": "All sound effects were made with the developer's mouth - no instruments or synthesizers!",
     "store_links": {
-      "gog": "https://www.gog.com/fr/game/hidden_folks",
+      "gog": "https://www.gog.com/en/game/hidden_folks",
       "nintendo": "https://www.nintendo.com/games/detail/hidden-folks-switch",
       "steam": "http://store.steampowered.com/app/435400/"
     }
@@ -1501,7 +1501,7 @@
       "unique"
     ],
     "play_style": [
-      "puzzle_strategy"
+      "puzzle"
     ],
     "time_to_fun": "short",
     "stop_friendliness": "anytime",
@@ -1545,7 +1545,7 @@
       "quirky"
     ],
     "play_style": [
-      "puzzle_strategy"
+      "puzzle"
     ],
     "time_to_fun": "short",
     "stop_friendliness": "anytime",
@@ -1590,7 +1590,7 @@
       "silly"
     ],
     "play_style": [
-      "puzzle_strategy"
+      "puzzle"
     ],
     "time_to_fun": "short",
     "stop_friendliness": "anytime",
@@ -2203,7 +2203,7 @@
       "epic": "https://store.epicgames.com/ru/p/bear-and-breakfast-77c209",
       "nintendo": "https://www.nintendo.com/games/detail/bear-and-breakfast-switch/",
       "steam": "https://store.steampowered.com/app/1136370/Bear_and_Breakfast/",
-      "gog": "https://www.gog.com/fr/game/bear_and_breakfast"
+      "gog": "https://www.gog.com/en/game/bear_and_breakfast"
     }
   },
   {
@@ -2281,7 +2281,7 @@
     "fun_fact": "All characters in the game are adorable cats with distinct personalities.",
     "store_links": {
       "steam": "https://store.steampowered.com/app/1125510/",
-      "gog": "https://www.gog.com/fr/game/snacko"
+      "gog": "https://www.gog.com/en/game/snacko"
     }
   },
   {
@@ -2524,7 +2524,7 @@
     ],
     "play_style": [
       "narrative",
-      "puzzle_strategy"
+      "puzzle"
     ],
     "time_to_fun": "short",
     "stop_friendliness": "checkpoints",
@@ -2571,7 +2571,7 @@
       "heartwarming"
     ],
     "play_style": [
-      "puzzle_strategy"
+      "puzzle"
     ],
     "time_to_fun": "short",
     "stop_friendliness": "anytime",
@@ -2582,7 +2582,7 @@
     "fun_fact": "The entire game fits in under 500MB despite having hundreds of photos to take.",
     "store_links": {
       "epic": "https://store.epicgames.com/ru/p/toem",
-      "gog": "https://www.gog.com/fr/game/toem",
+      "gog": "https://www.gog.com/en/game/toem",
       "steam": "https://store.steampowered.com/app/1307580/TOEM/"
     }
   },
@@ -2615,7 +2615,7 @@
     ],
     "play_style": [
       "action",
-      "puzzle_strategy"
+      "puzzle"
     ],
     "time_to_fun": "short",
     "stop_friendliness": "checkpoints",
@@ -2630,7 +2630,7 @@
     "store_links": {
       "nintendo": "https://www.nintendo.com/store/products/tunic-switch/",
       "steam": "http://store.steampowered.com/app/553420/",
-      "gog": "https://www.gog.com/fr/game/tunic",
+      "gog": "https://www.gog.com/en/game/tunic",
       "epic": "https://store.epicgames.com/en-US/p/tunic"
     }
   },
@@ -2661,7 +2661,7 @@
       "thoughtful"
     ],
     "play_style": [
-      "puzzle_strategy"
+      "puzzle"
     ],
     "time_to_fun": "short",
     "stop_friendliness": "anytime",
@@ -2743,7 +2743,7 @@
       "creative"
     ],
     "play_style": [
-      "puzzle_strategy"
+      "puzzle"
     ],
     "time_to_fun": "short",
     "stop_friendliness": "anytime",
@@ -2753,7 +2753,7 @@
     "description": "Explore a giant house with tiny creatures like a 3D Pikmin.",
     "fun_fact": "The animation team studied real ant behavior for months to make the Tinykin feel alive.",
     "store_links": {
-      "gog": "https://www.gog.com/fr/game/tinykin",
+      "gog": "https://www.gog.com/en/game/tinykin",
       "steam": "https://store.steampowered.com/app/1599020/Tinykin"
     }
   },
@@ -2784,7 +2784,7 @@
       "quirky"
     ],
     "play_style": [
-      "puzzle_strategy"
+      "puzzle"
     ],
     "time_to_fun": "short",
     "stop_friendliness": "anytime",
@@ -2825,8 +2825,8 @@
       "thoughtful"
     ],
     "play_style": [
-      "puzzle_strategy",
-      "narrative"
+      "narrative",
+      "puzzle"
     ],
     "time_to_fun": "short",
     "stop_friendliness": "checkpoints",
@@ -2869,7 +2869,7 @@
       "thoughtful"
     ],
     "play_style": [
-      "puzzle_strategy"
+      "puzzle"
     ],
     "time_to_fun": "short",
     "stop_friendliness": "anytime",
@@ -2959,7 +2959,7 @@
       "xbox_game_pass"
     ],
     "store_links": {
-      "gog": "https://www.gog.com/fr/game/venba",
+      "gog": "https://www.gog.com/en/game/venba",
       "nintendo": "https://www.nintendo.com/store/products/venba-switch/",
       "steam": "https://store.steampowered.com/app/1491670/Venba/"
     }
@@ -3041,7 +3041,7 @@
     "description": "Grow up on an alien planet, making choices that shape your life.",
     "fun_fact": "The game has multiple endings that span 10 years of in-game time.",
     "store_links": {
-      "gog": "https://www.gog.com/fr/game/i_was_a_teenage_exocolonist",
+      "gog": "https://www.gog.com/en/game/i_was_a_teenage_exocolonist",
       "nintendo": "https://www.nintendo.com/store/products/i-was-a-teenage-exocolonist-switch/",
       "playstation": "https://store.playstation.com/de-de/concept/10005431/",
       "steam": "https://store.steampowered.com/app/1148760/I_Was_a_Teenage_Exocolonist/"
@@ -3155,7 +3155,7 @@
       "satisfying"
     ],
     "play_style": [
-      "puzzle_strategy"
+      "puzzle"
     ],
     "time_to_fun": "short",
     "stop_friendliness": "anytime",
@@ -3166,7 +3166,7 @@
     "fun_fact": "The game features over 100 unique plants inspired by real botanical species.",
     "store_links": {
       "steam": "https://store.steampowered.com/app/1953860/",
-      "gog": "https://www.gog.com/fr/game/garden_in"
+      "gog": "https://www.gog.com/en/game/garden_in"
     }
   },
   {
@@ -3195,7 +3195,7 @@
       "beautiful"
     ],
     "play_style": [
-      "puzzle_strategy"
+      "puzzle"
     ],
     "time_to_fun": "short",
     "stop_friendliness": "anytime",
@@ -3235,8 +3235,8 @@
       "emotional"
     ],
     "play_style": [
-      "puzzle_strategy",
-      "narrative"
+      "narrative",
+      "puzzle"
     ],
     "time_to_fun": "short",
     "stop_friendliness": "checkpoints",
@@ -3279,7 +3279,7 @@
       "nostalgic"
     ],
     "play_style": [
-      "puzzle_strategy"
+      "puzzle"
     ],
     "time_to_fun": "short",
     "stop_friendliness": "anytime",
@@ -3325,7 +3325,7 @@
       "beautiful"
     ],
     "play_style": [
-      "puzzle_strategy"
+      "puzzle"
     ],
     "time_to_fun": "short",
     "stop_friendliness": "anytime",
@@ -3407,7 +3407,7 @@
       "charming"
     ],
     "play_style": [
-      "puzzle_strategy"
+      "puzzle"
     ],
     "time_to_fun": "short",
     "stop_friendliness": "anytime",
@@ -3417,7 +3417,7 @@
     "description": "Find hidden cats throughout a pixelated apartment building.",
     "fun_fact": "Each apartment tells a mini story about its residents through environmental details.",
     "store_links": {
-      "gog": "https://www.gog.com/fr/game/a_building_full_of_cats",
+      "gog": "https://www.gog.com/en/game/a_building_full_of_cats",
       "steam": "https://store.steampowered.com/app/1969080/"
     }
   },
@@ -3579,7 +3579,7 @@
     "description": "Grow plants over abandoned structures in meditative dioramas.",
     "fun_fact": "The game creates beauty from decay - nature reclaiming human structures.",
     "store_links": {
-      "gog": "https://www.gog.com/fr/game/cloud_gardens",
+      "gog": "https://www.gog.com/en/game/cloud_gardens",
       "steam": "https://store.steampowered.com/app/1372320/",
       "xbox": "https://www.microsoft.com/en-us/p/cloud-gardens/9n07gs0hcnpk?cid=msft_web_chart"
     }
@@ -3690,7 +3690,7 @@
     ],
     "play_style": [
       "narrative",
-      "puzzle_strategy"
+      "puzzle"
     ],
     "time_to_fun": "medium",
     "stop_friendliness": "anytime",
@@ -3828,7 +3828,7 @@
       "mature_content"
     ],
     "store_links": {
-      "gog": "https://www.gog.com/fr/game/immortality",
+      "gog": "https://www.gog.com/en/game/immortality",
       "steam": "https://store.steampowered.com/app/1350200/IMMORTALITY/"
     }
   },
@@ -3860,7 +3860,7 @@
     ],
     "play_style": [
       "narrative",
-      "puzzle_strategy"
+      "puzzle"
     ],
     "time_to_fun": "medium",
     "stop_friendliness": "checkpoints",
@@ -4109,7 +4109,7 @@
       "nostalgic"
     ],
     "play_style": [
-      "puzzle_strategy"
+      "puzzle"
     ],
     "time_to_fun": "short",
     "stop_friendliness": "anytime",
@@ -4605,7 +4605,7 @@
       "beautiful"
     ],
     "play_style": [
-      "puzzle_strategy"
+      "puzzle"
     ],
     "time_to_fun": "medium",
     "stop_friendliness": "checkpoints",
@@ -4858,8 +4858,8 @@
       "melancholic"
     ],
     "play_style": [
-      "puzzle_strategy",
-      "narrative"
+      "narrative",
+      "puzzle"
     ],
     "time_to_fun": "short",
     "stop_friendliness": "checkpoints",
@@ -4989,7 +4989,7 @@
       "contemplative"
     ],
     "play_style": [
-      "puzzle_strategy"
+      "puzzle"
     ],
     "time_to_fun": "short",
     "stop_friendliness": "checkpoints",
@@ -5030,8 +5030,8 @@
       "heartfelt"
     ],
     "play_style": [
-      "puzzle_strategy",
-      "narrative"
+      "narrative",
+      "puzzle"
     ],
     "time_to_fun": "short",
     "stop_friendliness": "checkpoints",
@@ -5046,7 +5046,7 @@
       "epic": "https://www.epicgames.com/store/es-ES/product/arise-a-simple-story/home",
       "xbox": "https://www.microsoft.com/en-us/p/arise-a-simple-story/c2tvkwcgtgr6?cid=msft_web_chart",
       "steam": "https://store.steampowered.com/app/866140/",
-      "gog": "https://www.gog.com/fr/game/arise_a_simple_story"
+      "gog": "https://www.gog.com/en/game/arise_a_simple_story"
     }
   },
   {
@@ -5159,7 +5159,7 @@
       "adventurous"
     ],
     "play_style": [
-      "puzzle_strategy"
+      "puzzle"
     ],
     "time_to_fun": "short",
     "stop_friendliness": "checkpoints",
@@ -5538,7 +5538,7 @@
       "dreamlike"
     ],
     "play_style": [
-      "puzzle_strategy"
+      "puzzle"
     ],
     "time_to_fun": "short",
     "stop_friendliness": "checkpoints",
@@ -5660,7 +5660,7 @@
       "fun"
     ],
     "play_style": [
-      "puzzle_strategy"
+      "puzzle"
     ],
     "time_to_fun": "short",
     "stop_friendliness": "checkpoints",
@@ -5705,8 +5705,8 @@
       "contemplative"
     ],
     "play_style": [
-      "puzzle_strategy",
-      "narrative"
+      "narrative",
+      "puzzle"
     ],
     "time_to_fun": "short",
     "stop_friendliness": "checkpoints",
@@ -5792,7 +5792,7 @@
       "curious"
     ],
     "play_style": [
-      "puzzle_strategy"
+      "strategy"
     ],
     "time_to_fun": "medium",
     "stop_friendliness": "anytime",
@@ -5868,7 +5868,7 @@
       "thoughtful"
     ],
     "play_style": [
-      "puzzle_strategy"
+      "puzzle"
     ],
     "time_to_fun": "short",
     "stop_friendliness": "checkpoints",
@@ -6041,7 +6041,7 @@
       "puzzle"
     ],
     "play_style": [
-      "puzzle_strategy"
+      "puzzle"
     ],
     "time_to_fun": "short",
     "stop_friendliness": "checkpoints",
@@ -6123,7 +6123,7 @@
     ],
     "play_style": [
       "narrative",
-      "puzzle_strategy"
+      "puzzle"
     ],
     "time_to_fun": "short",
     "stop_friendliness": "checkpoints",
@@ -6214,8 +6214,8 @@
       "surreal"
     ],
     "play_style": [
-      "puzzle_strategy",
-      "narrative"
+      "narrative",
+      "puzzle"
     ],
     "time_to_fun": "medium",
     "stop_friendliness": "checkpoints",
@@ -6260,7 +6260,7 @@
       "atmospheric"
     ],
     "play_style": [
-      "puzzle_strategy"
+      "puzzle"
     ],
     "time_to_fun": "short",
     "stop_friendliness": "checkpoints",
@@ -6304,7 +6304,7 @@
       "beautiful"
     ],
     "play_style": [
-      "puzzle_strategy"
+      "puzzle"
     ],
     "time_to_fun": "short",
     "stop_friendliness": "anytime",
@@ -6347,7 +6347,7 @@
       "cute"
     ],
     "play_style": [
-      "puzzle_strategy"
+      "puzzle"
     ],
     "time_to_fun": "short",
     "stop_friendliness": "anytime",
@@ -6388,7 +6388,7 @@
       "mysterious"
     ],
     "play_style": [
-      "puzzle_strategy"
+      "puzzle"
     ],
     "time_to_fun": "short",
     "stop_friendliness": "anytime",
@@ -6429,7 +6429,7 @@
       "absurd"
     ],
     "play_style": [
-      "puzzle_strategy"
+      "puzzle"
     ],
     "time_to_fun": "short",
     "stop_friendliness": "anytime",
@@ -6469,7 +6469,7 @@
       "medieval"
     ],
     "play_style": [
-      "puzzle_strategy"
+      "puzzle"
     ],
     "time_to_fun": "short",
     "stop_friendliness": "anytime",
@@ -6511,7 +6511,7 @@
       "dark"
     ],
     "play_style": [
-      "puzzle_strategy"
+      "puzzle"
     ],
     "time_to_fun": "short",
     "stop_friendliness": "checkpoints",
@@ -6557,7 +6557,7 @@
       "otherworldly"
     ],
     "play_style": [
-      "puzzle_strategy"
+      "puzzle"
     ],
     "time_to_fun": "short",
     "stop_friendliness": "checkpoints",
@@ -6600,7 +6600,7 @@
       "haunting"
     ],
     "play_style": [
-      "puzzle_strategy"
+      "puzzle"
     ],
     "time_to_fun": "short",
     "stop_friendliness": "checkpoints",
@@ -6645,8 +6645,8 @@
       "unsettling"
     ],
     "play_style": [
-      "puzzle_strategy",
-      "narrative"
+      "narrative",
+      "puzzle"
     ],
     "time_to_fun": "short",
     "stop_friendliness": "checkpoints",
@@ -6690,7 +6690,7 @@
       "hopeful"
     ],
     "play_style": [
-      "puzzle_strategy"
+      "puzzle"
     ],
     "time_to_fun": "short",
     "stop_friendliness": "checkpoints",
