@@ -21,7 +21,7 @@ SEED_GAMES = [
     {
         "game_id": "stardew-valley",
         "title": "Stardew Valley",
-        "platforms": ["pc", "console", "handheld"],
+        "platforms": ["pc", "playstation", "xbox", "switch"],
         "release_year": 2016,
         "genre_tags": ["farming", "simulation", "rpg", "indie"],
         "time_tags": [15, 30, 60, 90],
@@ -42,7 +42,7 @@ SEED_GAMES = [
     {
         "game_id": "animal-crossing-nh",
         "title": "Animal Crossing: New Horizons",
-        "platforms": ["handheld"],
+        "platforms": ["switch"],
         "release_year": 2020,
         "genre_tags": ["simulation", "life-sim", "relaxing"],
         "time_tags": [15, 30, 60, 90],
@@ -63,7 +63,7 @@ SEED_GAMES = [
     {
         "game_id": "unpacking",
         "title": "Unpacking",
-        "platforms": ["pc", "console", "handheld"],
+        "platforms": ["pc", "playstation", "xbox", "switch"],
         "release_year": 2021,
         "genre_tags": ["puzzle", "zen", "narrative", "indie"],
         "time_tags": [15, 30, 60],
@@ -84,7 +84,7 @@ SEED_GAMES = [
     {
         "game_id": "a-short-hike",
         "title": "A Short Hike",
-        "platforms": ["pc", "console", "handheld"],
+        "platforms": ["pc", "playstation", "xbox", "switch"],
         "release_year": 2019,
         "genre_tags": ["adventure", "exploration", "indie", "relaxing"],
         "time_tags": [15, 30, 60],
@@ -105,7 +105,7 @@ SEED_GAMES = [
     {
         "game_id": "coffee-talk",
         "title": "Coffee Talk",
-        "platforms": ["pc", "console", "handheld"],
+        "platforms": ["pc", "playstation", "xbox", "switch"],
         "release_year": 2020,
         "genre_tags": ["visual-novel", "narrative", "indie", "relaxing"],
         "time_tags": [30, 60],
@@ -126,7 +126,7 @@ SEED_GAMES = [
     {
         "game_id": "spiritfarer",
         "title": "Spiritfarer",
-        "platforms": ["pc", "console", "handheld"],
+        "platforms": ["pc", "playstation", "xbox", "switch"],
         "release_year": 2020,
         "genre_tags": ["management", "adventure", "indie", "emotional"],
         "time_tags": [30, 60, 90],
@@ -147,7 +147,7 @@ SEED_GAMES = [
     {
         "game_id": "powerwash-simulator",
         "title": "PowerWash Simulator",
-        "platforms": ["pc", "console"],
+        "platforms": ["pc", "playstation", "xbox"],
         "release_year": 2022,
         "genre_tags": ["simulation", "relaxing", "casual"],
         "time_tags": [15, 30, 60],
@@ -168,7 +168,7 @@ SEED_GAMES = [
     {
         "game_id": "dorfromantik",
         "title": "Dorfromantik",
-        "platforms": ["pc", "handheld"],
+        "platforms": ["pc", "switch"],
         "release_year": 2022,
         "genre_tags": ["puzzle", "strategy", "relaxing", "indie"],
         "time_tags": [15, 30, 60],
@@ -189,7 +189,7 @@ SEED_GAMES = [
     {
         "game_id": "lego-builders-journey",
         "title": "LEGO Builder's Journey",
-        "platforms": ["pc", "console", "handheld"],
+        "platforms": ["pc", "playstation", "xbox", "switch"],
         "release_year": 2021,
         "genre_tags": ["puzzle", "relaxing", "artistic"],
         "time_tags": [15, 30],
@@ -210,7 +210,7 @@ SEED_GAMES = [
     {
         "game_id": "islanders",
         "title": "Islanders",
-        "platforms": ["pc", "handheld"],
+        "platforms": ["pc", "switch"],
         "release_year": 2019,
         "genre_tags": ["city-builder", "puzzle", "minimalist", "indie"],
         "time_tags": [15, 30],
@@ -231,7 +231,7 @@ SEED_GAMES = [
     {
         "game_id": "gardens-between",
         "title": "The Gardens Between",
-        "platforms": ["pc", "console", "handheld"],
+        "platforms": ["pc", "playstation", "xbox", "switch"],
         "release_year": 2018,
         "genre_tags": ["puzzle", "adventure", "narrative", "indie"],
         "time_tags": [15, 30, 60],
@@ -252,7 +252,7 @@ SEED_GAMES = [
     {
         "game_id": "gris",
         "title": "Gris",
-        "platforms": ["pc", "console", "handheld"],
+        "platforms": ["pc", "playstation", "xbox", "switch"],
         "release_year": 2018,
         "genre_tags": ["platformer", "artistic", "narrative", "indie"],
         "time_tags": [30, 60],
@@ -273,7 +273,7 @@ SEED_GAMES = [
     {
         "game_id": "mini-metro",
         "title": "Mini Metro",
-        "platforms": ["pc", "handheld"],
+        "platforms": ["pc", "switch"],
         "release_year": 2015,
         "genre_tags": ["puzzle", "strategy", "minimalist", "indie"],
         "time_tags": [15, 30],
@@ -294,7 +294,7 @@ SEED_GAMES = [
     {
         "game_id": "abzu",
         "title": "Abzu",
-        "platforms": ["pc", "console"],
+        "platforms": ["pc", "playstation", "xbox"],
         "release_year": 2016,
         "genre_tags": ["adventure", "exploration", "artistic", "indie"],
         "time_tags": [30, 60],
@@ -315,7 +315,7 @@ SEED_GAMES = [
     {
         "game_id": "tetris-effect",
         "title": "Tetris Effect: Connected",
-        "platforms": ["pc", "console", "handheld"],
+        "platforms": ["pc", "playstation", "xbox", "switch"],
         "release_year": 2018,
         "genre_tags": ["puzzle", "rhythm", "relaxing"],
         "time_tags": [15, 30],
@@ -336,7 +336,7 @@ SEED_GAMES = [
     {
         "game_id": "journey",
         "title": "Journey",
-        "platforms": ["pc", "console"],
+        "platforms": ["pc", "playstation", "xbox"],
         "release_year": 2012,
         "genre_tags": ["adventure", "artistic", "indie"],
         "time_tags": [60, 90],
@@ -357,7 +357,7 @@ SEED_GAMES = [
     {
         "game_id": "flower",
         "title": "Flower",
-        "platforms": ["pc", "console"],
+        "platforms": ["pc", "playstation", "xbox"],
         "release_year": 2009,
         "genre_tags": ["adventure", "artistic", "relaxing"],
         "time_tags": [15, 30],
@@ -378,7 +378,7 @@ SEED_GAMES = [
     {
         "game_id": "ori-blind-forest",
         "title": "Ori and the Blind Forest",
-        "platforms": ["pc", "console", "handheld"],
+        "platforms": ["pc", "playstation", "xbox", "switch"],
         "release_year": 2015,
         "genre_tags": ["platformer", "metroidvania", "artistic", "indie"],
         "time_tags": [30, 60, 90],
@@ -399,7 +399,7 @@ SEED_GAMES = [
     {
         "game_id": "ori-will-of-wisps",
         "title": "Ori and the Will of the Wisps",
-        "platforms": ["pc", "console", "handheld"],
+        "platforms": ["pc", "playstation", "xbox", "switch"],
         "release_year": 2020,
         "genre_tags": ["platformer", "metroidvania", "artistic", "indie"],
         "time_tags": [30, 60, 90],
@@ -420,7 +420,7 @@ SEED_GAMES = [
     {
         "game_id": "firewatch",
         "title": "Firewatch",
-        "platforms": ["pc", "console", "handheld"],
+        "platforms": ["pc", "playstation", "xbox", "switch"],
         "release_year": 2016,
         "genre_tags": ["adventure", "narrative", "mystery", "indie"],
         "time_tags": [60, 90],
@@ -441,7 +441,7 @@ SEED_GAMES = [
     {
         "game_id": "what-remains-edith-finch",
         "title": "What Remains of Edith Finch",
-        "platforms": ["pc", "console", "handheld"],
+        "platforms": ["pc", "playstation", "xbox", "switch"],
         "release_year": 2017,
         "genre_tags": ["adventure", "narrative", "walking-sim", "indie"],
         "time_tags": [60, 90],
@@ -462,7 +462,7 @@ SEED_GAMES = [
     {
         "game_id": "gone-home",
         "title": "Gone Home",
-        "platforms": ["pc", "console", "handheld"],
+        "platforms": ["pc", "playstation", "xbox", "switch"],
         "release_year": 2013,
         "genre_tags": ["adventure", "narrative", "exploration", "indie"],
         "time_tags": [60, 90],
@@ -478,12 +478,19 @@ SEED_GAMES = [
         "avg_session_length": 75,
         "subscription_services": [],
         "content_warnings": [],
-        "store_links": {},
+        "store_links": {
+            "steam": "https://store.steampowered.com/app/232430/",
+            "playstation": "https://store.playstation.com/en-us/product/UP0341-CUSA05237_00-GONEHOMEPS4SCEA0",
+            "xbox": "https://www.xbox.com/en-US/games/store/gone-home-console-edition/BVFJ4J9P6BCS",
+            "nintendo": "https://www.nintendo.com/games/detail/gone-home-switch",
+            "epic": "https://www.epicgames.com/store/en-US/product/gone-home/home",
+            "gog": "https://www.gog.com/game/gone_home",
+        },
     },
     {
         "game_id": "dear-esther",
         "title": "Dear Esther",
-        "platforms": ["pc", "console"],
+        "platforms": ["pc", "playstation", "xbox"],
         "release_year": 2012,
         "genre_tags": ["adventure", "narrative", "artistic", "indie"],
         "time_tags": [60],
@@ -504,7 +511,7 @@ SEED_GAMES = [
     {
         "game_id": "everybody-gone-to-rapture",
         "title": "Everybody's Gone to the Rapture",
-        "platforms": ["pc", "console"],
+        "platforms": ["pc", "playstation", "xbox"],
         "release_year": 2015,
         "genre_tags": ["adventure", "narrative", "mystery", "indie"],
         "time_tags": [60, 90],
@@ -525,7 +532,7 @@ SEED_GAMES = [
     {
         "game_id": "return-obra-dinn",
         "title": "Return of the Obra Dinn",
-        "platforms": ["pc", "console", "handheld"],
+        "platforms": ["pc", "playstation", "xbox", "switch"],
         "release_year": 2018,
         "genre_tags": ["puzzle", "mystery", "detective", "indie"],
         "time_tags": [60, 90],
@@ -546,7 +553,7 @@ SEED_GAMES = [
     {
         "game_id": "outer-wilds",
         "title": "Outer Wilds",
-        "platforms": ["pc", "console"],
+        "platforms": ["pc", "playstation", "xbox"],
         "release_year": 2019,
         "genre_tags": ["adventure", "exploration", "puzzle", "indie"],
         "time_tags": [60, 90],
@@ -567,7 +574,7 @@ SEED_GAMES = [
     {
         "game_id": "witness",
         "title": "The Witness",
-        "platforms": ["pc", "console"],
+        "platforms": ["pc", "playstation", "xbox"],
         "release_year": 2016,
         "genre_tags": ["puzzle", "exploration", "indie"],
         "time_tags": [30, 60, 90],
@@ -588,7 +595,7 @@ SEED_GAMES = [
     {
         "game_id": "baba-is-you",
         "title": "Baba Is You",
-        "platforms": ["pc", "handheld"],
+        "platforms": ["pc", "switch"],
         "release_year": 2019,
         "genre_tags": ["puzzle", "indie", "unique"],
         "time_tags": [15, 30, 60],
@@ -609,7 +616,7 @@ SEED_GAMES = [
     {
         "game_id": "monument-valley",
         "title": "Monument Valley",
-        "platforms": ["handheld"],
+        "platforms": ["mobile"],
         "release_year": 2014,
         "genre_tags": ["puzzle", "artistic", "indie"],
         "time_tags": [15, 30],
@@ -630,7 +637,7 @@ SEED_GAMES = [
     {
         "game_id": "monument-valley-2",
         "title": "Monument Valley 2",
-        "platforms": ["handheld"],
+        "platforms": ["mobile"],
         "release_year": 2017,
         "genre_tags": ["puzzle", "artistic", "indie"],
         "time_tags": [15, 30],
@@ -651,7 +658,7 @@ SEED_GAMES = [
     {
         "game_id": "alto-adventure",
         "title": "Alto's Adventure",
-        "platforms": ["pc", "handheld"],
+        "platforms": ["pc", "switch"],
         "release_year": 2015,
         "genre_tags": ["endless-runner", "relaxing", "indie"],
         "time_tags": [15, 30],
@@ -672,7 +679,7 @@ SEED_GAMES = [
     {
         "game_id": "alto-odyssey",
         "title": "Alto's Odyssey",
-        "platforms": ["pc", "handheld"],
+        "platforms": ["pc", "switch"],
         "release_year": 2018,
         "genre_tags": ["endless-runner", "relaxing", "indie"],
         "time_tags": [15, 30],
@@ -693,7 +700,7 @@ SEED_GAMES = [
     {
         "game_id": "prune",
         "title": "Prune",
-        "platforms": ["handheld"],
+        "platforms": ["mobile"],
         "release_year": 2015,
         "genre_tags": ["puzzle", "artistic", "relaxing", "indie"],
         "time_tags": [15, 30],
@@ -714,7 +721,7 @@ SEED_GAMES = [
     {
         "game_id": "hidden-folks",
         "title": "Hidden Folks",
-        "platforms": ["pc", "handheld"],
+        "platforms": ["pc", "switch"],
         "release_year": 2017,
         "genre_tags": ["puzzle", "hidden-object", "indie"],
         "time_tags": [15, 30, 60],
@@ -735,7 +742,7 @@ SEED_GAMES = [
     {
         "game_id": "gorogoa",
         "title": "Gorogoa",
-        "platforms": ["pc", "console", "handheld"],
+        "platforms": ["pc", "playstation", "xbox", "switch"],
         "release_year": 2017,
         "genre_tags": ["puzzle", "artistic", "indie"],
         "time_tags": [30, 60],
@@ -756,7 +763,7 @@ SEED_GAMES = [
     {
         "game_id": "donut-county",
         "title": "Donut County",
-        "platforms": ["pc", "console", "handheld"],
+        "platforms": ["pc", "playstation", "xbox", "switch"],
         "release_year": 2018,
         "genre_tags": ["puzzle", "comedy", "indie"],
         "time_tags": [15, 30],
@@ -777,7 +784,7 @@ SEED_GAMES = [
     {
         "game_id": "untitled-goose-game",
         "title": "Untitled Goose Game",
-        "platforms": ["pc", "console", "handheld"],
+        "platforms": ["pc", "playstation", "xbox", "switch"],
         "release_year": 2019,
         "genre_tags": ["puzzle", "comedy", "stealth", "indie"],
         "time_tags": [30, 60],
@@ -798,7 +805,7 @@ SEED_GAMES = [
     {
         "game_id": "slime-rancher",
         "title": "Slime Rancher",
-        "platforms": ["pc", "console"],
+        "platforms": ["pc", "playstation", "xbox"],
         "release_year": 2017,
         "genre_tags": ["farming", "simulation", "adventure", "indie"],
         "time_tags": [30, 60],
@@ -819,7 +826,7 @@ SEED_GAMES = [
     {
         "game_id": "slime-rancher-2",
         "title": "Slime Rancher 2",
-        "platforms": ["pc", "console"],
+        "platforms": ["pc", "playstation", "xbox"],
         "release_year": 2022,
         "genre_tags": ["farming", "simulation", "adventure", "indie"],
         "time_tags": [30, 60],
@@ -840,7 +847,7 @@ SEED_GAMES = [
     {
         "game_id": "house-flipper",
         "title": "House Flipper",
-        "platforms": ["pc", "console"],
+        "platforms": ["pc", "playstation", "xbox"],
         "release_year": 2018,
         "genre_tags": ["simulation", "renovation", "indie"],
         "time_tags": [30, 60, 90],
@@ -861,7 +868,7 @@ SEED_GAMES = [
     {
         "game_id": "garden-story",
         "title": "Garden Story",
-        "platforms": ["pc", "console", "handheld"],
+        "platforms": ["pc", "playstation", "xbox", "switch"],
         "release_year": 2021,
         "genre_tags": ["adventure", "rpg", "cozy", "indie"],
         "time_tags": [30, 60],
@@ -882,7 +889,7 @@ SEED_GAMES = [
     {
         "game_id": "littlewood",
         "title": "Littlewood",
-        "platforms": ["pc", "handheld"],
+        "platforms": ["pc", "switch"],
         "release_year": 2020,
         "genre_tags": ["simulation", "rpg", "town-builder", "indie"],
         "time_tags": [30, 60, 90],
@@ -903,7 +910,7 @@ SEED_GAMES = [
     {
         "game_id": "my-time-at-portia",
         "title": "My Time at Portia",
-        "platforms": ["pc", "console", "handheld"],
+        "platforms": ["pc", "playstation", "xbox", "switch"],
         "release_year": 2019,
         "genre_tags": ["simulation", "crafting", "rpg", "life-sim"],
         "time_tags": [30, 60, 90],
@@ -924,7 +931,7 @@ SEED_GAMES = [
     {
         "game_id": "my-time-at-sandrock",
         "title": "My Time at Sandrock",
-        "platforms": ["pc", "console"],
+        "platforms": ["pc", "playstation", "xbox"],
         "release_year": 2023,
         "genre_tags": ["simulation", "crafting", "rpg", "life-sim"],
         "time_tags": [30, 60, 90],
@@ -945,7 +952,7 @@ SEED_GAMES = [
     {
         "game_id": "ooblets",
         "title": "Ooblets",
-        "platforms": ["pc", "console", "handheld"],
+        "platforms": ["pc", "playstation", "xbox", "switch"],
         "release_year": 2022,
         "genre_tags": ["farming", "creature-collector", "life-sim", "indie"],
         "time_tags": [30, 60],
@@ -966,7 +973,7 @@ SEED_GAMES = [
     {
         "game_id": "wylde-flowers",
         "title": "Wylde Flowers",
-        "platforms": ["pc", "console", "handheld"],
+        "platforms": ["pc", "playstation", "xbox", "switch"],
         "release_year": 2022,
         "genre_tags": ["farming", "life-sim", "witchcraft", "indie"],
         "time_tags": [30, 60],
@@ -987,7 +994,7 @@ SEED_GAMES = [
     {
         "game_id": "coral-island",
         "title": "Coral Island",
-        "platforms": ["pc", "console"],
+        "platforms": ["pc", "playstation", "xbox"],
         "release_year": 2023,
         "genre_tags": ["farming", "life-sim", "simulation"],
         "time_tags": [30, 60, 90],
@@ -1029,7 +1036,7 @@ SEED_GAMES = [
     {
         "game_id": "cattails",
         "title": "Cattails",
-        "platforms": ["pc", "console", "handheld"],
+        "platforms": ["pc", "playstation", "xbox", "switch"],
         "release_year": 2017,
         "genre_tags": ["simulation", "rpg", "cats", "indie"],
         "time_tags": [30, 60],
@@ -1050,7 +1057,7 @@ SEED_GAMES = [
     {
         "game_id": "calico",
         "title": "Calico",
-        "platforms": ["pc", "console", "handheld"],
+        "platforms": ["pc", "playstation", "xbox", "switch"],
         "release_year": 2020,
         "genre_tags": ["simulation", "casual", "cats", "indie"],
         "time_tags": [30, 60],
@@ -1071,7 +1078,7 @@ SEED_GAMES = [
     {
         "game_id": "bear-and-breakfast",
         "title": "Bear and Breakfast",
-        "platforms": ["pc", "handheld"],
+        "platforms": ["pc", "switch"],
         "release_year": 2022,
         "genre_tags": ["management", "adventure", "cozy", "indie"],
         "time_tags": [30, 60],
@@ -1092,7 +1099,7 @@ SEED_GAMES = [
     {
         "game_id": "lemon-cake",
         "title": "Lemon Cake",
-        "platforms": ["pc", "handheld"],
+        "platforms": ["pc", "switch"],
         "release_year": 2021,
         "genre_tags": ["simulation", "bakery", "renovation", "indie"],
         "time_tags": [30, 60],
@@ -1134,7 +1141,7 @@ SEED_GAMES = [
     {
         "game_id": "disney-dreamlight-valley",
         "title": "Disney Dreamlight Valley",
-        "platforms": ["pc", "console", "handheld"],
+        "platforms": ["pc", "playstation", "xbox", "switch"],
         "release_year": 2022,
         "genre_tags": ["life-sim", "adventure", "simulation"],
         "time_tags": [30, 60, 90],
@@ -1155,7 +1162,7 @@ SEED_GAMES = [
     {
         "game_id": "palia",
         "title": "Palia",
-        "platforms": ["pc", "handheld"],
+        "platforms": ["pc", "switch"],
         "release_year": 2023,
         "genre_tags": ["mmo", "life-sim", "farming", "cozy"],
         "time_tags": [30, 60, 90],
@@ -1176,7 +1183,7 @@ SEED_GAMES = [
     {
         "game_id": "cozy-grove",
         "title": "Cozy Grove",
-        "platforms": ["pc", "console", "handheld"],
+        "platforms": ["pc", "playstation", "xbox", "switch"],
         "release_year": 2021,
         "genre_tags": ["life-sim", "adventure", "camping", "indie"],
         "time_tags": [15, 30],
@@ -1197,7 +1204,7 @@ SEED_GAMES = [
     {
         "game_id": "fae-farm",
         "title": "Fae Farm",
-        "platforms": ["pc", "handheld"],
+        "platforms": ["pc", "switch"],
         "release_year": 2023,
         "genre_tags": ["farming", "life-sim", "fantasy", "cozy"],
         "time_tags": [30, 60],
@@ -1218,7 +1225,7 @@ SEED_GAMES = [
     {
         "game_id": "spirittea",
         "title": "Spirittea",
-        "platforms": ["pc", "console", "handheld"],
+        "platforms": ["pc", "playstation", "xbox", "switch"],
         "release_year": 2023,
         "genre_tags": ["life-sim", "management", "supernatural", "indie"],
         "time_tags": [30, 60],
@@ -1239,7 +1246,7 @@ SEED_GAMES = [
     {
         "game_id": "stray",
         "title": "Stray",
-        "platforms": ["pc", "console"],
+        "platforms": ["pc", "playstation", "xbox"],
         "release_year": 2022,
         "genre_tags": ["adventure", "puzzle", "cats", "indie"],
         "time_tags": [30, 60],
@@ -1260,7 +1267,7 @@ SEED_GAMES = [
     {
         "game_id": "toem",
         "title": "TOEM",
-        "platforms": ["pc", "console", "handheld"],
+        "platforms": ["pc", "playstation", "xbox", "switch"],
         "release_year": 2021,
         "genre_tags": ["adventure", "photography", "puzzle", "indie"],
         "time_tags": [15, 30, 60],
@@ -1281,7 +1288,7 @@ SEED_GAMES = [
     {
         "game_id": "tunic",
         "title": "Tunic",
-        "platforms": ["pc", "console", "handheld"],
+        "platforms": ["pc", "playstation", "xbox", "switch"],
         "release_year": 2022,
         "genre_tags": ["adventure", "action", "puzzle", "indie"],
         "time_tags": [30, 60, 90],
@@ -1302,7 +1309,7 @@ SEED_GAMES = [
     {
         "game_id": "chicory",
         "title": "Chicory: A Colorful Tale",
-        "platforms": ["pc", "console", "handheld"],
+        "platforms": ["pc", "playstation", "xbox", "switch"],
         "release_year": 2021,
         "genre_tags": ["adventure", "puzzle", "artistic", "indie"],
         "time_tags": [30, 60],
@@ -1323,7 +1330,7 @@ SEED_GAMES = [
     {
         "game_id": "webbed",
         "title": "Webbed",
-        "platforms": ["pc", "console", "handheld"],
+        "platforms": ["pc", "playstation", "xbox", "switch"],
         "release_year": 2021,
         "genre_tags": ["platformer", "adventure", "indie"],
         "time_tags": [30, 60],
@@ -1344,7 +1351,7 @@ SEED_GAMES = [
     {
         "game_id": "tinykin",
         "title": "Tinykin",
-        "platforms": ["pc", "console", "handheld"],
+        "platforms": ["pc", "playstation", "xbox", "switch"],
         "release_year": 2022,
         "genre_tags": ["platformer", "adventure", "puzzle", "indie"],
         "time_tags": [30, 60],
@@ -1365,7 +1372,7 @@ SEED_GAMES = [
     {
         "game_id": "a-little-to-the-left",
         "title": "A Little to the Left",
-        "platforms": ["pc", "console", "handheld"],
+        "platforms": ["pc", "playstation", "xbox", "switch"],
         "release_year": 2022,
         "genre_tags": ["puzzle", "cozy", "organizing", "indie"],
         "time_tags": [15, 30],
@@ -1386,7 +1393,7 @@ SEED_GAMES = [
     {
         "game_id": "assemble-with-care",
         "title": "Assemble with Care",
-        "platforms": ["pc", "console", "handheld"],
+        "platforms": ["pc", "playstation", "xbox", "switch"],
         "release_year": 2019,
         "genre_tags": ["puzzle", "narrative", "relaxing", "indie"],
         "time_tags": [30, 60],
@@ -1407,7 +1414,7 @@ SEED_GAMES = [
     {
         "game_id": "strange-horticulture",
         "title": "Strange Horticulture",
-        "platforms": ["pc", "console", "handheld"],
+        "platforms": ["pc", "playstation", "xbox", "switch"],
         "release_year": 2022,
         "genre_tags": ["puzzle", "mystery", "occult", "indie"],
         "time_tags": [30, 60],
@@ -1428,7 +1435,7 @@ SEED_GAMES = [
     {
         "game_id": "potion-craft",
         "title": "Potion Craft",
-        "platforms": ["pc", "console"],
+        "platforms": ["pc", "playstation", "xbox"],
         "release_year": 2022,
         "genre_tags": ["simulation", "alchemy", "crafting", "indie"],
         "time_tags": [30, 60],
@@ -1449,7 +1456,7 @@ SEED_GAMES = [
     {
         "game_id": "venba",
         "title": "Venba",
-        "platforms": ["pc", "console", "handheld"],
+        "platforms": ["pc", "playstation", "xbox", "switch"],
         "release_year": 2023,
         "genre_tags": ["narrative", "cooking", "indie"],
         "time_tags": [60, 90],
@@ -1470,7 +1477,7 @@ SEED_GAMES = [
     {
         "game_id": "season-story-beneath",
         "title": "Season: A Letter to the Future",
-        "platforms": ["pc", "console"],
+        "platforms": ["pc", "playstation", "xbox"],
         "release_year": 2023,
         "genre_tags": ["adventure", "exploration", "narrative", "indie"],
         "time_tags": [60, 90],
@@ -1491,7 +1498,7 @@ SEED_GAMES = [
     {
         "game_id": "i-was-teenage-exocolonist",
         "title": "I Was a Teenage Exocolonist",
-        "platforms": ["pc", "console", "handheld"],
+        "platforms": ["pc", "playstation", "xbox", "switch"],
         "release_year": 2022,
         "genre_tags": ["rpg", "narrative", "life-sim", "indie"],
         "time_tags": [60, 90],
@@ -1512,7 +1519,7 @@ SEED_GAMES = [
     {
         "game_id": "coffee-talk-2",
         "title": "Coffee Talk Episode 2",
-        "platforms": ["pc", "console", "handheld"],
+        "platforms": ["pc", "playstation", "xbox", "switch"],
         "release_year": 2023,
         "genre_tags": ["visual-novel", "narrative", "indie", "relaxing"],
         "time_tags": [30, 60],
@@ -1533,7 +1540,7 @@ SEED_GAMES = [
     {
         "game_id": "wayward-strand",
         "title": "Wayward Strand",
-        "platforms": ["pc", "console", "handheld"],
+        "platforms": ["pc", "playstation", "xbox", "switch"],
         "release_year": 2022,
         "genre_tags": ["narrative", "adventure", "indie"],
         "time_tags": [60, 90],
@@ -1554,7 +1561,7 @@ SEED_GAMES = [
     {
         "game_id": "garden-in",
         "title": "Garden In!",
-        "platforms": ["pc", "handheld"],
+        "platforms": ["pc", "switch"],
         "release_year": 2023,
         "genre_tags": ["puzzle", "gardening", "relaxing", "indie"],
         "time_tags": [15, 30],
@@ -1575,7 +1582,7 @@ SEED_GAMES = [
     {
         "game_id": "growbot",
         "title": "Growbot",
-        "platforms": ["pc", "handheld"],
+        "platforms": ["pc", "switch"],
         "release_year": 2021,
         "genre_tags": ["adventure", "puzzle", "artistic", "indie"],
         "time_tags": [30, 60],
@@ -1596,7 +1603,7 @@ SEED_GAMES = [
     {
         "game_id": "behind-frame",
         "title": "Behind the Frame",
-        "platforms": ["pc", "console", "handheld"],
+        "platforms": ["pc", "playstation", "xbox", "switch"],
         "release_year": 2021,
         "genre_tags": ["puzzle", "narrative", "artistic", "indie"],
         "time_tags": [60],
@@ -1617,7 +1624,7 @@ SEED_GAMES = [
     {
         "game_id": "unpacking-2",
         "title": "Unpacking DLC",
-        "platforms": ["pc", "console", "handheld"],
+        "platforms": ["pc", "playstation", "xbox", "switch"],
         "release_year": 2024,
         "genre_tags": ["puzzle", "zen", "narrative", "indie"],
         "time_tags": [15, 30, 60],
@@ -1638,7 +1645,7 @@ SEED_GAMES = [
     {
         "game_id": "botany-manor",
         "title": "Botany Manor",
-        "platforms": ["pc", "console", "handheld"],
+        "platforms": ["pc", "playstation", "xbox", "switch"],
         "release_year": 2024,
         "genre_tags": ["puzzle", "exploration", "gardening", "indie"],
         "time_tags": [30, 60],
@@ -1659,7 +1666,7 @@ SEED_GAMES = [
     {
         "game_id": "japanese-countryside-seasons",
         "title": "Japanese Rural Life Adventure",
-        "platforms": ["pc", "console", "handheld"],
+        "platforms": ["pc", "playstation", "xbox", "switch"],
         "release_year": 2023,
         "genre_tags": ["life-sim", "simulation", "relaxing"],
         "time_tags": [30, 60],
@@ -1680,7 +1687,7 @@ SEED_GAMES = [
     {
         "game_id": "a-building-full-of-cats",
         "title": "A Building Full of Cats",
-        "platforms": ["pc", "handheld"],
+        "platforms": ["pc", "switch"],
         "release_year": 2022,
         "genre_tags": ["hidden-object", "cats", "pixel-art", "indie"],
         "time_tags": [15, 30],
@@ -1701,7 +1708,7 @@ SEED_GAMES = [
     {
         "game_id": "tracks-train-simulator",
         "title": "Tracks - Train Set Game",
-        "platforms": ["pc", "console"],
+        "platforms": ["pc", "playstation", "xbox"],
         "release_year": 2019,
         "genre_tags": ["simulation", "creative", "trains", "indie"],
         "time_tags": [15, 30, 60],
@@ -1743,7 +1750,7 @@ SEED_GAMES = [
     {
         "game_id": "townscaper",
         "title": "Townscaper",
-        "platforms": ["pc", "console", "handheld"],
+        "platforms": ["pc", "playstation", "xbox", "switch"],
         "release_year": 2021,
         "genre_tags": ["building", "creative", "relaxing", "indie"],
         "time_tags": [15, 30],
@@ -1764,7 +1771,7 @@ SEED_GAMES = [
     {
         "game_id": "cloud-gardens",
         "title": "Cloud Gardens",
-        "platforms": ["pc", "console", "handheld"],
+        "platforms": ["pc", "playstation", "xbox", "switch"],
         "release_year": 2021,
         "genre_tags": ["puzzle", "gardening", "post-apocalyptic", "indie"],
         "time_tags": [15, 30],
@@ -1806,7 +1813,7 @@ SEED_GAMES = [
     {
         "game_id": "europa",
         "title": "Europa",
-        "platforms": ["pc", "console"],
+        "platforms": ["pc", "playstation", "xbox"],
         "release_year": 2024,
         "genre_tags": ["adventure", "exploration", "artistic", "indie"],
         "time_tags": [30, 60],
@@ -1827,7 +1834,7 @@ SEED_GAMES = [
     {
         "game_id": "heaven-vault",
         "title": "Heaven's Vault",
-        "platforms": ["pc", "console", "handheld"],
+        "platforms": ["pc", "playstation", "xbox", "switch"],
         "release_year": 2019,
         "genre_tags": ["adventure", "narrative", "archaeology", "indie"],
         "time_tags": [60, 90],
@@ -1848,7 +1855,7 @@ SEED_GAMES = [
     {
         "game_id": "mutazione",
         "title": "Mutazione",
-        "platforms": ["pc", "console", "handheld"],
+        "platforms": ["pc", "playstation", "xbox", "switch"],
         "release_year": 2019,
         "genre_tags": ["adventure", "narrative", "gardening", "indie"],
         "time_tags": [30, 60],
@@ -1869,7 +1876,7 @@ SEED_GAMES = [
     {
         "game_id": "norco",
         "title": "NORCO",
-        "platforms": ["pc", "console"],
+        "platforms": ["pc", "playstation", "xbox"],
         "release_year": 2022,
         "genre_tags": ["adventure", "narrative", "mystery", "indie"],
         "time_tags": [60, 90],
@@ -1890,7 +1897,7 @@ SEED_GAMES = [
     {
         "game_id": "immortality",
         "title": "Immortality",
-        "platforms": ["pc", "console"],
+        "platforms": ["pc", "playstation", "xbox"],
         "release_year": 2022,
         "genre_tags": ["interactive-movie", "mystery", "narrative"],
         "time_tags": [60, 90],
@@ -1911,7 +1918,7 @@ SEED_GAMES = [
     {
         "game_id": "genesis-noir",
         "title": "Genesis Noir",
-        "platforms": ["pc", "console", "handheld"],
+        "platforms": ["pc", "playstation", "xbox", "switch"],
         "release_year": 2021,
         "genre_tags": ["adventure", "puzzle", "artistic", "indie"],
         "time_tags": [60, 90],
@@ -1932,7 +1939,7 @@ SEED_GAMES = [
     {
         "game_id": "umurangi-generation",
         "title": "Umurangi Generation",
-        "platforms": ["pc", "console", "handheld"],
+        "platforms": ["pc", "playstation", "xbox", "switch"],
         "release_year": 2020,
         "genre_tags": ["photography", "adventure", "indie"],
         "time_tags": [30, 60],
@@ -1953,7 +1960,7 @@ SEED_GAMES = [
     {
         "game_id": "pentiment",
         "title": "Pentiment",
-        "platforms": ["pc", "console"],
+        "platforms": ["pc", "xbox"],
         "release_year": 2022,
         "genre_tags": ["narrative", "mystery", "historical", "indie"],
         "time_tags": [60, 90],
@@ -1974,7 +1981,7 @@ SEED_GAMES = [
     {
         "game_id": "eliza",
         "title": "Eliza",
-        "platforms": ["pc", "console", "handheld"],
+        "platforms": ["pc", "playstation", "xbox", "switch"],
         "release_year": 2019,
         "genre_tags": ["visual-novel", "narrative", "indie"],
         "time_tags": [60, 90],
@@ -1995,7 +2002,7 @@ SEED_GAMES = [
     {
         "game_id": "necrobarista",
         "title": "Necrobarista",
-        "platforms": ["pc", "console", "handheld"],
+        "platforms": ["pc", "playstation", "xbox", "switch"],
         "release_year": 2020,
         "genre_tags": ["visual-novel", "narrative", "indie"],
         "time_tags": [30, 60],
@@ -2016,7 +2023,7 @@ SEED_GAMES = [
     {
         "game_id": "boyfriend-dungeon",
         "title": "Boyfriend Dungeon",
-        "platforms": ["pc", "console", "handheld"],
+        "platforms": ["pc", "playstation", "xbox", "switch"],
         "release_year": 2021,
         "genre_tags": ["dating-sim", "dungeon-crawler", "indie"],
         "time_tags": [30, 60],
@@ -2037,7 +2044,7 @@ SEED_GAMES = [
     {
         "game_id": "unpacking-zen",
         "title": "Unpacking Zen Mode",
-        "platforms": ["pc", "console", "handheld"],
+        "platforms": ["pc", "playstation", "xbox", "switch"],
         "release_year": 2021,
         "genre_tags": ["puzzle", "zen", "narrative", "indie"],
         "time_tags": [15, 30, 60],
@@ -2058,7 +2065,7 @@ SEED_GAMES = [
     {
         "game_id": "lonely-mountains-downhill",
         "title": "Lonely Mountains: Downhill",
-        "platforms": ["pc", "console", "handheld"],
+        "platforms": ["pc", "playstation", "xbox", "switch"],
         "release_year": 2019,
         "genre_tags": ["sports", "racing", "indie"],
         "time_tags": [15, 30],
@@ -2079,7 +2086,7 @@ SEED_GAMES = [
     {
         "game_id": "art-of-rally",
         "title": "Art of Rally",
-        "platforms": ["pc", "console", "handheld"],
+        "platforms": ["pc", "playstation", "xbox", "switch"],
         "release_year": 2020,
         "genre_tags": ["racing", "sports", "indie"],
         "time_tags": [15, 30, 60],
@@ -2100,7 +2107,7 @@ SEED_GAMES = [
     {
         "game_id": "short-hike",
         "title": "A Short Hike",
-        "platforms": ["pc", "console", "handheld"],
+        "platforms": ["pc", "playstation", "xbox", "switch"],
         "release_year": 2019,
         "genre_tags": ["adventure", "exploration", "indie", "relaxing"],
         "time_tags": [15, 30, 60],
@@ -2121,7 +2128,7 @@ SEED_GAMES = [
     {
         "game_id": "alba-wildlife-adventure",
         "title": "Alba: A Wildlife Adventure",
-        "platforms": ["pc", "console", "handheld"],
+        "platforms": ["pc", "playstation", "xbox", "switch"],
         "release_year": 2020,
         "genre_tags": ["adventure", "exploration", "nature", "indie"],
         "time_tags": [30, 60],
@@ -2142,7 +2149,7 @@ SEED_GAMES = [
     {
         "game_id": "lake",
         "title": "Lake",
-        "platforms": ["pc", "console"],
+        "platforms": ["pc", "playstation", "xbox"],
         "release_year": 2021,
         "genre_tags": ["adventure", "narrative", "life-sim", "indie"],
         "time_tags": [30, 60],
@@ -2163,7 +2170,7 @@ SEED_GAMES = [
     {
         "game_id": "after-party",
         "title": "Afterparty",
-        "platforms": ["pc", "console"],
+        "platforms": ["pc", "playstation", "xbox"],
         "release_year": 2019,
         "genre_tags": ["adventure", "narrative", "comedy", "indie"],
         "time_tags": [60, 90],
@@ -2205,7 +2212,7 @@ SEED_GAMES = [
     {
         "game_id": "art-sqool",
         "title": "Art Sqool",
-        "platforms": ["pc", "handheld"],
+        "platforms": ["pc", "switch"],
         "release_year": 2019,
         "genre_tags": ["creative", "art", "educational", "indie"],
         "time_tags": [15, 30],
@@ -2226,7 +2233,7 @@ SEED_GAMES = [
     {
         "game_id": "nainai-recipe",
         "title": "Nainai's Recipe",
-        "platforms": ["pc", "handheld"],
+        "platforms": ["pc", "switch"],
         "release_year": 2022,
         "genre_tags": ["cooking", "narrative", "family", "indie"],
         "time_tags": [30, 60],
@@ -2268,7 +2275,7 @@ SEED_GAMES = [
     {
         "game_id": "last-stop",
         "title": "Last Stop",
-        "platforms": ["pc", "console", "handheld"],
+        "platforms": ["pc", "playstation", "xbox", "switch"],
         "release_year": 2021,
         "genre_tags": ["adventure", "narrative", "supernatural", "indie"],
         "time_tags": [60, 90],
@@ -2289,7 +2296,7 @@ SEED_GAMES = [
     {
         "game_id": "summertime-madness",
         "title": "Summertime Madness",
-        "platforms": ["pc", "console"],
+        "platforms": ["pc", "playstation", "xbox"],
         "release_year": 2021,
         "genre_tags": ["puzzle", "adventure", "artistic", "indie"],
         "time_tags": [60, 90],
@@ -2310,7 +2317,7 @@ SEED_GAMES = [
     {
         "game_id": "eastshade",
         "title": "Eastshade",
-        "platforms": ["pc", "console"],
+        "platforms": ["pc", "playstation", "xbox"],
         "release_year": 2019,
         "genre_tags": ["adventure", "exploration", "painting", "indie"],
         "time_tags": [60, 90],
@@ -2352,7 +2359,7 @@ SEED_GAMES = [
     {
         "game_id": "wandersong",
         "title": "Wandersong",
-        "platforms": ["pc", "console", "handheld"],
+        "platforms": ["pc", "playstation", "xbox", "switch"],
         "release_year": 2018,
         "genre_tags": ["adventure", "musical", "platformer", "indie"],
         "time_tags": [30, 60],
@@ -2373,7 +2380,7 @@ SEED_GAMES = [
     {
         "game_id": "spirit-of-the-north",
         "title": "Spirit of the North",
-        "platforms": ["pc", "console", "handheld"],
+        "platforms": ["pc", "playstation", "xbox", "switch"],
         "release_year": 2020,
         "genre_tags": ["adventure", "exploration", "artistic", "indie"],
         "time_tags": [30, 60],
@@ -2394,7 +2401,7 @@ SEED_GAMES = [
     {
         "game_id": "abzu-2",
         "title": "ABZU: The Depths",
-        "platforms": ["pc", "console"],
+        "platforms": ["pc", "playstation", "xbox"],
         "release_year": 2016,
         "genre_tags": ["adventure", "exploration", "artistic", "indie"],
         "time_tags": [30, 60],
@@ -2415,7 +2422,7 @@ SEED_GAMES = [
     {
         "game_id": "rime",
         "title": "RiME",
-        "platforms": ["pc", "console", "handheld"],
+        "platforms": ["pc", "playstation", "xbox", "switch"],
         "release_year": 2017,
         "genre_tags": ["adventure", "puzzle", "artistic", "indie"],
         "time_tags": [60, 90],
@@ -2436,7 +2443,7 @@ SEED_GAMES = [
     {
         "game_id": "sayonara-wild-hearts",
         "title": "Sayonara Wild Hearts",
-        "platforms": ["pc", "console", "handheld"],
+        "platforms": ["pc", "playstation", "xbox", "switch"],
         "release_year": 2019,
         "genre_tags": ["rhythm", "action", "arcade", "indie"],
         "time_tags": [30, 60],
@@ -2457,7 +2464,7 @@ SEED_GAMES = [
     {
         "game_id": "bound",
         "title": "Bound",
-        "platforms": ["pc", "console"],
+        "platforms": ["pc", "playstation", "xbox"],
         "release_year": 2016,
         "genre_tags": ["platformer", "artistic", "narrative", "indie"],
         "time_tags": [30, 60],
@@ -2478,7 +2485,7 @@ SEED_GAMES = [
     {
         "game_id": "omno",
         "title": "Omno",
-        "platforms": ["pc", "console", "handheld"],
+        "platforms": ["pc", "playstation", "xbox", "switch"],
         "release_year": 2021,
         "genre_tags": ["adventure", "puzzle", "exploration", "indie"],
         "time_tags": [30, 60],
@@ -2499,7 +2506,7 @@ SEED_GAMES = [
     {
         "game_id": "arise-simple-story",
         "title": "Arise: A Simple Story",
-        "platforms": ["pc", "console"],
+        "platforms": ["pc", "playstation", "xbox"],
         "release_year": 2019,
         "genre_tags": ["adventure", "puzzle", "narrative", "indie"],
         "time_tags": [60, 90],
@@ -2520,7 +2527,7 @@ SEED_GAMES = [
     {
         "game_id": "sable",
         "title": "Sable",
-        "platforms": ["pc", "console"],
+        "platforms": ["pc", "playstation", "xbox"],
         "release_year": 2021,
         "genre_tags": ["adventure", "exploration", "open-world", "indie"],
         "time_tags": [60, 90],
@@ -2541,7 +2548,7 @@ SEED_GAMES = [
     {
         "game_id": "lost-ember",
         "title": "Lost Ember",
-        "platforms": ["pc", "console"],
+        "platforms": ["pc", "playstation", "xbox"],
         "release_year": 2019,
         "genre_tags": ["adventure", "exploration", "animals", "indie"],
         "time_tags": [30, 60],
@@ -2562,7 +2569,7 @@ SEED_GAMES = [
     {
         "game_id": "lost-winds",
         "title": "LostWinds",
-        "platforms": ["pc", "handheld"],
+        "platforms": ["pc", "switch"],
         "release_year": 2008,
         "genre_tags": ["platformer", "adventure", "puzzle", "indie"],
         "time_tags": [30, 60],
@@ -2583,7 +2590,7 @@ SEED_GAMES = [
     {
         "game_id": "the-artful-escape",
         "title": "The Artful Escape",
-        "platforms": ["pc", "console"],
+        "platforms": ["pc", "playstation", "xbox"],
         "release_year": 2021,
         "genre_tags": ["adventure", "musical", "narrative", "indie"],
         "time_tags": [60, 90],
@@ -2604,7 +2611,7 @@ SEED_GAMES = [
     {
         "game_id": "neverending-nightmares",
         "title": "Neverending Nightmares",
-        "platforms": ["pc", "console", "handheld"],
+        "platforms": ["pc", "playstation", "xbox", "switch"],
         "release_year": 2014,
         "genre_tags": ["horror", "psychological", "indie"],
         "time_tags": [30, 60],
@@ -2625,7 +2632,7 @@ SEED_GAMES = [
     {
         "game_id": "feather",
         "title": "Feather",
-        "platforms": ["pc", "console", "handheld"],
+        "platforms": ["pc", "playstation", "xbox", "switch"],
         "release_year": 2019,
         "genre_tags": ["exploration", "relaxing", "flying", "indie"],
         "time_tags": [15, 30],
@@ -2646,7 +2653,7 @@ SEED_GAMES = [
     {
         "game_id": "aer-memories-of-old",
         "title": "AER: Memories of Old",
-        "platforms": ["pc", "console", "handheld"],
+        "platforms": ["pc", "playstation", "xbox", "switch"],
         "release_year": 2017,
         "genre_tags": ["adventure", "exploration", "flying", "indie"],
         "time_tags": [30, 60],
@@ -2667,7 +2674,7 @@ SEED_GAMES = [
     {
         "game_id": "tasomachi",
         "title": "Tasomachi: Behind the Twilight",
-        "platforms": ["pc", "console"],
+        "platforms": ["pc", "playstation", "xbox"],
         "release_year": 2021,
         "genre_tags": ["exploration", "platformer", "artistic", "indie"],
         "time_tags": [30, 60],
@@ -2688,7 +2695,7 @@ SEED_GAMES = [
     {
         "game_id": "haven",
         "title": "Haven",
-        "platforms": ["pc", "console", "handheld"],
+        "platforms": ["pc", "playstation", "xbox", "switch"],
         "release_year": 2020,
         "genre_tags": ["rpg", "adventure", "romance", "indie"],
         "time_tags": [30, 60, 90],
@@ -2709,7 +2716,7 @@ SEED_GAMES = [
     {
         "game_id": "garden-paws",
         "title": "Garden Paws",
-        "platforms": ["pc", "handheld"],
+        "platforms": ["pc", "switch"],
         "release_year": 2018,
         "genre_tags": ["farming", "simulation", "animals", "indie"],
         "time_tags": [30, 60],
@@ -2730,7 +2737,7 @@ SEED_GAMES = [
     {
         "game_id": "sumire",
         "title": "Sumire",
-        "platforms": ["pc", "console", "handheld"],
+        "platforms": ["pc", "playstation", "xbox", "switch"],
         "release_year": 2021,
         "genre_tags": ["adventure", "narrative", "emotional", "indie"],
         "time_tags": [60, 90],
@@ -2751,7 +2758,7 @@ SEED_GAMES = [
     {
         "game_id": "where-cards-fall",
         "title": "Where Cards Fall",
-        "platforms": ["pc", "console", "handheld"],
+        "platforms": ["pc", "playstation", "xbox", "switch"],
         "release_year": 2019,
         "genre_tags": ["puzzle", "narrative", "indie"],
         "time_tags": [30, 60],
@@ -2772,7 +2779,7 @@ SEED_GAMES = [
     {
         "game_id": "the-pathless",
         "title": "The Pathless",
-        "platforms": ["pc", "console"],
+        "platforms": ["pc", "playstation", "xbox"],
         "release_year": 2020,
         "genre_tags": ["adventure", "action", "exploration", "indie"],
         "time_tags": [60, 90],
@@ -2793,7 +2800,7 @@ SEED_GAMES = [
     {
         "game_id": "hohokum",
         "title": "Hohokum",
-        "platforms": ["console"],
+        "platforms": ["playstation", "xbox"],
         "release_year": 2014,
         "genre_tags": ["adventure", "exploration", "artistic", "indie"],
         "time_tags": [30, 60],
@@ -2814,7 +2821,7 @@ SEED_GAMES = [
     {
         "game_id": "pikuniku",
         "title": "Pikuniku",
-        "platforms": ["pc", "console", "handheld"],
+        "platforms": ["pc", "playstation", "xbox", "switch"],
         "release_year": 2019,
         "genre_tags": ["adventure", "puzzle", "comedy", "indie"],
         "time_tags": [30, 60],
@@ -2835,7 +2842,7 @@ SEED_GAMES = [
     {
         "game_id": "old-mans-journey",
         "title": "Old Man's Journey",
-        "platforms": ["pc", "console", "handheld"],
+        "platforms": ["pc", "playstation", "xbox", "switch"],
         "release_year": 2017,
         "genre_tags": ["adventure", "puzzle", "narrative", "indie"],
         "time_tags": [30, 60],
@@ -2856,7 +2863,7 @@ SEED_GAMES = [
     {
         "game_id": "wattam",
         "title": "Wattam",
-        "platforms": ["pc", "console"],
+        "platforms": ["pc", "playstation", "xbox"],
         "release_year": 2019,
         "genre_tags": ["puzzle", "sandbox", "quirky", "indie"],
         "time_tags": [30, 60],
@@ -2877,7 +2884,7 @@ SEED_GAMES = [
     {
         "game_id": "niche",
         "title": "Niche",
-        "platforms": ["pc", "console", "handheld"],
+        "platforms": ["pc", "playstation", "xbox", "switch"],
         "release_year": 2017,
         "genre_tags": ["simulation", "strategy", "genetics", "indie"],
         "time_tags": [30, 60, 90],
@@ -2919,7 +2926,7 @@ SEED_GAMES = [
     {
         "game_id": "the-gardens-between",
         "title": "The Gardens Between",
-        "platforms": ["pc", "console", "handheld"],
+        "platforms": ["pc", "playstation", "xbox", "switch"],
         "release_year": 2018,
         "genre_tags": ["puzzle", "adventure", "narrative", "indie"],
         "time_tags": [15, 30, 60],
@@ -2940,7 +2947,7 @@ SEED_GAMES = [
     {
         "game_id": "night-in-the-woods",
         "title": "Night in the Woods",
-        "platforms": ["pc", "console", "handheld"],
+        "platforms": ["pc", "playstation", "xbox", "switch"],
         "release_year": 2017,
         "genre_tags": ["adventure", "narrative", "platformer", "indie"],
         "time_tags": [60, 90],
@@ -2961,7 +2968,7 @@ SEED_GAMES = [
     {
         "game_id": "oxenfree",
         "title": "Oxenfree",
-        "platforms": ["pc", "console", "handheld"],
+        "platforms": ["pc", "playstation", "xbox", "switch"],
         "release_year": 2016,
         "genre_tags": ["adventure", "narrative", "supernatural", "indie"],
         "time_tags": [60, 90],
@@ -2982,7 +2989,7 @@ SEED_GAMES = [
     {
         "game_id": "oxenfree-2",
         "title": "Oxenfree II: Lost Signals",
-        "platforms": ["pc", "console", "handheld"],
+        "platforms": ["pc", "playstation", "xbox", "switch"],
         "release_year": 2023,
         "genre_tags": ["adventure", "narrative", "supernatural", "indie"],
         "time_tags": [60, 90],
@@ -3003,7 +3010,7 @@ SEED_GAMES = [
     {
         "game_id": "heaven-dust-2",
         "title": "Heaven Dust 2",
-        "platforms": ["pc", "console", "handheld"],
+        "platforms": ["pc", "playstation", "xbox", "switch"],
         "release_year": 2022,
         "genre_tags": ["survival-horror", "puzzle", "indie"],
         "time_tags": [30, 60],
@@ -3024,7 +3031,7 @@ SEED_GAMES = [
     {
         "game_id": "we-are-obeah",
         "title": "We Are OFK",
-        "platforms": ["pc", "console"],
+        "platforms": ["pc", "playstation", "xbox"],
         "release_year": 2022,
         "genre_tags": ["narrative", "musical", "indie"],
         "time_tags": [60, 90],
@@ -3045,7 +3052,7 @@ SEED_GAMES = [
     {
         "game_id": "inmost",
         "title": "Inmost",
-        "platforms": ["pc", "console", "handheld"],
+        "platforms": ["pc", "playstation", "xbox", "switch"],
         "release_year": 2020,
         "genre_tags": ["platformer", "puzzle", "narrative", "indie"],
         "time_tags": [30, 60],
@@ -3066,7 +3073,7 @@ SEED_GAMES = [
     {
         "game_id": "little-misfortune",
         "title": "Little Misfortune",
-        "platforms": ["pc", "console", "handheld"],
+        "platforms": ["pc", "playstation", "xbox", "switch"],
         "release_year": 2019,
         "genre_tags": ["adventure", "narrative", "dark-comedy", "indie"],
         "time_tags": [30, 60],
@@ -3087,7 +3094,7 @@ SEED_GAMES = [
     {
         "game_id": "fran-bow",
         "title": "Fran Bow",
-        "platforms": ["pc", "handheld"],
+        "platforms": ["pc", "switch"],
         "release_year": 2015,
         "genre_tags": ["adventure", "horror", "puzzle", "indie"],
         "time_tags": [60, 90],
@@ -3108,7 +3115,7 @@ SEED_GAMES = [
     {
         "game_id": "creaks",
         "title": "Creaks",
-        "platforms": ["pc", "console", "handheld"],
+        "platforms": ["pc", "playstation", "xbox", "switch"],
         "release_year": 2020,
         "genre_tags": ["puzzle", "adventure", "artistic", "indie"],
         "time_tags": [30, 60],
@@ -3129,7 +3136,7 @@ SEED_GAMES = [
     {
         "game_id": "machinarium",
         "title": "Machinarium",
-        "platforms": ["pc", "console", "handheld"],
+        "platforms": ["pc", "playstation", "xbox", "switch"],
         "release_year": 2009,
         "genre_tags": ["adventure", "puzzle", "artistic", "indie"],
         "time_tags": [30, 60],
@@ -3150,7 +3157,7 @@ SEED_GAMES = [
     {
         "game_id": "botanicula",
         "title": "Botanicula",
-        "platforms": ["pc", "handheld"],
+        "platforms": ["pc", "switch"],
         "release_year": 2012,
         "genre_tags": ["adventure", "puzzle", "artistic", "indie"],
         "time_tags": [30, 60],
@@ -3171,7 +3178,7 @@ SEED_GAMES = [
     {
         "game_id": "samorost-3",
         "title": "Samorost 3",
-        "platforms": ["pc", "handheld"],
+        "platforms": ["pc", "switch"],
         "release_year": 2016,
         "genre_tags": ["adventure", "puzzle", "artistic", "indie"],
         "time_tags": [30, 60],
@@ -3192,7 +3199,7 @@ SEED_GAMES = [
     {
         "game_id": "chuchel",
         "title": "Chuchel",
-        "platforms": ["pc", "handheld"],
+        "platforms": ["pc", "switch"],
         "release_year": 2018,
         "genre_tags": ["adventure", "comedy", "puzzle", "indie"],
         "time_tags": [30, 60],
@@ -3213,7 +3220,7 @@ SEED_GAMES = [
     {
         "game_id": "pilgrims",
         "title": "Pilgrims",
-        "platforms": ["pc", "handheld"],
+        "platforms": ["pc", "switch"],
         "release_year": 2019,
         "genre_tags": ["adventure", "puzzle", "indie"],
         "time_tags": [30, 60],
@@ -3234,7 +3241,7 @@ SEED_GAMES = [
     {
         "game_id": "happy-game",
         "title": "Happy Game",
-        "platforms": ["pc", "console", "handheld"],
+        "platforms": ["pc", "playstation", "xbox", "switch"],
         "release_year": 2021,
         "genre_tags": ["puzzle", "horror", "surreal", "indie"],
         "time_tags": [30, 60],
@@ -3255,7 +3262,7 @@ SEED_GAMES = [
     {
         "game_id": "cocoon",
         "title": "Cocoon",
-        "platforms": ["pc", "console", "handheld"],
+        "platforms": ["pc", "playstation", "xbox", "switch"],
         "release_year": 2023,
         "genre_tags": ["puzzle", "adventure", "artistic", "indie"],
         "time_tags": [30, 60],
@@ -3276,7 +3283,7 @@ SEED_GAMES = [
     {
         "game_id": "limbo",
         "title": "Limbo",
-        "platforms": ["pc", "console", "handheld"],
+        "platforms": ["pc", "playstation", "xbox", "switch"],
         "release_year": 2010,
         "genre_tags": ["platformer", "puzzle", "artistic", "indie"],
         "time_tags": [30, 60],
@@ -3297,7 +3304,7 @@ SEED_GAMES = [
     {
         "game_id": "inside",
         "title": "Inside",
-        "platforms": ["pc", "console", "handheld"],
+        "platforms": ["pc", "playstation", "xbox", "switch"],
         "release_year": 2016,
         "genre_tags": ["platformer", "puzzle", "narrative", "indie"],
         "time_tags": [60, 90],
@@ -3318,7 +3325,7 @@ SEED_GAMES = [
     {
         "game_id": "the-last-campfire",
         "title": "The Last Campfire",
-        "platforms": ["pc", "console", "handheld"],
+        "platforms": ["pc", "playstation", "xbox", "switch"],
         "release_year": 2020,
         "genre_tags": ["adventure", "puzzle", "indie"],
         "time_tags": [30, 60],
@@ -3339,7 +3346,7 @@ SEED_GAMES = [
     {
         "game_id": "forgotton-anne",
         "title": "Forgotton Anne",
-        "platforms": ["pc", "console", "handheld"],
+        "platforms": ["pc", "playstation", "xbox", "switch"],
         "release_year": 2018,
         "genre_tags": ["adventure", "platformer", "narrative", "indie"],
         "time_tags": [60, 90],

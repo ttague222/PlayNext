@@ -4,8 +4,9 @@
     "title": "Stardew Valley",
     "platforms": [
       "pc",
-      "console",
-      "handheld"
+      "playstation",
+      "xbox",
+      "switch"
     ],
     "year": 2016,
     "genres": [
@@ -52,7 +53,7 @@
     "id": "animal-crossing-nh",
     "title": "Animal Crossing: New Horizons",
     "platforms": [
-      "handheld"
+      "switch"
     ],
     "year": 2020,
     "genres": [
@@ -94,8 +95,9 @@
     "title": "Unpacking",
     "platforms": [
       "pc",
-      "console",
-      "handheld"
+      "playstation",
+      "xbox",
+      "switch"
     ],
     "year": 2021,
     "genres": [
@@ -143,8 +145,9 @@
     "title": "A Short Hike",
     "platforms": [
       "pc",
-      "console",
-      "handheld"
+      "playstation",
+      "xbox",
+      "switch"
     ],
     "year": 2019,
     "genres": [
@@ -186,8 +189,9 @@
     "title": "Coffee Talk",
     "platforms": [
       "pc",
-      "console",
-      "handheld"
+      "playstation",
+      "xbox",
+      "switch"
     ],
     "year": 2020,
     "genres": [
@@ -234,8 +238,9 @@
     "title": "Spiritfarer",
     "platforms": [
       "pc",
-      "console",
-      "handheld"
+      "playstation",
+      "xbox",
+      "switch"
     ],
     "year": 2020,
     "genres": [
@@ -287,7 +292,8 @@
     "title": "PowerWash Simulator",
     "platforms": [
       "pc",
-      "console"
+      "playstation",
+      "xbox"
     ],
     "year": 2022,
     "genres": [
@@ -329,7 +335,7 @@
     "title": "Dorfromantik",
     "platforms": [
       "pc",
-      "handheld"
+      "switch"
     ],
     "year": 2022,
     "genres": [
@@ -370,8 +376,9 @@
     "title": "LEGO Builder's Journey",
     "platforms": [
       "pc",
-      "console",
-      "handheld"
+      "playstation",
+      "xbox",
+      "switch"
     ],
     "year": 2021,
     "genres": [
@@ -410,7 +417,7 @@
     "title": "Islanders",
     "platforms": [
       "pc",
-      "handheld"
+      "switch"
     ],
     "year": 2019,
     "genres": [
@@ -451,8 +458,9 @@
     "title": "The Gardens Between",
     "platforms": [
       "pc",
-      "console",
-      "handheld"
+      "playstation",
+      "xbox",
+      "switch"
     ],
     "year": 2018,
     "genres": [
@@ -495,8 +503,9 @@
     "title": "Gris",
     "platforms": [
       "pc",
-      "console",
-      "handheld"
+      "playstation",
+      "xbox",
+      "switch"
     ],
     "year": 2018,
     "genres": [
@@ -541,7 +550,7 @@
     "title": "Mini Metro",
     "platforms": [
       "pc",
-      "handheld"
+      "switch"
     ],
     "year": 2015,
     "genres": [
@@ -585,7 +594,8 @@
     "title": "Abzu",
     "platforms": [
       "pc",
-      "console"
+      "playstation",
+      "xbox"
     ],
     "year": 2016,
     "genres": [
@@ -629,8 +639,9 @@
     "title": "Tetris Effect: Connected",
     "platforms": [
       "pc",
-      "console",
-      "handheld"
+      "playstation",
+      "xbox",
+      "switch"
     ],
     "year": 2018,
     "genres": [
@@ -673,7 +684,8 @@
     "title": "Journey",
     "platforms": [
       "pc",
-      "console"
+      "playstation",
+      "xbox"
     ],
     "year": 2012,
     "genres": [
@@ -714,7 +726,8 @@
     "title": "Flower",
     "platforms": [
       "pc",
-      "console"
+      "playstation",
+      "xbox"
     ],
     "year": 2009,
     "genres": [
@@ -755,8 +768,9 @@
     "title": "Ori and the Blind Forest",
     "platforms": [
       "pc",
-      "console",
-      "handheld"
+      "playstation",
+      "xbox",
+      "switch"
     ],
     "year": 2015,
     "genres": [
@@ -800,8 +814,9 @@
     "title": "Ori and the Will of the Wisps",
     "platforms": [
       "pc",
-      "console",
-      "handheld"
+      "playstation",
+      "xbox",
+      "switch"
     ],
     "year": 2020,
     "genres": [
@@ -847,8 +862,9 @@
     "title": "Firewatch",
     "platforms": [
       "pc",
-      "console",
-      "handheld"
+      "playstation",
+      "xbox",
+      "switch"
     ],
     "year": 2016,
     "genres": [
@@ -891,8 +907,9 @@
     "title": "What Remains of Edith Finch",
     "platforms": [
       "pc",
-      "console",
-      "handheld"
+      "playstation",
+      "xbox",
+      "switch"
     ],
     "year": 2017,
     "genres": [
@@ -939,8 +956,9 @@
     "title": "Gone Home",
     "platforms": [
       "pc",
-      "console",
-      "handheld"
+      "playstation",
+      "xbox",
+      "switch"
     ],
     "year": 2013,
     "genres": [
@@ -971,10 +989,12 @@
     "description": "Return home to an empty house and uncover your family's secrets.",
     "fun_fact": "The game is set in 1995 and features authentic details from that era, including cassette tapes.",
     "store_links": {
-      "epic": "https://www.epicgames.com/store/ru/product/gone-home/home",
-      "steam": "http://store.steampowered.com/app/232430/",
-      "gog": "http://www.gog.com/game/gone_home",
-      "nintendo": "https://www.nintendo.com/games/detail/gone-home-switch"
+      "epic": "https://www.epicgames.com/store/en-US/product/gone-home/home",
+      "steam": "https://store.steampowered.com/app/232430/",
+      "gog": "https://www.gog.com/game/gone_home",
+      "nintendo": "https://www.nintendo.com/games/detail/gone-home-switch",
+      "playstation": "https://store.playstation.com/en-us/product/UP0341-CUSA05237_00-GONEHOMEPS4SCEA0",
+      "xbox": "https://www.xbox.com/en-US/games/store/gone-home-console-edition/BVFJ4J9P6BCS"
     }
   },
   {
@@ -982,7 +1002,8 @@
     "title": "Dear Esther",
     "platforms": [
       "pc",
-      "console"
+      "playstation",
+      "xbox"
     ],
     "year": 2012,
     "genres": [
@@ -1020,7 +1041,8 @@
     "title": "Everybody's Gone to the Rapture",
     "platforms": [
       "pc",
-      "console"
+      "playstation",
+      "xbox"
     ],
     "year": 2015,
     "genres": [
@@ -1060,8 +1082,9 @@
     "title": "Return of the Obra Dinn",
     "platforms": [
       "pc",
-      "console",
-      "handheld"
+      "playstation",
+      "xbox",
+      "switch"
     ],
     "year": 2018,
     "genres": [
@@ -1107,7 +1130,8 @@
     "title": "Outer Wilds",
     "platforms": [
       "pc",
-      "console"
+      "playstation",
+      "xbox"
     ],
     "year": 2019,
     "genres": [
@@ -1154,7 +1178,8 @@
     "title": "The Witness",
     "platforms": [
       "pc",
-      "console"
+      "playstation",
+      "xbox"
     ],
     "year": 2016,
     "genres": [
@@ -1197,7 +1222,7 @@
     "title": "Baba Is You",
     "platforms": [
       "pc",
-      "handheld"
+      "switch"
     ],
     "year": 2019,
     "genres": [
@@ -1235,7 +1260,7 @@
     "id": "monument-valley",
     "title": "Monument Valley",
     "platforms": [
-      "handheld"
+      "mobile"
     ],
     "year": 2014,
     "genres": [
@@ -1277,7 +1302,7 @@
     "id": "monument-valley-2",
     "title": "Monument Valley 2",
     "platforms": [
-      "handheld"
+      "mobile"
     ],
     "year": 2017,
     "genres": [
@@ -1320,7 +1345,7 @@
     "title": "Alto's Adventure",
     "platforms": [
       "pc",
-      "handheld"
+      "switch"
     ],
     "year": 2015,
     "genres": [
@@ -1362,7 +1387,7 @@
     "title": "Alto's Odyssey",
     "platforms": [
       "pc",
-      "handheld"
+      "switch"
     ],
     "year": 2018,
     "genres": [
@@ -1400,7 +1425,7 @@
     "id": "prune",
     "title": "Prune",
     "platforms": [
-      "handheld"
+      "mobile"
     ],
     "year": 2015,
     "genres": [
@@ -1439,7 +1464,7 @@
     "title": "Hidden Folks",
     "platforms": [
       "pc",
-      "handheld"
+      "switch"
     ],
     "year": 2017,
     "genres": [
@@ -1480,8 +1505,9 @@
     "title": "Gorogoa",
     "platforms": [
       "pc",
-      "console",
-      "handheld"
+      "playstation",
+      "xbox",
+      "switch"
     ],
     "year": 2017,
     "genres": [
@@ -1524,8 +1550,9 @@
     "title": "Donut County",
     "platforms": [
       "pc",
-      "console",
-      "handheld"
+      "playstation",
+      "xbox",
+      "switch"
     ],
     "year": 2018,
     "genres": [
@@ -1568,8 +1595,9 @@
     "title": "Untitled Goose Game",
     "platforms": [
       "pc",
-      "console",
-      "handheld"
+      "playstation",
+      "xbox",
+      "switch"
     ],
     "year": 2019,
     "genres": [
@@ -1613,7 +1641,8 @@
     "title": "Slime Rancher",
     "platforms": [
       "pc",
-      "console"
+      "playstation",
+      "xbox"
     ],
     "year": 2017,
     "genres": [
@@ -1660,7 +1689,8 @@
     "title": "Slime Rancher 2",
     "platforms": [
       "pc",
-      "console"
+      "playstation",
+      "xbox"
     ],
     "year": 2022,
     "genres": [
@@ -1704,7 +1734,8 @@
     "title": "House Flipper",
     "platforms": [
       "pc",
-      "console"
+      "playstation",
+      "xbox"
     ],
     "year": 2018,
     "genres": [
@@ -1746,8 +1777,9 @@
     "title": "Garden Story",
     "platforms": [
       "pc",
-      "console",
-      "handheld"
+      "playstation",
+      "xbox",
+      "switch"
     ],
     "year": 2021,
     "genres": [
@@ -1789,7 +1821,7 @@
     "title": "Littlewood",
     "platforms": [
       "pc",
-      "handheld"
+      "switch"
     ],
     "year": 2020,
     "genres": [
@@ -1830,8 +1862,9 @@
     "title": "My Time at Portia",
     "platforms": [
       "pc",
-      "console",
-      "handheld"
+      "playstation",
+      "xbox",
+      "switch"
     ],
     "year": 2019,
     "genres": [
@@ -1877,7 +1910,8 @@
     "title": "My Time at Sandrock",
     "platforms": [
       "pc",
-      "console"
+      "playstation",
+      "xbox"
     ],
     "year": 2023,
     "genres": [
@@ -1924,8 +1958,9 @@
     "title": "Ooblets",
     "platforms": [
       "pc",
-      "console",
-      "handheld"
+      "playstation",
+      "xbox",
+      "switch"
     ],
     "year": 2022,
     "genres": [
@@ -1966,8 +2001,9 @@
     "title": "Wylde Flowers",
     "platforms": [
       "pc",
-      "console",
-      "handheld"
+      "playstation",
+      "xbox",
+      "switch"
     ],
     "year": 2022,
     "genres": [
@@ -2007,7 +2043,8 @@
     "title": "Coral Island",
     "platforms": [
       "pc",
-      "console"
+      "playstation",
+      "xbox"
     ],
     "year": 2023,
     "genres": [
@@ -2087,8 +2124,9 @@
     "title": "Cattails",
     "platforms": [
       "pc",
-      "console",
-      "handheld"
+      "playstation",
+      "xbox",
+      "switch"
     ],
     "year": 2017,
     "genres": [
@@ -2127,8 +2165,9 @@
     "title": "Calico",
     "platforms": [
       "pc",
-      "console",
-      "handheld"
+      "playstation",
+      "xbox",
+      "switch"
     ],
     "year": 2020,
     "genres": [
@@ -2169,7 +2208,7 @@
     "title": "Bear and Breakfast",
     "platforms": [
       "pc",
-      "handheld"
+      "switch"
     ],
     "year": 2022,
     "genres": [
@@ -2211,7 +2250,7 @@
     "title": "Lemon Cake",
     "platforms": [
       "pc",
-      "handheld"
+      "switch"
     ],
     "year": 2021,
     "genres": [
@@ -2289,8 +2328,9 @@
     "title": "Disney Dreamlight Valley",
     "platforms": [
       "pc",
-      "console",
-      "handheld"
+      "playstation",
+      "xbox",
+      "switch"
     ],
     "year": 2022,
     "genres": [
@@ -2333,7 +2373,7 @@
     "title": "Palia",
     "platforms": [
       "pc",
-      "handheld"
+      "switch"
     ],
     "year": 2023,
     "genres": [
@@ -2376,8 +2416,9 @@
     "title": "Cozy Grove",
     "platforms": [
       "pc",
-      "console",
-      "handheld"
+      "playstation",
+      "xbox",
+      "switch"
     ],
     "year": 2021,
     "genres": [
@@ -2420,7 +2461,7 @@
     "title": "Fae Farm",
     "platforms": [
       "pc",
-      "handheld"
+      "switch"
     ],
     "year": 2023,
     "genres": [
@@ -2462,8 +2503,9 @@
     "title": "Spirittea",
     "platforms": [
       "pc",
-      "console",
-      "handheld"
+      "playstation",
+      "xbox",
+      "switch"
     ],
     "year": 2023,
     "genres": [
@@ -2502,7 +2544,8 @@
     "title": "Stray",
     "platforms": [
       "pc",
-      "console"
+      "playstation",
+      "xbox"
     ],
     "year": 2022,
     "genres": [
@@ -2548,8 +2591,9 @@
     "title": "TOEM",
     "platforms": [
       "pc",
-      "console",
-      "handheld"
+      "playstation",
+      "xbox",
+      "switch"
     ],
     "year": 2021,
     "genres": [
@@ -2591,8 +2635,9 @@
     "title": "Tunic",
     "platforms": [
       "pc",
-      "console",
-      "handheld"
+      "playstation",
+      "xbox",
+      "switch"
     ],
     "year": 2022,
     "genres": [
@@ -2639,8 +2684,9 @@
     "title": "Chicory: A Colorful Tale",
     "platforms": [
       "pc",
-      "console",
-      "handheld"
+      "playstation",
+      "xbox",
+      "switch"
     ],
     "year": 2021,
     "genres": [
@@ -2681,8 +2727,9 @@
     "title": "Webbed",
     "platforms": [
       "pc",
-      "console",
-      "handheld"
+      "playstation",
+      "xbox",
+      "switch"
     ],
     "year": 2021,
     "genres": [
@@ -2721,8 +2768,9 @@
     "title": "Tinykin",
     "platforms": [
       "pc",
-      "console",
-      "handheld"
+      "playstation",
+      "xbox",
+      "switch"
     ],
     "year": 2022,
     "genres": [
@@ -2762,8 +2810,9 @@
     "title": "A Little to the Left",
     "platforms": [
       "pc",
-      "console",
-      "handheld"
+      "playstation",
+      "xbox",
+      "switch"
     ],
     "year": 2022,
     "genres": [
@@ -2803,8 +2852,9 @@
     "title": "Assemble with Care",
     "platforms": [
       "pc",
-      "console",
-      "handheld"
+      "playstation",
+      "xbox",
+      "switch"
     ],
     "year": 2019,
     "genres": [
@@ -2847,8 +2897,9 @@
     "title": "Strange Horticulture",
     "platforms": [
       "pc",
-      "console",
-      "handheld"
+      "playstation",
+      "xbox",
+      "switch"
     ],
     "year": 2022,
     "genres": [
@@ -2889,7 +2940,8 @@
     "title": "Potion Craft",
     "platforms": [
       "pc",
-      "console"
+      "playstation",
+      "xbox"
     ],
     "year": 2022,
     "genres": [
@@ -2925,8 +2977,9 @@
     "title": "Venba",
     "platforms": [
       "pc",
-      "console",
-      "handheld"
+      "playstation",
+      "xbox",
+      "switch"
     ],
     "year": 2023,
     "genres": [
@@ -2969,7 +3022,8 @@
     "title": "Season: A Letter to the Future",
     "platforms": [
       "pc",
-      "console"
+      "playstation",
+      "xbox"
     ],
     "year": 2023,
     "genres": [
@@ -3009,8 +3063,9 @@
     "title": "I Was a Teenage Exocolonist",
     "platforms": [
       "pc",
-      "console",
-      "handheld"
+      "playstation",
+      "xbox",
+      "switch"
     ],
     "year": 2022,
     "genres": [
@@ -3052,8 +3107,9 @@
     "title": "Coffee Talk Episode 2",
     "platforms": [
       "pc",
-      "console",
-      "handheld"
+      "playstation",
+      "xbox",
+      "switch"
     ],
     "year": 2023,
     "genres": [
@@ -3095,8 +3151,9 @@
     "title": "Wayward Strand",
     "platforms": [
       "pc",
-      "console",
-      "handheld"
+      "playstation",
+      "xbox",
+      "switch"
     ],
     "year": 2022,
     "genres": [
@@ -3134,7 +3191,7 @@
     "title": "Garden In!",
     "platforms": [
       "pc",
-      "handheld"
+      "switch"
     ],
     "year": 2023,
     "genres": [
@@ -3174,7 +3231,7 @@
     "title": "Growbot",
     "platforms": [
       "pc",
-      "handheld"
+      "switch"
     ],
     "year": 2021,
     "genres": [
@@ -3214,8 +3271,9 @@
     "title": "Behind the Frame",
     "platforms": [
       "pc",
-      "console",
-      "handheld"
+      "playstation",
+      "xbox",
+      "switch"
     ],
     "year": 2021,
     "genres": [
@@ -3256,8 +3314,9 @@
     "title": "Unpacking DLC",
     "platforms": [
       "pc",
-      "console",
-      "handheld"
+      "playstation",
+      "xbox",
+      "switch"
     ],
     "year": 2024,
     "genres": [
@@ -3303,8 +3362,9 @@
     "title": "Botany Manor",
     "platforms": [
       "pc",
-      "console",
-      "handheld"
+      "playstation",
+      "xbox",
+      "switch"
     ],
     "year": 2024,
     "genres": [
@@ -3347,8 +3407,9 @@
     "title": "Japanese Rural Life Adventure",
     "platforms": [
       "pc",
-      "console",
-      "handheld"
+      "playstation",
+      "xbox",
+      "switch"
     ],
     "year": 2023,
     "genres": [
@@ -3386,7 +3447,7 @@
     "title": "A Building Full of Cats",
     "platforms": [
       "pc",
-      "handheld"
+      "switch"
     ],
     "year": 2022,
     "genres": [
@@ -3426,7 +3487,8 @@
     "title": "Tracks - Train Set Game",
     "platforms": [
       "pc",
-      "console"
+      "playstation",
+      "xbox"
     ],
     "year": 2019,
     "genres": [
@@ -3505,8 +3567,9 @@
     "title": "Townscaper",
     "platforms": [
       "pc",
-      "console",
-      "handheld"
+      "playstation",
+      "xbox",
+      "switch"
     ],
     "year": 2021,
     "genres": [
@@ -3547,8 +3610,9 @@
     "title": "Cloud Gardens",
     "platforms": [
       "pc",
-      "console",
-      "handheld"
+      "playstation",
+      "xbox",
+      "switch"
     ],
     "year": 2021,
     "genres": [
@@ -3627,7 +3691,8 @@
     "title": "Europa",
     "platforms": [
       "pc",
-      "console"
+      "playstation",
+      "xbox"
     ],
     "year": 2024,
     "genres": [
@@ -3667,8 +3732,9 @@
     "title": "Heaven's Vault",
     "platforms": [
       "pc",
-      "console",
-      "handheld"
+      "playstation",
+      "xbox",
+      "switch"
     ],
     "year": 2019,
     "genres": [
@@ -3710,8 +3776,9 @@
     "title": "Mutazione",
     "platforms": [
       "pc",
-      "console",
-      "handheld"
+      "playstation",
+      "xbox",
+      "switch"
     ],
     "year": 2019,
     "genres": [
@@ -3754,7 +3821,8 @@
     "title": "NORCO",
     "platforms": [
       "pc",
-      "console"
+      "playstation",
+      "xbox"
     ],
     "year": 2022,
     "genres": [
@@ -3795,7 +3863,8 @@
     "title": "Immortality",
     "platforms": [
       "pc",
-      "console"
+      "playstation",
+      "xbox"
     ],
     "year": 2022,
     "genres": [
@@ -3837,8 +3906,9 @@
     "title": "Genesis Noir",
     "platforms": [
       "pc",
-      "console",
-      "handheld"
+      "playstation",
+      "xbox",
+      "switch"
     ],
     "year": 2021,
     "genres": [
@@ -3881,8 +3951,9 @@
     "title": "Umurangi Generation",
     "platforms": [
       "pc",
-      "console",
-      "handheld"
+      "playstation",
+      "xbox",
+      "switch"
     ],
     "year": 2020,
     "genres": [
@@ -3920,7 +3991,7 @@
     "title": "Pentiment",
     "platforms": [
       "pc",
-      "console"
+      "xbox"
     ],
     "year": 2022,
     "genres": [
@@ -3962,8 +4033,9 @@
     "title": "Eliza",
     "platforms": [
       "pc",
-      "console",
-      "handheld"
+      "playstation",
+      "xbox",
+      "switch"
     ],
     "year": 2019,
     "genres": [
@@ -4003,8 +4075,9 @@
     "title": "Necrobarista",
     "platforms": [
       "pc",
-      "console",
-      "handheld"
+      "playstation",
+      "xbox",
+      "switch"
     ],
     "year": 2020,
     "genres": [
@@ -4044,8 +4117,9 @@
     "title": "Boyfriend Dungeon",
     "platforms": [
       "pc",
-      "console",
-      "handheld"
+      "playstation",
+      "xbox",
+      "switch"
     ],
     "year": 2021,
     "genres": [
@@ -4086,8 +4160,9 @@
     "title": "Unpacking Zen Mode",
     "platforms": [
       "pc",
-      "console",
-      "handheld"
+      "playstation",
+      "xbox",
+      "switch"
     ],
     "year": 2021,
     "genres": [
@@ -4133,8 +4208,9 @@
     "title": "Lonely Mountains: Downhill",
     "platforms": [
       "pc",
-      "console",
-      "handheld"
+      "playstation",
+      "xbox",
+      "switch"
     ],
     "year": 2019,
     "genres": [
@@ -4175,8 +4251,9 @@
     "title": "Art of Rally",
     "platforms": [
       "pc",
-      "console",
-      "handheld"
+      "playstation",
+      "xbox",
+      "switch"
     ],
     "year": 2020,
     "genres": [
@@ -4219,8 +4296,9 @@
     "title": "A Short Hike",
     "platforms": [
       "pc",
-      "console",
-      "handheld"
+      "playstation",
+      "xbox",
+      "switch"
     ],
     "year": 2019,
     "genres": [
@@ -4263,8 +4341,9 @@
     "title": "Alba: A Wildlife Adventure",
     "platforms": [
       "pc",
-      "console",
-      "handheld"
+      "playstation",
+      "xbox",
+      "switch"
     ],
     "year": 2020,
     "genres": [
@@ -4307,7 +4386,8 @@
     "title": "Lake",
     "platforms": [
       "pc",
-      "console"
+      "playstation",
+      "xbox"
     ],
     "year": 2021,
     "genres": [
@@ -4350,7 +4430,8 @@
     "title": "Afterparty",
     "platforms": [
       "pc",
-      "console"
+      "playstation",
+      "xbox"
     ],
     "year": 2019,
     "genres": [
@@ -4431,7 +4512,7 @@
     "title": "Art Sqool",
     "platforms": [
       "pc",
-      "handheld"
+      "switch"
     ],
     "year": 2019,
     "genres": [
@@ -4470,7 +4551,7 @@
     "title": "Nainai's Recipe",
     "platforms": [
       "pc",
-      "handheld"
+      "switch"
     ],
     "year": 2022,
     "genres": [
@@ -4541,8 +4622,9 @@
     "title": "Last Stop",
     "platforms": [
       "pc",
-      "console",
-      "handheld"
+      "playstation",
+      "xbox",
+      "switch"
     ],
     "year": 2021,
     "genres": [
@@ -4584,7 +4666,8 @@
     "title": "Summertime Madness",
     "platforms": [
       "pc",
-      "console"
+      "playstation",
+      "xbox"
     ],
     "year": 2021,
     "genres": [
@@ -4623,7 +4706,8 @@
     "title": "Eastshade",
     "platforms": [
       "pc",
-      "console"
+      "playstation",
+      "xbox"
     ],
     "year": 2019,
     "genres": [
@@ -4704,8 +4788,9 @@
     "title": "Wandersong",
     "platforms": [
       "pc",
-      "console",
-      "handheld"
+      "playstation",
+      "xbox",
+      "switch"
     ],
     "year": 2018,
     "genres": [
@@ -4748,8 +4833,9 @@
     "title": "Spirit of the North",
     "platforms": [
       "pc",
-      "console",
-      "handheld"
+      "playstation",
+      "xbox",
+      "switch"
     ],
     "year": 2020,
     "genres": [
@@ -4792,7 +4878,8 @@
     "title": "ABZU: The Depths",
     "platforms": [
       "pc",
-      "console"
+      "playstation",
+      "xbox"
     ],
     "year": 2016,
     "genres": [
@@ -4836,8 +4923,9 @@
     "title": "RiME",
     "platforms": [
       "pc",
-      "console",
-      "handheld"
+      "playstation",
+      "xbox",
+      "switch"
     ],
     "year": 2017,
     "genres": [
@@ -4882,8 +4970,9 @@
     "title": "Sayonara Wild Hearts",
     "platforms": [
       "pc",
-      "console",
-      "handheld"
+      "playstation",
+      "xbox",
+      "switch"
     ],
     "year": 2019,
     "genres": [
@@ -4928,7 +5017,8 @@
     "title": "Bound",
     "platforms": [
       "pc",
-      "console"
+      "playstation",
+      "xbox"
     ],
     "year": 2016,
     "genres": [
@@ -4967,8 +5057,9 @@
     "title": "Omno",
     "platforms": [
       "pc",
-      "console",
-      "handheld"
+      "playstation",
+      "xbox",
+      "switch"
     ],
     "year": 2021,
     "genres": [
@@ -5009,7 +5100,8 @@
     "title": "Arise: A Simple Story",
     "platforms": [
       "pc",
-      "console"
+      "playstation",
+      "xbox"
     ],
     "year": 2019,
     "genres": [
@@ -5054,7 +5146,8 @@
     "title": "Sable",
     "platforms": [
       "pc",
-      "console"
+      "playstation",
+      "xbox"
     ],
     "year": 2021,
     "genres": [
@@ -5096,7 +5189,8 @@
     "title": "Lost Ember",
     "platforms": [
       "pc",
-      "console"
+      "playstation",
+      "xbox"
     ],
     "year": 2019,
     "genres": [
@@ -5138,7 +5232,7 @@
     "title": "LostWinds",
     "platforms": [
       "pc",
-      "handheld"
+      "switch"
     ],
     "year": 2008,
     "genres": [
@@ -5178,7 +5272,8 @@
     "title": "The Artful Escape",
     "platforms": [
       "pc",
-      "console"
+      "playstation",
+      "xbox"
     ],
     "year": 2021,
     "genres": [
@@ -5221,8 +5316,9 @@
     "title": "Neverending Nightmares",
     "platforms": [
       "pc",
-      "console",
-      "handheld"
+      "playstation",
+      "xbox",
+      "switch"
     ],
     "year": 2014,
     "genres": [
@@ -5266,8 +5362,9 @@
     "title": "Feather",
     "platforms": [
       "pc",
-      "console",
-      "handheld"
+      "playstation",
+      "xbox",
+      "switch"
     ],
     "year": 2019,
     "genres": [
@@ -5310,8 +5407,9 @@
     "title": "AER: Memories of Old",
     "platforms": [
       "pc",
-      "console",
-      "handheld"
+      "playstation",
+      "xbox",
+      "switch"
     ],
     "year": 2017,
     "genres": [
@@ -5355,7 +5453,8 @@
     "title": "Tasomachi: Behind the Twilight",
     "platforms": [
       "pc",
-      "console"
+      "playstation",
+      "xbox"
     ],
     "year": 2021,
     "genres": [
@@ -5394,8 +5493,9 @@
     "title": "Haven",
     "platforms": [
       "pc",
-      "console",
-      "handheld"
+      "playstation",
+      "xbox",
+      "switch"
     ],
     "year": 2020,
     "genres": [
@@ -5437,7 +5537,7 @@
     "title": "Garden Paws",
     "platforms": [
       "pc",
-      "handheld"
+      "switch"
     ],
     "year": 2018,
     "genres": [
@@ -5477,8 +5577,9 @@
     "title": "Sumire",
     "platforms": [
       "pc",
-      "console",
-      "handheld"
+      "playstation",
+      "xbox",
+      "switch"
     ],
     "year": 2021,
     "genres": [
@@ -5517,8 +5618,9 @@
     "title": "Where Cards Fall",
     "platforms": [
       "pc",
-      "console",
-      "handheld"
+      "playstation",
+      "xbox",
+      "switch"
     ],
     "year": 2019,
     "genres": [
@@ -5558,7 +5660,8 @@
     "title": "The Pathless",
     "platforms": [
       "pc",
-      "console"
+      "playstation",
+      "xbox"
     ],
     "year": 2020,
     "genres": [
@@ -5598,7 +5701,8 @@
     "id": "hohokum",
     "title": "Hohokum",
     "platforms": [
-      "console"
+      "playstation",
+      "xbox"
     ],
     "year": 2014,
     "genres": [
@@ -5638,8 +5742,9 @@
     "title": "Pikuniku",
     "platforms": [
       "pc",
-      "console",
-      "handheld"
+      "playstation",
+      "xbox",
+      "switch"
     ],
     "year": 2019,
     "genres": [
@@ -5683,8 +5788,9 @@
     "title": "Old Man's Journey",
     "platforms": [
       "pc",
-      "console",
-      "handheld"
+      "playstation",
+      "xbox",
+      "switch"
     ],
     "year": 2017,
     "genres": [
@@ -5727,7 +5833,8 @@
     "title": "Wattam",
     "platforms": [
       "pc",
-      "console"
+      "playstation",
+      "xbox"
     ],
     "year": 2019,
     "genres": [
@@ -5769,8 +5876,9 @@
     "title": "Niche",
     "platforms": [
       "pc",
-      "console",
-      "handheld"
+      "playstation",
+      "xbox",
+      "switch"
     ],
     "year": 2017,
     "genres": [
@@ -5845,8 +5953,9 @@
     "title": "The Gardens Between",
     "platforms": [
       "pc",
-      "console",
-      "handheld"
+      "playstation",
+      "xbox",
+      "switch"
     ],
     "year": 2018,
     "genres": [
@@ -5889,8 +5998,9 @@
     "title": "Night in the Woods",
     "platforms": [
       "pc",
-      "console",
-      "handheld"
+      "playstation",
+      "xbox",
+      "switch"
     ],
     "year": 2017,
     "genres": [
@@ -5934,8 +6044,9 @@
     "title": "Oxenfree",
     "platforms": [
       "pc",
-      "console",
-      "handheld"
+      "playstation",
+      "xbox",
+      "switch"
     ],
     "year": 2016,
     "genres": [
@@ -5979,8 +6090,9 @@
     "title": "Oxenfree II: Lost Signals",
     "platforms": [
       "pc",
-      "console",
-      "handheld"
+      "playstation",
+      "xbox",
+      "switch"
     ],
     "year": 2023,
     "genres": [
@@ -6020,8 +6132,9 @@
     "title": "Heaven Dust 2",
     "platforms": [
       "pc",
-      "console",
-      "handheld"
+      "playstation",
+      "xbox",
+      "switch"
     ],
     "year": 2022,
     "genres": [
@@ -6059,7 +6172,8 @@
     "title": "We Are OFK",
     "platforms": [
       "pc",
-      "console"
+      "playstation",
+      "xbox"
     ],
     "year": 2022,
     "genres": [
@@ -6100,8 +6214,9 @@
     "title": "Inmost",
     "platforms": [
       "pc",
-      "console",
-      "handheld"
+      "playstation",
+      "xbox",
+      "switch"
     ],
     "year": 2020,
     "genres": [
@@ -6146,8 +6261,9 @@
     "title": "Little Misfortune",
     "platforms": [
       "pc",
-      "console",
-      "handheld"
+      "playstation",
+      "xbox",
+      "switch"
     ],
     "year": 2019,
     "genres": [
@@ -6193,7 +6309,7 @@
     "title": "Fran Bow",
     "platforms": [
       "pc",
-      "handheld"
+      "switch"
     ],
     "year": 2015,
     "genres": [
@@ -6238,8 +6354,9 @@
     "title": "Creaks",
     "platforms": [
       "pc",
-      "console",
-      "handheld"
+      "playstation",
+      "xbox",
+      "switch"
     ],
     "year": 2020,
     "genres": [
@@ -6282,8 +6399,9 @@
     "title": "Machinarium",
     "platforms": [
       "pc",
-      "console",
-      "handheld"
+      "playstation",
+      "xbox",
+      "switch"
     ],
     "year": 2009,
     "genres": [
@@ -6326,7 +6444,7 @@
     "title": "Botanicula",
     "platforms": [
       "pc",
-      "handheld"
+      "switch"
     ],
     "year": 2012,
     "genres": [
@@ -6367,7 +6485,7 @@
     "title": "Samorost 3",
     "platforms": [
       "pc",
-      "handheld"
+      "switch"
     ],
     "year": 2016,
     "genres": [
@@ -6408,7 +6526,7 @@
     "title": "Chuchel",
     "platforms": [
       "pc",
-      "handheld"
+      "switch"
     ],
     "year": 2018,
     "genres": [
@@ -6449,7 +6567,7 @@
     "title": "Pilgrims",
     "platforms": [
       "pc",
-      "handheld"
+      "switch"
     ],
     "year": 2019,
     "genres": [
@@ -6489,8 +6607,9 @@
     "title": "Happy Game",
     "platforms": [
       "pc",
-      "console",
-      "handheld"
+      "playstation",
+      "xbox",
+      "switch"
     ],
     "year": 2021,
     "genres": [
@@ -6535,8 +6654,9 @@
     "title": "Cocoon",
     "platforms": [
       "pc",
-      "console",
-      "handheld"
+      "playstation",
+      "xbox",
+      "switch"
     ],
     "year": 2023,
     "genres": [
@@ -6578,8 +6698,9 @@
     "title": "Limbo",
     "platforms": [
       "pc",
-      "console",
-      "handheld"
+      "playstation",
+      "xbox",
+      "switch"
     ],
     "year": 2010,
     "genres": [
@@ -6623,8 +6744,9 @@
     "title": "Inside",
     "platforms": [
       "pc",
-      "console",
-      "handheld"
+      "playstation",
+      "xbox",
+      "switch"
     ],
     "year": 2016,
     "genres": [
@@ -6669,8 +6791,9 @@
     "title": "The Last Campfire",
     "platforms": [
       "pc",
-      "console",
-      "handheld"
+      "playstation",
+      "xbox",
+      "switch"
     ],
     "year": 2020,
     "genres": [
@@ -6711,8 +6834,9 @@
     "title": "Forgotton Anne",
     "platforms": [
       "pc",
-      "console",
-      "handheld"
+      "playstation",
+      "xbox",
+      "switch"
     ],
     "year": 2018,
     "genres": [

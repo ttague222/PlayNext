@@ -4,8 +4,9 @@
     "title": "Civilization VI",
     "platforms": [
       "pc",
-      "console",
-      "handheld"
+      "playstation",
+      "xbox",
+      "switch"
     ],
     "year": 2016,
     "genres": [
@@ -94,7 +95,8 @@
     "title": "Crusader Kings III",
     "platforms": [
       "pc",
-      "console"
+      "playstation",
+      "xbox"
     ],
     "year": 2020,
     "genres": [
@@ -177,7 +179,8 @@
     "title": "Stellaris",
     "platforms": [
       "pc",
-      "console"
+      "playstation",
+      "xbox"
     ],
     "year": 2016,
     "genres": [
@@ -296,7 +299,7 @@
     "title": "Age of Empires IV",
     "platforms": [
       "pc",
-      "console"
+      "xbox"
     ],
     "year": 2021,
     "genres": [
@@ -341,7 +344,8 @@
     "title": "Age of Mythology: Retold",
     "platforms": [
       "pc",
-      "console"
+      "playstation",
+      "xbox"
     ],
     "year": 2024,
     "genres": [
@@ -423,7 +427,8 @@
     "title": "Company of Heroes 3",
     "platforms": [
       "pc",
-      "console"
+      "playstation",
+      "xbox"
     ],
     "year": 2023,
     "genres": [
@@ -544,8 +549,9 @@
     "title": "Frostpunk",
     "platforms": [
       "pc",
-      "console",
-      "handheld"
+      "playstation",
+      "xbox",
+      "switch"
     ],
     "year": 2018,
     "genres": [
@@ -587,7 +593,8 @@
     "title": "Cities: Skylines II",
     "platforms": [
       "pc",
-      "console"
+      "playstation",
+      "xbox"
     ],
     "year": 2023,
     "genres": [
@@ -626,7 +633,8 @@
     "title": "Cities: Skylines",
     "platforms": [
       "pc",
-      "console"
+      "playstation",
+      "xbox"
     ],
     "year": 2015,
     "genres": [
@@ -672,7 +680,8 @@
     "title": "Planet Coaster 2",
     "platforms": [
       "pc",
-      "console"
+      "playstation",
+      "xbox"
     ],
     "year": 2024,
     "genres": [
@@ -747,7 +756,8 @@
     "title": "Jurassic World Evolution 2",
     "platforms": [
       "pc",
-      "console"
+      "playstation",
+      "xbox"
     ],
     "year": 2021,
     "genres": [
@@ -788,8 +798,9 @@
     "title": "Two Point Campus",
     "platforms": [
       "pc",
-      "console",
-      "handheld"
+      "playstation",
+      "xbox",
+      "switch"
     ],
     "year": 2022,
     "genres": [
@@ -835,8 +846,9 @@
     "title": "Two Point Hospital",
     "platforms": [
       "pc",
-      "console",
-      "handheld"
+      "playstation",
+      "xbox",
+      "switch"
     ],
     "year": 2018,
     "genres": [
@@ -883,7 +895,8 @@
     "title": "Prison Architect 2",
     "platforms": [
       "pc",
-      "console"
+      "playstation",
+      "xbox"
     ],
     "year": 2024,
     "genres": [
@@ -926,7 +939,8 @@
     "title": "RimWorld",
     "platforms": [
       "pc",
-      "console"
+      "playstation",
+      "xbox"
     ],
     "year": 2018,
     "genres": [
@@ -1040,8 +1054,9 @@
     "title": "Factorio",
     "platforms": [
       "pc",
-      "console",
-      "handheld"
+      "playstation",
+      "xbox",
+      "switch"
     ],
     "year": 2020,
     "genres": [
@@ -1197,7 +1212,7 @@
     "title": "Mindustry",
     "platforms": [
       "pc",
-      "handheld"
+      "switch"
     ],
     "year": 2019,
     "genres": [
@@ -1238,7 +1253,8 @@
     "title": "Kerbal Space Program",
     "platforms": [
       "pc",
-      "console"
+      "playstation",
+      "xbox"
     ],
     "year": 2015,
     "genres": [
@@ -1320,7 +1336,8 @@
     "title": "Space Engineers",
     "platforms": [
       "pc",
-      "console"
+      "playstation",
+      "xbox"
     ],
     "year": 2019,
     "genres": [
@@ -1398,7 +1415,8 @@
     "title": "Teardown",
     "platforms": [
       "pc",
-      "console"
+      "playstation",
+      "xbox"
     ],
     "year": 2022,
     "genres": [
@@ -1437,7 +1455,8 @@
     "title": "Besiege",
     "platforms": [
       "pc",
-      "console"
+      "playstation",
+      "xbox"
     ],
     "year": 2020,
     "genres": [
@@ -1477,7 +1496,8 @@
     "title": "Trailmakers",
     "platforms": [
       "pc",
-      "console"
+      "playstation",
+      "xbox"
     ],
     "year": 2019,
     "genres": [
@@ -1557,8 +1577,9 @@
     "title": "Poly Bridge 3",
     "platforms": [
       "pc",
-      "console",
-      "handheld"
+      "playstation",
+      "xbox",
+      "switch"
     ],
     "year": 2023,
     "genres": [
@@ -1597,8 +1618,9 @@
     "title": "Opus Magnum",
     "platforms": [
       "pc",
-      "console",
-      "handheld"
+      "playstation",
+      "xbox",
+      "switch"
     ],
     "year": 2017,
     "genres": [
@@ -1637,7 +1659,8 @@
     "title": "Infinifactory",
     "platforms": [
       "pc",
-      "console"
+      "playstation",
+      "xbox"
     ],
     "year": 2015,
     "genres": [
@@ -1755,8 +1778,9 @@
     "title": "Human Resource Machine",
     "platforms": [
       "pc",
-      "console",
-      "handheld"
+      "playstation",
+      "xbox",
+      "switch"
     ],
     "year": 2015,
     "genres": [
@@ -1797,8 +1821,9 @@
     "title": "7 Billion Humans",
     "platforms": [
       "pc",
-      "console",
-      "handheld"
+      "playstation",
+      "xbox",
+      "switch"
     ],
     "year": 2018,
     "genres": [
@@ -1840,7 +1865,7 @@
     "title": "SpaceChem",
     "platforms": [
       "pc",
-      "handheld"
+      "switch"
     ],
     "year": 2011,
     "genres": [
@@ -1879,7 +1904,8 @@
     "title": "The Talos Principle 2",
     "platforms": [
       "pc",
-      "console"
+      "playstation",
+      "xbox"
     ],
     "year": 2023,
     "genres": [
@@ -1922,8 +1948,9 @@
     "title": "The Talos Principle",
     "platforms": [
       "pc",
-      "console",
-      "handheld"
+      "playstation",
+      "xbox",
+      "switch"
     ],
     "year": 2014,
     "genres": [
@@ -2003,8 +2030,9 @@
     "title": "Superliminal",
     "platforms": [
       "pc",
-      "console",
-      "handheld"
+      "playstation",
+      "xbox",
+      "switch"
     ],
     "year": 2019,
     "genres": [
@@ -2047,7 +2075,8 @@
     "title": "Maquette",
     "platforms": [
       "pc",
-      "console"
+      "playstation",
+      "xbox"
     ],
     "year": 2021,
     "genres": [
@@ -2087,7 +2116,8 @@
     "title": "Viewfinder",
     "platforms": [
       "pc",
-      "console"
+      "playstation",
+      "xbox"
     ],
     "year": 2023,
     "genres": [
@@ -2126,8 +2156,9 @@
     "title": "Patrick's Parabox",
     "platforms": [
       "pc",
-      "console",
-      "handheld"
+      "playstation",
+      "xbox",
+      "switch"
     ],
     "year": 2022,
     "genres": [
@@ -2202,8 +2233,9 @@
     "title": "The Case of the Golden Idol",
     "platforms": [
       "pc",
-      "console",
-      "handheld"
+      "playstation",
+      "xbox",
+      "switch"
     ],
     "year": 2022,
     "genres": [
@@ -2242,8 +2274,9 @@
     "title": "Chants of Sennaar",
     "platforms": [
       "pc",
-      "console",
-      "handheld"
+      "playstation",
+      "xbox",
+      "switch"
     ],
     "year": 2023,
     "genres": [
@@ -2282,8 +2315,9 @@
     "title": "Return of the Obra Dinn",
     "platforms": [
       "pc",
-      "console",
-      "handheld"
+      "playstation",
+      "xbox",
+      "switch"
     ],
     "year": 2018,
     "genres": [
@@ -2325,8 +2359,9 @@
     "title": "Disco Elysium",
     "platforms": [
       "pc",
-      "console",
-      "handheld"
+      "playstation",
+      "xbox",
+      "switch"
     ],
     "year": 2019,
     "genres": [
@@ -2368,7 +2403,8 @@
     "title": "Baldur's Gate 3",
     "platforms": [
       "pc",
-      "console"
+      "playstation",
+      "xbox"
     ],
     "year": 2023,
     "genres": [
@@ -2409,8 +2445,9 @@
     "title": "Divinity: Original Sin 2",
     "platforms": [
       "pc",
-      "console",
-      "handheld"
+      "playstation",
+      "xbox",
+      "switch"
     ],
     "year": 2017,
     "genres": [
@@ -2451,7 +2488,8 @@
     "title": "Pillars of Eternity II",
     "platforms": [
       "pc",
-      "console"
+      "playstation",
+      "xbox"
     ],
     "year": 2018,
     "genres": [
@@ -2491,7 +2529,8 @@
     "title": "Pathfinder: Wrath of the Righteous",
     "platforms": [
       "pc",
-      "console"
+      "playstation",
+      "xbox"
     ],
     "year": 2021,
     "genres": [
@@ -2532,7 +2571,8 @@
     "title": "Wasteland 3",
     "platforms": [
       "pc",
-      "console"
+      "playstation",
+      "xbox"
     ],
     "year": 2020,
     "genres": [
@@ -2577,7 +2617,8 @@
     "title": "Solasta: Crown of the Magister",
     "platforms": [
       "pc",
-      "console"
+      "playstation",
+      "xbox"
     ],
     "year": 2021,
     "genres": [
@@ -2657,8 +2698,9 @@
     "title": "Persona 5 Royal",
     "platforms": [
       "pc",
-      "console",
-      "handheld"
+      "playstation",
+      "xbox",
+      "switch"
     ],
     "year": 2020,
     "genres": [
@@ -2702,8 +2744,9 @@
     "title": "Persona 4 Golden",
     "platforms": [
       "pc",
-      "console",
-      "handheld"
+      "playstation",
+      "xbox",
+      "switch"
     ],
     "year": 2020,
     "genres": [
@@ -2748,7 +2791,8 @@
     "title": "Persona 3 Reload",
     "platforms": [
       "pc",
-      "console"
+      "playstation",
+      "xbox"
     ],
     "year": 2024,
     "genres": [
@@ -2791,8 +2835,9 @@
     "title": "Shin Megami Tensei V: Vengeance",
     "platforms": [
       "pc",
-      "console",
-      "handheld"
+      "playstation",
+      "xbox",
+      "switch"
     ],
     "year": 2024,
     "genres": [
@@ -2832,8 +2877,9 @@
     "title": "Dragon Quest XI S",
     "platforms": [
       "pc",
-      "console",
-      "handheld"
+      "playstation",
+      "xbox",
+      "switch"
     ],
     "year": 2019,
     "genres": [
@@ -2874,7 +2920,8 @@
     "title": "Yakuza: Like a Dragon",
     "platforms": [
       "pc",
-      "console"
+      "playstation",
+      "xbox"
     ],
     "year": 2020,
     "genres": [
@@ -2919,7 +2966,8 @@
     "title": "Like a Dragon: Infinite Wealth",
     "platforms": [
       "pc",
-      "console"
+      "playstation",
+      "xbox"
     ],
     "year": 2024,
     "genres": [
@@ -2958,7 +3006,8 @@
     "id": "final-fantasy-7-rebirth",
     "title": "Final Fantasy VII Rebirth",
     "platforms": [
-      "console"
+      "playstation",
+      "xbox"
     ],
     "year": 2024,
     "genres": [
@@ -2998,7 +3047,8 @@
     "title": "Final Fantasy XVI",
     "platforms": [
       "pc",
-      "console"
+      "playstation",
+      "xbox"
     ],
     "year": 2023,
     "genres": [
@@ -3038,7 +3088,8 @@
     "title": "Tales of Arise",
     "platforms": [
       "pc",
-      "console"
+      "playstation",
+      "xbox"
     ],
     "year": 2021,
     "genres": [
@@ -3080,8 +3131,9 @@
     "title": "Ni no Kuni II",
     "platforms": [
       "pc",
-      "console",
-      "handheld"
+      "playstation",
+      "xbox",
+      "switch"
     ],
     "year": 2018,
     "genres": [
@@ -3122,7 +3174,7 @@
     "id": "xenoblade-3",
     "title": "Xenoblade Chronicles 3",
     "platforms": [
-      "handheld"
+      "switch"
     ],
     "year": 2022,
     "genres": [
@@ -3160,7 +3212,7 @@
     "id": "fire-emblem-three-houses",
     "title": "Fire Emblem: Three Houses",
     "platforms": [
-      "handheld"
+      "switch"
     ],
     "year": 2019,
     "genres": [
@@ -3200,8 +3252,9 @@
     "title": "Monster Hunter Rise",
     "platforms": [
       "pc",
-      "console",
-      "handheld"
+      "playstation",
+      "xbox",
+      "switch"
     ],
     "year": 2021,
     "genres": [
@@ -3245,7 +3298,8 @@
     "title": "Monster Hunter: World",
     "platforms": [
       "pc",
-      "console"
+      "playstation",
+      "xbox"
     ],
     "year": 2018,
     "genres": [
@@ -3287,8 +3341,9 @@
     "title": "God Eater 3",
     "platforms": [
       "pc",
-      "console",
-      "handheld"
+      "playstation",
+      "xbox",
+      "switch"
     ],
     "year": 2019,
     "genres": [
@@ -3329,7 +3384,8 @@
     "title": "Toukiden 2",
     "platforms": [
       "pc",
-      "console"
+      "playstation",
+      "xbox"
     ],
     "year": 2017,
     "genres": [
@@ -3370,8 +3426,9 @@
     "title": "Dauntless",
     "platforms": [
       "pc",
-      "console",
-      "handheld"
+      "playstation",
+      "xbox",
+      "switch"
     ],
     "year": 2019,
     "genres": [
@@ -3414,7 +3471,8 @@
     "title": "Wild Hearts",
     "platforms": [
       "pc",
-      "console"
+      "playstation",
+      "xbox"
     ],
     "year": 2023,
     "genres": [
@@ -3456,8 +3514,9 @@
     "title": "NieR: Automata",
     "platforms": [
       "pc",
-      "console",
-      "handheld"
+      "playstation",
+      "xbox",
+      "switch"
     ],
     "year": 2017,
     "genres": [
@@ -3501,7 +3560,8 @@
     "title": "NieR Replicant ver.1.22",
     "platforms": [
       "pc",
-      "console"
+      "playstation",
+      "xbox"
     ],
     "year": 2021,
     "genres": [
@@ -3543,7 +3603,8 @@
     "title": "Death Stranding Director's Cut",
     "platforms": [
       "pc",
-      "console"
+      "playstation",
+      "xbox"
     ],
     "year": 2021,
     "genres": [
@@ -3584,7 +3645,8 @@
     "title": "Control",
     "platforms": [
       "pc",
-      "console"
+      "playstation",
+      "xbox"
     ],
     "year": 2019,
     "genres": [
@@ -3627,7 +3689,8 @@
     "title": "Alan Wake 2",
     "platforms": [
       "pc",
-      "console"
+      "playstation",
+      "xbox"
     ],
     "year": 2023,
     "genres": [
@@ -3670,7 +3733,8 @@
     "title": "Resident Evil 4 Remake",
     "platforms": [
       "pc",
-      "console"
+      "playstation",
+      "xbox"
     ],
     "year": 2023,
     "genres": [
@@ -3714,7 +3778,8 @@
     "title": "Dead Space Remake",
     "platforms": [
       "pc",
-      "console"
+      "playstation",
+      "xbox"
     ],
     "year": 2023,
     "genres": [
@@ -3762,7 +3827,8 @@
     "title": "Silent Hill 2 Remake",
     "platforms": [
       "pc",
-      "console"
+      "playstation",
+      "xbox"
     ],
     "year": 2024,
     "genres": [
@@ -3805,8 +3871,9 @@
     "title": "Resident Evil Village",
     "platforms": [
       "pc",
-      "console",
-      "handheld"
+      "playstation",
+      "xbox",
+      "switch"
     ],
     "year": 2021,
     "genres": [
@@ -3851,7 +3918,8 @@
     "title": "The Callisto Protocol",
     "platforms": [
       "pc",
-      "console"
+      "playstation",
+      "xbox"
     ],
     "year": 2022,
     "genres": [
@@ -3895,7 +3963,8 @@
     "title": "Amnesia: Rebirth",
     "platforms": [
       "pc",
-      "console"
+      "playstation",
+      "xbox"
     ],
     "year": 2020,
     "genres": [
@@ -3940,7 +4009,8 @@
     "title": "SOMA",
     "platforms": [
       "pc",
-      "console"
+      "playstation",
+      "xbox"
     ],
     "year": 2015,
     "genres": [
@@ -3986,8 +4056,9 @@
     "title": "Signalis",
     "platforms": [
       "pc",
-      "console",
-      "handheld"
+      "playstation",
+      "xbox",
+      "switch"
     ],
     "year": 2022,
     "genres": [
@@ -4029,8 +4100,9 @@
     "title": "Tormented Souls",
     "platforms": [
       "pc",
-      "console",
-      "handheld"
+      "playstation",
+      "xbox",
+      "switch"
     ],
     "year": 2021,
     "genres": [
@@ -4076,7 +4148,8 @@
     "title": "The Outlast Trials",
     "platforms": [
       "pc",
-      "console"
+      "playstation",
+      "xbox"
     ],
     "year": 2024,
     "genres": [
@@ -4120,7 +4193,8 @@
     "title": "Layers of Fear (2023)",
     "platforms": [
       "pc",
-      "console"
+      "playstation",
+      "xbox"
     ],
     "year": 2023,
     "genres": [
@@ -4165,8 +4239,9 @@
     "title": "Little Nightmares II",
     "platforms": [
       "pc",
-      "console",
-      "handheld"
+      "playstation",
+      "xbox",
+      "switch"
     ],
     "year": 2021,
     "genres": [
@@ -4213,7 +4288,8 @@
     "title": "Little Nightmares III",
     "platforms": [
       "pc",
-      "console"
+      "playstation",
+      "xbox"
     ],
     "year": 2024,
     "genres": [
@@ -4256,7 +4332,8 @@
     "title": "Lies of P",
     "platforms": [
       "pc",
-      "console"
+      "playstation",
+      "xbox"
     ],
     "year": 2023,
     "genres": [
@@ -4299,7 +4376,8 @@
     "title": "Lords of the Fallen (2023)",
     "platforms": [
       "pc",
-      "console"
+      "playstation",
+      "xbox"
     ],
     "year": 2023,
     "genres": [
@@ -4338,7 +4416,8 @@
     "title": "Wo Long: Fallen Dynasty",
     "platforms": [
       "pc",
-      "console"
+      "playstation",
+      "xbox"
     ],
     "year": 2023,
     "genres": [
@@ -4380,7 +4459,8 @@
     "title": "Nioh 2",
     "platforms": [
       "pc",
-      "console"
+      "playstation",
+      "xbox"
     ],
     "year": 2020,
     "genres": [
@@ -4420,7 +4500,8 @@
     "title": "Thymesia",
     "platforms": [
       "pc",
-      "console"
+      "playstation",
+      "xbox"
     ],
     "year": 2022,
     "genres": [
@@ -4461,7 +4542,8 @@
     "title": "Steelrising",
     "platforms": [
       "pc",
-      "console"
+      "playstation",
+      "xbox"
     ],
     "year": 2022,
     "genres": [
@@ -4503,7 +4585,8 @@
     "title": "Mortal Shell",
     "platforms": [
       "pc",
-      "console"
+      "playstation",
+      "xbox"
     ],
     "year": 2020,
     "genres": [
@@ -4545,8 +4628,9 @@
     "title": "Blasphemous 2",
     "platforms": [
       "pc",
-      "console",
-      "handheld"
+      "playstation",
+      "xbox",
+      "switch"
     ],
     "year": 2023,
     "genres": [
@@ -4589,8 +4673,9 @@
     "title": "Ender Lilies",
     "platforms": [
       "pc",
-      "console",
-      "handheld"
+      "playstation",
+      "xbox",
+      "switch"
     ],
     "year": 2021,
     "genres": [
@@ -4630,8 +4715,9 @@
     "title": "Salt and Sacrifice",
     "platforms": [
       "pc",
-      "console",
-      "handheld"
+      "playstation",
+      "xbox",
+      "switch"
     ],
     "year": 2022,
     "genres": [
@@ -4672,8 +4758,9 @@
     "title": "Death's Gambit: Afterlife",
     "platforms": [
       "pc",
-      "console",
-      "handheld"
+      "playstation",
+      "xbox",
+      "switch"
     ],
     "year": 2021,
     "genres": [
@@ -4708,8 +4795,9 @@
     "title": "Unsighted",
     "platforms": [
       "pc",
-      "console",
-      "handheld"
+      "playstation",
+      "xbox",
+      "switch"
     ],
     "year": 2021,
     "genres": [
@@ -4750,8 +4838,9 @@
     "title": "Axiom Verge 2",
     "platforms": [
       "pc",
-      "console",
-      "handheld"
+      "playstation",
+      "xbox",
+      "switch"
     ],
     "year": 2021,
     "genres": [
@@ -4790,7 +4879,7 @@
     "id": "metroid-dread",
     "title": "Metroid Dread",
     "platforms": [
-      "handheld"
+      "switch"
     ],
     "year": 2021,
     "genres": [
@@ -4828,8 +4917,9 @@
     "title": "Castlevania Advance Collection",
     "platforms": [
       "pc",
-      "console",
-      "handheld"
+      "playstation",
+      "xbox",
+      "switch"
     ],
     "year": 2021,
     "genres": [
@@ -4869,8 +4959,9 @@
     "title": "Bloodstained: Ritual of the Night",
     "platforms": [
       "pc",
-      "console",
-      "handheld"
+      "playstation",
+      "xbox",
+      "switch"
     ],
     "year": 2019,
     "genres": [
@@ -4912,8 +5003,9 @@
     "title": "Sundered: Eldritch Edition",
     "platforms": [
       "pc",
-      "console",
-      "handheld"
+      "playstation",
+      "xbox",
+      "switch"
     ],
     "year": 2017,
     "genres": [
@@ -4949,8 +5041,9 @@
     "title": "Grime",
     "platforms": [
       "pc",
-      "console",
-      "handheld"
+      "playstation",
+      "xbox",
+      "switch"
     ],
     "year": 2021,
     "genres": [
@@ -4990,8 +5083,9 @@
     "title": "Prince of Persia: The Lost Crown",
     "platforms": [
       "pc",
-      "console",
-      "handheld"
+      "playstation",
+      "xbox",
+      "switch"
     ],
     "year": 2024,
     "genres": [
@@ -5032,8 +5126,9 @@
     "title": "Narita Boy",
     "platforms": [
       "pc",
-      "console",
-      "handheld"
+      "playstation",
+      "xbox",
+      "switch"
     ],
     "year": 2021,
     "genres": [
@@ -5077,8 +5172,9 @@
     "title": "Iconoclasts",
     "platforms": [
       "pc",
-      "console",
-      "handheld"
+      "playstation",
+      "xbox",
+      "switch"
     ],
     "year": 2018,
     "genres": [
@@ -5121,8 +5217,9 @@
     "title": "Laika: Aged Through Blood",
     "platforms": [
       "pc",
-      "console",
-      "handheld"
+      "playstation",
+      "xbox",
+      "switch"
     ],
     "year": 2023,
     "genres": [
@@ -5161,8 +5258,9 @@
     "title": "Animal Well",
     "platforms": [
       "pc",
-      "console",
-      "handheld"
+      "playstation",
+      "xbox",
+      "switch"
     ],
     "year": 2024,
     "genres": [

@@ -3,7 +3,7 @@
     "id": "mario-kart-8-deluxe",
     "title": "Mario Kart 8 Deluxe",
     "platforms": [
-      "handheld"
+      "switch"
     ],
     "year": 2017,
     "genres": [
@@ -46,8 +46,9 @@
     "title": "Fall Guys",
     "platforms": [
       "pc",
-      "console",
-      "handheld"
+      "playstation",
+      "xbox",
+      "switch"
     ],
     "year": 2020,
     "genres": [
@@ -91,8 +92,9 @@
     "title": "Among Us",
     "platforms": [
       "pc",
-      "console",
-      "handheld"
+      "playstation",
+      "xbox",
+      "switch"
     ],
     "year": 2018,
     "genres": [
@@ -134,8 +136,9 @@
     "title": "Rocket League",
     "platforms": [
       "pc",
-      "console",
-      "handheld"
+      "playstation",
+      "xbox",
+      "switch"
     ],
     "year": 2015,
     "genres": [
@@ -180,8 +183,9 @@
     "title": "Overcooked 2",
     "platforms": [
       "pc",
-      "console",
-      "handheld"
+      "playstation",
+      "xbox",
+      "switch"
     ],
     "year": 2018,
     "genres": [
@@ -226,8 +230,9 @@
     "title": "Minecraft",
     "platforms": [
       "pc",
-      "console",
-      "handheld"
+      "playstation",
+      "xbox",
+      "switch"
     ],
     "year": 2011,
     "genres": [
@@ -273,8 +278,9 @@
     "title": "Terraria",
     "platforms": [
       "pc",
-      "console",
-      "handheld"
+      "playstation",
+      "xbox",
+      "switch"
     ],
     "year": 2011,
     "genres": [
@@ -319,7 +325,7 @@
     "id": "splatoon-3",
     "title": "Splatoon 3",
     "platforms": [
-      "handheld"
+      "switch"
     ],
     "year": 2022,
     "genres": [
@@ -361,8 +367,9 @@
     "title": "Fortnite",
     "platforms": [
       "pc",
-      "console",
-      "handheld"
+      "playstation",
+      "xbox",
+      "switch"
     ],
     "year": 2017,
     "genres": [
@@ -404,7 +411,7 @@
     "id": "super-smash-bros-ultimate",
     "title": "Super Smash Bros. Ultimate",
     "platforms": [
-      "handheld"
+      "switch"
     ],
     "year": 2018,
     "genres": [
@@ -445,7 +452,8 @@
     "title": "Portal 2",
     "platforms": [
       "pc",
-      "console"
+      "playstation",
+      "xbox"
     ],
     "year": 2011,
     "genres": [
@@ -489,7 +497,8 @@
     "title": "It Takes Two",
     "platforms": [
       "pc",
-      "console"
+      "playstation",
+      "xbox"
     ],
     "year": 2021,
     "genres": [
@@ -536,8 +545,9 @@
     "title": "The Jackbox Party Pack 9",
     "platforms": [
       "pc",
-      "console",
-      "handheld"
+      "playstation",
+      "xbox",
+      "switch"
     ],
     "year": 2022,
     "genres": [
@@ -576,8 +586,9 @@
     "title": "Golf With Your Friends",
     "platforms": [
       "pc",
-      "console",
-      "handheld"
+      "playstation",
+      "xbox",
+      "switch"
     ],
     "year": 2020,
     "genres": [
@@ -623,7 +634,8 @@
     "title": "Gang Beasts",
     "platforms": [
       "pc",
-      "console"
+      "playstation",
+      "xbox"
     ],
     "year": 2017,
     "genres": [
@@ -665,8 +677,9 @@
     "title": "Moving Out",
     "platforms": [
       "pc",
-      "console",
-      "handheld"
+      "playstation",
+      "xbox",
+      "switch"
     ],
     "year": 2020,
     "genres": [
@@ -709,8 +722,9 @@
     "title": "Human: Fall Flat",
     "platforms": [
       "pc",
-      "console",
-      "handheld"
+      "playstation",
+      "xbox",
+      "switch"
     ],
     "year": 2016,
     "genres": [
@@ -754,8 +768,9 @@
     "title": "Ultimate Chicken Horse",
     "platforms": [
       "pc",
-      "console",
-      "handheld"
+      "playstation",
+      "xbox",
+      "switch"
     ],
     "year": 2016,
     "genres": [
@@ -799,8 +814,9 @@
     "title": "Stick Fight: The Game",
     "platforms": [
       "pc",
-      "console",
-      "handheld"
+      "playstation",
+      "xbox",
+      "switch"
     ],
     "year": 2017,
     "genres": [
@@ -879,7 +895,8 @@
     "title": "SpeedRunners",
     "platforms": [
       "pc",
-      "console"
+      "playstation",
+      "xbox"
     ],
     "year": 2016,
     "genres": [
@@ -922,8 +939,9 @@
     "title": "Boomerang Fu",
     "platforms": [
       "pc",
-      "console",
-      "handheld"
+      "playstation",
+      "xbox",
+      "switch"
     ],
     "year": 2020,
     "genres": [
@@ -962,8 +980,9 @@
     "title": "Unravel Two",
     "platforms": [
       "pc",
-      "console",
-      "handheld"
+      "playstation",
+      "xbox",
+      "switch"
     ],
     "year": 2018,
     "genres": [
@@ -1006,7 +1025,8 @@
     "title": "Sackboy: A Big Adventure",
     "platforms": [
       "pc",
-      "console"
+      "playstation",
+      "xbox"
     ],
     "year": 2020,
     "genres": [
@@ -1050,7 +1070,7 @@
     "id": "kirby-forgotten-land",
     "title": "Kirby and the Forgotten Land",
     "platforms": [
-      "handheld"
+      "switch"
     ],
     "year": 2022,
     "genres": [
@@ -1089,7 +1109,7 @@
     "id": "yoshis-crafted-world",
     "title": "Yoshi's Crafted World",
     "platforms": [
-      "handheld"
+      "switch"
     ],
     "year": 2019,
     "genres": [
@@ -1129,8 +1149,9 @@
     "title": "LEGO Star Wars: The Skywalker Saga",
     "platforms": [
       "pc",
-      "console",
-      "handheld"
+      "playstation",
+      "xbox",
+      "switch"
     ],
     "year": 2022,
     "genres": [
@@ -1172,8 +1193,9 @@
     "title": "LEGO Marvel Super Heroes 2",
     "platforms": [
       "pc",
-      "console",
-      "handheld"
+      "playstation",
+      "xbox",
+      "switch"
     ],
     "year": 2017,
     "genres": [
@@ -1217,8 +1239,9 @@
     "title": "LEGO DC Super-Villains",
     "platforms": [
       "pc",
-      "console",
-      "handheld"
+      "playstation",
+      "xbox",
+      "switch"
     ],
     "year": 2018,
     "genres": [
@@ -1263,8 +1286,9 @@
     "title": "Crash Bandicoot 4",
     "platforms": [
       "pc",
-      "console",
-      "handheld"
+      "playstation",
+      "xbox",
+      "switch"
     ],
     "year": 2020,
     "genres": [
@@ -1307,8 +1331,9 @@
     "title": "Spyro Reignited Trilogy",
     "platforms": [
       "pc",
-      "console",
-      "handheld"
+      "playstation",
+      "xbox",
+      "switch"
     ],
     "year": 2018,
     "genres": [
@@ -1350,8 +1375,9 @@
     "title": "Crash Team Racing Nitro-Fueled",
     "platforms": [
       "pc",
-      "console",
-      "handheld"
+      "playstation",
+      "xbox",
+      "switch"
     ],
     "year": 2019,
     "genres": [
@@ -1395,7 +1421,7 @@
     "id": "new-super-mario-bros-u",
     "title": "New Super Mario Bros. U Deluxe",
     "platforms": [
-      "handheld"
+      "switch"
     ],
     "year": 2019,
     "genres": [
@@ -1435,7 +1461,7 @@
     "id": "super-mario-3d-world",
     "title": "Super Mario 3D World + Bowser's Fury",
     "platforms": [
-      "handheld"
+      "switch"
     ],
     "year": 2021,
     "genres": [
@@ -1474,7 +1500,7 @@
     "id": "luigis-mansion-3",
     "title": "Luigi's Mansion 3",
     "platforms": [
-      "handheld"
+      "switch"
     ],
     "year": 2019,
     "genres": [
@@ -1515,7 +1541,7 @@
     "id": "captain-toad",
     "title": "Captain Toad: Treasure Tracker",
     "platforms": [
-      "handheld"
+      "switch"
     ],
     "year": 2018,
     "genres": [
@@ -1553,7 +1579,7 @@
     "id": "donkey-kong-country-tropical-freeze",
     "title": "Donkey Kong Country: Tropical Freeze",
     "platforms": [
-      "handheld"
+      "switch"
     ],
     "year": 2018,
     "genres": [
@@ -1593,8 +1619,9 @@
     "title": "Rayman Legends",
     "platforms": [
       "pc",
-      "console",
-      "handheld"
+      "playstation",
+      "xbox",
+      "switch"
     ],
     "year": 2013,
     "genres": [
@@ -1637,8 +1664,9 @@
     "title": "Cuphead",
     "platforms": [
       "pc",
-      "console",
-      "handheld"
+      "playstation",
+      "xbox",
+      "switch"
     ],
     "year": 2017,
     "genres": [
@@ -1686,8 +1714,9 @@
     "title": "Cuphead: The Delicious Last Course",
     "platforms": [
       "pc",
-      "console",
-      "handheld"
+      "playstation",
+      "xbox",
+      "switch"
     ],
     "year": 2022,
     "genres": [
@@ -1732,8 +1761,9 @@
     "title": "Shovel Knight: Treasure Trove",
     "platforms": [
       "pc",
-      "console",
-      "handheld"
+      "playstation",
+      "xbox",
+      "switch"
     ],
     "year": 2014,
     "genres": [
@@ -1776,8 +1806,9 @@
     "title": "Hollow Knight",
     "platforms": [
       "pc",
-      "console",
-      "handheld"
+      "playstation",
+      "xbox",
+      "switch"
     ],
     "year": 2017,
     "genres": [
@@ -1824,8 +1855,9 @@
     "title": "Ori: The Collection",
     "platforms": [
       "pc",
-      "console",
-      "handheld"
+      "playstation",
+      "xbox",
+      "switch"
     ],
     "year": 2020,
     "genres": [
@@ -1868,8 +1900,9 @@
     "title": "Celeste",
     "platforms": [
       "pc",
-      "console",
-      "handheld"
+      "playstation",
+      "xbox",
+      "switch"
     ],
     "year": 2018,
     "genres": [
@@ -1916,8 +1949,9 @@
     "title": "Super Meat Boy",
     "platforms": [
       "pc",
-      "console",
-      "handheld"
+      "playstation",
+      "xbox",
+      "switch"
     ],
     "year": 2010,
     "genres": [
@@ -1960,8 +1994,9 @@
     "title": "The Messenger",
     "platforms": [
       "pc",
-      "console",
-      "handheld"
+      "playstation",
+      "xbox",
+      "switch"
     ],
     "year": 2018,
     "genres": [
@@ -2004,8 +2039,9 @@
     "title": "Dead Cells",
     "platforms": [
       "pc",
-      "console",
-      "handheld"
+      "playstation",
+      "xbox",
+      "switch"
     ],
     "year": 2018,
     "genres": [
@@ -2052,8 +2088,9 @@
     "title": "Hades",
     "platforms": [
       "pc",
-      "console",
-      "handheld"
+      "playstation",
+      "xbox",
+      "switch"
     ],
     "year": 2020,
     "genres": [
@@ -2137,8 +2174,9 @@
     "title": "Vampire Survivors",
     "platforms": [
       "pc",
-      "console",
-      "handheld"
+      "playstation",
+      "xbox",
+      "switch"
     ],
     "year": 2022,
     "genres": [
@@ -2180,8 +2218,9 @@
     "title": "Cult of the Lamb",
     "platforms": [
       "pc",
-      "console",
-      "handheld"
+      "playstation",
+      "xbox",
+      "switch"
     ],
     "year": 2022,
     "genres": [
@@ -2221,8 +2260,9 @@
     "title": "Enter the Gungeon",
     "platforms": [
       "pc",
-      "console",
-      "handheld"
+      "playstation",
+      "xbox",
+      "switch"
     ],
     "year": 2016,
     "genres": [
@@ -2266,8 +2306,9 @@
     "title": "The Binding of Isaac: Repentance",
     "platforms": [
       "pc",
-      "console",
-      "handheld"
+      "playstation",
+      "xbox",
+      "switch"
     ],
     "year": 2021,
     "genres": [
@@ -2312,7 +2353,8 @@
     "title": "Risk of Rain 2",
     "platforms": [
       "pc",
-      "console"
+      "playstation",
+      "xbox"
     ],
     "year": 2020,
     "genres": [
@@ -2356,8 +2398,9 @@
     "title": "Spelunky 2",
     "platforms": [
       "pc",
-      "console",
-      "handheld"
+      "playstation",
+      "xbox",
+      "switch"
     ],
     "year": 2020,
     "genres": [
@@ -2399,8 +2442,9 @@
     "title": "Slay the Spire",
     "platforms": [
       "pc",
-      "console",
-      "handheld"
+      "playstation",
+      "xbox",
+      "switch"
     ],
     "year": 2019,
     "genres": [
@@ -2443,8 +2487,9 @@
     "title": "Balatro",
     "platforms": [
       "pc",
-      "console",
-      "handheld"
+      "playstation",
+      "xbox",
+      "switch"
     ],
     "year": 2024,
     "genres": [
@@ -2482,8 +2527,9 @@
     "title": "Inscryption",
     "platforms": [
       "pc",
-      "console",
-      "handheld"
+      "playstation",
+      "xbox",
+      "switch"
     ],
     "year": 2021,
     "genres": [
@@ -2523,8 +2569,9 @@
     "title": "Monster Train",
     "platforms": [
       "pc",
-      "console",
-      "handheld"
+      "playstation",
+      "xbox",
+      "switch"
     ],
     "year": 2020,
     "genres": [
@@ -2565,8 +2612,9 @@
     "title": "Dicey Dungeons",
     "platforms": [
       "pc",
-      "console",
-      "handheld"
+      "playstation",
+      "xbox",
+      "switch"
     ],
     "year": 2019,
     "genres": [
@@ -2606,8 +2654,9 @@
     "title": "One Step From Eden",
     "platforms": [
       "pc",
-      "console",
-      "handheld"
+      "playstation",
+      "xbox",
+      "switch"
     ],
     "year": 2020,
     "genres": [
@@ -2650,8 +2699,9 @@
     "title": "Into the Breach",
     "platforms": [
       "pc",
-      "console",
-      "handheld"
+      "playstation",
+      "xbox",
+      "switch"
     ],
     "year": 2018,
     "genres": [
@@ -2733,8 +2783,9 @@
     "title": "Brotato",
     "platforms": [
       "pc",
-      "console",
-      "handheld"
+      "playstation",
+      "xbox",
+      "switch"
     ],
     "year": 2022,
     "genres": [
@@ -2773,8 +2824,9 @@
     "title": "Loop Hero",
     "platforms": [
       "pc",
-      "console",
-      "handheld"
+      "playstation",
+      "xbox",
+      "switch"
     ],
     "year": 2021,
     "genres": [
@@ -2815,8 +2867,9 @@
     "title": "Neon Abyss",
     "platforms": [
       "pc",
-      "console",
-      "handheld"
+      "playstation",
+      "xbox",
+      "switch"
     ],
     "year": 2020,
     "genres": [
@@ -2858,7 +2911,8 @@
     "title": "Gunfire Reborn",
     "platforms": [
       "pc",
-      "console"
+      "playstation",
+      "xbox"
     ],
     "year": 2021,
     "genres": [
@@ -2897,7 +2951,7 @@
     "title": "Returnal",
     "platforms": [
       "pc",
-      "console"
+      "playstation"
     ],
     "year": 2021,
     "genres": [
@@ -2939,7 +2993,7 @@
     "id": "tetris-99",
     "title": "Tetris 99",
     "platforms": [
-      "handheld"
+      "switch"
     ],
     "year": 2019,
     "genres": [
@@ -2974,8 +3028,9 @@
     "title": "Puyo Puyo Tetris 2",
     "platforms": [
       "pc",
-      "console",
-      "handheld"
+      "playstation",
+      "xbox",
+      "switch"
     ],
     "year": 2020,
     "genres": [
@@ -3018,7 +3073,7 @@
     "id": "dr-mario-world",
     "title": "Dr. Mario",
     "platforms": [
-      "handheld"
+      "switch"
     ],
     "year": 2019,
     "genres": [
@@ -3056,7 +3111,7 @@
     "id": "warioware-get-it-together",
     "title": "WarioWare: Get It Together!",
     "platforms": [
-      "handheld"
+      "switch"
     ],
     "year": 2021,
     "genres": [
@@ -3094,7 +3149,7 @@
     "id": "rhythm-heaven",
     "title": "Rhythm Heaven Megamix",
     "platforms": [
-      "handheld"
+      "switch"
     ],
     "year": 2016,
     "genres": [
@@ -3131,7 +3186,7 @@
     "id": "snipperclips",
     "title": "Snipperclips",
     "platforms": [
-      "handheld"
+      "switch"
     ],
     "year": 2017,
     "genres": [
@@ -3170,8 +3225,9 @@
     "title": "Death Squared",
     "platforms": [
       "pc",
-      "console",
-      "handheld"
+      "playstation",
+      "xbox",
+      "switch"
     ],
     "year": 2017,
     "genres": [
@@ -3214,7 +3270,7 @@
     "title": "Heave Ho",
     "platforms": [
       "pc",
-      "handheld"
+      "switch"
     ],
     "year": 2019,
     "genres": [
@@ -3254,8 +3310,9 @@
     "title": "Keep Talking and Nobody Explodes",
     "platforms": [
       "pc",
-      "console",
-      "handheld"
+      "playstation",
+      "xbox",
+      "switch"
     ],
     "year": 2015,
     "genres": [
@@ -3296,8 +3353,9 @@
     "title": "TowerFall Ascension",
     "platforms": [
       "pc",
-      "console",
-      "handheld"
+      "playstation",
+      "xbox",
+      "switch"
     ],
     "year": 2014,
     "genres": [
@@ -3528,7 +3586,8 @@
     "title": "PlateUp!",
     "platforms": [
       "pc",
-      "console"
+      "playstation",
+      "xbox"
     ],
     "year": 2022,
     "genres": [
@@ -3568,8 +3627,9 @@
     "title": "Dave the Diver",
     "platforms": [
       "pc",
-      "console",
-      "handheld"
+      "playstation",
+      "xbox",
+      "switch"
     ],
     "year": 2023,
     "genres": [
@@ -3607,8 +3667,9 @@
     "title": "Dredge",
     "platforms": [
       "pc",
-      "console",
-      "handheld"
+      "playstation",
+      "xbox",
+      "switch"
     ],
     "year": 2023,
     "genres": [
@@ -3649,8 +3710,9 @@
     "title": "Subnautica",
     "platforms": [
       "pc",
-      "console",
-      "handheld"
+      "playstation",
+      "xbox",
+      "switch"
     ],
     "year": 2018,
     "genres": [
@@ -3695,8 +3757,9 @@
     "title": "Subnautica: Below Zero",
     "platforms": [
       "pc",
-      "console",
-      "handheld"
+      "playstation",
+      "xbox",
+      "switch"
     ],
     "year": 2021,
     "genres": [
@@ -3738,7 +3801,8 @@
     "title": "Valheim",
     "platforms": [
       "pc",
-      "console"
+      "playstation",
+      "xbox"
     ],
     "year": 2021,
     "genres": [
@@ -3815,7 +3879,8 @@
     "title": "The Forest",
     "platforms": [
       "pc",
-      "console"
+      "playstation",
+      "xbox"
     ],
     "year": 2018,
     "genres": [
@@ -3903,8 +3968,9 @@
     "title": "Green Hell",
     "platforms": [
       "pc",
-      "console",
-      "handheld"
+      "playstation",
+      "xbox",
+      "switch"
     ],
     "year": 2019,
     "genres": [
@@ -3945,7 +4011,7 @@
     "title": "Grounded",
     "platforms": [
       "pc",
-      "console"
+      "xbox"
     ],
     "year": 2022,
     "genres": [
@@ -3990,8 +4056,9 @@
     "title": "No Man's Sky",
     "platforms": [
       "pc",
-      "console",
-      "handheld"
+      "playstation",
+      "xbox",
+      "switch"
     ],
     "year": 2016,
     "genres": [
@@ -4037,8 +4104,9 @@
     "title": "Astroneer",
     "platforms": [
       "pc",
-      "console",
-      "handheld"
+      "playstation",
+      "xbox",
+      "switch"
     ],
     "year": 2019,
     "genres": [
@@ -4084,7 +4152,8 @@
     "title": "Deep Rock Galactic",
     "platforms": [
       "pc",
-      "console"
+      "playstation",
+      "xbox"
     ],
     "year": 2020,
     "genres": [
@@ -4163,7 +4232,8 @@
     "title": "Core Keeper",
     "platforms": [
       "pc",
-      "console"
+      "playstation",
+      "xbox"
     ],
     "year": 2022,
     "genres": [
@@ -4204,7 +4274,8 @@
     "title": "Don't Starve Together",
     "platforms": [
       "pc",
-      "console"
+      "playstation",
+      "xbox"
     ],
     "year": 2016,
     "genres": [
@@ -4241,7 +4312,7 @@
     "id": "portal-companion-collection",
     "title": "Portal Companion Collection",
     "platforms": [
-      "handheld"
+      "switch"
     ],
     "year": 2022,
     "genres": [
@@ -4281,7 +4352,7 @@
     "id": "pikmin-4",
     "title": "Pikmin 4",
     "platforms": [
-      "handheld"
+      "switch"
     ],
     "year": 2023,
     "genres": [
@@ -4320,7 +4391,7 @@
     "title": "Sea of Thieves",
     "platforms": [
       "pc",
-      "console"
+      "xbox"
     ],
     "year": 2018,
     "genres": [
@@ -4364,8 +4435,9 @@
     "title": "Sea of Stars",
     "platforms": [
       "pc",
-      "console",
-      "handheld"
+      "playstation",
+      "xbox",
+      "switch"
     ],
     "year": 2023,
     "genres": [
@@ -4410,8 +4482,9 @@
     "title": "Eastward",
     "platforms": [
       "pc",
-      "console",
-      "handheld"
+      "playstation",
+      "xbox",
+      "switch"
     ],
     "year": 2021,
     "genres": [
@@ -4453,8 +4526,9 @@
     "title": "CrossCode",
     "platforms": [
       "pc",
-      "console",
-      "handheld"
+      "playstation",
+      "xbox",
+      "switch"
     ],
     "year": 2018,
     "genres": [
@@ -4497,8 +4571,9 @@
     "title": "Chained Echoes",
     "platforms": [
       "pc",
-      "console",
-      "handheld"
+      "playstation",
+      "xbox",
+      "switch"
     ],
     "year": 2022,
     "genres": [
@@ -4541,8 +4616,9 @@
     "title": "Octopath Traveler II",
     "platforms": [
       "pc",
-      "console",
-      "handheld"
+      "playstation",
+      "xbox",
+      "switch"
     ],
     "year": 2023,
     "genres": [
@@ -4583,8 +4659,9 @@
     "title": "Live A Live",
     "platforms": [
       "pc",
-      "console",
-      "handheld"
+      "playstation",
+      "xbox",
+      "switch"
     ],
     "year": 2022,
     "genres": [
@@ -4624,7 +4701,7 @@
     "title": "Triangle Strategy",
     "platforms": [
       "pc",
-      "handheld"
+      "switch"
     ],
     "year": 2022,
     "genres": [
@@ -4663,7 +4740,7 @@
     "id": "fire-emblem-engage",
     "title": "Fire Emblem Engage",
     "platforms": [
-      "handheld"
+      "switch"
     ],
     "year": 2023,
     "genres": [
@@ -4702,7 +4779,7 @@
     "id": "mario-rabbids-sparks",
     "title": "Mario + Rabbids Sparks of Hope",
     "platforms": [
-      "handheld"
+      "switch"
     ],
     "year": 2022,
     "genres": [
@@ -4741,8 +4818,9 @@
     "title": "Wargroove 2",
     "platforms": [
       "pc",
-      "console",
-      "handheld"
+      "playstation",
+      "xbox",
+      "switch"
     ],
     "year": 2023,
     "genres": [
@@ -4782,7 +4860,7 @@
     "id": "advance-wars-reboot",
     "title": "Advance Wars 1+2: Re-Boot Camp",
     "platforms": [
-      "handheld"
+      "switch"
     ],
     "year": 2023,
     "genres": [
@@ -4822,8 +4900,9 @@
     "title": "Tactics Ogre: Reborn",
     "platforms": [
       "pc",
-      "console",
-      "handheld"
+      "playstation",
+      "xbox",
+      "switch"
     ],
     "year": 2022,
     "genres": [
@@ -4864,7 +4943,7 @@
     "title": "Symphony of War",
     "platforms": [
       "pc",
-      "handheld"
+      "switch"
     ],
     "year": 2022,
     "genres": [
@@ -4904,8 +4983,9 @@
     "title": "Wildermyth",
     "platforms": [
       "pc",
-      "console",
-      "handheld"
+      "playstation",
+      "xbox",
+      "switch"
     ],
     "year": 2021,
     "genres": [
@@ -4947,7 +5027,7 @@
     "title": "Marvel Snap",
     "platforms": [
       "pc",
-      "handheld"
+      "mobile"
     ],
     "year": 2022,
     "genres": [
@@ -4986,7 +5066,7 @@
     "title": "Legends of Runeterra",
     "platforms": [
       "pc",
-      "handheld"
+      "mobile"
     ],
     "year": 2020,
     "genres": [
@@ -5026,8 +5106,9 @@
     "title": "Gwent: The Witcher Card Game",
     "platforms": [
       "pc",
-      "console",
-      "handheld"
+      "playstation",
+      "xbox",
+      "switch"
     ],
     "year": 2018,
     "genres": [
@@ -5069,7 +5150,7 @@
     "title": "Magic: The Gathering Arena",
     "platforms": [
       "pc",
-      "handheld"
+      "switch"
     ],
     "year": 2018,
     "genres": [
@@ -5110,7 +5191,7 @@
     "title": "Pokemon TCG Live",
     "platforms": [
       "pc",
-      "handheld"
+      "mobile"
     ],
     "year": 2022,
     "genres": [
@@ -5146,8 +5227,9 @@
     "title": "Yu-Gi-Oh! Master Duel",
     "platforms": [
       "pc",
-      "console",
-      "handheld"
+      "playstation",
+      "xbox",
+      "mobile"
     ],
     "year": 2022,
     "genres": [
@@ -5186,7 +5268,7 @@
     "title": "Hearthstone",
     "platforms": [
       "pc",
-      "handheld"
+      "mobile"
     ],
     "year": 2014,
     "genres": [
@@ -5222,8 +5304,9 @@
     "title": "Backpack Hero",
     "platforms": [
       "pc",
-      "console",
-      "handheld"
+      "playstation",
+      "xbox",
+      "switch"
     ],
     "year": 2023,
     "genres": [
@@ -5262,7 +5345,8 @@
     "title": "NBA 2K24",
     "platforms": [
       "pc",
-      "console"
+      "playstation",
+      "xbox"
     ],
     "year": 2023,
     "genres": [
@@ -5306,7 +5390,8 @@
     "title": "EA Sports FC 25",
     "platforms": [
       "pc",
-      "console"
+      "playstation",
+      "xbox"
     ],
     "year": 2024,
     "genres": [
@@ -5348,7 +5433,8 @@
     "title": "MLB The Show 24",
     "platforms": [
       "pc",
-      "console"
+      "playstation",
+      "xbox"
     ],
     "year": 2024,
     "genres": [
@@ -5390,7 +5476,8 @@
     "title": "Madden NFL 25",
     "platforms": [
       "pc",
-      "console"
+      "playstation",
+      "xbox"
     ],
     "year": 2024,
     "genres": [
@@ -5431,7 +5518,8 @@
     "title": "WWE 2K24",
     "platforms": [
       "pc",
-      "console"
+      "playstation",
+      "xbox"
     ],
     "year": 2024,
     "genres": [
@@ -5472,7 +5560,8 @@
     "title": "PGA Tour 2K24",
     "platforms": [
       "pc",
-      "console"
+      "playstation",
+      "xbox"
     ],
     "year": 2024,
     "genres": [
@@ -5516,7 +5605,8 @@
     "title": "Riders Republic",
     "platforms": [
       "pc",
-      "console"
+      "playstation",
+      "xbox"
     ],
     "year": 2021,
     "genres": [
@@ -5563,7 +5653,8 @@
     "title": "Steep",
     "platforms": [
       "pc",
-      "console"
+      "playstation",
+      "xbox"
     ],
     "year": 2016,
     "genres": [
@@ -5607,8 +5698,9 @@
     "title": "Tony Hawk's Pro Skater 1+2",
     "platforms": [
       "pc",
-      "console",
-      "handheld"
+      "playstation",
+      "xbox",
+      "switch"
     ],
     "year": 2020,
     "genres": [
@@ -5653,7 +5745,8 @@
     "id": "skate",
     "title": "Skate 3",
     "platforms": [
-      "console"
+      "playstation",
+      "xbox"
     ],
     "year": 2010,
     "genres": [
@@ -5695,8 +5788,9 @@
     "title": "OlliOlli World",
     "platforms": [
       "pc",
-      "console",
-      "handheld"
+      "playstation",
+      "xbox",
+      "switch"
     ],
     "year": 2022,
     "genres": [
@@ -5735,8 +5829,9 @@
     "title": "Hot Wheels Unleashed 2",
     "platforms": [
       "pc",
-      "console",
-      "handheld"
+      "playstation",
+      "xbox",
+      "switch"
     ],
     "year": 2023,
     "genres": [
@@ -5777,7 +5872,7 @@
     "title": "Forza Horizon 5",
     "platforms": [
       "pc",
-      "console"
+      "xbox"
     ],
     "year": 2021,
     "genres": [
@@ -5821,7 +5916,8 @@
     "id": "gran-turismo-7",
     "title": "Gran Turismo 7",
     "platforms": [
-      "console"
+      "playstation",
+      "xbox"
     ],
     "year": 2022,
     "genres": [
@@ -5862,7 +5958,8 @@
     "title": "Need for Speed Unbound",
     "platforms": [
       "pc",
-      "console"
+      "playstation",
+      "xbox"
     ],
     "year": 2022,
     "genres": [

@@ -406,7 +406,7 @@ class RecommendationService:
 
             # 1. Strong indie boost: games tagged as indie get significant boost
             if "indie" in genres:
-                game["score"] += 0.4  # Strong boost for indie games
+                game["score"] += 0.55  # Strong boost for indie games
 
             # 2. AAA penalty: well-known franchises get heavily penalized
             is_aaa = any(franchise in title_lower for franchise in AAA_FRANCHISES)

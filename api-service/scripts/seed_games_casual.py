@@ -21,7 +21,7 @@ SEED_GAMES = [
     {
         "game_id": "mario-kart-8-deluxe",
         "title": "Mario Kart 8 Deluxe",
-        "platforms": ["handheld"],
+        "platforms": ["switch"],
         "release_year": 2017,
         "genre_tags": ["racing", "party", "multiplayer"],
         "time_tags": [15, 30, 60],
@@ -42,7 +42,7 @@ SEED_GAMES = [
     {
         "game_id": "fall-guys",
         "title": "Fall Guys",
-        "platforms": ["pc", "console", "handheld"],
+        "platforms": ["pc", "playstation", "xbox", "switch"],
         "release_year": 2020,
         "genre_tags": ["battle-royale", "party", "platformer"],
         "time_tags": [15, 30],
@@ -63,7 +63,7 @@ SEED_GAMES = [
     {
         "game_id": "among-us",
         "title": "Among Us",
-        "platforms": ["pc", "console", "handheld"],
+        "platforms": ["pc", "playstation", "xbox", "switch"],
         "release_year": 2018,
         "genre_tags": ["social-deduction", "party", "multiplayer"],
         "time_tags": [15, 30],
@@ -84,7 +84,7 @@ SEED_GAMES = [
     {
         "game_id": "rocket-league",
         "title": "Rocket League",
-        "platforms": ["pc", "console", "handheld"],
+        "platforms": ["pc", "playstation", "xbox", "switch"],
         "release_year": 2015,
         "genre_tags": ["sports", "racing", "competitive"],
         "time_tags": [15, 30],
@@ -105,7 +105,7 @@ SEED_GAMES = [
     {
         "game_id": "overcooked-2",
         "title": "Overcooked 2",
-        "platforms": ["pc", "console", "handheld"],
+        "platforms": ["pc", "playstation", "xbox", "switch"],
         "release_year": 2018,
         "genre_tags": ["cooking", "co-op", "party"],
         "time_tags": [15, 30, 60],
@@ -126,7 +126,7 @@ SEED_GAMES = [
     {
         "game_id": "minecraft",
         "title": "Minecraft",
-        "platforms": ["pc", "console", "handheld"],
+        "platforms": ["pc", "playstation", "xbox", "switch"],
         "release_year": 2011,
         "genre_tags": ["sandbox", "survival", "creative"],
         "time_tags": [30, 60, 90],
@@ -147,7 +147,7 @@ SEED_GAMES = [
     {
         "game_id": "terraria",
         "title": "Terraria",
-        "platforms": ["pc", "console", "handheld"],
+        "platforms": ["pc", "playstation", "xbox", "switch"],
         "release_year": 2011,
         "genre_tags": ["sandbox", "action", "adventure"],
         "time_tags": [30, 60, 90],
@@ -168,7 +168,7 @@ SEED_GAMES = [
     {
         "game_id": "splatoon-3",
         "title": "Splatoon 3",
-        "platforms": ["handheld"],
+        "platforms": ["switch"],
         "release_year": 2022,
         "genre_tags": ["shooter", "multiplayer", "colorful"],
         "time_tags": [15, 30],
@@ -189,7 +189,7 @@ SEED_GAMES = [
     {
         "game_id": "fortnite",
         "title": "Fortnite",
-        "platforms": ["pc", "console", "handheld"],
+        "platforms": ["pc", "playstation", "xbox", "switch"],
         "release_year": 2017,
         "genre_tags": ["battle-royale", "shooter", "building"],
         "time_tags": [15, 30],
@@ -210,7 +210,7 @@ SEED_GAMES = [
     {
         "game_id": "super-smash-bros-ultimate",
         "title": "Super Smash Bros. Ultimate",
-        "platforms": ["handheld"],
+        "platforms": ["switch"],
         "release_year": 2018,
         "genre_tags": ["fighting", "party", "platform-fighter"],
         "time_tags": [15, 30, 60],
@@ -231,7 +231,7 @@ SEED_GAMES = [
     {
         "game_id": "portal-2",
         "title": "Portal 2",
-        "platforms": ["pc", "console"],
+        "platforms": ["pc", "playstation", "xbox"],
         "release_year": 2011,
         "genre_tags": ["puzzle", "first-person", "comedy"],
         "time_tags": [30, 60, 90],
@@ -252,7 +252,7 @@ SEED_GAMES = [
     {
         "game_id": "it-takes-two",
         "title": "It Takes Two",
-        "platforms": ["pc", "console"],
+        "platforms": ["pc", "playstation", "xbox"],
         "release_year": 2021,
         "genre_tags": ["co-op", "adventure", "platformer"],
         "time_tags": [60, 90],
@@ -273,7 +273,7 @@ SEED_GAMES = [
     {
         "game_id": "jackbox-party-pack-9",
         "title": "The Jackbox Party Pack 9",
-        "platforms": ["pc", "console", "handheld"],
+        "platforms": ["pc", "playstation", "xbox", "switch"],
         "release_year": 2022,
         "genre_tags": ["party", "trivia", "social"],
         "time_tags": [30, 60],
@@ -294,7 +294,7 @@ SEED_GAMES = [
     {
         "game_id": "golf-with-friends",
         "title": "Golf With Your Friends",
-        "platforms": ["pc", "console", "handheld"],
+        "platforms": ["pc", "playstation", "xbox", "switch"],
         "release_year": 2020,
         "genre_tags": ["sports", "party", "mini-golf"],
         "time_tags": [15, 30, 60],
@@ -315,7 +315,7 @@ SEED_GAMES = [
     {
         "game_id": "gang-beasts",
         "title": "Gang Beasts",
-        "platforms": ["pc", "console"],
+        "platforms": ["pc", "playstation", "xbox"],
         "release_year": 2017,
         "genre_tags": ["fighting", "party", "comedy"],
         "time_tags": [15, 30],
@@ -336,7 +336,7 @@ SEED_GAMES = [
     {
         "game_id": "moving-out",
         "title": "Moving Out",
-        "platforms": ["pc", "console", "handheld"],
+        "platforms": ["pc", "playstation", "xbox", "switch"],
         "release_year": 2020,
         "genre_tags": ["co-op", "puzzle", "comedy"],
         "time_tags": [15, 30],
@@ -357,7 +357,7 @@ SEED_GAMES = [
     {
         "game_id": "human-fall-flat",
         "title": "Human: Fall Flat",
-        "platforms": ["pc", "console", "handheld"],
+        "platforms": ["pc", "playstation", "xbox", "switch"],
         "release_year": 2016,
         "genre_tags": ["puzzle", "platformer", "comedy"],
         "time_tags": [30, 60],
@@ -378,7 +378,7 @@ SEED_GAMES = [
     {
         "game_id": "ultimate-chicken-horse",
         "title": "Ultimate Chicken Horse",
-        "platforms": ["pc", "console", "handheld"],
+        "platforms": ["pc", "playstation", "xbox", "switch"],
         "release_year": 2016,
         "genre_tags": ["platformer", "party", "creative"],
         "time_tags": [15, 30],
@@ -399,7 +399,7 @@ SEED_GAMES = [
     {
         "game_id": "stick-fight",
         "title": "Stick Fight: The Game",
-        "platforms": ["pc", "console", "handheld"],
+        "platforms": ["pc", "playstation", "xbox", "switch"],
         "release_year": 2017,
         "genre_tags": ["fighting", "party", "physics"],
         "time_tags": [15, 30],
@@ -441,7 +441,7 @@ SEED_GAMES = [
     {
         "game_id": "speedrunners",
         "title": "SpeedRunners",
-        "platforms": ["pc", "console"],
+        "platforms": ["pc", "playstation", "xbox"],
         "release_year": 2016,
         "genre_tags": ["racing", "platformer", "competitive"],
         "time_tags": [15, 30],
@@ -462,7 +462,7 @@ SEED_GAMES = [
     {
         "game_id": "boomerang-fu",
         "title": "Boomerang Fu",
-        "platforms": ["pc", "console", "handheld"],
+        "platforms": ["pc", "playstation", "xbox", "switch"],
         "release_year": 2020,
         "genre_tags": ["party", "fighting", "multiplayer"],
         "time_tags": [15, 30],
@@ -483,7 +483,7 @@ SEED_GAMES = [
     {
         "game_id": "unravel-two",
         "title": "Unravel Two",
-        "platforms": ["pc", "console", "handheld"],
+        "platforms": ["pc", "playstation", "xbox", "switch"],
         "release_year": 2018,
         "genre_tags": ["platformer", "puzzle", "co-op"],
         "time_tags": [30, 60],
@@ -504,7 +504,7 @@ SEED_GAMES = [
     {
         "game_id": "sackboy-adventure",
         "title": "Sackboy: A Big Adventure",
-        "platforms": ["pc", "console"],
+        "platforms": ["pc", "playstation", "xbox"],
         "release_year": 2020,
         "genre_tags": ["platformer", "co-op", "3d"],
         "time_tags": [30, 60],
@@ -525,7 +525,7 @@ SEED_GAMES = [
     {
         "game_id": "kirby-forgotten-land",
         "title": "Kirby and the Forgotten Land",
-        "platforms": ["handheld"],
+        "platforms": ["switch"],
         "release_year": 2022,
         "genre_tags": ["platformer", "3d", "adventure"],
         "time_tags": [30, 60],
@@ -546,7 +546,7 @@ SEED_GAMES = [
     {
         "game_id": "yoshis-crafted-world",
         "title": "Yoshi's Crafted World",
-        "platforms": ["handheld"],
+        "platforms": ["switch"],
         "release_year": 2019,
         "genre_tags": ["platformer", "2.5d", "collectathon"],
         "time_tags": [30, 60],
@@ -567,7 +567,7 @@ SEED_GAMES = [
     {
         "game_id": "lego-star-wars-skywalker",
         "title": "LEGO Star Wars: The Skywalker Saga",
-        "platforms": ["pc", "console", "handheld"],
+        "platforms": ["pc", "playstation", "xbox", "switch"],
         "release_year": 2022,
         "genre_tags": ["action", "adventure", "comedy"],
         "time_tags": [30, 60, 90],
@@ -588,7 +588,7 @@ SEED_GAMES = [
     {
         "game_id": "lego-marvel-superheroes-2",
         "title": "LEGO Marvel Super Heroes 2",
-        "platforms": ["pc", "console", "handheld"],
+        "platforms": ["pc", "playstation", "xbox", "switch"],
         "release_year": 2017,
         "genre_tags": ["action", "adventure", "superhero"],
         "time_tags": [30, 60, 90],
@@ -609,7 +609,7 @@ SEED_GAMES = [
     {
         "game_id": "lego-dc-supervillains",
         "title": "LEGO DC Super-Villains",
-        "platforms": ["pc", "console", "handheld"],
+        "platforms": ["pc", "playstation", "xbox", "switch"],
         "release_year": 2018,
         "genre_tags": ["action", "adventure", "superhero"],
         "time_tags": [30, 60, 90],
@@ -630,7 +630,7 @@ SEED_GAMES = [
     {
         "game_id": "crash-bandicoot-4",
         "title": "Crash Bandicoot 4",
-        "platforms": ["pc", "console", "handheld"],
+        "platforms": ["pc", "playstation", "xbox", "switch"],
         "release_year": 2020,
         "genre_tags": ["platformer", "3d", "challenging"],
         "time_tags": [30, 60],
@@ -651,7 +651,7 @@ SEED_GAMES = [
     {
         "game_id": "spyro-reignited",
         "title": "Spyro Reignited Trilogy",
-        "platforms": ["pc", "console", "handheld"],
+        "platforms": ["pc", "playstation", "xbox", "switch"],
         "release_year": 2018,
         "genre_tags": ["platformer", "3d", "collectathon"],
         "time_tags": [30, 60],
@@ -672,7 +672,7 @@ SEED_GAMES = [
     {
         "game_id": "crash-team-racing-nf",
         "title": "Crash Team Racing Nitro-Fueled",
-        "platforms": ["pc", "console", "handheld"],
+        "platforms": ["pc", "playstation", "xbox", "switch"],
         "release_year": 2019,
         "genre_tags": ["racing", "kart", "multiplayer"],
         "time_tags": [15, 30, 60],
@@ -693,7 +693,7 @@ SEED_GAMES = [
     {
         "game_id": "new-super-mario-bros-u",
         "title": "New Super Mario Bros. U Deluxe",
-        "platforms": ["handheld"],
+        "platforms": ["switch"],
         "release_year": 2019,
         "genre_tags": ["platformer", "2d", "multiplayer"],
         "time_tags": [15, 30, 60],
@@ -714,7 +714,7 @@ SEED_GAMES = [
     {
         "game_id": "super-mario-3d-world",
         "title": "Super Mario 3D World + Bowser's Fury",
-        "platforms": ["handheld"],
+        "platforms": ["switch"],
         "release_year": 2021,
         "genre_tags": ["platformer", "3d", "multiplayer"],
         "time_tags": [30, 60],
@@ -735,7 +735,7 @@ SEED_GAMES = [
     {
         "game_id": "luigis-mansion-3",
         "title": "Luigi's Mansion 3",
-        "platforms": ["handheld"],
+        "platforms": ["switch"],
         "release_year": 2019,
         "genre_tags": ["adventure", "puzzle", "ghost"],
         "time_tags": [30, 60],
@@ -756,7 +756,7 @@ SEED_GAMES = [
     {
         "game_id": "captain-toad",
         "title": "Captain Toad: Treasure Tracker",
-        "platforms": ["handheld"],
+        "platforms": ["switch"],
         "release_year": 2018,
         "genre_tags": ["puzzle", "platformer", "diorama"],
         "time_tags": [15, 30],
@@ -777,7 +777,7 @@ SEED_GAMES = [
     {
         "game_id": "donkey-kong-country-tropical-freeze",
         "title": "Donkey Kong Country: Tropical Freeze",
-        "platforms": ["handheld"],
+        "platforms": ["switch"],
         "release_year": 2018,
         "genre_tags": ["platformer", "2d", "challenging"],
         "time_tags": [30, 60],
@@ -798,7 +798,7 @@ SEED_GAMES = [
     {
         "game_id": "rayman-legends",
         "title": "Rayman Legends",
-        "platforms": ["pc", "console", "handheld"],
+        "platforms": ["pc", "playstation", "xbox", "switch"],
         "release_year": 2013,
         "genre_tags": ["platformer", "2d", "musical"],
         "time_tags": [30, 60],
@@ -819,7 +819,7 @@ SEED_GAMES = [
     {
         "game_id": "cuphead",
         "title": "Cuphead",
-        "platforms": ["pc", "console", "handheld"],
+        "platforms": ["pc", "playstation", "xbox", "switch"],
         "release_year": 2017,
         "genre_tags": ["run-and-gun", "boss-rush", "artistic"],
         "time_tags": [15, 30, 60],
@@ -840,7 +840,7 @@ SEED_GAMES = [
     {
         "game_id": "cuphead-dlc",
         "title": "Cuphead: The Delicious Last Course",
-        "platforms": ["pc", "console", "handheld"],
+        "platforms": ["pc", "playstation", "xbox", "switch"],
         "release_year": 2022,
         "genre_tags": ["run-and-gun", "boss-rush", "artistic"],
         "time_tags": [15, 30, 60],
@@ -861,7 +861,7 @@ SEED_GAMES = [
     {
         "game_id": "shovel-knight",
         "title": "Shovel Knight: Treasure Trove",
-        "platforms": ["pc", "console", "handheld"],
+        "platforms": ["pc", "playstation", "xbox", "switch"],
         "release_year": 2014,
         "genre_tags": ["platformer", "retro", "action"],
         "time_tags": [30, 60],
@@ -882,7 +882,7 @@ SEED_GAMES = [
     {
         "game_id": "hollow-knight",
         "title": "Hollow Knight",
-        "platforms": ["pc", "console", "handheld"],
+        "platforms": ["pc", "playstation", "xbox", "switch"],
         "release_year": 2017,
         "genre_tags": ["metroidvania", "action", "exploration"],
         "time_tags": [60, 90],
@@ -903,7 +903,7 @@ SEED_GAMES = [
     {
         "game_id": "ori-collection",
         "title": "Ori: The Collection",
-        "platforms": ["pc", "console", "handheld"],
+        "platforms": ["pc", "playstation", "xbox", "switch"],
         "release_year": 2020,
         "genre_tags": ["metroidvania", "platformer", "artistic"],
         "time_tags": [30, 60, 90],
@@ -924,7 +924,7 @@ SEED_GAMES = [
     {
         "game_id": "celeste",
         "title": "Celeste",
-        "platforms": ["pc", "console", "handheld"],
+        "platforms": ["pc", "playstation", "xbox", "switch"],
         "release_year": 2018,
         "genre_tags": ["platformer", "precision", "narrative"],
         "time_tags": [30, 60, 90],
@@ -945,7 +945,7 @@ SEED_GAMES = [
     {
         "game_id": "super-meat-boy",
         "title": "Super Meat Boy",
-        "platforms": ["pc", "console", "handheld"],
+        "platforms": ["pc", "playstation", "xbox", "switch"],
         "release_year": 2010,
         "genre_tags": ["platformer", "precision", "challenging"],
         "time_tags": [15, 30, 60],
@@ -966,7 +966,7 @@ SEED_GAMES = [
     {
         "game_id": "the-messenger",
         "title": "The Messenger",
-        "platforms": ["pc", "console", "handheld"],
+        "platforms": ["pc", "playstation", "xbox", "switch"],
         "release_year": 2018,
         "genre_tags": ["platformer", "metroidvania", "retro"],
         "time_tags": [30, 60, 90],
@@ -987,7 +987,7 @@ SEED_GAMES = [
     {
         "game_id": "dead-cells",
         "title": "Dead Cells",
-        "platforms": ["pc", "console", "handheld"],
+        "platforms": ["pc", "playstation", "xbox", "switch"],
         "release_year": 2018,
         "genre_tags": ["roguelike", "metroidvania", "action"],
         "time_tags": [30, 60],
@@ -1008,7 +1008,7 @@ SEED_GAMES = [
     {
         "game_id": "hades",
         "title": "Hades",
-        "platforms": ["pc", "console", "handheld"],
+        "platforms": ["pc", "playstation", "xbox", "switch"],
         "release_year": 2020,
         "genre_tags": ["roguelike", "action", "narrative"],
         "time_tags": [30, 60],
@@ -1050,7 +1050,7 @@ SEED_GAMES = [
     {
         "game_id": "vampire-survivors",
         "title": "Vampire Survivors",
-        "platforms": ["pc", "console", "handheld"],
+        "platforms": ["pc", "playstation", "xbox", "switch"],
         "release_year": 2022,
         "genre_tags": ["roguelike", "bullet-hell", "casual"],
         "time_tags": [15, 30],
@@ -1071,7 +1071,7 @@ SEED_GAMES = [
     {
         "game_id": "cult-of-the-lamb",
         "title": "Cult of the Lamb",
-        "platforms": ["pc", "console", "handheld"],
+        "platforms": ["pc", "playstation", "xbox", "switch"],
         "release_year": 2022,
         "genre_tags": ["roguelike", "management", "dark-comedy"],
         "time_tags": [30, 60],
@@ -1092,7 +1092,7 @@ SEED_GAMES = [
     {
         "game_id": "enter-the-gungeon",
         "title": "Enter the Gungeon",
-        "platforms": ["pc", "console", "handheld"],
+        "platforms": ["pc", "playstation", "xbox", "switch"],
         "release_year": 2016,
         "genre_tags": ["roguelike", "bullet-hell", "dungeon-crawler"],
         "time_tags": [30, 60],
@@ -1113,7 +1113,7 @@ SEED_GAMES = [
     {
         "game_id": "binding-of-isaac",
         "title": "The Binding of Isaac: Repentance",
-        "platforms": ["pc", "console", "handheld"],
+        "platforms": ["pc", "playstation", "xbox", "switch"],
         "release_year": 2021,
         "genre_tags": ["roguelike", "dungeon-crawler", "dark"],
         "time_tags": [30, 60],
@@ -1134,7 +1134,7 @@ SEED_GAMES = [
     {
         "game_id": "risk-of-rain-2",
         "title": "Risk of Rain 2",
-        "platforms": ["pc", "console"],
+        "platforms": ["pc", "playstation", "xbox"],
         "release_year": 2020,
         "genre_tags": ["roguelike", "third-person", "co-op"],
         "time_tags": [30, 60, 90],
@@ -1155,7 +1155,7 @@ SEED_GAMES = [
     {
         "game_id": "spelunky-2",
         "title": "Spelunky 2",
-        "platforms": ["pc", "console", "handheld"],
+        "platforms": ["pc", "playstation", "xbox", "switch"],
         "release_year": 2020,
         "genre_tags": ["roguelike", "platformer", "challenging"],
         "time_tags": [15, 30, 60],
@@ -1176,7 +1176,7 @@ SEED_GAMES = [
     {
         "game_id": "slay-the-spire",
         "title": "Slay the Spire",
-        "platforms": ["pc", "console", "handheld"],
+        "platforms": ["pc", "playstation", "xbox", "switch"],
         "release_year": 2019,
         "genre_tags": ["roguelike", "deck-builder", "strategy"],
         "time_tags": [30, 60, 90],
@@ -1197,7 +1197,7 @@ SEED_GAMES = [
     {
         "game_id": "balatro",
         "title": "Balatro",
-        "platforms": ["pc", "console", "handheld"],
+        "platforms": ["pc", "playstation", "xbox", "switch"],
         "release_year": 2024,
         "genre_tags": ["roguelike", "deck-builder", "poker"],
         "time_tags": [30, 60],
@@ -1218,7 +1218,7 @@ SEED_GAMES = [
     {
         "game_id": "inscryption",
         "title": "Inscryption",
-        "platforms": ["pc", "console", "handheld"],
+        "platforms": ["pc", "playstation", "xbox", "switch"],
         "release_year": 2021,
         "genre_tags": ["roguelike", "deck-builder", "horror"],
         "time_tags": [60, 90],
@@ -1239,7 +1239,7 @@ SEED_GAMES = [
     {
         "game_id": "monster-train",
         "title": "Monster Train",
-        "platforms": ["pc", "console", "handheld"],
+        "platforms": ["pc", "playstation", "xbox", "switch"],
         "release_year": 2020,
         "genre_tags": ["roguelike", "deck-builder", "tower-defense"],
         "time_tags": [30, 60],
@@ -1260,7 +1260,7 @@ SEED_GAMES = [
     {
         "game_id": "dicey-dungeons",
         "title": "Dicey Dungeons",
-        "platforms": ["pc", "console", "handheld"],
+        "platforms": ["pc", "playstation", "xbox", "switch"],
         "release_year": 2019,
         "genre_tags": ["roguelike", "deck-builder", "dice"],
         "time_tags": [30, 60],
@@ -1281,7 +1281,7 @@ SEED_GAMES = [
     {
         "game_id": "one-step-from-eden",
         "title": "One Step From Eden",
-        "platforms": ["pc", "console", "handheld"],
+        "platforms": ["pc", "playstation", "xbox", "switch"],
         "release_year": 2020,
         "genre_tags": ["roguelike", "deck-builder", "action"],
         "time_tags": [30, 60],
@@ -1302,7 +1302,7 @@ SEED_GAMES = [
     {
         "game_id": "into-the-breach",
         "title": "Into the Breach",
-        "platforms": ["pc", "console", "handheld"],
+        "platforms": ["pc", "playstation", "xbox", "switch"],
         "release_year": 2018,
         "genre_tags": ["strategy", "roguelike", "tactics"],
         "time_tags": [15, 30, 60],
@@ -1344,7 +1344,7 @@ SEED_GAMES = [
     {
         "game_id": "brotato",
         "title": "Brotato",
-        "platforms": ["pc", "console", "handheld"],
+        "platforms": ["pc", "playstation", "xbox", "switch"],
         "release_year": 2022,
         "genre_tags": ["roguelike", "bullet-hell", "arena"],
         "time_tags": [15, 30],
@@ -1365,7 +1365,7 @@ SEED_GAMES = [
     {
         "game_id": "loop-hero",
         "title": "Loop Hero",
-        "platforms": ["pc", "console", "handheld"],
+        "platforms": ["pc", "playstation", "xbox", "switch"],
         "release_year": 2021,
         "genre_tags": ["roguelike", "strategy", "idle"],
         "time_tags": [30, 60],
@@ -1386,7 +1386,7 @@ SEED_GAMES = [
     {
         "game_id": "neon-abyss",
         "title": "Neon Abyss",
-        "platforms": ["pc", "console", "handheld"],
+        "platforms": ["pc", "playstation", "xbox", "switch"],
         "release_year": 2020,
         "genre_tags": ["roguelike", "platformer", "shooter"],
         "time_tags": [30, 60],
@@ -1407,7 +1407,7 @@ SEED_GAMES = [
     {
         "game_id": "gunfire-reborn",
         "title": "Gunfire Reborn",
-        "platforms": ["pc", "console"],
+        "platforms": ["pc", "playstation", "xbox"],
         "release_year": 2021,
         "genre_tags": ["roguelike", "fps", "co-op"],
         "time_tags": [30, 60],
@@ -1428,7 +1428,7 @@ SEED_GAMES = [
     {
         "game_id": "returnal",
         "title": "Returnal",
-        "platforms": ["pc", "console"],
+        "platforms": ["pc", "playstation"],
         "release_year": 2021,
         "genre_tags": ["roguelike", "shooter", "sci-fi"],
         "time_tags": [60, 90],
@@ -1449,7 +1449,7 @@ SEED_GAMES = [
     {
         "game_id": "tetris-99",
         "title": "Tetris 99",
-        "platforms": ["handheld"],
+        "platforms": ["switch"],
         "release_year": 2019,
         "genre_tags": ["puzzle", "battle-royale", "competitive"],
         "time_tags": [15, 30],
@@ -1470,7 +1470,7 @@ SEED_GAMES = [
     {
         "game_id": "puyo-puyo-tetris-2",
         "title": "Puyo Puyo Tetris 2",
-        "platforms": ["pc", "console", "handheld"],
+        "platforms": ["pc", "playstation", "xbox", "switch"],
         "release_year": 2020,
         "genre_tags": ["puzzle", "multiplayer", "competitive"],
         "time_tags": [15, 30],
@@ -1491,7 +1491,7 @@ SEED_GAMES = [
     {
         "game_id": "dr-mario-world",
         "title": "Dr. Mario",
-        "platforms": ["handheld"],
+        "platforms": ["switch"],
         "release_year": 2019,
         "genre_tags": ["puzzle", "classic", "medical"],
         "time_tags": [15, 30],
@@ -1512,7 +1512,7 @@ SEED_GAMES = [
     {
         "game_id": "warioware-get-it-together",
         "title": "WarioWare: Get It Together!",
-        "platforms": ["handheld"],
+        "platforms": ["switch"],
         "release_year": 2021,
         "genre_tags": ["party", "microgames", "comedy"],
         "time_tags": [15, 30],
@@ -1533,7 +1533,7 @@ SEED_GAMES = [
     {
         "game_id": "rhythm-heaven",
         "title": "Rhythm Heaven Megamix",
-        "platforms": ["handheld"],
+        "platforms": ["switch"],
         "release_year": 2016,
         "genre_tags": ["rhythm", "mini-games", "quirky"],
         "time_tags": [15, 30],
@@ -1554,7 +1554,7 @@ SEED_GAMES = [
     {
         "game_id": "snipperclips",
         "title": "Snipperclips",
-        "platforms": ["handheld"],
+        "platforms": ["switch"],
         "release_year": 2017,
         "genre_tags": ["puzzle", "co-op", "creative"],
         "time_tags": [15, 30, 60],
@@ -1575,7 +1575,7 @@ SEED_GAMES = [
     {
         "game_id": "death-squared",
         "title": "Death Squared",
-        "platforms": ["pc", "console", "handheld"],
+        "platforms": ["pc", "playstation", "xbox", "switch"],
         "release_year": 2017,
         "genre_tags": ["puzzle", "co-op", "robots"],
         "time_tags": [15, 30],
@@ -1596,7 +1596,7 @@ SEED_GAMES = [
     {
         "game_id": "heave-ho",
         "title": "Heave Ho",
-        "platforms": ["pc", "handheld"],
+        "platforms": ["pc", "switch"],
         "release_year": 2019,
         "genre_tags": ["co-op", "platformer", "physics"],
         "time_tags": [15, 30],
@@ -1617,7 +1617,7 @@ SEED_GAMES = [
     {
         "game_id": "keep-talking-nobody-explodes",
         "title": "Keep Talking and Nobody Explodes",
-        "platforms": ["pc", "console", "handheld"],
+        "platforms": ["pc", "playstation", "xbox", "switch"],
         "release_year": 2015,
         "genre_tags": ["puzzle", "party", "communication"],
         "time_tags": [15, 30],
@@ -1638,7 +1638,7 @@ SEED_GAMES = [
     {
         "game_id": "towerfall",
         "title": "TowerFall Ascension",
-        "platforms": ["pc", "console", "handheld"],
+        "platforms": ["pc", "playstation", "xbox", "switch"],
         "release_year": 2014,
         "genre_tags": ["arena", "archery", "multiplayer"],
         "time_tags": [15, 30],
@@ -1764,7 +1764,7 @@ SEED_GAMES = [
     {
         "game_id": "plate-up",
         "title": "PlateUp!",
-        "platforms": ["pc", "console"],
+        "platforms": ["pc", "playstation", "xbox"],
         "release_year": 2022,
         "genre_tags": ["cooking", "roguelike", "management"],
         "time_tags": [30, 60],
@@ -1785,7 +1785,7 @@ SEED_GAMES = [
     {
         "game_id": "dave-the-diver",
         "title": "Dave the Diver",
-        "platforms": ["pc", "console", "handheld"],
+        "platforms": ["pc", "playstation", "xbox", "switch"],
         "release_year": 2023,
         "genre_tags": ["adventure", "management", "fishing"],
         "time_tags": [30, 60],
@@ -1806,7 +1806,7 @@ SEED_GAMES = [
     {
         "game_id": "dredge",
         "title": "Dredge",
-        "platforms": ["pc", "console", "handheld"],
+        "platforms": ["pc", "playstation", "xbox", "switch"],
         "release_year": 2023,
         "genre_tags": ["fishing", "horror", "adventure"],
         "time_tags": [30, 60],
@@ -1827,7 +1827,7 @@ SEED_GAMES = [
     {
         "game_id": "subnautica",
         "title": "Subnautica",
-        "platforms": ["pc", "console", "handheld"],
+        "platforms": ["pc", "playstation", "xbox", "switch"],
         "release_year": 2018,
         "genre_tags": ["survival", "exploration", "underwater"],
         "time_tags": [60, 90],
@@ -1848,7 +1848,7 @@ SEED_GAMES = [
     {
         "game_id": "subnautica-below-zero",
         "title": "Subnautica: Below Zero",
-        "platforms": ["pc", "console", "handheld"],
+        "platforms": ["pc", "playstation", "xbox", "switch"],
         "release_year": 2021,
         "genre_tags": ["survival", "exploration", "underwater"],
         "time_tags": [60, 90],
@@ -1869,7 +1869,7 @@ SEED_GAMES = [
     {
         "game_id": "valheim",
         "title": "Valheim",
-        "platforms": ["pc", "console"],
+        "platforms": ["pc", "playstation", "xbox"],
         "release_year": 2021,
         "genre_tags": ["survival", "crafting", "viking"],
         "time_tags": [60, 90],
@@ -1911,7 +1911,7 @@ SEED_GAMES = [
     {
         "game_id": "the-forest",
         "title": "The Forest",
-        "platforms": ["pc", "console"],
+        "platforms": ["pc", "playstation", "xbox"],
         "release_year": 2018,
         "genre_tags": ["survival", "horror", "crafting"],
         "time_tags": [60, 90],
@@ -1953,7 +1953,7 @@ SEED_GAMES = [
     {
         "game_id": "green-hell",
         "title": "Green Hell",
-        "platforms": ["pc", "console", "handheld"],
+        "platforms": ["pc", "playstation", "xbox", "switch"],
         "release_year": 2019,
         "genre_tags": ["survival", "simulation", "jungle"],
         "time_tags": [60, 90],
@@ -1974,7 +1974,7 @@ SEED_GAMES = [
     {
         "game_id": "grounded",
         "title": "Grounded",
-        "platforms": ["pc", "console"],
+        "platforms": ["pc", "xbox"],
         "release_year": 2022,
         "genre_tags": ["survival", "crafting", "miniature"],
         "time_tags": [60, 90],
@@ -1995,7 +1995,7 @@ SEED_GAMES = [
     {
         "game_id": "no-mans-sky",
         "title": "No Man's Sky",
-        "platforms": ["pc", "console", "handheld"],
+        "platforms": ["pc", "playstation", "xbox", "switch"],
         "release_year": 2016,
         "genre_tags": ["exploration", "survival", "space"],
         "time_tags": [60, 90],
@@ -2016,7 +2016,7 @@ SEED_GAMES = [
     {
         "game_id": "astroneer",
         "title": "Astroneer",
-        "platforms": ["pc", "console", "handheld"],
+        "platforms": ["pc", "playstation", "xbox", "switch"],
         "release_year": 2019,
         "genre_tags": ["survival", "exploration", "space"],
         "time_tags": [30, 60, 90],
@@ -2037,7 +2037,7 @@ SEED_GAMES = [
     {
         "game_id": "deep-rock-galactic",
         "title": "Deep Rock Galactic",
-        "platforms": ["pc", "console"],
+        "platforms": ["pc", "playstation", "xbox"],
         "release_year": 2020,
         "genre_tags": ["co-op", "shooter", "mining"],
         "time_tags": [30, 60],
@@ -2079,7 +2079,7 @@ SEED_GAMES = [
     {
         "game_id": "core-keeper",
         "title": "Core Keeper",
-        "platforms": ["pc", "console"],
+        "platforms": ["pc", "playstation", "xbox"],
         "release_year": 2022,
         "genre_tags": ["survival", "mining", "crafting"],
         "time_tags": [30, 60, 90],
@@ -2100,7 +2100,7 @@ SEED_GAMES = [
     {
         "game_id": "dont-starve-together",
         "title": "Don't Starve Together",
-        "platforms": ["pc", "console"],
+        "platforms": ["pc", "playstation", "xbox"],
         "release_year": 2016,
         "genre_tags": ["survival", "crafting", "dark"],
         "time_tags": [60, 90],
@@ -2121,7 +2121,7 @@ SEED_GAMES = [
     {
         "game_id": "portal-companion-collection",
         "title": "Portal Companion Collection",
-        "platforms": ["handheld"],
+        "platforms": ["switch"],
         "release_year": 2022,
         "genre_tags": ["puzzle", "first-person", "comedy"],
         "time_tags": [30, 60, 90],
@@ -2142,7 +2142,7 @@ SEED_GAMES = [
     {
         "game_id": "pikmin-4",
         "title": "Pikmin 4",
-        "platforms": ["handheld"],
+        "platforms": ["switch"],
         "release_year": 2023,
         "genre_tags": ["strategy", "adventure", "puzzle"],
         "time_tags": [30, 60],
@@ -2163,7 +2163,7 @@ SEED_GAMES = [
     {
         "game_id": "sea-of-thieves",
         "title": "Sea of Thieves",
-        "platforms": ["pc", "console"],
+        "platforms": ["pc", "xbox"],
         "release_year": 2018,
         "genre_tags": ["adventure", "pirate", "multiplayer"],
         "time_tags": [60, 90],
@@ -2184,7 +2184,7 @@ SEED_GAMES = [
     {
         "game_id": "sea-of-stars",
         "title": "Sea of Stars",
-        "platforms": ["pc", "console", "handheld"],
+        "platforms": ["pc", "playstation", "xbox", "switch"],
         "release_year": 2023,
         "genre_tags": ["jrpg", "retro", "turn-based"],
         "time_tags": [30, 60, 90],
@@ -2205,7 +2205,7 @@ SEED_GAMES = [
     {
         "game_id": "eastward",
         "title": "Eastward",
-        "platforms": ["pc", "console", "handheld"],
+        "platforms": ["pc", "playstation", "xbox", "switch"],
         "release_year": 2021,
         "genre_tags": ["adventure", "rpg", "pixel-art"],
         "time_tags": [60, 90],
@@ -2226,7 +2226,7 @@ SEED_GAMES = [
     {
         "game_id": "crosscode",
         "title": "CrossCode",
-        "platforms": ["pc", "console", "handheld"],
+        "platforms": ["pc", "playstation", "xbox", "switch"],
         "release_year": 2018,
         "genre_tags": ["action-rpg", "retro", "puzzle"],
         "time_tags": [60, 90],
@@ -2247,7 +2247,7 @@ SEED_GAMES = [
     {
         "game_id": "chained-echoes",
         "title": "Chained Echoes",
-        "platforms": ["pc", "console", "handheld"],
+        "platforms": ["pc", "playstation", "xbox", "switch"],
         "release_year": 2022,
         "genre_tags": ["jrpg", "retro", "mech"],
         "time_tags": [60, 90],
@@ -2268,7 +2268,7 @@ SEED_GAMES = [
     {
         "game_id": "octopath-traveler-2",
         "title": "Octopath Traveler II",
-        "platforms": ["pc", "console", "handheld"],
+        "platforms": ["pc", "playstation", "xbox", "switch"],
         "release_year": 2023,
         "genre_tags": ["jrpg", "hd-2d", "turn-based"],
         "time_tags": [60, 90],
@@ -2289,7 +2289,7 @@ SEED_GAMES = [
     {
         "game_id": "live-a-live",
         "title": "Live A Live",
-        "platforms": ["pc", "console", "handheld"],
+        "platforms": ["pc", "playstation", "xbox", "switch"],
         "release_year": 2022,
         "genre_tags": ["jrpg", "anthology", "hd-2d"],
         "time_tags": [60, 90],
@@ -2310,7 +2310,7 @@ SEED_GAMES = [
     {
         "game_id": "triangle-strategy",
         "title": "Triangle Strategy",
-        "platforms": ["pc", "handheld"],
+        "platforms": ["pc", "switch"],
         "release_year": 2022,
         "genre_tags": ["tactics", "srpg", "hd-2d"],
         "time_tags": [60, 90],
@@ -2331,7 +2331,7 @@ SEED_GAMES = [
     {
         "game_id": "fire-emblem-engage",
         "title": "Fire Emblem Engage",
-        "platforms": ["handheld"],
+        "platforms": ["switch"],
         "release_year": 2023,
         "genre_tags": ["tactics", "srpg", "strategy"],
         "time_tags": [30, 60, 90],
@@ -2352,7 +2352,7 @@ SEED_GAMES = [
     {
         "game_id": "mario-rabbids-sparks",
         "title": "Mario + Rabbids Sparks of Hope",
-        "platforms": ["handheld"],
+        "platforms": ["switch"],
         "release_year": 2022,
         "genre_tags": ["tactics", "strategy", "comedy"],
         "time_tags": [30, 60],
@@ -2373,7 +2373,7 @@ SEED_GAMES = [
     {
         "game_id": "wargroove-2",
         "title": "Wargroove 2",
-        "platforms": ["pc", "console", "handheld"],
+        "platforms": ["pc", "playstation", "xbox", "switch"],
         "release_year": 2023,
         "genre_tags": ["tactics", "strategy", "pixel-art"],
         "time_tags": [30, 60],
@@ -2394,7 +2394,7 @@ SEED_GAMES = [
     {
         "game_id": "advance-wars-reboot",
         "title": "Advance Wars 1+2: Re-Boot Camp",
-        "platforms": ["handheld"],
+        "platforms": ["switch"],
         "release_year": 2023,
         "genre_tags": ["tactics", "strategy", "military"],
         "time_tags": [30, 60],
@@ -2415,7 +2415,7 @@ SEED_GAMES = [
     {
         "game_id": "tactics-ogre-reborn",
         "title": "Tactics Ogre: Reborn",
-        "platforms": ["pc", "console", "handheld"],
+        "platforms": ["pc", "playstation", "xbox", "switch"],
         "release_year": 2022,
         "genre_tags": ["tactics", "srpg", "political"],
         "time_tags": [60, 90],
@@ -2436,7 +2436,7 @@ SEED_GAMES = [
     {
         "game_id": "symphony-of-war",
         "title": "Symphony of War",
-        "platforms": ["pc", "handheld"],
+        "platforms": ["pc", "switch"],
         "release_year": 2022,
         "genre_tags": ["tactics", "srpg", "indie"],
         "time_tags": [60, 90],
@@ -2457,7 +2457,7 @@ SEED_GAMES = [
     {
         "game_id": "wildermyth",
         "title": "Wildermyth",
-        "platforms": ["pc", "console", "handheld"],
+        "platforms": ["pc", "playstation", "xbox", "switch"],
         "release_year": 2021,
         "genre_tags": ["tactics", "rpg", "procedural"],
         "time_tags": [60, 90],
@@ -2478,7 +2478,7 @@ SEED_GAMES = [
     {
         "game_id": "marvel-snap",
         "title": "Marvel Snap",
-        "platforms": ["pc", "handheld"],
+        "platforms": ["pc", "mobile"],
         "release_year": 2022,
         "genre_tags": ["card-game", "strategy", "marvel"],
         "time_tags": [15, 30],
@@ -2499,7 +2499,7 @@ SEED_GAMES = [
     {
         "game_id": "legends-of-runeterra",
         "title": "Legends of Runeterra",
-        "platforms": ["pc", "handheld"],
+        "platforms": ["pc", "mobile"],
         "release_year": 2020,
         "genre_tags": ["card-game", "strategy", "league"],
         "time_tags": [15, 30, 60],
@@ -2520,7 +2520,7 @@ SEED_GAMES = [
     {
         "game_id": "gwent",
         "title": "Gwent: The Witcher Card Game",
-        "platforms": ["pc", "console", "handheld"],
+        "platforms": ["pc", "playstation", "xbox", "switch"],
         "release_year": 2018,
         "genre_tags": ["card-game", "strategy", "witcher"],
         "time_tags": [15, 30],
@@ -2541,7 +2541,7 @@ SEED_GAMES = [
     {
         "game_id": "magic-arena",
         "title": "Magic: The Gathering Arena",
-        "platforms": ["pc", "handheld"],
+        "platforms": ["pc", "switch"],
         "release_year": 2018,
         "genre_tags": ["card-game", "strategy", "tcg"],
         "time_tags": [15, 30, 60],
@@ -2562,7 +2562,7 @@ SEED_GAMES = [
     {
         "game_id": "pokemon-tcg-live",
         "title": "Pokemon TCG Live",
-        "platforms": ["pc", "handheld"],
+        "platforms": ["pc", "mobile"],
         "release_year": 2022,
         "genre_tags": ["card-game", "pokemon", "tcg"],
         "time_tags": [15, 30],
@@ -2583,7 +2583,7 @@ SEED_GAMES = [
     {
         "game_id": "yu-gi-oh-master-duel",
         "title": "Yu-Gi-Oh! Master Duel",
-        "platforms": ["pc", "console", "handheld"],
+        "platforms": ["pc", "playstation", "xbox", "mobile"],
         "release_year": 2022,
         "genre_tags": ["card-game", "anime", "tcg"],
         "time_tags": [30, 60],
@@ -2604,7 +2604,7 @@ SEED_GAMES = [
     {
         "game_id": "hearthstone",
         "title": "Hearthstone",
-        "platforms": ["pc", "handheld"],
+        "platforms": ["pc", "mobile"],
         "release_year": 2014,
         "genre_tags": ["card-game", "strategy", "blizzard"],
         "time_tags": [15, 30],
@@ -2625,7 +2625,7 @@ SEED_GAMES = [
     {
         "game_id": "backpack-hero",
         "title": "Backpack Hero",
-        "platforms": ["pc", "console", "handheld"],
+        "platforms": ["pc", "playstation", "xbox", "switch"],
         "release_year": 2023,
         "genre_tags": ["roguelike", "inventory", "strategy"],
         "time_tags": [30, 60],
@@ -2646,7 +2646,7 @@ SEED_GAMES = [
     {
         "game_id": "nba-2k24",
         "title": "NBA 2K24",
-        "platforms": ["pc", "console"],
+        "platforms": ["pc", "playstation", "xbox"],
         "release_year": 2023,
         "genre_tags": ["sports", "basketball", "simulation"],
         "time_tags": [30, 60],
@@ -2667,7 +2667,7 @@ SEED_GAMES = [
     {
         "game_id": "ea-fc-25",
         "title": "EA Sports FC 25",
-        "platforms": ["pc", "console"],
+        "platforms": ["pc", "playstation", "xbox"],
         "release_year": 2024,
         "genre_tags": ["sports", "soccer", "simulation"],
         "time_tags": [15, 30, 60],
@@ -2688,7 +2688,7 @@ SEED_GAMES = [
     {
         "game_id": "mlb-the-show-24",
         "title": "MLB The Show 24",
-        "platforms": ["pc", "console"],
+        "platforms": ["pc", "playstation", "xbox"],
         "release_year": 2024,
         "genre_tags": ["sports", "baseball", "simulation"],
         "time_tags": [30, 60, 90],
@@ -2709,7 +2709,7 @@ SEED_GAMES = [
     {
         "game_id": "madden-25",
         "title": "Madden NFL 25",
-        "platforms": ["pc", "console"],
+        "platforms": ["pc", "playstation", "xbox"],
         "release_year": 2024,
         "genre_tags": ["sports", "football", "simulation"],
         "time_tags": [30, 60],
@@ -2730,7 +2730,7 @@ SEED_GAMES = [
     {
         "game_id": "wwe-2k24",
         "title": "WWE 2K24",
-        "platforms": ["pc", "console"],
+        "platforms": ["pc", "playstation", "xbox"],
         "release_year": 2024,
         "genre_tags": ["sports", "wrestling", "fighting"],
         "time_tags": [15, 30, 60],
@@ -2751,7 +2751,7 @@ SEED_GAMES = [
     {
         "game_id": "pga-tour-2k24",
         "title": "PGA Tour 2K24",
-        "platforms": ["pc", "console"],
+        "platforms": ["pc", "playstation", "xbox"],
         "release_year": 2024,
         "genre_tags": ["sports", "golf", "simulation"],
         "time_tags": [30, 60, 90],
@@ -2772,7 +2772,7 @@ SEED_GAMES = [
     {
         "game_id": "riders-republic",
         "title": "Riders Republic",
-        "platforms": ["pc", "console"],
+        "platforms": ["pc", "playstation", "xbox"],
         "release_year": 2021,
         "genre_tags": ["sports", "extreme", "open-world"],
         "time_tags": [15, 30, 60],
@@ -2793,7 +2793,7 @@ SEED_GAMES = [
     {
         "game_id": "steep",
         "title": "Steep",
-        "platforms": ["pc", "console"],
+        "platforms": ["pc", "playstation", "xbox"],
         "release_year": 2016,
         "genre_tags": ["sports", "winter", "open-world"],
         "time_tags": [15, 30, 60],
@@ -2814,7 +2814,7 @@ SEED_GAMES = [
     {
         "game_id": "tony-hawks-pro-skater",
         "title": "Tony Hawk's Pro Skater 1+2",
-        "platforms": ["pc", "console", "handheld"],
+        "platforms": ["pc", "playstation", "xbox", "switch"],
         "release_year": 2020,
         "genre_tags": ["sports", "skateboarding", "arcade"],
         "time_tags": [15, 30, 60],
@@ -2835,7 +2835,7 @@ SEED_GAMES = [
     {
         "game_id": "skate",
         "title": "Skate 3",
-        "platforms": ["console"],
+        "platforms": ["playstation", "xbox"],
         "release_year": 2010,
         "genre_tags": ["sports", "skateboarding", "simulation"],
         "time_tags": [15, 30, 60],
@@ -2856,7 +2856,7 @@ SEED_GAMES = [
     {
         "game_id": "olli-olli-world",
         "title": "OlliOlli World",
-        "platforms": ["pc", "console", "handheld"],
+        "platforms": ["pc", "playstation", "xbox", "switch"],
         "release_year": 2022,
         "genre_tags": ["sports", "skateboarding", "platformer"],
         "time_tags": [15, 30],
@@ -2877,7 +2877,7 @@ SEED_GAMES = [
     {
         "game_id": "hot-wheels-unleashed-2",
         "title": "Hot Wheels Unleashed 2",
-        "platforms": ["pc", "console", "handheld"],
+        "platforms": ["pc", "playstation", "xbox", "switch"],
         "release_year": 2023,
         "genre_tags": ["racing", "arcade", "toys"],
         "time_tags": [15, 30],
@@ -2898,7 +2898,7 @@ SEED_GAMES = [
     {
         "game_id": "forza-horizon-5",
         "title": "Forza Horizon 5",
-        "platforms": ["pc", "console"],
+        "platforms": ["pc", "xbox"],
         "release_year": 2021,
         "genre_tags": ["racing", "open-world", "simulation"],
         "time_tags": [15, 30, 60],
@@ -2919,7 +2919,7 @@ SEED_GAMES = [
     {
         "game_id": "gran-turismo-7",
         "title": "Gran Turismo 7",
-        "platforms": ["console"],
+        "platforms": ["playstation", "xbox"],
         "release_year": 2022,
         "genre_tags": ["racing", "simulation", "realistic"],
         "time_tags": [30, 60, 90],
@@ -2940,7 +2940,7 @@ SEED_GAMES = [
     {
         "game_id": "need-for-speed-unbound",
         "title": "Need for Speed Unbound",
-        "platforms": ["pc", "console"],
+        "platforms": ["pc", "playstation", "xbox"],
         "release_year": 2022,
         "genre_tags": ["racing", "arcade", "street"],
         "time_tags": [30, 60],
