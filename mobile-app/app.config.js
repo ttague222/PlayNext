@@ -2,7 +2,7 @@ export default {
   expo: {
     name: "PlayNxt",
     slug: "playnxt",
-    version: "1.0.5",
+    version: "1.0.6",
     orientation: "portrait",
     icon: "./assets/images/icon.png",
     scheme: "playnxt",
@@ -18,7 +18,7 @@ export default {
     ios: {
       supportsTablet: true,
       bundleIdentifier: "com.playnxt.app",
-      buildNumber: "9",
+      buildNumber: "10",
       usesAppleSignIn: true,
       infoPlist: {
         ITSAppUsesNonExemptEncryption: false,
@@ -55,7 +55,7 @@ export default {
         backgroundColor: "#1a1a2e"
       },
       package: "com.playnxt.app",
-      versionCode: 10,
+      versionCode: 11,
       intentFilters: [
         {
           action: "VIEW",
