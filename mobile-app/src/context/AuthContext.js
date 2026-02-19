@@ -207,9 +207,14 @@ export const AuthProvider = ({ children }) => {
 
       console.log('[AuthContext] Starting Apple Sign-In flow...');
 
-      // Generate a random nonce for security
-      const rawNonce = Math.random().toString(36).substring(2, 10) +
-                       Math.random().toString(36).substring(2, 10);
+      // Generate a secure random nonce (at least 32 characters for Firebase)
+      // Using crypto for better randomness
+      const randomBytes = await Crypto.getRandomBytesAsync(32);
+      const rawNonce = Array.from(new Uint8Array(randomBytes))
+        .map(b => b.toString(16).padStart(2, '0'))
+        .join('');
+
+      console.log('[AuthContext] Generated nonce length:', rawNonce.length);
 
       // Create SHA256 hash of the nonce to send to Apple
       const hashedNonce = await Crypto.digestStringAsync(
@@ -217,7 +222,7 @@ export const AuthProvider = ({ children }) => {
         rawNonce
       );
 
-      console.log('[AuthContext] Requesting Apple credential...');
+      console.log('[AuthContext] Requesting Apple credential with hashed nonce...');
 
       // Request Apple authentication with the hashed nonce
       const appleCredential = await AppleAuthentication.signInAsync({
@@ -231,22 +236,21 @@ export const AuthProvider = ({ children }) => {
       console.log('[AuthContext] Apple credential received, user:', appleCredential.user?.substring(0, 10) + '...');
 
       // Create Firebase credential from Apple credential
-      const { identityToken, authorizationCode } = appleCredential;
+      const { identityToken } = appleCredential;
       if (!identityToken) {
         console.error('[AuthContext] No identity token in Apple credential');
         throw new Error('No identity token returned from Apple');
       }
 
       console.log('[AuthContext] Creating Firebase credential with Apple token...');
-      console.log('[AuthContext] Has authorizationCode:', !!authorizationCode);
+      console.log('[AuthContext] Identity token length:', identityToken.length);
 
-      // Use the raw (unhashed) nonce with Firebase
-      // Include accessToken (authorizationCode) which Firebase requires for validation
+      // Create the Apple OAuth credential for Firebase
+      // Firebase only needs idToken and rawNonce for native iOS Apple Sign-In
       const provider = new OAuthProvider('apple.com');
       const credential = provider.credential({
         idToken: identityToken,
         rawNonce: rawNonce,
-        accessToken: authorizationCode,
       });
 
       console.log('[AuthContext] Signing in to Firebase with Apple credential...');
