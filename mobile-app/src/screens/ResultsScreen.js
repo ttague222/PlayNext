@@ -26,6 +26,7 @@ import AlreadyPlayedModal from '../components/AlreadyPlayedModal';
 import SaveToBucketModal from '../components/SaveToBucketModal';
 import AdOrPremiumModal from '../components/AdOrPremiumModal';
 import FeatureCallout from '../components/FeatureCallout';
+import FeedbackModal from '../components/FeedbackModal';
 
 const ResultsScreen = () => {
   const navigation = useNavigation();
@@ -38,6 +39,7 @@ const ResultsScreen = () => {
     reroll,
     acceptRecommendation,
     markAsPlayedAndSwap,
+    submitFeedback,
     preferences,
   } = useRecommendation();
   const {
@@ -64,6 +66,7 @@ const ResultsScreen = () => {
   const [showAdOrPremiumModal, setShowAdOrPremiumModal] = useState(false);
   const [pendingRerollAction, setPendingRerollAction] = useState(null);
   const [showRerollCallout, setShowRerollCallout] = useState(false);
+  const [showFeedback, setShowFeedback] = useState(false);
 
   // Animations
   const headerAnim = useRef(new Animated.Value(0)).current;
@@ -241,6 +244,23 @@ const ResultsScreen = () => {
 
   const handleCelebrationDismiss = () => {
     setShowCelebration(false);
+    setShowFeedback(true);
+  };
+
+  const handleFeedbackSubmit = async (signalType) => {
+    if (selectedGame) {
+      try {
+        await submitFeedback(selectedGame.game_id, signalType);
+      } catch (err) {
+        // Non-blocking: feedback failure should not interrupt the user
+      }
+    }
+    setShowFeedback(false);
+    navigation.navigate('PlayHome');
+  };
+
+  const handleFeedbackClose = () => {
+    setShowFeedback(false);
     navigation.navigate('PlayHome');
   };
 
@@ -416,6 +436,14 @@ const ResultsScreen = () => {
           game={selectedGame}
           onDismiss={handleCelebrationDismiss}
           onKeepBrowsing={handleKeepBrowsing}
+        />
+
+        {/* Post-acceptance Feedback Modal */}
+        <FeedbackModal
+          visible={showFeedback}
+          game={selectedGame}
+          onSubmit={handleFeedbackSubmit}
+          onClose={handleFeedbackClose}
         />
 
         {/* Already Played Feedback Modal */}
