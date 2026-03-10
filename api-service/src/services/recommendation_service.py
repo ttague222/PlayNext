@@ -350,12 +350,6 @@ class RecommendationService:
             if game.get("subscription_services"):
                 score += 0.1
 
-            # Add randomness factor (0-0.3) to introduce variety
-            # This ensures games with similar scores get shuffled
-            # Using a larger range to overcome score similarities
-            random_boost = random.uniform(0, 0.3)
-            score += random_boost
-
             scored.append({**game, "score": min(score, 1.0)})
 
         return scored

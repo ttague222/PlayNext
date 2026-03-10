@@ -181,8 +181,10 @@ class TestRecommendationService:
 
         scored = service._score_games(games, request)
 
-        # Game with subscription should get 0.1 boost
-        assert scored[0]["score"] > scored[1]["score"]
+        # Game with subscription should get 0.1 boost — look up by game_id not position
+        with_sub = next(g for g in scored if g["game_id"] == sample_games[0]["game_id"])
+        without_sub = next(g for g in scored if g["game_id"] == sample_games[1]["game_id"])
+        assert with_sub["score"] > without_sub["score"]
 
     def test_apply_filters_time(self, service, sample_games):
         """Test time filtering."""
@@ -300,6 +302,54 @@ class TestSurpriseMode:
         # game-002 should be slightly higher due to novelty boost
         # (accounting for random variation)
         assert game_002["score"] >= game_001["score"] - 0.05
+
+
+def test_scoring_is_deterministic():
+    """Scoring must produce the same ranking every call (PRD Principle #8)."""
+    from src.services.recommendation_service import RecommendationService
+
+    service = RecommendationService.__new__(RecommendationService)
+
+    games = [
+        {
+            "game_id": "game-a",
+            "stop_friendliness": "anytime",
+            "time_to_fun": "short",
+            "energy_level": "low",
+            "play_style": ["action"],
+            "platforms": ["pc"],
+            "subscription_services": ["game_pass"],
+        },
+        {
+            "game_id": "game-b",
+            "stop_friendliness": "commitment",
+            "time_to_fun": "long",
+            "energy_level": "high",
+            "play_style": ["narrative"],
+            "platforms": ["playstation"],
+            "subscription_services": [],
+        },
+    ]
+
+    request = RecommendationRequest(
+        time_available=30,
+        energy_mood=EnergyMood.WIND_DOWN,
+    )
+
+    results_1 = service._score_games(games, request)
+    results_2 = service._score_games(games, request)
+
+    scores_1 = {g["game_id"]: g["score"] for g in results_1}
+    scores_2 = {g["game_id"]: g["score"] for g in results_2}
+
+    assert scores_1 == scores_2, (
+        "Scoring must be deterministic. Same input must produce same scores. "
+        "If this fails, random noise is still present in _score_games."
+    )
+    # game-a must outscore game-b: anytime stop + short time-to-fun + mood match
+    assert scores_1["game-a"] > scores_1["game-b"], (
+        "game-a has better heuristic match and must score higher than game-b"
+    )
 
 
 class TestBuildRecommendation:
