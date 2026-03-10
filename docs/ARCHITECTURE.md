@@ -34,10 +34,24 @@ PlayNext/
 ├── api-service/          # FastAPI backend
 │   ├── src/
 │   │   ├── api/          # Route handlers
+│   │   │   ├── routes_recommend.py   # /api/recommend
+│   │   │   ├── routes_games.py       # /api/games
+│   │   │   ├── routes_signals.py     # /api/signals
+│   │   │   ├── routes_buckets.py     # /api/buckets (collections)
+│   │   │   ├── routes_config.py      # /api/config (remote config)
+│   │   │   └── auth.py               # Auth helpers
 │   │   ├── core/         # Config, logging, rate limiting
 │   │   ├── db/           # Database clients
 │   │   ├── models/       # Pydantic models
+│   │   │   ├── game.py          # Game, Platform, StoreLinks, enums
+│   │   │   ├── bucket.py        # Bucket, BucketType models
+│   │   │   ├── recommendation.py
+│   │   │   └── user.py          # User signal models
 │   │   └── services/     # Business logic
+│   │       ├── recommendation_service.py
+│   │       ├── game_service.py
+│   │       ├── bucket_service.py     # Collections CRUD
+│   │       └── signal_service.py
 │   ├── tests/
 │   ├── Dockerfile
 │   └── requirements.txt
@@ -45,9 +59,15 @@ PlayNext/
 ├── mobile-app/           # React Native (Expo) app
 │   ├── src/
 │   │   ├── components/   # Reusable UI components
-│   │   ├── screens/      # Screen components
+│   │   ├── screens/      # Screen components (14 screens)
 │   │   ├── context/      # React Context providers
-│   │   ├── services/     # API client
+│   │   ├── services/     # API + platform services
+│   │   │   ├── api.js                 # Backend API client
+│   │   │   ├── purchaseService.js     # RevenueCat (premium subscriptions)
+│   │   │   ├── adService.js           # AdMob rewarded ads
+│   │   │   ├── affiliateService.js    # Affiliate link tracking
+│   │   │   ├── RemoteConfigService.js # Dynamic feature flags
+│   │   │   └── gameImages.js          # Image caching
 │   │   ├── hooks/        # Custom React hooks
 │   │   ├── navigation/   # React Navigation setup
 │   │   ├── config/       # Firebase, etc.
@@ -81,6 +101,9 @@ PlayNext/
 - **State:** React Context API
 - **HTTP:** Axios
 - **Auth:** Firebase Auth
+- **Purchases:** RevenueCat (premium subscriptions — monthly, yearly, lifetime)
+- **Ads:** Google AdMob (rewarded ads)
+- **Remote Config:** Firebase Remote Config via RemoteConfigService
 - **Error Tracking:** Sentry
 
 ### Web Admin
@@ -140,6 +163,17 @@ PlayNext/
 - `GET /api/signals/history` - User signal history
 - `GET /api/signals/game/{id}` - Game signal stats
 
+### Buckets (Collections)
+- `GET /api/buckets` - Get all user buckets (Backlog, Playing, Played, Not For Me)
+- `GET /api/buckets/{bucket_type}` - Get bucket with games (paginated)
+- `POST /api/buckets/{bucket_type}/games` - Add game to bucket
+- `DELETE /api/buckets/{bucket_type}/games/{game_id}` - Remove game from bucket
+- `POST /api/buckets/move` - Move game between buckets
+- `GET /api/buckets/game/{game_id}/bucket` - Find which bucket a game is in
+
+### Config
+- `GET /api/config` - Get remote config (ads, premium, feature flags)
+
 ### Health
 - `GET /health` - Basic health check
 - `GET /health/detailed` - Detailed health check
@@ -147,8 +181,8 @@ PlayNext/
 ## Authentication
 
 ### Mobile App
-- Anonymous sign-in by default (no account required for MVP)
-- Optional Google sign-in (post-MVP)
+- Anonymous sign-in by default (no account required)
+- Optional email or Google sign-in (implemented: `EmailSignInScreen`, `SignInScreen`)
 - Firebase ID tokens passed in Authorization header
 
 ### Web Admin
@@ -168,16 +202,20 @@ PlayNext/
 {
   game_id: string;
   title: string;
-  platforms: ['pc', 'console', 'handheld'];
+  // Current platform values: 'pc' | 'playstation' | 'xbox' | 'switch' | 'mobile'
+  // Legacy (backwards compat): 'console' | 'handheld'
+  platforms: string[];
   release_year: number;
   genre_tags: string[];
-  time_tags: [15, 30, 60, 90, 120];
+  time_tags: number[];             // Compatible session lengths in minutes: [15, 30, 60, 90, 120]
   energy_level: 'low' | 'medium' | 'high';
   mood_tags: string[];
-  play_style: ['narrative', 'action', 'puzzle_strategy', 'sandbox_creative'];
+  // Current values: 'narrative' | 'action' | 'puzzle' | 'strategy' | 'tactics' | 'card_game' | 'sandbox_creative'
+  // Legacy (backwards compat): 'puzzle_strategy'
+  play_style: string[];
   time_to_fun: 'short' | 'medium' | 'long';
   stop_friendliness: 'anytime' | 'checkpoints' | 'commitment';
-  multiplayer_modes: ['solo', 'local_coop', 'online_coop', 'competitive'];
+  multiplayer_modes: ('solo' | 'local_coop' | 'online_coop' | 'competitive')[];
   description_short: string;
   explanation_templates: {
     time_fit?: string;
@@ -189,8 +227,33 @@ PlayNext/
   avg_session_length?: number;
   subscription_services?: string[];
   content_warnings?: string[];
+  fun_fact?: string;
+  store_links?: {              // Affiliate links (Phase 3)
+    steam?: string;
+    xbox?: string;
+    playstation?: string;
+    nintendo?: string;
+    epic?: string;
+    gog?: string;
+    ios?: string;
+    android?: string;
+  };
 }
 ```
+
+### Bucket (Firestore: `/buckets`)
+```typescript
+{
+  bucket_id: string;
+  user_id: string;
+  bucket_type: 'backlog' | 'playing' | 'played' | 'not_for_me';
+  game_count: number;
+  created_at: datetime;
+  updated_at: datetime;
+}
+```
+
+Bucket types: **Backlog** (📌), **Playing** (🎮), **Played** (✅), **Not For Me** (❌)
 
 ### User Signal (Firestore: `/user_signals`)
 ```typescript

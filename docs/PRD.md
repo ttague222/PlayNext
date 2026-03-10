@@ -10,6 +10,27 @@
 
 ---
 
+## Current Status (as of 2026-03-10)
+
+The product has shipped and moved into **Phase 2** territory. The following originally out-of-scope items are now implemented:
+
+| Feature | Status |
+|---------|--------|
+| Core recommendation flow | ✅ Shipped |
+| Game catalog | ✅ Shipped |
+| User signals | ✅ Shipped (partial — see §8 gaps) |
+| Collections / Buckets (Backlog, Playing, Played, Not For Me) | ✅ Shipped |
+| Authentication (email + Google) | ✅ Shipped |
+| Premium subscriptions (RevenueCat) | ✅ Shipped |
+| Rewarded ads (AdMob) | ✅ Shipped |
+| Affiliate store links (infrastructure) | ✅ Infrastructure only — UI pending |
+| Post-accept feedback ("This worked for me") | ⚠️ Signal type exists, UI not wired |
+| Cross-device sync | ✅ Via auth |
+
+Section 11 (Out of Scope) reflects the original MVP scope and is preserved for historical reference. See Phase 2/3 roadmap for current trajectory.
+
+---
+
 ## 1. Product Definition
 
 PlayNxt is a time-aware, mood-aware game recommendation app that helps adult gamers quickly decide what to play right now by returning 1–3 confident, explainable recommendations.
@@ -332,13 +353,15 @@ UserGameSignal
 
 ---
 
-## 9. Authentication (Post-MVP)
+## 9. Authentication
 
-- Optional login only
-- Email + magic link
-- No passwords
+> **Status: Implemented** — originally planned as post-MVP, shipped in Phase 2.
+
+- Optional login only (anonymous use always works)
+- Email sign-in and Google sign-in (implemented; magic link not used — standard email flow)
 - Enables cross-device preference persistence
 - Converts anonymous session signals to user account
+- Screens: `EmailSignInScreen`, `SignInScreen`, `ProfileScreen`
 
 ---
 
@@ -354,16 +377,18 @@ UserGameSignal
 
 ---
 
-## 11. Out of Scope (MVP)
+## 11. Out of Scope (Original MVP) — Phase 2 Status
+
+> Items below reflect the original MVP scope. Struck-through items have since shipped.
 
 - Steam / Xbox / PlayStation account syncing
 - Social features
 - Reviews or ratings
-- Ads
-- Subscriptions / payments
+- ~~Ads~~ — **Shipped**: rewarded ads via AdMob (watch-ad-for-reroll)
+- ~~Subscriptions / payments~~ — **Shipped**: RevenueCat premium (monthly / yearly / lifetime)
 - Machine learning models
 - Game price tracking
-- Wishlist functionality
+- ~~Wishlist functionality~~ — **Shipped as Collections**: Backlog, Playing, Played, Not For Me buckets
 
 ---
 
