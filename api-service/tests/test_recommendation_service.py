@@ -415,10 +415,7 @@ async def test_anonymous_users_get_staleness_protection():
     service = RecommendationService.__new__(RecommendationService)
 
     # Simulate: session already showed "game-seen"
-    async def fake_get_recently_shown_for_session(session_id):
-        return {"game-seen"}
-
-    service._get_recently_shown_for_session = fake_get_recently_shown_for_session
+    service._get_recently_shown_for_session = AsyncMock(return_value={"game-seen"})
     service._get_recently_shown = AsyncMock(return_value=set())
 
     games = [
@@ -445,3 +442,5 @@ async def test_anonymous_users_get_staleness_protection():
     assert "game-fresh" in result_ids, "game-fresh was not recently shown and must still appear"
     # _get_recently_shown (user-based) must NOT have been called — no user_id
     service._get_recently_shown.assert_not_called()
+    # _get_recently_shown_for_session must have been called with the correct session_id
+    service._get_recently_shown_for_session.assert_called_once_with("anon-session-123")

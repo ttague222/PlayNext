@@ -509,7 +509,13 @@ class RecommendationService:
                 .where("session_id", "==", session_id)
                 .stream()
             )
-            return {doc.to_dict().get("game_id") for doc in docs if doc.to_dict().get("game_id")}
+            game_ids = set()
+            for doc in docs:
+                data = doc.to_dict()
+                game_id = data.get("game_id")
+                if game_id:
+                    game_ids.add(game_id)
+            return game_ids
         except Exception as e:
             logger.error(f"Error fetching session signals: {e}")
             return set()
