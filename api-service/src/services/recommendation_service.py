@@ -289,10 +289,8 @@ class RecommendationService:
         games: list[dict],
         request: RecommendationRequest
     ) -> list[dict]:
-        """Score games based on match quality with randomization for variety."""
-        # Shuffle games first to eliminate any ordering bias from Firestore
+        """Score games based on match quality."""
         games = games.copy()
-        random.shuffle(games)
 
         scored = []
 

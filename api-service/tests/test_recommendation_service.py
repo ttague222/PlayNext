@@ -350,6 +350,13 @@ def test_scoring_is_deterministic():
     assert scores_1["game-a"] > scores_1["game-b"], (
         "game-a has better heuristic match and must score higher than game-b"
     )
+    # Output list order must also be deterministic
+    ids_1 = [g["game_id"] for g in results_1]
+    ids_2 = [g["game_id"] for g in results_2]
+    assert ids_1 == ids_2, (
+        "Output list order must be deterministic. "
+        "If this fails, random.shuffle is still present in _score_games."
+    )
 
 
 class TestBuildRecommendation:
