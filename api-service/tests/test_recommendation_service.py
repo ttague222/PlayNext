@@ -400,3 +400,48 @@ class TestBuildRecommendation:
         # Should generate default explanation
         assert "30-minute" in rec.explanation.summary
         assert "casual" in rec.explanation.summary
+
+
+@pytest.mark.asyncio
+async def test_anonymous_users_get_staleness_protection():
+    """
+    Anonymous users (no user_id) must have recently-shown games excluded
+    when a session_id is provided, to prevent repeat recommendations.
+    PRD §5.5: deprioritize games shown in last 7 days.
+    """
+    from src.services.recommendation_service import RecommendationService
+    from unittest.mock import AsyncMock
+
+    service = RecommendationService.__new__(RecommendationService)
+
+    # Simulate: session already showed "game-seen"
+    async def fake_get_recently_shown_for_session(session_id):
+        return {"game-seen"}
+
+    service._get_recently_shown_for_session = fake_get_recently_shown_for_session
+    service._get_recently_shown = AsyncMock(return_value=set())
+
+    games = [
+        {"game_id": "game-seen", "stop_friendliness": "anytime", "time_to_fun": "short",
+         "energy_level": "low", "play_style": ["action"], "platforms": ["pc"],
+         "time_tags": [30], "multiplayer_modes": ["solo"], "subscription_services": []},
+        {"game_id": "game-fresh", "stop_friendliness": "anytime", "time_to_fun": "short",
+         "energy_level": "low", "play_style": ["action"], "platforms": ["pc"],
+         "time_tags": [30], "multiplayer_modes": ["solo"], "subscription_services": []},
+    ]
+
+    request = RecommendationRequest(
+        time_available=30,
+        energy_mood=EnergyMood.WIND_DOWN,
+        session_id="anon-session-123",
+    )
+
+    filtered, _, _ = await service._filter_games(games, request, user_id=None)
+    result_ids = [g["game_id"] for g in filtered]
+
+    assert "game-seen" not in result_ids, (
+        "game-seen was recently shown in this session and must be excluded for anonymous users"
+    )
+    assert "game-fresh" in result_ids, "game-fresh was not recently shown and must still appear"
+    # _get_recently_shown (user-based) must NOT have been called — no user_id
+    service._get_recently_shown.assert_not_called()

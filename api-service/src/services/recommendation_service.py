@@ -149,11 +149,15 @@ class RecommendationService:
         """
         excluded = set(request.excluded_game_ids)
 
-        # Get recently shown games for user (from history)
+        # Get recently shown games to prevent staleness
         if user_id:
             recent = await self._get_recently_shown(user_id)
             excluded.update(recent)
-            logger.info(f"User {user_id}: Excluding {len(recent)} games from history: {recent}")
+            logger.info(f"User {user_id}: Excluding {len(recent)} recently shown games")
+        elif request.session_id:
+            recent = await self._get_recently_shown_for_session(request.session_id)
+            excluded.update(recent)
+            logger.info(f"Session {request.session_id}: Excluding {len(recent)} recently shown games")
 
         # Remove excluded games
         original_count = len(games)
@@ -495,6 +499,19 @@ class RecommendationService:
             return recent_games
         except Exception as e:
             logger.error(f"Error fetching recent signals: {e}")
+            return set()
+
+    async def _get_recently_shown_for_session(self, session_id: str) -> set[str]:
+        """Get games shown in the current anonymous session (no user account)."""
+        try:
+            docs = list(
+                self.signals_collection
+                .where("session_id", "==", session_id)
+                .stream()
+            )
+            return {doc.to_dict().get("game_id") for doc in docs if doc.to_dict().get("game_id")}
+        except Exception as e:
+            logger.error(f"Error fetching session signals: {e}")
             return set()
 
     def _ensure_franchise_diversity(
