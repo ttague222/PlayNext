@@ -40,7 +40,6 @@
   "submit": {
     "production": {
       "ios": {
-        "appleId": "ttague222@gmail.com",
         "ascAppId": "6757089064"
       },
       "android": {
