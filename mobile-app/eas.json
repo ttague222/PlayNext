@@ -27,8 +27,7 @@
       "channel": "production",
       "env": {
         "SENTRY_DISABLE_AUTO_UPLOAD": "true",
-        "EXPO_PUBLIC_API_BASE_URL": "https://playnxt-api-167253232570.us-central1.run.app/api",
-        "EXPO_PUBLIC_RAWG_API_KEY": "9d18802398ce4248b4310cfbbe5554f3"
+        "EXPO_PUBLIC_API_BASE_URL": "https://playnxt-api-167253232570.us-central1.run.app/api"
       },
       "ios": {
         "simulator": false
