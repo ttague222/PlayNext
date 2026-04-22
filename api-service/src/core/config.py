@@ -40,8 +40,8 @@ class Settings(BaseSettings):
     environment: str = "development"
     debug: bool = False
 
-    # CORS
-    cors_origins: str = "*"
+    # CORS — must be explicitly set in production (no wildcard default)
+    cors_origins: str = ""
 
     # Rate Limiting
     rate_limit_requests: int = 100
@@ -65,7 +65,7 @@ class Settings(BaseSettings):
         """Parse CORS origins from comma-separated string."""
         if self.cors_origins == "*":
             return ["*"]
-        return [origin.strip() for origin in self.cors_origins.split(",")]
+        return [origin.strip() for origin in self.cors_origins.split(",") if origin.strip()]
 
 
 # Global settings instance
