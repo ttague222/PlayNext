@@ -4,7 +4,8 @@
 
 Most recommendation engines ask "what do you like?" PlayNxt asks two better questions: **How much time do you have?** and **What are you in the mood for?** The result is a recommendation that actually fits your current moment — not just your history.
 
-Live on **iOS** and **Android**.
+[![App Store](https://img.shields.io/badge/Download_on_the-App_Store-000000?style=for-the-badge&logo=apple&logoColor=white)](https://apps.apple.com/us/app/playnxt-game-recommendations/id6757089064)
+[![Google Play](https://img.shields.io/badge/Get_it_on-Google_Play-414141?style=for-the-badge&logo=google-play&logoColor=white)](https://play.google.com/store/apps/details?id=com.playnxt.app)
 
 ---
 
