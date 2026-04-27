@@ -70,3 +70,6 @@ ENV/
 
 # Sentry
 .sentryclirc
+
+# Claude Code local settings
+.claude/settings.local.json
