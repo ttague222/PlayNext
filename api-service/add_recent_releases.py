@@ -1,0 +1,551 @@
+"""
+Add recent releases (2025-2026) to the game catalog.
+
+These are notable titles released across PC, PlayStation, Xbox, Switch (incl.
+Switch 2, mapped to "switch"), and Mobile that were missing from the catalog.
+Release years/platforms verified against public sources as of 2026-05-31.
+
+Follows the same pattern as add_genre_games.py: skip-if-game_id-exists, then
+.set() with created_at/updated_at timestamps. Valid enum values only
+(see src/models/game.py). store_links left empty to avoid unverified URLs.
+
+Usage:  python add_recent_releases.py
+"""
+
+import firebase_admin
+from firebase_admin import credentials, firestore
+from datetime import datetime, timezone
+
+if not firebase_admin._apps:
+    cred = credentials.ApplicationDefault()
+    firebase_admin.initialize_app(cred, {'projectId': 'playnxt-1a2c6'})
+
+db = firestore.client()
+games_ref = db.collection('games')
+
+RECENT_RELEASES = [
+    # ===================== 2025 =====================
+    {
+        "game_id": "assassins-creed-shadows",
+        "title": "Assassin's Creed Shadows",
+        "platforms": ["pc", "playstation", "xbox"],
+        "release_year": 2025,
+        "genre_tags": ["action", "open-world", "rpg", "stealth", "historical"],
+        "time_tags": [60, 90],
+        "energy_level": "medium",
+        "mood_tags": ["immersive", "adventurous", "story-driven"],
+        "play_style": ["action", "narrative"],
+        "time_to_fun": "medium",
+        "stop_friendliness": "anytime",
+        "multiplayer_modes": ["solo"],
+        "description_short": "Become a shinobi and a samurai in feudal Japan during the Sengoku period.",
+        "fun_fact": "The first mainline Assassin's Creed set in Japan, with two playable protagonists.",
+        "explanation_templates": {"time_fit": "Open world to explore at your own pace.", "mood_fit": "Immersive stealth-action adventure.", "stop_fit": "Save anywhere in the open world."},
+        "subscription_services": [],
+        "store_links": {}
+    },
+    {
+        "game_id": "oblivion-remastered",
+        "title": "The Elder Scrolls IV: Oblivion Remastered",
+        "platforms": ["pc", "playstation", "xbox"],
+        "release_year": 2025,
+        "genre_tags": ["rpg", "open-world", "fantasy", "remaster"],
+        "time_tags": [60, 90],
+        "energy_level": "medium",
+        "mood_tags": ["immersive", "nostalgic", "adventurous"],
+        "play_style": ["narrative", "action"],
+        "time_to_fun": "medium",
+        "stop_friendliness": "anytime",
+        "multiplayer_modes": ["solo"],
+        "description_short": "The classic open-world RPG rebuilt in Unreal Engine 5.",
+        "fun_fact": "Shadow-dropped during a 2025 showcase and released the same day.",
+        "explanation_templates": {"time_fit": "Quests range from minutes to hours.", "mood_fit": "Deep fantasy roleplaying.", "stop_fit": "Save anywhere."},
+        "subscription_services": ["game_pass"],
+        "store_links": {}
+    },
+    {
+        "game_id": "mario-kart-world",
+        "title": "Mario Kart World",
+        "platforms": ["switch"],
+        "release_year": 2025,
+        "genre_tags": ["racing", "kart", "party", "open-world", "arcade"],
+        "time_tags": [15, 30, 60],
+        "energy_level": "medium",
+        "mood_tags": ["fun", "competitive", "chaotic"],
+        "play_style": ["action"],
+        "time_to_fun": "short",
+        "stop_friendliness": "checkpoints",
+        "multiplayer_modes": ["solo", "local_coop", "online_coop", "competitive"],
+        "description_short": "Race across a connected open world in the Switch 2 launch kart racer.",
+        "fun_fact": "A launch title for the Nintendo Switch 2 with up to 24 racers per race.",
+        "explanation_templates": {"time_fit": "Races take 3-5 minutes each.", "mood_fit": "Fun competitive kart racing.", "stop_fit": "Stop after any race."},
+        "subscription_services": [],
+        "store_links": {}
+    },
+    {
+        "game_id": "donkey-kong-bananza",
+        "title": "Donkey Kong Bananza",
+        "platforms": ["switch"],
+        "release_year": 2025,
+        "genre_tags": ["platformer", "3d", "adventure", "destruction"],
+        "time_tags": [30, 60, 90],
+        "energy_level": "medium",
+        "mood_tags": ["fun", "adventurous", "satisfying"],
+        "play_style": ["action"],
+        "time_to_fun": "short",
+        "stop_friendliness": "anytime",
+        "multiplayer_modes": ["solo", "local_coop"],
+        "description_short": "Smash, dig, and explore destructible 3D worlds as Donkey Kong.",
+        "fun_fact": "DK's first major 3D platformer, built for the Switch 2.",
+        "explanation_templates": {"time_fit": "Explore stages at your own pace.", "mood_fit": "Satisfying destructive platforming.", "stop_fit": "Save and stop anytime."},
+        "subscription_services": [],
+        "store_links": {}
+    },
+    {
+        "game_id": "borderlands-4",
+        "title": "Borderlands 4",
+        "platforms": ["pc", "playstation", "xbox", "switch"],
+        "release_year": 2025,
+        "genre_tags": ["fps", "looter-shooter", "rpg", "co-op", "sci-fi"],
+        "time_tags": [30, 60, 90],
+        "energy_level": "high",
+        "mood_tags": ["action-packed", "cooperative", "humorous"],
+        "play_style": ["action"],
+        "time_to_fun": "short",
+        "stop_friendliness": "checkpoints",
+        "multiplayer_modes": ["solo", "online_coop", "local_coop"],
+        "description_short": "Loot, shoot, and quip your way across a new planet with four Vault Hunters.",
+        "fun_fact": "Features a seamless open world, a first for the franchise.",
+        "explanation_templates": {"time_fit": "Missions take 15-30 minutes.", "mood_fit": "Frenetic loot-shooter action.", "stop_fit": "Checkpoints throughout missions."},
+        "subscription_services": [],
+        "store_links": {}
+    },
+    {
+        "game_id": "pokemon-legends-za",
+        "title": "Pokemon Legends: Z-A",
+        "platforms": ["switch"],
+        "release_year": 2025,
+        "genre_tags": ["rpg", "jrpg", "adventure", "monster-collecting"],
+        "time_tags": [30, 60],
+        "energy_level": "medium",
+        "mood_tags": ["adventurous", "relaxing", "nostalgic"],
+        "play_style": ["action", "narrative"],
+        "time_to_fun": "short",
+        "stop_friendliness": "anytime",
+        "multiplayer_modes": ["solo"],
+        "description_short": "Explore a redeveloped Lumiose City in a real-time Pokemon adventure.",
+        "fun_fact": "Set entirely within a single city undergoing an urban redevelopment plan.",
+        "explanation_templates": {"time_fit": "Play in short or long sessions.", "mood_fit": "Relaxing monster-catching adventure.", "stop_fit": "Save almost anytime."},
+        "subscription_services": [],
+        "store_links": {}
+    },
+    {
+        "game_id": "the-outer-worlds-2",
+        "title": "The Outer Worlds 2",
+        "platforms": ["pc", "playstation", "xbox"],
+        "release_year": 2025,
+        "genre_tags": ["rpg", "fps", "sci-fi", "open-world"],
+        "time_tags": [60, 90],
+        "energy_level": "medium",
+        "mood_tags": ["immersive", "humorous", "story-driven"],
+        "play_style": ["narrative", "action"],
+        "time_to_fun": "medium",
+        "stop_friendliness": "anytime",
+        "multiplayer_modes": ["solo"],
+        "description_short": "A satirical sci-fi RPG of choice and consequence from Obsidian.",
+        "fun_fact": "The sequel to Obsidian's 2019 cult-hit first-person RPG.",
+        "explanation_templates": {"time_fit": "Quests vary in length.", "mood_fit": "Witty, choice-driven sci-fi RPG.", "stop_fit": "Save anywhere."},
+        "subscription_services": ["game_pass"],
+        "store_links": {}
+    },
+    {
+        "game_id": "dying-light-the-beast",
+        "title": "Dying Light: The Beast",
+        "platforms": ["pc", "playstation", "xbox"],
+        "release_year": 2025,
+        "genre_tags": ["action", "survival", "horror", "open-world", "zombies"],
+        "time_tags": [30, 60, 90],
+        "energy_level": "high",
+        "mood_tags": ["tense", "action-packed", "atmospheric"],
+        "play_style": ["action"],
+        "time_to_fun": "short",
+        "stop_friendliness": "checkpoints",
+        "multiplayer_modes": ["solo", "online_coop"],
+        "description_short": "Parkour and brutal combat against the infected as Kyle Crane returns.",
+        "fun_fact": "Began as DLC before expanding into a standalone game.",
+        "explanation_templates": {"time_fit": "Missions take 20-40 minutes.", "mood_fit": "Tense zombie survival action.", "stop_fit": "Checkpoints and safe zones."},
+        "subscription_services": [],
+        "store_links": {}
+    },
+    {
+        "game_id": "silent-hill-f",
+        "title": "Silent Hill f",
+        "platforms": ["pc", "playstation", "xbox"],
+        "release_year": 2025,
+        "genre_tags": ["horror", "survival", "psychological", "narrative"],
+        "time_tags": [60, 90],
+        "energy_level": "medium",
+        "mood_tags": ["scary", "atmospheric", "tense"],
+        "play_style": ["action", "narrative"],
+        "time_to_fun": "medium",
+        "stop_friendliness": "checkpoints",
+        "multiplayer_modes": ["solo"],
+        "description_short": "Psychological survival horror set in 1960s rural Japan.",
+        "fun_fact": "The first mainline Silent Hill set in Japan, written by Ryukishi07.",
+        "explanation_templates": {"time_fit": "Chapters provide natural breaks.", "mood_fit": "Disturbing psychological horror.", "stop_fit": "Save at checkpoints."},
+        "subscription_services": [],
+        "store_links": {}
+    },
+    {
+        "game_id": "ninja-gaiden-4",
+        "title": "Ninja Gaiden 4",
+        "platforms": ["pc", "playstation", "xbox"],
+        "release_year": 2025,
+        "genre_tags": ["action", "hack-and-slash", "character-action"],
+        "time_tags": [30, 60],
+        "energy_level": "high",
+        "mood_tags": ["intense", "action-packed", "challenging"],
+        "play_style": ["action"],
+        "time_to_fun": "short",
+        "stop_friendliness": "checkpoints",
+        "multiplayer_modes": ["solo"],
+        "description_short": "Fast, brutal ninja combat in the return of the legendary action series.",
+        "fun_fact": "Co-developed by Team Ninja and PlatinumGames.",
+        "explanation_templates": {"time_fit": "Chapters take 30-45 minutes.", "mood_fit": "Lightning-fast action combat.", "stop_fit": "Checkpoints between encounters."},
+        "subscription_services": ["game_pass"],
+        "store_links": {}
+    },
+    {
+        "game_id": "mafia-the-old-country",
+        "title": "Mafia: The Old Country",
+        "platforms": ["pc", "playstation", "xbox"],
+        "release_year": 2025,
+        "genre_tags": ["action", "narrative", "open-world", "crime", "historical"],
+        "time_tags": [60, 90],
+        "energy_level": "medium",
+        "mood_tags": ["cinematic", "story-driven", "immersive"],
+        "play_style": ["narrative", "action"],
+        "time_to_fun": "medium",
+        "stop_friendliness": "checkpoints",
+        "multiplayer_modes": ["solo"],
+        "description_short": "A linear crime story set in 1900s Sicily, a Mafia series prequel.",
+        "fun_fact": "Set decades before the events of the original Mafia.",
+        "explanation_templates": {"time_fit": "Story chapters take 30-60 minutes.", "mood_fit": "Cinematic crime drama.", "stop_fit": "Save between chapters."},
+        "subscription_services": [],
+        "store_links": {}
+    },
+    {
+        "game_id": "battlefield-6",
+        "title": "Battlefield 6",
+        "platforms": ["pc", "playstation", "xbox"],
+        "release_year": 2025,
+        "genre_tags": ["fps", "shooter", "multiplayer", "military"],
+        "time_tags": [15, 30, 60],
+        "energy_level": "high",
+        "mood_tags": ["competitive", "action-packed", "team-based"],
+        "play_style": ["action"],
+        "time_to_fun": "short",
+        "stop_friendliness": "checkpoints",
+        "multiplayer_modes": ["solo", "online_coop", "competitive"],
+        "description_short": "Large-scale modern military warfare with destructible environments.",
+        "fun_fact": "Returns to a modern-day setting with the series' signature large maps.",
+        "explanation_templates": {"time_fit": "Matches take 15-30 minutes.", "mood_fit": "Epic all-out multiplayer warfare.", "stop_fit": "Complete matches then stop."},
+        "subscription_services": [],
+        "store_links": {}
+    },
+    {
+        "game_id": "ea-sports-fc-26",
+        "title": "EA Sports FC 26",
+        "platforms": ["pc", "playstation", "xbox", "switch"],
+        "release_year": 2025,
+        "genre_tags": ["sports", "soccer", "simulation"],
+        "time_tags": [15, 30, 60],
+        "energy_level": "medium",
+        "mood_tags": ["competitive", "sports", "social"],
+        "play_style": ["action"],
+        "time_to_fun": "short",
+        "stop_friendliness": "checkpoints",
+        "multiplayer_modes": ["solo", "local_coop", "online_coop", "competitive"],
+        "description_short": "The latest edition of the world's most popular football game.",
+        "fun_fact": "The annual successor to EA Sports FC 25.",
+        "explanation_templates": {"time_fit": "Matches take 10-20 minutes.", "mood_fit": "Authentic football action.", "stop_fit": "Complete matches then stop."},
+        "subscription_services": [],
+        "store_links": {}
+    },
+    {
+        "game_id": "nba-2k26",
+        "title": "NBA 2K26",
+        "platforms": ["pc", "playstation", "xbox", "switch"],
+        "release_year": 2025,
+        "genre_tags": ["sports", "basketball", "simulation"],
+        "time_tags": [30, 60],
+        "energy_level": "medium",
+        "mood_tags": ["competitive", "sports", "social"],
+        "play_style": ["action"],
+        "time_to_fun": "short",
+        "stop_friendliness": "checkpoints",
+        "multiplayer_modes": ["solo", "local_coop", "online_coop", "competitive"],
+        "description_short": "The latest entry in the premier basketball simulation series.",
+        "fun_fact": "MyCareer continues to blend on-court play with an off-court story.",
+        "explanation_templates": {"time_fit": "Games take 20-40 minutes.", "mood_fit": "Authentic NBA action.", "stop_fit": "Save between games."},
+        "subscription_services": [],
+        "store_links": {}
+    },
+    {
+        "game_id": "madden-nfl-26",
+        "title": "Madden NFL 26",
+        "platforms": ["pc", "playstation", "xbox"],
+        "release_year": 2025,
+        "genre_tags": ["sports", "football", "simulation"],
+        "time_tags": [30, 60],
+        "energy_level": "medium",
+        "mood_tags": ["competitive", "sports", "strategic"],
+        "play_style": ["action", "strategy"],
+        "time_to_fun": "short",
+        "stop_friendliness": "checkpoints",
+        "multiplayer_modes": ["solo", "local_coop", "online_coop", "competitive"],
+        "description_short": "The latest official NFL football simulation.",
+        "fun_fact": "Features updated rosters and presentation for the new NFL season.",
+        "explanation_templates": {"time_fit": "Games take 30-45 minutes.", "mood_fit": "Strategic football action.", "stop_fit": "Save at halftime or after games."},
+        "subscription_services": [],
+        "store_links": {}
+    },
+    {
+        "game_id": "sonic-racing-crossworlds",
+        "title": "Sonic Racing: CrossWorlds",
+        "platforms": ["pc", "playstation", "xbox", "switch"],
+        "release_year": 2025,
+        "genre_tags": ["racing", "kart", "arcade", "party"],
+        "time_tags": [15, 30],
+        "energy_level": "medium",
+        "mood_tags": ["fun", "fast-paced", "competitive"],
+        "play_style": ["action"],
+        "time_to_fun": "short",
+        "stop_friendliness": "checkpoints",
+        "multiplayer_modes": ["solo", "local_coop", "online_coop", "competitive"],
+        "description_short": "Sonic kart racing across worlds with mid-race travel rings.",
+        "fun_fact": "Races shift between different worlds via portals each lap.",
+        "explanation_templates": {"time_fit": "Races take 3-5 minutes.", "mood_fit": "Fast, fun arcade racing.", "stop_fit": "Stop after any race."},
+        "subscription_services": [],
+        "store_links": {}
+    },
+    {
+        "game_id": "two-point-museum",
+        "title": "Two Point Museum",
+        "platforms": ["pc", "playstation", "xbox"],
+        "release_year": 2025,
+        "genre_tags": ["simulation", "management", "comedy"],
+        "time_tags": [30, 60],
+        "energy_level": "low",
+        "mood_tags": ["relaxing", "fun", "humorous"],
+        "play_style": ["strategy"],
+        "time_to_fun": "short",
+        "stop_friendliness": "anytime",
+        "multiplayer_modes": ["solo"],
+        "description_short": "Build and run quirky museums full of bizarre exhibits.",
+        "fun_fact": "The third entry in the Two Point management sim series.",
+        "explanation_templates": {"time_fit": "Play scenarios at your own pace.", "mood_fit": "Humorous, relaxing management.", "stop_fit": "Save anytime."},
+        "subscription_services": ["game_pass"],
+        "store_links": {}
+    },
+    {
+        "game_id": "tales-of-the-shire",
+        "title": "Tales of the Shire: A Lord of the Rings Game",
+        "platforms": ["pc", "playstation", "xbox", "switch"],
+        "release_year": 2025,
+        "genre_tags": ["simulation", "cozy", "life-sim", "fantasy"],
+        "time_tags": [30, 60],
+        "energy_level": "low",
+        "mood_tags": ["relaxing", "cozy", "wholesome"],
+        "play_style": ["sandbox_creative"],
+        "time_to_fun": "short",
+        "stop_friendliness": "anytime",
+        "multiplayer_modes": ["solo"],
+        "description_short": "Live the cozy life of a hobbit in the Shire: cook, garden, and decorate.",
+        "fun_fact": "A wholesome life-sim set in Tolkien's Middle-earth.",
+        "explanation_templates": {"time_fit": "Relax at your own pace.", "mood_fit": "Cozy hobbit life-sim.", "stop_fit": "Save and stop anytime."},
+        "subscription_services": [],
+        "store_links": {}
+    },
+    {
+        "game_id": "mgs-delta-snake-eater",
+        "title": "Metal Gear Solid Delta: Snake Eater",
+        "platforms": ["pc", "playstation", "xbox"],
+        "release_year": 2025,
+        "genre_tags": ["action", "stealth", "adventure", "remake"],
+        "time_tags": [60, 90],
+        "energy_level": "medium",
+        "mood_tags": ["immersive", "cinematic", "tense"],
+        "play_style": ["action", "narrative"],
+        "time_to_fun": "medium",
+        "stop_friendliness": "checkpoints",
+        "multiplayer_modes": ["solo"],
+        "description_short": "A faithful remake of the acclaimed Cold War stealth classic.",
+        "fun_fact": "Rebuilds MGS3 in Unreal Engine 5 with the original voice acting.",
+        "explanation_templates": {"time_fit": "Missions take 30-60 minutes.", "mood_fit": "Tense cinematic stealth.", "stop_fit": "Save at checkpoints."},
+        "subscription_services": [],
+        "store_links": {}
+    },
+    {
+        "game_id": "tony-hawk-3-4",
+        "title": "Tony Hawk's Pro Skater 3 + 4",
+        "platforms": ["pc", "playstation", "xbox", "switch"],
+        "release_year": 2025,
+        "genre_tags": ["sports", "skateboarding", "arcade", "remaster"],
+        "time_tags": [15, 30],
+        "energy_level": "medium",
+        "mood_tags": ["fun", "nostalgic", "satisfying"],
+        "play_style": ["action"],
+        "time_to_fun": "short",
+        "stop_friendliness": "anytime",
+        "multiplayer_modes": ["solo", "local_coop", "online_coop", "competitive"],
+        "description_short": "Remastered skateboarding classics with modern visuals.",
+        "fun_fact": "Follows the successful remaster of Pro Skater 1 + 2.",
+        "explanation_templates": {"time_fit": "Sessions last about 2 minutes.", "mood_fit": "Satisfying trick combos.", "stop_fit": "Stop after any session."},
+        "subscription_services": [],
+        "store_links": {}
+    },
+    {
+        "game_id": "lunar-remastered-collection",
+        "title": "Lunar Remastered Collection",
+        "platforms": ["pc", "playstation", "xbox", "switch"],
+        "release_year": 2025,
+        "genre_tags": ["rpg", "jrpg", "turn-based", "remaster"],
+        "time_tags": [30, 60],
+        "energy_level": "low",
+        "mood_tags": ["nostalgic", "story-driven", "relaxing"],
+        "play_style": ["narrative", "strategy"],
+        "time_to_fun": "medium",
+        "stop_friendliness": "anytime",
+        "multiplayer_modes": ["solo"],
+        "description_short": "Remasters of the classic Lunar: Silver Star Story and Eternal Blue JRPGs.",
+        "fun_fact": "Brings two beloved Sega CD-era RPGs to modern platforms.",
+        "explanation_templates": {"time_fit": "Save anywhere, play at your pace.", "mood_fit": "Classic story-driven JRPG.", "stop_fit": "Save anytime."},
+        "subscription_services": [],
+        "store_links": {}
+    },
+
+    # ===================== 2026 =====================
+    {
+        "game_id": "resident-evil-requiem",
+        "title": "Resident Evil Requiem",
+        "platforms": ["pc", "playstation", "xbox", "switch"],
+        "release_year": 2026,
+        "genre_tags": ["horror", "survival", "action"],
+        "time_tags": [60, 90],
+        "energy_level": "high",
+        "mood_tags": ["scary", "tense", "atmospheric"],
+        "play_style": ["action"],
+        "time_to_fun": "medium",
+        "stop_friendliness": "checkpoints",
+        "multiplayer_modes": ["solo"],
+        "description_short": "The ninth mainline Resident Evil, blending survival horror and action.",
+        "fun_fact": "Also released on Nintendo Switch 2 alongside other platforms.",
+        "explanation_templates": {"time_fit": "Chapters provide natural breaks.", "mood_fit": "Classic survival horror tension.", "stop_fit": "Save at checkpoints."},
+        "subscription_services": [],
+        "store_links": {}
+    },
+    {
+        "game_id": "nioh-3",
+        "title": "Nioh 3",
+        "platforms": ["pc", "playstation"],
+        "release_year": 2026,
+        "genre_tags": ["action", "rpg", "souls-like", "samurai"],
+        "time_tags": [30, 60, 90],
+        "energy_level": "high",
+        "mood_tags": ["challenging", "intense", "rewarding"],
+        "play_style": ["action"],
+        "time_to_fun": "medium",
+        "stop_friendliness": "checkpoints",
+        "multiplayer_modes": ["solo", "online_coop"],
+        "description_short": "Brutal, fast-paced samurai action-RPG combat from Team Ninja.",
+        "fun_fact": "The third mainline entry in the Nioh action-RPG series.",
+        "explanation_templates": {"time_fit": "Missions take 20-45 minutes.", "mood_fit": "Challenging souls-like combat.", "stop_fit": "Rest at shrines between missions."},
+        "subscription_services": [],
+        "store_links": {}
+    },
+    {
+        "game_id": "pragmata",
+        "title": "Pragmata",
+        "platforms": ["pc", "playstation", "xbox"],
+        "release_year": 2026,
+        "genre_tags": ["action", "adventure", "sci-fi", "puzzle"],
+        "time_tags": [30, 60],
+        "energy_level": "medium",
+        "mood_tags": ["atmospheric", "mysterious", "immersive"],
+        "play_style": ["action", "puzzle"],
+        "time_to_fun": "medium",
+        "stop_friendliness": "checkpoints",
+        "multiplayer_modes": ["solo"],
+        "description_short": "A sci-fi action-adventure pairing an astronaut with a mysterious android girl.",
+        "fun_fact": "A long-awaited new IP from Capcom first revealed in 2020.",
+        "explanation_templates": {"time_fit": "Chapters provide stopping points.", "mood_fit": "Atmospheric sci-fi adventure.", "stop_fit": "Save at checkpoints."},
+        "subscription_services": [],
+        "store_links": {}
+    },
+    {
+        "game_id": "saros",
+        "title": "Saros",
+        "platforms": ["playstation"],
+        "release_year": 2026,
+        "genre_tags": ["action", "roguelike", "shooter", "sci-fi"],
+        "time_tags": [30, 60],
+        "energy_level": "high",
+        "mood_tags": ["intense", "challenging", "atmospheric"],
+        "play_style": ["action"],
+        "time_to_fun": "short",
+        "stop_friendliness": "checkpoints",
+        "multiplayer_modes": ["solo"],
+        "description_short": "A third-person roguelite shooter from the makers of Returnal.",
+        "fun_fact": "Housemarque's follow-up to the acclaimed Returnal.",
+        "explanation_templates": {"time_fit": "Runs take 30-45 minutes.", "mood_fit": "Intense roguelike action.", "stop_fit": "Each run is self-contained."},
+        "subscription_services": [],
+        "store_links": {}
+    },
+    {
+        "game_id": "code-vein-2",
+        "title": "Code Vein 2",
+        "platforms": ["pc", "playstation", "xbox"],
+        "release_year": 2026,
+        "genre_tags": ["action", "rpg", "souls-like", "anime"],
+        "time_tags": [30, 60, 90],
+        "energy_level": "high",
+        "mood_tags": ["challenging", "stylish", "atmospheric"],
+        "play_style": ["action"],
+        "time_to_fun": "medium",
+        "stop_friendliness": "checkpoints",
+        "multiplayer_modes": ["solo", "online_coop"],
+        "description_short": "Anime-styled souls-like action-RPG sequel with time-travel themes.",
+        "fun_fact": "Sequel to Bandai Namco's 2019 'anime Dark Souls'.",
+        "explanation_templates": {"time_fit": "Sessions take 30-45 minutes.", "mood_fit": "Stylish challenging combat.", "stop_fit": "Rest at checkpoints."},
+        "subscription_services": [],
+        "store_links": {}
+    },
+]
+
+
+def add_games():
+    added = 0
+    skipped = 0
+
+    for game in RECENT_RELEASES:
+        game_id = game["game_id"]
+
+        existing = games_ref.document(game_id).get()
+        if existing.exists:
+            print(f"Skipping {game['title']} - already exists")
+            skipped += 1
+            continue
+
+        game["created_at"] = datetime.now(timezone.utc)
+        game["updated_at"] = datetime.now(timezone.utc)
+
+        games_ref.document(game_id).set(game)
+        print(f"Added: {game['title']} ({game['release_year']})")
+        added += 1
+
+    print(f"\nDone! Added {added} games, skipped {skipped} existing")
+
+
+if __name__ == "__main__":
+    add_games()
