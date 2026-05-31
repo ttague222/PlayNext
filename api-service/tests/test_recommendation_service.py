@@ -301,6 +301,28 @@ class TestSurpriseMode:
         # (accounting for random variation)
         assert game_002["score"] >= game_001["score"] - 0.05
 
+    @pytest.mark.asyncio
+    async def test_indie_boost_reads_genre_tags(self, service):
+        """Indie boost must use the canonical genre_tags field, not legacy genres."""
+        service._get_global_popularity = AsyncMock(return_value={})
+        service._get_user_game_history = AsyncMock(return_value=set())
+
+        games = [
+            {"game_id": "indie-1", "title": "Tiny Quest",
+             "genre_tags": ["indie"], "subscription_services": [], "score": 0.5},
+            {"game_id": "action-1", "title": "Big Shooter",
+             "genre_tags": ["action"], "subscription_services": [], "score": 0.5},
+        ]
+
+        with patch("random.uniform", return_value=0.0):
+            boosted = await service._apply_surprise_boost(games, None)
+
+        indie = next(g for g in boosted if g["game_id"] == "indie-1")
+        action = next(g for g in boosted if g["game_id"] == "action-1")
+
+        # Only the indie game receives the +0.55 boost, so it must score higher.
+        assert indie["score"] > action["score"]
+
 
 class TestBuildRecommendation:
     """Test recommendation building."""

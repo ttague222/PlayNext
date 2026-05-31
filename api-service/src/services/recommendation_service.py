@@ -402,7 +402,7 @@ class RecommendationService:
         for game in games:
             game_id = game["game_id"]
             title_lower = game.get("title", "").lower()
-            genres = game.get("genres", [])
+            genres = game.get("genre_tags") or game.get("genres", [])
 
             # 1. Strong indie boost: games tagged as indie get significant boost
             if "indie" in genres:
