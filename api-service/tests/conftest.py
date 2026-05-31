@@ -1,6 +1,8 @@
 """
 Pytest configuration and fixtures for PlayNxt API tests.
 """
+from datetime import datetime
+
 import pytest
 from unittest.mock import MagicMock, patch
 from fastapi.testclient import TestClient
@@ -13,13 +15,92 @@ def mock_firebase():
         yield
 
 
+def _make_game_doc(data):
+    """Build a fake Firestore document snapshot for a game."""
+    doc = MagicMock()
+    doc.id = data["game_id"]
+    doc.exists = True
+    doc.to_dict.return_value = dict(data)
+    return doc
+
+
+def _make_games_collection(games):
+    """Build a fake Firestore "games" collection seeded with the given games.
+
+    Supports the access patterns the services actually use:
+    - recommendation_service._fetch_games:  collection.stream()
+    - game_service.list_games:              collection.limit(l).offset(o)[.where(...)].stream()
+    - game_service.get_game:                collection.document(id).get()
+    """
+    # release_year is required by the full Game model but is absent from the
+    # lightweight sample fixtures; inject a default so get_game can build a Game.
+    docs = [_make_game_doc({"release_year": 2020, **g}) for g in games]
+    by_id = {g["game_id"]: d for g, d in zip(games, docs)}
+
+    collection = MagicMock()
+    collection.stream.return_value = docs
+
+    # list_games chains .limit().offset()[.where()].stream(); make the chain
+    # return the same seeded docs regardless of pagination/filter args.
+    query = MagicMock()
+    query.stream.return_value = docs
+    query.where.return_value = query
+    query.offset.return_value = query
+    query.limit.return_value = query
+    collection.limit.return_value = query
+    collection.offset.return_value = query
+    collection.where.return_value = query
+
+    def document(game_id):
+        ref = MagicMock()
+        if game_id in by_id:
+            ref.get.return_value = by_id[game_id]
+        else:
+            missing = MagicMock()
+            missing.exists = False
+            ref.get.return_value = missing
+        return ref
+
+    collection.document.side_effect = document
+    return collection
+
+
 @pytest.fixture
-def client(mock_firebase):
-    """Create a test client for the FastAPI app."""
-    with patch("src.services.recommendation_service.get_collection", return_value=MagicMock()), \
-         patch("src.services.signal_service.get_collection", return_value=MagicMock()):
+def client(mock_firebase, sample_games):
+    """Create a test client for the FastAPI app with Firestore mocked + seeded.
+
+    Patches get_collection in each service module so routes read the in-memory
+    sample_games instead of a real Firestore. The patch is kept active for the
+    whole test (via yield) because services build their collections lazily
+    through singletons -- the patch must outlive fixture setup.
+    """
+    games_collection = _make_games_collection(sample_games)
+
+    def fake_get_collection(name):
+        if name == "games":
+            return games_collection
+        # signals / sessions / users aren't exercised by the endpoint tests.
+        return MagicMock()
+
+    import src.services.game_service as game_service
+    import src.services.recommendation_service as recommendation_service
+    import src.services.signal_service as signal_service
+
+    # Reset singletons so each service is rebuilt against the patched collection.
+    game_service._game_service = None
+    recommendation_service._recommendation_service = None
+    signal_service._signal_service = None
+
+    with patch("src.services.recommendation_service.get_collection", side_effect=fake_get_collection), \
+         patch("src.services.game_service.get_collection", side_effect=fake_get_collection), \
+         patch("src.services.signal_service.get_collection", side_effect=fake_get_collection):
         from src.main import app
-        return TestClient(app)
+        yield TestClient(app)
+
+    # Clear singletons so later tests don't reuse the mock-backed services.
+    game_service._game_service = None
+    recommendation_service._recommendation_service = None
+    signal_service._signal_service = None
 
 
 @pytest.fixture
@@ -109,4 +190,56 @@ def sample_user_context():
         "current_mood": "relaxing",
         "energy_level": "low",
         "platforms": ["pc", "playstation"]
+    }
+
+
+@pytest.fixture
+def mock_user():
+    """A mock authenticated user (Firebase auth claims shape).
+
+    SignalService methods take the user id as a string; the signal-service
+    tests reference it as mock_user["uid"].
+    """
+    return {
+        "uid": "test-user-123",
+        "email": "tester@example.com",
+        "display_name": "Test User",
+    }
+
+
+@pytest.fixture
+def sample_signal():
+    """A stored signal document owned by mock_user.
+
+    Used as the return value of doc.to_dict(); its user_id matches
+    mock_user["uid"] so ownership checks pass for the authorized user and
+    fail for a "different-user".
+    """
+    return {
+        "signal_id": "signal-001",
+        "user_id": "test-user-123",
+        "session_id": "session-001",
+        "game_id": "game-001",
+        "game_title": "Adventure Land",
+        "signal_type": "accepted",
+        "context": None,
+        "timestamp": datetime.utcnow(),
+        "worked": None,
+    }
+
+
+@pytest.fixture
+def sample_session():
+    """A stored session document owned by mock_user.
+
+    Shaped to construct a Session model via Session(**doc.to_dict()).
+    """
+    return {
+        "session_id": "session-001",
+        "user_id": "test-user-123",
+        "started_at": datetime.utcnow(),
+        "ended_at": None,
+        "games_shown": [],
+        "reroll_count": 0,
+        "accepted_game_id": None,
     }
