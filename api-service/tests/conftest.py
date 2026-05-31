@@ -93,7 +93,7 @@ def sample_games():
             "genre_tags": ["action"],
             "time_tags": [60, 90],
             "play_style": ["action"],
-            "multiplayer_modes": ["solo", "co-op"],
+            "multiplayer_modes": ["solo", "online_coop"],
             "subscription_services": ["gamepass"],
             "description_short": "A portable action game.",
             "explanation_templates": {},

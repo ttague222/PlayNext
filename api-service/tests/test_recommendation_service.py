@@ -314,7 +314,7 @@ class TestSurpriseMode:
              "genre_tags": ["action"], "subscription_services": [], "score": 0.5},
         ]
 
-        with patch("random.uniform", return_value=0.0):
+        with patch("src.services.recommendation_service.random.uniform", return_value=0.0):
             boosted = await service._apply_surprise_boost(games, None)
 
         indie = next(g for g in boosted if g["game_id"] == "indie-1")
