@@ -179,10 +179,19 @@ class TestRecommendationService:
             {**sample_games[1], "subscription_services": [], "stop_friendliness": "checkpoints", "time_to_fun": "medium"},
         ]
 
-        scored = service._score_games(games, request)
+        # Patch out the random variety factor so the test isolates the
+        # deterministic 0.1 subscription boost. Without this, the per-game
+        # random.uniform(0, 0.3) jitter can overwhelm the 0.1 delta and the
+        # comparison fails intermittently.
+        with patch("src.services.recommendation_service.random.uniform", return_value=0.0):
+            scored = service._score_games(games, request)
 
-        # Game with subscription should get 0.1 boost
-        assert scored[0]["score"] > scored[1]["score"]
+        # _score_games shuffles its input, so look games up by id rather than
+        # position. Both games share identical base characteristics here, so the
+        # only scoring difference is the 0.1 subscription boost.
+        sub_game = next(g for g in scored if g["game_id"] == "game-001")
+        no_sub_game = next(g for g in scored if g["game_id"] == "game-002")
+        assert sub_game["score"] > no_sub_game["score"]
 
     def test_apply_filters_time(self, service, sample_games):
         """Test time filtering."""
