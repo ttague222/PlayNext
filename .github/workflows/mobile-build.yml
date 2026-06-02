@@ -67,7 +67,10 @@ jobs:
             echo "platform=${{ github.event.inputs.platform }}" >> $GITHUB_OUTPUT
             echo "profile=${{ github.event.inputs.profile }}" >> $GITHUB_OUTPUT
           else
-            echo "platform=all" >> $GITHUB_OUTPUT
+            # Default to Android-only on push. iOS requires credentials that must be
+            # set up interactively first (eas credentials). Use workflow_dispatch with
+            # platform=all or platform=ios once iOS creds are configured.
+            echo "platform=android" >> $GITHUB_OUTPUT
             echo "profile=preview" >> $GITHUB_OUTPUT
           fi
 

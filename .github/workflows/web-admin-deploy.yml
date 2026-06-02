@@ -69,6 +69,7 @@ jobs:
           IMAGE="gcr.io/${{ env.PROJECT_ID }}/${{ env.SERVICE }}:${{ github.sha }}"
           gcloud builds submit web-admin \
             --project ${{ env.PROJECT_ID }} \
+            --config web-admin/cloudbuild.yaml \
             --substitutions="_FB_KEY=${{ steps.fb.outputs.key }},_IMAGE=${IMAGE}"
 
       - name: Deploy to Cloud Run
