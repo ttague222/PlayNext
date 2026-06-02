@@ -64,20 +64,21 @@ jobs:
         uses: google-github-actions/setup-gcloud@v2
 
       - name: Deploy to Cloud Run
-        # Note: --set-secrets removed 2026-06-02. The 4 secrets (SENTRY_DSN,
-        # FIREBASE_CREDENTIALS, OPENAI_API_KEY, PINECONE_API_KEY) referenced
-        # in the original config did not exist in Secret Manager, and the
-        # current code does not actually read them at runtime
-        # (firebase_credentials_path is the real env name; Sentry init is
-        # guarded; OpenAI/Pinecone aren't wired). Add specific secrets back
-        # via --set-secrets when those features ship.
+        # Env-var layout restored 2026-06-02 to match the working Jan-31 deploy:
+        # - FIREBASE_PROJECT_ID: required (Firebase init crashes without it).
+        # - SUPPORT_EMAIL/FROM_EMAIL: email config (PYTHONUNBUFFERED for logs).
+        # - SENDGRID_API_KEY: real secret, now properly in Secret Manager.
+        # The 4 old --set-secrets (SENTRY_DSN, FIREBASE_CREDENTIALS, OPENAI,
+        # PINECONE) were dropped — they never existed in Secret Manager and
+        # the code didn't read them. Add them back when those features ship.
         run: |
           gcloud run deploy ${{ env.SERVICE }} \
             --source api-service \
             --region ${{ env.REGION }} \
             --platform managed \
             --allow-unauthenticated \
-            --set-env-vars="ENVIRONMENT=production"
+            --set-env-vars="ENVIRONMENT=production,FIREBASE_PROJECT_ID=playnxt-1a2c6,SUPPORT_EMAIL=support@watchlightinteractive.com,FROM_EMAIL=support@watchlightinteractive.com,PYTHONUNBUFFERED=1" \
+            --set-secrets="SENDGRID_API_KEY=SENDGRID_API_KEY:latest"
 
       - name: Get service URL
         run: |
