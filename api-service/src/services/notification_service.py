@@ -58,6 +58,9 @@ def select_recipients(
         if has_new_games:
             digest.append(d)
             continue
+        # No new games this week: only nudge devices we KNOW are inactive.
+        # Devices with last_active_at=None (registered but never seen used) are
+        # intentionally skipped — we don't have evidence they're inactive.
         last_active = d.get("last_active_at")
         if last_active and last_active < inactive_cutoff:
             reengagement.append(d)

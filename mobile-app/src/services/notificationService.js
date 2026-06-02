@@ -45,9 +45,13 @@ export async function registerForPushNotifications() {
 
 /**
  * Disable notifications: try to unregister the current token from the API.
+ * Quietly no-ops when permission was never granted (so toggling OFF before
+ * the user ever enabled is safe and silent).
  */
 export async function unregisterFromPushNotifications() {
   try {
+    const { status } = await Notifications.getPermissionsAsync();
+    if (status !== 'granted') return;
     const tokenResponse = await Notifications.getExpoPushTokenAsync({ projectId: EAS_PROJECT_ID });
     const token = tokenResponse?.data;
     if (token) {
