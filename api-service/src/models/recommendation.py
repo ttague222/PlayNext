@@ -90,6 +90,30 @@ class RecommendationRequest(BaseModel):
         description="Games to exclude (already shown)"
     )
 
+    # Premium-only advanced filters (default: not applied)
+    stop_friendliness: Optional[StopFriendliness] = Field(
+        default=None,
+        description="Filter by stop-friendliness (premium)."
+    )
+    time_to_fun: Optional[TimeToFun] = Field(
+        default=None,
+        description="Filter by time-to-fun (premium)."
+    )
+    on_subscriptions: Optional[list[str]] = Field(
+        default=None,
+        description="Only include games on these subscription services (premium)."
+    )
+    exclude_played: bool = Field(
+        default=False,
+        description="Hide games the user has accepted/played (premium)."
+    )
+
+    # Premium scoring boost (default: off)
+    favor_history: bool = Field(
+        default=False,
+        description="Bias scoring toward genres/moods the user's positive signals favor (premium)."
+    )
+
 
 class RecommendationExplanation(BaseModel):
     """Explanation for why a game was recommended."""

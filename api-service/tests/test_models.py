@@ -239,3 +239,30 @@ class TestGameModels:
     def test_game_base_required_fields(self):
         with pytest.raises(ValidationError):
             GameBase(title="Test")  # Missing required fields
+
+
+def test_recommendation_request_premium_fields_default_to_none():
+    """Premium fields must default to None/False so free behavior is unchanged."""
+    req = RecommendationRequest(time_available=30, energy_mood=EnergyMood.CASUAL)
+    assert req.stop_friendliness is None
+    assert req.time_to_fun is None
+    assert req.on_subscriptions is None
+    assert req.exclude_played is False
+    assert req.favor_history is False
+
+
+def test_recommendation_request_premium_fields_accept_values():
+    req = RecommendationRequest(
+        time_available=30,
+        energy_mood=EnergyMood.CASUAL,
+        stop_friendliness=StopFriendliness.ANYTIME,
+        time_to_fun=TimeToFun.SHORT,
+        on_subscriptions=["game_pass"],
+        exclude_played=True,
+        favor_history=True,
+    )
+    assert req.stop_friendliness == StopFriendliness.ANYTIME
+    assert req.time_to_fun == TimeToFun.SHORT
+    assert req.on_subscriptions == ["game_pass"]
+    assert req.exclude_played is True
+    assert req.favor_history is True
