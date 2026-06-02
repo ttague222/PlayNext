@@ -224,6 +224,14 @@ const api = {
   },
 
   /**
+   * Get positive-signal history (worked / played_loved / accepted) for Smart History
+   */
+  getPositiveSignals: async (limit = 50) => {
+    const response = await apiClient.get('/signals/worked', { params: { limit } });
+    return response.data;
+  },
+
+  /**
    * Delete a specific signal from history
    * @param {string} signalId - Signal ID to delete
    */

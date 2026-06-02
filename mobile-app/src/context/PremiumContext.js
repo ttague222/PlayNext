@@ -26,9 +26,14 @@ export const usePremium = () => useContext(PremiumContext);
 // Feature toggle - set to true to enable RevenueCat
 const ENABLE_REVENUECAT = true;
 
-// Premium features - now only ad-free
+// Premium features
+// adFree: skip the rewarded-ad gate on rerolls
+// smartHistory: "What's worked for you" + favor_history scoring boost
+// advancedFilters: stop_friendliness, time_to_fun, on_subscriptions, exclude_played
 const PREMIUM_FEATURES = {
   adFree: true,
+  smartHistory: true,
+  advancedFilters: true,
 };
 
 // Lazy load RevenueCat service only when needed to avoid SDK initialization issues
