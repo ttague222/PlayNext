@@ -23,6 +23,12 @@ const DEFAULT_PREFERENCES = {
   platforms: [],   // Now an array for multi-select
   sessionType: 'any',  // Default to any - user can narrow to solo or multiplayer
   discoveryMode: 'familiar',
+  // Premium-only advanced filters (default: not applied)
+  stopFriendliness: null,    // 'anytime' | 'checkpoints' | 'commitment'
+  timeToFun: null,           // 'short' | 'medium' | 'long'
+  onSubscriptions: [],       // string[]
+  excludePlayed: false,
+  favorHistory: false,
 };
 
 export const RecommendationProvider = ({ children }) => {
@@ -176,6 +182,13 @@ export const RecommendationProvider = ({ children }) => {
         discovery_mode: preferences.discoveryMode,
         session_id: currentSessionId,
         excluded_game_ids: shownGameIds,
+        // Premium-only fields — only included when set, so non-premium
+        // requests look identical to the previous payload.
+        ...(preferences.stopFriendliness && { stop_friendliness: preferences.stopFriendliness }),
+        ...(preferences.timeToFun && { time_to_fun: preferences.timeToFun }),
+        ...(preferences.onSubscriptions?.length && { on_subscriptions: preferences.onSubscriptions }),
+        ...(preferences.excludePlayed && { exclude_played: true }),
+        ...(preferences.favorHistory && { favor_history: true }),
       });
 
       setRecommendations(response.recommendations);
@@ -217,6 +230,13 @@ export const RecommendationProvider = ({ children }) => {
         discovery_mode: preferences.discoveryMode,
         session_id: sessionId,
         excluded_game_ids: shownGameIds,
+        // Premium-only fields — pass through to keep reroll aligned with the
+        // initial recommendation.
+        ...(preferences.stopFriendliness && { stop_friendliness: preferences.stopFriendliness }),
+        ...(preferences.timeToFun && { time_to_fun: preferences.timeToFun }),
+        ...(preferences.onSubscriptions?.length && { on_subscriptions: preferences.onSubscriptions }),
+        ...(preferences.excludePlayed && { exclude_played: true }),
+        ...(preferences.favorHistory && { favor_history: true }),
       });
 
       setRecommendations(response.recommendations);

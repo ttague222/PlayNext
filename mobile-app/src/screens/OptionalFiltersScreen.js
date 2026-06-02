@@ -14,6 +14,7 @@ import {
   Animated,
   ScrollView,
   Platform,
+  Switch,
 } from 'react-native';
 import { SafeAreaView } from 'react-native-safe-area-context';
 import { useNavigation } from '@react-navigation/native';
@@ -120,6 +121,7 @@ const OptionalFiltersScreen = () => {
     showRewardedAd,
     isPremium,
     isAdLoading,
+    hasFeature,
   } = usePremium();
 
   const [showingAd, setShowingAd] = useState(false);
@@ -391,6 +393,132 @@ const OptionalFiltersScreen = () => {
                 </TouchableOpacity>
               </View>
             </View>
+
+            {/* Premium-only Advanced Filters */}
+            <View style={styles.filterSection}>
+              <Text style={styles.filterTitle}>
+                Advanced {hasFeature('advancedFilters') ? '' : ' 🔒 Premium'}
+              </Text>
+
+              {/* Stop-friendliness */}
+              <Text style={styles.advLabel}>Stop-friendliness</Text>
+              <View style={styles.advRow}>
+                {['anytime', 'checkpoints', 'commitment'].map((v) => (
+                  <TouchableOpacity
+                    key={v}
+                    style={[
+                      styles.advChip,
+                      preferences.stopFriendliness === v && styles.advChipActive,
+                    ]}
+                    onPress={() => {
+                      if (!hasFeature('advancedFilters')) {
+                        navigation.navigate('Premium', { source: 'advanced_filters' });
+                        return;
+                      }
+                      updatePreference(
+                        'stopFriendliness',
+                        preferences.stopFriendliness === v ? null : v,
+                      );
+                    }}
+                  >
+                    <Text style={[
+                      styles.advChipText,
+                      preferences.stopFriendliness === v && styles.advChipTextActive,
+                    ]}>{v}</Text>
+                  </TouchableOpacity>
+                ))}
+              </View>
+
+              {/* Time-to-fun */}
+              <Text style={styles.advLabel}>Time-to-fun</Text>
+              <View style={styles.advRow}>
+                {['short', 'medium', 'long'].map((v) => (
+                  <TouchableOpacity
+                    key={v}
+                    style={[
+                      styles.advChip,
+                      preferences.timeToFun === v && styles.advChipActive,
+                    ]}
+                    onPress={() => {
+                      if (!hasFeature('advancedFilters')) {
+                        navigation.navigate('Premium', { source: 'advanced_filters' });
+                        return;
+                      }
+                      updatePreference(
+                        'timeToFun',
+                        preferences.timeToFun === v ? null : v,
+                      );
+                    }}
+                  >
+                    <Text style={[
+                      styles.advChipText,
+                      preferences.timeToFun === v && styles.advChipTextActive,
+                    ]}>{v}</Text>
+                  </TouchableOpacity>
+                ))}
+              </View>
+
+              {/* On my subscriptions (multi-select) */}
+              <Text style={styles.advLabel}>Only on my subscriptions</Text>
+              <View style={styles.advRow}>
+                {['game_pass', 'ps_plus', 'ea_play', 'nintendo_switch_online'].map((v) => {
+                  const selected = preferences.onSubscriptions?.includes(v);
+                  return (
+                    <TouchableOpacity
+                      key={v}
+                      style={[styles.advChip, selected && styles.advChipActive]}
+                      onPress={() => {
+                        if (!hasFeature('advancedFilters')) {
+                          navigation.navigate('Premium', { source: 'advanced_filters' });
+                          return;
+                        }
+                        const next = selected
+                          ? preferences.onSubscriptions.filter((x) => x !== v)
+                          : [...(preferences.onSubscriptions || []), v];
+                        updatePreference('onSubscriptions', next);
+                      }}
+                    >
+                      <Text style={[
+                        styles.advChipText,
+                        selected && styles.advChipTextActive,
+                      ]}>{v.replace(/_/g, ' ')}</Text>
+                    </TouchableOpacity>
+                  );
+                })}
+              </View>
+
+              {/* Hide games I've played */}
+              <View style={styles.advToggleRow}>
+                <Text style={styles.advToggleLabel}>Hide games I've played</Text>
+                <Switch
+                  value={preferences.excludePlayed}
+                  disabled={!hasFeature('advancedFilters')}
+                  onValueChange={(v) => {
+                    if (!hasFeature('advancedFilters')) {
+                      navigation.navigate('Premium', { source: 'advanced_filters' });
+                      return;
+                    }
+                    updatePreference('excludePlayed', v);
+                  }}
+                />
+              </View>
+
+              {/* Lean on what's worked */}
+              <View style={styles.advToggleRow}>
+                <Text style={styles.advToggleLabel}>Lean on what's worked</Text>
+                <Switch
+                  value={preferences.favorHistory}
+                  disabled={!hasFeature('advancedFilters')}
+                  onValueChange={(v) => {
+                    if (!hasFeature('advancedFilters')) {
+                      navigation.navigate('Premium', { source: 'advanced_filters' });
+                      return;
+                    }
+                    updatePreference('favorHistory', v);
+                  }}
+                />
+              </View>
+            </View>
           </View>
 
           {/* Selected count indicator */}
@@ -533,6 +661,51 @@ const styles = StyleSheet.create({
     fontSize: 13,
     color: '#707080',
     marginBottom: 12,
+  },
+  advLabel: {
+    fontSize: 13,
+    color: '#a0a0b0',
+    marginTop: 12,
+    marginBottom: 8,
+  },
+  advRow: {
+    flexDirection: 'row',
+    flexWrap: 'wrap',
+    gap: 8,
+  },
+  advChip: {
+    paddingHorizontal: 12,
+    paddingVertical: 8,
+    borderRadius: 16,
+    backgroundColor: 'rgba(255, 255, 255, 0.06)',
+    borderWidth: 1,
+    borderColor: 'rgba(255, 255, 255, 0.1)',
+  },
+  advChipActive: {
+    backgroundColor: 'rgba(124, 58, 237, 0.25)',
+    borderColor: '#a78bfa',
+  },
+  advChipText: {
+    color: '#cbd5e1',
+    fontSize: 13,
+    textTransform: 'capitalize',
+  },
+  advChipTextActive: {
+    color: '#ffffff',
+    fontWeight: '600',
+  },
+  advToggleRow: {
+    flexDirection: 'row',
+    alignItems: 'center',
+    justifyContent: 'space-between',
+    paddingVertical: 12,
+    marginTop: 8,
+    borderTopWidth: 1,
+    borderTopColor: 'rgba(255, 255, 255, 0.05)',
+  },
+  advToggleLabel: {
+    color: '#cbd5e1',
+    fontSize: 14,
   },
   filterOptions: {
     flexDirection: 'row',
