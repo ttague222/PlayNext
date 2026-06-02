@@ -55,6 +55,9 @@ class Settings(BaseSettings):
     # Error Tracking
     sentry_dsn: Optional[str] = None
 
+    # Push notifications
+    cron_secret: Optional[str] = None
+
     # Recommendation Engine
     max_recommendations: int = 3
     default_time_bracket: int = 60  # minutes
