@@ -22,6 +22,11 @@ import { LinearGradient } from 'expo-linear-gradient';
 import { Ionicons } from '@expo/vector-icons';
 import { useRecommendation } from '../context/RecommendationContext';
 import { usePremium } from '../context/PremiumContext';
+import {
+  lockedFilterAction,
+  nextSingleSelectChip,
+  nextMultiSelectChips,
+} from '../utils/premiumGating';
 
 const PLATFORM_OPTIONS = [
   { value: 'pc', label: 'PC' },
@@ -412,12 +417,13 @@ const OptionalFiltersScreen = () => {
                     ]}
                     onPress={() => {
                       if (!hasFeature('advancedFilters')) {
-                        navigation.navigate('Premium', { source: 'advanced_filters' });
+                        const a = lockedFilterAction();
+                        navigation.navigate(a.screen, a.params);
                         return;
                       }
                       updatePreference(
                         'stopFriendliness',
-                        preferences.stopFriendliness === v ? null : v,
+                        nextSingleSelectChip(preferences.stopFriendliness, v),
                       );
                     }}
                   >
@@ -441,12 +447,13 @@ const OptionalFiltersScreen = () => {
                     ]}
                     onPress={() => {
                       if (!hasFeature('advancedFilters')) {
-                        navigation.navigate('Premium', { source: 'advanced_filters' });
+                        const a = lockedFilterAction();
+                        navigation.navigate(a.screen, a.params);
                         return;
                       }
                       updatePreference(
                         'timeToFun',
-                        preferences.timeToFun === v ? null : v,
+                        nextSingleSelectChip(preferences.timeToFun, v),
                       );
                     }}
                   >
@@ -469,13 +476,14 @@ const OptionalFiltersScreen = () => {
                       style={[styles.advChip, selected && styles.advChipActive]}
                       onPress={() => {
                         if (!hasFeature('advancedFilters')) {
-                          navigation.navigate('Premium', { source: 'advanced_filters' });
+                          const a = lockedFilterAction();
+                          navigation.navigate(a.screen, a.params);
                           return;
                         }
-                        const next = selected
-                          ? preferences.onSubscriptions.filter((x) => x !== v)
-                          : [...(preferences.onSubscriptions || []), v];
-                        updatePreference('onSubscriptions', next);
+                        updatePreference(
+                          'onSubscriptions',
+                          nextMultiSelectChips(preferences.onSubscriptions, v),
+                        );
                       }}
                     >
                       <Text style={[
@@ -495,7 +503,8 @@ const OptionalFiltersScreen = () => {
                   disabled={!hasFeature('advancedFilters')}
                   onValueChange={(v) => {
                     if (!hasFeature('advancedFilters')) {
-                      navigation.navigate('Premium', { source: 'advanced_filters' });
+                      const a = lockedFilterAction();
+                      navigation.navigate(a.screen, a.params);
                       return;
                     }
                     updatePreference('excludePlayed', v);
@@ -511,7 +520,8 @@ const OptionalFiltersScreen = () => {
                   disabled={!hasFeature('advancedFilters')}
                   onValueChange={(v) => {
                     if (!hasFeature('advancedFilters')) {
-                      navigation.navigate('Premium', { source: 'advanced_filters' });
+                      const a = lockedFilterAction();
+                      navigation.navigate(a.screen, a.params);
                       return;
                     }
                     updatePreference('favorHistory', v);

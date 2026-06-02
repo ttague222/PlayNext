@@ -30,6 +30,7 @@ import { usePremium } from '../context/PremiumContext';
 import { useRecommendation } from '../context/RecommendationContext';
 import { useSavedGames, BUCKET_CONFIG, BUCKET_TYPES } from '../context/SavedGamesContext';
 import api from '../services/api';
+import { smartHistoryState, smartHistoryRowAction } from '../utils/premiumGating';
 
 // Constants for layout
 const HORIZONTAL_PADDING = 24;
@@ -266,12 +267,26 @@ const HistoryScreen = () => {
           </View>
 
           {/* Smart History (Premium) */}
+          {(() => {
+            const smartState = smartHistoryState({
+              isPremium,
+              isAnonymous,
+              hasSignedInUser: !!user,
+              positiveSignalsCount: positiveSignals.length,
+            });
+            const rowAction = smartHistoryRowAction(smartState);
+            const handleRowTap = () => {
+              if (rowAction?.type === 'navigate') {
+                navigation.navigate(rowAction.screen, rowAction.params);
+              }
+            };
+            return (
           <View style={styles.smartHistorySection}>
             <Text style={styles.sectionTitle}>What's worked for you</Text>
-            {!isPremium ? (
+            {smartState === 'teaser' ? (
               <TouchableOpacity
                 style={styles.smartHistoryTeaser}
-                onPress={() => navigation.navigate('Premium', { source: 'smart_history' })}
+                onPress={handleRowTap}
                 activeOpacity={0.8}
               >
                 <View style={{ flex: 1 }}>
@@ -282,10 +297,10 @@ const HistoryScreen = () => {
                 </View>
                 <Ionicons name="chevron-forward" size={20} color="#a78bfa" />
               </TouchableOpacity>
-            ) : isAnonymous ? (
+            ) : smartState === 'anonymous' ? (
               <TouchableOpacity
                 style={styles.smartHistoryTeaser}
-                onPress={() => navigation.navigate('SignIn')}
+                onPress={handleRowTap}
                 activeOpacity={0.8}
               >
                 <View style={{ flex: 1 }}>
@@ -296,7 +311,7 @@ const HistoryScreen = () => {
                 </View>
                 <Ionicons name="chevron-forward" size={20} color="#a78bfa" />
               </TouchableOpacity>
-            ) : positiveSignals.length === 0 ? (
+            ) : smartState === 'empty' ? (
               <Text style={styles.smartHistoryEmpty}>
                 Mark a recommendation "This worked for me" and it'll show up here.
               </Text>
@@ -324,6 +339,8 @@ const HistoryScreen = () => {
               })
             )}
           </View>
+            );
+          })()}
 
           {/* Recent Activity */}
           {recentGames.length > 0 && (
