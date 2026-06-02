@@ -130,6 +130,39 @@ const api = {
     return response.data;
   },
 
+  /**
+   * Get recently-added games (for the What's New screen)
+   */
+  getRecentGames: async (days = 7, limit = 20) => {
+    const response = await apiClient.get('/games/recent', { params: { days, limit } });
+    return response.data;
+  },
+
+  // ============================================
+  // Push Notifications
+  // ============================================
+
+  /**
+   * Register this device's Expo push token
+   */
+  registerPushToken: async (expoPushToken, platform) => {
+    const response = await apiClient.post('/notifications/register', {
+      expo_push_token: expoPushToken,
+      platform,
+    });
+    return response.data;
+  },
+
+  /**
+   * Disable notifications for this device
+   */
+  unregisterPushToken: async (expoPushToken) => {
+    const response = await apiClient.post('/notifications/unregister', {
+      expo_push_token: expoPushToken,
+    });
+    return response.data;
+  },
+
   // ============================================
   // Signals & Feedback
   // ============================================
