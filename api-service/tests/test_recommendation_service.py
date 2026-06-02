@@ -484,3 +484,74 @@ class TestExcludePlayedFilter:
         )
         out = service._apply_filters(games, req, user_history=None)
         assert len(out) == 3
+
+
+class TestTasteProfile:
+    def test_build_taste_profile_counts_genre_and_mood_tags(self):
+        from src.services.recommendation_service import build_taste_profile
+        games = [
+            {"genre_tags": ["indie", "puzzle"], "mood_tags": ["cozy"]},
+            {"genre_tags": ["indie"], "mood_tags": ["cozy", "relaxing"]},
+        ]
+        profile = build_taste_profile(games)
+        assert profile["genres"] == {"indie": 2, "puzzle": 1}
+        assert profile["moods"] == {"cozy": 2, "relaxing": 1}
+
+    def test_build_taste_profile_empty(self):
+        from src.services.recommendation_service import build_taste_profile
+        assert build_taste_profile([]) == {"genres": {}, "moods": {}}
+
+
+class TestFavorHistoryScoring:
+    @pytest.fixture
+    def service(self, mock_firebase):
+        from unittest.mock import MagicMock, patch as _patch
+        with _patch('src.services.recommendation_service.get_collection') as mock_get_collection:
+            mock_get_collection.side_effect = lambda name: MagicMock()
+            from src.services.recommendation_service import RecommendationService
+            return RecommendationService()
+
+    def test_favor_history_boosts_matching_games(self, service):
+        """Games whose tags match the taste profile score higher than those that don't."""
+        cozy = {"game_id": "cozy", "title": "Cozy", "platforms": ["pc"], "time_tags": [30],
+                "energy_level": "low", "play_style": ["action"], "genre_tags": ["cozy"],
+                "mood_tags": ["relaxing"], "stop_friendliness": "anytime",
+                "time_to_fun": "short", "multiplayer_modes": ["solo"],
+                "subscription_services": []}
+        action = {"game_id": "action", "title": "Action", "platforms": ["pc"], "time_tags": [30],
+                  "energy_level": "low", "play_style": ["action"], "genre_tags": ["action"],
+                  "mood_tags": ["intense"], "stop_friendliness": "anytime",
+                  "time_to_fun": "short", "multiplayer_modes": ["solo"],
+                  "subscription_services": []}
+
+        req = RecommendationRequest(
+            time_available=30, energy_mood=EnergyMood.CASUAL, favor_history=True,
+        )
+        profile = {"genres": {"cozy": 5}, "moods": {"relaxing": 3}}
+
+        with patch("src.services.recommendation_service.random.uniform", return_value=0.0), \
+             patch("src.services.recommendation_service.random.shuffle", lambda x: None):
+            scored = service._score_games([cozy, action], req, taste_profile=profile)
+
+        cozy_g = next(g for g in scored if g["game_id"] == "cozy")
+        action_g = next(g for g in scored if g["game_id"] == "action")
+        assert cozy_g["score"] > action_g["score"]
+
+    def test_no_profile_means_no_boost(self, service):
+        """Without a profile, favor_history is a no-op."""
+        g = {"game_id": "x", "title": "X", "platforms": ["pc"], "time_tags": [30],
+             "energy_level": "low", "play_style": ["action"], "genre_tags": ["indie"],
+             "mood_tags": ["cozy"], "stop_friendliness": "anytime",
+             "time_to_fun": "short", "multiplayer_modes": ["solo"],
+             "subscription_services": []}
+        req_off = RecommendationRequest(time_available=30, energy_mood=EnergyMood.CASUAL)
+        req_on = RecommendationRequest(
+            time_available=30, energy_mood=EnergyMood.CASUAL, favor_history=True,
+        )
+
+        with patch("src.services.recommendation_service.random.uniform", return_value=0.0), \
+             patch("src.services.recommendation_service.random.shuffle", lambda x: None):
+            off = service._score_games([dict(g)], req_off, taste_profile=None)
+            on = service._score_games([dict(g)], req_on, taste_profile=None)
+
+        assert off[0]["score"] == on[0]["score"]

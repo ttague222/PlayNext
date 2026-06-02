@@ -59,6 +59,21 @@ TIME_BRACKETS = {
 }
 
 
+def build_taste_profile(games: list[dict]) -> dict:
+    """Frequency map of genre_tags and mood_tags across a list of game dicts.
+
+    Pure function so it can be unit-tested without Firestore.
+    """
+    genres: dict[str, int] = {}
+    moods: dict[str, int] = {}
+    for g in games or []:
+        for t in g.get("genre_tags") or []:
+            genres[t] = genres.get(t, 0) + 1
+        for t in g.get("mood_tags") or []:
+            moods[t] = moods.get(t, 0) + 1
+    return {"genres": genres, "moods": moods}
+
+
 class RecommendationService:
     """Service for generating game recommendations."""
 
@@ -101,8 +116,30 @@ class RecommendationService:
             logger.warning("No games matched filters even with fallback")
             return self._empty_response(session_id)
 
+        # Premium: build a taste profile from the user's positive signals when
+        # favor_history is requested. Off by default, no-op for anonymous users.
+        taste_profile: Optional[dict] = None
+        if request.favor_history and user_id:
+            try:
+                from ..models import SignalType
+                from . import get_signal_service
+                positive_types = [SignalType.WORKED, SignalType.PLAYED_LOVED, SignalType.ACCEPTED]
+                positive_signals = await get_signal_service().get_user_signals(
+                    user_id=user_id, signal_types=positive_types, limit=50,
+                )
+                positive_game_ids = list({s.game_id for s in positive_signals})
+                positive_games: list[dict] = []
+                for gid in positive_game_ids[:50]:
+                    doc = self.games_collection.document(gid).get()
+                    if doc.exists:
+                        positive_games.append(doc.to_dict())
+                taste_profile = build_taste_profile(positive_games)
+            except Exception as e:
+                logger.warning(f"taste profile build failed: {e}")
+                taste_profile = None
+
         # Score and rank games
-        scored_games = self._score_games(filtered_games, request)
+        scored_games = self._score_games(filtered_games, request, taste_profile=taste_profile)
 
         # Apply discovery mode
         if request.discovery_mode == DiscoveryMode.SURPRISE:
@@ -320,7 +357,8 @@ class RecommendationService:
     def _score_games(
         self,
         games: list[dict],
-        request: RecommendationRequest
+        request: RecommendationRequest,
+        taste_profile: Optional[dict] = None,
     ) -> list[dict]:
         """Score games based on match quality with randomization for variety."""
         # Shuffle games first to eliminate any ordering bias from Firestore
@@ -367,6 +405,17 @@ class RecommendationService:
                 if matching_genres > 0:
                     # More matching genres = higher boost
                     score += 0.15 * min(matching_genres / len(genres), 1.0)
+
+            # Premium: favor games matching the user's taste profile (capped at 0.15).
+            if taste_profile and request.favor_history:
+                profile_genres = taste_profile.get("genres", {})
+                profile_moods = taste_profile.get("moods", {})
+                matches = (
+                    sum(1 for t in (game.get("genre_tags") or []) if t in profile_genres)
+                    + sum(1 for t in (game.get("mood_tags") or []) if t in profile_moods)
+                )
+                if matches:
+                    score += min(matches * 0.05, 0.15)
 
             # Platform match boost (0-0.1)
             req_platforms = request.platforms or ([request.platform] if request.platform else None)
