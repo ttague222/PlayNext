@@ -272,6 +272,28 @@ class RecommendationService:
                     if any(m.value in g.get("multiplayer_modes", []) for m in required_modes)
                 ]
 
+        # Premium filter: stop_friendliness (exact value)
+        if request.stop_friendliness:
+            filtered = [
+                g for g in filtered
+                if g.get("stop_friendliness") == request.stop_friendliness.value
+            ]
+
+        # Premium filter: time_to_fun (exact value)
+        if request.time_to_fun:
+            filtered = [
+                g for g in filtered
+                if g.get("time_to_fun") == request.time_to_fun.value
+            ]
+
+        # Premium filter: on_subscriptions (game must be on at least one)
+        if request.on_subscriptions:
+            wanted = set(request.on_subscriptions)
+            filtered = [
+                g for g in filtered
+                if wanted.intersection(set(g.get("subscription_services") or []))
+            ]
+
         return filtered
 
     def _energy_compatible(self, game_energy: str, target: EnergyLevel) -> bool:

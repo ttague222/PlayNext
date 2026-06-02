@@ -374,3 +374,64 @@ class TestBuildRecommendation:
         # Should generate default explanation
         assert "30-minute" in rec.explanation.summary
         assert "casual" in rec.explanation.summary
+
+
+class TestPremiumFilters:
+    """Tests for the premium-only advanced filters."""
+
+    @pytest.fixture
+    def service(self, mock_firebase):
+        from unittest.mock import MagicMock, patch as _patch
+        with _patch('src.services.recommendation_service.get_collection') as mock_get_collection:
+            mock_get_collection.side_effect = lambda name: MagicMock()
+            from src.services.recommendation_service import RecommendationService
+            return RecommendationService()
+
+    @pytest.fixture
+    def games(self):
+        return [
+            {"game_id": "a", "title": "A", "platforms": ["pc"], "time_tags": [30],
+             "energy_level": "low", "play_style": ["action"], "genre_tags": [],
+             "multiplayer_modes": ["solo"], "stop_friendliness": "anytime",
+             "time_to_fun": "short", "subscription_services": ["game_pass"]},
+            {"game_id": "b", "title": "B", "platforms": ["pc"], "time_tags": [30],
+             "energy_level": "low", "play_style": ["action"], "genre_tags": [],
+             "multiplayer_modes": ["solo"], "stop_friendliness": "commitment",
+             "time_to_fun": "long", "subscription_services": []},
+            {"game_id": "c", "title": "C", "platforms": ["pc"], "time_tags": [30],
+             "energy_level": "low", "play_style": ["action"], "genre_tags": [],
+             "multiplayer_modes": ["solo"], "stop_friendliness": "checkpoints",
+             "time_to_fun": "medium", "subscription_services": ["ps_plus"]},
+        ]
+
+    def test_stop_friendliness_filter(self, service, games):
+        from src.models import StopFriendliness
+        req = RecommendationRequest(
+            time_available=30, energy_mood=EnergyMood.CASUAL,
+            stop_friendliness=StopFriendliness.ANYTIME,
+        )
+        out = service._apply_filters(games, req)
+        assert [g["game_id"] for g in out] == ["a"]
+
+    def test_time_to_fun_filter(self, service, games):
+        from src.models import TimeToFun
+        req = RecommendationRequest(
+            time_available=30, energy_mood=EnergyMood.CASUAL,
+            time_to_fun=TimeToFun.SHORT,
+        )
+        out = service._apply_filters(games, req)
+        assert [g["game_id"] for g in out] == ["a"]
+
+    def test_on_subscriptions_filter(self, service, games):
+        req = RecommendationRequest(
+            time_available=30, energy_mood=EnergyMood.CASUAL,
+            on_subscriptions=["game_pass"],
+        )
+        out = service._apply_filters(games, req)
+        assert [g["game_id"] for g in out] == ["a"]
+
+    def test_no_premium_filters_no_change(self, service, games):
+        """When all premium filters are None/False, every game survives."""
+        req = RecommendationRequest(time_available=30, energy_mood=EnergyMood.CASUAL)
+        out = service._apply_filters(games, req)
+        assert len(out) == 3
