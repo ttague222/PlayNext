@@ -78,7 +78,7 @@ jobs:
             --platform managed \
             --allow-unauthenticated \
             --set-env-vars="ENVIRONMENT=production,FIREBASE_PROJECT_ID=playnxt-1a2c6,SUPPORT_EMAIL=support@watchlightinteractive.com,FROM_EMAIL=support@watchlightinteractive.com,PYTHONUNBUFFERED=1" \
-            --set-secrets="SENDGRID_API_KEY=SENDGRID_API_KEY:latest"
+            --set-secrets="SENDGRID_API_KEY=SENDGRID_API_KEY:latest,CRON_SECRET=CRON_SECRET:latest"
 
       - name: Get service URL
         run: |
