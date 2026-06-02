@@ -15,7 +15,7 @@
  * - Functions as a settings panel, not a social profile
  */
 
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import {
   View,
   Text,
@@ -31,9 +31,13 @@ import { SafeAreaView } from 'react-native-safe-area-context';
 import { LinearGradient } from 'expo-linear-gradient';
 import { Ionicons } from '@expo/vector-icons';
 import { useNavigation } from '@react-navigation/native';
+import AsyncStorage from '@react-native-async-storage/async-storage';
 import { useAuth } from '../context/AuthContext';
 import { usePremium } from '../context/PremiumContext';
 import api from '../services/api';
+import { registerForPushNotifications, unregisterFromPushNotifications } from '../services/notificationService';
+
+const NOTIFICATIONS_ENABLED_KEY = '@playnxt_notifications_enabled';
 
 const PRIVACY_POLICY_URL = 'https://watchlightinteractive.com/playnxt-privacy-policy';
 const TERMS_OF_SERVICE_URL = 'https://watchlightinteractive.com/playnxt-terms-of-service';
@@ -61,6 +65,42 @@ const ProfileScreen = () => {
   // Default preferences (stored locally or in user profile)
   const [defaultPlatform, setDefaultPlatform] = useState(null);
   const [defaultSessionLength, setDefaultSessionLength] = useState(null);
+
+  // Notifications toggle state (persisted in AsyncStorage)
+  const [notificationsEnabled, setNotificationsEnabled] = useState(false);
+  const [notificationsBusy, setNotificationsBusy] = useState(false);
+
+  useEffect(() => {
+    (async () => {
+      const v = await AsyncStorage.getItem(NOTIFICATIONS_ENABLED_KEY);
+      setNotificationsEnabled(v === 'true');
+    })();
+  }, []);
+
+  const handleNotificationsToggle = async (next) => {
+    if (notificationsBusy) return;
+    setNotificationsBusy(true);
+    try {
+      if (next) {
+        const token = await registerForPushNotifications();
+        if (token) {
+          setNotificationsEnabled(true);
+          await AsyncStorage.setItem(NOTIFICATIONS_ENABLED_KEY, 'true');
+        } else {
+          Alert.alert(
+            'Notifications blocked',
+            'Enable notifications for PlayNxt in your device Settings to receive weekly updates.',
+          );
+        }
+      } else {
+        await unregisterFromPushNotifications();
+        setNotificationsEnabled(false);
+        await AsyncStorage.setItem(NOTIFICATIONS_ENABLED_KEY, 'false');
+      }
+    } finally {
+      setNotificationsBusy(false);
+    }
+  };
 
   const handleSignIn = () => {
     navigation.navigate('SignIn');
@@ -268,6 +308,20 @@ const ProfileScreen = () => {
                 </>
               )}
             </>
+          )}
+
+          {/* Notifications Section */}
+          {renderSection(
+            'Notifications',
+            <View style={styles.menuItem}>
+              <Ionicons name="notifications-outline" size={22} color="#808080" />
+              <Text style={[styles.menuItemText, { flex: 1 }]}>Weekly digest</Text>
+              <Switch
+                value={notificationsEnabled}
+                onValueChange={handleNotificationsToggle}
+                disabled={notificationsBusy}
+              />
+            </View>
           )}
 
           {/* Default Preferences Section */}

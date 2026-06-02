@@ -9,7 +9,10 @@
 
 import React from 'react';
 import { Platform } from 'react-native';
-import { NavigationContainer } from '@react-navigation/native';
+import { NavigationContainer, createNavigationContainerRef } from '@react-navigation/native';
+
+// Exported ref so non-React code (e.g. notification tap handlers) can navigate.
+export const navigationRef = createNavigationContainerRef();
 import { createNativeStackNavigator } from '@react-navigation/native-stack';
 import { createBottomTabNavigator } from '@react-navigation/bottom-tabs';
 import { Ionicons } from '@expo/vector-icons';
@@ -35,6 +38,7 @@ import PremiumScreen from '../screens/PremiumScreen';
 import BucketDetailScreen from '../screens/BucketDetailScreen';
 import GameDetailScreen from '../screens/GameDetailScreen';
 import HelpScreen from '../screens/HelpScreen';
+import WhatsNewScreen from '../screens/WhatsNewScreen';
 
 const Stack = createNativeStackNavigator();
 const Tab = createBottomTabNavigator();
@@ -149,7 +153,7 @@ const TabNavigator = () => {
  */
 const AppNavigator = () => {
   return (
-    <NavigationContainer>
+    <NavigationContainer ref={navigationRef}>
       <RootStack.Navigator screenOptions={{ headerShown: false }}>
         <RootStack.Screen name="Main" component={TabNavigator} />
         <RootStack.Screen
@@ -193,6 +197,13 @@ const AppNavigator = () => {
         <RootStack.Screen
           name="Help"
           component={HelpScreen}
+          options={{
+            animation: 'slide_from_right',
+          }}
+        />
+        <RootStack.Screen
+          name="WhatsNew"
+          component={WhatsNewScreen}
           options={{
             animation: 'slide_from_right',
           }}

@@ -19,10 +19,13 @@ import { PremiumProvider } from './src/context/PremiumContext';
 import { SavedGamesProvider } from './src/context/SavedGamesContext';
 
 // Navigation
-import AppNavigator from './src/navigation/AppNavigator';
+import AppNavigator, { navigationRef } from './src/navigation/AppNavigator';
 
 // Onboarding
 import WelcomeScreen, { hasSeenWelcome } from './src/screens/WelcomeScreen';
+
+// Push notification tap handling
+import { addNotificationResponseListener } from './src/services/notificationService';
 
 const App = () => {
   const [isLoading, setIsLoading] = useState(true);
@@ -35,6 +38,20 @@ const App = () => {
       setIsLoading(false);
     };
     checkFirstLaunch();
+  }, []);
+
+  // Route notification taps via the navigation ref.
+  useEffect(() => {
+    const subscription = addNotificationResponseListener((deepLink) => {
+      if (!navigationRef.isReady()) return;
+      if (deepLink === 'whats_new') {
+        navigationRef.navigate('WhatsNew');
+      } else {
+        // Default: surface the play tab.
+        navigationRef.navigate('Main', { screen: 'Play' });
+      }
+    });
+    return () => subscription?.remove?.();
   }, []);
 
   if (isLoading) {
