@@ -435,3 +435,52 @@ class TestPremiumFilters:
         req = RecommendationRequest(time_available=30, energy_mood=EnergyMood.CASUAL)
         out = service._apply_filters(games, req)
         assert len(out) == 3
+
+
+class TestExcludePlayedFilter:
+    """Tests for the exclude_played premium filter via _apply_filters."""
+
+    @pytest.fixture
+    def service(self, mock_firebase):
+        from unittest.mock import MagicMock, patch as _patch
+        with _patch('src.services.recommendation_service.get_collection') as mock_get_collection:
+            mock_get_collection.side_effect = lambda name: MagicMock()
+            from src.services.recommendation_service import RecommendationService
+            return RecommendationService()
+
+    @pytest.fixture
+    def games(self):
+        return [
+            {"game_id": "a", "title": "A", "platforms": ["pc"], "time_tags": [30],
+             "energy_level": "low", "play_style": ["action"], "genre_tags": [],
+             "multiplayer_modes": ["solo"]},
+            {"game_id": "b", "title": "B", "platforms": ["pc"], "time_tags": [30],
+             "energy_level": "low", "play_style": ["action"], "genre_tags": [],
+             "multiplayer_modes": ["solo"]},
+            {"game_id": "c", "title": "C", "platforms": ["pc"], "time_tags": [30],
+             "energy_level": "low", "play_style": ["action"], "genre_tags": [],
+             "multiplayer_modes": ["solo"]},
+        ]
+
+    def test_exclude_played_removes_user_history(self, service, games):
+        """exclude_played + user_history hides games the user has interacted with."""
+        req = RecommendationRequest(
+            time_available=30, energy_mood=EnergyMood.CASUAL,
+            exclude_played=True,
+        )
+        out = service._apply_filters(games, req, user_history={"a", "c"})
+        assert [g["game_id"] for g in out] == ["b"]
+
+    def test_exclude_played_off_keeps_all(self, service, games):
+        req = RecommendationRequest(time_available=30, energy_mood=EnergyMood.CASUAL)
+        out = service._apply_filters(games, req, user_history={"a", "c"})
+        assert len(out) == 3
+
+    def test_exclude_played_without_history_is_noop(self, service, games):
+        """exclude_played=True but no user_history (anonymous) keeps all games."""
+        req = RecommendationRequest(
+            time_available=30, energy_mood=EnergyMood.CASUAL,
+            exclude_played=True,
+        )
+        out = service._apply_filters(games, req, user_history=None)
+        assert len(out) == 3

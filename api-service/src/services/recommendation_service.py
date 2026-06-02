@@ -160,8 +160,14 @@ class RecommendationService:
         games = [g for g in games if g["game_id"] not in excluded]
         logger.info(f"Filtered from {original_count} to {len(games)} games after exclusions")
 
+        # Premium "hide games I've played": fetch the user's full game history once
+        # so every _apply_filters call below can short-circuit on it.
+        user_history: Optional[set[str]] = None
+        if request.exclude_played and user_id:
+            user_history = await self._get_user_game_history(user_id)
+
         # Try exact match first
-        filtered = self._apply_filters(games, request, strict=True)
+        filtered = self._apply_filters(games, request, strict=True, user_history=user_history)
         if filtered:
             return filtered, False, None
 
@@ -170,7 +176,7 @@ class RecommendationService:
         relaxed_request = request.model_copy()
         relaxed_request.platform = None
         relaxed_request.platforms = None
-        filtered = self._apply_filters(games, relaxed_request, strict=True)
+        filtered = self._apply_filters(games, relaxed_request, strict=True, user_history=user_history)
         if filtered:
             return filtered, True, "Showing games across all platforms"
 
@@ -179,13 +185,13 @@ class RecommendationService:
         relaxed_request.genres = None
         relaxed_request.play_style = None
         relaxed_request.play_styles = None
-        filtered = self._apply_filters(games, relaxed_request, strict=True)
+        filtered = self._apply_filters(games, relaxed_request, strict=True, user_history=user_history)
         if filtered:
             return filtered, True, "Showing games across all genres"
 
         # Fallback 3: Relax time bracket
         logger.info("Applying fallback: relaxing time filter")
-        filtered = self._apply_filters(games, relaxed_request, strict=False)
+        filtered = self._apply_filters(games, relaxed_request, strict=False, user_history=user_history)
         if filtered:
             original_time = request.time_available
             return filtered, True, f"No exact matches for {original_time} minutes. Showing nearby options."
@@ -198,7 +204,8 @@ class RecommendationService:
         self,
         games: list[dict],
         request: RecommendationRequest,
-        strict: bool = True
+        strict: bool = True,
+        user_history: Optional[set[str]] = None,
     ) -> list[dict]:
         """Apply filters to game list."""
         filtered = games
@@ -293,6 +300,10 @@ class RecommendationService:
                 g for g in filtered
                 if wanted.intersection(set(g.get("subscription_services") or []))
             ]
+
+        # Premium filter: exclude games the user has interacted with.
+        if request.exclude_played and user_history:
+            filtered = [g for g in filtered if g.get("game_id") not in user_history]
 
         return filtered
 
