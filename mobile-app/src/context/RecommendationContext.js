@@ -119,6 +119,20 @@ export const RecommendationProvider = ({ children }) => {
   }, [savedPlatforms, savedTimeAvailable]);
 
   /**
+   * Seed a new recommendation session from an existing game.
+   * Pre-fills the genres from that game's tags so the next set of
+   * recommendations leans toward "more like this." Caller navigates after.
+   */
+  const seedFromGame = useCallback((game) => {
+    setPreferences((prev) => ({
+      ...DEFAULT_PREFERENCES,
+      platforms: prev.platforms,
+      timeAvailable: prev.timeAvailable,
+      genres: game?.genre_tags?.slice(0, 3) || [],
+    }));
+  }, []);
+
+  /**
    * Start a new session
    */
   const startSession = useCallback(async () => {
@@ -345,6 +359,7 @@ export const RecommendationProvider = ({ children }) => {
     // Actions
     updatePreference,
     resetPreferences,
+    seedFromGame,
     startSession,
     getRecommendations,
     reroll,

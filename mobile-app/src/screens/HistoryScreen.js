@@ -9,7 +9,7 @@
  * - Quick actions to move games between collections
  */
 
-import { useState, useCallback } from 'react';
+import { useState, useCallback, useEffect } from 'react';
 import {
   View,
   Text,
@@ -26,7 +26,10 @@ import { LinearGradient } from 'expo-linear-gradient';
 import { Ionicons } from '@expo/vector-icons';
 import { useFocusEffect, useNavigation } from '@react-navigation/native';
 import { useAuth } from '../context/AuthContext';
+import { usePremium } from '../context/PremiumContext';
+import { useRecommendation } from '../context/RecommendationContext';
 import { useSavedGames, BUCKET_CONFIG, BUCKET_TYPES } from '../context/SavedGamesContext';
+import api from '../services/api';
 
 // Constants for layout
 const HORIZONTAL_PADDING = 24;
@@ -34,8 +37,10 @@ const GRID_GAP = 12;
 
 const HistoryScreen = () => {
   const navigation = useNavigation();
-  const { user } = useAuth();
+  const { user, isAnonymous } = useAuth();
   const { width: screenWidth } = useWindowDimensions();
+  const { hasFeature, isPremium } = usePremium();
+  const { seedFromGame } = useRecommendation();
   const {
     buckets,
     fetchBuckets,
@@ -43,6 +48,30 @@ const HistoryScreen = () => {
     isUsingLocalStorage,
     getBucketWithGames,
   } = useSavedGames();
+
+  // Smart History (premium)
+  const [positiveSignals, setPositiveSignals] = useState([]);
+
+  useEffect(() => {
+    if (!isPremium || !hasFeature('smartHistory') || isAnonymous || !user) {
+      setPositiveSignals([]);
+      return;
+    }
+    let cancelled = false;
+    api.getPositiveSignals(20)
+      .then((data) => { if (!cancelled) setPositiveSignals(data || []); })
+      .catch(() => { if (!cancelled) setPositiveSignals([]); });
+    return () => { cancelled = true; };
+  }, [isPremium, hasFeature, isAnonymous, user]);
+
+  const handleFindSimilar = useCallback((signal) => {
+    // The signal carries the original session context; seed a fresh
+    // recommendation session with the game's tags if we have them.
+    seedFromGame({ genre_tags: signal?.context?.play_style_selected
+      ? [signal.context.play_style_selected]
+      : [] });
+    navigation.navigate('Main', { screen: 'Play' });
+  }, [seedFromGame, navigation]);
 
   // Calculate card width based on screen size (2 columns with gap)
   const cardWidth = (screenWidth - (HORIZONTAL_PADDING * 2) - GRID_GAP) / 2;
@@ -236,6 +265,66 @@ const HistoryScreen = () => {
             </View>
           </View>
 
+          {/* Smart History (Premium) */}
+          <View style={styles.smartHistorySection}>
+            <Text style={styles.sectionTitle}>What's worked for you</Text>
+            {!isPremium ? (
+              <TouchableOpacity
+                style={styles.smartHistoryTeaser}
+                onPress={() => navigation.navigate('Premium', { source: 'smart_history' })}
+                activeOpacity={0.8}
+              >
+                <View style={{ flex: 1 }}>
+                  <Text style={styles.smartHistoryTitle}>Premium · See what's worked</Text>
+                  <Text style={styles.smartHistoryBody}>
+                    Reuse what fit you. Recommendations learn from your history.
+                  </Text>
+                </View>
+                <Ionicons name="chevron-forward" size={20} color="#a78bfa" />
+              </TouchableOpacity>
+            ) : isAnonymous ? (
+              <TouchableOpacity
+                style={styles.smartHistoryTeaser}
+                onPress={() => navigation.navigate('SignIn')}
+                activeOpacity={0.8}
+              >
+                <View style={{ flex: 1 }}>
+                  <Text style={styles.smartHistoryTitle}>Sign in to unlock</Text>
+                  <Text style={styles.smartHistoryBody}>
+                    Your history syncs across devices once you sign in.
+                  </Text>
+                </View>
+                <Ionicons name="chevron-forward" size={20} color="#a78bfa" />
+              </TouchableOpacity>
+            ) : positiveSignals.length === 0 ? (
+              <Text style={styles.smartHistoryEmpty}>
+                Mark a recommendation "This worked for me" and it'll show up here.
+              </Text>
+            ) : (
+              positiveSignals.map((sig) => {
+                const ctx = sig?.context || {};
+                const contextLine =
+                  ctx.time_selected && ctx.mood_selected
+                    ? `Worked for a ${ctx.time_selected}-min ${String(ctx.mood_selected).replace('_', ' ')} session`
+                    : 'Worked for you';
+                return (
+                  <View key={sig.signal_id} style={styles.signalRow}>
+                    <View style={{ flex: 1 }}>
+                      <Text style={styles.signalTitle}>{sig.game_title || sig.game_id}</Text>
+                      <Text style={styles.signalContext}>{contextLine}</Text>
+                    </View>
+                    <TouchableOpacity
+                      style={styles.findSimilarBtn}
+                      onPress={() => handleFindSimilar(sig)}
+                    >
+                      <Text style={styles.findSimilarText}>Find similar</Text>
+                    </TouchableOpacity>
+                  </View>
+                );
+              })
+            )}
+          </View>
+
           {/* Recent Activity */}
           {recentGames.length > 0 && (
             <View style={styles.recentSection}>
@@ -353,6 +442,63 @@ const styles = StyleSheet.create({
   },
   recentSection: {
     paddingHorizontal: HORIZONTAL_PADDING,
+  },
+  smartHistorySection: {
+    paddingHorizontal: HORIZONTAL_PADDING,
+    marginBottom: 20,
+  },
+  smartHistoryTeaser: {
+    flexDirection: 'row',
+    alignItems: 'center',
+    backgroundColor: 'rgba(124, 58, 237, 0.12)',
+    borderRadius: 12,
+    padding: 14,
+    borderWidth: 1,
+    borderColor: 'rgba(124, 58, 237, 0.3)',
+  },
+  smartHistoryTitle: {
+    color: '#ffffff',
+    fontWeight: '600',
+    fontSize: 15,
+    marginBottom: 4,
+  },
+  smartHistoryBody: {
+    color: '#cbd5e1',
+    fontSize: 13,
+  },
+  smartHistoryEmpty: {
+    color: '#9ca3af',
+    fontSize: 13,
+    paddingVertical: 12,
+  },
+  signalRow: {
+    flexDirection: 'row',
+    alignItems: 'center',
+    backgroundColor: 'rgba(255, 255, 255, 0.05)',
+    borderRadius: 12,
+    padding: 14,
+    marginBottom: 8,
+  },
+  signalTitle: {
+    color: '#ffffff',
+    fontSize: 15,
+    fontWeight: '500',
+  },
+  signalContext: {
+    color: '#9ca3af',
+    fontSize: 12,
+    marginTop: 4,
+  },
+  findSimilarBtn: {
+    paddingHorizontal: 12,
+    paddingVertical: 6,
+    borderRadius: 8,
+    backgroundColor: 'rgba(124, 58, 237, 0.2)',
+  },
+  findSimilarText: {
+    color: '#a78bfa',
+    fontSize: 13,
+    fontWeight: '500',
   },
   recentItem: {
     flexDirection: 'row',
