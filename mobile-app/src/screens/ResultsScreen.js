@@ -29,6 +29,30 @@ import FeatureCallout from '../components/FeatureCallout';
 import AsyncStorage from '@react-native-async-storage/async-storage';
 import { shouldShowPushPrompt, PUSH_PROMPT_SEEN_KEY } from '../utils/pushPrompt';
 import { registerForPushNotifications } from '../services/notificationService';
+import { shouldShowWorkedUpsell, UPSELL_LAST_SHOWN_KEY } from '../utils/upsellPrompt';
+
+/**
+ * Cooldown-gated soft upsell after a "played & loved" signal: nudge
+ * free users toward Premium without ever interrupting the core flow.
+ */
+async function maybeShowWorkedUpsell({ isPremium, navigation }) {
+  try {
+    const last = await AsyncStorage.getItem(UPSELL_LAST_SHOWN_KEY);
+    const lastShownAt = last ? Number(last) : null;
+    if (!shouldShowWorkedUpsell({ isPremium, lastShownAt, now: Date.now() })) return;
+    await AsyncStorage.setItem(UPSELL_LAST_SHOWN_KEY, String(Date.now()));
+    Alert.alert(
+      'Want sharper picks?',
+      "Save what works and let recommendations learn from your history. Tap below to see how.",
+      [
+        { text: 'Not now', style: 'cancel' },
+        { text: 'See how', onPress: () => navigation.navigate('Premium', { source: 'worked_signal' }) },
+      ],
+    );
+  } catch (e) {
+    // Non-blocking.
+  }
+}
 
 /**
  * Show the soft pre-prompt the first time a user accepts a recommendation.
@@ -149,6 +173,10 @@ const ResultsScreen = () => {
         signalType,
         alreadyPlayedGame.title
       );
+      // Fire-and-forget upsell after a positive "loved" signal.
+      if (signalType === 'played_loved') {
+        maybeShowWorkedUpsell({ isPremium, navigation });
+      }
       if (!newGame) {
         Alert.alert(
           'No more games',
