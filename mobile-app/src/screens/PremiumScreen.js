@@ -20,22 +20,32 @@ import { Ionicons } from '@expo/vector-icons';
 import { useNavigation } from '@react-navigation/native';
 import { usePremium } from '../context/PremiumContext';
 
-// Premium features to display
+// Premium features to display — lead with value, ad-free is secondary.
 const PREMIUM_BENEFITS = [
   {
-    icon: 'ban-outline',
+    icon: 'time-outline',
+    title: 'Smart History',
+    description: "See what's worked for you, with the context it worked in. Reuse a good fit with one tap.",
+  },
+  {
+    icon: 'options-outline',
+    title: 'Advanced Filters',
+    description: "Filter by stop-friendliness, time-to-fun, your subscriptions, and hide what you've played.",
+  },
+  {
+    icon: 'sparkles-outline',
+    title: 'Sharper Picks',
+    description: "When enabled, recommendations lean on what's worked for you in the past.",
+  },
+  {
+    icon: 'sync-outline',
+    title: 'Cross-Device Sync',
+    description: 'Sign in once — your history and saved games follow you everywhere.',
+  },
+  {
+    icon: 'remove-circle-outline',
     title: 'No Ads',
-    description: 'Enjoy unlimited rerolls without any ad interruptions',
-  },
-  {
-    icon: 'flash-outline',
-    title: 'Faster Experience',
-    description: 'Skip the wait and get recommendations instantly',
-  },
-  {
-    icon: 'heart-outline',
-    title: 'Support Development',
-    description: 'Help us keep improving PlayNxt',
+    description: 'Skip the rewarded ad on rerolls. Pure flow.',
   },
 ];
 
@@ -236,9 +246,9 @@ const PremiumScreen = () => {
             >
               <Ionicons name="star" size={40} color="#ffffff" />
             </LinearGradient>
-            <Text style={styles.heroTitle}>Unlock PlayNxt Premium</Text>
+            <Text style={styles.heroTitle}>Sharper picks. Yours forever.</Text>
             <Text style={styles.heroSubtitle}>
-              Enjoy an ad-free experience with instant recommendations
+              Save what works. Filter exactly. Recommendations that learn from you.
             </Text>
           </View>
 
