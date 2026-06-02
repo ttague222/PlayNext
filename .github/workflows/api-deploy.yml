@@ -64,14 +64,20 @@ jobs:
         uses: google-github-actions/setup-gcloud@v2
 
       - name: Deploy to Cloud Run
+        # Note: --set-secrets removed 2026-06-02. The 4 secrets (SENTRY_DSN,
+        # FIREBASE_CREDENTIALS, OPENAI_API_KEY, PINECONE_API_KEY) referenced
+        # in the original config did not exist in Secret Manager, and the
+        # current code does not actually read them at runtime
+        # (firebase_credentials_path is the real env name; Sentry init is
+        # guarded; OpenAI/Pinecone aren't wired). Add specific secrets back
+        # via --set-secrets when those features ship.
         run: |
           gcloud run deploy ${{ env.SERVICE }} \
             --source api-service \
             --region ${{ env.REGION }} \
             --platform managed \
             --allow-unauthenticated \
-            --set-env-vars="ENVIRONMENT=production" \
-            --set-secrets="SENTRY_DSN=SENTRY_DSN:latest,FIREBASE_CREDENTIALS=FIREBASE_CREDENTIALS:latest,OPENAI_API_KEY=OPENAI_API_KEY:latest,PINECONE_API_KEY=PINECONE_API_KEY:latest"
+            --set-env-vars="ENVIRONMENT=production"
 
       - name: Get service URL
         run: |
