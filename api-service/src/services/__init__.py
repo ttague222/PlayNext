@@ -8,6 +8,7 @@ from .recommendation_service import RecommendationService, get_recommendation_se
 from .game_service import GameService, get_game_service
 from .signal_service import SignalService, get_signal_service
 from .bucket_service import BucketService, get_bucket_service
+from .notification_service import NotificationService, get_notification_service
 
 __all__ = [
     "RecommendationService",
@@ -18,4 +19,6 @@ __all__ = [
     "get_signal_service",
     "BucketService",
     "get_bucket_service",
+    "NotificationService",
+    "get_notification_service",
 ]
