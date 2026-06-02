@@ -1,0 +1,70 @@
+/**
+ * PlayNxt push-notification registration and handling (Expo).
+ */
+import { Platform } from 'react-native';
+import * as Notifications from 'expo-notifications';
+import * as Device from 'expo-device';
+import api from './api';
+
+const EAS_PROJECT_ID = '268e6152-b422-47f9-b6c3-2b6811100ba6';
+
+Notifications.setNotificationHandler({
+  handleNotification: async () => ({
+    shouldShowBanner: true,
+    shouldShowList: true,
+    shouldPlaySound: false,
+    shouldSetBadge: false,
+  }),
+});
+
+/**
+ * Request OS permission, get the Expo token, and register it with the API.
+ * Returns the token on success, or null.
+ */
+export async function registerForPushNotifications() {
+  if (!Device.isDevice) return null;
+
+  const { status: existing } = await Notifications.getPermissionsAsync();
+  let status = existing;
+  if (existing !== 'granted') {
+    const req = await Notifications.requestPermissionsAsync();
+    status = req.status;
+  }
+  if (status !== 'granted') return null;
+
+  const tokenResponse = await Notifications.getExpoPushTokenAsync({ projectId: EAS_PROJECT_ID });
+  const token = tokenResponse.data;
+  try {
+    await api.registerPushToken(token, Platform.OS);
+  } catch (e) {
+    // Registration failed — token still valid locally; will retry on next foreground
+    console.warn('[notifications] register failed:', e?.message);
+  }
+  return token;
+}
+
+/**
+ * Disable notifications: try to unregister the current token from the API.
+ */
+export async function unregisterFromPushNotifications() {
+  try {
+    const tokenResponse = await Notifications.getExpoPushTokenAsync({ projectId: EAS_PROJECT_ID });
+    const token = tokenResponse?.data;
+    if (token) {
+      await api.unregisterPushToken(token);
+    }
+  } catch (e) {
+    console.warn('[notifications] unregister failed:', e?.message);
+  }
+}
+
+/**
+ * Wire a tap handler. `navigate(deepLink)` receives 'whats_new' | 'play'.
+ * Returns the subscription so callers can remove it on unmount.
+ */
+export function addNotificationResponseListener(navigate) {
+  return Notifications.addNotificationResponseReceivedListener((response) => {
+    const deepLink = response?.notification?.request?.content?.data?.deep_link;
+    if (deepLink) navigate(deepLink);
+  });
+}
