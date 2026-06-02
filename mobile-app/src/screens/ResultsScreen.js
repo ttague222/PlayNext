@@ -26,6 +26,31 @@ import AlreadyPlayedModal from '../components/AlreadyPlayedModal';
 import SaveToBucketModal from '../components/SaveToBucketModal';
 import AdOrPremiumModal from '../components/AdOrPremiumModal';
 import FeatureCallout from '../components/FeatureCallout';
+import AsyncStorage from '@react-native-async-storage/async-storage';
+import { shouldShowPushPrompt, PUSH_PROMPT_SEEN_KEY } from '../utils/pushPrompt';
+import { registerForPushNotifications } from '../services/notificationService';
+
+/**
+ * Show the soft pre-prompt the first time a user accepts a recommendation.
+ * Always sets the flag (so we don't reprompt), then optionally registers.
+ */
+async function maybePromptForPush() {
+  try {
+    const promptSeen = (await AsyncStorage.getItem(PUSH_PROMPT_SEEN_KEY)) === 'true';
+    if (!shouldShowPushPrompt({ promptSeen, hasAccepted: true })) return;
+    await AsyncStorage.setItem(PUSH_PROMPT_SEEN_KEY, 'true');
+    Alert.alert(
+      'Stay in the loop?',
+      "Want a heads-up when we add games you'd like? About once a week, never spammy.",
+      [
+        { text: 'Not now', style: 'cancel' },
+        { text: 'Enable', onPress: () => registerForPushNotifications() },
+      ],
+    );
+  } catch (e) {
+    // Non-blocking — failure to prompt should never break the accept flow.
+  }
+}
 
 const ResultsScreen = () => {
   const navigation = useNavigation();
@@ -93,6 +118,8 @@ const ResultsScreen = () => {
       await acceptRecommendation(game.game_id, game.title);
       setSelectedGame(game);
       setShowCelebration(true);
+      // Fire-and-forget: ask about push notifications on the first accept.
+      maybePromptForPush();
     } finally {
       setAcceptingGameId(null);
     }
