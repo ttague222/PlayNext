@@ -341,3 +341,31 @@ class TestSignalRecording:
 
         assert result is not None
         assert result.user_id is None
+
+
+class TestPositiveSignals:
+    """Tests for the Smart History data source."""
+
+    @pytest.fixture
+    def service(self, mock_firebase):
+        from unittest.mock import MagicMock, patch
+        with patch('src.services.signal_service.get_collection') as mock_get_collection:
+            mock_get_collection.side_effect = lambda name: MagicMock()
+            from src.services.signal_service import SignalService
+            return SignalService()
+
+    @pytest.mark.asyncio
+    async def test_get_positive_signals_filters_to_positive_types(self, service, mock_user):
+        """Should call get_user_signals with the three positive signal types."""
+        from src.models import SignalType
+        from unittest.mock import AsyncMock
+
+        service.get_user_signals = AsyncMock(return_value=[])
+        await service.get_positive_signals(user_id=mock_user["uid"], limit=20)
+
+        kwargs = service.get_user_signals.call_args.kwargs
+        assert kwargs["user_id"] == mock_user["uid"]
+        assert kwargs["limit"] == 20
+        assert set(kwargs["signal_types"]) == {
+            SignalType.WORKED, SignalType.PLAYED_LOVED, SignalType.ACCEPTED,
+        }

@@ -99,6 +99,17 @@ class SignalService:
             logger.error(f"Error fetching user signals: {e}")
             return []
 
+    async def get_positive_signals(self, user_id: str, limit: int = 50):
+        """Return only positive-signal history (worked / played_loved / accepted).
+
+        Used by the premium Smart History screen.
+        """
+        return await self.get_user_signals(
+            user_id=user_id,
+            signal_types=[SignalType.WORKED, SignalType.PLAYED_LOVED, SignalType.ACCEPTED],
+            limit=limit,
+        )
+
     async def get_game_signals(
         self,
         game_id: str,

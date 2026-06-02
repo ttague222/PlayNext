@@ -120,6 +120,19 @@ async def get_signal_history(
     return signals
 
 
+@router.get("/worked", response_model=list[UserSignal])
+async def get_positive_signal_history(
+    user: dict = Depends(require_authenticated_user),
+    limit: int = 50,
+):
+    """Return only positive-signal history (worked / played_loved / accepted).
+
+    Used by the premium Smart History screen.
+    """
+    service = get_signal_service()
+    return await service.get_positive_signals(user_id=user["uid"], limit=limit)
+
+
 @router.get("/game/{game_id}")
 async def get_game_signals(game_id: str):
     """
