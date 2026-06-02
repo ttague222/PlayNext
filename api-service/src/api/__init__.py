@@ -9,6 +9,7 @@ from .routes_games import router as games_router
 from .routes_signals import router as signals_router
 from .routes_buckets import router as buckets_router
 from .routes_config import router as config_router
+from .routes_notifications import router as notifications_router
 
 __all__ = [
     "recommend_router",
@@ -16,4 +17,5 @@ __all__ = [
     "signals_router",
     "buckets_router",
     "config_router",
+    "notifications_router",
 ]
