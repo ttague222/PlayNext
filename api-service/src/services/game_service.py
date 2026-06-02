@@ -5,8 +5,10 @@ Service for managing game catalog operations.
 """
 
 import logging
-from datetime import datetime
+from datetime import datetime, timedelta, timezone
 from typing import Optional
+
+from firebase_admin import firestore
 
 from ..db.firebase import get_collection, GAMES_COLLECTION
 from ..models import Game, GameCreate, GameSummary, Platform
@@ -63,6 +65,32 @@ class GameService:
             return games
         except Exception as e:
             logger.error(f"Error listing games: {e}")
+            return []
+
+    async def list_recent_games(self, days: int = 7, limit: int = 20) -> list[GameSummary]:
+        """List games added within the last `days`, newest first."""
+        try:
+            cutoff = datetime.now(timezone.utc) - timedelta(days=days)
+            query = (
+                self.collection
+                .where("created_at", ">=", cutoff)
+                .order_by("created_at", direction=firestore.Query.DESCENDING)
+                .limit(limit)
+            )
+            games = []
+            for doc in query.stream():
+                data = doc.to_dict()
+                games.append(GameSummary(
+                    game_id=doc.id,
+                    title=data.get("title", ""),
+                    platforms=[Platform(p) for p in data.get("platforms", [])],
+                    description_short=data.get("description_short", ""),
+                    time_to_fun=data.get("time_to_fun", "medium"),
+                    stop_friendliness=data.get("stop_friendliness", "checkpoints"),
+                ))
+            return games
+        except Exception as e:
+            logger.error(f"Error listing recent games: {e}")
             return []
 
     async def create_game(self, game: GameCreate) -> Game:

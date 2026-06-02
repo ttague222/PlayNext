@@ -45,6 +45,16 @@ async def get_catalog_stats():
     return await service.get_catalog_stats()
 
 
+@router.get("/recent", response_model=list[GameSummary])
+async def list_recent_games(
+    days: int = Query(default=7, ge=1, le=90),
+    limit: int = Query(default=20, ge=1, le=50),
+):
+    """List recently-added games (for 'What's New' and the weekly digest)."""
+    service = get_game_service()
+    return await service.list_recent_games(days=days, limit=limit)
+
+
 @router.get("/{game_id}", response_model=Game)
 async def get_game(game_id: str):
     """
