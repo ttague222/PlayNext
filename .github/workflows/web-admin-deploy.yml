@@ -1,5 +1,21 @@
 # PlayNxt Web Admin - CI/CD Pipeline
-# Deploys to Google Cloud Run on push to main
+# Deploys to Google Cloud Run on push to main when web-admin/** changes.
+#
+# Fixed 2026-06-02: dropped runner-side npm build (no lock file, missing secrets)
+# and the broken --source flag (which can't pass --build-arg to the Dockerfile).
+# Cloud Build now builds the multi-stage Dockerfile directly via cloudbuild.yaml,
+# passing VITE_FIREBASE_API_KEY as a build arg from Secret Manager.
+# Mirrors the api-deploy.yml WIF auth pattern (runbook: docs/runbooks/ci-cd-infrastructure.md).
+#
+# Prerequisites before the first push succeeds:
+#   1. Create Secret Manager secret FIREBASE_WEB_API_KEY in playnxt-1a2c6
+#      (Firebase console -> playnxt-1a2c6 -> Project settings -> Web app -> API key)
+#   2. Grant deploy SA access: gcloud secrets add-iam-policy-binding FIREBASE_WEB_API_KEY
+#      --project=playnxt-1a2c6
+#      --member=serviceAccount:github-actions-deploy@playnxt-1a2c6.iam.gserviceaccount.com
+#      --role=roles/secretmanager.secretAccessor
+# No new GitHub repo secrets needed -- GCP_WORKLOAD_IDENTITY_PROVIDER and
+# GCP_SERVICE_ACCOUNT are already set and verified working by api-deploy.
 
 name: Web Admin Deploy
 
@@ -12,12 +28,12 @@ on:
   workflow_dispatch:
 
 env:
-  PROJECT_ID: ${{ secrets.GCP_PROJECT_ID }}
+  PROJECT_ID: playnxt-1a2c6
   SERVICE: playnxt-web-admin
   REGION: us-central1
 
 jobs:
-  build-and-deploy:
+  deploy:
     runs-on: ubuntu-latest
     if: github.ref == 'refs/heads/main'
 
@@ -28,26 +44,6 @@ jobs:
     steps:
       - uses: actions/checkout@v4
 
-      - name: Set up Node.js
-        uses: actions/setup-node@v4
-        with:
-          node-version: '20'
-          cache: 'npm'
-          cache-dependency-path: web-admin/package-lock.json
-
-      - name: Install dependencies
-        working-directory: web-admin
-        run: npm ci
-
-      - name: Build
-        working-directory: web-admin
-        run: npm run build
-        env:
-          VITE_API_BASE_URL: ${{ secrets.API_BASE_URL }}
-          VITE_FIREBASE_API_KEY: ${{ secrets.FIREBASE_API_KEY }}
-          VITE_FIREBASE_AUTH_DOMAIN: ${{ secrets.FIREBASE_AUTH_DOMAIN }}
-          VITE_FIREBASE_PROJECT_ID: ${{ secrets.FIREBASE_PROJECT_ID }}
-
       - name: Authenticate to Google Cloud
         uses: google-github-actions/auth@v2
         with:
@@ -57,10 +53,30 @@ jobs:
       - name: Set up Cloud SDK
         uses: google-github-actions/setup-gcloud@v2
 
+      - name: Fetch Firebase Web API key from Secret Manager
+        id: fb
+        run: |
+          KEY=$(gcloud secrets versions access latest --secret=FIREBASE_WEB_API_KEY --project=${{ env.PROJECT_ID }})
+          echo "::add-mask::$KEY"
+          echo "key=$KEY" >> $GITHUB_OUTPUT
+
+      - name: Build container image via Cloud Build
+        # Submits web-admin/ as the build source. Cloud Build finds web-admin/cloudbuild.yaml
+        # automatically and passes _FB_KEY as a docker --build-arg so VITE_FIREBASE_API_KEY
+        # is baked into the static SPA bundle. All other VITE_* values are ARG defaults
+        # in the Dockerfile and need no override.
+        run: |
+          IMAGE="gcr.io/${{ env.PROJECT_ID }}/${{ env.SERVICE }}:${{ github.sha }}"
+          gcloud builds submit web-admin \
+            --project ${{ env.PROJECT_ID }} \
+            --substitutions="_FB_KEY=${{ steps.fb.outputs.key }},_IMAGE=${IMAGE}"
+
       - name: Deploy to Cloud Run
+        # Static SPA served by nginx -- VITE_* values are baked in at build time.
+        # No --set-env-vars or --set-secrets needed at runtime.
         run: |
           gcloud run deploy ${{ env.SERVICE }} \
-            --source web-admin \
+            --image gcr.io/${{ env.PROJECT_ID }}/${{ env.SERVICE }}:${{ github.sha }} \
             --region ${{ env.REGION }} \
             --platform managed \
             --allow-unauthenticated

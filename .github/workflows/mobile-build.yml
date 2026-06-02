@@ -86,7 +86,7 @@ jobs:
   submit-production:
     needs: build
     runs-on: ubuntu-latest
-    if: github.event.inputs.profile == 'production'
+    if: github.event_name == 'workflow_dispatch' && github.event.inputs.profile == 'production'
     defaults:
       run:
         working-directory: mobile-app

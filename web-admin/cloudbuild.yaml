@@ -1,0 +1,27 @@
+# Cloud Build config for PlayNxt Web Admin.
+# Called by .github/workflows/web-admin-deploy.yml via:
+#   gcloud builds submit web-admin --substitutions=_FB_KEY=...,_IMAGE=...
+#
+# _FB_KEY is the Firebase Web API key (fetched from Secret Manager by the workflow).
+# It is passed as a docker --build-arg so VITE_FIREBASE_API_KEY is baked into the
+# SPA bundle. All other VITE_* values are hardcoded as Dockerfile ARG defaults.
+
+steps:
+  - name: 'gcr.io/cloud-builders/docker'
+    args:
+      - build
+      - --build-arg
+      - VITE_FIREBASE_API_KEY=${_FB_KEY}
+      - -t
+      - ${_IMAGE}
+      - .
+
+images:
+  - '${_IMAGE}'
+
+substitutions:
+  _FB_KEY: ''
+  _IMAGE: 'gcr.io/playnxt-1a2c6/playnxt-web-admin:latest'
+
+options:
+  logging: CLOUD_LOGGING_ONLY

@@ -64,6 +64,7 @@ Two secrets on the `ttague222/PlayNext` repo:
 |---|---|---|
 | `SENDGRID_API_KEY` | API container at runtime | SendGrid dashboard (needs rotation — see playnxt.md memory) |
 | `CRON_SECRET` | API container at runtime + Cloud Scheduler | Generated via `python -c "import secrets; print(secrets.token_hex(32))"`; retrievable with `gcloud secrets versions access latest --secret=CRON_SECRET` |
+| `FIREBASE_WEB_API_KEY` | Web Admin Docker build (baked into SPA bundle) | Firebase console → playnxt-1a2c6 → Project settings → Web app → apiKey |
 
 ## Workflow env-var layout
 
@@ -76,6 +77,15 @@ Two secrets on the `ttague222/PlayNext` repo:
 `--set-secrets`:
 - `SENDGRID_API_KEY=SENDGRID_API_KEY:latest`
 - `CRON_SECRET=CRON_SECRET:latest`
+
+## Web Admin build args
+
+`web-admin/cloudbuild.yaml` substitutions passed by the workflow:
+
+- `_FB_KEY` — fetched at deploy time via `gcloud secrets versions access latest --secret=FIREBASE_WEB_API_KEY`, then passed as `--build-arg VITE_FIREBASE_API_KEY=...` to Docker. All other `VITE_*` values are hardcoded as `ARG` defaults in the Dockerfile and need no override.
+- `_IMAGE` — `gcr.io/playnxt-1a2c6/playnxt-web-admin:<git-sha>` (constructed by the workflow)
+
+No runtime `--set-env-vars` or `--set-secrets` on the Cloud Run service — the SPA is static nginx; config is baked in at build time.
 
 ## Cloud Scheduler
 
@@ -113,6 +123,6 @@ To fire manually: `gcloud scheduler jobs run playnxt-weekly-digest --location=us
 
 ## What's NOT set up (intentionally)
 
-- **Mobile Build workflow** (`.github/workflows/mobile-build.yml`): broken at the EAS build step. Requires EAS credentials and a build profile that works. Separate task.
-- **Web Admin Deploy workflow** (`.github/workflows/web-admin-deploy.yml`): also broken (pre-existing). Separate task.
-- **Workload identity for Mobile/Web**: not configured. When those workflows are fixed, decide whether to reuse the same WIF pool or create separate ones.
+- **Mobile Build workflow** (`.github/workflows/mobile-build.yml`): correct YAML, but needs `EXPO_TOKEN` GitHub secret to authenticate to EAS. Generate a personal access token at https://expo.dev/settings/access-tokens (from the account that owns the PlayNxt EAS project), then: `gh secret set EXPO_TOKEN --body "<token>"`. The workflow will then build a `preview` profile (internal distribution) on every push to `mobile-app/**`. Production submission stays manual-only via `workflow_dispatch`.
+- **`FIREBASE_WEB_API_KEY` Secret Manager entry**: web-admin-deploy.yml is fixed but will fail the `Fetch Firebase Web API key` step until this secret exists. See instructions in the Web Admin build args section above.
+- **Workload identity for Mobile**: Mobile Build uses EAS (not GCP), so no WIF needed there. Web Admin Deploy reuses the existing WIF pool and deploy SA — no new WIF config required.
