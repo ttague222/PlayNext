@@ -45,7 +45,7 @@ const PREMIUM_BENEFITS = [
   {
     icon: 'remove-circle-outline',
     title: 'No Ads',
-    description: 'Skip the rewarded ad on rerolls. Pure flow.',
+    description: 'Unlimited rerolls, zero ads. Keep your flow going.',
   },
 ];
 
@@ -248,7 +248,7 @@ const PremiumScreen = () => {
             </LinearGradient>
             <Text style={styles.heroTitle}>Sharper picks. Yours forever.</Text>
             <Text style={styles.heroSubtitle}>
-              Save what works. Filter exactly. Recommendations that learn from you.
+              No ads. Smarter picks. Filters that go deeper. All yours, forever.
             </Text>
           </View>
 
