@@ -34,17 +34,23 @@ const App = () => {
   const [showWelcome, setShowWelcome] = useState(false);
   const [followUpData, setFollowUpData] = useState(null); // { signalId, gameTitle }
   const [isSubmittingFollowUp, setIsSubmittingFollowUp] = useState(false);
+  const [followUpSuccess, setFollowUpSuccess] = useState(false);
 
   const handleFollowUp = async (worked) => {
     if (!followUpData?.signalId) return;
     setIsSubmittingFollowUp(true);
     try {
       await api.updateSignalWorked(followUpData.signalId, worked);
+      setFollowUpSuccess(true);
+      setTimeout(() => {
+        setFollowUpSuccess(false);
+        setFollowUpData(null);
+      }, 1500);
     } catch {
-      // Signal update failed — non-fatal, user already gave feedback
+      // non-fatal — still dismiss
+      setFollowUpData(null);
     } finally {
       setIsSubmittingFollowUp(false);
-      setFollowUpData(null);
     }
   };
 
@@ -62,7 +68,9 @@ const App = () => {
     const subscription = addNotificationResponseListener((data) => {
       if (!navigationRef.isReady()) return;
       if (data.deep_link === 'followup' && data.signal_id) {
-        setFollowUpData({ signalId: data.signal_id, gameTitle: data.game_title });
+        if (!isSubmittingFollowUp) {   // don't clobber an in-flight submission
+          setFollowUpData({ signalId: data.signal_id, gameTitle: data.game_title });
+        }
       } else if (data.deep_link === 'whats_new') {
         navigationRef.navigate('WhatsNew');
       } else {
@@ -71,7 +79,7 @@ const App = () => {
       }
     });
     return () => subscription?.remove?.();
-  }, []);
+  }, [isSubmittingFollowUp]);
 
   if (isLoading) {
     return (
@@ -105,15 +113,17 @@ const App = () => {
             </PremiumProvider>
           </AdProvider>
         </AuthProvider>
+        {/* Follow-up push modal — inside SafeAreaProvider so useSafeAreaInsets works */}
+        <FollowUpModal
+          visible={!!followUpData}
+          gameTitle={followUpData?.gameTitle}
+          isSubmitting={isSubmittingFollowUp}
+          showThanks={followUpSuccess}
+          onWorked={() => handleFollowUp(true)}
+          onDidntWork={() => handleFollowUp(false)}
+          onDismiss={() => setFollowUpData(null)}
+        />
       </SafeAreaProvider>
-      <FollowUpModal
-        visible={!!followUpData}
-        gameTitle={followUpData?.gameTitle}
-        isSubmitting={isSubmittingFollowUp}
-        onWorked={() => handleFollowUp(true)}
-        onDidntWork={() => handleFollowUp(false)}
-        onDismiss={() => setFollowUpData(null)}
-      />
     </GestureHandlerRootView>
   );
 };
