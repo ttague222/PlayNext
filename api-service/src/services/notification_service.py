@@ -78,6 +78,15 @@ def tokens_to_prune(messages: list[dict], tickets: list[dict]) -> list[str]:
     return out
 
 
+def build_followup_message(game_title: str) -> dict:
+    """Return {title, body} for the follow-up 'how did it go?' push."""
+    safe_title = game_title or "your game"
+    return {
+        "title": f"How was {safe_title}? \U0001F3AE",
+        "body": "Did you end up playing it? Let us know how it went.",
+    }
+
+
 # --------------------------------------------------------------------------
 # Service class — Firestore + HTTP I/O around the pure functions above.
 # --------------------------------------------------------------------------
@@ -177,6 +186,74 @@ class NotificationService:
         digest_sent = await self._send_to(targets["digest"], digest_msg, "whats_new")
         reengage_sent = await self._send_to(targets["reengagement"], reengage_msg, "play")
         return {"digest_sent": digest_sent, "reengagement_sent": reengage_sent}
+
+    async def send_followup_notifications(self) -> dict:
+        """Send follow-up pushes for all due followup_queue docs."""
+        from . import get_followup_service
+
+        followup_svc = get_followup_service()
+        now = datetime.now(timezone.utc)
+        due = followup_svc.get_due_followups(now)
+
+        if not due:
+            return {"sent": 0, "no_device": 0, "total": 0}
+
+        # Resolve push tokens
+        messages = []
+        no_device_ids = []
+        signal_ids_for_messages = []
+
+        for item in due:
+            token = self._get_user_token(item["user_id"])
+            if not token:
+                no_device_ids.append(item["signal_id"])
+                continue
+            msg = build_followup_message(item.get("game_title", ""))
+            messages.append({
+                "to": token,
+                "title": msg["title"],
+                "body": msg["body"],
+                "sound": "default",
+                "data": {
+                    "deep_link": "followup",
+                    "signal_id": item["signal_id"],
+                    "game_title": item.get("game_title", ""),
+                },
+            })
+            signal_ids_for_messages.append(item["signal_id"])
+
+        # Mark no-device items
+        for sid in no_device_ids:
+            followup_svc.mark_no_device(sid)
+
+        if not messages:
+            return {"sent": 0, "no_device": len(no_device_ids), "total": len(due)}
+
+        tickets = await self._send_messages(messages)
+        prune = tokens_to_prune(messages, tickets)
+        if prune:
+            self.delete_devices(prune)
+
+        sent_count = 0
+        for msg, signal_id in zip(messages, signal_ids_for_messages):
+            followup_svc.mark_sent(signal_id, now)
+            sent_count += 1
+
+        return {
+            "sent": sent_count,
+            "no_device": len(no_device_ids),
+            "total": len(due),
+        }
+
+    def _get_user_token(self, user_id: str) -> Optional[str]:
+        """Return the first valid, enabled push token for a user, or None."""
+        docs = self.collection.where("user_id", "==", user_id).where("notifications_enabled", "==", True).stream()
+        for doc in docs:
+            data = doc.to_dict()
+            token = data.get("expo_push_token")
+            if is_valid_expo_token(token):
+                return token
+        return None
 
 
 _notification_service: Optional["NotificationService"] = None
