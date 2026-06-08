@@ -14,8 +14,10 @@ import {
   StyleSheet,
   Modal,
   Animated,
+  Share,
 } from 'react-native';
 import { LinearGradient } from 'expo-linear-gradient';
+import { buildShareMessage } from '../utils/shareGame';
 
 const CelebrationModal = ({ visible, game, onDismiss, onKeepBrowsing }) => {
   const scaleAnim = useRef(new Animated.Value(0)).current;
@@ -101,6 +103,16 @@ const CelebrationModal = ({ visible, game, onDismiss, onKeepBrowsing }) => {
   const handleKeepBrowsing = () => {
     if (isAnimatingOut) return;
     animateOut(onKeepBrowsing);
+  };
+
+  const handleShare = async () => {
+    if (!game) return;
+    try {
+      const { title, message } = buildShareMessage(game);
+      await Share.share({ title, message });
+    } catch {
+      // User dismissed or share failed — no-op
+    }
   };
 
   if (!game) return null;
@@ -201,6 +213,18 @@ const CelebrationModal = ({ visible, game, onDismiss, onKeepBrowsing }) => {
                 <Text style={styles.keepBrowsingIcon}>🔍</Text>
                 <Text style={styles.keepBrowsingText}>Keep Browsing</Text>
               </LinearGradient>
+            </Pressable>
+
+            {/* Tertiary: Share */}
+            <Pressable
+              style={({ pressed }) => [
+                styles.shareButton,
+                isAnimatingOut && styles.buttonDisabled,
+                pressed && !isAnimatingOut && styles.buttonPressed,
+              ]}
+              onPress={handleShare}
+            >
+              <Text style={styles.shareText}>📤  Share this pick</Text>
             </Pressable>
 
             {/* Secondary: I'm Done */}
@@ -356,6 +380,15 @@ const styles = StyleSheet.create({
   doneText: {
     fontSize: 16,
     color: '#808090',
+    fontWeight: '500',
+  },
+  shareButton: {
+    paddingVertical: 14,
+    alignItems: 'center',
+  },
+  shareText: {
+    fontSize: 15,
+    color: '#a0a0b0',
     fontWeight: '500',
   },
   buttonDisabled: {
