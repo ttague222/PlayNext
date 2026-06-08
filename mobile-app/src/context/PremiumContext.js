@@ -428,6 +428,8 @@ export const PremiumProvider = ({ children }) => {
     // Ad state (from AdContext)
     isAdLoading: ads?.isAdLoading ?? false,
     isAdReady: ads?.isAdReady ?? false,
+    isDailyCapHit: ads?.isDailyCapHit ?? false,
+    rerollsRemainingToday: ads?.rerollsRemainingToday ?? 10,
 
     // Feature checks
     canReroll,
