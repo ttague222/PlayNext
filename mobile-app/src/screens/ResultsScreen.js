@@ -29,6 +29,7 @@ import DailyCapUpsellModal from '../components/DailyCapUpsellModal';
 import FeatureCallout from '../components/FeatureCallout';
 import { maybePromptForPush } from '../utils/pushPrompt';
 import { maybeShowWorkedUpsell } from '../utils/upsellPrompt';
+import { DAILY_REROLL_CAP } from '../utils/rerollCap';
 
 const ResultsScreen = () => {
   const navigation = useNavigation();
@@ -473,7 +474,11 @@ const ResultsScreen = () => {
           id="results_reroll_explanation"
           emoji="🔄"
           title="Reroll Your Picks"
-          description={`Not feeling these games? Tap "Show different games" to get new recommendations. You get ${rerollsRemainingToday} reroll${rerollsRemainingToday !== 1 ? 's' : ''} left today. Premium users get unlimited rerolls!`}
+          description={`Not feeling these games? Tap "Show different games" to get new recommendations. ${
+  rerollsRemainingToday === DAILY_REROLL_CAP
+    ? `You get ${DAILY_REROLL_CAP} rerolls per day.`
+    : `${rerollsRemainingToday} reroll${rerollsRemainingToday !== 1 ? 's' : ''} left today.`
+} Premium users get unlimited rerolls!`}
           visible={showRerollCallout && !loading && recommendations.length > 0}
           onDismiss={() => setShowRerollCallout(false)}
           position="bottom"

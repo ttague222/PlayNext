@@ -17,10 +17,15 @@ const DailyCapUpsellModal = ({ visible, onGoPremium, onDismiss }) => {
           <Text style={styles.emoji}>🎮</Text>
           <Text style={styles.title}>You're on a roll!</Text>
           <Text style={styles.body}>
-            You've used all 10 of today's rerolls. Unlock unlimited rerolls forever for a one-time $2.99 — or check back tomorrow.
+            You've used all 10 of today's rerolls. Rerolls reset at midnight — or unlock unlimited rerolls forever for a one-time $2.99.
           </Text>
 
-          <Pressable style={styles.premiumButton} onPress={onGoPremium}>
+          <Pressable
+            style={styles.premiumButton}
+            onPress={onGoPremium}
+            accessibilityRole="button"
+            accessibilityLabel="Unlock unlimited rerolls for $2.99"
+          >
             <LinearGradient
               colors={['#f857a6', '#ff5858']}
               start={{ x: 0, y: 0 }}
@@ -31,7 +36,12 @@ const DailyCapUpsellModal = ({ visible, onGoPremium, onDismiss }) => {
             </LinearGradient>
           </Pressable>
 
-          <Pressable style={styles.dismissButton} onPress={onDismiss}>
+          <Pressable
+            style={styles.dismissButton}
+            onPress={onDismiss}
+            accessibilityRole="button"
+            accessibilityLabel="Check back tomorrow"
+          >
             <Text style={styles.dismissText}>Check back tomorrow</Text>
           </Pressable>
         </View>

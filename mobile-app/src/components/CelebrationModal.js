@@ -215,18 +215,6 @@ const CelebrationModal = ({ visible, game, onDismiss, onKeepBrowsing }) => {
               </LinearGradient>
             </Pressable>
 
-            {/* Tertiary: Share */}
-            <Pressable
-              style={({ pressed }) => [
-                styles.shareButton,
-                isAnimatingOut && styles.buttonDisabled,
-                pressed && !isAnimatingOut && styles.buttonPressed,
-              ]}
-              onPress={handleShare}
-            >
-              <Text style={styles.shareText}>📤  Share this pick</Text>
-            </Pressable>
-
             {/* Secondary: I'm Done */}
             <Pressable
               style={({ pressed }) => [
@@ -237,6 +225,20 @@ const CelebrationModal = ({ visible, game, onDismiss, onKeepBrowsing }) => {
               onPress={handleGoHome}
             >
               <Text style={styles.doneText}>I'm all set</Text>
+            </Pressable>
+
+            {/* Tertiary: Share */}
+            <Pressable
+              style={({ pressed }) => [
+                styles.shareButton,
+                isAnimatingOut && styles.buttonDisabled,
+                pressed && !isAnimatingOut && styles.buttonPressed,
+              ]}
+              onPress={handleShare}
+              accessibilityRole="button"
+              accessibilityLabel="Share this game pick"
+            >
+              <Text style={styles.shareText}>📤  Share this pick</Text>
             </Pressable>
           </Animated.View>
         </Animated.View>
