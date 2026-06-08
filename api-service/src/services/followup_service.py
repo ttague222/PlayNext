@@ -42,11 +42,12 @@ class FollowUpService:
         """Return all pending followup docs whose accepted_at is old enough."""
         cutoff = now - timedelta(hours=delay_hours)
         docs = self.collection.where("status", "==", "pending").stream()
-        return [
-            d.to_dict()
-            for d in docs
-            if d.to_dict().get("accepted_at") and d.to_dict()["accepted_at"] <= cutoff
-        ]
+        result = []
+        for d in docs:
+            doc_dict = d.to_dict()
+            if doc_dict.get("accepted_at") and doc_dict["accepted_at"] <= cutoff:
+                result.append(doc_dict)
+        return result
 
     def mark_sent(self, signal_id: str, now: datetime) -> None:
         self.collection.document(signal_id).update({"status": "sent", "sent_at": now})

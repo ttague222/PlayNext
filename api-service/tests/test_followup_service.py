@@ -96,3 +96,16 @@ def test_mark_sent_updates_status():
     update_args = doc_ref.update.call_args[0][0]
     assert update_args["status"] == "sent"
     assert update_args["sent_at"] == now
+
+
+def test_mark_no_device_updates_status():
+    collection = MagicMock()
+    doc_ref = MagicMock()
+    collection.document.return_value = doc_ref
+
+    service = FollowUpService.__new__(FollowUpService)
+    service.collection = collection
+
+    service.mark_no_device("sig-456")
+
+    doc_ref.update.assert_called_once_with({"status": "no_device"})
