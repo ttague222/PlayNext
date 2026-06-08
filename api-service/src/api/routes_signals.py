@@ -16,7 +16,7 @@ from ..models import (
     SignalType,
     Session,
 )
-from ..services import get_signal_service
+from ..services import get_signal_service, get_followup_service
 from .auth import get_user_id, require_authenticated_user
 
 logger = logging.getLogger("playnext-api.routes.signals")
@@ -91,6 +91,20 @@ async def accept_recommendation(
             user_id=user_id,
             game_title=game_title
         )
+
+        # Enqueue follow-up push for authenticated users only
+        if user_id and game_id:
+            try:
+                get_followup_service().enqueue(
+                    signal_id=result.signal_id,
+                    user_id=user_id,
+                    game_id=game_id,
+                    game_title=game_title,
+                )
+                logger.info(f"Enqueued followup for signal {result.signal_id}")
+            except Exception as e:
+                logger.warning(f"Failed to enqueue followup for signal {result.signal_id}: {e}")
+
         logger.info(f"Accept success: signal_id={result.signal_id}, user_id={result.user_id}")
 
         return {"message": "Acceptance recorded", "game_id": game_id}
