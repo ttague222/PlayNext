@@ -22,6 +22,7 @@ import { Alert, AppState } from 'react-native';
 import AsyncStorage from '@react-native-async-storage/async-storage';
 import Constants from 'expo-constants';
 import { getRemoteConfig } from '../services/RemoteConfigService';
+import { hasHitDailyRerollCap, rerollsRemainingToday as calcRerollsRemainingToday } from '../utils/rerollCap';
 
 const AdContext = createContext({});
 
@@ -373,6 +374,10 @@ export const AdProvider = ({ children }) => {
     totalRerollCount,
     adsWatchedToday,
     adInterval,
+
+    // Computed values
+    isDailyCapHit: hasHitDailyRerollCap(dailyRerollCount),
+    rerollsRemainingToday: calcRerollsRemainingToday(dailyRerollCount),
 
     // Actions
     preloadAd,
