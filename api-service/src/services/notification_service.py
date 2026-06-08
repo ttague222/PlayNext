@@ -234,14 +234,20 @@ class NotificationService:
         if prune:
             self.delete_devices(prune)
 
+        pruned_token_set = set(prune)
         sent_count = 0
+        pruned_count = 0
         for msg, signal_id in zip(messages, signal_ids_for_messages):
-            followup_svc.mark_sent(signal_id, now)
-            sent_count += 1
+            if msg["to"] in pruned_token_set:
+                followup_svc.mark_no_device(signal_id)
+                pruned_count += 1
+            else:
+                followup_svc.mark_sent(signal_id, now)
+                sent_count += 1
 
         return {
             "sent": sent_count,
-            "no_device": len(no_device_ids),
+            "no_device": len(no_device_ids) + pruned_count,
             "total": len(due),
         }
 
