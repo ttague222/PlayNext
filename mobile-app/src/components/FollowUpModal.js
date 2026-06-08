@@ -1,6 +1,7 @@
-import React from 'react';
-import { View, Text, Pressable, StyleSheet, Modal, ActivityIndicator } from 'react-native';
+import React, { useRef } from 'react';
+import { View, Text, Pressable, StyleSheet, Modal, ActivityIndicator, PanResponder, Animated } from 'react-native';
 import { LinearGradient } from 'expo-linear-gradient';
+import { useSafeAreaInsets } from 'react-native-safe-area-context';
 
 /**
  * Shown when the user taps a follow-up push notification.
@@ -11,27 +12,64 @@ import { LinearGradient } from 'expo-linear-gradient';
  *   onDidntWork: () => void — user taps 👎
  *   onDismiss: () => void
  *   isSubmitting: bool
+ *   showThanks: bool
  */
-const FollowUpModal = ({ visible, gameTitle, onWorked, onDidntWork, onDismiss, isSubmitting }) => {
+const FollowUpModal = ({ visible, gameTitle, onWorked, onDidntWork, onDismiss, isSubmitting, showThanks }) => {
+  const insets = useSafeAreaInsets();
   const title = gameTitle || 'the game';
+
+  const translateY = useRef(new Animated.Value(0)).current;
+
+  const panResponder = useRef(
+    PanResponder.create({
+      onMoveShouldSetPanResponder: (_, gestureState) =>
+        gestureState.dy > 8 && Math.abs(gestureState.dy) > Math.abs(gestureState.dx),
+      onPanResponderMove: (_, gestureState) => {
+        if (gestureState.dy > 0) {
+          translateY.setValue(gestureState.dy);
+        }
+      },
+      onPanResponderRelease: (_, gestureState) => {
+        if (gestureState.dy > 80) {
+          onDismiss();
+          translateY.setValue(0);
+        } else {
+          Animated.spring(translateY, { toValue: 0, useNativeDriver: true }).start();
+        }
+      },
+    })
+  ).current;
 
   return (
     <Modal visible={visible} transparent animationType="slide" onRequestClose={onDismiss}>
       <View style={styles.overlay}>
-        <View style={styles.card}>
+        <Animated.View
+          style={[styles.card, { paddingBottom: Math.max(32, 32 + insets.bottom), transform: [{ translateY }] }]}
+          {...panResponder.panHandlers}
+        >
+          {/* Drag handle */}
+          <View style={styles.dragHandle} />
+
           <Text style={styles.emoji}>🎮</Text>
           <Text style={styles.title}>How did it go?</Text>
           <Text style={styles.body}>
             Did <Text style={styles.gameTitle}>{title}</Text> work out for you?
           </Text>
 
-          {isSubmitting ? (
+          {showThanks ? (
+            <View style={styles.thanksContainer}>
+              <Text style={styles.thanksEmoji}>✅</Text>
+              <Text style={styles.thanksText}>Thanks for the feedback!</Text>
+            </View>
+          ) : isSubmitting ? (
             <ActivityIndicator color="#f857a6" style={{ marginVertical: 24 }} />
           ) : (
             <View style={styles.buttons}>
               <Pressable
                 style={({ pressed }) => [styles.thumbButton, pressed && styles.buttonPressed]}
                 onPress={onWorked}
+                accessibilityRole="button"
+                accessibilityLabel="Yes, it worked for me"
               >
                 <LinearGradient
                   colors={['#10b981', '#059669']}
@@ -47,6 +85,8 @@ const FollowUpModal = ({ visible, gameTitle, onWorked, onDidntWork, onDismiss, i
               <Pressable
                 style={({ pressed }) => [styles.thumbButton, pressed && styles.buttonPressed]}
                 onPress={onDidntWork}
+                accessibilityRole="button"
+                accessibilityLabel="No, it didn't work for me"
               >
                 <LinearGradient
                   colors={['#6b7280', '#4b5563']}
@@ -61,10 +101,12 @@ const FollowUpModal = ({ visible, gameTitle, onWorked, onDidntWork, onDismiss, i
             </View>
           )}
 
-          <Pressable style={styles.skipButton} onPress={onDismiss}>
+          <Pressable style={styles.skipButton} onPress={onDismiss}
+            accessibilityRole="button"
+            accessibilityLabel="Skip feedback">
             <Text style={styles.skipText}>Skip</Text>
           </Pressable>
-        </View>
+        </Animated.View>
       </View>
     </Modal>
   );
@@ -84,6 +126,14 @@ const styles = StyleSheet.create({
     alignItems: 'center',
     borderTopWidth: 1,
     borderColor: 'rgba(248, 87, 166, 0.2)',
+  },
+  dragHandle: {
+    width: 36,
+    height: 4,
+    backgroundColor: 'rgba(255,255,255,0.2)',
+    borderRadius: 2,
+    alignSelf: 'center',
+    marginBottom: 16,
   },
   emoji: {
     fontSize: 40,
@@ -141,6 +191,19 @@ const styles = StyleSheet.create({
   skipText: {
     fontSize: 14,
     color: '#505060',
+  },
+  thanksContainer: {
+    alignItems: 'center',
+    paddingVertical: 24,
+  },
+  thanksEmoji: {
+    fontSize: 40,
+    marginBottom: 8,
+  },
+  thanksText: {
+    fontSize: 16,
+    color: '#10b981',
+    fontWeight: '600',
   },
 });
 
