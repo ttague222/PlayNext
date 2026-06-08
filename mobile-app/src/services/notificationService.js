@@ -63,12 +63,13 @@ export async function unregisterFromPushNotifications() {
 }
 
 /**
- * Wire a tap handler. `navigate(deepLink)` receives 'whats_new' | 'play'.
+ * Wire a tap handler. `onNotification(data)` receives the full notification
+ * data payload: { deep_link: 'whats_new' | 'play' | 'followup', signal_id?, game_title? }.
  * Returns the subscription so callers can remove it on unmount.
  */
-export function addNotificationResponseListener(navigate) {
+export function addNotificationResponseListener(onNotification) {
   return Notifications.addNotificationResponseReceivedListener((response) => {
-    const deepLink = response?.notification?.request?.content?.data?.deep_link;
-    if (deepLink) navigate(deepLink);
+    const data = response?.notification?.request?.content?.data || {};
+    onNotification(data);
   });
 }

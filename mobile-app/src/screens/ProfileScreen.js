@@ -288,8 +288,13 @@ const ProfileScreen = () => {
                   <View style={styles.premiumInfo}>
                     <Text style={styles.premiumInfoTitle}>Free with Ads</Text>
                     <Text style={styles.premiumInfoText}>
-                      Unlimited rerolls • Short ad every 3rd reroll
+                      3 free rerolls/day • Short ad after that • Basic filters only
                     </Text>
+                    <TouchableOpacity onPress={handleUpgrade}>
+                      <Text style={styles.premiumTeaserText}>
+                        Unlock Smart History, Advanced Filters &amp; more →
+                      </Text>
+                    </TouchableOpacity>
                   </View>
                   <TouchableOpacity style={styles.upgradeButton} onPress={handleUpgrade}>
                     <LinearGradient
@@ -619,6 +624,12 @@ const styles = StyleSheet.create({
   premiumInfoText: {
     fontSize: 14,
     color: '#808080',
+  },
+  premiumTeaserText: {
+    fontSize: 13,
+    color: '#e94560',
+    marginTop: 8,
+    fontWeight: '500',
   },
   upgradeButton: {
     margin: 16,

@@ -25,9 +25,11 @@ import CelebrationModal from '../components/CelebrationModal';
 import AlreadyPlayedModal from '../components/AlreadyPlayedModal';
 import SaveToBucketModal from '../components/SaveToBucketModal';
 import AdOrPremiumModal from '../components/AdOrPremiumModal';
+import DailyCapUpsellModal from '../components/DailyCapUpsellModal';
 import FeatureCallout from '../components/FeatureCallout';
 import { maybePromptForPush } from '../utils/pushPrompt';
 import { maybeShowWorkedUpsell } from '../utils/upsellPrompt';
+import { DAILY_REROLL_CAP } from '../utils/rerollCap';
 
 const ResultsScreen = () => {
   const navigation = useNavigation();
@@ -52,7 +54,15 @@ const ResultsScreen = () => {
     getRerollsUntilAd,
     shouldShowPremiumPrompt,
     AD_INTERVAL,
+    isDailyCapHit,
+    rerollsRemainingToday,
+    getPackageByType,
+    formatPrice,
   } = usePremium();
+
+  // Compute premium price from RevenueCat
+  const lifetimePackage = getPackageByType?.('LIFETIME');
+  const premiumPriceString = lifetimePackage ? formatPrice(lifetimePackage.product) : '$1.99';
 
   const [selectedGame, setSelectedGame] = useState(null);
   const [showCelebration, setShowCelebration] = useState(false);
@@ -66,6 +76,7 @@ const ResultsScreen = () => {
   const [showAdOrPremiumModal, setShowAdOrPremiumModal] = useState(false);
   const [pendingRerollAction, setPendingRerollAction] = useState(null);
   const [showRerollCallout, setShowRerollCallout] = useState(false);
+  const [showDailyCapModal, setShowDailyCapModal] = useState(false);
 
   // Animations
   const headerAnim = useRef(new Animated.Value(0)).current;
@@ -172,9 +183,14 @@ const ResultsScreen = () => {
   };
 
   const handleReroll = async () => {
-    // Check if we need to show an ad before this reroll
+    // Hard daily cap check — shown before the ad gate
+    if (!isPremium && isDailyCapHit) {
+      setShowDailyCapModal(true);
+      return;
+    }
+
+    // Existing ad gate check
     if (shouldShowAdBeforeReroll()) {
-      // Show the choice modal instead of going straight to ad
       setShowAdOrPremiumModal(true);
       setPendingRerollAction(() => performReroll);
       return;
@@ -392,19 +408,15 @@ const ResultsScreen = () => {
                 <Text style={styles.rerollText}>
                   {isRerolling ? 'Finding more...' : isAdLoading ? 'Loading...' : 'Show different games'}
                 </Text>
-                {!isPremium && !isRerolling && !isAdLoading && isRewardedAdsEnabled && (
+                {!isPremium && !isRerolling && !isAdLoading && (
                   <Text style={styles.rerollsRemaining}>
-                    {getRerollsUntilAd() === AD_INTERVAL
-                      ? `${AD_INTERVAL} free rerolls`
-                      : getRerollsUntilAd() > 0
-                      ? `${getRerollsUntilAd()} free reroll${getRerollsUntilAd() > 1 ? 's' : ''} left`
-                      : 'Watch ad to reroll'}
+                    {isDailyCapHit
+                      ? 'No rerolls left today'
+                      : `${rerollsRemainingToday} reroll${rerollsRemainingToday !== 1 ? 's' : ''} left today`}
                   </Text>
                 )}
                 {isPremium && !isRerolling && (
-                  <Text style={styles.rerollsRemaining}>
-                    Unlimited rerolls
-                  </Text>
+                  <Text style={styles.rerollsRemaining}>Unlimited rerolls</Text>
                 )}
               </View>
             </TouchableOpacity>
@@ -453,12 +465,27 @@ const ResultsScreen = () => {
           isAdLoading={isAdLoading}
         />
 
+        {/* Daily reroll cap upsell */}
+        <DailyCapUpsellModal
+          visible={showDailyCapModal}
+          priceString={premiumPriceString}
+          onGoPremium={() => {
+            setShowDailyCapModal(false);
+            navigation.navigate('Premium');
+          }}
+          onDismiss={() => setShowDailyCapModal(false)}
+        />
+
         {/* First-time Reroll Explanation Callout */}
         <FeatureCallout
           id="results_reroll_explanation"
           emoji="🔄"
           title="Reroll Your Picks"
-          description={`Not feeling these games? Tap "Show different games" to get new recommendations. You get ${AD_INTERVAL} free rerolls each day, then watch a quick ad to keep going. Premium users get unlimited ad-free rerolls!`}
+          description={`Not feeling these games? Tap "Show different games" to get new recommendations. ${
+  rerollsRemainingToday === DAILY_REROLL_CAP
+    ? `You get ${DAILY_REROLL_CAP} rerolls per day.`
+    : `${rerollsRemainingToday} reroll${rerollsRemainingToday !== 1 ? 's' : ''} left today.`
+} Premium users get unlimited rerolls!`}
           visible={showRerollCallout && !loading && recommendations.length > 0}
           onDismiss={() => setShowRerollCallout(false)}
           position="bottom"

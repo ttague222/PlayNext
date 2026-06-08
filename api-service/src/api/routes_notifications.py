@@ -49,3 +49,13 @@ async def send_weekly(x_cron_secret: Optional[str] = Header(default=None)):
         raise HTTPException(status_code=403, detail="Forbidden")
     result = await get_notification_service().run_weekly_send()
     return result
+
+
+@router.post("/send-followups")
+async def send_followups(x_cron_secret: Optional[str] = Header(default=None)):
+    """Trigger follow-up push sends. Protected by cron secret (Cloud Scheduler)."""
+    if not settings.cron_secret or x_cron_secret != settings.cron_secret:
+        raise HTTPException(status_code=403, detail="Forbidden")
+    result = await get_notification_service().send_followup_notifications()
+    logger.info(f"Follow-up sends complete: {result}")
+    return result
