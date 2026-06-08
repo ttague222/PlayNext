@@ -26,10 +26,27 @@ import WelcomeScreen, { hasSeenWelcome } from './src/screens/WelcomeScreen';
 
 // Push notification tap handling
 import { addNotificationResponseListener } from './src/services/notificationService';
+import FollowUpModal from './src/components/FollowUpModal';
+import api from './src/services/api';
 
 const App = () => {
   const [isLoading, setIsLoading] = useState(true);
   const [showWelcome, setShowWelcome] = useState(false);
+  const [followUpData, setFollowUpData] = useState(null); // { signalId, gameTitle }
+  const [isSubmittingFollowUp, setIsSubmittingFollowUp] = useState(false);
+
+  const handleFollowUp = async (worked) => {
+    if (!followUpData?.signalId) return;
+    setIsSubmittingFollowUp(true);
+    try {
+      await api.updateSignalWorked(followUpData.signalId, worked);
+    } catch {
+      // Signal update failed — non-fatal, user already gave feedback
+    } finally {
+      setIsSubmittingFollowUp(false);
+      setFollowUpData(null);
+    }
+  };
 
   useEffect(() => {
     const checkFirstLaunch = async () => {
@@ -42,9 +59,11 @@ const App = () => {
 
   // Route notification taps via the navigation ref.
   useEffect(() => {
-    const subscription = addNotificationResponseListener((deepLink) => {
+    const subscription = addNotificationResponseListener((data) => {
       if (!navigationRef.isReady()) return;
-      if (deepLink === 'whats_new') {
+      if (data.deep_link === 'followup' && data.signal_id) {
+        setFollowUpData({ signalId: data.signal_id, gameTitle: data.game_title });
+      } else if (data.deep_link === 'whats_new') {
         navigationRef.navigate('WhatsNew');
       } else {
         // Default: surface the play tab.
@@ -87,6 +106,14 @@ const App = () => {
           </AdProvider>
         </AuthProvider>
       </SafeAreaProvider>
+      <FollowUpModal
+        visible={!!followUpData}
+        gameTitle={followUpData?.gameTitle}
+        isSubmitting={isSubmittingFollowUp}
+        onWorked={() => handleFollowUp(true)}
+        onDidntWork={() => handleFollowUp(false)}
+        onDismiss={() => setFollowUpData(null)}
+      />
     </GestureHandlerRootView>
   );
 };
