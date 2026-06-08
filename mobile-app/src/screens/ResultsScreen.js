@@ -473,7 +473,7 @@ const ResultsScreen = () => {
           id="results_reroll_explanation"
           emoji="🔄"
           title="Reroll Your Picks"
-          description={`Not feeling these games? Tap "Show different games" to get new recommendations. You get ${AD_INTERVAL} free rerolls each day, then watch a quick ad to keep going. Premium users get unlimited ad-free rerolls!`}
+          description={`Not feeling these games? Tap "Show different games" to get new recommendations. You get ${rerollsRemainingToday} reroll${rerollsRemainingToday !== 1 ? 's' : ''} left today. Premium users get unlimited rerolls!`}
           visible={showRerollCallout && !loading && recommendations.length > 0}
           onDismiss={() => setShowRerollCallout(false)}
           position="bottom"
