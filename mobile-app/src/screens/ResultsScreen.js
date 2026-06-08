@@ -56,7 +56,13 @@ const ResultsScreen = () => {
     AD_INTERVAL,
     isDailyCapHit,
     rerollsRemainingToday,
+    getPackageByType,
+    formatPrice,
   } = usePremium();
+
+  // Compute premium price from RevenueCat
+  const lifetimePackage = getPackageByType?.('LIFETIME');
+  const premiumPriceString = lifetimePackage ? formatPrice(lifetimePackage.product) : '$1.99';
 
   const [selectedGame, setSelectedGame] = useState(null);
   const [showCelebration, setShowCelebration] = useState(false);
@@ -462,6 +468,7 @@ const ResultsScreen = () => {
         {/* Daily reroll cap upsell */}
         <DailyCapUpsellModal
           visible={showDailyCapModal}
+          priceString={premiumPriceString}
           onGoPremium={() => {
             setShowDailyCapModal(false);
             navigation.navigate('Premium');

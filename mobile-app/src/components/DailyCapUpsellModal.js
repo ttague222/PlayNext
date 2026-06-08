@@ -6,10 +6,11 @@ import { LinearGradient } from 'expo-linear-gradient';
  * Shown when a free user hits their daily reroll cap (10/day).
  * Props:
  *   visible: bool
+ *   priceString: string      — formatted price (e.g., "$1.99"); defaults to "$1.99"
  *   onGoPremium: () => void  — navigate to PremiumScreen
  *   onDismiss: () => void    — close modal, no reroll
  */
-const DailyCapUpsellModal = ({ visible, onGoPremium, onDismiss }) => {
+const DailyCapUpsellModal = ({ visible, onGoPremium, onDismiss, priceString = '$1.99' }) => {
   return (
     <Modal visible={visible} transparent animationType="fade" onRequestClose={onDismiss}>
       <View style={styles.overlay}>
@@ -17,14 +18,14 @@ const DailyCapUpsellModal = ({ visible, onGoPremium, onDismiss }) => {
           <Text style={styles.emoji}>🎮</Text>
           <Text style={styles.title}>You're on a roll!</Text>
           <Text style={styles.body}>
-            You've used all 10 of today's rerolls. Rerolls reset at midnight — or unlock unlimited rerolls forever for a one-time $2.99.
+            You've used all 10 of today's rerolls. Rerolls reset at midnight — or unlock unlimited rerolls forever for a one-time {priceString}.
           </Text>
 
           <Pressable
             style={styles.premiumButton}
             onPress={onGoPremium}
             accessibilityRole="button"
-            accessibilityLabel="Unlock unlimited rerolls for $2.99"
+            accessibilityLabel={`Unlock unlimited rerolls for ${priceString}`}
           >
             <LinearGradient
               colors={['#f857a6', '#ff5858']}
@@ -32,7 +33,7 @@ const DailyCapUpsellModal = ({ visible, onGoPremium, onDismiss }) => {
               end={{ x: 1, y: 0 }}
               style={styles.premiumGradient}
             >
-              <Text style={styles.premiumText}>Unlock Unlimited — $2.99</Text>
+              <Text style={styles.premiumText}>Unlock Unlimited — {priceString}</Text>
             </LinearGradient>
           </Pressable>
 
