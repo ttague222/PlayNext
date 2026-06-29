@@ -1,11 +1,26 @@
-# PlayNxt — Find the perfect game for right now
+# PlayNxt: find the perfect game for right now
 
 > AI-powered game recommendations based on how much time you have and how you're feeling.
 
-Most recommendation engines ask "what do you like?" PlayNxt asks two better questions: **How much time do you have?** and **What are you in the mood for?** The result is a recommendation that actually fits your current moment — not just your history.
+Most recommendation engines ask "what do you like?" PlayNxt asks two better questions: **How much time do you have?** and **What are you in the mood for?** The result is a recommendation that actually fits your current moment, not just your history.
 
 [![App Store](https://img.shields.io/badge/Download_on_the-App_Store-000000?style=for-the-badge&logo=apple&logoColor=white)](https://apps.apple.com/us/app/playnxt-game-recommendations/id6757089064)
 [![Google Play](https://img.shields.io/badge/Get_it_on-Google_Play-414141?style=for-the-badge&logo=google-play&logoColor=white)](https://play.google.com/store/apps/details?id=com.playnxt.app)
+
+---
+
+## The story
+
+**Problem.** "What should I play tonight?" is real decision fatigue. Most game-discovery tools sort by popularity or genre. Neither matches how people actually decide, which is by mood and by how much time they have.
+
+**Who it's for.** Gamers picking what to play in a limited window.
+
+**Key decisions and tradeoffs.**
+- **Recommend on mood and time, not genre.** The input model matches the real decision instead of making people browse taxonomies.
+- **Curated catalog over raw size.** I validated a curated catalog rather than chasing a bigger, noisier dataset. Better recs beat more titles.
+- **Invested in CI/CD early.** GitHub Actions from the start, so one person could ship to two stores without breaking things.
+
+**What I learned.** A different input beats a different algorithm. Asking "how much time, what mood" reframed the whole product around the question the user is actually asking.
 
 ---
 
@@ -18,7 +33,7 @@ PlayNxt/
 └── web-admin/       # React admin dashboard
 ```
 
-CI/CD via GitHub Actions → cloud deployment.
+CI/CD via GitHub Actions to cloud deployment.
 
 ---
 
@@ -35,11 +50,11 @@ CI/CD via GitHub Actions → cloud deployment.
 
 ## Key Features
 
-- **Mood & time-aware recommendations** — not just "what you like" but "what fits right now"
-- **Cross-platform** — iOS and Android via Expo
-- **FastAPI backend** — lightweight, fast recommendation engine
-- **Admin dashboard** — manage content and monitor usage
-- **CI/CD pipelines** — automated builds and deployments via GitHub Actions
+- **Mood and time-aware recommendations:** not just "what you like" but "what fits right now"
+- **Cross-platform:** iOS and Android via Expo
+- **FastAPI backend:** lightweight, fast recommendation engine
+- **Admin dashboard:** manage content and monitor usage
+- **CI/CD pipelines:** automated builds and deployments via GitHub Actions
 
 ---
 
