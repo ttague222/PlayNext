@@ -8,9 +8,10 @@
 - ✅ Step 1 (iOS credentials) — done; ASC API key for EAS Submit already existed
 - ⏳ Step 2 (Play service account) — GCP account + key exist; **Play Console invite stuck at "Invite sent"** (first invite predates the account). Remove and re-invite, then Claude re-tests the API
 - ⬜ Step 3 (ASC metadata) — not started; do before Submit for Review
-- ⬜ Step 4 (device test) — APK available, checklist below
-- 🟡 Step 5 — **builds done and iOS uploaded**: iOS 1.1.0 (12) processing in TestFlight (a stale June build 11 exists there — ignore it, never attach it); Android .aab (versionCode 13) built, awaiting submit via service account or manual Play Console upload
-- Gotcha discovered: Apple silently rejects duplicate version+build uploads with a generic EAS error — that's why build 11 wouldn't submit
+- ✅ Step 4 (device test) — **build 13 verified end-to-end on emulator**: launch, onboarding, full rec flow, results with RAWG art, premium gating, reroll cap
+- 🟡 Step 5 — iOS 1.1.0 (**13**) submitted to ASC (attach THIS one); Android .aab versionCode 13 verified and ready for Play upload (service account or manual)
+- ⚠️ Never attach iOS builds **11** (stale June binary) or **12** (react 19.2.8 lockfile drift, white-screens at launch) — both sit in TestFlight; only 13 is good
+- Gotchas discovered: Apple silently rejects duplicate version+build uploads with a generic EAS error; and a `^` caret on react let the lockfile drift to a renderer-incompatible version — react/react-native are now pinned exactly
 
 ---
 
