@@ -5,7 +5,7 @@
  * Supports both local storage (anonymous users) and server sync (signed-in users).
  */
 
-import React, { createContext, useContext, useState, useCallback, useEffect } from 'react';
+import React, { createContext, useContext, useState, useCallback, useEffect, useMemo } from 'react';
 import AsyncStorage from '@react-native-async-storage/async-storage';
 import api from '../services/api';
 import { useAuth } from './AuthContext';
@@ -16,6 +16,10 @@ export const useSavedGames = () => useContext(SavedGamesContext);
 
 // Storage key for local buckets
 const LOCAL_BUCKETS_KEY = '@playnxt_local_buckets';
+
+// Page size when pulling the server-side "Not For Me" bucket. The full bucket is
+// paged through so no game is silently left out of the recommendation exclusions.
+const NOT_FOR_ME_PAGE_SIZE = 200;
 
 // Bucket types - unified game library
 export const BUCKET_TYPES = {
@@ -94,6 +98,10 @@ export const SavedGamesProvider = ({ children }) => {
   const [error, setError] = useState(null);
   const [bucketsVersion, setBucketsVersion] = useState(0);
   const [isInitialized, setIsInitialized] = useState(false);
+
+  // Game IDs in the server-side "Not For Me" bucket. Only meaningful when signed
+  // in; anonymous users have their equivalent derived from localBuckets below.
+  const [serverNotForMeIds, setServerNotForMeIds] = useState([]);
 
   // Check if user is signed in (not anonymous)
   const isSignedIn = user && !user.isAnonymous;
@@ -191,6 +199,81 @@ export const SavedGamesProvider = ({ children }) => {
   }, [isSignedIn, isInitialized]);
 
   /**
+   * "Not For Me" game IDs held locally (anonymous users)
+   */
+  const localNotForMeIds = useMemo(
+    () => (localBuckets[BUCKET_TYPES.NOT_FOR_ME] || []).map((g) => g.game_id),
+    [localBuckets]
+  );
+
+  /**
+   * Keep the server-side "Not For Me" IDs in sync for signed-in users.
+   * Refetches whenever buckets change so exclusions stay accurate.
+   */
+  useEffect(() => {
+    if (!isSignedIn) {
+      setServerNotForMeIds([]);
+      return;
+    }
+
+    let cancelled = false;
+
+    const fetchNotForMeIds = async () => {
+      try {
+        const ids = [];
+        let offset = 0;
+        // Page until we've seen the whole bucket — a partial fetch would let a
+        // "Not For Me" game slip back into recommendations.
+        for (;;) {
+          const page = await api.getBucket(
+            BUCKET_TYPES.NOT_FOR_ME,
+            NOT_FOR_ME_PAGE_SIZE,
+            offset
+          );
+          const games = page?.games || [];
+          ids.push(...games.map((g) => g.game_id));
+
+          const total = page?.game_count ?? ids.length;
+          if (games.length === 0 || ids.length >= total) break;
+          offset += games.length;
+        }
+
+        if (!cancelled) {
+          setServerNotForMeIds(ids);
+        }
+      } catch (err) {
+        // Non-fatal: recommendations still work, they just won't exclude this
+        // bucket until the next successful fetch.
+        console.warn('[SavedGamesContext] Failed to load Not For Me bucket:', err);
+      }
+    };
+
+    fetchNotForMeIds();
+
+    return () => {
+      cancelled = true;
+    };
+  }, [isSignedIn, bucketsVersion]);
+
+  /**
+   * Games the user marked "Not For Me" — excluded from recommendations.
+   * Works for both anonymous (local) and signed-in (server) users.
+   */
+  const notForMeGameIds = isSignedIn ? serverNotForMeIds : localNotForMeIds;
+
+  /**
+   * Optimistically track a bucket change so an immediate reroll already
+   * excludes the game, before the server refetch lands.
+   */
+  const applyNotForMeOptimistic = useCallback((gameId, isNotForMe) => {
+    setServerNotForMeIds((prev) =>
+      isNotForMe
+        ? (prev.includes(gameId) ? prev : [...prev, gameId])
+        : prev.filter((id) => id !== gameId)
+    );
+  }, []);
+
+  /**
    * Convert local buckets to display format
    */
   const getLocalBucketsDisplay = useCallback(() => {
@@ -250,6 +333,9 @@ export const SavedGamesProvider = ({ children }) => {
       // Save to server
       try {
         await api.addGameToBucket(bucketType, gameId, gameTitle, notes);
+        // The server moves a game out of every other bucket, so adding to any
+        // other bucket also clears a prior "Not For Me" mark.
+        applyNotForMeOptimistic(gameId, bucketType === BUCKET_TYPES.NOT_FOR_ME);
         setBucketsVersion((v) => v + 1);
         return true;
       } catch (err) {
@@ -293,7 +379,7 @@ export const SavedGamesProvider = ({ children }) => {
       setBucketsVersion((v) => v + 1);
       return true;
     }
-  }, [isSignedIn]);
+  }, [isSignedIn, applyNotForMeOptimistic]);
 
   /**
    * Remove a game from a bucket
@@ -302,6 +388,9 @@ export const SavedGamesProvider = ({ children }) => {
     if (isSignedIn) {
       try {
         await api.removeGameFromBucket(bucketType, gameId);
+        if (bucketType === BUCKET_TYPES.NOT_FOR_ME) {
+          applyNotForMeOptimistic(gameId, false);
+        }
         setBucketsVersion((v) => v + 1);
         return true;
       } catch (err) {
@@ -317,7 +406,7 @@ export const SavedGamesProvider = ({ children }) => {
       setBucketsVersion((v) => v + 1);
       return true;
     }
-  }, [isSignedIn]);
+  }, [isSignedIn, applyNotForMeOptimistic]);
 
   /**
    * Move a game between buckets
@@ -326,6 +415,11 @@ export const SavedGamesProvider = ({ children }) => {
     if (isSignedIn) {
       try {
         await api.moveGame(fromBucketType, toBucketType, gameId);
+        if (toBucketType === BUCKET_TYPES.NOT_FOR_ME) {
+          applyNotForMeOptimistic(gameId, true);
+        } else if (fromBucketType === BUCKET_TYPES.NOT_FOR_ME) {
+          applyNotForMeOptimistic(gameId, false);
+        }
         setBucketsVersion((v) => v + 1);
         return true;
       } catch (err) {
@@ -347,7 +441,7 @@ export const SavedGamesProvider = ({ children }) => {
       setBucketsVersion((v) => v + 1);
       return true;
     }
-  }, [isSignedIn]);
+  }, [isSignedIn, applyNotForMeOptimistic]);
 
   /**
    * Get which bucket a game is in (if any)
@@ -429,6 +523,7 @@ export const SavedGamesProvider = ({ children }) => {
     canSaveGames,
     isUsingLocalStorage,
     isInitialized,
+    notForMeGameIds,
 
     // Actions
     fetchBuckets,
