@@ -8,6 +8,7 @@ import React, { createContext, useContext, useState, useCallback, useEffect } fr
 import AsyncStorage from '@react-native-async-storage/async-storage';
 import api from '../services/api';
 import { logEvent } from '../services/analyticsService';
+import { useSavedGames } from './SavedGamesContext';
 
 const PREFERRED_PLATFORMS_KEY = '@playnxt_preferred_platforms';
 const PREFERRED_TIME_KEY = '@playnxt_preferred_time';
@@ -33,6 +34,10 @@ const DEFAULT_PREFERENCES = {
 };
 
 export const RecommendationProvider = ({ children }) => {
+  // Games the user marked "Not For Me" — permanently excluded from results.
+  // Requires SavedGamesProvider to sit above this provider (see App.js).
+  const { notForMeGameIds } = useSavedGames();
+
   // Current session
   const [sessionId, setSessionId] = useState(null);
 
@@ -160,6 +165,18 @@ export const RecommendationProvider = ({ children }) => {
   }, []);
 
   /**
+   * Games to keep out of the next request: everything already shown this
+   * session, plus everything the user marked "Not For Me". The server strips
+   * these before any fallback relaxation runs, so they can never come back.
+   */
+  const buildExcludedGameIds = useCallback(
+    (extraIds = []) => [
+      ...new Set([...shownGameIds, ...(notForMeGameIds || []), ...extraIds]),
+    ],
+    [shownGameIds, notForMeGameIds]
+  );
+
+  /**
    * Get recommendations based on current preferences
    */
   const getRecommendations = useCallback(async () => {
@@ -182,7 +199,7 @@ export const RecommendationProvider = ({ children }) => {
         session_type: preferences.sessionType,
         discovery_mode: preferences.discoveryMode,
         session_id: currentSessionId,
-        excluded_game_ids: shownGameIds,
+        excluded_game_ids: buildExcludedGameIds(),
         // Premium-only fields — only included when set, so non-premium
         // requests look identical to the previous payload.
         ...(preferences.stopFriendliness && { stop_friendliness: preferences.stopFriendliness }),
@@ -215,7 +232,7 @@ export const RecommendationProvider = ({ children }) => {
     } finally {
       setLoading(false);
     }
-  }, [preferences, sessionId, shownGameIds, startSession]);
+  }, [preferences, sessionId, buildExcludedGameIds, startSession]);
 
   /**
    * Reroll to get different recommendations
@@ -237,7 +254,7 @@ export const RecommendationProvider = ({ children }) => {
         session_type: preferences.sessionType,
         discovery_mode: preferences.discoveryMode,
         session_id: sessionId,
-        excluded_game_ids: shownGameIds,
+        excluded_game_ids: buildExcludedGameIds(),
         // Premium-only fields — pass through to keep reroll aligned with the
         // initial recommendation.
         ...(preferences.stopFriendliness && { stop_friendliness: preferences.stopFriendliness }),
@@ -269,7 +286,7 @@ export const RecommendationProvider = ({ children }) => {
     } finally {
       setLoading(false);
     }
-  }, [preferences, sessionId, shownGameIds, getRecommendations]);
+  }, [preferences, sessionId, buildExcludedGameIds, getRecommendations]);
 
   /**
    * Accept a recommendation
@@ -337,9 +354,8 @@ export const RecommendationProvider = ({ children }) => {
         // Increment history version to trigger refresh in HistoryScreen
         setHistoryVersion((v) => v + 1);
 
-        // Add this game to excluded list
-        const newExcludedIds = [...new Set([...shownGameIds, gameId])];
-        setShownGameIds(newExcludedIds);
+        // Add this game to the shown list so it isn't offered again
+        setShownGameIds((prev) => [...new Set([...prev, gameId])]);
 
         // Get a single new recommendation to replace this one
         const response = await api.getRecommendations({
@@ -350,7 +366,7 @@ export const RecommendationProvider = ({ children }) => {
           session_type: preferences.sessionType,
           discovery_mode: preferences.discoveryMode,
           session_id: sessionId,
-          excluded_game_ids: newExcludedIds,
+          excluded_game_ids: buildExcludedGameIds([gameId]),
           limit: 1, // Only need one replacement
         });
 
@@ -378,7 +394,7 @@ export const RecommendationProvider = ({ children }) => {
         setLoading(false);
       }
     },
-    [preferences, sessionId, shownGameIds]
+    [preferences, sessionId, buildExcludedGameIds]
   );
 
   const value = {
