@@ -67,7 +67,9 @@ jobs:
         # Env-var layout restored 2026-06-02 to match the working Jan-31 deploy:
         # - FIREBASE_PROJECT_ID: required (Firebase init crashes without it).
         # - SUPPORT_EMAIL/FROM_EMAIL: email config (PYTHONUNBUFFERED for logs).
-        # - SENDGRID_API_KEY: real secret, now properly in Secret Manager.
+        # - SENDGRID_API_KEY was removed 2026-08-19: no code ever read it and
+        #   the SendGrid subscription is being cancelled. If email ships one
+        #   day, re-add a provider secret alongside CRON_SECRET.
         # The 4 old --set-secrets (SENTRY_DSN, FIREBASE_CREDENTIALS, OPENAI,
         # PINECONE) were dropped — they never existed in Secret Manager and
         # the code didn't read them. Add them back when those features ship.
@@ -78,7 +80,7 @@ jobs:
             --platform managed \
             --allow-unauthenticated \
             --set-env-vars="ENVIRONMENT=production,FIREBASE_PROJECT_ID=playnxt-1a2c6,SUPPORT_EMAIL=support@watchlightinteractive.com,FROM_EMAIL=support@watchlightinteractive.com,PYTHONUNBUFFERED=1" \
-            --set-secrets="SENDGRID_API_KEY=SENDGRID_API_KEY:latest,CRON_SECRET=CRON_SECRET:latest"
+            --set-secrets="CRON_SECRET=CRON_SECRET:latest"
 
       - name: Get service URL
         run: |

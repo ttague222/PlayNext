@@ -17,7 +17,7 @@ These are blocking or high-risk items that should be resolved before any feature
 | Item | Detail |
 |------|--------|
 | **Rotate RAWG API key** | Old key exposed in `mobile-app/eas.json`. Regenerate at rawg.io → store as EAS Secret `EXPO_PUBLIC_RAWG_API_KEY` in Expo dashboard (PlayNxt project → Secrets) |
-| **Rotate SendGrid API key** | Old key exposed in plaintext in a Cloud Run revision config. Replace: `gcloud secrets versions add SENDGRID_API_KEY --data-file=-` with fresh key from SendGrid dashboard |
+| ~~Rotate SendGrid API key~~ | Resolved 2026-08-19 by removal: no code ever read SENDGRID_API_KEY, so it was dropped from the deploy entirely and the SendGrid subscription can be cancelled. The exposed old key should still be revoked in the SendGrid dashboard before closing the account |
 | **iOS CI credentials** | EAS mobile build fails for iOS — no distribution certificate or provisioning profile for internal distribution. Fix: run `eas credentials` interactively in `mobile-app/`. Then update `.github/workflows/mobile-build.yml` line 73 platform default from `android` → `all` |
 | **Web Admin Deploy workflow** | Still broken — separate task to diagnose and fix GitHub Actions config |
 | **API integration tests** | Pre-existing infra debt — tests red, needs Firestore emulator setup |
