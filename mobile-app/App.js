@@ -29,6 +29,7 @@ import { addNotificationResponseListener } from './src/services/notificationServ
 import FollowUpModal from './src/components/FollowUpModal';
 import api from './src/services/api';
 import { logEvent } from './src/services/analyticsService';
+import { maybeRequestReview } from './src/utils/reviewPrompt';
 
 const App = () => {
   const [isLoading, setIsLoading] = useState(true);
@@ -47,6 +48,11 @@ const App = () => {
       setTimeout(() => {
         setFollowUpSuccess(false);
         setFollowUpData(null);
+        // "This worked for me" is the happiest moment in the app — ask for a
+        // store review after the modal closes, never after an ad or an error.
+        if (worked) {
+          maybeRequestReview({ trigger: 'followup_worked' });
+        }
       }, 1500);
     } catch {
       // non-fatal — still dismiss

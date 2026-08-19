@@ -81,6 +81,12 @@ jest.mock('react-native-google-mobile-ads', () => {
   };
 });
 
+// Mock expo-store-review (native module, not available in jest)
+jest.mock('expo-store-review', () => ({
+  isAvailableAsync: jest.fn(() => Promise.resolve(true)),
+  requestReview: jest.fn(() => Promise.resolve()),
+}));
+
 // Mock expo-haptics
 jest.mock('expo-haptics', () => ({
   impactAsync: jest.fn(),

@@ -29,6 +29,7 @@ import DailyCapUpsellModal from '../components/DailyCapUpsellModal';
 import FeatureCallout from '../components/FeatureCallout';
 import { maybePromptForPush } from '../utils/pushPrompt';
 import { maybeShowWorkedUpsell } from '../utils/upsellPrompt';
+import { maybeRequestReview } from '../utils/reviewPrompt';
 import { DAILY_REROLL_CAP } from '../utils/rerollCap';
 
 const ResultsScreen = () => {
@@ -137,9 +138,12 @@ const ResultsScreen = () => {
         signalType,
         alreadyPlayedGame.title
       );
-      // Fire-and-forget upsell after a positive "loved" signal.
+      // After a positive "loved" signal: premium upsell first; if it didn't
+      // show (cooldown/premium), fall through to the store review ask.
       if (signalType === 'played_loved') {
-        maybeShowWorkedUpsell({ isPremium, navigation });
+        maybeShowWorkedUpsell({ isPremium, navigation }).then((upsellShown) => {
+          maybeRequestReview({ otherPromptShown: upsellShown, trigger: 'played_loved' });
+        });
       }
       if (!newGame) {
         Alert.alert(
