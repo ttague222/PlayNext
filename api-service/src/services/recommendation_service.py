@@ -33,6 +33,12 @@ logger = logging.getLogger("playnext-api.recommendation")
 
 
 # Mapping from user mood to game energy level
+# Width of the random variety term added to every ranking score.
+# Reroll freshness comes primarily from excluding already-shown games
+# (see _filter_games), not from this term. Keep it small: at 0.30 a game
+# fitting 0.20 worse still won ~17% of the time.
+RANDOM_VARIETY_RANGE = 0.15
+
 MOOD_TO_ENERGY = {
     EnergyMood.WIND_DOWN: EnergyLevel.LOW,
     EnergyMood.CASUAL: EnergyLevel.LOW,
@@ -432,13 +438,14 @@ class RecommendationService:
             if game.get("subscription_services"):
                 score += 0.1
 
-            # Add randomness factor (0-0.3) to introduce variety
-            # This ensures games with similar scores get shuffled
-            # Using a larger range to overcome score similarities
-            random_boost = random.uniform(0, 0.3)
-            score += random_boost
+            # Add randomness so near-ties shuffle between rerolls.
+            score += random.uniform(0, RANDOM_VARIETY_RANGE)
 
-            scored.append({**game, "score": min(score, 1.0)})
+            # The ranking score is deliberately UNCAPPED. The deterministic
+            # boosts above total 1.00 (1.15 with the premium taste profile), so
+            # clamping here pinned every strong match to exactly 1.0 and let
+            # weaker games tie them. Display clamping happens at response build.
+            scored.append({**game, "score": score})
 
         return scored
 
@@ -518,8 +525,9 @@ class RecommendationService:
             # 6. Random variation to add variety
             game["score"] += random.uniform(-0.08, 0.08)
 
-            # Clamp score to valid range
-            game["score"] = max(0, min(1, game["score"]))
+            # Floor only. A ceiling here would re-compress the strong matches
+            # that _score_games intentionally leaves uncapped.
+            game["score"] = max(0.0, game["score"])
 
         return games
 
@@ -700,7 +708,7 @@ class RecommendationService:
             subscription_services=game.get("subscription_services", []),
             store_links=store_links,
             fun_fact=game.get("fun_fact"),
-            match_score=game.get("score", 0.5)
+            match_score=min(max(game.get("score", 0.5), 0.0), 1.0)
         )
 
     def _empty_response(self, session_id: str) -> RecommendationResponse:

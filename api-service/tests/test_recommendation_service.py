@@ -555,3 +555,151 @@ class TestFavorHistoryScoring:
             on = service._score_games([dict(g)], req_on, taste_profile=None)
 
         assert off[0]["score"] == on[0]["score"]
+
+
+class TestScoreRankingAndVariety:
+    """Ranking scores are uncapped; display scores stay inside the API contract.
+
+    Regression cover for the scoring change made 2026-08-19. Previously
+    _score_games clamped to min(score, 1.0) while the deterministic boosts
+    also totalled 1.00, so every strong match pinned to exactly 1.0 and weaker
+    games tied them. The randomness term was also wide enough (0-0.30) that a
+    game fitting 0.20 worse still won roughly 17% of the time.
+    """
+
+    @pytest.fixture
+    def service(self, mock_firebase):
+        """Create service instance."""
+        with patch('src.services.recommendation_service.get_collection'):
+            from src.services.recommendation_service import RecommendationService
+            return RecommendationService()
+
+    @pytest.fixture
+    def base_game(self):
+        return {
+            "game_id": "base",
+            "title": "Base Game",
+            "platforms": ["pc"],
+            "time_tags": [30],
+            "energy_level": "low",
+            "play_style": ["action"],
+            "genre_tags": ["action"],
+            "time_to_fun": "medium",
+            "multiplayer_modes": ["solo"],
+            "description_short": "Test",
+            "explanation_templates": {},
+            "subscription_services": [],
+        }
+
+    def _perfect_fit(self, base_game):
+        """Game hitting every deterministic boost for the request below."""
+        return {
+            **base_game,
+            "game_id": "perfect",
+            "stop_friendliness": "anytime",   # +0.25
+            "time_to_fun": "short",           # +0.20
+            "energy_level": "low",            # +0.20 (matches WIND_DOWN)
+            "play_style": ["action"],         # +0.15 genre
+            "platforms": ["pc"],              # +0.10
+            "subscription_services": ["game_pass"],  # +0.10
+        }
+
+    def _good_not_perfect(self, base_game):
+        """Scores 0.80: perfect fit minus the platform and subscription boosts.
+
+        The 0.20 gap against _perfect_fit is the discriminating case. The old
+        0.30 random range flipped it roughly 17% of the time; 0.15 cannot.
+        """
+        return {
+            **self._perfect_fit(base_game),
+            "game_id": "good",
+            "platforms": ["console"],        # no +0.10, request asks for pc
+            "subscription_services": [],     # no +0.10
+        }
+
+    def _weak_fit(self, base_game):
+        return {
+            **base_game,
+            "game_id": "weak",
+            "stop_friendliness": "commitment",
+            "time_to_fun": "long",
+            "energy_level": "high",
+            "play_style": ["narrative"],
+            "genre_tags": ["narrative"],
+            "platforms": ["console"],
+            "subscription_services": [],
+        }
+
+    def _request(self):
+        return RecommendationRequest(
+            time_available=30,
+            energy_mood=EnergyMood.WIND_DOWN,
+            play_style=PlayStyle.ACTION,
+            platform=Platform.PC,
+        )
+
+    def test_random_variety_range_is_small(self):
+        """Pin the constant. Widening it re-introduces bad-match promotion."""
+        from src.services.recommendation_service import RANDOM_VARIETY_RANGE
+        assert RANDOM_VARIETY_RANGE == 0.15
+
+    def test_ranking_score_is_uncapped(self, service, base_game):
+        """A perfect fit must be able to exceed 1.0 so it can outrank others."""
+        scored = service._score_games([self._perfect_fit(base_game)], self._request())
+        # 1.00 deterministic + a positive random term. Strict >: the old
+        # min(score, 1.0) clamp pinned this to exactly 1.0.
+        assert scored[0]["score"] > 1.0
+
+    def test_match_score_stays_within_api_bounds(self, service, base_game):
+        """match_score is Field(ge=0.0, le=1.0) - an uncapped raw score must not leak."""
+        game = {**self._perfect_fit(base_game), "score": 1.29}
+        rec = service._build_recommendation(game, self._request())
+        assert rec.match_score == 1.0
+
+        negative = {**self._weak_fit(base_game), "score": -0.4}
+        rec_neg = service._build_recommendation(negative, self._request())
+        assert rec_neg.match_score == 0.0
+
+    def test_better_match_reliably_outranks_worse(self, service, base_game):
+        """With a wide fit gap the better game should nearly always win.
+
+        Under the old 0.30 range this sat around 83%.
+        """
+        request = self._request()
+        wins = 0
+        trials = 400
+        for _ in range(trials):
+            scored = service._score_games(
+                [self._perfect_fit(base_game), self._good_not_perfect(base_game)], request
+            )
+            best = max(scored, key=lambda g: g["score"])
+            if best["game_id"] == "perfect":
+                wins += 1
+        assert wins / trials >= 0.95, f"better match won only {wins}/{trials}"
+
+    def test_randomness_still_shuffles_near_ties(self, service, base_game):
+        """Variety is preserved: identically-scoring games must not lock order."""
+        request = self._request()
+        twin_a = {**self._perfect_fit(base_game), "game_id": "twin-a"}
+        twin_b = {**self._perfect_fit(base_game), "game_id": "twin-b"}
+
+        winners = set()
+        for _ in range(200):
+            scored = service._score_games([twin_a, twin_b], request)
+            winners.add(max(scored, key=lambda g: g["score"])["game_id"])
+            if len(winners) == 2:
+                break
+        assert winners == {"twin-a", "twin-b"}, "scoring became deterministic"
+
+    @pytest.mark.asyncio
+    async def test_surprise_mode_keeps_floor_but_not_ceiling(self, service, base_game):
+        """Surprise mode must not re-compress the uncapped ranking scores."""
+        service._get_global_popularity = AsyncMock(return_value={})
+        service._get_user_game_history = AsyncMock(return_value=set())
+
+        high = {**base_game, "game_id": "high", "title": "Obscure Indie", "score": 1.25}
+        result = await service._apply_surprise_boost([high], None)
+
+        # Floor is retained, ceiling is not: the score must not be pinned to 1.0
+        assert result[0]["score"] >= 0.0
+        assert result[0]["score"] > 1.0, "surprise mode re-clamped a strong match"
