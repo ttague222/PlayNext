@@ -100,9 +100,10 @@ export default {
             extraProguardRules: "-keep class com.android.vending.billing.**"
           },
           ios: {
-            deploymentTarget: "15.1",
-            // Required by the native Firebase iOS SDK (@react-native-firebase)
-            useFrameworks: "static"
+            // NOTE: do NOT set useFrameworks: "static" here — @react-native-firebase
+            // v22+ resolves firebase-ios-sdk via SPM, and its pod hard-fails the
+            // build under static frameworks ("SPM + static linkage is not supported").
+            deploymentTarget: "15.1"
           }
         }
       ],
