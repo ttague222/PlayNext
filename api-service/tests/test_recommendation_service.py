@@ -186,9 +186,9 @@ class TestRecommendationService:
         with patch("src.services.recommendation_service.random.uniform", return_value=0.0):
             scored = service._score_games(games, request)
 
-        # _score_games shuffles its input, so look games up by id rather than
-        # position. Both games share identical base characteristics here, so the
-        # only scoring difference is the 0.1 subscription boost.
+        # Look games up by id rather than position. Both games share identical
+        # base characteristics here, so the only scoring difference is the 0.1
+        # subscription boost.
         sub_game = next(g for g in scored if g["game_id"] == "game-001")
         no_sub_game = next(g for g in scored if g["game_id"] == "game-002")
         assert sub_game["score"] > no_sub_game["score"]
@@ -331,6 +331,66 @@ class TestSurpriseMode:
 
         # Only the indie game receives the +0.55 boost, so it must score higher.
         assert indie["score"] > action["score"]
+
+
+def test_scoring_is_deterministic():
+    """Scoring must produce the same ranking every call (PRD Principle #8)."""
+    from src.services.recommendation_service import RecommendationService
+
+    service = RecommendationService.__new__(RecommendationService)
+
+    games = [
+        {
+            "game_id": "game-a",
+            "stop_friendliness": "anytime",
+            "time_to_fun": "short",
+            "energy_level": "low",
+            "play_style": ["action"],
+            "platforms": ["pc"],
+            "subscription_services": ["game_pass"],
+        },
+        {
+            "game_id": "game-b",
+            "stop_friendliness": "commitment",
+            "time_to_fun": "long",
+            "energy_level": "high",
+            "play_style": ["narrative"],
+            "platforms": ["playstation"],
+            "subscription_services": [],
+        },
+    ]
+
+    request = RecommendationRequest(
+        time_available=30,
+        energy_mood=EnergyMood.WIND_DOWN,
+    )
+
+    # Scoring deliberately includes a small bounded jitter (RANDOM_VARIETY_RANGE)
+    # so near-ties vary between rerolls. Determinism is asserted for the BASE
+    # scores: with the jitter patched out, identical input must produce
+    # identical scores — no hidden nondeterminism beyond the documented term.
+    with patch("src.services.recommendation_service.random.uniform", return_value=0.0):
+        results_1 = service._score_games(games, request)
+        results_2 = service._score_games(games, request)
+
+    scores_1 = {g["game_id"]: g["score"] for g in results_1}
+    scores_2 = {g["game_id"]: g["score"] for g in results_2}
+
+    assert scores_1 == scores_2, (
+        "Base scoring must be deterministic. Same input must produce same "
+        "scores once the documented variety jitter is patched out."
+    )
+    # game-a must outscore game-b: anytime stop + short time-to-fun + mood match
+    assert scores_1["game-a"] > scores_1["game-b"], (
+        "game-a has better heuristic match and must score higher than game-b"
+    )
+    # Output list order must also be deterministic
+    ids_1 = [g["game_id"] for g in results_1]
+    ids_2 = [g["game_id"] for g in results_2]
+    assert ids_1 == ids_2, (
+        "Output list order must be deterministic. "
+        "If this fails, random.shuffle is still present in _score_games."
+    )
 
 
 class TestBuildRecommendation:
@@ -703,3 +763,47 @@ class TestScoreRankingAndVariety:
         # Floor is retained, ceiling is not: the score must not be pinned to 1.0
         assert result[0]["score"] >= 0.0
         assert result[0]["score"] > 1.0, "surprise mode re-clamped a strong match"
+
+
+@pytest.mark.asyncio
+async def test_anonymous_users_get_staleness_protection():
+    """
+    Anonymous users (no user_id) must have recently-shown games excluded
+    when a session_id is provided, to prevent repeat recommendations.
+    PRD §5.5: deprioritize games shown in last 7 days.
+    """
+    from src.services.recommendation_service import RecommendationService
+    from unittest.mock import AsyncMock
+
+    service = RecommendationService.__new__(RecommendationService)
+
+    # Simulate: session already showed "game-seen"
+    service._get_recently_shown_for_session = AsyncMock(return_value={"game-seen"})
+    service._get_recently_shown = AsyncMock(return_value=set())
+
+    games = [
+        {"game_id": "game-seen", "stop_friendliness": "anytime", "time_to_fun": "short",
+         "energy_level": "low", "play_style": ["action"], "platforms": ["pc"],
+         "time_tags": [30], "multiplayer_modes": ["solo"], "subscription_services": []},
+        {"game_id": "game-fresh", "stop_friendliness": "anytime", "time_to_fun": "short",
+         "energy_level": "low", "play_style": ["action"], "platforms": ["pc"],
+         "time_tags": [30], "multiplayer_modes": ["solo"], "subscription_services": []},
+    ]
+
+    request = RecommendationRequest(
+        time_available=30,
+        energy_mood=EnergyMood.WIND_DOWN,
+        session_id="anon-session-123",
+    )
+
+    filtered, _, _ = await service._filter_games(games, request, user_id=None)
+    result_ids = [g["game_id"] for g in filtered]
+
+    assert "game-seen" not in result_ids, (
+        "game-seen was recently shown in this session and must be excluded for anonymous users"
+    )
+    assert "game-fresh" in result_ids, "game-fresh was not recently shown and must still appear"
+    # _get_recently_shown (user-based) must NOT have been called — no user_id
+    service._get_recently_shown.assert_not_called()
+    # _get_recently_shown_for_session must have been called with the correct session_id
+    service._get_recently_shown_for_session.assert_called_once_with("anon-session-123")

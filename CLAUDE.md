@@ -6,6 +6,21 @@ AI-powered video game recommendations (PC/console) based on mood and available t
 - **App Store:** https://apps.apple.com/us/app/playnxt-game-recommendations/id6757089064
 - **Google Play:** https://play.google.com/store/apps/details?id=com.playnxt.app
 
+## ⚠️ GCP / Firebase Project Warning
+
+PlayNxt uses the `playnxt-1a2c6` GCP project (project number 167253232570).
+
+- **Correct API URL:** `https://playnxt-api-167253232570.us-central1.run.app/api`
+- There is a stray API service deployed under the PlayBeacon project (`playnxt-api-346141384720.us-central1.run.app`). **Never use that URL for PlayNxt** — PlayBeacon is a separate app.
+
+## Product Non-Negotiables (from PRD §3)
+
+1. Time available and energy/mood are always required inputs; platform is optional and must never block results
+2. Maximum 3 recommendations per response, each with a clear explanation
+3. Recommendations must work anonymously (no account required)
+4. Simple, explainable heuristics over machine learning
+5. Recommendation engine must never return empty results (fallback hierarchy, PRD §5.6)
+
 ## Structure
 
 ```

@@ -192,11 +192,15 @@ class RecommendationService:
         """
         excluded = set(request.excluded_game_ids)
 
-        # Get recently shown games for user (from history)
+        # Get recently shown games to prevent staleness
         if user_id:
             recent = await self._get_recently_shown(user_id)
             excluded.update(recent)
-            logger.info(f"User {user_id}: Excluding {len(recent)} games from history: {recent}")
+            logger.info(f"User {user_id}: Excluding {len(recent)} recently shown games")
+        elif request.session_id:
+            recent = await self._get_recently_shown_for_session(request.session_id)
+            excluded.update(recent)
+            logger.info(f"Session {request.session_id}: Excluding {len(recent)} recently shown games")
 
         # Remove excluded games
         original_count = len(games)
@@ -366,10 +370,8 @@ class RecommendationService:
         request: RecommendationRequest,
         taste_profile: Optional[dict] = None,
     ) -> list[dict]:
-        """Score games based on match quality with randomization for variety."""
-        # Shuffle games first to eliminate any ordering bias from Firestore
+        """Score games based on match quality."""
         games = games.copy()
-        random.shuffle(games)
 
         scored = []
 
@@ -593,6 +595,25 @@ class RecommendationService:
             return recent_games
         except Exception as e:
             logger.error(f"Error fetching recent signals: {e}")
+            return set()
+
+    async def _get_recently_shown_for_session(self, session_id: str) -> set[str]:
+        """Get games shown in the current anonymous session (no user account)."""
+        try:
+            docs = list(
+                self.signals_collection
+                .where("session_id", "==", session_id)
+                .stream()
+            )
+            game_ids = set()
+            for doc in docs:
+                data = doc.to_dict()
+                game_id = data.get("game_id")
+                if game_id:
+                    game_ids.add(game_id)
+            return game_ids
+        except Exception as e:
+            logger.error(f"Error fetching session signals: {e}")
             return set()
 
     def _ensure_franchise_diversity(

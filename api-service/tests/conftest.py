@@ -123,7 +123,92 @@ def sample_game():
         "store_links": {},
         "explanation_templates": {
             "relaxing": "A chill puzzle experience perfect for unwinding."
-        }
+        },
+        "description_short": "A fun test game.",
+    }
+
+
+@pytest.fixture
+def sample_games():
+    """Sample list of games for filtering/scoring tests."""
+    return [
+        {
+            "game_id": "game-001",
+            "title": "Action Game",
+            "platforms": ["pc", "xbox"],
+            "energy_level": "medium",
+            "time_to_fun": "medium",
+            "stop_friendliness": "checkpoints",
+            "time_tags": [15, 30],
+            "play_style": ["action"],
+            "multiplayer_modes": ["solo"],
+            "subscription_services": ["gamepass"],
+            "description_short": "An action game.",
+            "explanation_templates": {},
+        },
+        {
+            "game_id": "game-002",
+            "title": "Puzzle Game",
+            "platforms": ["pc", "playstation"],
+            "energy_level": "low",
+            "time_to_fun": "short",
+            "stop_friendliness": "anytime",
+            "time_tags": [15, 30, 60],
+            "play_style": ["puzzle_strategy"],
+            "multiplayer_modes": ["solo"],
+            "subscription_services": [],
+            "description_short": "A puzzle game.",
+            "explanation_templates": {},
+        },
+        {
+            "game_id": "game-003",
+            "title": "Handheld Game",
+            "platforms": ["handheld", "mobile"],
+            "energy_level": "low",
+            "time_to_fun": "short",
+            "stop_friendliness": "anytime",
+            "time_tags": [15, 30, 60, 90],
+            "play_style": ["puzzle_strategy"],
+            "multiplayer_modes": ["solo"],
+            "subscription_services": [],
+            "description_short": "A handheld game.",
+            "explanation_templates": {},
+        },
+    ]
+
+
+@pytest.fixture
+def mock_user():
+    """Sample authenticated user data."""
+    return {
+        "uid": "user-123",
+        "email": "test@example.com",
+        "display_name": "Test User",
+    }
+
+
+@pytest.fixture
+def sample_signal():
+    """Sample signal document from Firestore."""
+    return {
+        "signal_id": "signal-001",
+        "user_id": "user-123",
+        "game_id": "game-001",
+        "signal_type": "thumbs_up",
+        "session_id": "session-001",
+        "created_at": "2024-01-01T00:00:00Z",
+    }
+
+
+@pytest.fixture
+def sample_session():
+    """Sample session document from Firestore."""
+    return {
+        "session_id": "session-001",
+        "user_id": "user-123",
+        "reroll_count": 0,
+        "games_shown": [],
+        "created_at": "2024-01-01T00:00:00Z",
     }
 
 
