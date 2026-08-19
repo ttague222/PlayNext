@@ -1,6 +1,6 @@
 # PlayNxt
 
-AI-powered board game recommendations based on mood and available time. Live on iOS App Store and Google Play.
+AI-powered video game recommendations (PC/console) based on mood and available time. Live on iOS App Store and Google Play.
 
 - **GitHub:** https://github.com/ttague222/PlayNext
 - **App Store:** https://apps.apple.com/us/app/playnxt-game-recommendations/id6757089064

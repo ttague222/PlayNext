@@ -21,7 +21,7 @@ These are blocking or high-risk items that should be resolved before any feature
 | **iOS CI credentials** | EAS mobile build fails for iOS — no distribution certificate or provisioning profile for internal distribution. Fix: run `eas credentials` interactively in `mobile-app/`. Then update `.github/workflows/mobile-build.yml` line 73 platform default from `android` → `all` |
 | **Web Admin Deploy workflow** | Still broken — separate task to diagnose and fix GitHub Actions config |
 | **API integration tests** | Pre-existing infra debt — tests red, needs Firestore emulator setup |
-| **Fix GitHub repo description** | Repo `ttague222/PlayNext` description says "board game" — wrong. It's AI video-game recommendations |
+| ~~**Fix GitHub repo description**~~ | ✅ Done (2026-08-19). Now reads "AI-powered video game recommendations based on mood and available time" |
 | **Delete stale local copy** | `C:\Users\ttagu\Documents\PlayNext` is behind origin with no unique commits — safe to delete |
 
 ---
