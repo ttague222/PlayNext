@@ -18,7 +18,7 @@ export default {
     ios: {
       supportsTablet: true,
       bundleIdentifier: "com.playnxt.app",
-      buildNumber: "11",
+      buildNumber: "12",
       usesAppleSignIn: true,
       // Local file is gitignored; EAS builds get it via file-type env var
       googleServicesFile: process.env.GOOGLE_SERVICE_INFO_PLIST || "./GoogleService-Info.plist",
@@ -57,7 +57,7 @@ export default {
         backgroundColor: "#1a1a2e"
       },
       package: "com.playnxt.app",
-      versionCode: 12,
+      versionCode: 13,
       // Local file is gitignored; EAS builds get it via file-type env var
       googleServicesFile: process.env.GOOGLE_SERVICES_JSON || "./google-services.json",
       intentFilters: [
