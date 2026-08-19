@@ -93,6 +93,7 @@ export default {
       "expo-tracking-transparency",
       "expo-apple-authentication",
       "@react-native-firebase/app",
+      "./plugins/withRNFirebaseDisableSPM",
       [
         "expo-build-properties",
         {
@@ -100,10 +101,11 @@ export default {
             extraProguardRules: "-keep class com.android.vending.billing.**"
           },
           ios: {
-            // NOTE: do NOT set useFrameworks: "static" here — @react-native-firebase
-            // v22+ resolves firebase-ios-sdk via SPM, and its pod hard-fails the
-            // build under static frameworks ("SPM + static linkage is not supported").
-            deploymentTarget: "15.1"
+            deploymentTarget: "15.1",
+            // Static frameworks for firebase-ios-sdk. Only valid together with
+            // plugins/withRNFirebaseDisableSPM, which opts RNFirebase out of SPM
+            // (SPM + static linkage is rejected by the RNFirebase pod).
+            useFrameworks: "static"
           }
         }
       ],
