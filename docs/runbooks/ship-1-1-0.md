@@ -3,6 +3,15 @@
 > Prepared 2026-08-19. Three one-time unlocks (Tom), then one command ships both stores.
 > Metadata strings come from `ASO-PLAN.md` — Apple only for now; hold Google Play per the two-week rollout plan.
 
+## Status as of 2026-08-19 evening
+
+- ✅ Step 1 (iOS credentials) — done; ASC API key for EAS Submit already existed
+- ⏳ Step 2 (Play service account) — GCP account + key exist; **Play Console invite stuck at "Invite sent"** (first invite predates the account). Remove and re-invite, then Claude re-tests the API
+- ⬜ Step 3 (ASC metadata) — not started; do before Submit for Review
+- ⬜ Step 4 (device test) — APK available, checklist below
+- 🟡 Step 5 — **builds done and iOS uploaded**: iOS 1.1.0 (12) processing in TestFlight (a stale June build 11 exists there — ignore it, never attach it); Android .aab (versionCode 13) built, awaiting submit via service account or manual Play Console upload
+- Gotcha discovered: Apple silently rejects duplicate version+build uploads with a generic EAS error — that's why build 11 wouldn't submit
+
 ---
 
 ## Step 1 — iOS credentials (one-time, ~5 min)
