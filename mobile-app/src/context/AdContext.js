@@ -23,6 +23,7 @@ import AsyncStorage from '@react-native-async-storage/async-storage';
 import Constants from 'expo-constants';
 import { getRemoteConfig } from '../services/RemoteConfigService';
 import { hasHitDailyRerollCap, rerollsRemainingToday as calcRerollsRemainingToday } from '../utils/rerollCap';
+import { logEvent } from '../services/analyticsService';
 
 const AdContext = createContext({});
 
@@ -201,14 +202,17 @@ export const AdProvider = ({ children }) => {
   }, [adsEnabled]);
 
   /**
-   * Preload ad on initialization and when approaching ad interval
+   * Preload ad when approaching the ad interval.
+   * Deliberately NOT on first launch: the first ad load triggers the iOS ATT
+   * prompt, which should appear near the moment an ad is actually needed —
+   * not cold on app open, where grant rates are worst.
    */
   useEffect(() => {
     if (isInitialized && adsEnabled) {
       // Preload when we're about to need an ad (approaching or past free reroll limit)
       const shouldPreload = dailyRerollCount >= adInterval - 1;
 
-      if (shouldPreload || dailyRerollCount === 0) {
+      if (shouldPreload) {
         preloadAd();
       }
     }
@@ -248,6 +252,7 @@ export const AdProvider = ({ children }) => {
         // Update tracking
         setAdsWatchedToday((prev) => prev + 1);
         setLastAdShownAt(new Date());
+        logEvent('ad_watched', { placement: 'reroll' });
       } else {
         Alert.alert(
           'Ad Not Completed',

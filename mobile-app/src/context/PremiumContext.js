@@ -18,6 +18,7 @@ import React, {
 import { Alert, Linking, Platform } from 'react-native';
 import { useAuth } from './AuthContext';
 import { useAds } from './AdContext';
+import { logEvent, setAnalyticsUserId } from '../services/analyticsService';
 
 const PremiumContext = createContext({});
 
@@ -111,6 +112,8 @@ export const PremiumProvider = ({ children }) => {
    * Sync user with RevenueCat when auth state changes
    */
   useEffect(() => {
+    setAnalyticsUserId(user?.uid || null);
+
     const purchaseService = getPurchaseService();
     if (!ENABLE_REVENUECAT || !purchaseService) return;
 
@@ -226,6 +229,10 @@ export const PremiumProvider = ({ children }) => {
 
     try {
       setIsLoading(true);
+      logEvent('purchase_started', {
+        package_type: packageToPurchase?.packageType,
+        product_id: packageToPurchase?.product?.identifier,
+      });
       const result = await purchaseService.purchasePackage(packageToPurchase);
 
       if (result.success) {
@@ -233,6 +240,10 @@ export const PremiumProvider = ({ children }) => {
         setCustomerInfo(result.customerInfo);
 
         if (result.isPremium) {
+          logEvent('purchase_completed', {
+            package_type: packageToPurchase?.packageType,
+            product_id: packageToPurchase?.product?.identifier,
+          });
           Alert.alert(
             'Welcome to Premium!',
             'Thank you for subscribing. Enjoy unlimited access to all features!',
@@ -240,8 +251,13 @@ export const PremiumProvider = ({ children }) => {
           );
         }
       } else if (result.cancelled) {
-        // Purchase cancelled by user
+        logEvent('purchase_cancelled', {
+          package_type: packageToPurchase?.packageType,
+        });
       } else if (result.error) {
+        logEvent('purchase_failed', {
+          package_type: packageToPurchase?.packageType,
+        });
         Alert.alert('Purchase Failed', result.error.message, [{ text: 'OK' }]);
       }
 

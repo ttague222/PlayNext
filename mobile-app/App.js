@@ -28,6 +28,7 @@ import WelcomeScreen, { hasSeenWelcome } from './src/screens/WelcomeScreen';
 import { addNotificationResponseListener } from './src/services/notificationService';
 import FollowUpModal from './src/components/FollowUpModal';
 import api from './src/services/api';
+import { logEvent } from './src/services/analyticsService';
 
 const App = () => {
   const [isLoading, setIsLoading] = useState(true);
@@ -41,6 +42,7 @@ const App = () => {
     setIsSubmittingFollowUp(true);
     try {
       await api.updateSignalWorked(followUpData.signalId, worked);
+      logEvent('followup_answered', { worked });
       setFollowUpSuccess(true);
       setTimeout(() => {
         setFollowUpSuccess(false);

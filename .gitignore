@@ -25,6 +25,9 @@ google-services.json
 GoogleService-Info.plist
 firebase-adminsdk*.json
 *-firebase-adminsdk-*.json
+# Note: the two Firebase CLIENT config files above stay untracked; EAS builds
+# receive them via file-type env vars GOOGLE_SERVICES_JSON /
+# GOOGLE_SERVICE_INFO_PLIST (see mobile-app/app.config.js googleServicesFile)
 
 # IDE
 .idea/

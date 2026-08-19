@@ -38,6 +38,49 @@ jest.mock('expo-constants', () => ({
   },
 }));
 
+// Mock Firebase Analytics (native module, not available in jest)
+jest.mock('@react-native-firebase/analytics', () => ({
+  getAnalytics: jest.fn(() => ({})),
+  logEvent: jest.fn(() => Promise.resolve()),
+  logScreenView: jest.fn(() => Promise.resolve()),
+  setUserId: jest.fn(() => Promise.resolve()),
+}));
+
+// Mock expo-tracking-transparency (ATT prompt)
+jest.mock('expo-tracking-transparency', () => ({
+  requestTrackingPermissionsAsync: jest.fn(() =>
+    Promise.resolve({ status: 'denied' })
+  ),
+  getTrackingPermissionsAsync: jest.fn(() =>
+    Promise.resolve({ status: 'denied' })
+  ),
+}));
+
+// Mock react-native-google-mobile-ads (native module, not available in jest)
+jest.mock('react-native-google-mobile-ads', () => {
+  const mobileAds = jest.fn(() => ({
+    initialize: jest.fn(() => Promise.resolve()),
+  }));
+  return {
+    __esModule: true,
+    default: mobileAds,
+    RewardedAd: {
+      createForAdRequest: jest.fn(() => ({
+        addAdEventListener: jest.fn(() => jest.fn()),
+        load: jest.fn(() => Promise.resolve()),
+        show: jest.fn(() => Promise.resolve()),
+      })),
+    },
+    RewardedAdEventType: {
+      LOADED: 'rewarded_loaded',
+      EARNED_REWARD: 'rewarded_earned_reward',
+    },
+    TestIds: {
+      REWARDED: 'test-rewarded-ad-unit',
+    },
+  };
+});
+
 // Mock expo-haptics
 jest.mock('expo-haptics', () => ({
   impactAsync: jest.fn(),

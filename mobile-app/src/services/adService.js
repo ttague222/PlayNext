@@ -6,11 +6,13 @@
 
 import { Platform } from 'react-native';
 import Constants from 'expo-constants';
-import {
+import mobileAds, {
   RewardedAd,
   RewardedAdEventType,
   TestIds,
 } from 'react-native-google-mobile-ads';
+import { requestTrackingPermissionsAsync } from 'expo-tracking-transparency';
+import { logEvent } from './analyticsService';
 
 // Get ad unit IDs from config (falls back to test IDs)
 const getRewardedAdUnitId = () => {
@@ -33,9 +35,40 @@ class AdService {
     this.rewardedAd = null;
     this.isLoading = false;
     this.isLoaded = false;
+    this.isInitialized = false;
+    this.personalizedAdsAllowed = false;
     this.onRewardEarned = null;
     this.onAdClosed = null;
     this.onAdFailed = null;
+  }
+
+  /**
+   * One-time SDK setup. The iOS ATT prompt must be resolved before the SDK
+   * makes any ad request, so this runs before the first load — never after.
+   * Falls back to non-personalized ads if consent is denied or the prompt fails.
+   */
+  async initialize() {
+    if (this.isInitialized) {
+      return;
+    }
+
+    try {
+      // Resolves as 'granted' on Android; shows the ATT prompt on iOS 14+
+      const { status } = await requestTrackingPermissionsAsync();
+      this.personalizedAdsAllowed = status === 'granted';
+      logEvent('att_result', { status });
+    } catch (error) {
+      this.personalizedAdsAllowed = false;
+      console.warn('Tracking permission request failed:', error);
+    }
+
+    try {
+      await mobileAds().initialize();
+    } catch (error) {
+      console.warn('Mobile Ads SDK initialization failed:', error);
+    }
+
+    this.isInitialized = true;
   }
 
   /**
@@ -49,9 +82,11 @@ class AdService {
     this.isLoading = true;
 
     try {
+      await this.initialize();
+
       const adUnitId = getRewardedAdUnitId();
       this.rewardedAd = RewardedAd.createForAdRequest(adUnitId, {
-        requestNonPersonalizedAdsOnly: false,
+        requestNonPersonalizedAdsOnly: !this.personalizedAdsAllowed,
       });
 
       // Set up event listeners

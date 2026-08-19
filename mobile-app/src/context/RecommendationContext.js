@@ -7,6 +7,7 @@
 import React, { createContext, useContext, useState, useCallback, useEffect } from 'react';
 import AsyncStorage from '@react-native-async-storage/async-storage';
 import api from '../services/api';
+import { logEvent } from '../services/analyticsService';
 
 const PREFERRED_PLATFORMS_KEY = '@playnxt_preferred_platforms';
 const PREFERRED_TIME_KEY = '@playnxt_preferred_time';
@@ -200,6 +201,13 @@ export const RecommendationProvider = ({ children }) => {
       const newGameIds = response.recommendations.map((r) => r.game_id);
       setShownGameIds((prev) => [...new Set([...prev, ...newGameIds])]);
 
+      logEvent('rec_requested', {
+        time: preferences.timeAvailable,
+        mood: preferences.energyMood,
+        is_reroll: false,
+        result_count: response.recommendations.length,
+      });
+
       return response;
     } catch (err) {
       setError(err.message || 'Failed to get recommendations');
@@ -247,6 +255,13 @@ export const RecommendationProvider = ({ children }) => {
       const newGameIds = response.recommendations.map((r) => r.game_id);
       setShownGameIds((prev) => [...new Set([...prev, ...newGameIds])]);
 
+      logEvent('rec_requested', {
+        time: preferences.timeAvailable,
+        mood: preferences.energyMood,
+        is_reroll: true,
+        result_count: response.recommendations.length,
+      });
+
       return response;
     } catch (err) {
       setError(err.message || 'Failed to reroll');
@@ -267,6 +282,7 @@ export const RecommendationProvider = ({ children }) => {
         await api.acceptRecommendation(gameId, sessionId, gameTitle);
         // Increment history version to trigger refresh in HistoryScreen
         setHistoryVersion((v) => v + 1);
+        logEvent('rec_accepted', { game_id: gameId });
         return true;
       } catch (err) {
         return false;
@@ -286,6 +302,7 @@ export const RecommendationProvider = ({ children }) => {
           mood_selected: preferences.energyMood,
           genres_selected: preferences.genres,
         });
+        logEvent('rec_feedback', { signal_type: signalType });
         return true;
       } catch (err) {
         // Silent fail

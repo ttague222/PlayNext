@@ -7,9 +7,10 @@
  * - Profile: Settings and account management
  */
 
-import React from 'react';
+import React, { useRef } from 'react';
 import { Platform } from 'react-native';
 import { NavigationContainer, createNavigationContainerRef } from '@react-navigation/native';
+import { logScreenView } from '../services/analyticsService';
 
 // Exported ref so non-React code (e.g. notification tap handlers) can navigate.
 export const navigationRef = createNavigationContainerRef();
@@ -152,8 +153,23 @@ const TabNavigator = () => {
  * Includes modals that can be presented from anywhere
  */
 const AppNavigator = () => {
+  const routeNameRef = useRef(null);
+
   return (
-    <NavigationContainer ref={navigationRef}>
+    <NavigationContainer
+      ref={navigationRef}
+      onReady={() => {
+        routeNameRef.current = navigationRef.getCurrentRoute()?.name;
+        logScreenView(routeNameRef.current);
+      }}
+      onStateChange={() => {
+        const currentRouteName = navigationRef.getCurrentRoute()?.name;
+        if (currentRouteName && currentRouteName !== routeNameRef.current) {
+          routeNameRef.current = currentRouteName;
+          logScreenView(currentRouteName);
+        }
+      }}
+    >
       <RootStack.Navigator screenOptions={{ headerShown: false }}>
         <RootStack.Screen name="Main" component={TabNavigator} />
         <RootStack.Screen

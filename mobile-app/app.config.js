@@ -20,9 +20,11 @@ export default {
       bundleIdentifier: "com.playnxt.app",
       buildNumber: "11",
       usesAppleSignIn: true,
+      // Local file is gitignored; EAS builds get it via file-type env var
+      googleServicesFile: process.env.GOOGLE_SERVICE_INFO_PLIST || "./GoogleService-Info.plist",
       infoPlist: {
         ITSAppUsesNonExemptEncryption: false,
-        NSUserTrackingUsageDescription: "PlayNxt shows non-personalized ads. This permission helps measure ad effectiveness without tracking you personally.",
+        NSUserTrackingUsageDescription: "Allowing tracking lets PlayNxt show ads that are more relevant to you. You'll see the same number of ads either way.",
         SKAdNetworkItems: [
           { SKAdNetworkIdentifier: "cstr6suwn9.skadnetwork" },
           { SKAdNetworkIdentifier: "4fzdc2evr5.skadnetwork" },
@@ -56,6 +58,8 @@ export default {
       },
       package: "com.playnxt.app",
       versionCode: 12,
+      // Local file is gitignored; EAS builds get it via file-type env var
+      googleServicesFile: process.env.GOOGLE_SERVICES_JSON || "./google-services.json",
       intentFilters: [
         {
           action: "VIEW",
@@ -88,6 +92,7 @@ export default {
       "expo-updates",
       "expo-tracking-transparency",
       "expo-apple-authentication",
+      "@react-native-firebase/app",
       [
         "expo-build-properties",
         {
@@ -95,7 +100,9 @@ export default {
             extraProguardRules: "-keep class com.android.vending.billing.**"
           },
           ios: {
-            deploymentTarget: "15.1"
+            deploymentTarget: "15.1",
+            // Required by the native Firebase iOS SDK (@react-native-firebase)
+            useFrameworks: "static"
           }
         }
       ],
@@ -104,7 +111,7 @@ export default {
         {
           androidAppId: process.env.EXPO_PUBLIC_ADMOB_ANDROID_APP_ID || "ca-app-pub-xxxxxxxxxxxxxxxx~yyyyyyyyyy",
           iosAppId: process.env.EXPO_PUBLIC_ADMOB_IOS_APP_ID || "ca-app-pub-xxxxxxxxxxxxxxxx~yyyyyyyyyy",
-          userTrackingUsageDescription: "PlayNxt shows non-personalized ads. This permission helps measure ad effectiveness without tracking you personally."
+          userTrackingUsageDescription: "Allowing tracking lets PlayNxt show ads that are more relevant to you. You'll see the same number of ads either way."
         }
       ]
     ],

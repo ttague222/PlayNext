@@ -19,6 +19,7 @@ import { LinearGradient } from 'expo-linear-gradient';
 import { Ionicons } from '@expo/vector-icons';
 import { useNavigation } from '@react-navigation/native';
 import { usePremium } from '../context/PremiumContext';
+import { logEvent } from '../services/analyticsService';
 
 // Premium features to display — lead with value, ad-free is secondary.
 const PREMIUM_BENEFITS = [
@@ -71,6 +72,7 @@ const PremiumScreen = () => {
 
   // Load packages on mount
   useEffect(() => {
+    logEvent('paywall_viewed');
     loadPackages();
   }, [loadPackages]);
 
