@@ -67,34 +67,39 @@ Corollary: **do not fight on `tracker`, `collection`, or `library`.** Six funded
 
 ## 3. Apple — App Name (30 max)
 
+> **Revised 2026-08-20 after live App Store result sampling (iTunes Search API).** Three findings changed the call: (1) PlayNxt already ranks **#1 for "game recommendations"** with every other result irrelevant — the one proven ranking asset, previously slated for removal; (2) "game finder" is semantically owned by LFG/teammate apps (PLINK 50k ratings, GamerLink 8k) — "finder" means finding *people* in-store; (3) "game picker" is owned by spin-the-wheel apps (94k+ ratings). Both prior anchor terms would have moved PlayNxt into hostile neighborhoods.
+
 | # | Title | Chars | Notes |
 |---|---|---|---|
-| **A (recommended)** | `PlayNxt: Game Finder by Mood` | 28 | "Game Finder" is the discovery phrase in the heaviest field; "by Mood" keeps continuity with the framing Apple already associates with this app |
-| B | `PlayNxt: What Game to Play` | 26 | Literal user query; loses "finder" |
-| C | `PlayNxt: Quick Game Finder` | 26 | "Quick" targets short-session intent but under-sells long sessions |
+| **A (recommended)** | `PlayNxt - Game Recommendations` | 30 | **Keep the current title.** Retains the #1 ranking; the waste was never the title, it was the subtitle duplicating it |
+| B | `PlayNxt: Game Finder by Mood` | 28 | Rejected: "finder" results are teammate-finder social apps; wrong intent neighborhood |
+| C | `PlayNxt: What to Play Tonight` | 29 | Claims the open phrase but drops "game" and the #1 term from the heaviest field |
 
-**Use A.**
+**Use A — change nothing on the title.**
 
 ## 4. Apple — Subtitle (30 max)
 
 | # | Subtitle | Chars | Notes |
 |---|---|---|---|
-| **A (recommended)** | `What to play in your free time` | 30 | Perfect fill; adds *what, to, play, in, your, free, time* with zero overlap against Title A |
-| B | `Mood and time based picks` | 25 | Wastes 5 chars, duplicates "mood" |
+| **A (recommended)** | `What to play in your free time` | 30 | Perfect fill; claims the wide-open "what to play" phrase (only zero-rating apps rank there); adds *what, to, play, in, your, free, time* with zero overlap against the kept title |
+| B | `Mood and time based picks` | 25 | Wastes 5 chars; "mood" moves to the keyword field instead |
 | C | `Pick a game for tonight` | 23 | Weaker; duplicates "game" |
 
-**Use A.** Title A + Subtitle A index cleanly: *playnxt, game, finder, by, mood, what, to, play, in, your, free, time* — no duplicates, 58 of 60 characters working. Apple combines across fields for free, yielding "game finder," "what to play," "free time," "game by mood," and "find game by time."
+**Use A.** Kept title + Subtitle A index: *playnxt, game, recommendations, what, to, play, in, your, free, time* — no duplicates. Cross-field phrases: "what game to play," "what to play," "free time," "game recommendations." The subtitle-only change also makes the rollout near-riskless: the title's ranking equity is untouched.
 
 ## 5. Apple — Keyword field (100 max)
 
 Rules applied: no spaces after commas, singulars only (Apple auto-matches plurals), and nothing already present in the title or subtitle.
 
-**Paste verbatim (99/100):**
+**Paste verbatim (100/100):**
 ```
-backlog,tracker,pick,suggest,recommend,next,steam,deck,xbox,switch,pass,indie,coop,solo,chill,short
+finder,picker,backlog,tracker,suggest,next,steam,deck,xbox,switch,pass,indie,coop,solo,chill,mood,ai
 ```
 
-- `recommend` — **must be here.** You are moving "Recommendations" out of the app name, and this is the term the listing currently ranks for. Dropping it entirely would forfeit existing equity.
+- `recommend` is no longer needed here — "Recommendations" stays in the title (revised §3), which carries far more weight.
+- `finder`, `picker` — the intent synonyms now bid from the keyword field instead of the title: costless exposure on those queries without moving the app into the LFG/spinner neighborhoods that own them.
+- `mood` — moved here from the old subtitle; still a core differentiator term.
+- `ai` — the live description markets AI picks and "ai game picker" showed only a zero-rating incumbent.
 - `backlog`, `tracker` — the competitor cluster. `backlog` is legitimately yours (real feature); `tracker` is a cheap 8-character bid on high-volume adjacent traffic.
 - `pass`, `steam`, `deck`, `xbox`, `switch` — combine with `game` from the title to form "game pass," "steam deck," and platform phrases without paying for the second word.
 - `pick`, `suggest`, `next` — recommendation-intent synonyms.
