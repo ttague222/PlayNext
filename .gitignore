@@ -22,6 +22,7 @@ build/
 # Firebase/Google credentials (NEVER commit)
 serviceAccountKey.json
 playstore-service-account.json
+credentials.json
 google-services.json
 GoogleService-Info.plist
 firebase-adminsdk*.json
