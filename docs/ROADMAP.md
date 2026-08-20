@@ -1,12 +1,13 @@
 # PlayNxt Roadmap
 
-## Current State (as of 2026-06-07)
+## Current State (as of 2026-08-20)
 
-- **Live** on iOS App Store + Google Play
-- API: Cloud Run `playnxt-api` rev-56, all premium/history/notification endpoints live
-- Mobile: EAS build is pre-premium UI — users do not yet see Smart History, Advanced Filters, push pre-prompt, or What's New screen
-- Catalog: ~1,089 games validated against schema
-- Tests: backend 109/109, mobile jest 100/100
+- **1.1.0 in review at both stores** — the full premium build (Smart History, Advanced Filters, push pre-prompt, What's New screen), plus ATT compliance, Firebase Analytics across the funnel, the store review prompt, and the consolidated recommendation fixes (staleness protection, Not For Me exclusion, uncapped ranking)
+- API: consolidated engine live on Cloud Run; SendGrid removed
+- ASO: Apple metadata updated (subtitle + keywords, title kept); Play listing intentionally held as control for a two-week impressions comparison
+- Catalog: ~1,089 games
+- Tests: backend 129/129, mobile jest 142/142, expo-doctor 18/18
+- Release pipeline: EAS build + submit works end to end on iOS; Android signs with the recovered original upload key (local credentials); Play service-account grant still propagating
 
 ---
 
@@ -16,17 +17,17 @@ These are blocking or high-risk items that should be resolved before any feature
 
 | Item | Detail |
 |------|--------|
-| **Rotate RAWG API key** | Old key exposed in `mobile-app/eas.json`. Regenerate at rawg.io → store as EAS Secret `EXPO_PUBLIC_RAWG_API_KEY` in Expo dashboard (PlayNxt project → Secrets) |
+| ~~Rotate RAWG API key~~ | ✅ Done — rotated key set as EAS env var; verified live (cover art loads in 1.1.0 builds) |
 | ~~Rotate SendGrid API key~~ | Resolved 2026-08-19 by removal: no code ever read SENDGRID_API_KEY, so it was dropped from the deploy entirely and the SendGrid subscription can be cancelled. The exposed old key should still be revoked in the SendGrid dashboard before closing the account |
-| **iOS CI credentials** | EAS mobile build fails for iOS — no distribution certificate or provisioning profile for internal distribution. Fix: run `eas credentials` interactively in `mobile-app/`. Then update `.github/workflows/mobile-build.yml` line 73 platform default from `android` → `all` |
+| **iOS CI credentials** | ✅ Credentials done 2026-08-19 (App Store profile active, builds + submit working). Remaining sliver: update `.github/workflows/mobile-build.yml` platform default from `android` → `all` |
 | **Web Admin Deploy workflow** | Still broken — separate task to diagnose and fix GitHub Actions config |
 | **API integration tests** | Pre-existing infra debt — tests red, needs Firestore emulator setup |
 | ~~**Fix GitHub repo description**~~ | ✅ Done (2026-08-19). Now reads "AI-powered video game recommendations based on mood and available time" |
-| **Delete stale local copy** | `C:\Users\ttagu\Documents\PlayNext` is behind origin with no unique commits — safe to delete |
+| **Delete stale local copy** | ⚠️ **NOT safe to delete until the keystore is backed up.** `C:\Users\ttagu\Documents\PlayNext` holds the ONLY other copy of `playnxt-release.keystore` (the Play upload key, recovered 2026-08-20). Back up the keystore + passwords to a password manager and to EAS (`eas credentials` reads credentials.json), then delete the clone |
 
 ---
 
-## Phase 1 — Ship the Premium Build
+## Phase 1 — Ship the Premium Build ✅ (submitted 2026-08-20)
 
 Get the already-built features into users' hands.
 
