@@ -67,10 +67,11 @@ jobs:
             echo "platform=${{ github.event.inputs.platform }}" >> $GITHUB_OUTPUT
             echo "profile=${{ github.event.inputs.profile }}" >> $GITHUB_OUTPUT
           else
-            # Default to Android-only on push. iOS requires credentials that must be
-            # set up interactively first (eas credentials). Use workflow_dispatch with
-            # platform=all or platform=ios once iOS creds are configured.
-            echo "platform=android" >> $GITHUB_OUTPUT
+            # Build both platforms on push — iOS credentials are configured
+            # (2026-08-20) and iOS-only breakage (e.g. pod install) is otherwise
+            # invisible until release. Costs 2 EAS builds per mobile push; drop
+            # back to platform=android if free-tier quota gets tight.
+            echo "platform=all" >> $GITHUB_OUTPUT
             echo "profile=preview" >> $GITHUB_OUTPUT
           fi
 

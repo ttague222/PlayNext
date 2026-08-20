@@ -5,9 +5,11 @@ Remote configuration endpoint for mobile app feature flags.
 Essential for App Store review control (disable ads without app update).
 """
 
-from fastapi import APIRouter, Request
+from fastapi import APIRouter, Header, HTTPException, Request
 from pydantic import BaseModel
 from typing import Optional
+
+from ..core.config import settings
 
 router = APIRouter(prefix="/config", tags=["Config"])
 
@@ -18,7 +20,9 @@ class AppConfig(BaseModel):
     # Ad control
     ads_enabled: bool = True
     ads_test_mode: bool = False
-    ad_interval: int = 3
+    # 3 -> 4 on 2026-08-20: direct response to the "ads every 2 suggestions"
+    # Play review. Watch ad_watched vs retention in Firebase before tuning again.
+    ad_interval: int = 4
 
     # Feature flags
     maintenance_mode: bool = False
@@ -101,17 +105,20 @@ async def get_app_config(request: Request):
 
 
 @router.post("", response_model=AppConfig)
-async def update_app_config(config: AppConfig):
+async def update_app_config(
+    config: AppConfig,
+    x_cron_secret: Optional[str] = Header(default=None),
+):
     """
-    Update remote app configuration.
+    Update remote app configuration. Protected by the shared cron secret —
+    this was previously unauthenticated, which let anyone flip ads_enabled
+    or maintenance_mode on the public API.
 
-    This endpoint allows updating the configuration dynamically.
-    In production, consider:
-    - Adding authentication (admin only)
-    - Persisting to Firestore
-    - Adding audit logging
-
-    For now, this updates in-memory config (resets on restart).
+    Note: updates in-memory config only (resets on instance restart). The
+    durable way to change a flag is editing the AppConfig defaults and
+    letting CI redeploy.
     """
+    if not settings.cron_secret or x_cron_secret != settings.cron_secret:
+        raise HTTPException(status_code=403, detail="Forbidden")
     set_config(config)
     return config
