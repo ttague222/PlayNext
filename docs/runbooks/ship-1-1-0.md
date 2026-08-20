@@ -3,7 +3,11 @@
 > Prepared 2026-08-19. Three one-time unlocks (Tom), then one command ships both stores.
 > Metadata strings come from `ASO-PLAN.md` — Apple only for now; hold Google Play per the two-week rollout plan.
 
-## Status as of 2026-08-19 evening
+## FINAL STATUS — SHIPPED 2026-08-20
+
+Both stores: iOS 1.1.0 (13) submitted for review; Android 1.1.0 (**20**) rolling out to production (uploaded manually — Play service-account grant was still propagating; use `eas submit -p android` next release once the API test passes). Android signs with the recovered `playnxt-release.keystore` via local credentials — see ROADMAP Phase 0 for the keystore backup warning. Play versionCodes live at 20 now; iOS build numbers at 13. Quarantined iOS builds 11/12 in TestFlight expire on their own.
+
+## Status as of 2026-08-19 evening (historical)
 
 - ✅ Step 1 (iOS credentials) — done; ASC API key for EAS Submit already existed
 - ⏳ Step 2 (Play service account) — GCP account + key exist; **Play Console invite stuck at "Invite sent"** (first invite predates the account). Remove and re-invite, then Claude re-tests the API
