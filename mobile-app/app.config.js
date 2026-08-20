@@ -57,7 +57,7 @@ export default {
         backgroundColor: "#1a1a2e"
       },
       package: "com.playnxt.app",
-      versionCode: 13,
+      versionCode: 20,
       // Local file is gitignored; EAS builds get it via file-type env var
       googleServicesFile: process.env.GOOGLE_SERVICES_JSON || "./google-services.json",
       intentFilters: [
