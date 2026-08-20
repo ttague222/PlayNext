@@ -44,6 +44,21 @@ Get the already-built features into users' hands.
 
 ---
 
+## Post-1.1.0 Priorities (ROI-ranked 2026-08-20, reviewer signals included)
+
+With ~23 installs, feature ROI = ratings + retention (which feed discoverability), not revenue. Two of four Play reviews are the same complaint stated twice: picks should respect the user's own games. Cheap half now, expensive half gated on data.
+
+| Priority | Item | Cost | Why |
+|---|---|---|---|
+| Now | Ad experience: nudge remote-config `ad_interval` 3→4, watch `ad_watched` vs retention | Zero | Only monetization complaint in reviews; reversible dial |
+| Now | Affiliate links: sign up (Humble/Fanatical/GMG/GOG), flip `ENABLE_AFFILIATE_TRACKING` | Zero dev | Revenue stream on already-built UI |
+| Now | Keystore backup (password manager + EAS) and CI platform default `android`→`all` | Hours | Insurance; keystore exists in only two local places |
+| Next build | "Why not?" + free-tier learning from own signals | 2–4 days | Makes "learns from you" true for free users; answers the top review complaint cheaply |
+| Gated | Steam library sync (Steam only, first) | 1–2 wks | Explicitly requested by a reviewer; build only if analytics shows retention worth investing in |
+| Declined | Archive/collection depth | — | Contradicts "keep track, lightly"; drifts into the tracker camp we deliberately avoid (ASO-PLAN §2) |
+
+---
+
 ## Phase 2 — Enhanced Personalization
 
 *From PRD §13, Phase 2*
