@@ -67,11 +67,10 @@ jobs:
             echo "platform=${{ github.event.inputs.platform }}" >> $GITHUB_OUTPUT
             echo "profile=${{ github.event.inputs.profile }}" >> $GITHUB_OUTPUT
           else
-            # Build both platforms on push — iOS credentials are configured
-            # (2026-08-20) and iOS-only breakage (e.g. pod install) is otherwise
-            # invisible until release. Costs 2 EAS builds per mobile push; drop
-            # back to platform=android if free-tier quota gets tight.
-            echo "platform=all" >> $GITHUB_OUTPUT
+            # TEMPORARY: skip push builds — EAS free-plan Android quota is
+            # exhausted until Sep 1 2026 (spent shipping 1.1.0). Restore
+            # platform=all after reset. Type check above still runs on push.
+            echo "platform=skip" >> $GITHUB_OUTPUT
             echo "profile=preview" >> $GITHUB_OUTPUT
           fi
 
