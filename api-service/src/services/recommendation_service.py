@@ -6,6 +6,7 @@ Core recommendation engine with heuristics and randomization for variety.
 
 import logging
 import random
+import time
 import uuid
 from datetime import datetime, timedelta
 from typing import Optional
@@ -101,6 +102,8 @@ class RecommendationService:
     def __init__(self):
         self.games_collection = get_collection(GAMES_COLLECTION)
         self.signals_collection = get_collection(SIGNALS_COLLECTION)
+        self._games_cache: Optional[list[dict]] = None
+        self._games_cache_at: float = 0.0
 
     async def get_recommendations(
         self,
@@ -185,12 +188,30 @@ class RecommendationService:
         )
 
     async def _fetch_games(self) -> list[dict]:
-        """Fetch all games from Firestore."""
+        """Fetch all games, cached in-process for settings.recommendation_cache_ttl.
+
+        Every recommendation request previously streamed the full games
+        collection from Firestore (~1,100 document reads per request). The
+        catalog changes rarely (seed scripts, admin edits), so a short TTL
+        cache eliminates the dominant read cost. Scoring copies game dicts
+        before mutation, so serving shared cached dicts is safe. Failures
+        fall back to a stale cache when one exists.
+        """
+        now = time.monotonic()
+        ttl = getattr(settings, "recommendation_cache_ttl", 300) or 0
+        if self._games_cache is not None and now - self._games_cache_at < ttl:
+            return self._games_cache
         try:
             docs = self.games_collection.stream()
-            return [doc.to_dict() | {"game_id": doc.id} for doc in docs]
+            games = [doc.to_dict() | {"game_id": doc.id} for doc in docs]
+            self._games_cache = games
+            self._games_cache_at = now
+            return games
         except Exception as e:
             logger.error(f"Error fetching games: {e}")
+            if self._games_cache is not None:
+                logger.warning("Serving stale games cache after fetch failure")
+                return self._games_cache
             return []
 
     async def _filter_games(

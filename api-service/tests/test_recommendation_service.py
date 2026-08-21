@@ -913,3 +913,52 @@ class TestSubscriptionAliases:
     def test_unaliased_values_pass_through(self, service):
         games = [self._game("ea", ["ea_play"]), self._game("none", [])]
         assert self._filter(service, games, ["ea_play"]) == ["ea"]
+
+
+class TestGamesCache:
+    """In-process catalog cache added 2026-08-22 ahead of catalog expansion.
+
+    Every request previously streamed the full collection (~1,100 reads).
+    """
+
+    @pytest.fixture
+    def service(self, mock_firebase):
+        with patch('src.services.recommendation_service.get_collection'):
+            from src.services.recommendation_service import RecommendationService
+            return RecommendationService()
+
+    def _docs(self, n=2):
+        out = []
+        for i in range(n):
+            d = MagicMock()
+            d.id = f"g{i}"
+            d.to_dict.return_value = {"title": f"G{i}"}
+            out.append(d)
+        return out
+
+    @pytest.mark.asyncio
+    async def test_second_call_uses_cache(self, service):
+        service.games_collection.stream.return_value = self._docs()
+        a = await service._fetch_games()
+        b = await service._fetch_games()
+        assert a == b and len(a) == 2
+        assert service.games_collection.stream.call_count == 1
+
+    @pytest.mark.asyncio
+    async def test_ttl_expiry_refetches(self, service):
+        service.games_collection.stream.return_value = self._docs()
+        await service._fetch_games()
+        service._games_cache_at -= 10_000
+        service.games_collection.stream.return_value = self._docs(3)
+        b = await service._fetch_games()
+        assert len(b) == 3
+        assert service.games_collection.stream.call_count == 2
+
+    @pytest.mark.asyncio
+    async def test_fetch_failure_serves_stale_cache(self, service):
+        service.games_collection.stream.return_value = self._docs()
+        a = await service._fetch_games()
+        service._games_cache_at -= 10_000
+        service.games_collection.stream.side_effect = RuntimeError("firestore down")
+        b = await service._fetch_games()
+        assert b == a, "stale cache must be served on fetch failure"
