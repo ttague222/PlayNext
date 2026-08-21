@@ -64,6 +64,21 @@ TIME_BRACKETS = {
     120: [15, 30, 60, 90, 120],
 }
 
+# Subscription taxonomy aliases. The mobile filter UI sends short forms
+# (game_pass, ps_plus) while game data and the client's badge config use
+# long forms (xbox_game_pass, playstation_plus). Both are baked into the
+# shipped 1.1.0 binary, so the server bridges: normalize both sides of the
+# filter so any combination matches. Canonical data form is the LONG form.
+SUBSCRIPTION_ALIASES = {
+    "game_pass": "xbox_game_pass",
+    "ps_plus": "playstation_plus",
+}
+
+
+def normalize_subscriptions(values) -> set:
+    """Map subscription identifiers to their canonical (long) form."""
+    return {SUBSCRIPTION_ALIASES.get(v, v) for v in (values or [])}
+
 
 def build_taste_profile(games: list[dict]) -> dict:
     """Frequency map of genre_tags and mood_tags across a list of game dicts.
@@ -340,12 +355,13 @@ class RecommendationService:
                 if g.get("time_to_fun") == request.time_to_fun.value
             ]
 
-        # Premium filter: on_subscriptions (game must be on at least one)
+        # Premium filter: on_subscriptions (game must be on at least one).
+        # Normalized on both sides — see SUBSCRIPTION_ALIASES.
         if request.on_subscriptions:
-            wanted = set(request.on_subscriptions)
+            wanted = normalize_subscriptions(request.on_subscriptions)
             filtered = [
                 g for g in filtered
-                if wanted.intersection(set(g.get("subscription_services") or []))
+                if wanted.intersection(normalize_subscriptions(g.get("subscription_services")))
             ]
 
         # Premium filter: exclude games the user has interacted with.

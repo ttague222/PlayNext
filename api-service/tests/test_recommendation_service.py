@@ -865,3 +865,51 @@ class TestTimeAffinityScoring:
         games = [self._game("quick", [15]), self._game("deep", [120])]
         scores = self._score(service, games, 120)
         assert 0 < scores["deep"] - scores["quick"] <= 0.1 + 1e-9
+
+
+class TestSubscriptionAliases:
+    """Regression cover for the taxonomy drift found 2026-08-21.
+
+    The shipped client's filter chips send short forms (game_pass, ps_plus)
+    while game data and the client badge config use long forms
+    (xbox_game_pass, playstation_plus). The server must match any combination.
+    Before the alias map, the Game Pass filter missed 91 of ~105 tagged games
+    and the PS Plus filter matched zero games.
+    """
+
+    @pytest.fixture
+    def service(self, mock_firebase):
+        with patch('src.services.recommendation_service.get_collection'):
+            from src.services.recommendation_service import RecommendationService
+            return RecommendationService()
+
+    def _game(self, game_id, subs):
+        return {
+            "game_id": game_id, "title": game_id, "platforms": ["pc"],
+            "time_tags": [30], "energy_level": "low", "play_style": ["action"],
+            "genre_tags": [], "time_to_fun": "short", "stop_friendliness": "anytime",
+            "multiplayer_modes": ["solo"], "subscription_services": subs,
+        }
+
+    def _filter(self, service, games, subs):
+        request = RecommendationRequest(
+            time_available=30, energy_mood=EnergyMood.WIND_DOWN,
+            on_subscriptions=subs,
+        )
+        return [g["game_id"] for g in service._apply_filters(games, request)]
+
+    def test_short_form_request_matches_long_form_data(self, service):
+        games = [self._game("gp-long", ["xbox_game_pass"]), self._game("none", [])]
+        assert self._filter(service, games, ["game_pass"]) == ["gp-long"]
+
+    def test_ps_plus_matches_playstation_plus(self, service):
+        games = [self._game("psp", ["playstation_plus"]), self._game("none", [])]
+        assert self._filter(service, games, ["ps_plus"]) == ["psp"]
+
+    def test_long_form_request_matches_short_form_data(self, service):
+        games = [self._game("gp-short", ["game_pass"])]
+        assert self._filter(service, games, ["xbox_game_pass"]) == ["gp-short"]
+
+    def test_unaliased_values_pass_through(self, service):
+        games = [self._game("ea", ["ea_play"]), self._game("none", [])]
+        assert self._filter(service, games, ["ea_play"]) == ["ea"]
