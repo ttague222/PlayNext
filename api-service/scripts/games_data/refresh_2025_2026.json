@@ -1,0 +1,1049 @@
+[
+  {
+    "id": "vampire-bloodlines-2",
+    "title": "Vampire: The Masquerade – Bloodlines 2",
+    "platforms": [
+      "pc",
+      "playstation",
+      "xbox"
+    ],
+    "year": 2025,
+    "genres": [
+      "rpg",
+      "action",
+      "narrative"
+    ],
+    "time_tags": [
+      60,
+      90,
+      120
+    ],
+    "energy": "medium",
+    "moods": [
+      "immersive",
+      "intense",
+      "adventurous"
+    ],
+    "play_style": [
+      "action",
+      "narrative"
+    ],
+    "time_to_fun": "medium",
+    "stop_friendliness": "checkpoints",
+    "multiplayer": [
+      "solo"
+    ],
+    "description": "Stalk Seattle's night as an elder vampire in this long-awaited RPG sequel full of blood, politics, and hard choices.",
+    "store_links": {
+      "gog": "http://www.gog.com/game/vampire_the_masquerade_bloodlines_2",
+      "epic": "https://www.epicgames.com/store/en-US/product/vampire-the-masquerade-bloodlines-2/home?sessionInvalidated=true&lang=en-US",
+      "steam": "https://store.steampowered.com/app/532790/"
+    }
+  },
+  {
+    "id": "kingdom-come-deliverance-2",
+    "title": "Kingdom Come: Deliverance II",
+    "platforms": [
+      "pc",
+      "playstation",
+      "xbox"
+    ],
+    "year": 2025,
+    "genres": [
+      "rpg",
+      "action",
+      "open-world"
+    ],
+    "time_tags": [
+      60,
+      90,
+      120
+    ],
+    "energy": "medium",
+    "moods": [
+      "immersive",
+      "challenging",
+      "adventurous"
+    ],
+    "play_style": [
+      "action",
+      "narrative"
+    ],
+    "time_to_fun": "long",
+    "stop_friendliness": "commitment",
+    "multiplayer": [
+      "solo"
+    ],
+    "description": "A grounded medieval RPG epic where sword skill is earned, not given, and 15th-century Bohemia feels alive.",
+    "store_links": {
+      "steam": "https://store.steampowered.com/app/1771300/",
+      "gog": "https://www.gog.com/en/game/kingdom_come_deliverance_ii"
+    }
+  },
+  {
+    "id": "replaced-game",
+    "title": "Replaced",
+    "platforms": [
+      "pc",
+      "xbox"
+    ],
+    "year": 2026,
+    "genres": [
+      "action",
+      "platformer",
+      "narrative"
+    ],
+    "time_tags": [
+      30,
+      60,
+      90
+    ],
+    "energy": "medium",
+    "moods": [
+      "immersive",
+      "beautiful",
+      "intense"
+    ],
+    "play_style": [
+      "action",
+      "narrative"
+    ],
+    "time_to_fun": "medium",
+    "stop_friendliness": "checkpoints",
+    "multiplayer": [
+      "solo"
+    ],
+    "description": "A stunning 2.5D sci-fi platformer about an AI trapped in a human body, wrapped in some of the best pixel art ever made.",
+    "store_links": {
+      "gog": "https://www.gog.com/en/game/replaced",
+      "epic": "https://www.epicgames.com/store/en-US/p/replaced",
+      "steam": "https://store.steampowered.com/app/1663850/REPLACED/"
+    }
+  },
+  {
+    "id": "tiny-bunny",
+    "title": "Tiny Bunny",
+    "platforms": [
+      "pc"
+    ],
+    "year": 2025,
+    "genres": [
+      "narrative",
+      "horror",
+      "indie"
+    ],
+    "time_tags": [
+      30,
+      60,
+      90,
+      120
+    ],
+    "energy": "low",
+    "moods": [
+      "immersive",
+      "intense"
+    ],
+    "play_style": [
+      "narrative"
+    ],
+    "time_to_fun": "medium",
+    "stop_friendliness": "anytime",
+    "multiplayer": [
+      "solo"
+    ],
+    "description": "A slow-burn horror visual novel set in a snowbound Siberian village where the forest whispers back.",
+    "store_links": {
+      "steam": "https://store.steampowered.com/app/1421250/Tiny_Bunny/"
+    }
+  },
+  {
+    "id": "resident-evil-9-requiem",
+    "title": "Resident Evil 9: Requiem",
+    "platforms": [
+      "pc",
+      "playstation",
+      "xbox"
+    ],
+    "year": 2026,
+    "genres": [
+      "action",
+      "horror"
+    ],
+    "time_tags": [
+      60,
+      90,
+      120
+    ],
+    "energy": "high",
+    "moods": [
+      "intense",
+      "immersive"
+    ],
+    "play_style": [
+      "action",
+      "narrative"
+    ],
+    "time_to_fun": "medium",
+    "stop_friendliness": "checkpoints",
+    "multiplayer": [
+      "solo"
+    ],
+    "description": "Capcom's flagship survival horror returns with Requiem, trading nowhere-to-hide dread for everything the series learned since Village.",
+    "store_links": {
+      "steam": "https://store.steampowered.com/app/3764200/Resident_Evil_Requiem/"
+    }
+  },
+  {
+    "id": "dispatch-game",
+    "title": "Dispatch",
+    "platforms": [
+      "pc",
+      "playstation"
+    ],
+    "year": 2025,
+    "genres": [
+      "narrative",
+      "strategy",
+      "indie"
+    ],
+    "time_tags": [
+      30,
+      60,
+      90
+    ],
+    "energy": "medium",
+    "moods": [
+      "fun",
+      "immersive",
+      "charming"
+    ],
+    "play_style": [
+      "narrative",
+      "strategy"
+    ],
+    "time_to_fun": "short",
+    "stop_friendliness": "checkpoints",
+    "multiplayer": [
+      "solo"
+    ],
+    "description": "Run dispatch for a team of washed-up superheroes in this sharply written narrative hit about second chances.",
+    "store_links": {
+      "steam": "https://store.steampowered.com/app/2592160/Dispatch/"
+    }
+  },
+  {
+    "id": "the-alters",
+    "title": "The Alters",
+    "platforms": [
+      "pc",
+      "playstation",
+      "xbox"
+    ],
+    "year": 2025,
+    "genres": [
+      "narrative",
+      "simulation",
+      "survival"
+    ],
+    "time_tags": [
+      60,
+      90,
+      120
+    ],
+    "energy": "medium",
+    "moods": [
+      "immersive",
+      "strategic",
+      "intense"
+    ],
+    "play_style": [
+      "narrative",
+      "strategy"
+    ],
+    "time_to_fun": "medium",
+    "stop_friendliness": "anytime",
+    "multiplayer": [
+      "solo"
+    ],
+    "description": "Stranded alone, you survive by creating alternate versions of yourself, each shaped by a life you never lived.",
+    "store_links": {
+      "xbox": "https://www.microsoft.com/en-US/games/store/the-alters/9n0p25wjhm8c",
+      "playstation": "https://store.playstation.com/en-us/concept/10008217",
+      "steam": "https://store.steampowered.com/app/1601570/The_Alters/",
+      "gog": "https://www.gog.com/en/game/the_alters"
+    }
+  },
+  {
+    "id": "necesse",
+    "title": "Necesse",
+    "platforms": [
+      "pc"
+    ],
+    "year": 2025,
+    "genres": [
+      "sandbox",
+      "survival",
+      "indie"
+    ],
+    "time_tags": [
+      30,
+      60,
+      90,
+      120
+    ],
+    "energy": "medium",
+    "moods": [
+      "creative",
+      "adventurous",
+      "relaxing"
+    ],
+    "play_style": [
+      "sandbox_creative"
+    ],
+    "time_to_fun": "medium",
+    "stop_friendliness": "anytime",
+    "multiplayer": [
+      "solo",
+      "online_coop"
+    ],
+    "description": "A top-down sandbox in the Terraria mold: build a settlement, recruit villagers, and raid procedurally generated dungeons.",
+    "store_links": {
+      "steam": "https://store.steampowered.com/app/1169040/"
+    }
+  },
+  {
+    "id": "tainted-grail-fall-of-avalon",
+    "title": "Tainted Grail: The Fall of Avalon",
+    "platforms": [
+      "pc",
+      "playstation",
+      "xbox"
+    ],
+    "year": 2025,
+    "genres": [
+      "rpg",
+      "action",
+      "open-world"
+    ],
+    "time_tags": [
+      60,
+      90,
+      120
+    ],
+    "energy": "medium",
+    "moods": [
+      "immersive",
+      "adventurous",
+      "intense"
+    ],
+    "play_style": [
+      "action",
+      "narrative"
+    ],
+    "time_to_fun": "medium",
+    "stop_friendliness": "anytime",
+    "multiplayer": [
+      "solo"
+    ],
+    "description": "A dark open-world RPG set in a dying Arthurian Avalon where the legends went very, very wrong.",
+    "store_links": {
+      "steam": "https://store.steampowered.com/app/1466060/Tainted_Grail_The_Fall_of_Avalon/",
+      "gog": "https://www.gog.com/game/tainted_grail_the_fall_of_avalon"
+    }
+  },
+  {
+    "id": "arc-raiders",
+    "title": "ARC Raiders",
+    "platforms": [
+      "pc",
+      "playstation",
+      "xbox"
+    ],
+    "year": 2025,
+    "genres": [
+      "action",
+      "shooter"
+    ],
+    "time_tags": [
+      30,
+      60,
+      90,
+      120
+    ],
+    "energy": "high",
+    "moods": [
+      "intense",
+      "competitive",
+      "exciting"
+    ],
+    "play_style": [
+      "action"
+    ],
+    "time_to_fun": "short",
+    "stop_friendliness": "commitment",
+    "multiplayer": [
+      "competitive",
+      "online_coop"
+    ],
+    "description": "Scavenge a beautiful ruined Earth under machine-filled skies in the extraction shooter that took over 2025.",
+    "store_links": {
+      "steam": "https://store.steampowered.com/app/1808500",
+      "epic": "https://www.epicgames.com/store/en-US/p/arc-raiders"
+    }
+  },
+  {
+    "id": "escape-the-backrooms",
+    "title": "Escape the Backrooms",
+    "platforms": [
+      "pc"
+    ],
+    "year": 2025,
+    "genres": [
+      "horror",
+      "indie"
+    ],
+    "time_tags": [
+      30,
+      60,
+      90
+    ],
+    "energy": "high",
+    "moods": [
+      "intense",
+      "fun"
+    ],
+    "play_style": [
+      "action"
+    ],
+    "time_to_fun": "short",
+    "stop_friendliness": "checkpoints",
+    "multiplayer": [
+      "online_coop",
+      "solo"
+    ],
+    "description": "Wade through the internet's favorite liminal nightmare with friends, one impossible yellow hallway at a time.",
+    "store_links": {
+      "steam": "https://store.steampowered.com/app/1943950/"
+    }
+  },
+  {
+    "id": "the-wandering-village",
+    "title": "The Wandering Village",
+    "platforms": [
+      "pc",
+      "xbox",
+      "switch"
+    ],
+    "year": 2025,
+    "genres": [
+      "strategy",
+      "simulation",
+      "indie"
+    ],
+    "time_tags": [
+      30,
+      60,
+      90,
+      120
+    ],
+    "energy": "low",
+    "moods": [
+      "relaxing",
+      "creative",
+      "strategic"
+    ],
+    "play_style": [
+      "strategy"
+    ],
+    "time_to_fun": "medium",
+    "stop_friendliness": "anytime",
+    "multiplayer": [
+      "solo"
+    ],
+    "description": "Build a village on the back of a wandering giant creature and keep both your people and your host alive.",
+    "store_links": {
+      "steam": "https://store.steampowered.com/app/1121640/The_Wandering_Village/"
+    }
+  },
+  {
+    "id": "reanimal",
+    "title": "Reanimal",
+    "platforms": [
+      "pc",
+      "playstation",
+      "xbox"
+    ],
+    "year": 2026,
+    "genres": [
+      "horror",
+      "adventure",
+      "platformer"
+    ],
+    "time_tags": [
+      30,
+      60,
+      90
+    ],
+    "energy": "medium",
+    "moods": [
+      "intense",
+      "immersive"
+    ],
+    "play_style": [
+      "action",
+      "narrative"
+    ],
+    "time_to_fun": "short",
+    "stop_friendliness": "checkpoints",
+    "multiplayer": [
+      "solo",
+      "local_coop",
+      "online_coop"
+    ],
+    "description": "From the creators of Little Nightmares: two siblings cross a grotesque island to rescue lost friends, alone or in co-op.",
+    "store_links": {
+      "gog": "https://www.gog.com/en/game/reanimal"
+    }
+  },
+  {
+    "id": "rhythm-doctor",
+    "title": "Rhythm Doctor",
+    "platforms": [
+      "pc"
+    ],
+    "year": 2025,
+    "genres": [
+      "rhythm",
+      "indie",
+      "puzzle"
+    ],
+    "time_tags": [
+      15,
+      30,
+      60
+    ],
+    "energy": "medium",
+    "moods": [
+      "fun",
+      "challenging",
+      "satisfying"
+    ],
+    "play_style": [
+      "puzzle"
+    ],
+    "time_to_fun": "short",
+    "stop_friendliness": "anytime",
+    "multiplayer": [
+      "solo"
+    ],
+    "description": "Defibrillate patients on the seventh beat in a one-button rhythm game that hides devious depth behind its simplicity.",
+    "store_links": {
+      "steam": "http://store.steampowered.com/app/774181/"
+    }
+  },
+  {
+    "id": "mouse-pi-for-hire",
+    "title": "MOUSE: P.I. For Hire",
+    "platforms": [
+      "pc",
+      "playstation",
+      "xbox",
+      "switch"
+    ],
+    "year": 2026,
+    "genres": [
+      "action",
+      "shooter"
+    ],
+    "time_tags": [
+      30,
+      60,
+      90
+    ],
+    "energy": "high",
+    "moods": [
+      "fun",
+      "intense",
+      "nostalgic"
+    ],
+    "play_style": [
+      "action"
+    ],
+    "time_to_fun": "short",
+    "stop_friendliness": "checkpoints",
+    "multiplayer": [
+      "solo"
+    ],
+    "description": "A noir FPS drawn like a 1930s rubber-hose cartoon, where a hardboiled mouse detective shoots his way through Mouseburg.",
+    "store_links": {
+      "playstation": "https://store.playstation.com/en-us/concept/10012945",
+      "steam": "https://store.steampowered.com/app/2416450/MOUSE_PI_For_Hire/"
+    }
+  },
+  {
+    "id": "gothic-1-remake",
+    "title": "Gothic 1 Remake",
+    "platforms": [
+      "pc",
+      "playstation",
+      "xbox"
+    ],
+    "year": 2026,
+    "genres": [
+      "rpg",
+      "action",
+      "open-world"
+    ],
+    "time_tags": [
+      60,
+      90,
+      120
+    ],
+    "energy": "medium",
+    "moods": [
+      "immersive",
+      "challenging",
+      "nostalgic"
+    ],
+    "play_style": [
+      "action",
+      "narrative"
+    ],
+    "time_to_fun": "long",
+    "stop_friendliness": "anytime",
+    "multiplayer": [
+      "solo"
+    ],
+    "description": "The cult classic prison-colony RPG rebuilt from the ground up, as unforgiving and atmospheric as you remember.",
+    "store_links": {
+      "steam": "https://store.steampowered.com/app/1297900/Gothic_1_Remake/",
+      "gog": "https://www.gog.com/game/gothic_1_remake"
+    }
+  },
+  {
+    "id": "cronos-the-new-dawn",
+    "title": "Cronos: The New Dawn",
+    "platforms": [
+      "pc",
+      "playstation",
+      "xbox"
+    ],
+    "year": 2025,
+    "genres": [
+      "horror",
+      "action"
+    ],
+    "time_tags": [
+      60,
+      90,
+      120
+    ],
+    "energy": "high",
+    "moods": [
+      "intense",
+      "immersive"
+    ],
+    "play_style": [
+      "action"
+    ],
+    "time_to_fun": "medium",
+    "stop_friendliness": "checkpoints",
+    "multiplayer": [
+      "solo"
+    ],
+    "description": "Bloober Team's time-bending survival horror sends a Traveler into a merged past and future Poland where the dead fuse together.",
+    "store_links": {
+      "steam": "https://store.steampowered.com/app/2101960/",
+      "gog": "https://www.gog.com/en/game/cronos_the_new_dawn"
+    }
+  },
+  {
+    "id": "hell-is-us",
+    "title": "Hell is Us",
+    "platforms": [
+      "pc",
+      "playstation",
+      "xbox"
+    ],
+    "year": 2025,
+    "genres": [
+      "action",
+      "adventure"
+    ],
+    "time_tags": [
+      60,
+      90,
+      120
+    ],
+    "energy": "medium",
+    "moods": [
+      "immersive",
+      "adventurous",
+      "intense"
+    ],
+    "play_style": [
+      "action",
+      "narrative"
+    ],
+    "time_to_fun": "medium",
+    "stop_friendliness": "checkpoints",
+    "multiplayer": [
+      "solo"
+    ],
+    "description": "Explore a country consumed by civil war and something stranger, with no map markers and no hand-holding.",
+    "store_links": {
+      "steam": "https://store.steampowered.com/app/1620730/"
+    }
+  },
+  {
+    "id": "the-first-berserker-khazan",
+    "title": "The First Berserker: Khazan",
+    "platforms": [
+      "pc",
+      "playstation",
+      "xbox"
+    ],
+    "year": 2025,
+    "genres": [
+      "action",
+      "rpg",
+      "soulslike"
+    ],
+    "time_tags": [
+      60,
+      90,
+      120
+    ],
+    "energy": "high",
+    "moods": [
+      "challenging",
+      "intense",
+      "satisfying"
+    ],
+    "play_style": [
+      "action"
+    ],
+    "time_to_fun": "medium",
+    "stop_friendliness": "checkpoints",
+    "multiplayer": [
+      "solo"
+    ],
+    "description": "A stylish anime soulslike about a betrayed general clawing his way back from exile, one brutal boss at a time.",
+    "store_links": {
+      "xbox": "https://www.microsoft.com/games/store/the-first-berserker-khazan-standard-edition/9nh8p6s460ld",
+      "playstation": "https://store.playstation.com/en-gb/product/UP8236-PPSA20447_00-0545059108752800",
+      "steam": "https://store.steampowered.com/app/2680010/The_First_Berserker_Khazan/"
+    }
+  },
+  {
+    "id": "atomfall",
+    "title": "Atomfall",
+    "platforms": [
+      "pc",
+      "playstation",
+      "xbox"
+    ],
+    "year": 2025,
+    "genres": [
+      "action",
+      "survival",
+      "adventure"
+    ],
+    "time_tags": [
+      30,
+      60,
+      90,
+      120
+    ],
+    "energy": "medium",
+    "moods": [
+      "adventurous",
+      "immersive",
+      "intense"
+    ],
+    "play_style": [
+      "action"
+    ],
+    "time_to_fun": "medium",
+    "stop_friendliness": "anytime",
+    "multiplayer": [
+      "solo"
+    ],
+    "description": "Investigate a very British nuclear disaster in a Lake District full of cults, robots, and tea-adjacent menace.",
+    "store_links": {
+      "epic": "https://store.epicgames.com/ru/p/atomfall",
+      "steam": "https://store.steampowered.com/app/801800/Atomfall/"
+    }
+  },
+  {
+    "id": "wuchang-fallen-feathers",
+    "title": "Wuchang: Fallen Feathers",
+    "platforms": [
+      "pc",
+      "playstation",
+      "xbox"
+    ],
+    "year": 2025,
+    "genres": [
+      "action",
+      "rpg",
+      "soulslike"
+    ],
+    "time_tags": [
+      60,
+      90,
+      120
+    ],
+    "energy": "high",
+    "moods": [
+      "challenging",
+      "intense",
+      "satisfying"
+    ],
+    "play_style": [
+      "action"
+    ],
+    "time_to_fun": "medium",
+    "stop_friendliness": "checkpoints",
+    "multiplayer": [
+      "solo"
+    ],
+    "description": "A soulslike set in plague-ridden Ming dynasty China, where a pirate warrior battles the feathered corruption spreading through her.",
+    "store_links": {
+      "playstation": "https://store.playstation.com/pt-br/concept/10005853/",
+      "steam": "https://store.steampowered.com/app/2277560/WUCHANG_Fallen_Feathers/"
+    }
+  },
+  {
+    "id": "directive-8020",
+    "title": "Directive 8020",
+    "platforms": [
+      "pc",
+      "playstation",
+      "xbox"
+    ],
+    "year": 2026,
+    "genres": [
+      "horror",
+      "narrative"
+    ],
+    "time_tags": [
+      30,
+      60,
+      90,
+      120
+    ],
+    "energy": "medium",
+    "moods": [
+      "intense",
+      "immersive"
+    ],
+    "play_style": [
+      "narrative"
+    ],
+    "time_to_fun": "short",
+    "stop_friendliness": "checkpoints",
+    "multiplayer": [
+      "solo",
+      "local_coop"
+    ],
+    "description": "Supermassive's sci-fi horror: a crashed colony ship, a creature that copies people, and choices that decide who's still human.",
+    "store_links": {
+      "xbox": "https://microsoft.com/en-GB/p/directive-8020-pre-order/9N1NV0W95FS2/0017",
+      "playstation": "https://store.playstation.com/en-gb/concept/10008357?game=D8020&platform=PS5",
+      "steam": "https://store.steampowered.com/app/2255370/Directive_8020/"
+    }
+  },
+  {
+    "id": "where-winds-meet",
+    "title": "Where Winds Meet",
+    "platforms": [
+      "pc",
+      "playstation",
+      "mobile"
+    ],
+    "year": 2025,
+    "genres": [
+      "rpg",
+      "action",
+      "open-world"
+    ],
+    "time_tags": [
+      30,
+      60,
+      90,
+      120
+    ],
+    "energy": "medium",
+    "moods": [
+      "adventurous",
+      "beautiful",
+      "immersive"
+    ],
+    "play_style": [
+      "action",
+      "narrative"
+    ],
+    "time_to_fun": "medium",
+    "stop_friendliness": "anytime",
+    "multiplayer": [
+      "solo",
+      "online_coop"
+    ],
+    "description": "A gorgeous wuxia open world where you sword-fight across rooftops, run a clinic, and live ten lives in ancient China.",
+    "store_links": {
+      "steam": "https://store.steampowered.com/app/3564740/"
+    }
+  },
+  {
+    "id": "abiotic-factor",
+    "title": "Abiotic Factor",
+    "platforms": [
+      "pc"
+    ],
+    "year": 2025,
+    "genres": [
+      "survival",
+      "sandbox",
+      "indie"
+    ],
+    "time_tags": [
+      30,
+      60,
+      90,
+      120
+    ],
+    "energy": "medium",
+    "moods": [
+      "fun",
+      "creative",
+      "adventurous"
+    ],
+    "play_style": [
+      "sandbox_creative",
+      "action"
+    ],
+    "time_to_fun": "medium",
+    "stop_friendliness": "anytime",
+    "multiplayer": [
+      "online_coop",
+      "solo"
+    ],
+    "description": "Half-Life-flavored co-op survival: you are the scientists left behind in the facility after the containment breach.",
+    "store_links": {
+      "playstation": "https://store.playstation.com/fr-fr/concept/10012483",
+      "steam": "https://store.steampowered.com/app/427410/Abiotic_Factor/"
+    }
+  },
+  {
+    "id": "the-rogue-prince-of-persia",
+    "title": "The Rogue Prince of Persia",
+    "platforms": [
+      "pc"
+    ],
+    "year": 2025,
+    "genres": [
+      "action",
+      "roguelike",
+      "platformer"
+    ],
+    "time_tags": [
+      15,
+      30,
+      60,
+      90
+    ],
+    "energy": "high",
+    "moods": [
+      "challenging",
+      "fun",
+      "satisfying"
+    ],
+    "play_style": [
+      "action"
+    ],
+    "time_to_fun": "short",
+    "stop_friendliness": "checkpoints",
+    "multiplayer": [
+      "solo"
+    ],
+    "description": "Wall-run, vault, and die beautifully in a roguelite Prince of Persia from the makers of Dead Cells' DLC.",
+    "store_links": {
+      "steam": "https://store.steampowered.com/app/2717880/The_Rogue_Prince_of_Persia/"
+    }
+  },
+  {
+    "id": "fragpunk",
+    "title": "FragPunk",
+    "platforms": [
+      "pc",
+      "playstation",
+      "xbox"
+    ],
+    "year": 2025,
+    "genres": [
+      "shooter",
+      "action"
+    ],
+    "time_tags": [
+      15,
+      30,
+      60,
+      90
+    ],
+    "energy": "high",
+    "moods": [
+      "competitive",
+      "intense",
+      "fun"
+    ],
+    "play_style": [
+      "action"
+    ],
+    "time_to_fun": "short",
+    "stop_friendliness": "commitment",
+    "multiplayer": [
+      "competitive"
+    ],
+    "description": "A hero shooter where rule-bending cards rewrite each round: bigger heads, bouncy bullets, or no jumping allowed.",
+    "store_links": {
+      "steam": "https://store.steampowered.com/app/2943650/"
+    }
+  },
+  {
+    "id": "sword-of-the-sea",
+    "title": "Sword of the Sea",
+    "platforms": [
+      "pc",
+      "playstation"
+    ],
+    "year": 2025,
+    "genres": [
+      "adventure",
+      "indie"
+    ],
+    "time_tags": [
+      30,
+      60,
+      90
+    ],
+    "energy": "low",
+    "moods": [
+      "beautiful",
+      "relaxing",
+      "immersive"
+    ],
+    "play_style": [
+      "action"
+    ],
+    "time_to_fun": "short",
+    "stop_friendliness": "anytime",
+    "multiplayer": [
+      "solo"
+    ],
+    "description": "Surf a sword across ocean-like dunes in a meditative journey from the team behind Abzu and Journey's art.",
+    "store_links": {
+      "steam": "https://store.steampowered.com/app/2453160/Sword_of_the_Sea/"
+    }
+  }
+]
