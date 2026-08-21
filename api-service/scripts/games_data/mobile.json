@@ -12,7 +12,6 @@
       "competitive"
     ],
     "time_tags": [
-      5,
       15,
       30
     ],
@@ -53,7 +52,6 @@
       "multiplayer"
     ],
     "time_tags": [
-      5,
       15,
       30,
       60
@@ -94,7 +92,6 @@
       "casual"
     ],
     "time_tags": [
-      5,
       15,
       30
     ],
@@ -172,7 +169,6 @@
       "casual"
     ],
     "time_tags": [
-      5,
       15
     ],
     "energy": "medium",
@@ -248,7 +244,6 @@
       "competitive"
     ],
     "time_tags": [
-      10,
       15,
       30
     ],
@@ -289,8 +284,6 @@
       "multiplayer"
     ],
     "time_tags": [
-      5,
-      10,
       15
     ],
     "energy": "high",
@@ -406,7 +399,6 @@
       "indie"
     ],
     "time_tags": [
-      10,
       15,
       30
     ],
@@ -445,9 +437,8 @@
       "multiplayer"
     ],
     "time_tags": [
-      10,
       15,
-      20
+      30
     ],
     "energy": "high",
     "moods": [
@@ -485,8 +476,6 @@
       "casual"
     ],
     "time_tags": [
-      5,
-      10,
       15
     ],
     "energy": "medium",
@@ -524,7 +513,6 @@
       "casual"
     ],
     "time_tags": [
-      10,
       15,
       30
     ],
@@ -563,8 +551,6 @@
       "action"
     ],
     "time_tags": [
-      5,
-      10,
       15
     ],
     "energy": "medium",
@@ -602,8 +588,6 @@
       "casual"
     ],
     "time_tags": [
-      5,
-      10,
       15
     ],
     "energy": "low",
@@ -641,8 +625,6 @@
       "casual"
     ],
     "time_tags": [
-      5,
-      10,
       15
     ],
     "energy": "low",
@@ -679,8 +661,6 @@
       "multiplayer"
     ],
     "time_tags": [
-      5,
-      10,
       15
     ],
     "energy": "low",
@@ -718,8 +698,6 @@
       "action"
     ],
     "time_tags": [
-      5,
-      10,
       15
     ],
     "energy": "high",
@@ -759,8 +737,6 @@
       "casual"
     ],
     "time_tags": [
-      5,
-      10,
       15
     ],
     "energy": "medium",
@@ -886,7 +862,6 @@
       "competitive"
     ],
     "time_tags": [
-      10,
       15,
       30
     ],
@@ -928,7 +903,6 @@
     ],
     "time_tags": [
       15,
-      20,
       30
     ],
     "energy": "high",
@@ -1008,7 +982,6 @@
       "arcade"
     ],
     "time_tags": [
-      10,
       15,
       30
     ],
@@ -1046,8 +1019,6 @@
       "casual"
     ],
     "time_tags": [
-      5,
-      10,
       15
     ],
     "energy": "low",
@@ -1126,7 +1097,6 @@
       "gacha"
     ],
     "time_tags": [
-      5,
       15,
       30
     ],
@@ -1164,8 +1134,6 @@
       "simulation"
     ],
     "time_tags": [
-      5,
-      10,
       15
     ],
     "energy": "high",
@@ -1204,7 +1172,6 @@
       "competitive"
     ],
     "time_tags": [
-      10,
       15
     ],
     "energy": "high",
@@ -1243,8 +1210,6 @@
       "casual"
     ],
     "time_tags": [
-      5,
-      10,
       15
     ],
     "energy": "low",
@@ -1283,7 +1248,6 @@
       "decoration"
     ],
     "time_tags": [
-      10,
       15,
       30
     ],
@@ -1321,7 +1285,6 @@
       "decoration"
     ],
     "time_tags": [
-      10,
       15,
       30
     ],
@@ -1359,8 +1322,6 @@
       "casual"
     ],
     "time_tags": [
-      5,
-      10,
       15
     ],
     "energy": "low",
@@ -1397,8 +1358,6 @@
       "casual"
     ],
     "time_tags": [
-      5,
-      10,
       15
     ],
     "energy": "low",
@@ -1435,8 +1394,6 @@
       "casual"
     ],
     "time_tags": [
-      5,
-      10,
       15,
       30
     ],
@@ -1474,8 +1431,6 @@
       "competitive"
     ],
     "time_tags": [
-      5,
-      10,
       15,
       30
     ],
@@ -1514,7 +1469,6 @@
       "casual"
     ],
     "time_tags": [
-      10,
       15,
       30
     ],
@@ -1666,8 +1620,6 @@
       "indie"
     ],
     "time_tags": [
-      5,
-      10,
       15
     ],
     "energy": "medium",
@@ -1705,8 +1657,6 @@
       "arcade"
     ],
     "time_tags": [
-      5,
-      10,
       15,
       30
     ],
@@ -1744,8 +1694,6 @@
       "turn-based"
     ],
     "time_tags": [
-      5,
-      10,
       15
     ],
     "energy": "low",
@@ -1903,7 +1851,6 @@
       "match-3"
     ],
     "time_tags": [
-      10,
       15,
       30
     ],
@@ -1944,8 +1891,6 @@
       "casual"
     ],
     "time_tags": [
-      5,
-      10,
       15
     ],
     "energy": "medium",
@@ -1985,7 +1930,6 @@
       "multiplayer"
     ],
     "time_tags": [
-      10,
       15
     ],
     "energy": "high",
@@ -2142,7 +2086,6 @@
       "simulation"
     ],
     "time_tags": [
-      10,
       15,
       30
     ],
@@ -2182,7 +2125,6 @@
       "simulation"
     ],
     "time_tags": [
-      10,
       15,
       30
     ],
@@ -2221,7 +2163,6 @@
       "casual"
     ],
     "time_tags": [
-      10,
       15,
       30
     ],
@@ -2299,7 +2240,6 @@
       "decoration"
     ],
     "time_tags": [
-      10,
       15,
       30
     ],
@@ -2337,8 +2277,6 @@
       "slot"
     ],
     "time_tags": [
-      5,
-      10,
       15
     ],
     "energy": "low",
@@ -2376,8 +2314,6 @@
       "casual"
     ],
     "time_tags": [
-      5,
-      10,
       15
     ],
     "energy": "medium",
@@ -2414,7 +2350,6 @@
       "simulation"
     ],
     "time_tags": [
-      10,
       15,
       30
     ],
@@ -2454,7 +2389,6 @@
       "simulation"
     ],
     "time_tags": [
-      10,
       15,
       30
     ],
@@ -2494,7 +2428,6 @@
       "simulation"
     ],
     "time_tags": [
-      10,
       15,
       30
     ],
@@ -2534,7 +2467,6 @@
       "retro"
     ],
     "time_tags": [
-      10,
       15,
       30
     ],
@@ -2572,8 +2504,6 @@
       "competitive"
     ],
     "time_tags": [
-      5,
-      10,
       15
     ],
     "energy": "low",
@@ -2611,7 +2541,6 @@
       "competitive"
     ],
     "time_tags": [
-      10,
       15,
       30
     ],
@@ -2650,8 +2579,6 @@
       "casual"
     ],
     "time_tags": [
-      5,
-      10,
       15
     ],
     "energy": "medium",
@@ -2689,7 +2616,6 @@
       "text"
     ],
     "time_tags": [
-      10,
       15,
       30,
       60
@@ -2843,7 +2769,6 @@
       "indie"
     ],
     "time_tags": [
-      10,
       15,
       30
     ],
@@ -2998,8 +2923,6 @@
       "casual"
     ],
     "time_tags": [
-      5,
-      10,
       15
     ],
     "energy": "medium",
@@ -3036,8 +2959,6 @@
       "casual"
     ],
     "time_tags": [
-      5,
-      10,
       15
     ],
     "energy": "low",
@@ -3074,8 +2995,6 @@
       "casual"
     ],
     "time_tags": [
-      5,
-      10,
       15
     ],
     "energy": "low",
@@ -3112,8 +3031,6 @@
       "indie"
     ],
     "time_tags": [
-      5,
-      10,
       15
     ],
     "energy": "low",
@@ -3150,8 +3067,6 @@
       "casual"
     ],
     "time_tags": [
-      5,
-      10,
       15
     ],
     "energy": "low",
@@ -3188,8 +3103,6 @@
       "brain-teaser"
     ],
     "time_tags": [
-      5,
-      10,
       15
     ],
     "energy": "low",
@@ -3226,8 +3139,6 @@
       "casual"
     ],
     "time_tags": [
-      5,
-      10,
       15
     ],
     "energy": "low",
@@ -3658,8 +3569,6 @@
       "casual"
     ],
     "time_tags": [
-      5,
-      10,
       15
     ],
     "energy": "medium",
@@ -3697,8 +3606,6 @@
       "gacha"
     ],
     "time_tags": [
-      5,
-      10,
       15
     ],
     "energy": "high",
@@ -3737,7 +3644,6 @@
       "gacha"
     ],
     "time_tags": [
-      10,
       15,
       30
     ],
@@ -3777,8 +3683,6 @@
       "competitive"
     ],
     "time_tags": [
-      5,
-      10,
       15
     ],
     "energy": "high",
@@ -3816,8 +3720,6 @@
       "multiplayer"
     ],
     "time_tags": [
-      5,
-      10,
       15
     ],
     "energy": "high",
@@ -3856,9 +3758,8 @@
       "multiplayer"
     ],
     "time_tags": [
-      10,
       15,
-      20
+      30
     ],
     "energy": "high",
     "moods": [
@@ -3894,8 +3795,6 @@
       "gacha"
     ],
     "time_tags": [
-      5,
-      10,
       15
     ],
     "energy": "medium",
@@ -3933,8 +3832,6 @@
       "gacha"
     ],
     "time_tags": [
-      5,
-      10,
       15
     ],
     "energy": "medium",
@@ -3972,8 +3869,6 @@
       "simulation"
     ],
     "time_tags": [
-      5,
-      10,
       15
     ],
     "energy": "low",
@@ -4011,8 +3906,6 @@
       "indie"
     ],
     "time_tags": [
-      5,
-      10,
       15
     ],
     "energy": "medium",
@@ -4049,8 +3942,6 @@
       "indie"
     ],
     "time_tags": [
-      5,
-      10,
       15
     ],
     "energy": "medium",
@@ -4087,8 +3978,6 @@
       "casual"
     ],
     "time_tags": [
-      5,
-      10,
       15
     ],
     "energy": "medium",
@@ -4126,8 +4015,6 @@
       "casual"
     ],
     "time_tags": [
-      5,
-      10,
       15
     ],
     "energy": "low",
@@ -4164,8 +4051,6 @@
       "casual"
     ],
     "time_tags": [
-      5,
-      10,
       15
     ],
     "energy": "medium",
@@ -4202,8 +4087,6 @@
       "casual"
     ],
     "time_tags": [
-      5,
-      10,
       15
     ],
     "energy": "medium",
@@ -4240,7 +4123,6 @@
       "casual"
     ],
     "time_tags": [
-      10,
       15,
       30
     ],
@@ -4318,7 +4200,6 @@
       "casual"
     ],
     "time_tags": [
-      10,
       15,
       30
     ],
@@ -4356,7 +4237,6 @@
       "makeover"
     ],
     "time_tags": [
-      10,
       15,
       30
     ],
@@ -4394,7 +4274,6 @@
       "creative"
     ],
     "time_tags": [
-      10,
       15,
       30
     ],
@@ -4433,7 +4312,6 @@
       "competitive"
     ],
     "time_tags": [
-      10,
       15,
       30
     ],
@@ -4472,8 +4350,6 @@
       "cute"
     ],
     "time_tags": [
-      5,
-      10,
       15
     ],
     "energy": "low",
@@ -4510,8 +4386,6 @@
       "casual"
     ],
     "time_tags": [
-      5,
-      10,
       15
     ],
     "energy": "low",
@@ -4548,8 +4422,6 @@
       "relaxing"
     ],
     "time_tags": [
-      5,
-      10,
       15
     ],
     "energy": "low",
@@ -4586,8 +4458,6 @@
       "relaxing"
     ],
     "time_tags": [
-      5,
-      10,
       15
     ],
     "energy": "low",
@@ -4624,8 +4494,6 @@
       "cute"
     ],
     "time_tags": [
-      5,
-      10,
       15
     ],
     "energy": "low",
@@ -4662,7 +4530,6 @@
       "educational"
     ],
     "time_tags": [
-      10,
       15,
       30
     ],
@@ -4700,8 +4567,6 @@
       "clicker"
     ],
     "time_tags": [
-      5,
-      10,
       15
     ],
     "energy": "low",
@@ -4738,7 +4603,6 @@
       "clicker"
     ],
     "time_tags": [
-      10,
       15,
       30
     ],
@@ -4777,8 +4641,6 @@
       "clicker"
     ],
     "time_tags": [
-      5,
-      10,
       15
     ],
     "energy": "low",
@@ -4819,7 +4681,7 @@
     "time_tags": [
       15,
       30,
-      45
+      60
     ],
     "energy": "medium",
     "moods": [
@@ -4893,7 +4755,6 @@
       "survival"
     ],
     "time_tags": [
-      10,
       15,
       30
     ],
@@ -5050,8 +4911,6 @@
       "platformer"
     ],
     "time_tags": [
-      5,
-      10,
       15
     ],
     "energy": "high",
@@ -5088,7 +4947,6 @@
       "action"
     ],
     "time_tags": [
-      10,
       15,
       30
     ],
@@ -5127,7 +4985,6 @@
       "survival"
     ],
     "time_tags": [
-      10,
       15,
       30
     ],
@@ -5401,7 +5258,6 @@
       "gacha"
     ],
     "time_tags": [
-      10,
       15,
       30
     ],
@@ -5597,7 +5453,6 @@
       "gacha"
     ],
     "time_tags": [
-      10,
       15,
       30
     ],
@@ -5635,7 +5490,6 @@
       "gacha"
     ],
     "time_tags": [
-      10,
       15,
       30
     ],
@@ -5715,8 +5569,6 @@
       "competitive"
     ],
     "time_tags": [
-      5,
-      10,
       15
     ],
     "energy": "medium",
@@ -5756,7 +5608,6 @@
       "gacha"
     ],
     "time_tags": [
-      10,
       15,
       30
     ],
@@ -5796,7 +5647,6 @@
       "gacha"
     ],
     "time_tags": [
-      10,
       15,
       30
     ],
@@ -5836,7 +5686,6 @@
       "gacha"
     ],
     "time_tags": [
-      10,
       15,
       30
     ],
@@ -5876,7 +5725,6 @@
       "gacha"
     ],
     "time_tags": [
-      10,
       15,
       30
     ],
@@ -5916,7 +5764,6 @@
       "gacha"
     ],
     "time_tags": [
-      10,
       15,
       30
     ],
@@ -5956,7 +5803,6 @@
       "gacha"
     ],
     "time_tags": [
-      10,
       15,
       30
     ],
@@ -5996,7 +5842,6 @@
       "narrative"
     ],
     "time_tags": [
-      10,
       15,
       30
     ],
@@ -6398,7 +6243,6 @@
       "gacha"
     ],
     "time_tags": [
-      10,
       15,
       30
     ],
@@ -6437,7 +6281,6 @@
       "strategy"
     ],
     "time_tags": [
-      10,
       15,
       30
     ],
@@ -6477,8 +6320,6 @@
       "action"
     ],
     "time_tags": [
-      5,
-      10,
       15,
       30
     ],
@@ -6518,7 +6359,6 @@
       "action"
     ],
     "time_tags": [
-      10,
       15,
       30
     ],
@@ -6557,8 +6397,6 @@
       "action"
     ],
     "time_tags": [
-      5,
-      10,
       15
     ],
     "energy": "high",
@@ -6596,8 +6434,6 @@
       "card-game"
     ],
     "time_tags": [
-      5,
-      10,
       15,
       30
     ],
@@ -6638,8 +6474,6 @@
       "card-game"
     ],
     "time_tags": [
-      5,
-      10,
       15,
       30
     ],
@@ -6680,7 +6514,6 @@
       "tactical"
     ],
     "time_tags": [
-      10,
       15,
       30
     ],
@@ -6718,7 +6551,6 @@
       "tactical"
     ],
     "time_tags": [
-      10,
       15,
       30
     ],
@@ -6756,7 +6588,6 @@
       "multiplayer"
     ],
     "time_tags": [
-      10,
       15,
       30,
       60
@@ -6797,8 +6628,6 @@
       "casual"
     ],
     "time_tags": [
-      5,
-      10,
       15
     ],
     "energy": "medium",
@@ -6836,7 +6665,6 @@
       "naval"
     ],
     "time_tags": [
-      10,
       15,
       30
     ],
@@ -6875,7 +6703,6 @@
       "mech"
     ],
     "time_tags": [
-      10,
       15,
       30
     ],
@@ -6913,8 +6740,6 @@
       "mech"
     ],
     "time_tags": [
-      5,
-      10,
       15
     ],
     "energy": "high",
@@ -7148,8 +6973,6 @@
       "zombie"
     ],
     "time_tags": [
-      5,
-      10,
       15
     ],
     "energy": "high",
@@ -7268,8 +7091,6 @@
       "casual"
     ],
     "time_tags": [
-      5,
-      10,
       15
     ],
     "energy": "low",
@@ -7309,7 +7130,7 @@
     "time_tags": [
       15,
       30,
-      45
+      60
     ],
     "energy": "medium",
     "moods": [
@@ -7348,7 +7169,7 @@
     "time_tags": [
       15,
       30,
-      45
+      60
     ],
     "energy": "medium",
     "moods": [
@@ -7548,8 +7369,6 @@
       "quirky"
     ],
     "time_tags": [
-      5,
-      10,
       15
     ],
     "energy": "low",
@@ -7586,8 +7405,6 @@
       "strategy"
     ],
     "time_tags": [
-      5,
-      10,
       15
     ],
     "energy": "medium",
@@ -7626,9 +7443,8 @@
       "competitive"
     ],
     "time_tags": [
-      20,
       30,
-      45
+      60
     ],
     "energy": "medium",
     "moods": [
@@ -7664,9 +7480,8 @@
       "competitive"
     ],
     "time_tags": [
-      10,
       15,
-      20
+      30
     ],
     "energy": "medium",
     "moods": [
@@ -7784,7 +7599,6 @@
       "anime"
     ],
     "time_tags": [
-      10,
       15,
       30
     ],
@@ -7864,7 +7678,6 @@
       "anime"
     ],
     "time_tags": [
-      10,
       15,
       30
     ],
@@ -7905,7 +7718,6 @@
       "anime"
     ],
     "time_tags": [
-      10,
       15,
       30
     ],
@@ -7945,7 +7757,6 @@
       "anime"
     ],
     "time_tags": [
-      10,
       15,
       30
     ],
@@ -8104,7 +7915,6 @@
       "adventure"
     ],
     "time_tags": [
-      10,
       15,
       30
     ],
@@ -8143,7 +7953,6 @@
       "drift"
     ],
     "time_tags": [
-      10,
       15,
       30
     ],
@@ -8184,7 +7993,7 @@
     "time_tags": [
       15,
       30,
-      45
+      60
     ],
     "energy": "high",
     "moods": [
@@ -8222,7 +8031,6 @@
       "simulation"
     ],
     "time_tags": [
-      10,
       15,
       30
     ],
@@ -8261,8 +8069,6 @@
       "street"
     ],
     "time_tags": [
-      5,
-      10,
       15
     ],
     "energy": "high",
@@ -8301,8 +8107,6 @@
       "multiplayer"
     ],
     "time_tags": [
-      5,
-      10,
       15
     ],
     "energy": "high",
@@ -8339,8 +8143,6 @@
       "collection"
     ],
     "time_tags": [
-      5,
-      10,
       15
     ],
     "energy": "medium",
@@ -8379,7 +8181,6 @@
       "collection"
     ],
     "time_tags": [
-      10,
       15,
       30
     ],
@@ -8497,8 +8298,6 @@
       "kids"
     ],
     "time_tags": [
-      5,
-      10,
       15
     ],
     "energy": "low",
@@ -8536,8 +8335,6 @@
       "fashion"
     ],
     "time_tags": [
-      5,
-      10,
       15
     ],
     "energy": "low",
@@ -8575,8 +8372,6 @@
       "mini-games"
     ],
     "time_tags": [
-      5,
-      10,
       15
     ],
     "energy": "low",
@@ -8614,8 +8409,6 @@
       "kids"
     ],
     "time_tags": [
-      5,
-      10,
       15
     ],
     "energy": "low",
@@ -8652,7 +8445,6 @@
       "breeding"
     ],
     "time_tags": [
-      10,
       15,
       30
     ],
@@ -8691,7 +8483,6 @@
       "mystery"
     ],
     "time_tags": [
-      10,
       15,
       30
     ],
@@ -8729,7 +8520,6 @@
       "story"
     ],
     "time_tags": [
-      10,
       15,
       30
     ],
@@ -8805,8 +8595,6 @@
       "social"
     ],
     "time_tags": [
-      5,
-      10,
       15
     ],
     "energy": "low",
@@ -8844,8 +8632,6 @@
       "social"
     ],
     "time_tags": [
-      5,
-      10,
       15
     ],
     "energy": "low",
@@ -8883,8 +8669,6 @@
       "multiplayer"
     ],
     "time_tags": [
-      5,
-      10,
       15
     ],
     "energy": "low",
@@ -8921,8 +8705,6 @@
       "casual"
     ],
     "time_tags": [
-      5,
-      10,
       15
     ],
     "energy": "low",
@@ -8959,8 +8741,6 @@
       "casual"
     ],
     "time_tags": [
-      5,
-      10,
       15
     ],
     "energy": "low",
@@ -8997,8 +8777,7 @@
       "daily"
     ],
     "time_tags": [
-      5,
-      10
+      15
     ],
     "energy": "low",
     "moods": [
@@ -9036,7 +8815,7 @@
     "time_tags": [
       15,
       30,
-      45
+      60
     ],
     "energy": "low",
     "moods": [
@@ -9076,7 +8855,6 @@
       "social"
     ],
     "time_tags": [
-      10,
       15,
       30
     ],
@@ -9117,7 +8895,6 @@
       "relaxing"
     ],
     "time_tags": [
-      10,
       15,
       30
     ],
@@ -9155,7 +8932,6 @@
       "logic"
     ],
     "time_tags": [
-      10,
       15,
       30
     ],
@@ -9193,8 +8969,6 @@
       "casual"
     ],
     "time_tags": [
-      5,
-      10,
       15
     ],
     "energy": "low",
@@ -9231,7 +9005,6 @@
       "story"
     ],
     "time_tags": [
-      10,
       15,
       30
     ],
@@ -9269,8 +9042,6 @@
       "challenging"
     ],
     "time_tags": [
-      5,
-      10,
       15
     ],
     "energy": "high",
@@ -9307,8 +9078,7 @@
       "challenging"
     ],
     "time_tags": [
-      5,
-      10
+      15
     ],
     "energy": "high",
     "moods": [
@@ -9345,8 +9115,7 @@
       "reflex"
     ],
     "time_tags": [
-      5,
-      10
+      15
     ],
     "energy": "low",
     "moods": [
@@ -9382,8 +9151,7 @@
       "reflex"
     ],
     "time_tags": [
-      5,
-      10
+      15
     ],
     "energy": "medium",
     "moods": [
@@ -9419,8 +9187,7 @@
       "challenging"
     ],
     "time_tags": [
-      5,
-      10
+      15
     ],
     "energy": "medium",
     "moods": [
@@ -9456,8 +9223,7 @@
       "protective"
     ],
     "time_tags": [
-      5,
-      10
+      15
     ],
     "energy": "low",
     "moods": [
@@ -9493,8 +9259,7 @@
       "competitive"
     ],
     "time_tags": [
-      5,
-      10
+      15
     ],
     "energy": "medium",
     "moods": [
@@ -9530,8 +9295,7 @@
       "competitive"
     ],
     "time_tags": [
-      5,
-      10
+      15
     ],
     "energy": "medium",
     "moods": [
@@ -9568,8 +9332,6 @@
       "competitive"
     ],
     "time_tags": [
-      5,
-      10,
       15
     ],
     "energy": "medium",
@@ -9606,8 +9368,6 @@
       "competitive"
     ],
     "time_tags": [
-      5,
-      10,
       15
     ],
     "energy": "medium",
@@ -9645,7 +9405,6 @@
       "shooter"
     ],
     "time_tags": [
-      10,
       15,
       30
     ],
@@ -9683,8 +9442,6 @@
       "shooter"
     ],
     "time_tags": [
-      5,
-      10,
       15
     ],
     "energy": "high",
@@ -9721,8 +9478,7 @@
       "casual"
     ],
     "time_tags": [
-      5,
-      10
+      15
     ],
     "energy": "low",
     "moods": [
@@ -9758,8 +9514,7 @@
       "collecting"
     ],
     "time_tags": [
-      5,
-      10
+      15
     ],
     "energy": "low",
     "moods": [
@@ -9835,8 +9590,6 @@
       "comedy"
     ],
     "time_tags": [
-      5,
-      10,
       15
     ],
     "energy": "medium",
@@ -9876,7 +9629,6 @@
       "comedy"
     ],
     "time_tags": [
-      10,
       15,
       30
     ],
@@ -9915,7 +9667,6 @@
       "comedy"
     ],
     "time_tags": [
-      10,
       15,
       30
     ],
@@ -9954,7 +9705,6 @@
       "comedy"
     ],
     "time_tags": [
-      10,
       15,
       30
     ],
