@@ -146,12 +146,25 @@ def seed_games():
     games = load_games_from_json()
     print(f"\nSeeding {len(games)} total games to Firestore...")
 
+    # Tombstones: ids merged away by dedupe_games.py must never be re-seeded,
+    # or the duplicate docs come back on the next reseed.
+    tombstones = set()
+    tombstone_path = os.path.join(os.path.dirname(__file__), "deleted_game_ids.json")
+    if os.path.exists(tombstone_path):
+        with open(tombstone_path, encoding="utf-8") as fh:
+            tombstones = set(json.load(fh))
+        print(f"Loaded {len(tombstones)} tombstoned game ids (will skip)")
+
     success_count = 0
     for game in games:
         game_data = transform_game_data(game)
 
         if not game_data["game_id"]:
             print(f"  ! Skipping game without ID: {game.get('title', 'Unknown')}")
+            continue
+
+        if game_data["game_id"] in tombstones:
+            print(f"  ! Skipping tombstoned duplicate: {game_data['game_id']}")
             continue
 
         # Add timestamps

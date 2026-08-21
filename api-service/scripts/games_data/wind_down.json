@@ -141,50 +141,6 @@
     }
   },
   {
-    "id": "a-short-hike",
-    "title": "A Short Hike",
-    "platforms": [
-      "pc",
-      "playstation",
-      "xbox",
-      "switch"
-    ],
-    "year": 2019,
-    "genres": [
-      "adventure",
-      "exploration",
-      "indie",
-      "relaxing"
-    ],
-    "time_tags": [
-      15,
-      30,
-      60
-    ],
-    "energy": "low",
-    "moods": [
-      "relaxing",
-      "charming",
-      "peaceful",
-      "exploratory"
-    ],
-    "play_style": [
-      "sandbox_creative"
-    ],
-    "time_to_fun": "short",
-    "stop_friendliness": "anytime",
-    "multiplayer": [
-      "solo"
-    ],
-    "description": "Hike up a mountain at your own pace in this charming little adventure.",
-    "fun_fact": "This cozy game was made in just 1 month as part of a game jam and later expanded into a full release!",
-    "store_links": {
-      "steam": "https://store.steampowered.com/app/1055540/A_Short_Hike/",
-      "nintendo": "https://www.nintendo.com/us/store/products/a-short-hike-switch/",
-      "epic": "https://store.epicgames.com/en-US/p/a-short-hike"
-    }
-  },
-  {
     "id": "coffee-talk",
     "title": "Coffee Talk",
     "platforms": [
@@ -451,51 +407,6 @@
       "steam": "https://store.steampowered.com/app/1046030/",
       "nintendo": "https://www.nintendo.com/games/detail/islanders-switch/",
       "xbox": "https://www.microsoft.com/en-us/p/islanders/9n2jv3xw889s?cid=msft_web_chart"
-    }
-  },
-  {
-    "id": "gardens-between",
-    "title": "The Gardens Between",
-    "platforms": [
-      "pc",
-      "playstation",
-      "xbox",
-      "switch"
-    ],
-    "year": 2018,
-    "genres": [
-      "puzzle",
-      "adventure",
-      "narrative",
-      "indie"
-    ],
-    "time_tags": [
-      15,
-      30,
-      60
-    ],
-    "energy": "low",
-    "moods": [
-      "nostalgic",
-      "emotional",
-      "relaxing",
-      "thoughtful"
-    ],
-    "play_style": [
-      "puzzle"
-    ],
-    "time_to_fun": "short",
-    "stop_friendliness": "checkpoints",
-    "multiplayer": [
-      "solo"
-    ],
-    "description": "Manipulate time to solve puzzles and explore a friendship.",
-    "fun_fact": "The game has no dialogue or text - the entire story is told through visuals and environmental storytelling.",
-    "store_links": {
-      "nintendo": "https://www.nintendo.com/games/detail/the-gardens-between-switch",
-      "steam": "http://store.steampowered.com/app/600990/",
-      "xbox": "https://www.microsoft.com/en-us/p/the-gardens-between/9p4z4tw66lpv?cid=msft_web_chart",
-      "playstation": "https://store.playstation.com/en-us/product/UP4266-CUSA10848_00-GARDENSBETWEEN00"
     }
   },
   {
@@ -1075,54 +986,6 @@
     "store_links": {
       "playstation": "https://store.playstation.com/en-us/product/UP9000-CUSA02405_00-RAPTURE000000001",
       "steam": "http://store.steampowered.com/app/417880/"
-    }
-  },
-  {
-    "id": "return-obra-dinn",
-    "title": "Return of the Obra Dinn",
-    "platforms": [
-      "pc",
-      "playstation",
-      "xbox",
-      "switch"
-    ],
-    "year": 2018,
-    "genres": [
-      "puzzle",
-      "mystery",
-      "detective",
-      "indie"
-    ],
-    "time_tags": [
-      60,
-      90
-    ],
-    "energy": "low",
-    "moods": [
-      "mysterious",
-      "thoughtful",
-      "challenging",
-      "unique"
-    ],
-    "play_style": [
-      "puzzle"
-    ],
-    "time_to_fun": "medium",
-    "stop_friendliness": "anytime",
-    "multiplayer": [
-      "solo"
-    ],
-    "description": "Solve the mystery of a ghost ship using a magical pocket watch.",
-    "fun_fact": "Creator Lucas Pope spent 5 years developing this game entirely by himself.",
-    "subscriptions": [
-      "xbox_game_pass"
-    ],
-    "store_links": {
-      "nintendo": "https://www.nintendo.co.uk/Games/Nintendo-Switch-download-software/Return-of-the-Obra-Dinn-1633060.html",
-      "playstation": "https://store.playstation.com/en-us/product/UP2879-CUSA16867_00-ROTODBASEGAME001",
-      "xbox": "https://www.microsoft.com/en-us/p/return-of-the-obra-dinn/9n185ql77d27?cid=msft_web_chart",
-      "gog": "http://www.gog.com/game/return_of_the_obra_dinn",
-      "steam": "https://store.steampowered.com/app/653530/"
     }
   },
   {
@@ -3685,47 +3548,6 @@
     "fun_fact": "Buildings automatically adapt and connect in pleasing ways as you draw.",
     "store_links": {
       "steam": "https://store.steampowered.com/app/2198150/Tiny_Glade/"
-    }
-  },
-  {
-    "id": "europa",
-    "title": "Europa",
-    "platforms": [
-      "pc",
-      "playstation",
-      "xbox"
-    ],
-    "year": 2024,
-    "genres": [
-      "adventure",
-      "exploration",
-      "artistic",
-      "indie"
-    ],
-    "time_tags": [
-      30,
-      60
-    ],
-    "energy": "low",
-    "moods": [
-      "peaceful",
-      "melancholic",
-      "beautiful",
-      "contemplative"
-    ],
-    "play_style": [
-      "narrative"
-    ],
-    "time_to_fun": "short",
-    "stop_friendliness": "checkpoints",
-    "multiplayer": [
-      "solo"
-    ],
-    "description": "Glide across the terraformed moon Europa in a Ghibli-inspired adventure.",
-    "fun_fact": "The art style was directly inspired by the pastoral scenes of Studio Ghibli films.",
-    "store_links": {
-      "nintendo": "https://www.nintendo.com/us/store/products/europa-switch/",
-      "steam": "https://store.steampowered.com/app/2214880/Europa/"
     }
   },
   {

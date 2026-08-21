@@ -2441,49 +2441,6 @@
     }
   },
   {
-    "id": "divinity-os2",
-    "title": "Divinity: Original Sin 2",
-    "platforms": [
-      "pc",
-      "playstation",
-      "xbox",
-      "switch"
-    ],
-    "year": 2017,
-    "genres": [
-      "rpg",
-      "crpg",
-      "turn-based"
-    ],
-    "time_tags": [
-      60,
-      90
-    ],
-    "energy": "medium",
-    "moods": [
-      "epic",
-      "tactical",
-      "immersive",
-      "cooperative"
-    ],
-    "play_style": [
-      "narrative"
-    ],
-    "time_to_fun": "medium",
-    "stop_friendliness": "anytime",
-    "multiplayer": [
-      "solo",
-      "local_coop",
-      "online_coop"
-    ],
-    "description": "Deep tactical RPG with incredible freedom.",
-    "fun_fact": "The game has over 1 million words of dialogue - more than the entire Harry Potter series!",
-    "store_links": {
-      "steam": "http://store.steampowered.com/app/435150/",
-      "gog": "http://www.gog.com/game/divinity_original_sin_2"
-    }
-  },
-  {
     "id": "pillars-of-eternity-2",
     "title": "Pillars of Eternity II",
     "platforms": [
