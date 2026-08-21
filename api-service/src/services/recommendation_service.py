@@ -440,11 +440,21 @@ class RecommendationService:
             if game.get("subscription_services"):
                 score += 0.1
 
+            # Time affinity boost (0-0.1): reward depth that matches the
+            # session length. Short games legitimately pass the time filter
+            # for long sessions, but a 2-hour request should rank deep games
+            # above quick-hitters. For short requests every eligible game
+            # reaches the full ratio, so short-session ranking is unchanged.
+            game_time_tags = game.get("time_tags") or []
+            if game_time_tags and request.time_available:
+                depth = min(max(game_time_tags), request.time_available)
+                score += 0.1 * (depth / request.time_available)
+
             # Add randomness so near-ties shuffle between rerolls.
             score += random.uniform(0, RANDOM_VARIETY_RANGE)
 
             # The ranking score is deliberately UNCAPPED. The deterministic
-            # boosts above total 1.00 (1.15 with the premium taste profile), so
+            # boosts above total 1.10 (1.25 with the premium taste profile), so
             # clamping here pinned every strong match to exactly 1.0 and let
             # weaker games tie them. Display clamping happens at response build.
             scored.append({**game, "score": score})

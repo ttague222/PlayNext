@@ -807,3 +807,61 @@ async def test_anonymous_users_get_staleness_protection():
     service._get_recently_shown.assert_not_called()
     # _get_recently_shown_for_session must have been called with the correct session_id
     service._get_recently_shown_for_session.assert_called_once_with("anon-session-123")
+
+
+class TestTimeAffinityScoring:
+    """The 0-0.1 time-affinity boost added 2026-08-21.
+
+    A 2-hour request must rank deep games (high max time_tag) above
+    quick-hitters, while short requests are unaffected because every
+    eligible game reaches the full ratio there.
+    """
+
+    @pytest.fixture
+    def service(self, mock_firebase):
+        with patch('src.services.recommendation_service.get_collection'):
+            from src.services.recommendation_service import RecommendationService
+            return RecommendationService()
+
+    def _game(self, game_id, time_tags):
+        return {
+            "game_id": game_id,
+            "title": game_id,
+            "platforms": ["mobile"],
+            "time_tags": time_tags,
+            "energy_level": "high",
+            "play_style": ["action"],
+            "genre_tags": [],
+            "time_to_fun": "short",
+            "stop_friendliness": "anytime",
+            "multiplayer_modes": ["solo"],
+            "subscription_services": [],
+        }
+
+    def _score(self, service, games, time_available):
+        request = RecommendationRequest(
+            time_available=time_available,
+            energy_mood=EnergyMood.INTENSE,
+        )
+        with patch("src.services.recommendation_service.random.uniform", return_value=0.0):
+            scored = service._score_games(games, request)
+        return {g["game_id"]: g["score"] for g in scored}
+
+    def test_long_session_prefers_deep_games(self, service):
+        games = [self._game("quick", [15, 30]), self._game("deep", [15, 30, 60, 90, 120])]
+        scores = self._score(service, games, 120)
+        assert scores["deep"] > scores["quick"], (
+            "a 2-hour request must rank a 120-tagged game above a 30-max game"
+        )
+
+    def test_short_session_ranking_unchanged(self, service):
+        games = [self._game("quick", [15, 30]), self._game("deep", [15, 30, 60, 90, 120])]
+        scores = self._score(service, games, 15)
+        assert scores["quick"] == scores["deep"], (
+            "at 15 minutes both games max the ratio; depth must not matter"
+        )
+
+    def test_boost_is_bounded(self, service):
+        games = [self._game("quick", [15]), self._game("deep", [120])]
+        scores = self._score(service, games, 120)
+        assert 0 < scores["deep"] - scores["quick"] <= 0.1 + 1e-9
