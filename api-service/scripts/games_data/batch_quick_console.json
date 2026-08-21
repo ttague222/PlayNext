@@ -1,0 +1,715 @@
+[
+  {
+    "id": "mlb-the-show-25",
+    "title": "MLB The Show 25",
+    "platforms": [
+      "playstation",
+      "xbox",
+      "switch"
+    ],
+    "year": 2025,
+    "genres": [
+      "sports",
+      "baseball",
+      "simulation"
+    ],
+    "time_tags": [
+      15,
+      30,
+      60,
+      90
+    ],
+    "energy": "medium",
+    "moods": [
+      "competitive",
+      "fun",
+      "satisfying"
+    ],
+    "play_style": [
+      "action"
+    ],
+    "time_to_fun": "short",
+    "stop_friendliness": "anytime",
+    "multiplayer": [
+      "solo",
+      "competitive"
+    ],
+    "description": "The definitive baseball sim: quick Moments for a lunch break, full franchise seasons for the long haul."
+  },
+  {
+    "id": "wwe-2k25",
+    "title": "WWE 2K25",
+    "platforms": [
+      "pc",
+      "playstation",
+      "xbox"
+    ],
+    "year": 2025,
+    "genres": [
+      "sports",
+      "fighting",
+      "wrestling"
+    ],
+    "time_tags": [
+      15,
+      30,
+      60,
+      90
+    ],
+    "energy": "medium",
+    "moods": [
+      "fun",
+      "competitive",
+      "intense"
+    ],
+    "play_style": [
+      "action"
+    ],
+    "time_to_fun": "short",
+    "stop_friendliness": "anytime",
+    "multiplayer": [
+      "solo",
+      "local_coop",
+      "competitive"
+    ],
+    "description": "Body-slam a friend in one match or run a whole showcase career in the year's big wrestling sim."
+  },
+  {
+    "id": "pga-tour-2k25",
+    "title": "PGA Tour 2K25",
+    "platforms": [
+      "pc",
+      "playstation",
+      "xbox"
+    ],
+    "year": 2025,
+    "genres": [
+      "sports",
+      "golf",
+      "simulation"
+    ],
+    "time_tags": [
+      15,
+      30,
+      60,
+      90
+    ],
+    "energy": "low",
+    "moods": [
+      "relaxing",
+      "competitive",
+      "satisfying"
+    ],
+    "play_style": [
+      "action"
+    ],
+    "time_to_fun": "short",
+    "stop_friendliness": "anytime",
+    "multiplayer": [
+      "solo",
+      "competitive"
+    ],
+    "description": "A few relaxed holes or a full tournament round: golf that respects however much time you brought."
+  },
+  {
+    "id": "mario-golf-super-rush",
+    "title": "Mario Golf: Super Rush",
+    "platforms": [
+      "switch"
+    ],
+    "year": 2021,
+    "genres": [
+      "sports",
+      "golf",
+      "arcade"
+    ],
+    "time_tags": [
+      15,
+      30,
+      60
+    ],
+    "energy": "medium",
+    "moods": [
+      "fun",
+      "charming",
+      "competitive"
+    ],
+    "play_style": [
+      "action"
+    ],
+    "time_to_fun": "short",
+    "stop_friendliness": "anytime",
+    "multiplayer": [
+      "solo",
+      "local_coop",
+      "competitive"
+    ],
+    "description": "Golf at a sprint: Speed Golf races the whole foursome down the fairway at once."
+  },
+  {
+    "id": "mario-tennis-aces",
+    "title": "Mario Tennis Aces",
+    "platforms": [
+      "switch"
+    ],
+    "year": 2018,
+    "genres": [
+      "sports",
+      "tennis",
+      "arcade"
+    ],
+    "time_tags": [
+      15,
+      30,
+      60
+    ],
+    "energy": "medium",
+    "moods": [
+      "fun",
+      "competitive",
+      "charming"
+    ],
+    "play_style": [
+      "action"
+    ],
+    "time_to_fun": "short",
+    "stop_friendliness": "anytime",
+    "multiplayer": [
+      "solo",
+      "local_coop",
+      "competitive"
+    ],
+    "description": "Fast, flashy arcade tennis where a single set fits in fifteen minutes and rivalries last all night."
+  },
+  {
+    "id": "nintendo-switch-sports",
+    "title": "Nintendo Switch Sports",
+    "platforms": [
+      "switch"
+    ],
+    "year": 2022,
+    "genres": [
+      "sports",
+      "party",
+      "casual"
+    ],
+    "time_tags": [
+      15,
+      30,
+      60
+    ],
+    "energy": "medium",
+    "moods": [
+      "fun",
+      "charming",
+      "competitive"
+    ],
+    "play_style": [
+      "action"
+    ],
+    "time_to_fun": "short",
+    "stop_friendliness": "anytime",
+    "multiplayer": [
+      "solo",
+      "local_coop",
+      "competitive"
+    ],
+    "description": "Bowling, volleyball, and swordplay in living-room-friendly rounds that anyone can pick up instantly."
+  },
+  {
+    "id": "golf-story",
+    "title": "Golf Story",
+    "platforms": [
+      "switch"
+    ],
+    "year": 2017,
+    "genres": [
+      "sports",
+      "rpg",
+      "indie"
+    ],
+    "time_tags": [
+      15,
+      30,
+      60,
+      90
+    ],
+    "energy": "low",
+    "moods": [
+      "charming",
+      "relaxing",
+      "fun"
+    ],
+    "play_style": [
+      "narrative"
+    ],
+    "time_to_fun": "medium",
+    "stop_friendliness": "anytime",
+    "multiplayer": [
+      "solo"
+    ],
+    "description": "A heartfelt golf RPG where every hole advances the story and the jokes land as often as the drives."
+  },
+  {
+    "id": "cruisn-blast",
+    "title": "Cruis'n Blast",
+    "platforms": [
+      "switch"
+    ],
+    "year": 2021,
+    "genres": [
+      "racing",
+      "arcade"
+    ],
+    "time_tags": [
+      15,
+      30,
+      60
+    ],
+    "energy": "high",
+    "moods": [
+      "fun",
+      "exciting",
+      "nostalgic"
+    ],
+    "play_style": [
+      "action"
+    ],
+    "time_to_fun": "short",
+    "stop_friendliness": "anytime",
+    "multiplayer": [
+      "solo",
+      "local_coop"
+    ],
+    "description": "Pure arcade racing chaos: two-minute races past dinosaurs and UFOs, straight out of the arcade cabinet."
+  },
+  {
+    "id": "king-of-fighters-xv",
+    "title": "The King of Fighters XV",
+    "platforms": [
+      "pc",
+      "playstation",
+      "xbox"
+    ],
+    "year": 2022,
+    "genres": [
+      "fighting"
+    ],
+    "time_tags": [
+      15,
+      30,
+      60
+    ],
+    "energy": "high",
+    "moods": [
+      "competitive",
+      "intense",
+      "challenging"
+    ],
+    "play_style": [
+      "action"
+    ],
+    "time_to_fun": "short",
+    "stop_friendliness": "anytime",
+    "multiplayer": [
+      "solo",
+      "local_coop",
+      "competitive"
+    ],
+    "description": "SNK's team-based fighter: three-on-three bouts with one of the deepest rosters in the genre."
+  },
+  {
+    "id": "20-minutes-till-dawn",
+    "title": "20 Minutes Till Dawn",
+    "platforms": [
+      "pc",
+      "mobile",
+      "switch"
+    ],
+    "year": 2023,
+    "genres": [
+      "roguelike",
+      "arcade",
+      "shooter"
+    ],
+    "time_tags": [
+      15,
+      30,
+      60
+    ],
+    "energy": "high",
+    "moods": [
+      "intense",
+      "fun",
+      "satisfying"
+    ],
+    "play_style": [
+      "action"
+    ],
+    "time_to_fun": "short",
+    "stop_friendliness": "checkpoints",
+    "multiplayer": [
+      "solo"
+    ],
+    "description": "Survive exactly twenty minutes against Lovecraftian swarms: a full run fits inside your break."
+  },
+  {
+    "id": "trombone-champ",
+    "title": "Trombone Champ",
+    "platforms": [
+      "pc",
+      "switch"
+    ],
+    "year": 2022,
+    "genres": [
+      "rhythm",
+      "party",
+      "comedy"
+    ],
+    "time_tags": [
+      15,
+      30,
+      60
+    ],
+    "energy": "medium",
+    "moods": [
+      "fun",
+      "charming"
+    ],
+    "play_style": [
+      "action"
+    ],
+    "time_to_fun": "short",
+    "stop_friendliness": "anytime",
+    "multiplayer": [
+      "solo",
+      "local_coop"
+    ],
+    "description": "Honk your way through classical hits in the funniest rhythm game ever made. Nailing it feels great; failing is funnier."
+  },
+  {
+    "id": "crypt-of-the-necrodancer",
+    "title": "Crypt of the NecroDancer",
+    "platforms": [
+      "pc",
+      "playstation",
+      "xbox",
+      "switch",
+      "mobile"
+    ],
+    "year": 2015,
+    "genres": [
+      "rhythm",
+      "roguelike",
+      "indie"
+    ],
+    "time_tags": [
+      15,
+      30,
+      60,
+      90
+    ],
+    "energy": "high",
+    "moods": [
+      "challenging",
+      "fun",
+      "satisfying"
+    ],
+    "play_style": [
+      "action"
+    ],
+    "time_to_fun": "short",
+    "stop_friendliness": "checkpoints",
+    "multiplayer": [
+      "solo",
+      "local_coop"
+    ],
+    "description": "A dungeon crawler where every move lands on the beat and one great run fits in a coffee break."
+  },
+  {
+    "id": "thumper",
+    "title": "Thumper",
+    "platforms": [
+      "pc",
+      "playstation",
+      "xbox",
+      "switch",
+      "mobile"
+    ],
+    "year": 2016,
+    "genres": [
+      "rhythm",
+      "action",
+      "indie"
+    ],
+    "time_tags": [
+      15,
+      30,
+      60
+    ],
+    "energy": "high",
+    "moods": [
+      "intense",
+      "immersive"
+    ],
+    "play_style": [
+      "action"
+    ],
+    "time_to_fun": "short",
+    "stop_friendliness": "checkpoints",
+    "multiplayer": [
+      "solo"
+    ],
+    "description": "Rhythm violence: pilot a chrome beetle down a nightmare track at speeds that demand total focus."
+  },
+  {
+    "id": "pac-man-championship-edition-2",
+    "title": "Pac-Man Championship Edition 2",
+    "platforms": [
+      "pc",
+      "playstation",
+      "xbox",
+      "switch"
+    ],
+    "year": 2016,
+    "genres": [
+      "arcade",
+      "action"
+    ],
+    "time_tags": [
+      15,
+      30,
+      60
+    ],
+    "energy": "high",
+    "moods": [
+      "fun",
+      "intense",
+      "nostalgic"
+    ],
+    "play_style": [
+      "action"
+    ],
+    "time_to_fun": "short",
+    "stop_friendliness": "anytime",
+    "multiplayer": [
+      "solo"
+    ],
+    "description": "Pac-Man rebuilt for score-chasing sprints: five-minute runs, neon mazes, ghost trains a hundred long."
+  },
+  {
+    "id": "windjammers-2",
+    "title": "Windjammers 2",
+    "platforms": [
+      "pc",
+      "playstation",
+      "xbox",
+      "switch"
+    ],
+    "year": 2022,
+    "genres": [
+      "sports",
+      "arcade"
+    ],
+    "time_tags": [
+      15,
+      30,
+      60
+    ],
+    "energy": "high",
+    "moods": [
+      "competitive",
+      "fun",
+      "exciting"
+    ],
+    "play_style": [
+      "action"
+    ],
+    "time_to_fun": "short",
+    "stop_friendliness": "anytime",
+    "multiplayer": [
+      "solo",
+      "local_coop",
+      "competitive"
+    ],
+    "description": "Flying-disc dodgeball at fighting-game speed: matches take three minutes and demand ten more."
+  },
+  {
+    "id": "duck-game",
+    "title": "Duck Game",
+    "platforms": [
+      "pc",
+      "playstation",
+      "switch"
+    ],
+    "year": 2015,
+    "genres": [
+      "party",
+      "action",
+      "indie"
+    ],
+    "time_tags": [
+      15,
+      30,
+      60
+    ],
+    "energy": "high",
+    "moods": [
+      "fun",
+      "competitive"
+    ],
+    "play_style": [
+      "action"
+    ],
+    "time_to_fun": "short",
+    "stop_friendliness": "anytime",
+    "multiplayer": [
+      "local_coop",
+      "competitive",
+      "solo"
+    ],
+    "description": "Four ducks, infinite weapons, ten-second rounds. The greatest couch chaos generator ever armed."
+  },
+  {
+    "id": "lovers-in-a-dangerous-spacetime",
+    "title": "Lovers in a Dangerous Spacetime",
+    "platforms": [
+      "pc",
+      "playstation",
+      "xbox",
+      "switch"
+    ],
+    "year": 2015,
+    "genres": [
+      "coop",
+      "action",
+      "indie"
+    ],
+    "time_tags": [
+      15,
+      30,
+      60,
+      90
+    ],
+    "energy": "medium",
+    "moods": [
+      "fun",
+      "charming",
+      "exciting"
+    ],
+    "play_style": [
+      "action"
+    ],
+    "time_to_fun": "short",
+    "stop_friendliness": "checkpoints",
+    "multiplayer": [
+      "local_coop",
+      "solo"
+    ],
+    "description": "Crew a candy-colored battleship together, sprinting between stations while space tries to eat you."
+  },
+  {
+    "id": "sports-story",
+    "title": "Sports Story",
+    "platforms": [
+      "switch"
+    ],
+    "year": 2022,
+    "genres": [
+      "sports",
+      "rpg",
+      "indie"
+    ],
+    "time_tags": [
+      15,
+      30,
+      60,
+      90
+    ],
+    "energy": "low",
+    "moods": [
+      "charming",
+      "fun",
+      "relaxing"
+    ],
+    "play_style": [
+      "narrative"
+    ],
+    "time_to_fun": "medium",
+    "stop_friendliness": "anytime",
+    "multiplayer": [
+      "solo"
+    ],
+    "description": "The Golf Story sequel widens the fairway: tennis, cricket, fishing and espionage in one cozy sports RPG."
+  },
+  {
+    "id": "rounds",
+    "title": "Rounds",
+    "platforms": [
+      "pc"
+    ],
+    "year": 2021,
+    "genres": [
+      "party",
+      "shooter",
+      "indie"
+    ],
+    "time_tags": [
+      15,
+      30,
+      60
+    ],
+    "energy": "high",
+    "moods": [
+      "fun",
+      "competitive"
+    ],
+    "play_style": [
+      "action"
+    ],
+    "time_to_fun": "short",
+    "stop_friendliness": "anytime",
+    "multiplayer": [
+      "local_coop",
+      "competitive"
+    ],
+    "description": "1v1 duels where the loser picks a power-up: escalating absurdity in rounds that last a minute each."
+  },
+  {
+    "id": "nidhogg-2",
+    "title": "Nidhogg 2",
+    "platforms": [
+      "pc",
+      "playstation",
+      "switch"
+    ],
+    "year": 2017,
+    "genres": [
+      "fighting",
+      "party",
+      "indie"
+    ],
+    "time_tags": [
+      15,
+      30,
+      60
+    ],
+    "energy": "high",
+    "moods": [
+      "competitive",
+      "fun",
+      "intense"
+    ],
+    "play_style": [
+      "action"
+    ],
+    "time_to_fun": "short",
+    "stop_friendliness": "anytime",
+    "multiplayer": [
+      "local_coop",
+      "competitive",
+      "solo"
+    ],
+    "description": "Fencing tug-of-war in grotesque technicolor: win the duel, sprint for the worm, get eaten gloriously."
+  }
+]

@@ -24,6 +24,9 @@ from game_seed_generator import get_default_explanation_templates
 
 SCRIPT_DIR = Path(__file__).parent
 REFRESH_FILE = SCRIPT_DIR / "games_data" / "refresh_2025_2026.json"
+for _a in sys.argv[1:]:
+    if _a.startswith("--file="):
+        REFRESH_FILE = SCRIPT_DIR / "games_data" / Path(_a.split("=", 1)[1]).name
 PROJECT = "playnxt-1a2c6"
 BASE = f"https://firestore.googleapis.com/v1/projects/{PROJECT}/databases/(default)/documents/games"
 STORE_ID_MAPPING = {1: "steam", 2: "xbox", 3: "playstation", 5: "gog", 6: "nintendo", 7: "xbox", 11: "epic"}
