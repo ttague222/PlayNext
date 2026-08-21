@@ -3,6 +3,17 @@
 > Prepared 2026-08-19. Three one-time unlocks (Tom), then one command ships both stores.
 > Metadata strings come from `ASO-PLAN.md` — Apple only for now; hold Google Play per the two-week rollout plan.
 
+## POST-RELEASE DISCOVERY (2026-08-21): two version-number tracks
+
+Approved and live on both stores 2026-08-21. The App Store LABEL for this
+release is **1.0.6** (ASC labels have lagged binary versions for months:
+Feb's binary 1.0.12 shipped under ASC label 1.0.5). Functionally harmless —
+OTA runtimeVersion and remote-config gating use the BINARY version (1.1.0) —
+but iOS shows 1.0.6 while Android shows 1.1.0 for the same release.
+
+**Next release rule: set the ASC version field equal to the binary version
+(both "1.2.0") to converge the tracks permanently.**
+
 ## FINAL STATUS — SHIPPED 2026-08-20
 
 Both stores: iOS 1.1.0 (13) submitted for review; Android 1.1.0 (**20**) rolling out to production (uploaded manually — Play service-account grant was still propagating; use `eas submit -p android` next release once the API test passes). Android signs with the recovered `playnxt-release.keystore` via local credentials — see ROADMAP Phase 0 for the keystore backup warning. Play versionCodes live at 20 now; iOS build numbers at 13. Quarantined iOS builds 11/12 in TestFlight expire on their own.
