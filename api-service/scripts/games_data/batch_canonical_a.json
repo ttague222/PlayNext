@@ -1,0 +1,1434 @@
+[
+  {
+    "id": "portal",
+    "title": "Portal",
+    "platforms": [
+      "pc",
+      "xbox",
+      "playstation"
+    ],
+    "year": 2007,
+    "genres": [
+      "puzzle",
+      "action",
+      "narrative"
+    ],
+    "time_tags": [
+      30,
+      60,
+      90,
+      120
+    ],
+    "energy": "medium",
+    "moods": [
+      "fun",
+      "satisfying",
+      "immersive"
+    ],
+    "play_style": [
+      "puzzle"
+    ],
+    "time_to_fun": "short",
+    "stop_friendliness": "checkpoints",
+    "multiplayer": [
+      "solo"
+    ],
+    "description": "The perfect puzzle game: two portals, one deadpan AI, three hours you will never forget."
+  },
+  {
+    "id": "skyrim",
+    "title": "The Elder Scrolls V: Skyrim",
+    "platforms": [
+      "pc",
+      "playstation",
+      "xbox",
+      "switch"
+    ],
+    "year": 2011,
+    "genres": [
+      "rpg",
+      "open-world",
+      "action"
+    ],
+    "time_tags": [
+      30,
+      60,
+      90,
+      120
+    ],
+    "energy": "medium",
+    "moods": [
+      "immersive",
+      "adventurous",
+      "relaxing"
+    ],
+    "play_style": [
+      "action",
+      "narrative"
+    ],
+    "time_to_fun": "medium",
+    "stop_friendliness": "anytime",
+    "multiplayer": [
+      "solo"
+    ],
+    "description": "The open-world RPG that ate a decade: climb the mountain, join the guild, ignore the main quest forever."
+  },
+  {
+    "id": "payday-2",
+    "title": "PAYDAY 2",
+    "platforms": [
+      "pc",
+      "playstation",
+      "xbox",
+      "switch"
+    ],
+    "year": 2013,
+    "genres": [
+      "shooter",
+      "coop",
+      "action"
+    ],
+    "time_tags": [
+      15,
+      30,
+      60,
+      90
+    ],
+    "energy": "high",
+    "moods": [
+      "intense",
+      "fun",
+      "exciting"
+    ],
+    "play_style": [
+      "action"
+    ],
+    "time_to_fun": "short",
+    "stop_friendliness": "commitment",
+    "multiplayer": [
+      "online_coop",
+      "solo"
+    ],
+    "description": "Four-player heists that go loud in minutes: one more job is always a lie you tell your crew."
+  },
+  {
+    "id": "gta-iv",
+    "title": "Grand Theft Auto IV",
+    "platforms": [
+      "pc",
+      "playstation",
+      "xbox"
+    ],
+    "year": 2008,
+    "genres": [
+      "action",
+      "open-world",
+      "narrative"
+    ],
+    "time_tags": [
+      30,
+      60,
+      90,
+      120
+    ],
+    "energy": "medium",
+    "moods": [
+      "immersive",
+      "intense",
+      "adventurous"
+    ],
+    "play_style": [
+      "action",
+      "narrative"
+    ],
+    "time_to_fun": "medium",
+    "stop_friendliness": "checkpoints",
+    "multiplayer": [
+      "solo"
+    ],
+    "description": "Niko Bellic's American dream curdles across Liberty City in Rockstar's heaviest, most human story."
+  },
+  {
+    "id": "metro-2033-redux",
+    "title": "Metro 2033 Redux",
+    "platforms": [
+      "pc",
+      "playstation",
+      "xbox",
+      "switch"
+    ],
+    "year": 2014,
+    "genres": [
+      "shooter",
+      "horror",
+      "narrative"
+    ],
+    "time_tags": [
+      30,
+      60,
+      90,
+      120
+    ],
+    "energy": "high",
+    "moods": [
+      "intense",
+      "immersive"
+    ],
+    "play_style": [
+      "action",
+      "narrative"
+    ],
+    "time_to_fun": "medium",
+    "stop_friendliness": "checkpoints",
+    "multiplayer": [
+      "solo"
+    ],
+    "description": "Post-nuclear Moscow's metro tunnels, where bullets are currency and the surface wants you dead."
+  },
+  {
+    "id": "metro-last-light-redux",
+    "title": "Metro: Last Light Redux",
+    "platforms": [
+      "pc",
+      "playstation",
+      "xbox",
+      "switch"
+    ],
+    "year": 2014,
+    "genres": [
+      "shooter",
+      "horror",
+      "narrative"
+    ],
+    "time_tags": [
+      30,
+      60,
+      90,
+      120
+    ],
+    "energy": "high",
+    "moods": [
+      "intense",
+      "immersive"
+    ],
+    "play_style": [
+      "action",
+      "narrative"
+    ],
+    "time_to_fun": "medium",
+    "stop_friendliness": "checkpoints",
+    "multiplayer": [
+      "solo"
+    ],
+    "description": "The metro's finest hour: tighter, darker, and more beautiful than a ruined world has any right to be."
+  },
+  {
+    "id": "rise-of-the-tomb-raider",
+    "title": "Rise of the Tomb Raider",
+    "platforms": [
+      "pc",
+      "playstation",
+      "xbox"
+    ],
+    "year": 2015,
+    "genres": [
+      "action",
+      "adventure"
+    ],
+    "time_tags": [
+      30,
+      60,
+      90,
+      120
+    ],
+    "energy": "medium",
+    "moods": [
+      "adventurous",
+      "exciting",
+      "immersive"
+    ],
+    "play_style": [
+      "action"
+    ],
+    "time_to_fun": "short",
+    "stop_friendliness": "checkpoints",
+    "multiplayer": [
+      "solo"
+    ],
+    "description": "Lara at her best: Siberian tombs, crunchy stealth-action, and set pieces that keep topping themselves."
+  },
+  {
+    "id": "batman-arkham-knight",
+    "title": "Batman: Arkham Knight",
+    "platforms": [
+      "pc",
+      "playstation",
+      "xbox"
+    ],
+    "year": 2015,
+    "genres": [
+      "action",
+      "open-world"
+    ],
+    "time_tags": [
+      30,
+      60,
+      90,
+      120
+    ],
+    "energy": "medium",
+    "moods": [
+      "immersive",
+      "intense",
+      "satisfying"
+    ],
+    "play_style": [
+      "action"
+    ],
+    "time_to_fun": "short",
+    "stop_friendliness": "checkpoints",
+    "multiplayer": [
+      "solo"
+    ],
+    "description": "Be the Batman across a rain-slick Gotham: the freeflow combat series at its most complete."
+  },
+  {
+    "id": "mgsv-phantom-pain",
+    "title": "Metal Gear Solid V: The Phantom Pain",
+    "platforms": [
+      "pc",
+      "playstation",
+      "xbox"
+    ],
+    "year": 2015,
+    "genres": [
+      "action",
+      "stealth",
+      "open-world"
+    ],
+    "time_tags": [
+      30,
+      60,
+      90,
+      120
+    ],
+    "energy": "medium",
+    "moods": [
+      "immersive",
+      "strategic",
+      "satisfying"
+    ],
+    "play_style": [
+      "action",
+      "strategy"
+    ],
+    "time_to_fun": "medium",
+    "stop_friendliness": "anytime",
+    "multiplayer": [
+      "solo"
+    ],
+    "description": "The deepest stealth sandbox ever built: every mission a puzzle with a hundred solutions and one balloon."
+  },
+  {
+    "id": "witcher-2",
+    "title": "The Witcher 2: Assassins of Kings",
+    "platforms": [
+      "pc",
+      "xbox"
+    ],
+    "year": 2011,
+    "genres": [
+      "rpg",
+      "action",
+      "narrative"
+    ],
+    "time_tags": [
+      60,
+      90,
+      120
+    ],
+    "energy": "medium",
+    "moods": [
+      "immersive",
+      "challenging",
+      "adventurous"
+    ],
+    "play_style": [
+      "action",
+      "narrative"
+    ],
+    "time_to_fun": "long",
+    "stop_friendliness": "checkpoints",
+    "multiplayer": [
+      "solo"
+    ],
+    "description": "Geralt's political thriller: branching paths so divergent that half the game hides in a second playthrough."
+  },
+  {
+    "id": "shadow-of-mordor",
+    "title": "Middle-earth: Shadow of Mordor",
+    "platforms": [
+      "pc",
+      "playstation",
+      "xbox"
+    ],
+    "year": 2014,
+    "genres": [
+      "action",
+      "open-world",
+      "rpg"
+    ],
+    "time_tags": [
+      30,
+      60,
+      90,
+      120
+    ],
+    "energy": "medium",
+    "moods": [
+      "satisfying",
+      "intense",
+      "adventurous"
+    ],
+    "play_style": [
+      "action"
+    ],
+    "time_to_fun": "short",
+    "stop_friendliness": "anytime",
+    "multiplayer": [
+      "solo"
+    ],
+    "description": "The Nemesis system makes every orc a story: your killer remembers you, and revenge is personal."
+  },
+  {
+    "id": "walking-dead-season-1",
+    "title": "The Walking Dead: Season 1",
+    "platforms": [
+      "pc",
+      "playstation",
+      "xbox",
+      "switch",
+      "mobile"
+    ],
+    "year": 2012,
+    "genres": [
+      "narrative",
+      "adventure"
+    ],
+    "time_tags": [
+      30,
+      60,
+      90
+    ],
+    "energy": "low",
+    "moods": [
+      "immersive",
+      "intense"
+    ],
+    "play_style": [
+      "narrative"
+    ],
+    "time_to_fun": "short",
+    "stop_friendliness": "checkpoints",
+    "multiplayer": [
+      "solo"
+    ],
+    "description": "Clementine will remember that. The episodic drama that proved choices could break hearts."
+  },
+  {
+    "id": "bioshock-remastered",
+    "title": "BioShock Remastered",
+    "platforms": [
+      "pc",
+      "playstation",
+      "xbox",
+      "switch"
+    ],
+    "year": 2016,
+    "genres": [
+      "shooter",
+      "narrative",
+      "horror"
+    ],
+    "time_tags": [
+      30,
+      60,
+      90,
+      120
+    ],
+    "energy": "medium",
+    "moods": [
+      "immersive",
+      "intense"
+    ],
+    "play_style": [
+      "action",
+      "narrative"
+    ],
+    "time_to_fun": "medium",
+    "stop_friendliness": "checkpoints",
+    "multiplayer": [
+      "solo"
+    ],
+    "description": "Would you kindly visit Rapture: the underwater city where objectivism drowned and shooters grew a brain."
+  },
+  {
+    "id": "bioshock-2",
+    "title": "BioShock 2",
+    "platforms": [
+      "pc",
+      "playstation",
+      "xbox",
+      "switch"
+    ],
+    "year": 2010,
+    "genres": [
+      "shooter",
+      "narrative",
+      "horror"
+    ],
+    "time_tags": [
+      30,
+      60,
+      90,
+      120
+    ],
+    "energy": "medium",
+    "moods": [
+      "immersive",
+      "intense"
+    ],
+    "play_style": [
+      "action",
+      "narrative"
+    ],
+    "time_to_fun": "medium",
+    "stop_friendliness": "checkpoints",
+    "multiplayer": [
+      "solo"
+    ],
+    "description": "Return to Rapture as a Big Daddy: the underrated sequel with the series' best combat and saddest story."
+  },
+  {
+    "id": "mirrors-edge",
+    "title": "Mirror's Edge",
+    "platforms": [
+      "pc",
+      "playstation",
+      "xbox"
+    ],
+    "year": 2008,
+    "genres": [
+      "action",
+      "platformer"
+    ],
+    "time_tags": [
+      30,
+      60,
+      90
+    ],
+    "energy": "high",
+    "moods": [
+      "exciting",
+      "beautiful",
+      "intense"
+    ],
+    "play_style": [
+      "action"
+    ],
+    "time_to_fun": "short",
+    "stop_friendliness": "checkpoints",
+    "multiplayer": [
+      "solo"
+    ],
+    "description": "First-person parkour across a blinding-white city: momentum as a language, rooftops as freedom."
+  },
+  {
+    "id": "hitman-world-of-assassination",
+    "title": "Hitman: World of Assassination",
+    "platforms": [
+      "pc",
+      "playstation",
+      "xbox",
+      "switch"
+    ],
+    "year": 2023,
+    "genres": [
+      "stealth",
+      "action",
+      "simulation"
+    ],
+    "time_tags": [
+      30,
+      60,
+      90,
+      120
+    ],
+    "energy": "medium",
+    "moods": [
+      "strategic",
+      "satisfying",
+      "fun"
+    ],
+    "play_style": [
+      "action",
+      "strategy"
+    ],
+    "time_to_fun": "medium",
+    "stop_friendliness": "commitment",
+    "multiplayer": [
+      "solo"
+    ],
+    "description": "The whole modern Hitman trilogy in one package: clockwork murder sandboxes you can replay for years."
+  },
+  {
+    "id": "deus-ex-mankind-divided",
+    "title": "Deus Ex: Mankind Divided",
+    "platforms": [
+      "pc",
+      "playstation",
+      "xbox"
+    ],
+    "year": 2016,
+    "genres": [
+      "rpg",
+      "action",
+      "stealth"
+    ],
+    "time_tags": [
+      30,
+      60,
+      90,
+      120
+    ],
+    "energy": "medium",
+    "moods": [
+      "immersive",
+      "strategic"
+    ],
+    "play_style": [
+      "action",
+      "narrative"
+    ],
+    "time_to_fun": "medium",
+    "stop_friendliness": "anytime",
+    "multiplayer": [
+      "solo"
+    ],
+    "description": "Cyberpunk Prague, hostile and gorgeous: every vent, hack, and conversation is another way through."
+  },
+  {
+    "id": "marvels-spider-man",
+    "title": "Marvel's Spider-Man",
+    "platforms": [
+      "pc",
+      "playstation"
+    ],
+    "year": 2018,
+    "genres": [
+      "action",
+      "open-world"
+    ],
+    "time_tags": [
+      30,
+      60,
+      90,
+      120
+    ],
+    "energy": "medium",
+    "moods": [
+      "fun",
+      "exciting",
+      "immersive"
+    ],
+    "play_style": [
+      "action"
+    ],
+    "time_to_fun": "short",
+    "stop_friendliness": "anytime",
+    "multiplayer": [
+      "solo"
+    ],
+    "description": "Swinging through Manhattan never gets old: the superhero game that finally felt like the fantasy."
+  },
+  {
+    "id": "alan-wake",
+    "title": "Alan Wake",
+    "platforms": [
+      "pc",
+      "playstation",
+      "xbox",
+      "switch"
+    ],
+    "year": 2010,
+    "genres": [
+      "horror",
+      "action",
+      "narrative"
+    ],
+    "time_tags": [
+      30,
+      60,
+      90
+    ],
+    "energy": "medium",
+    "moods": [
+      "intense",
+      "immersive"
+    ],
+    "play_style": [
+      "action",
+      "narrative"
+    ],
+    "time_to_fun": "medium",
+    "stop_friendliness": "checkpoints",
+    "multiplayer": [
+      "solo"
+    ],
+    "description": "A writer's nightmare in Pacific Northwest dark: burn away the shadows one flashlight beam at a time."
+  },
+  {
+    "id": "detroit-become-human",
+    "title": "Detroit: Become Human",
+    "platforms": [
+      "pc",
+      "playstation"
+    ],
+    "year": 2018,
+    "genres": [
+      "narrative",
+      "adventure"
+    ],
+    "time_tags": [
+      30,
+      60,
+      90,
+      120
+    ],
+    "energy": "low",
+    "moods": [
+      "immersive",
+      "intense"
+    ],
+    "play_style": [
+      "narrative"
+    ],
+    "time_to_fun": "short",
+    "stop_friendliness": "checkpoints",
+    "multiplayer": [
+      "solo"
+    ],
+    "description": "Three androids, one city on the brink: a branching story where every ending belongs to your choices."
+  },
+  {
+    "id": "wolfenstein-new-order",
+    "title": "Wolfenstein: The New Order",
+    "platforms": [
+      "pc",
+      "playstation",
+      "xbox"
+    ],
+    "year": 2014,
+    "genres": [
+      "shooter",
+      "action",
+      "narrative"
+    ],
+    "time_tags": [
+      30,
+      60,
+      90
+    ],
+    "energy": "high",
+    "moods": [
+      "intense",
+      "immersive"
+    ],
+    "play_style": [
+      "action"
+    ],
+    "time_to_fun": "short",
+    "stop_friendliness": "checkpoints",
+    "multiplayer": [
+      "solo"
+    ],
+    "description": "Alternate-history Nazi-punching with an unexpectedly tender heart: the single-player shooter done right."
+  },
+  {
+    "id": "garrys-mod",
+    "title": "Garry's Mod",
+    "platforms": [
+      "pc"
+    ],
+    "year": 2006,
+    "genres": [
+      "sandbox",
+      "comedy",
+      "multiplayer"
+    ],
+    "time_tags": [
+      15,
+      30,
+      60,
+      90,
+      120
+    ],
+    "energy": "medium",
+    "moods": [
+      "creative",
+      "fun"
+    ],
+    "play_style": [
+      "sandbox_creative"
+    ],
+    "time_to_fun": "short",
+    "stop_friendliness": "anytime",
+    "multiplayer": [
+      "online_coop",
+      "solo",
+      "competitive"
+    ],
+    "description": "The physics sandbox where the internet plays: build contraptions, break servers, invent game modes."
+  },
+  {
+    "id": "amnesia-dark-descent",
+    "title": "Amnesia: The Dark Descent",
+    "platforms": [
+      "pc",
+      "playstation",
+      "xbox",
+      "switch"
+    ],
+    "year": 2010,
+    "genres": [
+      "horror",
+      "adventure",
+      "indie"
+    ],
+    "time_tags": [
+      30,
+      60,
+      90
+    ],
+    "energy": "high",
+    "moods": [
+      "intense",
+      "immersive"
+    ],
+    "play_style": [
+      "narrative"
+    ],
+    "time_to_fun": "medium",
+    "stop_friendliness": "checkpoints",
+    "multiplayer": [
+      "solo"
+    ],
+    "description": "No weapons, no hope, no looking at the monster: the game that rebuilt horror around helplessness."
+  },
+  {
+    "id": "spec-ops-the-line",
+    "title": "Spec Ops: The Line",
+    "platforms": [
+      "pc",
+      "playstation",
+      "xbox"
+    ],
+    "year": 2012,
+    "genres": [
+      "shooter",
+      "narrative"
+    ],
+    "time_tags": [
+      30,
+      60,
+      90
+    ],
+    "energy": "high",
+    "moods": [
+      "intense",
+      "immersive"
+    ],
+    "play_style": [
+      "action",
+      "narrative"
+    ],
+    "time_to_fun": "medium",
+    "stop_friendliness": "checkpoints",
+    "multiplayer": [
+      "solo"
+    ],
+    "description": "A sand-buried Dubai and a shooter that turns its guns on you: do you feel like a hero yet?"
+  },
+  {
+    "id": "saints-row-the-third",
+    "title": "Saints Row: The Third",
+    "platforms": [
+      "pc",
+      "playstation",
+      "xbox",
+      "switch"
+    ],
+    "year": 2011,
+    "genres": [
+      "action",
+      "open-world",
+      "comedy"
+    ],
+    "time_tags": [
+      30,
+      60,
+      90,
+      120
+    ],
+    "energy": "medium",
+    "moods": [
+      "fun",
+      "exciting"
+    ],
+    "play_style": [
+      "action"
+    ],
+    "time_to_fun": "short",
+    "stop_friendliness": "anytime",
+    "multiplayer": [
+      "solo",
+      "online_coop"
+    ],
+    "description": "GTA's id unleashed: skydive into a penthouse, fight gimps with a giant purple bat, never apologize."
+  },
+  {
+    "id": "prey-2017",
+    "title": "Prey",
+    "platforms": [
+      "pc",
+      "playstation",
+      "xbox"
+    ],
+    "year": 2017,
+    "genres": [
+      "rpg",
+      "action",
+      "horror"
+    ],
+    "time_tags": [
+      30,
+      60,
+      90,
+      120
+    ],
+    "energy": "medium",
+    "moods": [
+      "immersive",
+      "strategic",
+      "intense"
+    ],
+    "play_style": [
+      "action"
+    ],
+    "time_to_fun": "medium",
+    "stop_friendliness": "anytime",
+    "multiplayer": [
+      "solo"
+    ],
+    "description": "Talos I is the best haunted house in space: every coffee cup might be a mimic, every problem has five answers."
+  },
+  {
+    "id": "borderlands-goty",
+    "title": "Borderlands: Game of the Year Edition",
+    "platforms": [
+      "pc",
+      "playstation",
+      "xbox",
+      "switch"
+    ],
+    "year": 2019,
+    "genres": [
+      "shooter",
+      "rpg",
+      "coop"
+    ],
+    "time_tags": [
+      30,
+      60,
+      90,
+      120
+    ],
+    "energy": "high",
+    "moods": [
+      "fun",
+      "exciting"
+    ],
+    "play_style": [
+      "action"
+    ],
+    "time_to_fun": "short",
+    "stop_friendliness": "anytime",
+    "multiplayer": [
+      "solo",
+      "online_coop",
+      "local_coop"
+    ],
+    "description": "The original loot-shooter safari across Pandora: eighty-seven bazillion guns and a claptrap who won't shut up."
+  },
+  {
+    "id": "dishonored-2",
+    "title": "Dishonored 2",
+    "platforms": [
+      "pc",
+      "playstation",
+      "xbox"
+    ],
+    "year": 2016,
+    "genres": [
+      "stealth",
+      "action",
+      "rpg"
+    ],
+    "time_tags": [
+      30,
+      60,
+      90,
+      120
+    ],
+    "energy": "medium",
+    "moods": [
+      "strategic",
+      "immersive",
+      "satisfying"
+    ],
+    "play_style": [
+      "action",
+      "strategy"
+    ],
+    "time_to_fun": "medium",
+    "stop_friendliness": "checkpoints",
+    "multiplayer": [
+      "solo"
+    ],
+    "description": "Karnaca's clockwork mansions and dust storms: the immersive sim where every level is a masterclass."
+  },
+  {
+    "id": "hellblade-senuas-sacrifice",
+    "title": "Hellblade: Senua's Sacrifice",
+    "platforms": [
+      "pc",
+      "playstation",
+      "xbox",
+      "switch"
+    ],
+    "year": 2017,
+    "genres": [
+      "action",
+      "narrative",
+      "indie"
+    ],
+    "time_tags": [
+      30,
+      60,
+      90
+    ],
+    "energy": "medium",
+    "moods": [
+      "immersive",
+      "intense",
+      "beautiful"
+    ],
+    "play_style": [
+      "action",
+      "narrative"
+    ],
+    "time_to_fun": "medium",
+    "stop_friendliness": "checkpoints",
+    "multiplayer": [
+      "solo"
+    ],
+    "description": "A Pict warrior's journey into Helheim and psychosis: play it with headphones, remember it forever."
+  },
+  {
+    "id": "gta-vice-city",
+    "title": "Grand Theft Auto: Vice City",
+    "platforms": [
+      "pc",
+      "playstation",
+      "xbox",
+      "mobile"
+    ],
+    "year": 2002,
+    "genres": [
+      "action",
+      "open-world"
+    ],
+    "time_tags": [
+      30,
+      60,
+      90,
+      120
+    ],
+    "energy": "medium",
+    "moods": [
+      "fun",
+      "nostalgic",
+      "adventurous"
+    ],
+    "play_style": [
+      "action"
+    ],
+    "time_to_fun": "short",
+    "stop_friendliness": "anytime",
+    "multiplayer": [
+      "solo"
+    ],
+    "description": "Neon, synthwave, and a Hawaiian shirt: the eighties crime fantasy that still owns its decade."
+  },
+  {
+    "id": "company-of-heroes-2",
+    "title": "Company of Heroes 2",
+    "platforms": [
+      "pc"
+    ],
+    "year": 2013,
+    "genres": [
+      "strategy",
+      "rts",
+      "war"
+    ],
+    "time_tags": [
+      30,
+      60,
+      90,
+      120
+    ],
+    "energy": "high",
+    "moods": [
+      "strategic",
+      "intense",
+      "challenging"
+    ],
+    "play_style": [
+      "strategy"
+    ],
+    "time_to_fun": "medium",
+    "stop_friendliness": "commitment",
+    "multiplayer": [
+      "solo",
+      "competitive",
+      "online_coop"
+    ],
+    "description": "The Eastern Front in brutal, dynamic detail: cover, cold, and command decisions under fire."
+  },
+  {
+    "id": "civilization-5",
+    "title": "Sid Meier's Civilization V",
+    "platforms": [
+      "pc"
+    ],
+    "year": 2010,
+    "genres": [
+      "strategy",
+      "4x",
+      "turn-based"
+    ],
+    "time_tags": [
+      30,
+      60,
+      90,
+      120
+    ],
+    "energy": "low",
+    "moods": [
+      "strategic",
+      "relaxing",
+      "satisfying"
+    ],
+    "play_style": [
+      "strategy"
+    ],
+    "time_to_fun": "medium",
+    "stop_friendliness": "anytime",
+    "multiplayer": [
+      "solo",
+      "competitive"
+    ],
+    "description": "One. More. Turn. The civ that hooked a generation on hexes, wonders, and Gandhi's nukes."
+  },
+  {
+    "id": "la-noire",
+    "title": "L.A. Noire",
+    "platforms": [
+      "pc",
+      "playstation",
+      "xbox",
+      "switch"
+    ],
+    "year": 2011,
+    "genres": [
+      "adventure",
+      "narrative",
+      "detective"
+    ],
+    "time_tags": [
+      30,
+      60,
+      90
+    ],
+    "energy": "low",
+    "moods": [
+      "immersive",
+      "strategic"
+    ],
+    "play_style": [
+      "narrative"
+    ],
+    "time_to_fun": "medium",
+    "stop_friendliness": "checkpoints",
+    "multiplayer": [
+      "solo"
+    ],
+    "description": "1947 Los Angeles, case by case: read faces, catch lies, and watch the golden age rot from inside."
+  },
+  {
+    "id": "for-honor",
+    "title": "For Honor",
+    "platforms": [
+      "pc",
+      "playstation",
+      "xbox"
+    ],
+    "year": 2017,
+    "genres": [
+      "fighting",
+      "action",
+      "multiplayer"
+    ],
+    "time_tags": [
+      15,
+      30,
+      60,
+      90
+    ],
+    "energy": "high",
+    "moods": [
+      "competitive",
+      "intense",
+      "challenging"
+    ],
+    "play_style": [
+      "action"
+    ],
+    "time_to_fun": "medium",
+    "stop_friendliness": "commitment",
+    "multiplayer": [
+      "competitive",
+      "solo"
+    ],
+    "description": "Knights, vikings, and samurai in a melee fighter where reading your opponent is everything."
+  },
+  {
+    "id": "dead-space-2008",
+    "title": "Dead Space (2008)",
+    "platforms": [
+      "pc",
+      "playstation",
+      "xbox"
+    ],
+    "year": 2008,
+    "genres": [
+      "horror",
+      "action",
+      "shooter"
+    ],
+    "time_tags": [
+      30,
+      60,
+      90
+    ],
+    "energy": "high",
+    "moods": [
+      "intense",
+      "immersive"
+    ],
+    "play_style": [
+      "action"
+    ],
+    "time_to_fun": "medium",
+    "stop_friendliness": "checkpoints",
+    "multiplayer": [
+      "solo"
+    ],
+    "description": "Cut off their limbs: the Ishimura is still the scariest ship ever built, original flavor."
+  },
+  {
+    "id": "death-stranding",
+    "title": "Death Stranding",
+    "platforms": [
+      "pc",
+      "playstation",
+      "xbox",
+      "mobile"
+    ],
+    "year": 2019,
+    "genres": [
+      "adventure",
+      "open-world",
+      "narrative"
+    ],
+    "time_tags": [
+      30,
+      60,
+      90,
+      120
+    ],
+    "energy": "low",
+    "moods": [
+      "immersive",
+      "relaxing",
+      "beautiful"
+    ],
+    "play_style": [
+      "action",
+      "narrative"
+    ],
+    "time_to_fun": "long",
+    "stop_friendliness": "anytime",
+    "multiplayer": [
+      "solo"
+    ],
+    "description": "Deliver hope across a broken America: Kojima's walking simulator that somehow becomes meditation."
+  },
+  {
+    "id": "just-cause-3",
+    "title": "Just Cause 3",
+    "platforms": [
+      "pc",
+      "playstation",
+      "xbox"
+    ],
+    "year": 2015,
+    "genres": [
+      "action",
+      "open-world"
+    ],
+    "time_tags": [
+      30,
+      60,
+      90
+    ],
+    "energy": "high",
+    "moods": [
+      "fun",
+      "exciting"
+    ],
+    "play_style": [
+      "action"
+    ],
+    "time_to_fun": "short",
+    "stop_friendliness": "anytime",
+    "multiplayer": [
+      "solo"
+    ],
+    "description": "Grapple, wingsuit, explode, repeat: the purest chaos physics playground on any Mediterranean island."
+  },
+  {
+    "id": "mortal-kombat-x",
+    "title": "Mortal Kombat X",
+    "platforms": [
+      "pc",
+      "playstation",
+      "xbox",
+      "mobile"
+    ],
+    "year": 2015,
+    "genres": [
+      "fighting"
+    ],
+    "time_tags": [
+      15,
+      30,
+      60
+    ],
+    "energy": "high",
+    "moods": [
+      "intense",
+      "competitive"
+    ],
+    "play_style": [
+      "action"
+    ],
+    "time_to_fun": "short",
+    "stop_friendliness": "anytime",
+    "multiplayer": [
+      "solo",
+      "local_coop",
+      "competitive"
+    ],
+    "description": "Fatalities in gorgeous slow-motion horror: the kombat generation's gateway drug."
+  },
+  {
+    "id": "the-last-of-us-remastered",
+    "title": "The Last of Us Remastered",
+    "platforms": [
+      "playstation"
+    ],
+    "year": 2014,
+    "genres": [
+      "action",
+      "narrative",
+      "survival"
+    ],
+    "time_tags": [
+      30,
+      60,
+      90,
+      120
+    ],
+    "energy": "medium",
+    "moods": [
+      "immersive",
+      "intense"
+    ],
+    "play_style": [
+      "action",
+      "narrative"
+    ],
+    "time_to_fun": "medium",
+    "stop_friendliness": "checkpoints",
+    "multiplayer": [
+      "solo"
+    ],
+    "description": "Joel, Ellie, and the story that made grown critics cry: survival's cost, one giraffe at a time."
+  },
+  {
+    "id": "just-cause-2",
+    "title": "Just Cause 2",
+    "platforms": [
+      "pc",
+      "playstation",
+      "xbox"
+    ],
+    "year": 2010,
+    "genres": [
+      "action",
+      "open-world"
+    ],
+    "time_tags": [
+      30,
+      60,
+      90
+    ],
+    "energy": "high",
+    "moods": [
+      "fun",
+      "exciting",
+      "nostalgic"
+    ],
+    "play_style": [
+      "action"
+    ],
+    "time_to_fun": "short",
+    "stop_friendliness": "anytime",
+    "multiplayer": [
+      "solo"
+    ],
+    "description": "Panau island as a toybox: the grappling hook that launched a thousand physics videos."
+  }
+]
