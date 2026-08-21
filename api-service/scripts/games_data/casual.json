@@ -5220,7 +5220,10 @@
       "competitive"
     ],
     "description": "Official digital Pokemon card game.",
-    "fun_fact": "Physical Pokemon card packs include codes for digital packs."
+    "fun_fact": "Physical Pokemon card packs include codes for digital packs.",
+    "store_links": {
+      "android": "https://play.google.com/store/apps/details?id=com.pokemon.pokemontcgl"
+    }
   },
   {
     "id": "yu-gi-oh-master-duel",
@@ -5260,7 +5263,8 @@
     "description": "The definitive Yu-Gi-Oh digital game.",
     "fun_fact": "Features every card ever printed in the real game's history.",
     "store_links": {
-      "steam": "https://store.steampowered.com/app/1449850/YuGiOh_Master_Duel/"
+      "steam": "https://store.steampowered.com/app/1449850/YuGiOh_Master_Duel/",
+      "android": "https://play.google.com/store/apps/details?id=jp.konami.masterduel"
     }
   },
   {
@@ -5297,7 +5301,10 @@
       "competitive"
     ],
     "description": "Blizzard's accessible card game.",
-    "fun_fact": "Originally titled 'Hearthstone: Heroes of Warcraft' and set in the Warcraft universe."
+    "fun_fact": "Originally titled 'Hearthstone: Heroes of Warcraft' and set in the Warcraft universe.",
+    "store_links": {
+      "android": "https://play.google.com/store/apps/details?id=com.blizzard.wtcg.hearthstone"
+    }
   },
   {
     "id": "backpack-hero",
