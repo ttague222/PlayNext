@@ -1,13 +1,13 @@
 # PlayNxt Roadmap
 
-## Current State (as of 2026-08-20)
+## Current State (as of 2026-08-21)
 
-- **1.1.0 in review at both stores** — the full premium build (Smart History, Advanced Filters, push pre-prompt, What's New screen), plus ATT compliance, Firebase Analytics across the funnel, the store review prompt, and the consolidated recommendation fixes (staleness protection, Not For Me exclusion, uncapped ranking)
-- API: consolidated engine live on Cloud Run; SendGrid removed
-- ASO: Apple metadata updated (subtitle + keywords, title kept); Play listing intentionally held as control for a two-week impressions comparison
-- Catalog: ~1,089 games
-- Tests: backend 129/129, mobile jest 142/142, expo-doctor 18/18
-- Release pipeline: EAS build + submit works end to end on iOS; Android signs with the recovered original upload key (local credentials); Play service-account grant still propagating
+- **1.1.0 in review at both stores** — the full premium build (Smart History, Advanced Filters, push pre-prompt, What's New screen), plus ATT compliance, Firebase Analytics across the funnel, the store review prompt, and the consolidated recommendation fixes (staleness protection, Not For Me exclusion, uncapped ranking, time-affinity scoring, subscription-taxonomy bridge)
+- API: consolidated engine live on Cloud Run; SendGrid removed; `/config` POST now auth-guarded; `ad_interval` raised 3→4 per review feedback
+- ASO: Apple metadata updated (subtitle + keywords, title kept); Play listing intentionally held as control until ~2026-09-03
+- **Catalog: 1,071 unique games** — deduped, current through Aug 2026, 99% year coverage, zero dead time tags (see Catalog Health below)
+- Tests: backend 136/136, mobile jest 142/142, expo-doctor 18/18
+- Release pipeline: EAS build + submit works end to end on iOS; Android upload key recovered and stored in three places (local, password manager, EAS default); Play service-account grant still propagating (manual .aab upload as fallback)
 
 ---
 
@@ -19,11 +19,11 @@ These are blocking or high-risk items that should be resolved before any feature
 |------|--------|
 | ~~Rotate RAWG API key~~ | ✅ Done — rotated key set as EAS env var; verified live (cover art loads in 1.1.0 builds) |
 | ~~Rotate SendGrid API key~~ | Resolved 2026-08-19 by removal: no code ever read SENDGRID_API_KEY, so it was dropped from the deploy entirely and the SendGrid subscription can be cancelled. The exposed old key should still be revoked in the SendGrid dashboard before closing the account |
-| **iOS CI credentials** | ✅ Credentials done 2026-08-19 (App Store profile active, builds + submit working). Remaining sliver: update `.github/workflows/mobile-build.yml` platform default from `android` → `all` |
+| ~~iOS CI credentials~~ | ✅ Done. Credentials 2026-08-19; CI platform default flipped to `all` 2026-08-20 (currently `skip` on push until EAS build quota resets Sep 1 — restore `all` then) |
 | **Web Admin Deploy workflow** | Still broken — separate task to diagnose and fix GitHub Actions config |
 | **API integration tests** | Pre-existing infra debt — tests red, needs Firestore emulator setup |
 | ~~**Fix GitHub repo description**~~ | ✅ Done (2026-08-19). Now reads "AI-powered video game recommendations based on mood and available time" |
-| **Delete stale local copy** | ⚠️ **NOT safe to delete until the keystore is backed up.** `C:\Users\ttagu\Documents\PlayNext` holds the ONLY other copy of `playnxt-release.keystore` (the Play upload key, recovered 2026-08-20). Back up the keystore + passwords to a password manager and to EAS (`eas credentials` reads credentials.json), then delete the clone |
+| **Delete stale local copy** | ✅ Safe to delete now — the upload keystore is backed up in the password manager and on EAS (default build credential, 2026-08-21). `C:\Users\ttagu\Documents\PlayNext` can go whenever |
 
 ---
 
@@ -50,12 +50,28 @@ With ~23 installs, feature ROI = ratings + retention (which feed discoverability
 
 | Priority | Item | Cost | Why |
 |---|---|---|---|
-| Now | Ad experience: nudge remote-config `ad_interval` 3→4, watch `ad_watched` vs retention | Zero | Only monetization complaint in reviews; reversible dial |
-| Now | Affiliate links: sign up (Humble/Fanatical/GMG/GOG), flip `ENABLE_AFFILIATE_TRACKING` | Zero dev | Revenue stream on already-built UI |
-| Now | Keystore backup (password manager + EAS) and CI platform default `android`→`all` | Hours | Insurance; keystore exists in only two local places |
+| ✅ Done 08-20 | Ad experience: `ad_interval` 3→4 (deployed; `/config` POST also auth-guarded) | Zero | Watch `ad_watched` vs retention in Firebase before tuning again |
+| Deferred (Tom's call) | Affiliate links: sign up (Humble/Fanatical/GMG/GOG), flip `ENABLE_AFFILIATE_TRACKING` | Zero dev | Revenue stream on already-built UI, whenever wanted |
+| ✅ Done 08-21 | Keystore backup (password manager + EAS default credential) and CI platform default | Hours | Upload key now in three places |
 | Next build | "Why not?" + free-tier learning from own signals | 2–4 days | Makes "learns from you" true for free users; answers the top review complaint cheaply |
 | Gated | Steam library sync (Steam only, first) | 1–2 wks | Explicitly requested by a reviewer; build only if analytics shows retention worth investing in |
 | Declined | Archive/collection depth | — | Contradicts "keep track, lightly"; drifts into the tracker camp we deliberately avoid (ASO-PLAN §2) |
+
+---
+
+## Catalog Health ✅ (evaluation + full remediation 2026-08-21)
+
+All five findings from the catalog evaluation fixed in one pass. Reusable maintenance scripts in `api-service/scripts/`, all with dry-run defaults.
+
+| Finding | Before | After | Tool |
+|---|---|---|---|
+| Duplicate titles | 43 groups / 87 docs | 0 | `dedupe_games.py` (+ tombstones in `deleted_game_ids.json`, honored by `seed_from_json.py`) |
+| Subscription taxonomy (premium filter broken: PS Plus matched 0 games) | drifted | server alias bridge + data normalized | alias map in `recommendation_service.py` |
+| Recency | 0 games from 2026 | 27 curated 2025–26 releases added; 65×2025, 21×2026 visible | `seed_refresh.py` + `games_data/refresh_2025_2026.json` |
+| Missing `year` / store links | 304 / 186 | 11 / 42 (RAWG had no confident match for the rest) | `backfill_rawg.py` (fill-only, 0.90 title-similarity guard) |
+| Dead time tags (5/10/20/45) | ~180 games | none | `normalize_time_tags.py` (ceil-to-bracket) |
+
+Remaining catalog debt (opportunistic, manual): ~42 games with no store links and ~50 mobile games missing a store link where RAWG has no listing; subscription *coverage* is thin (8 PS Plus, ~105 Game Pass tagged vs hundreds in reality) — fold into the next content pass. Suggested habit: monthly `seed_refresh.py` candidates run + quarterly `dedupe_games.py`/`backfill_rawg.py` dry runs.
 
 ---
 
