@@ -136,17 +136,26 @@ def main():
         return
 
     tok = gcloud_token()
-    ok = 0
+    created = updated = 0
     for g in games:
         data = transform(g)
+        doc_id = urllib.parse.quote(data["game_id"], safe="")
+        # Preflight: distinguish create from in-place update so id collisions
+        # with pre-existing docs are visible instead of silent.
+        try:
+            urllib.request.urlopen(urllib.request.Request(
+                f"{BASE}/{doc_id}?mask.fieldPaths=title", headers={"Authorization": f"Bearer {tok}"}))
+            updated += 1
+            print(f"  UPDATE (id already exists): {data['game_id']}")
+        except urllib.error.HTTPError:
+            created += 1
         fields = {k: to_fs(v) for k, v in data.items() if v is not None}
         mask = "&".join(f"updateMask.fieldPaths={k}" for k in fields)
         body = json.dumps({"fields": fields}).encode()
-        r = urllib.request.Request(f"{BASE}/{data['game_id']}?{mask}", method="PATCH", data=body,
+        r = urllib.request.Request(f"{BASE}/{doc_id}?{mask}", method="PATCH", data=body,
                                    headers={"Authorization": f"Bearer {tok}", "Content-Type": "application/json"})
         urllib.request.urlopen(r)
-        ok += 1
-    print(f"created/updated in production: {ok}")
+    print(f"created: {created} | updated in place: {updated}")
 
 
 if __name__ == "__main__":
