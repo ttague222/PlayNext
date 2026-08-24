@@ -1,0 +1,1194 @@
+[
+  {
+    "id": "death-road-to-canada",
+    "title": "Death Road to Canada",
+    "platforms": [
+      "pc",
+      "playstation",
+      "xbox",
+      "switch",
+      "mobile"
+    ],
+    "year": 2016,
+    "genres": [
+      "roguelike",
+      "action",
+      "comedy"
+    ],
+    "time_tags": [
+      15,
+      30,
+      60
+    ],
+    "energy": "medium",
+    "moods": [
+      "fun",
+      "charming",
+      "exciting"
+    ],
+    "play_style": [
+      "action"
+    ],
+    "time_to_fun": "short",
+    "stop_friendliness": "anytime",
+    "multiplayer": [
+      "solo",
+      "local_coop"
+    ],
+    "description": "A randomly generated zombie road trip where your party might recruit a dog, a wrestler, or Santa: chaos with heart."
+  },
+  {
+    "id": "odin-sphere-leifthrasir",
+    "title": "Odin Sphere Leifthrasir",
+    "platforms": [
+      "playstation"
+    ],
+    "year": 2016,
+    "genres": [
+      "rpg",
+      "action",
+      "hack-and-slash"
+    ],
+    "time_tags": [
+      30,
+      60,
+      90
+    ],
+    "energy": "medium",
+    "moods": [
+      "beautiful",
+      "immersive",
+      "adventurous"
+    ],
+    "play_style": [
+      "action",
+      "narrative"
+    ],
+    "time_to_fun": "short",
+    "stop_friendliness": "checkpoints",
+    "multiplayer": [
+      "solo"
+    ],
+    "description": "Vanillaware's painted Norse tragedy: five interwoven fates in some of the most gorgeous 2D art ever drawn."
+  },
+  {
+    "id": "n-plus-plus",
+    "title": "N++",
+    "platforms": [
+      "pc",
+      "playstation",
+      "xbox",
+      "switch"
+    ],
+    "year": 2015,
+    "genres": [
+      "platformer",
+      "arcade",
+      "indie"
+    ],
+    "time_tags": [
+      15,
+      30,
+      60
+    ],
+    "energy": "high",
+    "moods": [
+      "challenging",
+      "satisfying"
+    ],
+    "play_style": [
+      "action"
+    ],
+    "time_to_fun": "short",
+    "stop_friendliness": "anytime",
+    "multiplayer": [
+      "solo",
+      "local_coop"
+    ],
+    "description": "A ninja, gravity, and thousands of levels of pure momentum: minimalist platforming perfected over a decade."
+  },
+  {
+    "id": "nex-machina",
+    "title": "Nex Machina",
+    "platforms": [
+      "pc",
+      "playstation"
+    ],
+    "year": 2017,
+    "genres": [
+      "shooter",
+      "arcade",
+      "action"
+    ],
+    "time_tags": [
+      15,
+      30,
+      60
+    ],
+    "energy": "high",
+    "moods": [
+      "intense",
+      "exciting",
+      "satisfying"
+    ],
+    "play_style": [
+      "action"
+    ],
+    "time_to_fun": "short",
+    "stop_friendliness": "anytime",
+    "multiplayer": [
+      "solo"
+    ],
+    "description": "Housemarque's voxel-shredding twin-stick masterpiece: pure arcade adrenaline in five-minute doses."
+  },
+  {
+    "id": "west-of-loathing",
+    "title": "West of Loathing",
+    "platforms": [
+      "pc",
+      "switch",
+      "mobile"
+    ],
+    "year": 2017,
+    "genres": [
+      "rpg",
+      "comedy",
+      "adventure"
+    ],
+    "time_tags": [
+      15,
+      30,
+      60,
+      90
+    ],
+    "energy": "low",
+    "moods": [
+      "fun",
+      "charming"
+    ],
+    "play_style": [
+      "narrative",
+      "strategy"
+    ],
+    "time_to_fun": "short",
+    "stop_friendliness": "anytime",
+    "multiplayer": [
+      "solo"
+    ],
+    "description": "A stick-figure western RPG that is genuinely, consistently funny: every clickable thing hides a joke."
+  },
+  {
+    "id": "there-is-no-game",
+    "title": "There Is No Game: Wrong Dimension",
+    "platforms": [
+      "pc",
+      "switch",
+      "mobile"
+    ],
+    "year": 2020,
+    "genres": [
+      "puzzle",
+      "comedy",
+      "adventure"
+    ],
+    "time_tags": [
+      30,
+      60,
+      90
+    ],
+    "energy": "low",
+    "moods": [
+      "fun",
+      "charming",
+      "creative"
+    ],
+    "play_style": [
+      "puzzle",
+      "narrative"
+    ],
+    "time_to_fun": "short",
+    "stop_friendliness": "checkpoints",
+    "multiplayer": [
+      "solo"
+    ],
+    "description": "The game that insists it isn't one: a fourth-wall-demolishing point-and-click that keeps outsmarting you."
+  },
+  {
+    "id": "owlboy",
+    "title": "Owlboy",
+    "platforms": [
+      "pc",
+      "playstation",
+      "xbox",
+      "switch"
+    ],
+    "year": 2016,
+    "genres": [
+      "platformer",
+      "adventure",
+      "indie"
+    ],
+    "time_tags": [
+      30,
+      60,
+      90
+    ],
+    "energy": "medium",
+    "moods": [
+      "beautiful",
+      "charming",
+      "adventurous"
+    ],
+    "play_style": [
+      "action"
+    ],
+    "time_to_fun": "short",
+    "stop_friendliness": "checkpoints",
+    "multiplayer": [
+      "solo"
+    ],
+    "description": "Ten years of pixel-art devotion: a flying platformer about a mute owl boy with more heart than most blockbusters."
+  },
+  {
+    "id": "steamworld-dig-2",
+    "title": "SteamWorld Dig 2",
+    "platforms": [
+      "pc",
+      "playstation",
+      "xbox",
+      "switch"
+    ],
+    "year": 2017,
+    "genres": [
+      "platformer",
+      "adventure",
+      "indie"
+    ],
+    "time_tags": [
+      15,
+      30,
+      60,
+      90
+    ],
+    "energy": "medium",
+    "moods": [
+      "satisfying",
+      "adventurous",
+      "fun"
+    ],
+    "play_style": [
+      "action"
+    ],
+    "time_to_fun": "short",
+    "stop_friendliness": "anytime",
+    "multiplayer": [
+      "solo"
+    ],
+    "description": "Dig down, upgrade, dig deeper: the tightest loop in metroidvania mining, over in a perfect dozen hours."
+  },
+  {
+    "id": "sunless-skies",
+    "title": "Sunless Skies",
+    "platforms": [
+      "pc",
+      "playstation",
+      "xbox",
+      "switch"
+    ],
+    "year": 2019,
+    "genres": [
+      "rpg",
+      "adventure",
+      "narrative"
+    ],
+    "time_tags": [
+      30,
+      60,
+      90
+    ],
+    "energy": "low",
+    "moods": [
+      "immersive",
+      "creative"
+    ],
+    "play_style": [
+      "narrative",
+      "strategy"
+    ],
+    "time_to_fun": "medium",
+    "stop_friendliness": "anytime",
+    "multiplayer": [
+      "solo"
+    ],
+    "description": "Pilot a steam locomotive through gothic space: Failbetter's best-written universe of tea, terror, and the sun's corpse."
+  },
+  {
+    "id": "final-fantasy-xii-zodiac-age",
+    "title": "Final Fantasy XII: The Zodiac Age",
+    "platforms": [
+      "pc",
+      "playstation",
+      "xbox",
+      "switch"
+    ],
+    "year": 2017,
+    "genres": [
+      "rpg",
+      "jrpg"
+    ],
+    "time_tags": [
+      60,
+      90,
+      120
+    ],
+    "energy": "medium",
+    "moods": [
+      "adventurous",
+      "strategic",
+      "immersive"
+    ],
+    "play_style": [
+      "strategy",
+      "narrative"
+    ],
+    "time_to_fun": "medium",
+    "stop_friendliness": "anytime",
+    "multiplayer": [
+      "solo"
+    ],
+    "description": "The most underrated mainline Final Fantasy, remastered: program your party's gambits and watch your plans sing."
+  },
+  {
+    "id": "monster-boy-cursed-kingdom",
+    "title": "Monster Boy and the Cursed Kingdom",
+    "platforms": [
+      "pc",
+      "playstation",
+      "xbox",
+      "switch"
+    ],
+    "year": 2018,
+    "genres": [
+      "platformer",
+      "adventure",
+      "indie"
+    ],
+    "time_tags": [
+      30,
+      60,
+      90
+    ],
+    "energy": "medium",
+    "moods": [
+      "charming",
+      "fun",
+      "adventurous"
+    ],
+    "play_style": [
+      "action"
+    ],
+    "time_to_fun": "short",
+    "stop_friendliness": "checkpoints",
+    "multiplayer": [
+      "solo"
+    ],
+    "description": "Shape-shift through a hand-animated kingdom: the Wonder Boy revival that outdid its classics."
+  },
+  {
+    "id": "huntdown",
+    "title": "HUNTDOWN",
+    "platforms": [
+      "pc",
+      "playstation",
+      "xbox",
+      "switch",
+      "mobile"
+    ],
+    "year": 2020,
+    "genres": [
+      "action",
+      "arcade",
+      "shooter"
+    ],
+    "time_tags": [
+      15,
+      30,
+      60
+    ],
+    "energy": "high",
+    "moods": [
+      "intense",
+      "fun",
+      "nostalgic"
+    ],
+    "play_style": [
+      "action"
+    ],
+    "time_to_fun": "short",
+    "stop_friendliness": "checkpoints",
+    "multiplayer": [
+      "solo",
+      "local_coop"
+    ],
+    "description": "Bounty hunters versus street gangs in a neon 80s dystopia: pixel-perfect arcade action, one boss at a time."
+  },
+  {
+    "id": "dragon-quest-builders-2",
+    "title": "Dragon Quest Builders 2",
+    "platforms": [
+      "pc",
+      "playstation",
+      "xbox",
+      "switch"
+    ],
+    "year": 2019,
+    "genres": [
+      "sandbox",
+      "rpg",
+      "adventure"
+    ],
+    "time_tags": [
+      30,
+      60,
+      90,
+      120
+    ],
+    "energy": "low",
+    "moods": [
+      "creative",
+      "relaxing",
+      "charming"
+    ],
+    "play_style": [
+      "sandbox_creative"
+    ],
+    "time_to_fun": "short",
+    "stop_friendliness": "anytime",
+    "multiplayer": [
+      "solo",
+      "online_coop"
+    ],
+    "description": "Minecraft with a Dragon Quest soul: rebuild a ruined world for villagers who cheer every wall you raise."
+  },
+  {
+    "id": "kingdom-two-crowns",
+    "title": "Kingdom Two Crowns",
+    "platforms": [
+      "pc",
+      "playstation",
+      "xbox",
+      "switch",
+      "mobile"
+    ],
+    "year": 2018,
+    "genres": [
+      "strategy",
+      "indie",
+      "simulation"
+    ],
+    "time_tags": [
+      15,
+      30,
+      60,
+      90
+    ],
+    "energy": "low",
+    "moods": [
+      "relaxing",
+      "strategic",
+      "beautiful"
+    ],
+    "play_style": [
+      "strategy"
+    ],
+    "time_to_fun": "short",
+    "stop_friendliness": "anytime",
+    "multiplayer": [
+      "solo",
+      "local_coop",
+      "online_coop"
+    ],
+    "description": "Ride left, ride right, drop coins, hold the wall at night: minimalist kingdom-building in gorgeous pixel dusk."
+  },
+  {
+    "id": "yakuza-kiwami-2",
+    "title": "Yakuza Kiwami 2",
+    "platforms": [
+      "pc",
+      "playstation",
+      "xbox"
+    ],
+    "year": 2017,
+    "genres": [
+      "action",
+      "narrative",
+      "adventure"
+    ],
+    "time_tags": [
+      30,
+      60,
+      90,
+      120
+    ],
+    "energy": "medium",
+    "moods": [
+      "intense",
+      "fun",
+      "immersive"
+    ],
+    "play_style": [
+      "action",
+      "narrative"
+    ],
+    "time_to_fun": "medium",
+    "stop_friendliness": "anytime",
+    "multiplayer": [
+      "solo"
+    ],
+    "description": "The Dragon of Dojima meets the Dragon of Kansai: the series' best villain in its most confident remake."
+  },
+  {
+    "id": "manifold-garden",
+    "title": "Manifold Garden",
+    "platforms": [
+      "pc",
+      "playstation",
+      "xbox",
+      "switch",
+      "mobile"
+    ],
+    "year": 2019,
+    "genres": [
+      "puzzle",
+      "indie"
+    ],
+    "time_tags": [
+      30,
+      60,
+      90
+    ],
+    "energy": "low",
+    "moods": [
+      "beautiful",
+      "creative",
+      "relaxing"
+    ],
+    "play_style": [
+      "puzzle"
+    ],
+    "time_to_fun": "short",
+    "stop_friendliness": "anytime",
+    "multiplayer": [
+      "solo"
+    ],
+    "description": "Reorient gravity inside infinite Escher architecture: a puzzle game that feels like walking through mathematics."
+  },
+  {
+    "id": "rakuen",
+    "title": "Rakuen",
+    "platforms": [
+      "pc",
+      "switch"
+    ],
+    "year": 2017,
+    "genres": [
+      "adventure",
+      "narrative",
+      "indie"
+    ],
+    "time_tags": [
+      30,
+      60,
+      90
+    ],
+    "energy": "low",
+    "moods": [
+      "charming",
+      "immersive",
+      "beautiful"
+    ],
+    "play_style": [
+      "narrative"
+    ],
+    "time_to_fun": "short",
+    "stop_friendliness": "anytime",
+    "multiplayer": [
+      "solo"
+    ],
+    "description": "A hospitalized boy escapes into a storybook world: To the Moon's spirit in a gentle, devastating adventure."
+  },
+  {
+    "id": "80-days",
+    "title": "80 Days",
+    "platforms": [
+      "pc",
+      "mobile"
+    ],
+    "year": 2014,
+    "genres": [
+      "narrative",
+      "adventure",
+      "strategy"
+    ],
+    "time_tags": [
+      15,
+      30,
+      60
+    ],
+    "energy": "low",
+    "moods": [
+      "adventurous",
+      "creative",
+      "charming"
+    ],
+    "play_style": [
+      "narrative"
+    ],
+    "time_to_fun": "short",
+    "stop_friendliness": "anytime",
+    "multiplayer": [
+      "solo"
+    ],
+    "description": "Race around a steampunk 1872 as Passepartout: 750,000 words of branching travelogue, perfect on a phone."
+  },
+  {
+    "id": "ape-out",
+    "title": "Ape Out",
+    "platforms": [
+      "pc",
+      "switch"
+    ],
+    "year": 2019,
+    "genres": [
+      "action",
+      "indie",
+      "arcade"
+    ],
+    "time_tags": [
+      15,
+      30,
+      60
+    ],
+    "energy": "high",
+    "moods": [
+      "intense",
+      "satisfying",
+      "exciting"
+    ],
+    "play_style": [
+      "action"
+    ],
+    "time_to_fun": "short",
+    "stop_friendliness": "checkpoints",
+    "multiplayer": [
+      "solo"
+    ],
+    "description": "Smash out of captivity to a procedural jazz-drum soundtrack: every escape is its own percussion solo."
+  },
+  {
+    "id": "oneshot",
+    "title": "OneShot",
+    "platforms": [
+      "pc",
+      "playstation",
+      "xbox",
+      "switch"
+    ],
+    "year": 2016,
+    "genres": [
+      "puzzle",
+      "narrative",
+      "indie"
+    ],
+    "time_tags": [
+      30,
+      60,
+      90
+    ],
+    "energy": "low",
+    "moods": [
+      "charming",
+      "immersive",
+      "creative"
+    ],
+    "play_style": [
+      "puzzle",
+      "narrative"
+    ],
+    "time_to_fun": "short",
+    "stop_friendliness": "anytime",
+    "multiplayer": [
+      "solo"
+    ],
+    "description": "Guide a child carrying a dying world's last sun: a meta adventure that knows you're there and needs your help."
+  },
+  {
+    "id": "thimbleweed-park",
+    "title": "Thimbleweed Park",
+    "platforms": [
+      "pc",
+      "playstation",
+      "xbox",
+      "switch",
+      "mobile"
+    ],
+    "year": 2017,
+    "genres": [
+      "adventure",
+      "puzzle",
+      "comedy"
+    ],
+    "time_tags": [
+      30,
+      60,
+      90
+    ],
+    "energy": "low",
+    "moods": [
+      "fun",
+      "nostalgic",
+      "charming"
+    ],
+    "play_style": [
+      "puzzle",
+      "narrative"
+    ],
+    "time_to_fun": "short",
+    "stop_friendliness": "anytime",
+    "multiplayer": [
+      "solo"
+    ],
+    "description": "The Maniac Mansion creators return: a murder mystery point-and-click that's both parody and love letter."
+  },
+  {
+    "id": "paradise-killer",
+    "title": "Paradise Killer",
+    "platforms": [
+      "pc",
+      "playstation",
+      "xbox",
+      "switch"
+    ],
+    "year": 2020,
+    "genres": [
+      "adventure",
+      "narrative",
+      "indie"
+    ],
+    "time_tags": [
+      30,
+      60,
+      90
+    ],
+    "energy": "low",
+    "moods": [
+      "immersive",
+      "creative",
+      "strategic"
+    ],
+    "play_style": [
+      "narrative"
+    ],
+    "time_to_fun": "medium",
+    "stop_friendliness": "anytime",
+    "multiplayer": [
+      "solo"
+    ],
+    "description": "An open-world vaporwave murder investigation where you decide when the truth is enough to accuse."
+  },
+  {
+    "id": "far-lone-sails",
+    "title": "FAR: Lone Sails",
+    "platforms": [
+      "pc",
+      "playstation",
+      "xbox",
+      "switch",
+      "mobile"
+    ],
+    "year": 2018,
+    "genres": [
+      "adventure",
+      "indie"
+    ],
+    "time_tags": [
+      30,
+      60,
+      90
+    ],
+    "energy": "low",
+    "moods": [
+      "beautiful",
+      "relaxing",
+      "immersive"
+    ],
+    "play_style": [
+      "narrative"
+    ],
+    "time_to_fun": "short",
+    "stop_friendliness": "anytime",
+    "multiplayer": [
+      "solo"
+    ],
+    "description": "Pilot a land-ship across a dried ocean: a wordless, wistful journey you finish in one moved sitting."
+  },
+  {
+    "id": "desperados-3",
+    "title": "Desperados III",
+    "platforms": [
+      "pc",
+      "playstation",
+      "xbox"
+    ],
+    "year": 2020,
+    "genres": [
+      "strategy",
+      "stealth",
+      "tactics"
+    ],
+    "time_tags": [
+      30,
+      60,
+      90,
+      120
+    ],
+    "energy": "medium",
+    "moods": [
+      "strategic",
+      "satisfying"
+    ],
+    "play_style": [
+      "strategy",
+      "tactics"
+    ],
+    "time_to_fun": "medium",
+    "stop_friendliness": "anytime",
+    "multiplayer": [
+      "solo"
+    ],
+    "description": "Real-time stealth tactics in the old west: pause, plan a five-outlaw ambush, and watch it click perfectly."
+  },
+  {
+    "id": "salt-and-sanctuary",
+    "title": "Salt and Sanctuary",
+    "platforms": [
+      "pc",
+      "playstation",
+      "xbox",
+      "switch"
+    ],
+    "year": 2016,
+    "genres": [
+      "action",
+      "rpg",
+      "soulslike"
+    ],
+    "time_tags": [
+      30,
+      60,
+      90
+    ],
+    "energy": "high",
+    "moods": [
+      "challenging",
+      "immersive"
+    ],
+    "play_style": [
+      "action"
+    ],
+    "time_to_fun": "medium",
+    "stop_friendliness": "checkpoints",
+    "multiplayer": [
+      "solo",
+      "local_coop"
+    ],
+    "description": "Dark Souls flattened into a haunted 2D island, and it works: made by two people, feared by thousands."
+  },
+  {
+    "id": "streets-of-rage-4",
+    "title": "Streets of Rage 4",
+    "platforms": [
+      "pc",
+      "playstation",
+      "xbox",
+      "switch",
+      "mobile"
+    ],
+    "year": 2020,
+    "genres": [
+      "action",
+      "arcade",
+      "coop"
+    ],
+    "time_tags": [
+      15,
+      30,
+      60
+    ],
+    "energy": "high",
+    "moods": [
+      "fun",
+      "nostalgic",
+      "intense"
+    ],
+    "play_style": [
+      "action"
+    ],
+    "time_to_fun": "short",
+    "stop_friendliness": "checkpoints",
+    "multiplayer": [
+      "solo",
+      "local_coop",
+      "online_coop"
+    ],
+    "description": "The 26-years-later sequel that got it right: hand-drawn brawling with a soundtrack worthy of the originals."
+  },
+  {
+    "id": "pyre",
+    "title": "Pyre",
+    "platforms": [
+      "pc",
+      "playstation"
+    ],
+    "year": 2017,
+    "genres": [
+      "rpg",
+      "narrative",
+      "indie"
+    ],
+    "time_tags": [
+      30,
+      60,
+      90
+    ],
+    "energy": "medium",
+    "moods": [
+      "beautiful",
+      "immersive",
+      "creative"
+    ],
+    "play_style": [
+      "narrative",
+      "action"
+    ],
+    "time_to_fun": "short",
+    "stop_friendliness": "anytime",
+    "multiplayer": [
+      "solo"
+    ],
+    "description": "Supergiant's forgotten gem: fantasy basketball rites where losing changes the story instead of ending it."
+  },
+  {
+    "id": "gunpoint",
+    "title": "Gunpoint",
+    "platforms": [
+      "pc"
+    ],
+    "year": 2013,
+    "genres": [
+      "puzzle",
+      "stealth",
+      "indie"
+    ],
+    "time_tags": [
+      15,
+      30,
+      60
+    ],
+    "energy": "medium",
+    "moods": [
+      "strategic",
+      "fun",
+      "satisfying"
+    ],
+    "play_style": [
+      "puzzle",
+      "strategy"
+    ],
+    "time_to_fun": "short",
+    "stop_friendliness": "anytime",
+    "multiplayer": [
+      "solo"
+    ],
+    "description": "Rewire buildings so light switches open doors and guards' guns jam: freelance spy noir in tidy puzzles."
+  },
+  {
+    "id": "duskers",
+    "title": "Duskers",
+    "platforms": [
+      "pc"
+    ],
+    "year": 2016,
+    "genres": [
+      "strategy",
+      "roguelike",
+      "horror"
+    ],
+    "time_tags": [
+      30,
+      60,
+      90
+    ],
+    "energy": "medium",
+    "moods": [
+      "immersive",
+      "intense",
+      "strategic"
+    ],
+    "play_style": [
+      "strategy"
+    ],
+    "time_to_fun": "medium",
+    "stop_friendliness": "anytime",
+    "multiplayer": [
+      "solo"
+    ],
+    "description": "Command salvage drones through derelict ships by typing terminal commands: the loneliest horror in space."
+  },
+  {
+    "id": "the-sexy-brutale",
+    "title": "The Sexy Brutale",
+    "platforms": [
+      "pc",
+      "playstation",
+      "xbox",
+      "switch"
+    ],
+    "year": 2017,
+    "genres": [
+      "puzzle",
+      "adventure",
+      "indie"
+    ],
+    "time_tags": [
+      30,
+      60,
+      90
+    ],
+    "energy": "low",
+    "moods": [
+      "creative",
+      "immersive",
+      "charming"
+    ],
+    "play_style": [
+      "puzzle",
+      "narrative"
+    ],
+    "time_to_fun": "short",
+    "stop_friendliness": "anytime",
+    "multiplayer": [
+      "solo"
+    ],
+    "description": "A masquerade ball murder loop: relive the same day, learn every guest's death, and rewrite each one."
+  },
+  {
+    "id": "detention",
+    "title": "Detention",
+    "platforms": [
+      "pc",
+      "playstation",
+      "switch",
+      "mobile"
+    ],
+    "year": 2017,
+    "genres": [
+      "horror",
+      "adventure",
+      "narrative"
+    ],
+    "time_tags": [
+      30,
+      60,
+      90
+    ],
+    "energy": "low",
+    "moods": [
+      "intense",
+      "immersive"
+    ],
+    "play_style": [
+      "narrative",
+      "puzzle"
+    ],
+    "time_to_fun": "short",
+    "stop_friendliness": "checkpoints",
+    "multiplayer": [
+      "solo"
+    ],
+    "description": "Horror rooted in 1960s Taiwan under martial law: quiet, devastating, and unlike anything else in the genre."
+  },
+  {
+    "id": "door-kickers",
+    "title": "Door Kickers",
+    "platforms": [
+      "pc",
+      "switch",
+      "mobile"
+    ],
+    "year": 2014,
+    "genres": [
+      "strategy",
+      "tactics",
+      "indie"
+    ],
+    "time_tags": [
+      15,
+      30,
+      60
+    ],
+    "energy": "medium",
+    "moods": [
+      "strategic",
+      "satisfying",
+      "intense"
+    ],
+    "play_style": [
+      "strategy",
+      "tactics"
+    ],
+    "time_to_fun": "short",
+    "stop_friendliness": "anytime",
+    "multiplayer": [
+      "solo"
+    ],
+    "description": "Plan the perfect SWAT breach from above, then hit go: top-down tactics in two-minute bursts."
+  },
+  {
+    "id": "the-last-spell",
+    "title": "The Last Spell",
+    "platforms": [
+      "pc",
+      "playstation",
+      "switch"
+    ],
+    "year": 2023,
+    "genres": [
+      "strategy",
+      "tactics",
+      "roguelike"
+    ],
+    "time_tags": [
+      30,
+      60,
+      90,
+      120
+    ],
+    "energy": "medium",
+    "moods": [
+      "strategic",
+      "challenging",
+      "intense"
+    ],
+    "play_style": [
+      "strategy",
+      "tactics"
+    ],
+    "time_to_fun": "medium",
+    "stop_friendliness": "anytime",
+    "multiplayer": [
+      "solo"
+    ],
+    "description": "Defend the last city every night, rebuild every dawn: tactics-roguelite tension that ratchets to breaking."
+  }
+]
