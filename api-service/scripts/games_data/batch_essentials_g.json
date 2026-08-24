@@ -1,0 +1,990 @@
+[
+  {
+    "id": "superhot",
+    "title": "SUPERHOT",
+    "platforms": [
+      "pc",
+      "playstation",
+      "xbox",
+      "switch"
+    ],
+    "year": 2016,
+    "genres": [
+      "shooter",
+      "puzzle",
+      "indie"
+    ],
+    "time_tags": [
+      15,
+      30,
+      60
+    ],
+    "energy": "high",
+    "moods": [
+      "strategic",
+      "intense",
+      "satisfying"
+    ],
+    "play_style": [
+      "action",
+      "puzzle"
+    ],
+    "time_to_fun": "short",
+    "stop_friendliness": "checkpoints",
+    "multiplayer": [
+      "solo"
+    ],
+    "description": "Time moves only when you move: every firefight becomes a puzzle you solve in bullet-time."
+  },
+  {
+    "id": "torchlight-2",
+    "title": "Torchlight II",
+    "platforms": [
+      "pc",
+      "playstation",
+      "xbox",
+      "switch"
+    ],
+    "year": 2012,
+    "genres": [
+      "rpg",
+      "hack-and-slash",
+      "action"
+    ],
+    "time_tags": [
+      30,
+      60,
+      90,
+      120
+    ],
+    "energy": "medium",
+    "moods": [
+      "fun",
+      "satisfying",
+      "adventurous"
+    ],
+    "play_style": [
+      "action"
+    ],
+    "time_to_fun": "short",
+    "stop_friendliness": "anytime",
+    "multiplayer": [
+      "solo",
+      "online_coop"
+    ],
+    "description": "The cheerful Diablo: bright, generous loot-clicking with a pet who runs your errands to town."
+  },
+  {
+    "id": "dragon-age-inquisition",
+    "title": "Dragon Age: Inquisition",
+    "platforms": [
+      "pc",
+      "playstation",
+      "xbox"
+    ],
+    "year": 2014,
+    "genres": [
+      "rpg",
+      "open-world",
+      "narrative"
+    ],
+    "time_tags": [
+      60,
+      90,
+      120
+    ],
+    "energy": "medium",
+    "moods": [
+      "adventurous",
+      "immersive",
+      "strategic"
+    ],
+    "play_style": [
+      "action",
+      "narrative"
+    ],
+    "time_to_fun": "long",
+    "stop_friendliness": "anytime",
+    "multiplayer": [
+      "solo"
+    ],
+    "description": "Close the Breach and rebuild an order: BioWare's biggest fantasy with a war table full of consequences."
+  },
+  {
+    "id": "the-outer-worlds",
+    "title": "The Outer Worlds",
+    "platforms": [
+      "pc",
+      "playstation",
+      "xbox",
+      "switch"
+    ],
+    "year": 2019,
+    "genres": [
+      "rpg",
+      "shooter",
+      "narrative"
+    ],
+    "time_tags": [
+      30,
+      60,
+      90,
+      120
+    ],
+    "energy": "medium",
+    "moods": [
+      "fun",
+      "immersive",
+      "adventurous"
+    ],
+    "play_style": [
+      "action",
+      "narrative"
+    ],
+    "time_to_fun": "medium",
+    "stop_friendliness": "anytime",
+    "multiplayer": [
+      "solo"
+    ],
+    "description": "Corporate space capitalism gone feral: Obsidian's wry Fallout-in-the-stars with companions worth keeping."
+  },
+  {
+    "id": "euro-truck-simulator-2",
+    "title": "Euro Truck Simulator 2",
+    "platforms": [
+      "pc"
+    ],
+    "year": 2012,
+    "genres": [
+      "simulation",
+      "driving"
+    ],
+    "time_tags": [
+      30,
+      60,
+      90,
+      120
+    ],
+    "energy": "low",
+    "moods": [
+      "relaxing",
+      "immersive",
+      "satisfying"
+    ],
+    "play_style": [
+      "action"
+    ],
+    "time_to_fun": "short",
+    "stop_friendliness": "anytime",
+    "multiplayer": [
+      "solo"
+    ],
+    "description": "Haul freight across Europe at dusk with the radio on: the most peaceful game ever made about logistics."
+  },
+  {
+    "id": "broforce",
+    "title": "Broforce",
+    "platforms": [
+      "pc",
+      "playstation",
+      "switch"
+    ],
+    "year": 2015,
+    "genres": [
+      "action",
+      "platformer",
+      "coop"
+    ],
+    "time_tags": [
+      15,
+      30,
+      60
+    ],
+    "energy": "high",
+    "moods": [
+      "fun",
+      "exciting"
+    ],
+    "play_style": [
+      "action"
+    ],
+    "time_to_fun": "short",
+    "stop_friendliness": "checkpoints",
+    "multiplayer": [
+      "local_coop",
+      "online_coop",
+      "solo"
+    ],
+    "description": "Every 80s action hero, one pixelated freedom rampage: explosions measured in eagles per second."
+  },
+  {
+    "id": "walking-dead-season-2",
+    "title": "The Walking Dead: Season 2",
+    "platforms": [
+      "pc",
+      "playstation",
+      "xbox",
+      "switch",
+      "mobile"
+    ],
+    "year": 2013,
+    "genres": [
+      "narrative",
+      "adventure"
+    ],
+    "time_tags": [
+      30,
+      60,
+      90
+    ],
+    "energy": "low",
+    "moods": [
+      "immersive",
+      "intense"
+    ],
+    "play_style": [
+      "narrative"
+    ],
+    "time_to_fun": "short",
+    "stop_friendliness": "checkpoints",
+    "multiplayer": [
+      "solo"
+    ],
+    "description": "Clementine on her own: the sequel that asks what surviving costs a child."
+  },
+  {
+    "id": "surviving-mars",
+    "title": "Surviving Mars",
+    "platforms": [
+      "pc",
+      "playstation",
+      "xbox"
+    ],
+    "year": 2018,
+    "genres": [
+      "strategy",
+      "simulation",
+      "city-builder"
+    ],
+    "time_tags": [
+      30,
+      60,
+      90,
+      120
+    ],
+    "energy": "low",
+    "moods": [
+      "strategic",
+      "creative",
+      "relaxing"
+    ],
+    "play_style": [
+      "strategy"
+    ],
+    "time_to_fun": "medium",
+    "stop_friendliness": "anytime",
+    "multiplayer": [
+      "solo"
+    ],
+    "description": "Domes, drones, and dust storms: build humanity's first Martian colony and keep the oxygen flowing."
+  },
+  {
+    "id": "dark-souls-2-sotfs",
+    "title": "Dark Souls II: Scholar of the First Sin",
+    "platforms": [
+      "pc",
+      "playstation",
+      "xbox"
+    ],
+    "year": 2015,
+    "genres": [
+      "rpg",
+      "action",
+      "soulslike"
+    ],
+    "time_tags": [
+      60,
+      90,
+      120
+    ],
+    "energy": "high",
+    "moods": [
+      "challenging",
+      "immersive"
+    ],
+    "play_style": [
+      "action"
+    ],
+    "time_to_fun": "medium",
+    "stop_friendliness": "checkpoints",
+    "multiplayer": [
+      "solo"
+    ],
+    "description": "The strange middle child of Dark Souls, complete: Drangleic rewards the patient and punishes everyone."
+  },
+  {
+    "id": "black-mesa",
+    "title": "Black Mesa",
+    "platforms": [
+      "pc"
+    ],
+    "year": 2020,
+    "genres": [
+      "shooter",
+      "narrative"
+    ],
+    "time_tags": [
+      30,
+      60,
+      90,
+      120
+    ],
+    "energy": "high",
+    "moods": [
+      "immersive",
+      "intense",
+      "nostalgic"
+    ],
+    "play_style": [
+      "action"
+    ],
+    "time_to_fun": "short",
+    "stop_friendliness": "checkpoints",
+    "multiplayer": [
+      "solo"
+    ],
+    "description": "Half-Life rebuilt by its fans over 15 years: the definitive way to survive the resonance cascade."
+  },
+  {
+    "id": "ratchet-clank-2016",
+    "title": "Ratchet & Clank (2016)",
+    "platforms": [
+      "playstation"
+    ],
+    "year": 2016,
+    "genres": [
+      "action",
+      "platformer",
+      "shooter"
+    ],
+    "time_tags": [
+      30,
+      60,
+      90
+    ],
+    "energy": "medium",
+    "moods": [
+      "fun",
+      "charming",
+      "exciting"
+    ],
+    "play_style": [
+      "action"
+    ],
+    "time_to_fun": "short",
+    "stop_friendliness": "checkpoints",
+    "multiplayer": [
+      "solo"
+    ],
+    "description": "A Pixar movie you can play: absurd weapons, gorgeous planets, and a lombax with a heart of gold."
+  },
+  {
+    "id": "infamous-second-son",
+    "title": "inFAMOUS Second Son",
+    "platforms": [
+      "playstation"
+    ],
+    "year": 2014,
+    "genres": [
+      "action",
+      "open-world"
+    ],
+    "time_tags": [
+      30,
+      60,
+      90
+    ],
+    "energy": "medium",
+    "moods": [
+      "exciting",
+      "fun"
+    ],
+    "play_style": [
+      "action"
+    ],
+    "time_to_fun": "short",
+    "stop_friendliness": "anytime",
+    "multiplayer": [
+      "solo"
+    ],
+    "description": "Smoke, neon, and video: superpowered parkour across a beautifully rain-soaked Seattle."
+  },
+  {
+    "id": "stalker-shadow-of-chernobyl",
+    "title": "S.T.A.L.K.E.R.: Shadow of Chernobyl",
+    "platforms": [
+      "pc",
+      "playstation",
+      "xbox",
+      "switch"
+    ],
+    "year": 2007,
+    "genres": [
+      "shooter",
+      "survival",
+      "horror"
+    ],
+    "time_tags": [
+      30,
+      60,
+      90,
+      120
+    ],
+    "energy": "high",
+    "moods": [
+      "immersive",
+      "intense"
+    ],
+    "play_style": [
+      "action"
+    ],
+    "time_to_fun": "medium",
+    "stop_friendliness": "anytime",
+    "multiplayer": [
+      "solo"
+    ],
+    "description": "The Zone doesn't care about you: anomalies, artifacts, and the most atmospheric wasteland in games."
+  },
+  {
+    "id": "a-way-out",
+    "title": "A Way Out",
+    "platforms": [
+      "pc",
+      "playstation",
+      "xbox"
+    ],
+    "year": 2018,
+    "genres": [
+      "coop",
+      "action",
+      "narrative"
+    ],
+    "time_tags": [
+      30,
+      60,
+      90
+    ],
+    "energy": "medium",
+    "moods": [
+      "intense",
+      "fun",
+      "immersive"
+    ],
+    "play_style": [
+      "action",
+      "narrative"
+    ],
+    "time_to_fun": "short",
+    "stop_friendliness": "checkpoints",
+    "multiplayer": [
+      "local_coop",
+      "online_coop"
+    ],
+    "description": "A prison break built strictly for two: Hazelight's split-screen thriller that demands a partner."
+  },
+  {
+    "id": "max-payne",
+    "title": "Max Payne",
+    "platforms": [
+      "pc",
+      "playstation",
+      "xbox",
+      "mobile"
+    ],
+    "year": 2001,
+    "genres": [
+      "shooter",
+      "action",
+      "narrative"
+    ],
+    "time_tags": [
+      30,
+      60,
+      90
+    ],
+    "energy": "high",
+    "moods": [
+      "intense",
+      "nostalgic",
+      "immersive"
+    ],
+    "play_style": [
+      "action"
+    ],
+    "time_to_fun": "short",
+    "stop_friendliness": "checkpoints",
+    "multiplayer": [
+      "solo"
+    ],
+    "description": "Bullet-time was born here: a noir graphic novel with a gun in each hand and snow that never stops."
+  },
+  {
+    "id": "doki-doki-literature-club",
+    "title": "Doki Doki Literature Club!",
+    "platforms": [
+      "pc",
+      "playstation",
+      "xbox",
+      "switch"
+    ],
+    "year": 2017,
+    "genres": [
+      "narrative",
+      "horror",
+      "indie"
+    ],
+    "time_tags": [
+      30,
+      60,
+      90
+    ],
+    "energy": "low",
+    "moods": [
+      "immersive",
+      "intense"
+    ],
+    "play_style": [
+      "narrative"
+    ],
+    "time_to_fun": "medium",
+    "stop_friendliness": "anytime",
+    "multiplayer": [
+      "solo"
+    ],
+    "description": "Just a cute poetry club, nothing to worry about: free, famous, and best gone into blind."
+  },
+  {
+    "id": "hitman-blood-money",
+    "title": "Hitman: Blood Money",
+    "platforms": [
+      "pc",
+      "playstation",
+      "xbox"
+    ],
+    "year": 2006,
+    "genres": [
+      "stealth",
+      "action"
+    ],
+    "time_tags": [
+      30,
+      60,
+      90
+    ],
+    "energy": "medium",
+    "moods": [
+      "strategic",
+      "satisfying",
+      "nostalgic"
+    ],
+    "play_style": [
+      "action",
+      "strategy"
+    ],
+    "time_to_fun": "medium",
+    "stop_friendliness": "checkpoints",
+    "multiplayer": [
+      "solo"
+    ],
+    "description": "47's classic era peak: accidents happen, especially at the opera, especially to your targets."
+  },
+  {
+    "id": "the-long-dark",
+    "title": "The Long Dark",
+    "platforms": [
+      "pc",
+      "playstation",
+      "xbox",
+      "switch"
+    ],
+    "year": 2017,
+    "genres": [
+      "survival",
+      "narrative",
+      "indie"
+    ],
+    "time_tags": [
+      30,
+      60,
+      90,
+      120
+    ],
+    "energy": "medium",
+    "moods": [
+      "immersive",
+      "intense",
+      "beautiful"
+    ],
+    "play_style": [
+      "action"
+    ],
+    "time_to_fun": "medium",
+    "stop_friendliness": "anytime",
+    "multiplayer": [
+      "solo"
+    ],
+    "description": "Quiet apocalypse in the frozen north: no zombies, just cold, hunger, wolves, and aurora light."
+  },
+  {
+    "id": "final-fantasy-xv",
+    "title": "Final Fantasy XV",
+    "platforms": [
+      "pc",
+      "playstation",
+      "xbox"
+    ],
+    "year": 2016,
+    "genres": [
+      "rpg",
+      "jrpg",
+      "open-world"
+    ],
+    "time_tags": [
+      30,
+      60,
+      90,
+      120
+    ],
+    "energy": "medium",
+    "moods": [
+      "adventurous",
+      "beautiful",
+      "immersive"
+    ],
+    "play_style": [
+      "action",
+      "narrative"
+    ],
+    "time_to_fun": "medium",
+    "stop_friendliness": "anytime",
+    "multiplayer": [
+      "solo"
+    ],
+    "description": "Four friends, one convertible, a doomed kingdom: the road-trip Final Fantasy with dinner photography."
+  },
+  {
+    "id": "kotor-2",
+    "title": "Star Wars: Knights of the Old Republic II",
+    "platforms": [
+      "pc",
+      "switch",
+      "mobile"
+    ],
+    "year": 2004,
+    "genres": [
+      "rpg",
+      "narrative",
+      "turn-based"
+    ],
+    "time_tags": [
+      60,
+      90,
+      120
+    ],
+    "energy": "medium",
+    "moods": [
+      "immersive",
+      "strategic"
+    ],
+    "play_style": [
+      "strategy",
+      "narrative"
+    ],
+    "time_to_fun": "long",
+    "stop_friendliness": "anytime",
+    "multiplayer": [
+      "solo"
+    ],
+    "description": "Obsidian's darker Star Wars: Kreia deconstructs the Force while you rebuild yourself."
+  },
+  {
+    "id": "prison-architect",
+    "title": "Prison Architect",
+    "platforms": [
+      "pc",
+      "playstation",
+      "xbox",
+      "switch",
+      "mobile"
+    ],
+    "year": 2015,
+    "genres": [
+      "strategy",
+      "simulation",
+      "management"
+    ],
+    "time_tags": [
+      30,
+      60,
+      90,
+      120
+    ],
+    "energy": "low",
+    "moods": [
+      "strategic",
+      "creative"
+    ],
+    "play_style": [
+      "strategy"
+    ],
+    "time_to_fun": "medium",
+    "stop_friendliness": "anytime",
+    "multiplayer": [
+      "solo"
+    ],
+    "description": "Design cell blocks, riots, and redemption: the management sim with a conscience under the clipboard."
+  },
+  {
+    "id": "hacknet",
+    "title": "Hacknet",
+    "platforms": [
+      "pc",
+      "mobile"
+    ],
+    "year": 2015,
+    "genres": [
+      "simulation",
+      "puzzle",
+      "indie"
+    ],
+    "time_tags": [
+      30,
+      60,
+      90
+    ],
+    "energy": "low",
+    "moods": [
+      "immersive",
+      "strategic",
+      "satisfying"
+    ],
+    "play_style": [
+      "puzzle"
+    ],
+    "time_to_fun": "short",
+    "stop_friendliness": "anytime",
+    "multiplayer": [
+      "solo"
+    ],
+    "description": "A real terminal, a dead hacker's last request: the most authentic-feeling hacking game ever shipped."
+  },
+  {
+    "id": "fear",
+    "title": "F.E.A.R.",
+    "platforms": [
+      "pc",
+      "playstation",
+      "xbox"
+    ],
+    "year": 2005,
+    "genres": [
+      "shooter",
+      "horror"
+    ],
+    "time_tags": [
+      30,
+      60,
+      90
+    ],
+    "energy": "high",
+    "moods": [
+      "intense",
+      "nostalgic"
+    ],
+    "play_style": [
+      "action"
+    ],
+    "time_to_fun": "short",
+    "stop_friendliness": "checkpoints",
+    "multiplayer": [
+      "solo"
+    ],
+    "description": "Slow-mo firefights against the smartest AI of its era, with a little girl in the static between."
+  },
+  {
+    "id": "far-cry-3-blood-dragon",
+    "title": "Far Cry 3: Blood Dragon",
+    "platforms": [
+      "pc",
+      "playstation",
+      "xbox"
+    ],
+    "year": 2013,
+    "genres": [
+      "shooter",
+      "comedy",
+      "action"
+    ],
+    "time_tags": [
+      15,
+      30,
+      60,
+      90
+    ],
+    "energy": "high",
+    "moods": [
+      "fun",
+      "nostalgic",
+      "exciting"
+    ],
+    "play_style": [
+      "action"
+    ],
+    "time_to_fun": "short",
+    "stop_friendliness": "anytime",
+    "multiplayer": [
+      "solo"
+    ],
+    "description": "A neon VHS fever dream of the 80s that never happened: cyber-commandos, laser dinosaurs, pure joy."
+  },
+  {
+    "id": "resident-evil-3-2020",
+    "title": "Resident Evil 3 (2020)",
+    "platforms": [
+      "pc",
+      "playstation",
+      "xbox"
+    ],
+    "year": 2020,
+    "genres": [
+      "horror",
+      "action"
+    ],
+    "time_tags": [
+      30,
+      60,
+      90
+    ],
+    "energy": "high",
+    "moods": [
+      "intense",
+      "exciting"
+    ],
+    "play_style": [
+      "action"
+    ],
+    "time_to_fun": "short",
+    "stop_friendliness": "checkpoints",
+    "multiplayer": [
+      "solo"
+    ],
+    "description": "Jill versus Nemesis through a burning Raccoon City: the remake as a lean, relentless chase."
+  },
+  {
+    "id": "mafia-definitive-edition",
+    "title": "Mafia: Definitive Edition",
+    "platforms": [
+      "pc",
+      "playstation",
+      "xbox"
+    ],
+    "year": 2020,
+    "genres": [
+      "action",
+      "narrative",
+      "open-world"
+    ],
+    "time_tags": [
+      30,
+      60,
+      90
+    ],
+    "energy": "medium",
+    "moods": [
+      "immersive",
+      "nostalgic"
+    ],
+    "play_style": [
+      "action",
+      "narrative"
+    ],
+    "time_to_fun": "medium",
+    "stop_friendliness": "checkpoints",
+    "multiplayer": [
+      "solo"
+    ],
+    "description": "Tommy Angelo's cab ride into the 1930s mob, remade from the ground up as a period crime film."
+  },
+  {
+    "id": "assassins-creed-brotherhood",
+    "title": "Assassin's Creed Brotherhood",
+    "platforms": [
+      "pc",
+      "playstation",
+      "xbox",
+      "switch"
+    ],
+    "year": 2010,
+    "genres": [
+      "action",
+      "open-world"
+    ],
+    "time_tags": [
+      30,
+      60,
+      90
+    ],
+    "energy": "medium",
+    "moods": [
+      "adventurous",
+      "nostalgic",
+      "immersive"
+    ],
+    "play_style": [
+      "action"
+    ],
+    "time_to_fun": "short",
+    "stop_friendliness": "anytime",
+    "multiplayer": [
+      "solo"
+    ],
+    "description": "Ezio at his peak: run Renaissance Rome, recruit assassins, and drop the series' best crescendo."
+  },
+  {
+    "id": "lego-lord-of-the-rings",
+    "title": "LEGO The Lord of the Rings",
+    "platforms": [
+      "pc",
+      "playstation",
+      "xbox",
+      "mobile"
+    ],
+    "year": 2012,
+    "genres": [
+      "adventure",
+      "family",
+      "coop"
+    ],
+    "time_tags": [
+      30,
+      60,
+      90
+    ],
+    "energy": "low",
+    "moods": [
+      "fun",
+      "charming",
+      "nostalgic"
+    ],
+    "play_style": [
+      "action"
+    ],
+    "time_to_fun": "short",
+    "stop_friendliness": "checkpoints",
+    "multiplayer": [
+      "solo",
+      "local_coop"
+    ],
+    "description": "The whole trilogy in bricks: co-op Middle-earth that kids and parents finish together."
+  }
+]

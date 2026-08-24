@@ -1,0 +1,645 @@
+[
+  {
+    "id": "warhammer-vermintide-2",
+    "title": "Warhammer: Vermintide 2",
+    "platforms": [
+      "pc",
+      "playstation",
+      "xbox"
+    ],
+    "year": 2018,
+    "genres": [
+      "action",
+      "coop",
+      "hack-and-slash"
+    ],
+    "time_tags": [
+      30,
+      60,
+      90
+    ],
+    "energy": "high",
+    "moods": [
+      "intense",
+      "fun"
+    ],
+    "play_style": [
+      "action"
+    ],
+    "time_to_fun": "short",
+    "stop_friendliness": "commitment",
+    "multiplayer": [
+      "online_coop",
+      "solo"
+    ],
+    "description": "Left 4 Dead with warhammers: four heroes against the rat-horde in gloriously heavy first-person melee."
+  },
+  {
+    "id": "xcom-enemy-unknown",
+    "title": "XCOM: Enemy Unknown",
+    "platforms": [
+      "pc",
+      "playstation",
+      "xbox",
+      "mobile"
+    ],
+    "year": 2012,
+    "genres": [
+      "strategy",
+      "tactics",
+      "turn-based"
+    ],
+    "time_tags": [
+      30,
+      60,
+      90,
+      120
+    ],
+    "energy": "medium",
+    "moods": [
+      "strategic",
+      "intense"
+    ],
+    "play_style": [
+      "strategy",
+      "tactics"
+    ],
+    "time_to_fun": "medium",
+    "stop_friendliness": "anytime",
+    "multiplayer": [
+      "solo"
+    ],
+    "description": "The reboot that made turn-based cool again: name your squad, love your squad, lose your squad."
+  },
+  {
+    "id": "watch-dogs-2",
+    "title": "Watch Dogs 2",
+    "platforms": [
+      "pc",
+      "playstation",
+      "xbox"
+    ],
+    "year": 2016,
+    "genres": [
+      "action",
+      "open-world"
+    ],
+    "time_tags": [
+      30,
+      60,
+      90,
+      120
+    ],
+    "energy": "medium",
+    "moods": [
+      "fun",
+      "adventurous"
+    ],
+    "play_style": [
+      "action"
+    ],
+    "time_to_fun": "short",
+    "stop_friendliness": "anytime",
+    "multiplayer": [
+      "solo",
+      "online_coop"
+    ],
+    "description": "Hack all of San Francisco with a drone, an RC car, and terminal mischief: the series at its brightest."
+  },
+  {
+    "id": "this-war-of-mine",
+    "title": "This War of Mine",
+    "platforms": [
+      "pc",
+      "playstation",
+      "xbox",
+      "switch",
+      "mobile"
+    ],
+    "year": 2014,
+    "genres": [
+      "survival",
+      "strategy",
+      "narrative"
+    ],
+    "time_tags": [
+      30,
+      60,
+      90
+    ],
+    "energy": "medium",
+    "moods": [
+      "immersive",
+      "intense"
+    ],
+    "play_style": [
+      "strategy",
+      "narrative"
+    ],
+    "time_to_fun": "medium",
+    "stop_friendliness": "anytime",
+    "multiplayer": [
+      "solo"
+    ],
+    "description": "War from the civilian side: keep your shelter alive and decide what survival is worth."
+  },
+  {
+    "id": "call-of-juarez-gunslinger",
+    "title": "Call of Juarez: Gunslinger",
+    "platforms": [
+      "pc",
+      "playstation",
+      "xbox",
+      "switch"
+    ],
+    "year": 2013,
+    "genres": [
+      "shooter",
+      "action"
+    ],
+    "time_tags": [
+      15,
+      30,
+      60,
+      90
+    ],
+    "energy": "high",
+    "moods": [
+      "fun",
+      "exciting",
+      "nostalgic"
+    ],
+    "play_style": [
+      "action"
+    ],
+    "time_to_fun": "short",
+    "stop_friendliness": "checkpoints",
+    "multiplayer": [
+      "solo"
+    ],
+    "description": "A tall tale told by an old bounty hunter: arcade gunslinging where the narrator rewrites the level mid-fight."
+  },
+  {
+    "id": "a-plague-tale-innocence",
+    "title": "A Plague Tale: Innocence",
+    "platforms": [
+      "pc",
+      "playstation",
+      "xbox",
+      "switch"
+    ],
+    "year": 2019,
+    "genres": [
+      "adventure",
+      "stealth",
+      "narrative"
+    ],
+    "time_tags": [
+      30,
+      60,
+      90
+    ],
+    "energy": "medium",
+    "moods": [
+      "immersive",
+      "intense",
+      "beautiful"
+    ],
+    "play_style": [
+      "narrative",
+      "action"
+    ],
+    "time_to_fun": "medium",
+    "stop_friendliness": "checkpoints",
+    "multiplayer": [
+      "solo"
+    ],
+    "description": "Two siblings against the Inquisition and a tide of rats: medieval France's most beautiful nightmare."
+  },
+  {
+    "id": "south-park-stick-of-truth",
+    "title": "South Park: The Stick of Truth",
+    "platforms": [
+      "pc",
+      "playstation",
+      "xbox",
+      "switch"
+    ],
+    "year": 2014,
+    "genres": [
+      "rpg",
+      "comedy",
+      "turn-based"
+    ],
+    "time_tags": [
+      30,
+      60,
+      90
+    ],
+    "energy": "medium",
+    "moods": [
+      "fun"
+    ],
+    "play_style": [
+      "strategy",
+      "narrative"
+    ],
+    "time_to_fun": "short",
+    "stop_friendliness": "anytime",
+    "multiplayer": [
+      "solo"
+    ],
+    "description": "A playable season of South Park: the RPG that captures the show so well it's indistinguishable."
+  },
+  {
+    "id": "resident-evil-4-2005",
+    "title": "Resident Evil 4 (2005)",
+    "platforms": [
+      "pc",
+      "playstation",
+      "xbox",
+      "switch",
+      "mobile"
+    ],
+    "year": 2005,
+    "genres": [
+      "horror",
+      "action"
+    ],
+    "time_tags": [
+      30,
+      60,
+      90,
+      120
+    ],
+    "energy": "high",
+    "moods": [
+      "intense",
+      "nostalgic"
+    ],
+    "play_style": [
+      "action"
+    ],
+    "time_to_fun": "short",
+    "stop_friendliness": "checkpoints",
+    "multiplayer": [
+      "solo"
+    ],
+    "description": "The original village stand: the over-the-shoulder classic that rewrote action games forever."
+  },
+  {
+    "id": "darksiders-warmastered",
+    "title": "Darksiders Warmastered Edition",
+    "platforms": [
+      "pc",
+      "playstation",
+      "xbox",
+      "switch"
+    ],
+    "year": 2016,
+    "genres": [
+      "action",
+      "adventure",
+      "hack-and-slash"
+    ],
+    "time_tags": [
+      30,
+      60,
+      90
+    ],
+    "energy": "medium",
+    "moods": [
+      "intense",
+      "adventurous"
+    ],
+    "play_style": [
+      "action"
+    ],
+    "time_to_fun": "short",
+    "stop_friendliness": "checkpoints",
+    "multiplayer": [
+      "solo"
+    ],
+    "description": "War of the Four Horsemen carves through the apocalypse: Zelda dungeons with heavy metal bones."
+  },
+  {
+    "id": "sleeping-dogs-definitive",
+    "title": "Sleeping Dogs: Definitive Edition",
+    "platforms": [
+      "pc",
+      "playstation",
+      "xbox"
+    ],
+    "year": 2014,
+    "genres": [
+      "action",
+      "open-world",
+      "narrative"
+    ],
+    "time_tags": [
+      30,
+      60,
+      90,
+      120
+    ],
+    "energy": "medium",
+    "moods": [
+      "intense",
+      "immersive",
+      "fun"
+    ],
+    "play_style": [
+      "action",
+      "narrative"
+    ],
+    "time_to_fun": "short",
+    "stop_friendliness": "anytime",
+    "multiplayer": [
+      "solo"
+    ],
+    "description": "Undercover in Hong Kong's triads: kung fu, karaoke, and the open-world crime gem everyone finally played."
+  },
+  {
+    "id": "dead-space-2",
+    "title": "Dead Space 2",
+    "platforms": [
+      "pc",
+      "playstation",
+      "xbox"
+    ],
+    "year": 2011,
+    "genres": [
+      "horror",
+      "action",
+      "shooter"
+    ],
+    "time_tags": [
+      30,
+      60,
+      90
+    ],
+    "energy": "high",
+    "moods": [
+      "intense",
+      "immersive"
+    ],
+    "play_style": [
+      "action"
+    ],
+    "time_to_fun": "short",
+    "stop_friendliness": "checkpoints",
+    "multiplayer": [
+      "solo"
+    ],
+    "description": "Isaac returns to the Sprawl louder and angrier: the horror sequel that mastered the roller coaster."
+  },
+  {
+    "id": "days-gone",
+    "title": "Days Gone",
+    "platforms": [
+      "pc",
+      "playstation"
+    ],
+    "year": 2019,
+    "genres": [
+      "action",
+      "open-world",
+      "survival"
+    ],
+    "time_tags": [
+      30,
+      60,
+      90,
+      120
+    ],
+    "energy": "medium",
+    "moods": [
+      "immersive",
+      "intense",
+      "adventurous"
+    ],
+    "play_style": [
+      "action",
+      "narrative"
+    ],
+    "time_to_fun": "medium",
+    "stop_friendliness": "anytime",
+    "multiplayer": [
+      "solo"
+    ],
+    "description": "Ride the broken Oregon backroads: freaker hordes by the hundreds and a biker story with real heart."
+  },
+  {
+    "id": "beyond-two-souls",
+    "title": "Beyond: Two Souls",
+    "platforms": [
+      "pc",
+      "playstation"
+    ],
+    "year": 2013,
+    "genres": [
+      "narrative",
+      "adventure"
+    ],
+    "time_tags": [
+      30,
+      60,
+      90
+    ],
+    "energy": "low",
+    "moods": [
+      "immersive",
+      "intense"
+    ],
+    "play_style": [
+      "narrative"
+    ],
+    "time_to_fun": "medium",
+    "stop_friendliness": "checkpoints",
+    "multiplayer": [
+      "solo"
+    ],
+    "description": "Elliot Page and Willem Dafoe anchor a life told out of order, tethered to something unexplainable."
+  },
+  {
+    "id": "guacamelee-stce",
+    "title": "Guacamelee! Super Turbo Championship Edition",
+    "platforms": [
+      "pc",
+      "playstation",
+      "xbox",
+      "switch"
+    ],
+    "year": 2014,
+    "genres": [
+      "platformer",
+      "action",
+      "indie"
+    ],
+    "time_tags": [
+      15,
+      30,
+      60,
+      90
+    ],
+    "energy": "high",
+    "moods": [
+      "fun",
+      "challenging"
+    ],
+    "play_style": [
+      "action"
+    ],
+    "time_to_fun": "short",
+    "stop_friendliness": "checkpoints",
+    "multiplayer": [
+      "solo",
+      "local_coop"
+    ],
+    "description": "Luchador metroidvania soaked in color: suplex a skeleton, turn into a chicken, save the day."
+  },
+  {
+    "id": "shadowrun-returns",
+    "title": "Shadowrun Returns",
+    "platforms": [
+      "pc",
+      "mobile"
+    ],
+    "year": 2013,
+    "genres": [
+      "rpg",
+      "tactics",
+      "cyberpunk"
+    ],
+    "time_tags": [
+      30,
+      60,
+      90
+    ],
+    "energy": "medium",
+    "moods": [
+      "strategic",
+      "immersive"
+    ],
+    "play_style": [
+      "strategy",
+      "narrative"
+    ],
+    "time_to_fun": "medium",
+    "stop_friendliness": "anytime",
+    "multiplayer": [
+      "solo"
+    ],
+    "description": "Cyberpunk meets sorcery in tactical turns: the kickstarted revival that brought Shadowrun home."
+  },
+  {
+    "id": "magicka",
+    "title": "Magicka",
+    "platforms": [
+      "pc"
+    ],
+    "year": 2011,
+    "genres": [
+      "action",
+      "coop",
+      "comedy"
+    ],
+    "time_tags": [
+      15,
+      30,
+      60,
+      90
+    ],
+    "energy": "medium",
+    "moods": [
+      "fun"
+    ],
+    "play_style": [
+      "action"
+    ],
+    "time_to_fun": "short",
+    "stop_friendliness": "checkpoints",
+    "multiplayer": [
+      "online_coop",
+      "local_coop",
+      "solo"
+    ],
+    "description": "Combine eight elements into spells and accidentally nuke your friends: friendly fire as a feature."
+  },
+  {
+    "id": "castle-crashers",
+    "title": "Castle Crashers",
+    "platforms": [
+      "pc",
+      "playstation",
+      "xbox",
+      "switch"
+    ],
+    "year": 2008,
+    "genres": [
+      "action",
+      "coop",
+      "comedy"
+    ],
+    "time_tags": [
+      15,
+      30,
+      60,
+      90
+    ],
+    "energy": "medium",
+    "moods": [
+      "fun",
+      "nostalgic"
+    ],
+    "play_style": [
+      "action"
+    ],
+    "time_to_fun": "short",
+    "stop_friendliness": "checkpoints",
+    "multiplayer": [
+      "local_coop",
+      "online_coop",
+      "solo"
+    ],
+    "description": "Four knights, one kidnapped princess each, endless cartoon carnage: the couch co-op brawler eternal."
+  },
+  {
+    "id": "dont-starve",
+    "title": "Don't Starve",
+    "platforms": [
+      "pc",
+      "playstation",
+      "xbox",
+      "switch",
+      "mobile"
+    ],
+    "year": 2013,
+    "genres": [
+      "survival",
+      "roguelike",
+      "indie"
+    ],
+    "time_tags": [
+      30,
+      60,
+      90,
+      120
+    ],
+    "energy": "medium",
+    "moods": [
+      "creative",
+      "challenging",
+      "immersive"
+    ],
+    "play_style": [
+      "sandbox_creative"
+    ],
+    "time_to_fun": "medium",
+    "stop_friendliness": "anytime",
+    "multiplayer": [
+      "solo"
+    ],
+    "description": "Tim Burton wilderness survival: gather, craft, and go quietly mad when the darkness comes."
+  }
+]
