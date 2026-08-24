@@ -8,7 +8,7 @@
 - **Catalog: 1,390 unique games** — expanded ~330 games in the 08-22→08-24 push (curated batches A–M), deduped, store-linked to a documented tail of 4, current through Aug 2026 (see Catalog Health below)
 - `battlenet` store key added across API model, mobile UI, and web admin (chip renders from 1.2.0; older builds safely ignore it)
 - Tests: backend 139/139, mobile jest 142/142, expo-doctor 18/18
-- Release pipeline: EAS build + submit works end to end on iOS; Android upload key in three places (password manager, EAS default, local); Play service-account API grant still 403 (manual .aab upload as fallback); next release must use **1.2.0 on both the ASC version label and the binary** to converge the version tracks
+- Release pipeline: EAS build + submit works end to end on BOTH platforms — Play service-account API verified working 2026-08-24 (test edit created/deleted), so 1.2.0 submits via `eas submit -p all`; Android upload key in three places (password manager, EAS default, local); next release must use **1.2.0 on both the ASC version label and the binary** to converge the version tracks — full checklist in `docs/runbooks/ship-1-2-0.md`
 
 ---
 
