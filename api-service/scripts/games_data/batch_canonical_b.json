@@ -1,0 +1,870 @@
+[
+  {
+    "id": "metro-exodus",
+    "title": "Metro Exodus",
+    "platforms": [
+      "pc",
+      "playstation",
+      "xbox"
+    ],
+    "year": 2019,
+    "genres": [
+      "shooter",
+      "survival",
+      "narrative"
+    ],
+    "time_tags": [
+      30,
+      60,
+      90,
+      120
+    ],
+    "energy": "high",
+    "moods": [
+      "immersive",
+      "intense",
+      "beautiful"
+    ],
+    "play_style": [
+      "action",
+      "narrative"
+    ],
+    "time_to_fun": "medium",
+    "stop_friendliness": "checkpoints",
+    "multiplayer": [
+      "solo"
+    ],
+    "description": "Leave the tunnels at last: a year-long train journey across a ruined, gorgeous Russia."
+  },
+  {
+    "id": "resident-evil-7",
+    "title": "Resident Evil 7: Biohazard",
+    "platforms": [
+      "pc",
+      "playstation",
+      "xbox",
+      "switch"
+    ],
+    "year": 2017,
+    "genres": [
+      "horror",
+      "action"
+    ],
+    "time_tags": [
+      30,
+      60,
+      90,
+      120
+    ],
+    "energy": "high",
+    "moods": [
+      "intense",
+      "immersive"
+    ],
+    "play_style": [
+      "action",
+      "narrative"
+    ],
+    "time_to_fun": "medium",
+    "stop_friendliness": "checkpoints",
+    "multiplayer": [
+      "solo"
+    ],
+    "description": "Welcome to the family, son: the first-person reinvention that made Resident Evil terrifying again."
+  },
+  {
+    "id": "assassins-creed-odyssey",
+    "title": "Assassin's Creed Odyssey",
+    "platforms": [
+      "pc",
+      "playstation",
+      "xbox",
+      "switch"
+    ],
+    "year": 2018,
+    "genres": [
+      "rpg",
+      "open-world",
+      "action"
+    ],
+    "time_tags": [
+      30,
+      60,
+      90,
+      120
+    ],
+    "energy": "medium",
+    "moods": [
+      "adventurous",
+      "immersive",
+      "beautiful"
+    ],
+    "play_style": [
+      "action",
+      "narrative"
+    ],
+    "time_to_fun": "medium",
+    "stop_friendliness": "anytime",
+    "multiplayer": [
+      "solo"
+    ],
+    "description": "Ancient Greece as an endless postcard: naval battles, Spartan kicks, and a hundred hours of odyssey."
+  },
+  {
+    "id": "assassins-creed-origins",
+    "title": "Assassin's Creed Origins",
+    "platforms": [
+      "pc",
+      "playstation",
+      "xbox"
+    ],
+    "year": 2017,
+    "genres": [
+      "rpg",
+      "open-world",
+      "action"
+    ],
+    "time_tags": [
+      30,
+      60,
+      90,
+      120
+    ],
+    "energy": "medium",
+    "moods": [
+      "adventurous",
+      "immersive",
+      "beautiful"
+    ],
+    "play_style": [
+      "action",
+      "narrative"
+    ],
+    "time_to_fun": "medium",
+    "stop_friendliness": "anytime",
+    "multiplayer": [
+      "solo"
+    ],
+    "description": "Bayek of Siwa rides through Ptolemaic Egypt: the series reborn as a true RPG under impossible skies."
+  },
+  {
+    "id": "the-wolf-among-us",
+    "title": "The Wolf Among Us",
+    "platforms": [
+      "pc",
+      "playstation",
+      "xbox",
+      "switch",
+      "mobile"
+    ],
+    "year": 2013,
+    "genres": [
+      "narrative",
+      "adventure",
+      "detective"
+    ],
+    "time_tags": [
+      30,
+      60,
+      90
+    ],
+    "energy": "low",
+    "moods": [
+      "immersive",
+      "intense"
+    ],
+    "play_style": [
+      "narrative"
+    ],
+    "time_to_fun": "short",
+    "stop_friendliness": "checkpoints",
+    "multiplayer": [
+      "solo"
+    ],
+    "description": "Bigby Wolf polices fairytale exiles in noir New York: Telltale's sharpest, meanest story."
+  },
+  {
+    "id": "xcom-2",
+    "title": "XCOM 2",
+    "platforms": [
+      "pc",
+      "playstation",
+      "xbox",
+      "switch",
+      "mobile"
+    ],
+    "year": 2016,
+    "genres": [
+      "strategy",
+      "tactics",
+      "turn-based"
+    ],
+    "time_tags": [
+      30,
+      60,
+      90,
+      120
+    ],
+    "energy": "medium",
+    "moods": [
+      "strategic",
+      "intense",
+      "challenging"
+    ],
+    "play_style": [
+      "strategy",
+      "tactics"
+    ],
+    "time_to_fun": "medium",
+    "stop_friendliness": "anytime",
+    "multiplayer": [
+      "solo"
+    ],
+    "description": "Earth lost; now you run the resistance: permadeath squads and 95% shots that miss when it matters."
+  },
+  {
+    "id": "far-cry-5",
+    "title": "Far Cry 5",
+    "platforms": [
+      "pc",
+      "playstation",
+      "xbox"
+    ],
+    "year": 2018,
+    "genres": [
+      "shooter",
+      "open-world",
+      "action"
+    ],
+    "time_tags": [
+      30,
+      60,
+      90,
+      120
+    ],
+    "energy": "high",
+    "moods": [
+      "exciting",
+      "fun",
+      "intense"
+    ],
+    "play_style": [
+      "action"
+    ],
+    "time_to_fun": "short",
+    "stop_friendliness": "anytime",
+    "multiplayer": [
+      "solo",
+      "online_coop"
+    ],
+    "description": "A doomsday cult owns Montana and you have a fishing rod, a bear named Cheeseburger, and co-op."
+  },
+  {
+    "id": "far-cry-4",
+    "title": "Far Cry 4",
+    "platforms": [
+      "pc",
+      "playstation",
+      "xbox"
+    ],
+    "year": 2014,
+    "genres": [
+      "shooter",
+      "open-world",
+      "action"
+    ],
+    "time_tags": [
+      30,
+      60,
+      90,
+      120
+    ],
+    "energy": "high",
+    "moods": [
+      "exciting",
+      "adventurous"
+    ],
+    "play_style": [
+      "action"
+    ],
+    "time_to_fun": "short",
+    "stop_friendliness": "anytime",
+    "multiplayer": [
+      "solo",
+      "online_coop"
+    ],
+    "description": "Kyrat's himalayan chaos: ride an elephant into a fortress because Pagan Min made it personal."
+  },
+  {
+    "id": "shadow-of-war",
+    "title": "Middle-earth: Shadow of War",
+    "platforms": [
+      "pc",
+      "playstation",
+      "xbox"
+    ],
+    "year": 2017,
+    "genres": [
+      "action",
+      "open-world",
+      "rpg"
+    ],
+    "time_tags": [
+      30,
+      60,
+      90,
+      120
+    ],
+    "energy": "medium",
+    "moods": [
+      "satisfying",
+      "intense",
+      "adventurous"
+    ],
+    "play_style": [
+      "action"
+    ],
+    "time_to_fun": "short",
+    "stop_friendliness": "anytime",
+    "multiplayer": [
+      "solo"
+    ],
+    "description": "The Nemesis system at full power: raise an orc army whose captains remember every betrayal."
+  },
+  {
+    "id": "mad-max",
+    "title": "Mad Max",
+    "platforms": [
+      "pc",
+      "playstation",
+      "xbox"
+    ],
+    "year": 2015,
+    "genres": [
+      "action",
+      "open-world"
+    ],
+    "time_tags": [
+      30,
+      60,
+      90,
+      120
+    ],
+    "energy": "medium",
+    "moods": [
+      "intense",
+      "adventurous"
+    ],
+    "play_style": [
+      "action"
+    ],
+    "time_to_fun": "short",
+    "stop_friendliness": "anytime",
+    "multiplayer": [
+      "solo"
+    ],
+    "description": "The wasteland's most underrated open world: build the Magnum Opus and make the dunes burn."
+  },
+  {
+    "id": "mafia-ii",
+    "title": "Mafia II",
+    "platforms": [
+      "pc",
+      "playstation",
+      "xbox"
+    ],
+    "year": 2010,
+    "genres": [
+      "action",
+      "narrative",
+      "open-world"
+    ],
+    "time_tags": [
+      30,
+      60,
+      90
+    ],
+    "energy": "medium",
+    "moods": [
+      "immersive",
+      "nostalgic"
+    ],
+    "play_style": [
+      "action",
+      "narrative"
+    ],
+    "time_to_fun": "medium",
+    "stop_friendliness": "checkpoints",
+    "multiplayer": [
+      "solo"
+    ],
+    "description": "Empire Bay, 1945: a mob story told straight, where loyalty costs everything and the radio is perfect."
+  },
+  {
+    "id": "heavy-rain",
+    "title": "Heavy Rain",
+    "platforms": [
+      "pc",
+      "playstation"
+    ],
+    "year": 2010,
+    "genres": [
+      "narrative",
+      "adventure",
+      "detective"
+    ],
+    "time_tags": [
+      30,
+      60,
+      90
+    ],
+    "energy": "low",
+    "moods": [
+      "immersive",
+      "intense"
+    ],
+    "play_style": [
+      "narrative"
+    ],
+    "time_to_fun": "medium",
+    "stop_friendliness": "checkpoints",
+    "multiplayer": [
+      "solo"
+    ],
+    "description": "Four lives orbit the Origami Killer: the interactive thriller where anyone can die and the story continues."
+  },
+  {
+    "id": "shadow-of-the-tomb-raider",
+    "title": "Shadow of the Tomb Raider",
+    "platforms": [
+      "pc",
+      "playstation",
+      "xbox"
+    ],
+    "year": 2018,
+    "genres": [
+      "action",
+      "adventure"
+    ],
+    "time_tags": [
+      30,
+      60,
+      90,
+      120
+    ],
+    "energy": "medium",
+    "moods": [
+      "adventurous",
+      "immersive"
+    ],
+    "play_style": [
+      "action"
+    ],
+    "time_to_fun": "short",
+    "stop_friendliness": "checkpoints",
+    "multiplayer": [
+      "solo"
+    ],
+    "description": "Lara's darkest chapter: Peruvian jungles, Maya apocalypse, and the trilogy's best tombs."
+  },
+  {
+    "id": "brutal-legend",
+    "title": "Brutal Legend",
+    "platforms": [
+      "pc",
+      "playstation",
+      "xbox"
+    ],
+    "year": 2009,
+    "genres": [
+      "action",
+      "strategy",
+      "comedy"
+    ],
+    "time_tags": [
+      30,
+      60,
+      90
+    ],
+    "energy": "medium",
+    "moods": [
+      "fun",
+      "nostalgic"
+    ],
+    "play_style": [
+      "action",
+      "strategy"
+    ],
+    "time_to_fun": "short",
+    "stop_friendliness": "anytime",
+    "multiplayer": [
+      "solo",
+      "competitive"
+    ],
+    "description": "Jack Black roadies his way into a heavy metal fantasy world: part brawler, part RTS, all album cover."
+  },
+  {
+    "id": "psychonauts",
+    "title": "Psychonauts",
+    "platforms": [
+      "pc",
+      "playstation",
+      "xbox"
+    ],
+    "year": 2005,
+    "genres": [
+      "platformer",
+      "adventure",
+      "comedy"
+    ],
+    "time_tags": [
+      30,
+      60,
+      90
+    ],
+    "energy": "medium",
+    "moods": [
+      "fun",
+      "charming",
+      "creative"
+    ],
+    "play_style": [
+      "action"
+    ],
+    "time_to_fun": "short",
+    "stop_friendliness": "anytime",
+    "multiplayer": [
+      "solo"
+    ],
+    "description": "Summer camp for psychics: platform through minds that are literal levels, each stranger than the last."
+  },
+  {
+    "id": "saints-row-iv",
+    "title": "Saints Row IV",
+    "platforms": [
+      "pc",
+      "playstation",
+      "xbox",
+      "switch"
+    ],
+    "year": 2013,
+    "genres": [
+      "action",
+      "open-world",
+      "comedy"
+    ],
+    "time_tags": [
+      30,
+      60,
+      90
+    ],
+    "energy": "high",
+    "moods": [
+      "fun",
+      "exciting"
+    ],
+    "play_style": [
+      "action"
+    ],
+    "time_to_fun": "short",
+    "stop_friendliness": "anytime",
+    "multiplayer": [
+      "solo",
+      "online_coop"
+    ],
+    "description": "You're the President, aliens invaded, and you have superpowers: the sandbox with zero shame left."
+  },
+  {
+    "id": "titan-quest-anniversary",
+    "title": "Titan Quest Anniversary Edition",
+    "platforms": [
+      "pc",
+      "playstation",
+      "xbox",
+      "switch",
+      "mobile"
+    ],
+    "year": 2016,
+    "genres": [
+      "rpg",
+      "hack-and-slash",
+      "action"
+    ],
+    "time_tags": [
+      30,
+      60,
+      90,
+      120
+    ],
+    "energy": "medium",
+    "moods": [
+      "adventurous",
+      "satisfying",
+      "nostalgic"
+    ],
+    "play_style": [
+      "action"
+    ],
+    "time_to_fun": "short",
+    "stop_friendliness": "anytime",
+    "multiplayer": [
+      "solo",
+      "online_coop"
+    ],
+    "description": "Diablo goes Greek myth: the loot-grind classic that still holds an altar in every ARPG fan's heart."
+  },
+  {
+    "id": "crusader-kings-ii",
+    "title": "Crusader Kings II",
+    "platforms": [
+      "pc"
+    ],
+    "year": 2012,
+    "genres": [
+      "strategy",
+      "simulation",
+      "grand-strategy"
+    ],
+    "time_tags": [
+      60,
+      90,
+      120
+    ],
+    "energy": "low",
+    "moods": [
+      "strategic",
+      "immersive",
+      "fun"
+    ],
+    "play_style": [
+      "strategy"
+    ],
+    "time_to_fun": "long",
+    "stop_friendliness": "anytime",
+    "multiplayer": [
+      "solo",
+      "competitive"
+    ],
+    "description": "Medieval dynasty simulator where you'll murder your own son for Aquitaine and feel great about it. Free to play."
+  },
+  {
+    "id": "transistor",
+    "title": "Transistor",
+    "platforms": [
+      "pc",
+      "playstation",
+      "switch",
+      "mobile"
+    ],
+    "year": 2014,
+    "genres": [
+      "rpg",
+      "action",
+      "indie"
+    ],
+    "time_tags": [
+      30,
+      60,
+      90
+    ],
+    "energy": "medium",
+    "moods": [
+      "beautiful",
+      "immersive",
+      "strategic"
+    ],
+    "play_style": [
+      "action",
+      "strategy"
+    ],
+    "time_to_fun": "short",
+    "stop_friendliness": "anytime",
+    "multiplayer": [
+      "solo"
+    ],
+    "description": "A singer, a talking sword, and a city rewriting itself: Supergiant's cyberpunk torch song."
+  },
+  {
+    "id": "battlefield-1",
+    "title": "Battlefield 1",
+    "platforms": [
+      "pc",
+      "playstation",
+      "xbox"
+    ],
+    "year": 2016,
+    "genres": [
+      "shooter",
+      "war"
+    ],
+    "time_tags": [
+      30,
+      60,
+      90
+    ],
+    "energy": "high",
+    "moods": [
+      "intense",
+      "immersive"
+    ],
+    "play_style": [
+      "action"
+    ],
+    "time_to_fun": "short",
+    "stop_friendliness": "commitment",
+    "multiplayer": [
+      "competitive",
+      "solo"
+    ],
+    "description": "The Great War at 64 players: behemoths falling from the sky and the series' most haunting campaign."
+  },
+  {
+    "id": "layers-of-fear",
+    "title": "Layers of Fear",
+    "platforms": [
+      "pc",
+      "playstation",
+      "xbox",
+      "switch",
+      "mobile"
+    ],
+    "year": 2016,
+    "genres": [
+      "horror",
+      "narrative",
+      "indie"
+    ],
+    "time_tags": [
+      30,
+      60,
+      90
+    ],
+    "energy": "medium",
+    "moods": [
+      "intense",
+      "immersive"
+    ],
+    "play_style": [
+      "narrative"
+    ],
+    "time_to_fun": "short",
+    "stop_friendliness": "anytime",
+    "multiplayer": [
+      "solo"
+    ],
+    "description": "A mad painter's mansion rearranges itself behind your back: walk-through horror as art history."
+  },
+  {
+    "id": "resident-evil-5",
+    "title": "Resident Evil 5",
+    "platforms": [
+      "pc",
+      "playstation",
+      "xbox",
+      "switch"
+    ],
+    "year": 2009,
+    "genres": [
+      "horror",
+      "action",
+      "coop"
+    ],
+    "time_tags": [
+      30,
+      60,
+      90
+    ],
+    "energy": "high",
+    "moods": [
+      "intense",
+      "fun"
+    ],
+    "play_style": [
+      "action"
+    ],
+    "time_to_fun": "short",
+    "stop_friendliness": "checkpoints",
+    "multiplayer": [
+      "solo",
+      "online_coop",
+      "local_coop"
+    ],
+    "description": "Chris and Sheva versus Africa's outbreak: the co-op action RE that launched a thousand partnerships."
+  },
+  {
+    "id": "unturned",
+    "title": "Unturned",
+    "platforms": [
+      "pc",
+      "playstation",
+      "xbox"
+    ],
+    "year": 2017,
+    "genres": [
+      "survival",
+      "sandbox",
+      "shooter"
+    ],
+    "time_tags": [
+      30,
+      60,
+      90,
+      120
+    ],
+    "energy": "medium",
+    "moods": [
+      "fun",
+      "creative",
+      "adventurous"
+    ],
+    "play_style": [
+      "sandbox_creative",
+      "action"
+    ],
+    "time_to_fun": "short",
+    "stop_friendliness": "anytime",
+    "multiplayer": [
+      "solo",
+      "online_coop",
+      "competitive"
+    ],
+    "description": "Blocky zombie survival built by a teenager into a Steam institution: free, endless, and beloved."
+  },
+  {
+    "id": "kingdom-come-deliverance",
+    "title": "Kingdom Come: Deliverance",
+    "platforms": [
+      "pc",
+      "playstation",
+      "xbox",
+      "switch"
+    ],
+    "year": 2018,
+    "genres": [
+      "rpg",
+      "open-world",
+      "action"
+    ],
+    "time_tags": [
+      60,
+      90,
+      120
+    ],
+    "energy": "medium",
+    "moods": [
+      "immersive",
+      "challenging",
+      "adventurous"
+    ],
+    "play_style": [
+      "action",
+      "narrative"
+    ],
+    "time_to_fun": "long",
+    "stop_friendliness": "commitment",
+    "multiplayer": [
+      "solo"
+    ],
+    "description": "Henry of Skalitz begins: the stubbornly authentic medieval RPG that started the revolution."
+  }
+]
