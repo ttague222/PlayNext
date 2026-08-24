@@ -173,6 +173,8 @@ const HistoryFeedbackModal = ({
                 onRemove(item.id);
                 onClose();
               }}
+              accessibilityLabel="Delete from history"
+              accessibilityRole="button"
             >
               <Ionicons name="trash-outline" size={18} color="#ef4444" />
               <Text style={styles.removeButtonText}>Remove from history</Text>

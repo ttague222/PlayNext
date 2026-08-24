@@ -95,7 +95,7 @@ const SignInScreen = () => {
     >
       <SafeAreaView style={styles.safeArea} edges={['top', 'left', 'right', 'bottom']}>
         {/* Close Button */}
-        <TouchableOpacity style={styles.closeButton} onPress={() => navigation.goBack()}>
+        <TouchableOpacity style={styles.closeButton} onPress={() => navigation.goBack()} accessibilityLabel="Close sign in" accessibilityRole="button">
           <Ionicons name="close" size={28} color="#ffffff" />
         </TouchableOpacity>
 

@@ -171,7 +171,7 @@ const EmailSignInScreen = () => {
           style={styles.keyboardView}
         >
           {/* Back Button */}
-          <TouchableOpacity style={styles.backButton} onPress={() => navigation.goBack()}>
+          <TouchableOpacity style={styles.backButton} onPress={() => navigation.goBack()} accessibilityLabel="Go back" accessibilityRole="button">
             <Ionicons name="arrow-back" size={28} color="#ffffff" />
           </TouchableOpacity>
 

@@ -16,6 +16,7 @@ import {
   Image,
   Linking,
   Alert,
+  Share,
 } from 'react-native';
 import { SafeAreaView } from 'react-native-safe-area-context';
 import { LinearGradient } from 'expo-linear-gradient';
@@ -29,6 +30,9 @@ import {
   trackAffiliateClick,
 } from '../services/affiliateService';
 import { useSavedGames, BUCKET_CONFIG, BUCKET_TYPES } from '../context/SavedGamesContext';
+import { buildShareMessage } from '../utils/shareGame';
+import { logEvent } from '../services/analyticsService';
+import { hapticLight } from '../utils/haptics';
 
 const PLATFORM_LABELS = {
   pc: 'PC',
@@ -293,24 +297,28 @@ const GameDetailScreen = () => {
     );
   };
 
-  const handleStorePress = (store, url) => {
+  // Open directly — a confirm dialog here just taxes the app's most
+  // valuable tap (removed 2026-08-24)
+  const handleStorePress = async (store, url) => {
     const config = STORE_CONFIG[store];
     const affiliateUrl = generateStoreAffiliateLink(store, url, gameId);
 
-    Alert.alert(
-      'Leave App?',
-      `You're about to visit ${config.name} to purchase this game. Continue?`,
-      [
-        { text: 'Cancel', style: 'cancel' },
-        {
-          text: 'Yes, Continue',
-          onPress: async () => {
-            trackAffiliateClick('store', store, gameId, game?.title || gameTitle);
-            await Linking.openURL(affiliateUrl);
-          },
-        },
-      ]
-    );
+    trackAffiliateClick('store', store, gameId, game?.title || gameTitle);
+    try {
+      await Linking.openURL(affiliateUrl);
+    } catch (err) {
+      Alert.alert('Error', `Could not open ${config.name}.`);
+    }
+  };
+
+  const handleShare = async () => {
+    hapticLight();
+    logEvent('game_shared', { game_id: gameId, source: 'detail' });
+    try {
+      await Share.share(buildShareMessage(game || { title: gameTitle }));
+    } catch (err) {
+      // User cancelled or share unavailable — nothing to do
+    }
   };
 
   const handleSubscriptionPress = async (service) => {
@@ -359,7 +367,7 @@ const GameDetailScreen = () => {
       <LinearGradient colors={['#1a1a2e', '#16213e', '#0f3460']} style={styles.container}>
         <SafeAreaView style={styles.safeArea} edges={['top', 'left', 'right', 'bottom']}>
           <View style={styles.header}>
-            <TouchableOpacity style={styles.backButton} onPress={() => navigation.goBack()}>
+            <TouchableOpacity style={styles.backButton} onPress={() => navigation.goBack()} accessibilityLabel="Go back" accessibilityRole="button">
               <Ionicons name="arrow-back" size={24} color="#ffffff" />
             </TouchableOpacity>
           </View>
@@ -383,14 +391,32 @@ const GameDetailScreen = () => {
       <SafeAreaView style={styles.safeArea} edges={['top', 'left', 'right', 'bottom']}>
         {/* Header */}
         <View style={styles.header}>
-          <TouchableOpacity style={styles.backButton} onPress={() => navigation.goBack()}>
+          <TouchableOpacity style={styles.backButton} onPress={() => navigation.goBack()} accessibilityLabel="Go back" accessibilityRole="button">
             <Ionicons name="arrow-back" size={24} color="#ffffff" />
           </TouchableOpacity>
           <View style={styles.headerActions}>
-            <TouchableOpacity style={styles.headerAction} onPress={handleMoveGame}>
+            <TouchableOpacity
+              style={styles.headerAction}
+              onPress={handleShare}
+              accessibilityLabel="Share this game"
+              accessibilityRole="button"
+            >
+              <Ionicons name="share-outline" size={22} color="#f857a6" />
+            </TouchableOpacity>
+            <TouchableOpacity
+              style={styles.headerAction}
+              onPress={handleMoveGame}
+              accessibilityLabel="Move to another collection"
+              accessibilityRole="button"
+            >
               <Ionicons name="swap-horizontal" size={22} color="#808080" />
             </TouchableOpacity>
-            <TouchableOpacity style={styles.headerAction} onPress={handleRemoveGame}>
+            <TouchableOpacity
+              style={styles.headerAction}
+              onPress={handleRemoveGame}
+              accessibilityLabel="Remove from collection"
+              accessibilityRole="button"
+            >
               <Ionicons name="trash-outline" size={22} color="#ef4444" />
             </TouchableOpacity>
           </View>

@@ -105,7 +105,7 @@ const SaveToBucketModal = ({ visible, game, onClose, onSaved }) => {
             {/* Header */}
             <View style={styles.header}>
               <Text style={styles.title}>Save Game</Text>
-              <TouchableOpacity onPress={onClose} style={styles.closeButton}>
+              <TouchableOpacity onPress={onClose} style={styles.closeButton} accessibilityLabel="Close" accessibilityRole="button">
                 <Ionicons name="close" size={24} color="#808080" />
               </TouchableOpacity>
             </View>

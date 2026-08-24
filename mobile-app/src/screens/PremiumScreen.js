@@ -149,6 +149,8 @@ const PremiumScreen = () => {
             <TouchableOpacity
               style={styles.backButton}
               onPress={() => navigation.goBack()}
+              accessibilityLabel="Go back"
+              accessibilityRole="button"
             >
               <Ionicons name="arrow-back" size={24} color="#ffffff" />
             </TouchableOpacity>
@@ -229,6 +231,8 @@ const PremiumScreen = () => {
           <TouchableOpacity
             style={styles.backButton}
             onPress={() => navigation.goBack()}
+            accessibilityLabel="Go back"
+            accessibilityRole="button"
           >
             <Ionicons name="arrow-back" size={24} color="#ffffff" />
           </TouchableOpacity>

@@ -480,26 +480,15 @@ const GameCard = ({ game, rank, onAccept, onAlreadyPlayed, onNotForMe, onSave, i
                   const affiliateUrl = generateStoreAffiliateLink(store, originalUrl, game.game_id);
                   const isPrioritized = prioritizedStores.includes(store);
 
-                  const handleStorePress = () => {
-                    Alert.alert(
-                      'Leave App?',
-                      `You're about to visit ${config.name} to purchase this game. Continue?`,
-                      [
-                        {
-                          text: 'Cancel',
-                          style: 'cancel',
-                        },
-                        {
-                          text: 'Yes, Continue',
-                          onPress: async () => {
-                            // Track the click for analytics
-                            trackAffiliateClick('store', store, game.game_id, game.title);
-                            // Open the affiliate-wrapped URL
-                            await Linking.openURL(affiliateUrl);
-                          },
-                        },
-                      ]
-                    );
+                  // Open directly — a confirm dialog here just taxes the
+                  // app's most valuable tap (removed 2026-08-24)
+                  const handleStorePress = async () => {
+                    trackAffiliateClick('store', store, game.game_id, game.title);
+                    try {
+                      await Linking.openURL(affiliateUrl);
+                    } catch (err) {
+                      Alert.alert('Error', `Could not open ${config.name}.`);
+                    }
                   };
 
                   return (

@@ -27,6 +27,7 @@ import AlreadyPlayedModal from '../components/AlreadyPlayedModal';
 import WhyNotModal, { WHY_NOT_REASON_LABELS } from '../components/WhyNotModal';
 import UndoToast from '../components/UndoToast';
 import { logEvent } from '../services/analyticsService';
+import { hapticLight, hapticSuccess, hapticSelect } from '../utils/haptics';
 import SaveToBucketModal from '../components/SaveToBucketModal';
 import AdOrPremiumModal from '../components/AdOrPremiumModal';
 import DailyCapUpsellModal from '../components/DailyCapUpsellModal';
@@ -116,6 +117,7 @@ const ResultsScreen = () => {
     // Prevent double-tap
     if (acceptingGameId) return;
 
+    hapticSuccess();
     setAcceptingGameId(game.game_id);
     try {
       await acceptRecommendation(game.game_id, game.title);
@@ -145,6 +147,7 @@ const ResultsScreen = () => {
     if (!whyNotGame) return;
     const game = whyNotGame;
 
+    hapticSelect();
     setShowWhyNotModal(false);
     setSwappingGameId(game.game_id);
 
@@ -182,6 +185,7 @@ const ResultsScreen = () => {
 
   const handleUndoRejection = async () => {
     if (!undoState) return;
+    hapticLight();
     const { game, signalId, replacementId } = undoState;
     setUndoState(null);
 
@@ -291,6 +295,7 @@ const ResultsScreen = () => {
   };
 
   const handleReroll = async () => {
+    hapticLight();
     // Hard daily cap check — shown before the ad gate
     if (!isPremium && isDailyCapHit) {
       setShowDailyCapModal(true);

@@ -163,6 +163,8 @@ const BucketDetailScreen = () => {
             e.stopPropagation();
             handleMoveGame(item);
           }}
+          accessibilityLabel="Move to another collection"
+          accessibilityRole="button"
         >
           <Ionicons name="swap-horizontal" size={20} color="#808080" />
         </TouchableOpacity>
@@ -175,6 +177,8 @@ const BucketDetailScreen = () => {
             handleRemoveGame(item.game_id, item.game_title);
           }}
           disabled={removingGameId === item.game_id}
+          accessibilityLabel="Remove from collection"
+          accessibilityRole="button"
         >
           {removingGameId === item.game_id ? (
             <ActivityIndicator color="#ef4444" size="small" />
@@ -221,6 +225,8 @@ const BucketDetailScreen = () => {
           <TouchableOpacity
             style={styles.backButton}
             onPress={() => navigation.goBack()}
+            accessibilityLabel="Go back"
+            accessibilityRole="button"
           >
             <Ionicons name="arrow-back" size={24} color="#ffffff" />
           </TouchableOpacity>
