@@ -1,13 +1,14 @@
 # PlayNxt Roadmap
 
-## Current State (as of 2026-08-21)
+## Current State (as of 2026-08-24)
 
-- **1.1.0 in review at both stores** — the full premium build (Smart History, Advanced Filters, push pre-prompt, What's New screen), plus ATT compliance, Firebase Analytics across the funnel, the store review prompt, and the consolidated recommendation fixes (staleness protection, Not For Me exclusion, uncapped ranking, time-affinity scoring, subscription-taxonomy bridge)
-- API: consolidated engine live on Cloud Run; SendGrid removed; `/config` POST now auth-guarded; `ad_interval` raised 3→4 per review feedback
+- **1.1.0 live on both stores** (approved 2026-08-21) — the full premium build (Smart History, Advanced Filters, push pre-prompt, What's New screen), plus ATT compliance, Firebase Analytics across the funnel, the store review prompt, and the consolidated recommendation fixes (staleness protection, Not For Me exclusion, uncapped ranking, time-affinity scoring, subscription-taxonomy bridge)
+- API: consolidated engine live on Cloud Run; in-process games cache (~1,100 Firestore reads/request eliminated); SendGrid removed; `/config` POST auth-guarded; `ad_interval` raised 3→4 per review feedback
 - ASO: Apple metadata updated (subtitle + keywords, title kept); Play listing intentionally held as control until ~2026-09-03
-- **Catalog: 1,071 unique games** — deduped, current through Aug 2026, 99% year coverage, zero dead time tags (see Catalog Health below)
-- Tests: backend 136/136, mobile jest 142/142, expo-doctor 18/18
-- Release pipeline: EAS build + submit works end to end on iOS; Android upload key recovered and stored in three places (local, password manager, EAS default); Play service-account grant still propagating (manual .aab upload as fallback)
+- **Catalog: 1,390 unique games** — expanded ~330 games in the 08-22→08-24 push (curated batches A–M), deduped, store-linked to a documented tail of 4, current through Aug 2026 (see Catalog Health below)
+- `battlenet` store key added across API model, mobile UI, and web admin (chip renders from 1.2.0; older builds safely ignore it)
+- Tests: backend 139/139, mobile jest 142/142, expo-doctor 18/18
+- Release pipeline: EAS build + submit works end to end on iOS; Android upload key in three places (password manager, EAS default, local); Play service-account API grant still 403 (manual .aab upload as fallback); next release must use **1.2.0 on both the ASC version label and the binary** to converge the version tracks
 
 ---
 
@@ -40,7 +41,7 @@ Get the already-built features into users' hands.
 | What's New screen | Backend live; mobile build pending |
 | Weekly digest (Sat 17:00 UTC) | Cloud Scheduler running; zero devices registered until users opt in after new build |
 
-**Catalog goal:** 500+ games (currently ~1,089 — already beyond target; focus on quality/coverage gaps if any).
+**Catalog goal:** 500+ games (currently 1,390 — nearly 3× target; future additions are demand-driven from analytics, not bulk sweeps).
 
 ---
 
@@ -59,19 +60,30 @@ With ~23 installs, feature ROI = ratings + retention (which feed discoverability
 
 ---
 
-## Catalog Health ✅ (evaluation + full remediation 2026-08-21)
+## Catalog Health ✅ (evaluation + remediation 2026-08-21; expansion + link audit 2026-08-22→24)
 
-All five findings from the catalog evaluation fixed in one pass. Reusable maintenance scripts in `api-service/scripts/`, all with dry-run defaults.
+All five findings from the catalog evaluation fixed, then the library expanded 1,071 → **1,390** across curated batches A–M. Reusable maintenance scripts in `api-service/scripts/`, all with dry-run defaults.
+
+**Remediation (08-21):**
 
 | Finding | Before | After | Tool |
 |---|---|---|---|
 | Duplicate titles | 43 groups / 87 docs | 0 | `dedupe_games.py` (+ tombstones in `deleted_game_ids.json`, honored by `seed_from_json.py`) |
 | Subscription taxonomy (premium filter broken: PS Plus matched 0 games) | drifted | server alias bridge + data normalized | alias map in `recommendation_service.py` |
-| Recency | 0 games from 2026 | 27 curated 2025–26 releases added; 65×2025, 21×2026 visible | `seed_refresh.py` + `games_data/refresh_2025_2026.json` |
-| Missing `year` / store links | 304 / 186 | 11 / 42 (RAWG had no confident match for the rest) | `backfill_rawg.py` (fill-only, 0.90 title-similarity guard) |
+| Recency | 0 games from 2026 | 27 curated 2025–26 releases added | `seed_refresh.py` + `games_data/refresh_2025_2026.json` |
+| Missing `year` / store links | 304 / 186 | 0 / 4 (each of the 4 documented) | `backfill_rawg.py` + `manual_link_pass.py` |
 | Dead time tags (5/10/20/45) | ~180 games | none | `normalize_time_tags.py` (ceil-to-bracket) |
+| Split tag fields (genres vs genre_tags, moods vs mood_tags) | 266 docs | mirrored | `mirror_tag_fields.py` |
 
-Remaining catalog debt (opportunistic, manual): ~42 games with no store links and ~50 mobile games missing a store link where RAWG has no listing; subscription *coverage* is thin (8 PS Plus, ~105 Game Pass tagged vs hundreds in reality) — fold into the next content pass. Suggested habit: monthly `seed_refresh.py` candidates run + quarterly `dedupe_games.py`/`backfill_rawg.py` dry runs.
+**Expansion (08-22→24), ~330 games net across batches A–M** (`games_data/batch_*.json`, seeded via `seed_refresh.py` with a title+id dedupe gate before every batch):
+
+- A/B: canonical well-known library (64) · C: acclaimed (19) · D: cozy/relaxing (20) · E: multiplayer/MMO (11) · F: action/adventure deep cuts (18) · G: cross-genre essentials (28)
+- **Hidden-gems push (core discovery mission):** H (33, Metacritic 78+ with low RAWG ownership), I narrative/puzzle (27), J strategy/sim (16), K action/RPG (26), L cross-genre (34), M user-rating sweep (15 — RAWG 4.1+ user score with weak/no critic coverage: Before Your Eyes, Citizen Sleeper, Symphony of the Night, Finding Paradise...)
+- Sweep angles now exhausted: popularity, Metacritic-by-genre, recency, user rating. Hand-excluded throughout: dead-server, VR-only, delisted, edition/DLC noise.
+
+**Store-link audit (08-24), `manual_link_pass.py`:** hand-verified links for 47 docs RAWG couldn't cover (iTunes/Play/Steam APIs, browser-verified PS + Battle.net URLs); deleted 9 dead/delisted titles (Clash Mini/Quest, Trivia Crack 2, Alchemy Stars, Black Clover M, Yo-kai Watch World, Picross Luna, Flappy Bird Family, a never-existed Naruto mobile doc); merged 2 batch-created duplicates (Dragon Quest XI, Hitman 3 → World of Assassination); realigned 3 docs describing wrong products. Zero-link tail: 4, each with a documented reason (2XKO Riot-only; Dreams, Cruis'n Blast underivable; Saros unreleased).
+
+Remaining catalog debt (opportunistic): ~90 mobile games carry only one of ios/android where the other store has no listing; subscription *coverage* is thin (8 PS Plus, ~105 Game Pass tagged vs hundreds in reality) — fold into the next content pass. Future additions should be **demand-driven from analytics** (thin-result filters, user searches), not further bulk sweeps. Suggested habit: monthly `seed_refresh.py` candidates run + quarterly `dedupe_games.py`/`backfill_rawg.py` dry runs.
 
 ---
 

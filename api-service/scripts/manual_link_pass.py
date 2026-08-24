@@ -237,6 +237,13 @@ FIELD_FIXES = {
     "aznana": {"year": 2023},
     "mlb-the-show-24": {"year": 2024},
     "doom-1993": {"year": 1993},
+    # wave 3: last docs with no year field
+    "god-of-war-ragnarok": {"year": 2022},
+    "idle-heroes": {"year": 2016},
+    "octopath-traveler-2": {"year": 2023},
+    "planet-coaster-2": {"year": 2024},
+    "tales-of-the-shire": {"year": 2025},
+    "битва": {"year": 2021},  # Battlegrounds Mobile India
 }
 
 # dead / delisted / duplicate docs to remove (all tombstoned)
