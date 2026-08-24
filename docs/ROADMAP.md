@@ -54,7 +54,7 @@ With ~23 installs, feature ROI = ratings + retention (which feed discoverability
 | ✅ Done 08-20 | Ad experience: `ad_interval` 3→4 (deployed; `/config` POST also auth-guarded) | Zero | Watch `ad_watched` vs retention in Firebase before tuning again |
 | Deferred (Tom's call) | Affiliate links: sign up (Humble/Fanatical/GMG/GOG), flip `ENABLE_AFFILIATE_TRACKING` | Zero dev | Revenue stream on already-built UI, whenever wanted |
 | ✅ Done 08-21 | Keystore backup (password manager + EAS default credential) and CI platform default | Hours | Upload key now in three places |
-| ✅ Built 08-24 (ships in 1.2.0) | "Why not?" + free-tier learning from own signals | 2–4 days | Done: WhyNotModal collects rejection reasons; engine permanently excludes rejected games server-side and applies free-tier taste nudges (±0.10) from the user's own signals — no premium flag. API live on deploy; UI ships with the 1.2.0 binary |
+| ✅ Built 08-24 (ships in 1.2.0) | "Why not?" + free-tier learning from own signals | 2–4 days | Done: WhyNotModal collects rejection reasons; engine permanently excludes rejected games server-side and applies free-tier taste nudges (±0.10) from the user's own signals — no premium flag. Plus: undo toast (rejection is permanent, so misclicks need recovery), reason chips in the Not For Me list, and full modal funnel analytics (opened/reason/skip/already-played/undo). API live on deploy; UI ships with the 1.2.0 binary |
 | Gated | Steam library sync (Steam only, first) | 1–2 wks | Explicitly requested by a reviewer; build only if analytics shows retention worth investing in |
 | Declined | Archive/collection depth | — | Contradicts "keep track, lightly"; drifts into the tracker camp we deliberately avoid (ASO-PLAN §2) |
 

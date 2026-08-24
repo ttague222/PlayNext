@@ -337,6 +337,48 @@ export const RecommendationProvider = ({ children }) => {
    *                              Defaults to 'already_played' if not specified
    * @param {string} gameTitle - Optional game title for display in history
    */
+  /**
+   * Swap one shown game for a fresh recommendation (shared by the
+   * already-played and "Why not?" flows). Returns the replacement or null.
+   */
+  const swapOutGame = useCallback(
+    async (gameId) => {
+      // Add this game to the shown list so it isn't offered again
+      setShownGameIds((prev) => [...new Set([...prev, gameId])]);
+
+      // Get a single new recommendation to replace this one
+      const response = await api.getRecommendations({
+        time_available: preferences.timeAvailable,
+        energy_mood: preferences.energyMood,
+        genres: preferences.genres.length > 0 ? preferences.genres : null,
+        platforms: preferences.platforms.length > 0 ? preferences.platforms : null,
+        session_type: preferences.sessionType,
+        discovery_mode: preferences.discoveryMode,
+        session_id: sessionId,
+        excluded_game_ids: buildExcludedGameIds([gameId]),
+        limit: 1, // Only need one replacement
+      });
+
+      if (response.recommendations?.length > 0) {
+        const newGame = response.recommendations[0];
+
+        // Replace the old game with the new one in our list
+        setRecommendations((prev) =>
+          prev.map((rec) => (rec.game_id === gameId ? newGame : rec))
+        );
+
+        // Track the new game
+        setShownGameIds((prev) => [...new Set([...prev, newGame.game_id])]);
+
+        return newGame;
+      }
+      // No replacement available, just remove the game
+      setRecommendations((prev) => prev.filter((rec) => rec.game_id !== gameId));
+      return null;
+    },
+    [preferences, sessionId, buildExcludedGameIds]
+  );
+
   const markAsPlayedAndSwap = useCallback(
     async (gameId, signalType = 'already_played', gameTitle = null, reason = null) => {
       setLoading(true);
@@ -355,39 +397,7 @@ export const RecommendationProvider = ({ children }) => {
         // Increment history version to trigger refresh in HistoryScreen
         setHistoryVersion((v) => v + 1);
 
-        // Add this game to the shown list so it isn't offered again
-        setShownGameIds((prev) => [...new Set([...prev, gameId])]);
-
-        // Get a single new recommendation to replace this one
-        const response = await api.getRecommendations({
-          time_available: preferences.timeAvailable,
-          energy_mood: preferences.energyMood,
-          genres: preferences.genres.length > 0 ? preferences.genres : null,
-          platforms: preferences.platforms.length > 0 ? preferences.platforms : null,
-          session_type: preferences.sessionType,
-          discovery_mode: preferences.discoveryMode,
-          session_id: sessionId,
-          excluded_game_ids: buildExcludedGameIds([gameId]),
-          limit: 1, // Only need one replacement
-        });
-
-        if (response.recommendations?.length > 0) {
-          const newGame = response.recommendations[0];
-
-          // Replace the old game with the new one in our list
-          setRecommendations((prev) =>
-            prev.map((rec) => (rec.game_id === gameId ? newGame : rec))
-          );
-
-          // Track the new game
-          setShownGameIds((prev) => [...new Set([...prev, newGame.game_id])]);
-
-          return newGame;
-        } else {
-          // No replacement available, just remove the game
-          setRecommendations((prev) => prev.filter((rec) => rec.game_id !== gameId));
-          return null;
-        }
+        return await swapOutGame(gameId);
       } catch (err) {
         setError(err.message || 'Failed to get replacement');
         throw err;
@@ -395,7 +405,7 @@ export const RecommendationProvider = ({ children }) => {
         setLoading(false);
       }
     },
-    [preferences, sessionId, buildExcludedGameIds]
+    [preferences, sessionId, swapOutGame]
   );
 
   /**
@@ -405,13 +415,63 @@ export const RecommendationProvider = ({ children }) => {
    * @param {string} gameId - The game being rejected
    * @param {string} reason - not_my_genre | too_long | not_interesting
    * @param {string} gameTitle - Title for history display
+   * @returns {{newGame: object|null, signalId: string|null}} for undo support
    */
   const rejectAndSwap = useCallback(
-    (gameId, reason, gameTitle = null) => {
-      logEvent('why_not_reason', { reason });
-      return markAsPlayedAndSwap(gameId, 'not_good_fit', gameTitle, reason);
+    async (gameId, reason, gameTitle = null) => {
+      setLoading(true);
+      setError(null);
+
+      try {
+        const signal = await api.submitFeedback(gameId, 'not_good_fit', sessionId, {
+          time_selected: preferences.timeAvailable,
+          mood_selected: preferences.energyMood,
+          genres_selected: preferences.genres,
+          game_title: gameTitle,
+          reason,
+        });
+        logEvent('why_not_reason', { reason });
+        setHistoryVersion((v) => v + 1);
+
+        const newGame = await swapOutGame(gameId);
+        return { newGame, signalId: signal?.signal_id || null };
+      } catch (err) {
+        setError(err.message || 'Failed to get replacement');
+        throw err;
+      } finally {
+        setLoading(false);
+      }
     },
-    [markAsPlayedAndSwap]
+    [preferences, sessionId, swapOutGame]
+  );
+
+  /**
+   * Undo a "Why not?" rejection: restore the card (in place of its
+   * replacement when still shown) and delete the rejection signal so the
+   * server forgets it. Signal deletion needs an authenticated user; for
+   * anonymous users the signal only affects the current session, so
+   * restoring the card and clearing the local bucket is enough.
+   */
+  const undoRejection = useCallback(
+    async (rejectedGame, signalId, replacementGameId = null) => {
+      setRecommendations((prev) => {
+        if (replacementGameId && prev.some((r) => r.game_id === replacementGameId)) {
+          return prev.map((r) => (r.game_id === replacementGameId ? rejectedGame : r));
+        }
+        if (prev.some((r) => r.game_id === rejectedGame.game_id)) return prev;
+        return [...prev, rejectedGame];
+      });
+      if (signalId) {
+        try {
+          await api.deleteSignal(signalId);
+        } catch (err) {
+          // Anonymous users cannot delete signals; the restore still stands
+        }
+      }
+      setHistoryVersion((v) => v + 1);
+      logEvent('why_not_undo', {});
+    },
+    []
   );
 
   const value = {
@@ -437,6 +497,7 @@ export const RecommendationProvider = ({ children }) => {
     submitFeedback,
     markAsPlayedAndSwap,
     rejectAndSwap,
+    undoRejection,
   };
 
   return (

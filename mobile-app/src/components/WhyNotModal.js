@@ -19,6 +19,13 @@ import {
 import { LinearGradient } from 'expo-linear-gradient';
 import { Ionicons } from '@expo/vector-icons';
 
+// Reason id -> short label, reused as the Not For Me bucket note
+export const WHY_NOT_REASON_LABELS = {
+  not_my_genre: 'Not my kind of game',
+  too_long: 'Too big a commitment',
+  not_interesting: "Didn't look fun",
+};
+
 const REASON_OPTIONS = [
   {
     id: 'not_my_genre',

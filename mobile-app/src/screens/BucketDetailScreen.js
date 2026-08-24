@@ -145,6 +145,14 @@ const BucketDetailScreen = () => {
         <Text style={styles.gameDate}>
           Added {new Date(item.added_at).toLocaleDateString()}
         </Text>
+        {/* "Why not?" reason (or any user note) */}
+        {item.notes ? (
+          <View style={styles.noteChip}>
+            <Text style={styles.noteChipText} numberOfLines={1}>
+              {item.notes}
+            </Text>
+          </View>
+        ) : null}
       </View>
 
       <View style={styles.gameActions}>
@@ -351,6 +359,20 @@ const styles = StyleSheet.create({
   gameDate: {
     fontSize: 12,
     color: '#808080',
+  },
+  noteChip: {
+    alignSelf: 'flex-start',
+    marginTop: 6,
+    paddingVertical: 3,
+    paddingHorizontal: 8,
+    borderRadius: 8,
+    backgroundColor: 'rgba(248, 113, 113, 0.12)',
+    borderWidth: 1,
+    borderColor: 'rgba(248, 113, 113, 0.25)',
+  },
+  noteChipText: {
+    fontSize: 11,
+    color: '#f8a0a0',
   },
   gameActions: {
     flexDirection: 'row',

@@ -24,7 +24,9 @@ import { useSavedGames, BUCKET_TYPES } from '../context/SavedGamesContext';
 import GameCard from '../components/GameCard';
 import CelebrationModal from '../components/CelebrationModal';
 import AlreadyPlayedModal from '../components/AlreadyPlayedModal';
-import WhyNotModal from '../components/WhyNotModal';
+import WhyNotModal, { WHY_NOT_REASON_LABELS } from '../components/WhyNotModal';
+import UndoToast from '../components/UndoToast';
+import { logEvent } from '../services/analyticsService';
 import SaveToBucketModal from '../components/SaveToBucketModal';
 import AdOrPremiumModal from '../components/AdOrPremiumModal';
 import DailyCapUpsellModal from '../components/DailyCapUpsellModal';
@@ -47,10 +49,11 @@ const ResultsScreen = () => {
     acceptRecommendation,
     markAsPlayedAndSwap,
     rejectAndSwap,
+    undoRejection,
     submitFeedback,
     preferences,
   } = useRecommendation();
-  const { addGameToBucket } = useSavedGames();
+  const { addGameToBucket, removeGameFromBucket } = useSavedGames();
   const {
     recordReroll,
     isPremium,
@@ -80,6 +83,8 @@ const ResultsScreen = () => {
   const [showAlreadyPlayedModal, setShowAlreadyPlayedModal] = useState(false);
   const [whyNotGame, setWhyNotGame] = useState(null);
   const [showWhyNotModal, setShowWhyNotModal] = useState(false);
+  // {game, signalId, replacementId} for the post-rejection undo window
+  const [undoState, setUndoState] = useState(null);
   const [saveGame, setSaveGame] = useState(null);
   const [showSaveModal, setShowSaveModal] = useState(false);
   const [showAdOrPremiumModal, setShowAdOrPremiumModal] = useState(false);
@@ -131,6 +136,7 @@ const ResultsScreen = () => {
 
   const handleNotForMe = (game) => {
     // Open the "Why not?" sheet to collect a rejection reason
+    logEvent('why_not_opened', { game_id: game.game_id });
     setWhyNotGame(game);
     setShowWhyNotModal(true);
   };
@@ -145,10 +151,21 @@ const ResultsScreen = () => {
     try {
       // Record the rejection (server excludes it permanently and learns from
       // its tags) and keep the local Not For Me bucket in sync so anonymous
-      // users get the same exclusion client-side.
-      const newGame = await rejectAndSwap(game.game_id, reason, game.title);
-      addGameToBucket(BUCKET_TYPES.NOT_FOR_ME, game.game_id, game.title, null, game)
-        .catch(() => {});
+      // users get the same exclusion client-side. The reason label rides in
+      // the bucket note so the History screen can show why.
+      const { newGame, signalId } = await rejectAndSwap(game.game_id, reason, game.title);
+      addGameToBucket(
+        BUCKET_TYPES.NOT_FOR_ME, game.game_id, game.title,
+        WHY_NOT_REASON_LABELS[reason] || null, game
+      ).catch(() => {});
+
+      // Offer a short undo window — rejection is permanent otherwise
+      setUndoState({
+        game,
+        signalId,
+        replacementId: newGame?.game_id || null,
+      });
+
       if (!newGame) {
         Alert.alert(
           'No more games',
@@ -163,9 +180,19 @@ const ResultsScreen = () => {
     }
   };
 
+  const handleUndoRejection = async () => {
+    if (!undoState) return;
+    const { game, signalId, replacementId } = undoState;
+    setUndoState(null);
+
+    await undoRejection(game, signalId, replacementId);
+    removeGameFromBucket(BUCKET_TYPES.NOT_FOR_ME, game.game_id).catch(() => {});
+  };
+
   const handleWhyNotAlreadyPlayed = () => {
     // Route to the existing played-feedback flow instead of a rejection
     if (!whyNotGame) return;
+    logEvent('why_not_already_played', {});
     setShowWhyNotModal(false);
     setAlreadyPlayedGame(whyNotGame);
     setWhyNotGame(null);
@@ -176,6 +203,7 @@ const ResultsScreen = () => {
     if (!whyNotGame) return;
     const game = whyNotGame;
 
+    logEvent('why_not_skipped', {});
     setShowWhyNotModal(false);
     setSwappingGameId(game.game_id);
 
@@ -551,6 +579,13 @@ const ResultsScreen = () => {
           onReason={handleWhyNotReason}
           onAlreadyPlayed={handleWhyNotAlreadyPlayed}
           onSkip={handleWhyNotSkip}
+        />
+
+        <UndoToast
+          visible={!!undoState}
+          message={undoState ? `"${undoState.game.title}" marked not for you` : ''}
+          onUndo={handleUndoRejection}
+          onDismiss={() => setUndoState(null)}
         />
 
         <AlreadyPlayedModal
