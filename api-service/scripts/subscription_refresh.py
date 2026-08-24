@@ -55,7 +55,8 @@ SUFFIX_PATTERNS = [
 
 def clean(title: str) -> str:
     t = (title or "").lower()
-    t = t.replace("™", "").replace("®", "").replace("©", "")
+    # glyphs become spaces, not empty — "Borderlands®4" must match "Borderlands 4"
+    t = t.replace("™", " ").replace("®", " ").replace("©", " ")
     t = t.rstrip("+").strip()
     for pat in SUFFIX_PATTERNS:
         t = re.sub(pat, "", t)

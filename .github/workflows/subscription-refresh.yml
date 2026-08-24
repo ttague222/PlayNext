@@ -1,0 +1,73 @@
+# PlayNxt - Monthly subscription catalog refresh
+#
+# Re-fetches the four subscription source lists (Game Pass official API,
+# PlayStation's PS Plus page, Pocket Gamer's Apple Arcade list, What's on
+# Netflix) and recomputes subscription_services membership in Firestore.
+#
+# The fetcher is fail-safe: a source that errors or parses too few titles is
+# skipped and the committed list is used instead (stale-but-sane), so a page
+# redesign can never wipe tags. The refresh itself is exact-match only.
+#
+# Requires github-actions-deploy@ to hold roles/datastore.user on
+# playnxt-1a2c6 (granted 2026-08-24) in addition to its deploy roles.
+
+name: Subscription Refresh
+
+on:
+  schedule:
+    - cron: '0 9 3 * *'   # 3rd of each month, 09:00 UTC
+  workflow_dispatch:
+
+jobs:
+  refresh:
+    runs-on: ubuntu-latest
+
+    permissions:
+      contents: write   # to commit updated source lists
+      id-token: write   # for GCP workload identity federation
+
+    defaults:
+      run:
+        working-directory: api-service/scripts
+
+    steps:
+      - uses: actions/checkout@v6
+
+      - name: Set up Python
+        uses: actions/setup-python@v6
+        with:
+          python-version: '3.11'
+
+      - name: Authenticate to Google Cloud
+        uses: google-github-actions/auth@v3
+        with:
+          workload_identity_provider: ${{ secrets.GCP_WORKLOAD_IDENTITY_PROVIDER }}
+          service_account: ${{ secrets.GCP_SERVICE_ACCOUNT }}
+
+      - name: Set up Cloud SDK
+        uses: google-github-actions/setup-gcloud@v3
+
+      - name: Fetch source lists
+        id: fetch
+        continue-on-error: true   # skipped sources fall back to committed lists
+        run: python fetch_subscription_sources.py
+
+      - name: Warn on skipped sources
+        if: steps.fetch.outcome == 'failure'
+        run: echo "::warning::One or more subscription sources could not be fetched; committed lists were used for those services. Check the fetch step log."
+
+      - name: Refresh subscription tags in Firestore
+        run: python subscription_refresh.py --apply
+
+      - name: Commit updated source lists
+        working-directory: ${{ github.workspace }}
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add api-service/scripts/subscription_data/
+          if git diff --cached --quiet; then
+            echo "No source list changes."
+          else
+            git commit -m "chore: monthly subscription source refresh [skip ci]"
+            git push
+          fi
