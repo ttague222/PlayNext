@@ -1,0 +1,520 @@
+[
+  {
+    "id": "before-your-eyes",
+    "title": "Before Your Eyes",
+    "platforms": [
+      "pc",
+      "mobile"
+    ],
+    "year": 2021,
+    "genres": [
+      "narrative",
+      "indie"
+    ],
+    "time_tags": [
+      30,
+      60,
+      90
+    ],
+    "energy": "low",
+    "moods": [
+      "immersive",
+      "beautiful",
+      "intense"
+    ],
+    "play_style": [
+      "narrative"
+    ],
+    "time_to_fun": "short",
+    "stop_friendliness": "anytime",
+    "multiplayer": [
+      "solo"
+    ],
+    "description": "The story advances every time you blink, via your real camera: a life remembered in ninety devastating minutes."
+  },
+  {
+    "id": "the-beginners-guide",
+    "title": "The Beginner's Guide",
+    "platforms": [
+      "pc"
+    ],
+    "year": 2015,
+    "genres": [
+      "narrative",
+      "indie"
+    ],
+    "time_tags": [
+      60,
+      90
+    ],
+    "energy": "low",
+    "moods": [
+      "immersive",
+      "creative",
+      "intense"
+    ],
+    "play_style": [
+      "narrative"
+    ],
+    "time_to_fun": "short",
+    "stop_friendliness": "anytime",
+    "multiplayer": [
+      "solo"
+    ],
+    "description": "From the Stanley Parable creator: a guided tour through a stranger's unfinished games that becomes a confession."
+  },
+  {
+    "id": "sally-face",
+    "title": "Sally Face",
+    "platforms": [
+      "pc",
+      "playstation",
+      "xbox",
+      "switch",
+      "mobile"
+    ],
+    "year": 2016,
+    "genres": [
+      "adventure",
+      "horror",
+      "indie"
+    ],
+    "time_tags": [
+      30,
+      60,
+      90
+    ],
+    "energy": "low",
+    "moods": [
+      "immersive",
+      "intense",
+      "creative"
+    ],
+    "play_style": [
+      "narrative",
+      "puzzle"
+    ],
+    "time_to_fun": "short",
+    "stop_friendliness": "checkpoints",
+    "multiplayer": [
+      "solo"
+    ],
+    "description": "A boy with a prosthetic face investigates his apartment building's darkness: a cult-adored horror mystery."
+  },
+  {
+    "id": "finding-paradise",
+    "title": "Finding Paradise",
+    "platforms": [
+      "pc",
+      "switch",
+      "mobile"
+    ],
+    "year": 2017,
+    "genres": [
+      "narrative",
+      "rpg",
+      "indie"
+    ],
+    "time_tags": [
+      30,
+      60,
+      90
+    ],
+    "energy": "low",
+    "moods": [
+      "immersive",
+      "beautiful",
+      "charming"
+    ],
+    "play_style": [
+      "narrative"
+    ],
+    "time_to_fun": "short",
+    "stop_friendliness": "anytime",
+    "multiplayer": [
+      "solo"
+    ],
+    "description": "To the Moon's sequel: rewrite a dying man's memories and discover what his impossible wish really means."
+  },
+  {
+    "id": "castlevania-requiem",
+    "title": "Castlevania Requiem: Symphony of the Night & Rondo of Blood",
+    "platforms": [
+      "playstation"
+    ],
+    "year": 2018,
+    "genres": [
+      "action",
+      "platformer",
+      "adventure"
+    ],
+    "time_tags": [
+      30,
+      60,
+      90
+    ],
+    "energy": "medium",
+    "moods": [
+      "nostalgic",
+      "immersive",
+      "adventurous"
+    ],
+    "play_style": [
+      "action"
+    ],
+    "time_to_fun": "short",
+    "stop_friendliness": "anytime",
+    "multiplayer": [
+      "solo"
+    ],
+    "description": "Symphony of the Night, the metroidvania blueprint itself, paired with its prequel: essential history, still brilliant."
+  },
+  {
+    "id": "space-rangers-hd",
+    "title": "Space Rangers HD: A War Apart",
+    "platforms": [
+      "pc"
+    ],
+    "year": 2013,
+    "genres": [
+      "rpg",
+      "strategy",
+      "adventure"
+    ],
+    "time_tags": [
+      30,
+      60,
+      90,
+      120
+    ],
+    "energy": "medium",
+    "moods": [
+      "adventurous",
+      "creative",
+      "fun"
+    ],
+    "play_style": [
+      "strategy"
+    ],
+    "time_to_fun": "medium",
+    "stop_friendliness": "anytime",
+    "multiplayer": [
+      "solo"
+    ],
+    "description": "The cult sandbox where the galaxy lives without you: trade, fight, do text quests, watch empires fall on their own."
+  },
+  {
+    "id": "bramble-mountain-king",
+    "title": "Bramble: The Mountain King",
+    "platforms": [
+      "pc",
+      "playstation",
+      "xbox",
+      "switch"
+    ],
+    "year": 2023,
+    "genres": [
+      "adventure",
+      "horror",
+      "indie"
+    ],
+    "time_tags": [
+      30,
+      60,
+      90
+    ],
+    "energy": "low",
+    "moods": [
+      "beautiful",
+      "intense",
+      "immersive"
+    ],
+    "play_style": [
+      "narrative"
+    ],
+    "time_to_fun": "short",
+    "stop_friendliness": "checkpoints",
+    "multiplayer": [
+      "solo"
+    ],
+    "description": "A small boy in huge Nordic folklore: gorgeous and grim, where trolls are exactly as terrifying as the old tales say."
+  },
+  {
+    "id": "people-playground",
+    "title": "People Playground",
+    "platforms": [
+      "pc"
+    ],
+    "year": 2019,
+    "genres": [
+      "sandbox",
+      "simulation",
+      "indie"
+    ],
+    "time_tags": [
+      15,
+      30,
+      60
+    ],
+    "energy": "medium",
+    "moods": [
+      "creative",
+      "fun"
+    ],
+    "play_style": [
+      "sandbox_creative"
+    ],
+    "time_to_fun": "short",
+    "stop_friendliness": "anytime",
+    "multiplayer": [
+      "solo"
+    ],
+    "description": "A physics sandbox of ragdolls, machines, and mayhem: pure experimentation with no objectives at all."
+  },
+  {
+    "id": "the-forgotten-city",
+    "title": "The Forgotten City",
+    "platforms": [
+      "pc",
+      "playstation",
+      "xbox",
+      "switch"
+    ],
+    "year": 2021,
+    "genres": [
+      "adventure",
+      "narrative",
+      "rpg"
+    ],
+    "time_tags": [
+      30,
+      60,
+      90
+    ],
+    "energy": "low",
+    "moods": [
+      "immersive",
+      "strategic",
+      "creative"
+    ],
+    "play_style": [
+      "narrative"
+    ],
+    "time_to_fun": "short",
+    "stop_friendliness": "anytime",
+    "multiplayer": [
+      "solo"
+    ],
+    "description": "A Roman city bound by one rule: if anyone sins, everyone dies. Loop the day, interrogate everyone, break the golden curse."
+  },
+  {
+    "id": "just-shapes-and-beats",
+    "title": "Just Shapes & Beats",
+    "platforms": [
+      "pc",
+      "playstation",
+      "switch"
+    ],
+    "year": 2018,
+    "genres": [
+      "rhythm",
+      "arcade",
+      "indie"
+    ],
+    "time_tags": [
+      15,
+      30,
+      60
+    ],
+    "energy": "high",
+    "moods": [
+      "intense",
+      "fun",
+      "exciting"
+    ],
+    "play_style": [
+      "action"
+    ],
+    "time_to_fun": "short",
+    "stop_friendliness": "anytime",
+    "multiplayer": [
+      "solo",
+      "local_coop",
+      "online_coop"
+    ],
+    "description": "Dodge the pink shapes to chiptune bangers: a bullet-hell rhythm party that's brutal alone and chaos with friends."
+  },
+  {
+    "id": "citizen-sleeper",
+    "title": "Citizen Sleeper",
+    "platforms": [
+      "pc",
+      "playstation",
+      "xbox",
+      "switch"
+    ],
+    "year": 2022,
+    "genres": [
+      "rpg",
+      "narrative",
+      "indie"
+    ],
+    "time_tags": [
+      30,
+      60,
+      90
+    ],
+    "energy": "low",
+    "moods": [
+      "immersive",
+      "strategic"
+    ],
+    "play_style": [
+      "narrative",
+      "strategy"
+    ],
+    "time_to_fun": "short",
+    "stop_friendliness": "anytime",
+    "multiplayer": [
+      "solo"
+    ],
+    "description": "You are a fugitive mind in a failing body on a lawless station: dice-driven survival written with rare humanity."
+  },
+  {
+    "id": "beamng-drive",
+    "title": "BeamNG.drive",
+    "platforms": [
+      "pc"
+    ],
+    "year": 2015,
+    "genres": [
+      "simulation",
+      "driving",
+      "sandbox"
+    ],
+    "time_tags": [
+      15,
+      30,
+      60,
+      90
+    ],
+    "energy": "medium",
+    "moods": [
+      "creative",
+      "fun",
+      "satisfying"
+    ],
+    "play_style": [
+      "sandbox_creative"
+    ],
+    "time_to_fun": "short",
+    "stop_friendliness": "anytime",
+    "multiplayer": [
+      "solo"
+    ],
+    "description": "The most realistic crash physics ever simulated: every beam bends, every panel crumples, endlessly fascinating."
+  },
+  {
+    "id": "yokus-island-express",
+    "title": "Yoku's Island Express",
+    "platforms": [
+      "pc",
+      "playstation",
+      "xbox",
+      "switch"
+    ],
+    "year": 2018,
+    "genres": [
+      "platformer",
+      "adventure",
+      "indie"
+    ],
+    "time_tags": [
+      30,
+      60,
+      90
+    ],
+    "energy": "low",
+    "moods": [
+      "charming",
+      "relaxing",
+      "fun"
+    ],
+    "play_style": [
+      "action",
+      "puzzle"
+    ],
+    "time_to_fun": "short",
+    "stop_friendliness": "anytime",
+    "multiplayer": [
+      "solo"
+    ],
+    "description": "A dung-beetle postman explores an open island via pinball flippers: the friendliest genre mashup ever shipped."
+  },
+  {
+    "id": "my-summer-car",
+    "title": "My Summer Car",
+    "platforms": [
+      "pc"
+    ],
+    "year": 2016,
+    "genres": [
+      "simulation",
+      "driving",
+      "indie"
+    ],
+    "time_tags": [
+      60,
+      90,
+      120
+    ],
+    "energy": "medium",
+    "moods": [
+      "immersive",
+      "challenging",
+      "fun"
+    ],
+    "play_style": [
+      "sandbox_creative"
+    ],
+    "time_to_fun": "long",
+    "stop_friendliness": "commitment",
+    "multiplayer": [
+      "solo"
+    ],
+    "description": "Build a car bolt by bolt in 90s rural Finland, then survive driving it: obtuse, hilarious, and one of a kind."
+  },
+  {
+    "id": "miside",
+    "title": "MiSide",
+    "platforms": [
+      "pc"
+    ],
+    "year": 2024,
+    "genres": [
+      "horror",
+      "adventure",
+      "indie"
+    ],
+    "time_tags": [
+      30,
+      60,
+      90
+    ],
+    "energy": "medium",
+    "moods": [
+      "intense",
+      "creative",
+      "immersive"
+    ],
+    "play_style": [
+      "narrative"
+    ],
+    "time_to_fun": "short",
+    "stop_friendliness": "checkpoints",
+    "multiplayer": [
+      "solo"
+    ],
+    "description": "Trapped inside a cutesy phone game by its yandere heroine: the viral horror hit that weaponizes charm."
+  }
+]
