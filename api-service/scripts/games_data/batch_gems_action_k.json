@@ -858,41 +858,6 @@
     "description": "The arcade beat-em-up of your childhood, perfected: six players, pizza, and a flawless Saturday-morning look."
   },
   {
-    "id": "hitman-3",
-    "title": "Hitman 3",
-    "platforms": [
-      "pc",
-      "playstation",
-      "xbox"
-    ],
-    "year": 2021,
-    "genres": [
-      "stealth",
-      "action"
-    ],
-    "time_tags": [
-      30,
-      60,
-      90
-    ],
-    "energy": "medium",
-    "moods": [
-      "strategic",
-      "satisfying",
-      "immersive"
-    ],
-    "play_style": [
-      "action",
-      "strategy"
-    ],
-    "time_to_fun": "medium",
-    "stop_friendliness": "checkpoints",
-    "multiplayer": [
-      "solo"
-    ],
-    "description": "The World of Assassination finale: Dubai's spire to an English manor murder mystery, every level a masterclass."
-  },
-  {
     "id": "crimzon-clover",
     "title": "Crimzon Clover: World Ignition",
     "platforms": [
