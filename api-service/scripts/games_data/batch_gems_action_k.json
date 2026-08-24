@@ -1,0 +1,962 @@
+[
+  {
+    "id": "icey",
+    "title": "ICEY",
+    "platforms": [
+      "pc",
+      "playstation",
+      "switch",
+      "mobile"
+    ],
+    "year": 2016,
+    "genres": [
+      "action",
+      "indie"
+    ],
+    "time_tags": [
+      15,
+      30,
+      60
+    ],
+    "energy": "high",
+    "moods": [
+      "intense",
+      "fun",
+      "creative"
+    ],
+    "play_style": [
+      "action"
+    ],
+    "time_to_fun": "short",
+    "stop_friendliness": "checkpoints",
+    "multiplayer": [
+      "solo"
+    ],
+    "description": "Slick 2D combo-slashing with a narrator who lies to you: disobey him and the real game appears."
+  },
+  {
+    "id": "guacamelee-2",
+    "title": "Guacamelee! 2",
+    "platforms": [
+      "pc",
+      "playstation",
+      "xbox",
+      "switch"
+    ],
+    "year": 2018,
+    "genres": [
+      "platformer",
+      "action",
+      "indie"
+    ],
+    "time_tags": [
+      15,
+      30,
+      60,
+      90
+    ],
+    "energy": "high",
+    "moods": [
+      "fun",
+      "challenging",
+      "charming"
+    ],
+    "play_style": [
+      "action"
+    ],
+    "time_to_fun": "short",
+    "stop_friendliness": "checkpoints",
+    "multiplayer": [
+      "solo",
+      "local_coop"
+    ],
+    "description": "The luchaverse returns bigger and funnier: chicken form is now a whole skill tree, and it rules."
+  },
+  {
+    "id": "runner2",
+    "title": "BIT.TRIP Presents... Runner2",
+    "platforms": [
+      "pc",
+      "playstation",
+      "xbox"
+    ],
+    "year": 2013,
+    "genres": [
+      "platformer",
+      "rhythm",
+      "arcade"
+    ],
+    "time_tags": [
+      15,
+      30,
+      60
+    ],
+    "energy": "high",
+    "moods": [
+      "fun",
+      "satisfying",
+      "challenging"
+    ],
+    "play_style": [
+      "action"
+    ],
+    "time_to_fun": "short",
+    "stop_friendliness": "anytime",
+    "multiplayer": [
+      "solo"
+    ],
+    "description": "Auto-run to the beat through Charles Martinet-narrated absurdity: rhythm platforming at its most joyful."
+  },
+  {
+    "id": "oddworld-new-n-tasty",
+    "title": "Oddworld: New 'n' Tasty",
+    "platforms": [
+      "pc",
+      "playstation",
+      "xbox",
+      "switch",
+      "mobile"
+    ],
+    "year": 2014,
+    "genres": [
+      "platformer",
+      "adventure",
+      "indie"
+    ],
+    "time_tags": [
+      30,
+      60,
+      90
+    ],
+    "energy": "medium",
+    "moods": [
+      "immersive",
+      "nostalgic",
+      "challenging"
+    ],
+    "play_style": [
+      "action",
+      "puzzle"
+    ],
+    "time_to_fun": "short",
+    "stop_friendliness": "checkpoints",
+    "multiplayer": [
+      "solo"
+    ],
+    "description": "Abe's escape from the meat farm, rebuilt gorgeous: rescue every Mudokon or live with yourself."
+  },
+  {
+    "id": "the-end-is-nigh",
+    "title": "The End Is Nigh",
+    "platforms": [
+      "pc",
+      "switch"
+    ],
+    "year": 2017,
+    "genres": [
+      "platformer",
+      "indie"
+    ],
+    "time_tags": [
+      15,
+      30,
+      60
+    ],
+    "energy": "high",
+    "moods": [
+      "challenging",
+      "satisfying"
+    ],
+    "play_style": [
+      "action"
+    ],
+    "time_to_fun": "short",
+    "stop_friendliness": "anytime",
+    "multiplayer": [
+      "solo"
+    ],
+    "description": "From the Super Meat Boy creator: a blob named Ash hops through the apocalypse, dying beautifully often."
+  },
+  {
+    "id": "bleed-2",
+    "title": "Bleed 2",
+    "platforms": [
+      "pc",
+      "playstation",
+      "xbox",
+      "switch"
+    ],
+    "year": 2017,
+    "genres": [
+      "action",
+      "arcade",
+      "shooter"
+    ],
+    "time_tags": [
+      15,
+      30,
+      60
+    ],
+    "energy": "high",
+    "moods": [
+      "exciting",
+      "fun",
+      "intense"
+    ],
+    "play_style": [
+      "action"
+    ],
+    "time_to_fun": "short",
+    "stop_friendliness": "anytime",
+    "multiplayer": [
+      "solo",
+      "local_coop"
+    ],
+    "description": "Reflect bullets with a katana in slow motion: an hour of nonstop boss fights, endlessly replayable."
+  },
+  {
+    "id": "devil-daggers",
+    "title": "Devil Daggers",
+    "platforms": [
+      "pc"
+    ],
+    "year": 2016,
+    "genres": [
+      "shooter",
+      "arcade",
+      "horror"
+    ],
+    "time_tags": [
+      15,
+      30
+    ],
+    "energy": "high",
+    "moods": [
+      "intense",
+      "challenging"
+    ],
+    "play_style": [
+      "action"
+    ],
+    "time_to_fun": "short",
+    "stop_friendliness": "anytime",
+    "multiplayer": [
+      "solo"
+    ],
+    "description": "Survive one arena against the swarming dark: most runs last thirty seconds, mastery takes years."
+  },
+  {
+    "id": "stick-it-to-the-man",
+    "title": "Stick it to The Man!",
+    "platforms": [
+      "pc",
+      "playstation",
+      "xbox",
+      "switch"
+    ],
+    "year": 2013,
+    "genres": [
+      "platformer",
+      "adventure",
+      "comedy"
+    ],
+    "time_tags": [
+      30,
+      60,
+      90
+    ],
+    "energy": "low",
+    "moods": [
+      "fun",
+      "creative",
+      "charming"
+    ],
+    "play_style": [
+      "narrative",
+      "puzzle"
+    ],
+    "time_to_fun": "short",
+    "stop_friendliness": "checkpoints",
+    "multiplayer": [
+      "solo"
+    ],
+    "description": "Read minds with a spaghetti arm from your brain: a paper-world comedy adventure that's genuinely weird."
+  },
+  {
+    "id": "tails-of-iron",
+    "title": "Tails of Iron",
+    "platforms": [
+      "pc",
+      "playstation",
+      "xbox",
+      "switch"
+    ],
+    "year": 2021,
+    "genres": [
+      "action",
+      "rpg",
+      "soulslike"
+    ],
+    "time_tags": [
+      30,
+      60,
+      90
+    ],
+    "energy": "medium",
+    "moods": [
+      "challenging",
+      "immersive",
+      "charming"
+    ],
+    "play_style": [
+      "action"
+    ],
+    "time_to_fun": "short",
+    "stop_friendliness": "checkpoints",
+    "multiplayer": [
+      "solo"
+    ],
+    "description": "A rat prince rebuilds his kingdom from the frogs: storybook art, souls-lite duels, Doug Cockle narration."
+  },
+  {
+    "id": "the-touryst",
+    "title": "The Touryst",
+    "platforms": [
+      "playstation",
+      "xbox",
+      "switch"
+    ],
+    "year": 2019,
+    "genres": [
+      "adventure",
+      "puzzle",
+      "indie"
+    ],
+    "time_tags": [
+      30,
+      60,
+      90
+    ],
+    "energy": "low",
+    "moods": [
+      "charming",
+      "relaxing",
+      "fun"
+    ],
+    "play_style": [
+      "puzzle",
+      "action"
+    ],
+    "time_to_fun": "short",
+    "stop_friendliness": "anytime",
+    "multiplayer": [
+      "solo"
+    ],
+    "description": "A tiny voxel vacation with ancient mysteries under the islands: sunshine, arcades, and secrets."
+  },
+  {
+    "id": "astral-chain",
+    "title": "Astral Chain",
+    "platforms": [
+      "switch"
+    ],
+    "year": 2019,
+    "genres": [
+      "action",
+      "adventure"
+    ],
+    "time_tags": [
+      30,
+      60,
+      90
+    ],
+    "energy": "high",
+    "moods": [
+      "exciting",
+      "intense",
+      "fun"
+    ],
+    "play_style": [
+      "action"
+    ],
+    "time_to_fun": "medium",
+    "stop_friendliness": "checkpoints",
+    "multiplayer": [
+      "solo"
+    ],
+    "description": "Police work in neon purgatory with a living weapon on a chain: PlatinumGames' most underrated combat system."
+  },
+  {
+    "id": "neo-twewy",
+    "title": "NEO: The World Ends with You",
+    "platforms": [
+      "pc",
+      "playstation",
+      "switch"
+    ],
+    "year": 2021,
+    "genres": [
+      "rpg",
+      "action",
+      "jrpg"
+    ],
+    "time_tags": [
+      30,
+      60,
+      90
+    ],
+    "energy": "high",
+    "moods": [
+      "fun",
+      "exciting",
+      "immersive"
+    ],
+    "play_style": [
+      "action",
+      "narrative"
+    ],
+    "time_to_fun": "medium",
+    "stop_friendliness": "anytime",
+    "multiplayer": [
+      "solo"
+    ],
+    "description": "Shibuya's Reapers' Game returns: style-drenched psychic brawls and a soundtrack that never quits."
+  },
+  {
+    "id": "monster-hunter-stories-2",
+    "title": "Monster Hunter Stories 2: Wings of Ruin",
+    "platforms": [
+      "pc",
+      "playstation",
+      "switch"
+    ],
+    "year": 2021,
+    "genres": [
+      "rpg",
+      "adventure",
+      "turn-based"
+    ],
+    "time_tags": [
+      30,
+      60,
+      90,
+      120
+    ],
+    "energy": "medium",
+    "moods": [
+      "adventurous",
+      "charming",
+      "strategic"
+    ],
+    "play_style": [
+      "strategy",
+      "narrative"
+    ],
+    "time_to_fun": "medium",
+    "stop_friendliness": "anytime",
+    "multiplayer": [
+      "solo",
+      "online_coop"
+    ],
+    "description": "Monster Hunter as a monster-collecting JRPG: hatch, ride, and battle alongside the beasts instead of carving them."
+  },
+  {
+    "id": "unmetal",
+    "title": "UnMetal",
+    "platforms": [
+      "pc",
+      "playstation",
+      "xbox",
+      "switch"
+    ],
+    "year": 2021,
+    "genres": [
+      "stealth",
+      "action",
+      "comedy"
+    ],
+    "time_tags": [
+      30,
+      60,
+      90
+    ],
+    "energy": "medium",
+    "moods": [
+      "fun",
+      "nostalgic"
+    ],
+    "play_style": [
+      "action",
+      "narrative"
+    ],
+    "time_to_fun": "short",
+    "stop_friendliness": "checkpoints",
+    "multiplayer": [
+      "solo"
+    ],
+    "description": "A Metal Gear parody where the hero narrates his own escape and lies constantly: the jokes ARE the mechanics."
+  },
+  {
+    "id": "kero-blaster",
+    "title": "Kero Blaster",
+    "platforms": [
+      "pc",
+      "playstation",
+      "switch",
+      "mobile"
+    ],
+    "year": 2014,
+    "genres": [
+      "platformer",
+      "shooter",
+      "indie"
+    ],
+    "time_tags": [
+      15,
+      30,
+      60
+    ],
+    "energy": "medium",
+    "moods": [
+      "fun",
+      "charming",
+      "nostalgic"
+    ],
+    "play_style": [
+      "action"
+    ],
+    "time_to_fun": "short",
+    "stop_friendliness": "checkpoints",
+    "multiplayer": [
+      "solo"
+    ],
+    "description": "A frog with a blaster works his shift: from the Cave Story creator, small and perfectly formed."
+  },
+  {
+    "id": "horace",
+    "title": "Horace",
+    "platforms": [
+      "pc",
+      "switch"
+    ],
+    "year": 2019,
+    "genres": [
+      "platformer",
+      "narrative",
+      "indie"
+    ],
+    "time_tags": [
+      30,
+      60,
+      90
+    ],
+    "energy": "medium",
+    "moods": [
+      "charming",
+      "immersive",
+      "challenging"
+    ],
+    "play_style": [
+      "action",
+      "narrative"
+    ],
+    "time_to_fun": "medium",
+    "stop_friendliness": "checkpoints",
+    "multiplayer": [
+      "solo"
+    ],
+    "description": "A robot butler's life story spanning decades of British pop culture: the platformer that makes you cry."
+  },
+  {
+    "id": "lethal-league-blaze",
+    "title": "Lethal League Blaze",
+    "platforms": [
+      "pc",
+      "playstation",
+      "xbox",
+      "switch"
+    ],
+    "year": 2018,
+    "genres": [
+      "fighting",
+      "arcade",
+      "sports"
+    ],
+    "time_tags": [
+      15,
+      30,
+      60
+    ],
+    "energy": "high",
+    "moods": [
+      "intense",
+      "fun",
+      "competitive"
+    ],
+    "play_style": [
+      "action"
+    ],
+    "time_to_fun": "short",
+    "stop_friendliness": "anytime",
+    "multiplayer": [
+      "solo",
+      "local_coop",
+      "competitive"
+    ],
+    "description": "Baseball as a fighting game: the ball speeds up with every hit until it breaks the sound barrier."
+  },
+  {
+    "id": "momodora-rutm",
+    "title": "Momodora: Reverie Under the Moonlight",
+    "platforms": [
+      "pc",
+      "playstation",
+      "xbox",
+      "switch"
+    ],
+    "year": 2016,
+    "genres": [
+      "platformer",
+      "action",
+      "indie"
+    ],
+    "time_tags": [
+      30,
+      60,
+      90
+    ],
+    "energy": "medium",
+    "moods": [
+      "beautiful",
+      "challenging",
+      "immersive"
+    ],
+    "play_style": [
+      "action"
+    ],
+    "time_to_fun": "short",
+    "stop_friendliness": "checkpoints",
+    "multiplayer": [
+      "solo"
+    ],
+    "description": "A priestess with a maple leaf blade in a cursed city: compact metroidvania melancholy done right."
+  },
+  {
+    "id": "yooka-laylee-impossible-lair",
+    "title": "Yooka-Laylee and the Impossible Lair",
+    "platforms": [
+      "pc",
+      "playstation",
+      "xbox",
+      "switch"
+    ],
+    "year": 2019,
+    "genres": [
+      "platformer",
+      "adventure"
+    ],
+    "time_tags": [
+      15,
+      30,
+      60,
+      90
+    ],
+    "energy": "medium",
+    "moods": [
+      "fun",
+      "charming",
+      "challenging"
+    ],
+    "play_style": [
+      "action"
+    ],
+    "time_to_fun": "short",
+    "stop_friendliness": "anytime",
+    "multiplayer": [
+      "solo"
+    ],
+    "description": "Donkey Kong Country's spirit lives here: the final level is beatable from minute one, if you dare."
+  },
+  {
+    "id": "valdis-story",
+    "title": "Valdis Story: Abyssal City",
+    "platforms": [
+      "pc"
+    ],
+    "year": 2013,
+    "genres": [
+      "action",
+      "platformer",
+      "rpg"
+    ],
+    "time_tags": [
+      30,
+      60,
+      90
+    ],
+    "energy": "high",
+    "moods": [
+      "challenging",
+      "intense"
+    ],
+    "play_style": [
+      "action"
+    ],
+    "time_to_fun": "medium",
+    "stop_friendliness": "checkpoints",
+    "multiplayer": [
+      "solo"
+    ],
+    "description": "Angels versus demons in a sunken city: a combo-heavy metroidvania cult classic that never got its due."
+  },
+  {
+    "id": "disc-room",
+    "title": "Disc Room",
+    "platforms": [
+      "pc",
+      "switch"
+    ],
+    "year": 2020,
+    "genres": [
+      "action",
+      "arcade",
+      "indie"
+    ],
+    "time_tags": [
+      15,
+      30,
+      60
+    ],
+    "energy": "high",
+    "moods": [
+      "intense",
+      "challenging",
+      "fun"
+    ],
+    "play_style": [
+      "action"
+    ],
+    "time_to_fun": "short",
+    "stop_friendliness": "anytime",
+    "multiplayer": [
+      "solo"
+    ],
+    "description": "Survive rooms of spinning sawblades, one death at a time: each room is a puzzle your reflexes solve."
+  },
+  {
+    "id": "yakuza-6",
+    "title": "Yakuza 6: The Song of Life",
+    "platforms": [
+      "pc",
+      "playstation",
+      "xbox"
+    ],
+    "year": 2018,
+    "genres": [
+      "action",
+      "narrative",
+      "adventure"
+    ],
+    "time_tags": [
+      30,
+      60,
+      90,
+      120
+    ],
+    "energy": "medium",
+    "moods": [
+      "immersive",
+      "intense",
+      "fun"
+    ],
+    "play_style": [
+      "action",
+      "narrative"
+    ],
+    "time_to_fun": "medium",
+    "stop_friendliness": "anytime",
+    "multiplayer": [
+      "solo"
+    ],
+    "description": "Kiryu's farewell: a grandfather's quiet rage through Onomichi's backstreets, plus a baby to raise."
+  },
+  {
+    "id": "octopath-traveler-2018",
+    "title": "Octopath Traveler",
+    "platforms": [
+      "pc",
+      "playstation",
+      "xbox",
+      "switch"
+    ],
+    "year": 2018,
+    "genres": [
+      "rpg",
+      "jrpg",
+      "turn-based"
+    ],
+    "time_tags": [
+      30,
+      60,
+      90,
+      120
+    ],
+    "energy": "low",
+    "moods": [
+      "beautiful",
+      "adventurous",
+      "nostalgic"
+    ],
+    "play_style": [
+      "strategy",
+      "narrative"
+    ],
+    "time_to_fun": "medium",
+    "stop_friendliness": "anytime",
+    "multiplayer": [
+      "solo"
+    ],
+    "description": "Eight travelers, eight stories, one HD-2D world: the SNES JRPG dream rendered in diorama light."
+  },
+  {
+    "id": "tmnt-shredders-revenge",
+    "title": "Teenage Mutant Ninja Turtles: Shredder's Revenge",
+    "platforms": [
+      "pc",
+      "playstation",
+      "xbox",
+      "switch",
+      "mobile"
+    ],
+    "year": 2022,
+    "genres": [
+      "action",
+      "arcade",
+      "coop"
+    ],
+    "time_tags": [
+      15,
+      30,
+      60
+    ],
+    "energy": "high",
+    "moods": [
+      "fun",
+      "nostalgic",
+      "exciting"
+    ],
+    "play_style": [
+      "action"
+    ],
+    "time_to_fun": "short",
+    "stop_friendliness": "checkpoints",
+    "multiplayer": [
+      "solo",
+      "local_coop",
+      "online_coop"
+    ],
+    "description": "The arcade beat-em-up of your childhood, perfected: six players, pizza, and a flawless Saturday-morning look."
+  },
+  {
+    "id": "hitman-3",
+    "title": "Hitman 3",
+    "platforms": [
+      "pc",
+      "playstation",
+      "xbox"
+    ],
+    "year": 2021,
+    "genres": [
+      "stealth",
+      "action"
+    ],
+    "time_tags": [
+      30,
+      60,
+      90
+    ],
+    "energy": "medium",
+    "moods": [
+      "strategic",
+      "satisfying",
+      "immersive"
+    ],
+    "play_style": [
+      "action",
+      "strategy"
+    ],
+    "time_to_fun": "medium",
+    "stop_friendliness": "checkpoints",
+    "multiplayer": [
+      "solo"
+    ],
+    "description": "The World of Assassination finale: Dubai's spire to an English manor murder mystery, every level a masterclass."
+  },
+  {
+    "id": "crimzon-clover",
+    "title": "Crimzon Clover: World Ignition",
+    "platforms": [
+      "pc",
+      "switch"
+    ],
+    "year": 2014,
+    "genres": [
+      "shooter",
+      "arcade",
+      "indie"
+    ],
+    "time_tags": [
+      15,
+      30
+    ],
+    "energy": "high",
+    "moods": [
+      "intense",
+      "exciting",
+      "satisfying"
+    ],
+    "play_style": [
+      "action"
+    ],
+    "time_to_fun": "short",
+    "stop_friendliness": "anytime",
+    "multiplayer": [
+      "solo"
+    ],
+    "description": "The bullet-hell connoisseur's pick: screen-filling break mode chaos in tight twenty-minute runs."
+  },
+  {
+    "id": "dreams",
+    "title": "Dreams",
+    "platforms": [
+      "playstation"
+    ],
+    "year": 2020,
+    "genres": [
+      "sandbox",
+      "creative",
+      "adventure"
+    ],
+    "time_tags": [
+      30,
+      60,
+      90,
+      120
+    ],
+    "energy": "low",
+    "moods": [
+      "creative",
+      "beautiful",
+      "fun"
+    ],
+    "play_style": [
+      "sandbox_creative"
+    ],
+    "time_to_fun": "medium",
+    "stop_friendliness": "anytime",
+    "multiplayer": [
+      "solo"
+    ],
+    "description": "Media Molecule's game-making dream machine: play thousands of player-built worlds or sculpt your own."
+  }
+]

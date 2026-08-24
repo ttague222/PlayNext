@@ -1,0 +1,940 @@
+[
+  {
+    "id": "tumblestone",
+    "title": "Tumblestone",
+    "platforms": [
+      "pc",
+      "playstation",
+      "xbox",
+      "mobile"
+    ],
+    "year": 2016,
+    "genres": [
+      "puzzle",
+      "arcade",
+      "casual"
+    ],
+    "time_tags": [
+      15,
+      30,
+      60
+    ],
+    "energy": "medium",
+    "moods": [
+      "satisfying",
+      "challenging",
+      "fun"
+    ],
+    "play_style": [
+      "puzzle"
+    ],
+    "time_to_fun": "short",
+    "stop_friendliness": "anytime",
+    "multiplayer": [
+      "solo",
+      "local_coop",
+      "competitive"
+    ],
+    "description": "The first genuinely new match-three idea in a decade: clear rows in exact order, no luck involved."
+  },
+  {
+    "id": "the-room-old-sins",
+    "title": "The Room: Old Sins",
+    "platforms": [
+      "pc",
+      "mobile"
+    ],
+    "year": 2018,
+    "genres": [
+      "puzzle",
+      "adventure"
+    ],
+    "time_tags": [
+      15,
+      30,
+      60
+    ],
+    "energy": "low",
+    "moods": [
+      "immersive",
+      "satisfying"
+    ],
+    "play_style": [
+      "puzzle"
+    ],
+    "time_to_fun": "short",
+    "stop_friendliness": "anytime",
+    "multiplayer": [
+      "solo"
+    ],
+    "description": "An eerie dollhouse full of impossible clockwork: the best tactile puzzle-box series at its peak."
+  },
+  {
+    "id": "paradigm",
+    "title": "Paradigm",
+    "platforms": [
+      "pc"
+    ],
+    "year": 2017,
+    "genres": [
+      "adventure",
+      "comedy",
+      "indie"
+    ],
+    "time_tags": [
+      30,
+      60,
+      90
+    ],
+    "energy": "low",
+    "moods": [
+      "fun",
+      "creative"
+    ],
+    "play_style": [
+      "narrative",
+      "puzzle"
+    ],
+    "time_to_fun": "short",
+    "stop_friendliness": "anytime",
+    "multiplayer": [
+      "solo"
+    ],
+    "description": "A mutant in post-apocalyptic Eastern Europe versus an evil sloth: surreal point-and-click comedy gold."
+  },
+  {
+    "id": "zero-escape-nonary-games",
+    "title": "Zero Escape: The Nonary Games",
+    "platforms": [
+      "pc",
+      "playstation"
+    ],
+    "year": 2017,
+    "genres": [
+      "adventure",
+      "puzzle",
+      "narrative"
+    ],
+    "time_tags": [
+      30,
+      60,
+      90
+    ],
+    "energy": "low",
+    "moods": [
+      "intense",
+      "strategic",
+      "immersive"
+    ],
+    "play_style": [
+      "puzzle",
+      "narrative"
+    ],
+    "time_to_fun": "medium",
+    "stop_friendliness": "anytime",
+    "multiplayer": [
+      "solo"
+    ],
+    "description": "Nine strangers, a deadly game, and escape rooms with teeth: the visual novel duology that rewires your brain."
+  },
+  {
+    "id": "pony-island",
+    "title": "Pony Island",
+    "platforms": [
+      "pc"
+    ],
+    "year": 2016,
+    "genres": [
+      "puzzle",
+      "indie",
+      "horror"
+    ],
+    "time_tags": [
+      30,
+      60,
+      90
+    ],
+    "energy": "medium",
+    "moods": [
+      "creative",
+      "intense",
+      "fun"
+    ],
+    "play_style": [
+      "puzzle"
+    ],
+    "time_to_fun": "short",
+    "stop_friendliness": "anytime",
+    "multiplayer": [
+      "solo"
+    ],
+    "description": "A cursed arcade cabinet whose developer is the devil: Daniel Mullins' first reality-bending trick."
+  },
+  {
+    "id": "428-shibuya-scramble",
+    "title": "428: Shibuya Scramble",
+    "platforms": [
+      "pc",
+      "playstation"
+    ],
+    "year": 2018,
+    "genres": [
+      "narrative",
+      "adventure"
+    ],
+    "time_tags": [
+      30,
+      60,
+      90
+    ],
+    "energy": "low",
+    "moods": [
+      "immersive",
+      "fun",
+      "intense"
+    ],
+    "play_style": [
+      "narrative"
+    ],
+    "time_to_fun": "medium",
+    "stop_friendliness": "anytime",
+    "multiplayer": [
+      "solo"
+    ],
+    "description": "Five lives collide across one Tokyo day, told in live-action photos: Japan's perfect-score visual novel."
+  },
+  {
+    "id": "steins-gate-elite",
+    "title": "STEINS;GATE ELITE",
+    "platforms": [
+      "pc",
+      "playstation",
+      "switch"
+    ],
+    "year": 2019,
+    "genres": [
+      "narrative",
+      "adventure"
+    ],
+    "time_tags": [
+      30,
+      60,
+      90
+    ],
+    "energy": "low",
+    "moods": [
+      "immersive",
+      "intense"
+    ],
+    "play_style": [
+      "narrative"
+    ],
+    "time_to_fun": "medium",
+    "stop_friendliness": "anytime",
+    "multiplayer": [
+      "solo"
+    ],
+    "description": "Time travel by microwave and text message: the landmark thriller VN, fully animated scene for scene."
+  },
+  {
+    "id": "year-walk",
+    "title": "Year Walk",
+    "platforms": [
+      "pc",
+      "mobile"
+    ],
+    "year": 2013,
+    "genres": [
+      "adventure",
+      "horror",
+      "indie"
+    ],
+    "time_tags": [
+      30,
+      60
+    ],
+    "energy": "low",
+    "moods": [
+      "immersive",
+      "intense",
+      "beautiful"
+    ],
+    "play_style": [
+      "puzzle",
+      "narrative"
+    ],
+    "time_to_fun": "short",
+    "stop_friendliness": "anytime",
+    "multiplayer": [
+      "solo"
+    ],
+    "description": "Swedish folklore in the winter dark: a short, chilling vision quest built on real myth."
+  },
+  {
+    "id": "quern-undying-thoughts",
+    "title": "Quern - Undying Thoughts",
+    "platforms": [
+      "pc"
+    ],
+    "year": 2016,
+    "genres": [
+      "puzzle",
+      "adventure",
+      "indie"
+    ],
+    "time_tags": [
+      30,
+      60,
+      90,
+      120
+    ],
+    "energy": "low",
+    "moods": [
+      "immersive",
+      "strategic",
+      "satisfying"
+    ],
+    "play_style": [
+      "puzzle"
+    ],
+    "time_to_fun": "medium",
+    "stop_friendliness": "anytime",
+    "multiplayer": [
+      "solo"
+    ],
+    "description": "The best Myst successor nobody played: an island of interlocking machines that trusts your intelligence."
+  },
+  {
+    "id": "bulb-boy",
+    "title": "Bulb Boy",
+    "platforms": [
+      "pc",
+      "switch",
+      "mobile"
+    ],
+    "year": 2015,
+    "genres": [
+      "adventure",
+      "horror",
+      "indie"
+    ],
+    "time_tags": [
+      15,
+      30,
+      60
+    ],
+    "energy": "low",
+    "moods": [
+      "creative",
+      "intense",
+      "charming"
+    ],
+    "play_style": [
+      "puzzle",
+      "narrative"
+    ],
+    "time_to_fun": "short",
+    "stop_friendliness": "checkpoints",
+    "multiplayer": [
+      "solo"
+    ],
+    "description": "A boy with a lightbulb head defends his home from grotesque dark: horror-cute in a single evening."
+  },
+  {
+    "id": "if-found",
+    "title": "If Found...",
+    "platforms": [
+      "pc",
+      "switch",
+      "mobile"
+    ],
+    "year": 2020,
+    "genres": [
+      "narrative",
+      "indie"
+    ],
+    "time_tags": [
+      30,
+      60
+    ],
+    "energy": "low",
+    "moods": [
+      "immersive",
+      "beautiful"
+    ],
+    "play_style": [
+      "narrative"
+    ],
+    "time_to_fun": "short",
+    "stop_friendliness": "anytime",
+    "multiplayer": [
+      "solo"
+    ],
+    "description": "Erase a diary to move its story forward: a beautiful, aching memoir of coming home and coming out in 1993 Ireland."
+  },
+  {
+    "id": "reventure",
+    "title": "Reventure",
+    "platforms": [
+      "pc",
+      "switch",
+      "mobile"
+    ],
+    "year": 2019,
+    "genres": [
+      "adventure",
+      "puzzle",
+      "comedy"
+    ],
+    "time_tags": [
+      15,
+      30,
+      60
+    ],
+    "energy": "medium",
+    "moods": [
+      "fun",
+      "creative",
+      "charming"
+    ],
+    "play_style": [
+      "puzzle"
+    ],
+    "time_to_fun": "short",
+    "stop_friendliness": "anytime",
+    "multiplayer": [
+      "solo"
+    ],
+    "description": "One hundred endings and dying is the point: a tiny adventure that rewards every dumb idea you try."
+  },
+  {
+    "id": "lara-croft-go",
+    "title": "Lara Croft GO",
+    "platforms": [
+      "pc",
+      "playstation",
+      "mobile"
+    ],
+    "year": 2015,
+    "genres": [
+      "puzzle",
+      "adventure"
+    ],
+    "time_tags": [
+      15,
+      30,
+      60
+    ],
+    "energy": "low",
+    "moods": [
+      "strategic",
+      "relaxing",
+      "satisfying"
+    ],
+    "play_style": [
+      "puzzle"
+    ],
+    "time_to_fun": "short",
+    "stop_friendliness": "anytime",
+    "multiplayer": [
+      "solo"
+    ],
+    "description": "Tomb Raider distilled to elegant turn-based dioramas: the best of mobile's golden puzzle era."
+  },
+  {
+    "id": "supraland",
+    "title": "Supraland",
+    "platforms": [
+      "pc",
+      "playstation",
+      "xbox",
+      "switch"
+    ],
+    "year": 2019,
+    "genres": [
+      "puzzle",
+      "adventure",
+      "indie"
+    ],
+    "time_tags": [
+      30,
+      60,
+      90
+    ],
+    "energy": "medium",
+    "moods": [
+      "creative",
+      "fun",
+      "satisfying"
+    ],
+    "play_style": [
+      "puzzle",
+      "action"
+    ],
+    "time_to_fun": "short",
+    "stop_friendliness": "anytime",
+    "multiplayer": [
+      "solo"
+    ],
+    "description": "A sandbox toy world between two garden villages: first-person metroidvania puzzles by basically one person."
+  },
+  {
+    "id": "chicken-police",
+    "title": "Chicken Police - Paint it RED!",
+    "platforms": [
+      "pc",
+      "playstation",
+      "xbox",
+      "switch",
+      "mobile"
+    ],
+    "year": 2020,
+    "genres": [
+      "adventure",
+      "narrative",
+      "comedy"
+    ],
+    "time_tags": [
+      30,
+      60,
+      90
+    ],
+    "energy": "low",
+    "moods": [
+      "fun",
+      "immersive",
+      "creative"
+    ],
+    "play_style": [
+      "narrative"
+    ],
+    "time_to_fun": "short",
+    "stop_friendliness": "anytime",
+    "multiplayer": [
+      "solo"
+    ],
+    "description": "Hard-boiled noir with actual roosters: a black-and-white detective yarn played completely straight."
+  },
+  {
+    "id": "clannad",
+    "title": "CLANNAD",
+    "platforms": [
+      "pc",
+      "playstation",
+      "switch",
+      "mobile"
+    ],
+    "year": 2015,
+    "genres": [
+      "narrative",
+      "adventure"
+    ],
+    "time_tags": [
+      30,
+      60,
+      90,
+      120
+    ],
+    "energy": "low",
+    "moods": [
+      "charming",
+      "immersive"
+    ],
+    "play_style": [
+      "narrative"
+    ],
+    "time_to_fun": "medium",
+    "stop_friendliness": "anytime",
+    "multiplayer": [
+      "solo"
+    ],
+    "description": "The visual novel that made a generation cry: family, found and lost, over two unforgettable arcs."
+  },
+  {
+    "id": "technobabylon",
+    "title": "Technobabylon",
+    "platforms": [
+      "pc",
+      "mobile"
+    ],
+    "year": 2015,
+    "genres": [
+      "adventure",
+      "cyberpunk",
+      "indie"
+    ],
+    "time_tags": [
+      30,
+      60,
+      90
+    ],
+    "energy": "low",
+    "moods": [
+      "immersive",
+      "strategic"
+    ],
+    "play_style": [
+      "narrative",
+      "puzzle"
+    ],
+    "time_to_fun": "short",
+    "stop_friendliness": "anytime",
+    "multiplayer": [
+      "solo"
+    ],
+    "description": "Cyberpunk point-and-click at its sharpest: three lives tangled in an AI-governed city's conspiracies."
+  },
+  {
+    "id": "telling-lies",
+    "title": "Telling Lies",
+    "platforms": [
+      "pc",
+      "playstation",
+      "xbox",
+      "switch",
+      "mobile"
+    ],
+    "year": 2019,
+    "genres": [
+      "narrative",
+      "simulation",
+      "indie"
+    ],
+    "time_tags": [
+      30,
+      60,
+      90
+    ],
+    "energy": "low",
+    "moods": [
+      "immersive",
+      "strategic",
+      "intense"
+    ],
+    "play_style": [
+      "narrative"
+    ],
+    "time_to_fun": "short",
+    "stop_friendliness": "anytime",
+    "multiplayer": [
+      "solo"
+    ],
+    "description": "Search a stolen NSA database of video calls: piece four lives together one keyword at a time."
+  },
+  {
+    "id": "ai-somnium-files",
+    "title": "AI: The Somnium Files",
+    "platforms": [
+      "pc",
+      "playstation",
+      "xbox",
+      "switch"
+    ],
+    "year": 2019,
+    "genres": [
+      "adventure",
+      "narrative",
+      "puzzle"
+    ],
+    "time_tags": [
+      30,
+      60,
+      90
+    ],
+    "energy": "low",
+    "moods": [
+      "immersive",
+      "intense",
+      "fun"
+    ],
+    "play_style": [
+      "narrative",
+      "puzzle"
+    ],
+    "time_to_fun": "medium",
+    "stop_friendliness": "anytime",
+    "multiplayer": [
+      "solo"
+    ],
+    "description": "A detective with an AI eyeball dives into suspects' dreams: a murder mystery equal parts absurd and devastating."
+  },
+  {
+    "id": "burly-men-at-sea",
+    "title": "Burly Men at Sea",
+    "platforms": [
+      "pc",
+      "playstation",
+      "switch",
+      "mobile"
+    ],
+    "year": 2016,
+    "genres": [
+      "adventure",
+      "casual",
+      "indie"
+    ],
+    "time_tags": [
+      15,
+      30,
+      60
+    ],
+    "energy": "low",
+    "moods": [
+      "charming",
+      "relaxing",
+      "fun"
+    ],
+    "play_style": [
+      "narrative"
+    ],
+    "time_to_fun": "short",
+    "stop_friendliness": "anytime",
+    "multiplayer": [
+      "solo"
+    ],
+    "description": "Three bearded fishermen folk-tale their way through whales and spirits: a storybook you replay for new branches."
+  },
+  {
+    "id": "the-pedestrian",
+    "title": "The Pedestrian",
+    "platforms": [
+      "pc",
+      "playstation",
+      "xbox",
+      "switch"
+    ],
+    "year": 2020,
+    "genres": [
+      "puzzle",
+      "platformer",
+      "indie"
+    ],
+    "time_tags": [
+      30,
+      60,
+      90
+    ],
+    "energy": "low",
+    "moods": [
+      "creative",
+      "satisfying",
+      "relaxing"
+    ],
+    "play_style": [
+      "puzzle"
+    ],
+    "time_to_fun": "short",
+    "stop_friendliness": "anytime",
+    "multiplayer": [
+      "solo"
+    ],
+    "description": "Play the stick figure on public signs: rearrange the signage itself to build your path through a living city."
+  },
+  {
+    "id": "desktop-dungeons",
+    "title": "Desktop Dungeons",
+    "platforms": [
+      "pc",
+      "mobile"
+    ],
+    "year": 2013,
+    "genres": [
+      "puzzle",
+      "roguelike",
+      "rpg"
+    ],
+    "time_tags": [
+      15,
+      30,
+      60
+    ],
+    "energy": "low",
+    "moods": [
+      "strategic",
+      "challenging",
+      "satisfying"
+    ],
+    "play_style": [
+      "puzzle",
+      "strategy"
+    ],
+    "time_to_fun": "short",
+    "stop_friendliness": "anytime",
+    "multiplayer": [
+      "solo"
+    ],
+    "description": "A whole dungeon crawl compressed into ten minutes: roguelike decisions as tight as a crossword."
+  },
+  {
+    "id": "everhood",
+    "title": "Everhood",
+    "platforms": [
+      "pc",
+      "switch"
+    ],
+    "year": 2021,
+    "genres": [
+      "rpg",
+      "rhythm",
+      "indie"
+    ],
+    "time_tags": [
+      30,
+      60,
+      90
+    ],
+    "energy": "medium",
+    "moods": [
+      "creative",
+      "intense",
+      "immersive"
+    ],
+    "play_style": [
+      "action",
+      "narrative"
+    ],
+    "time_to_fun": "short",
+    "stop_friendliness": "anytime",
+    "multiplayer": [
+      "solo"
+    ],
+    "description": "Undertale's strange cousin: dodge attacks to the beat in a psychedelic musical afterlife."
+  },
+  {
+    "id": "she-remembered-caterpillars",
+    "title": "She Remembered Caterpillars",
+    "platforms": [
+      "pc",
+      "switch"
+    ],
+    "year": 2017,
+    "genres": [
+      "puzzle",
+      "indie"
+    ],
+    "time_tags": [
+      15,
+      30,
+      60
+    ],
+    "energy": "low",
+    "moods": [
+      "beautiful",
+      "strategic",
+      "relaxing"
+    ],
+    "play_style": [
+      "puzzle"
+    ],
+    "time_to_fun": "short",
+    "stop_friendliness": "anytime",
+    "multiplayer": [
+      "solo"
+    ],
+    "description": "Color-matching bridges in a fungal dreamscape: a gentle grief story told through immaculate logic puzzles."
+  },
+  {
+    "id": "ibb-and-obb",
+    "title": "ibb & obb",
+    "platforms": [
+      "pc",
+      "playstation",
+      "switch"
+    ],
+    "year": 2013,
+    "genres": [
+      "puzzle",
+      "platformer",
+      "coop"
+    ],
+    "time_tags": [
+      30,
+      60,
+      90
+    ],
+    "energy": "medium",
+    "moods": [
+      "charming",
+      "fun",
+      "creative"
+    ],
+    "play_style": [
+      "puzzle"
+    ],
+    "time_to_fun": "short",
+    "stop_friendliness": "anytime",
+    "multiplayer": [
+      "local_coop",
+      "online_coop"
+    ],
+    "description": "Two blobs, one world split by a gravity mirror: pure cooperative joy that demands a partner."
+  },
+  {
+    "id": "divide-by-sheep",
+    "title": "Divide By Sheep",
+    "platforms": [
+      "pc",
+      "mobile"
+    ],
+    "year": 2015,
+    "genres": [
+      "puzzle",
+      "casual",
+      "comedy"
+    ],
+    "time_tags": [
+      15,
+      30
+    ],
+    "energy": "low",
+    "moods": [
+      "fun",
+      "charming",
+      "strategic"
+    ],
+    "play_style": [
+      "puzzle"
+    ],
+    "time_to_fun": "short",
+    "stop_friendliness": "anytime",
+    "multiplayer": [
+      "solo"
+    ],
+    "description": "Math puzzles about sacrificing sheep to a lonely Grim Reaper: adorable, morbid, and sneaky-clever."
+  },
+  {
+    "id": "life-suffering-sir-brante",
+    "title": "The Life and Suffering of Sir Brante",
+    "platforms": [
+      "pc",
+      "playstation",
+      "xbox"
+    ],
+    "year": 2021,
+    "genres": [
+      "narrative",
+      "rpg",
+      "strategy"
+    ],
+    "time_tags": [
+      30,
+      60,
+      90
+    ],
+    "energy": "low",
+    "moods": [
+      "immersive",
+      "strategic",
+      "intense"
+    ],
+    "play_style": [
+      "narrative"
+    ],
+    "time_to_fun": "medium",
+    "stop_friendliness": "anytime",
+    "multiplayer": [
+      "solo"
+    ],
+    "description": "Live one whole life, childhood to grave, in a world where the gods enforce the class system: every choice scars."
+  }
+]

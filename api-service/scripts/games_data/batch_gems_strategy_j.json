@@ -1,0 +1,561 @@
+[
+  {
+    "id": "griftlands",
+    "title": "Griftlands",
+    "platforms": [
+      "pc",
+      "playstation",
+      "xbox",
+      "switch"
+    ],
+    "year": 2021,
+    "genres": [
+      "card_game",
+      "roguelike",
+      "rpg"
+    ],
+    "time_tags": [
+      30,
+      60,
+      90
+    ],
+    "energy": "medium",
+    "moods": [
+      "strategic",
+      "fun",
+      "immersive"
+    ],
+    "play_style": [
+      "card_game",
+      "strategy"
+    ],
+    "time_to_fun": "short",
+    "stop_friendliness": "anytime",
+    "multiplayer": [
+      "solo"
+    ],
+    "description": "Klei's deckbuilder where you argue as well as fight: negotiation is its own card battle, and it's brilliant."
+  },
+  {
+    "id": "ultimate-general-gettysburg",
+    "title": "Ultimate General: Gettysburg",
+    "platforms": [
+      "pc",
+      "mobile"
+    ],
+    "year": 2014,
+    "genres": [
+      "strategy",
+      "simulation"
+    ],
+    "time_tags": [
+      30,
+      60,
+      90
+    ],
+    "energy": "low",
+    "moods": [
+      "strategic",
+      "immersive"
+    ],
+    "play_style": [
+      "strategy"
+    ],
+    "time_to_fun": "medium",
+    "stop_friendliness": "anytime",
+    "multiplayer": [
+      "solo"
+    ],
+    "description": "Command the three days of Gettysburg on one flowing map: real-time tactics with real historical weight."
+  },
+  {
+    "id": "steel-division-normandy-44",
+    "title": "Steel Division: Normandy 44",
+    "platforms": [
+      "pc"
+    ],
+    "year": 2017,
+    "genres": [
+      "strategy",
+      "tactics",
+      "simulation"
+    ],
+    "time_tags": [
+      30,
+      60,
+      90
+    ],
+    "energy": "medium",
+    "moods": [
+      "strategic",
+      "intense"
+    ],
+    "play_style": [
+      "strategy",
+      "tactics"
+    ],
+    "time_to_fun": "medium",
+    "stop_friendliness": "anytime",
+    "multiplayer": [
+      "solo",
+      "competitive"
+    ],
+    "description": "WWII tactics at authentic scale: phases shift from recon skirmish to armored slog across real Normandy terrain."
+  },
+  {
+    "id": "chaos-reborn",
+    "title": "Chaos Reborn",
+    "platforms": [
+      "pc"
+    ],
+    "year": 2015,
+    "genres": [
+      "strategy",
+      "tactics",
+      "turn-based"
+    ],
+    "time_tags": [
+      15,
+      30,
+      60
+    ],
+    "energy": "medium",
+    "moods": [
+      "strategic",
+      "fun",
+      "challenging"
+    ],
+    "play_style": [
+      "strategy",
+      "tactics"
+    ],
+    "time_to_fun": "short",
+    "stop_friendliness": "anytime",
+    "multiplayer": [
+      "solo",
+      "competitive"
+    ],
+    "description": "Wizard duels from the XCOM creator: bluff with illusions, gamble on spells, win in twenty minutes."
+  },
+  {
+    "id": "frozen-synapse-prime",
+    "title": "Frozen Synapse Prime",
+    "platforms": [
+      "pc",
+      "mobile"
+    ],
+    "year": 2014,
+    "genres": [
+      "strategy",
+      "tactics",
+      "indie"
+    ],
+    "time_tags": [
+      15,
+      30,
+      60
+    ],
+    "energy": "medium",
+    "moods": [
+      "strategic",
+      "intense",
+      "satisfying"
+    ],
+    "play_style": [
+      "strategy",
+      "tactics"
+    ],
+    "time_to_fun": "short",
+    "stop_friendliness": "anytime",
+    "multiplayer": [
+      "solo",
+      "competitive"
+    ],
+    "description": "Plan five seconds, both sides execute at once: simultaneous-turn tactics that reward reading your opponent's mind."
+  },
+  {
+    "id": "total-war-three-kingdoms",
+    "title": "Total War: THREE KINGDOMS",
+    "platforms": [
+      "pc"
+    ],
+    "year": 2019,
+    "genres": [
+      "strategy",
+      "4x",
+      "tactics"
+    ],
+    "time_tags": [
+      60,
+      90,
+      120
+    ],
+    "energy": "medium",
+    "moods": [
+      "strategic",
+      "immersive",
+      "adventurous"
+    ],
+    "play_style": [
+      "strategy"
+    ],
+    "time_to_fun": "medium",
+    "stop_friendliness": "anytime",
+    "multiplayer": [
+      "solo"
+    ],
+    "description": "Romance of the Three Kingdoms as grand strategy: legendary generals duel while your empire schemes."
+  },
+  {
+    "id": "planet-coaster",
+    "title": "Planet Coaster",
+    "platforms": [
+      "pc",
+      "playstation",
+      "xbox"
+    ],
+    "year": 2016,
+    "genres": [
+      "simulation",
+      "sandbox",
+      "management"
+    ],
+    "time_tags": [
+      30,
+      60,
+      90,
+      120
+    ],
+    "energy": "low",
+    "moods": [
+      "creative",
+      "relaxing",
+      "fun"
+    ],
+    "play_style": [
+      "sandbox_creative"
+    ],
+    "time_to_fun": "short",
+    "stop_friendliness": "anytime",
+    "multiplayer": [
+      "solo"
+    ],
+    "description": "The coaster-park builder with true creative depth: sculpt terrain, script rides, and watch guests genuinely react."
+  },
+  {
+    "id": "parkitect",
+    "title": "Parkitect",
+    "platforms": [
+      "pc"
+    ],
+    "year": 2018,
+    "genres": [
+      "simulation",
+      "management",
+      "indie"
+    ],
+    "time_tags": [
+      30,
+      60,
+      90,
+      120
+    ],
+    "energy": "low",
+    "moods": [
+      "creative",
+      "relaxing",
+      "strategic"
+    ],
+    "play_style": [
+      "sandbox_creative",
+      "strategy"
+    ],
+    "time_to_fun": "short",
+    "stop_friendliness": "anytime",
+    "multiplayer": [
+      "solo",
+      "online_coop"
+    ],
+    "description": "The true heir to RollerCoaster Tycoon: charming, deep park management where even the janitors' routes matter."
+  },
+  {
+    "id": "valkyria-chronicles-4",
+    "title": "Valkyria Chronicles 4",
+    "platforms": [
+      "pc",
+      "playstation",
+      "xbox",
+      "switch"
+    ],
+    "year": 2018,
+    "genres": [
+      "strategy",
+      "tactics",
+      "rpg"
+    ],
+    "time_tags": [
+      30,
+      60,
+      90
+    ],
+    "energy": "medium",
+    "moods": [
+      "strategic",
+      "immersive",
+      "beautiful"
+    ],
+    "play_style": [
+      "strategy",
+      "tactics"
+    ],
+    "time_to_fun": "medium",
+    "stop_friendliness": "checkpoints",
+    "multiplayer": [
+      "solo"
+    ],
+    "description": "Watercolor war tactics: move squadmates in third person, then hold your breath through enemy fire."
+  },
+  {
+    "id": "banner-saga-3",
+    "title": "The Banner Saga 3",
+    "platforms": [
+      "pc",
+      "playstation",
+      "xbox",
+      "switch",
+      "mobile"
+    ],
+    "year": 2018,
+    "genres": [
+      "strategy",
+      "tactics",
+      "narrative"
+    ],
+    "time_tags": [
+      30,
+      60,
+      90
+    ],
+    "energy": "medium",
+    "moods": [
+      "immersive",
+      "strategic",
+      "intense"
+    ],
+    "play_style": [
+      "strategy",
+      "narrative"
+    ],
+    "time_to_fun": "medium",
+    "stop_friendliness": "anytime",
+    "multiplayer": [
+      "solo"
+    ],
+    "description": "The viking caravan's last march into the darkness: hand-painted tactics where the ending is earned, not given."
+  },
+  {
+    "id": "thronebreaker",
+    "title": "Thronebreaker: The Witcher Tales",
+    "platforms": [
+      "pc",
+      "playstation",
+      "xbox",
+      "switch",
+      "mobile"
+    ],
+    "year": 2018,
+    "genres": [
+      "card_game",
+      "rpg",
+      "narrative"
+    ],
+    "time_tags": [
+      30,
+      60,
+      90
+    ],
+    "energy": "low",
+    "moods": [
+      "strategic",
+      "immersive"
+    ],
+    "play_style": [
+      "card_game",
+      "narrative"
+    ],
+    "time_to_fun": "medium",
+    "stop_friendliness": "anytime",
+    "multiplayer": [
+      "solo"
+    ],
+    "description": "A queen's war campaign told through Gwent: CD Projekt's overlooked story-driven card RPG."
+  },
+  {
+    "id": "microsoft-flight-simulator",
+    "title": "Microsoft Flight Simulator (2020)",
+    "platforms": [
+      "pc",
+      "xbox"
+    ],
+    "year": 2020,
+    "genres": [
+      "simulation"
+    ],
+    "time_tags": [
+      30,
+      60,
+      90,
+      120
+    ],
+    "energy": "low",
+    "moods": [
+      "relaxing",
+      "beautiful",
+      "immersive"
+    ],
+    "play_style": [
+      "action"
+    ],
+    "time_to_fun": "medium",
+    "stop_friendliness": "anytime",
+    "multiplayer": [
+      "solo"
+    ],
+    "description": "Fly over your own house in a living replica of Earth: the most beautiful screensaver you actively pilot."
+  },
+  {
+    "id": "hardspace-shipbreaker",
+    "title": "Hardspace: Shipbreaker",
+    "platforms": [
+      "pc",
+      "playstation",
+      "xbox"
+    ],
+    "year": 2022,
+    "genres": [
+      "simulation",
+      "indie"
+    ],
+    "time_tags": [
+      30,
+      60,
+      90
+    ],
+    "energy": "low",
+    "moods": [
+      "satisfying",
+      "immersive",
+      "relaxing"
+    ],
+    "play_style": [
+      "action"
+    ],
+    "time_to_fun": "short",
+    "stop_friendliness": "anytime",
+    "multiplayer": [
+      "solo"
+    ],
+    "description": "Dismantle derelict spaceships in zero-g to pay off a corporate debt: meditative, methodical, quietly furious."
+  },
+  {
+    "id": "monster-slayers",
+    "title": "Monster Slayers",
+    "platforms": [
+      "pc",
+      "playstation",
+      "xbox",
+      "switch"
+    ],
+    "year": 2017,
+    "genres": [
+      "card_game",
+      "roguelike",
+      "rpg"
+    ],
+    "time_tags": [
+      15,
+      30,
+      60
+    ],
+    "energy": "medium",
+    "moods": [
+      "fun",
+      "strategic",
+      "satisfying"
+    ],
+    "play_style": [
+      "card_game"
+    ],
+    "time_to_fun": "short",
+    "stop_friendliness": "anytime",
+    "multiplayer": [
+      "solo"
+    ],
+    "description": "A fast, cheerful deckbuilding roguelike that predates the genre boom: runs finish in a lunch break."
+  },
+  {
+    "id": "rise-of-nations-extended",
+    "title": "Rise of Nations: Extended Edition",
+    "platforms": [
+      "pc"
+    ],
+    "year": 2014,
+    "genres": [
+      "strategy",
+      "rts"
+    ],
+    "time_tags": [
+      30,
+      60,
+      90
+    ],
+    "energy": "medium",
+    "moods": [
+      "strategic",
+      "nostalgic",
+      "satisfying"
+    ],
+    "play_style": [
+      "strategy"
+    ],
+    "time_to_fun": "short",
+    "stop_friendliness": "anytime",
+    "multiplayer": [
+      "solo",
+      "competitive"
+    ],
+    "description": "Age of Empires meets Civilization in one match: march from antiquity to nukes in an hour."
+  },
+  {
+    "id": "turbo-dismount",
+    "title": "Turbo Dismount",
+    "platforms": [
+      "pc",
+      "mobile"
+    ],
+    "year": 2014,
+    "genres": [
+      "simulation",
+      "comedy",
+      "casual"
+    ],
+    "time_tags": [
+      15,
+      30
+    ],
+    "energy": "medium",
+    "moods": [
+      "fun",
+      "creative"
+    ],
+    "play_style": [
+      "sandbox_creative"
+    ],
+    "time_to_fun": "short",
+    "stop_friendliness": "anytime",
+    "multiplayer": [
+      "solo"
+    ],
+    "description": "Engineer the most spectacular crash-test dummy disasters possible: physics comedy in five-minute bites."
+  }
+]
