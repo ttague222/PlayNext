@@ -1,0 +1,1214 @@
+[
+  {
+    "id": "invisible-inc",
+    "title": "Invisible, Inc.",
+    "platforms": [
+      "pc",
+      "switch",
+      "mobile"
+    ],
+    "year": 2015,
+    "genres": [
+      "strategy",
+      "stealth",
+      "roguelike"
+    ],
+    "time_tags": [
+      30,
+      60,
+      90
+    ],
+    "energy": "medium",
+    "moods": [
+      "strategic",
+      "intense",
+      "satisfying"
+    ],
+    "play_style": [
+      "strategy",
+      "tactics"
+    ],
+    "time_to_fun": "short",
+    "stop_friendliness": "anytime",
+    "multiplayer": [
+      "solo"
+    ],
+    "description": "Klei's spy-thriller tactics: 72 hours, one dying AI, and heists where every turn tightens the noose."
+  },
+  {
+    "id": "kentucky-route-zero",
+    "title": "Kentucky Route Zero",
+    "platforms": [
+      "pc",
+      "playstation",
+      "xbox",
+      "switch"
+    ],
+    "year": 2020,
+    "genres": [
+      "narrative",
+      "adventure",
+      "indie"
+    ],
+    "time_tags": [
+      30,
+      60,
+      90
+    ],
+    "energy": "low",
+    "moods": [
+      "immersive",
+      "beautiful",
+      "creative"
+    ],
+    "play_style": [
+      "narrative"
+    ],
+    "time_to_fun": "short",
+    "stop_friendliness": "anytime",
+    "multiplayer": [
+      "solo"
+    ],
+    "description": "A magical-realist drive down a highway that doesn't exist: American theater disguised as a game."
+  },
+  {
+    "id": "va11-halla",
+    "title": "VA-11 Hall-A: Cyberpunk Bartender Action",
+    "platforms": [
+      "pc",
+      "playstation",
+      "switch"
+    ],
+    "year": 2016,
+    "genres": [
+      "narrative",
+      "simulation",
+      "cyberpunk"
+    ],
+    "time_tags": [
+      30,
+      60,
+      90
+    ],
+    "energy": "low",
+    "moods": [
+      "relaxing",
+      "immersive",
+      "charming"
+    ],
+    "play_style": [
+      "narrative"
+    ],
+    "time_to_fun": "short",
+    "stop_friendliness": "anytime",
+    "multiplayer": [
+      "solo"
+    ],
+    "description": "Mix drinks and change lives: dystopia seen from behind the bar, one regular at a time."
+  },
+  {
+    "id": "sunless-sea",
+    "title": "Sunless Sea",
+    "platforms": [
+      "pc",
+      "playstation",
+      "mobile"
+    ],
+    "year": 2015,
+    "genres": [
+      "rpg",
+      "adventure",
+      "narrative"
+    ],
+    "time_tags": [
+      30,
+      60,
+      90
+    ],
+    "energy": "low",
+    "moods": [
+      "immersive",
+      "intense",
+      "creative"
+    ],
+    "play_style": [
+      "narrative",
+      "strategy"
+    ],
+    "time_to_fun": "medium",
+    "stop_friendliness": "anytime",
+    "multiplayer": [
+      "solo"
+    ],
+    "description": "Sail an underground ocean where the sun is dead and your crew is hungry: dread and wonder per nautical mile."
+  },
+  {
+    "id": "steamworld-heist",
+    "title": "SteamWorld Heist",
+    "platforms": [
+      "pc",
+      "playstation",
+      "xbox",
+      "switch",
+      "mobile"
+    ],
+    "year": 2015,
+    "genres": [
+      "strategy",
+      "tactics",
+      "indie"
+    ],
+    "time_tags": [
+      15,
+      30,
+      60
+    ],
+    "energy": "medium",
+    "moods": [
+      "fun",
+      "strategic",
+      "satisfying"
+    ],
+    "play_style": [
+      "strategy",
+      "tactics"
+    ],
+    "time_to_fun": "short",
+    "stop_friendliness": "anytime",
+    "multiplayer": [
+      "solo"
+    ],
+    "description": "Side-scrolling turn-based heists with ricochet headshots you aim yourself: skill inside the strategy."
+  },
+  {
+    "id": "steamworld-quest",
+    "title": "SteamWorld Quest: Hand of Gilgamech",
+    "platforms": [
+      "pc",
+      "switch"
+    ],
+    "year": 2019,
+    "genres": [
+      "card_game",
+      "rpg",
+      "adventure"
+    ],
+    "time_tags": [
+      30,
+      60,
+      90
+    ],
+    "energy": "low",
+    "moods": [
+      "charming",
+      "strategic",
+      "fun"
+    ],
+    "play_style": [
+      "card_game"
+    ],
+    "time_to_fun": "short",
+    "stop_friendliness": "anytime",
+    "multiplayer": [
+      "solo"
+    ],
+    "description": "A storybook fantasy told through deckbuilt battles: the steambot series does cards and nails it again."
+  },
+  {
+    "id": "banner-saga-1",
+    "title": "The Banner Saga",
+    "platforms": [
+      "pc",
+      "playstation",
+      "xbox",
+      "switch",
+      "mobile"
+    ],
+    "year": 2014,
+    "genres": [
+      "strategy",
+      "tactics",
+      "narrative"
+    ],
+    "time_tags": [
+      30,
+      60,
+      90
+    ],
+    "energy": "medium",
+    "moods": [
+      "immersive",
+      "strategic",
+      "beautiful"
+    ],
+    "play_style": [
+      "strategy",
+      "narrative"
+    ],
+    "time_to_fun": "medium",
+    "stop_friendliness": "anytime",
+    "multiplayer": [
+      "solo"
+    ],
+    "description": "Lead a viking caravan as the sun stops in the sky: Eyvind Earle art, hard choices, and the start of the saga."
+  },
+  {
+    "id": "vanishing-of-ethan-carter",
+    "title": "The Vanishing of Ethan Carter",
+    "platforms": [
+      "pc",
+      "playstation",
+      "xbox",
+      "switch"
+    ],
+    "year": 2014,
+    "genres": [
+      "adventure",
+      "narrative",
+      "horror"
+    ],
+    "time_tags": [
+      30,
+      60,
+      90
+    ],
+    "energy": "low",
+    "moods": [
+      "immersive",
+      "beautiful",
+      "intense"
+    ],
+    "play_style": [
+      "narrative"
+    ],
+    "time_to_fun": "short",
+    "stop_friendliness": "anytime",
+    "multiplayer": [
+      "solo"
+    ],
+    "description": "A detective who sees the dead walks into a photoreal valley: quiet, gorgeous, and quietly wrong."
+  },
+  {
+    "id": "the-last-guardian",
+    "title": "The Last Guardian",
+    "platforms": [
+      "playstation"
+    ],
+    "year": 2016,
+    "genres": [
+      "adventure",
+      "puzzle"
+    ],
+    "time_tags": [
+      30,
+      60,
+      90
+    ],
+    "energy": "low",
+    "moods": [
+      "beautiful",
+      "immersive",
+      "charming"
+    ],
+    "play_style": [
+      "narrative",
+      "puzzle"
+    ],
+    "time_to_fun": "medium",
+    "stop_friendliness": "checkpoints",
+    "multiplayer": [
+      "solo"
+    ],
+    "description": "A boy and a giant cat-bird who doesn't always listen: Team Ico's stubborn, heartbreaking masterpiece."
+  },
+  {
+    "id": "endless-legend",
+    "title": "Endless Legend",
+    "platforms": [
+      "pc"
+    ],
+    "year": 2014,
+    "genres": [
+      "strategy",
+      "4x"
+    ],
+    "time_tags": [
+      60,
+      90,
+      120
+    ],
+    "energy": "low",
+    "moods": [
+      "strategic",
+      "creative",
+      "immersive"
+    ],
+    "play_style": [
+      "strategy"
+    ],
+    "time_to_fun": "medium",
+    "stop_friendliness": "anytime",
+    "multiplayer": [
+      "solo",
+      "competitive"
+    ],
+    "description": "The most inventive 4X ever made: every faction breaks the rules differently on a dying fantasy world."
+  },
+  {
+    "id": "endless-space-2",
+    "title": "Endless Space 2",
+    "platforms": [
+      "pc"
+    ],
+    "year": 2017,
+    "genres": [
+      "strategy",
+      "4x"
+    ],
+    "time_tags": [
+      60,
+      90,
+      120
+    ],
+    "energy": "low",
+    "moods": [
+      "strategic",
+      "immersive",
+      "beautiful"
+    ],
+    "play_style": [
+      "strategy"
+    ],
+    "time_to_fun": "medium",
+    "stop_friendliness": "anytime",
+    "multiplayer": [
+      "solo",
+      "competitive"
+    ],
+    "description": "Space opera 4X where your empire's story matters as much as its fleets: gorgeous, moody, and deep."
+  },
+  {
+    "id": "sunset-overdrive",
+    "title": "Sunset Overdrive",
+    "platforms": [
+      "pc",
+      "xbox"
+    ],
+    "year": 2014,
+    "genres": [
+      "action",
+      "open-world",
+      "comedy"
+    ],
+    "time_tags": [
+      30,
+      60,
+      90
+    ],
+    "energy": "high",
+    "moods": [
+      "fun",
+      "exciting"
+    ],
+    "play_style": [
+      "action"
+    ],
+    "time_to_fun": "short",
+    "stop_friendliness": "anytime",
+    "multiplayer": [
+      "solo"
+    ],
+    "description": "Grind power lines and blast energy-drink mutants: Insomniac's most joyful game before Spider-Man."
+  },
+  {
+    "id": "the-evil-within-2",
+    "title": "The Evil Within 2",
+    "platforms": [
+      "pc",
+      "playstation",
+      "xbox"
+    ],
+    "year": 2017,
+    "genres": [
+      "horror",
+      "action",
+      "survival"
+    ],
+    "time_tags": [
+      30,
+      60,
+      90
+    ],
+    "energy": "medium",
+    "moods": [
+      "intense",
+      "immersive"
+    ],
+    "play_style": [
+      "action"
+    ],
+    "time_to_fun": "medium",
+    "stop_friendliness": "checkpoints",
+    "multiplayer": [
+      "solo"
+    ],
+    "description": "A father hunts his daughter through a collapsing dream-town: semi-open survival horror done right."
+  },
+  {
+    "id": "tekken-7",
+    "title": "TEKKEN 7",
+    "platforms": [
+      "pc",
+      "playstation",
+      "xbox"
+    ],
+    "year": 2017,
+    "genres": [
+      "fighting"
+    ],
+    "time_tags": [
+      15,
+      30,
+      60
+    ],
+    "energy": "high",
+    "moods": [
+      "competitive",
+      "intense"
+    ],
+    "play_style": [
+      "action"
+    ],
+    "time_to_fun": "short",
+    "stop_friendliness": "anytime",
+    "multiplayer": [
+      "solo",
+      "local_coop",
+      "competitive"
+    ],
+    "description": "The Mishima blood feud settled in slow-motion rage arts: the king of 3D fighters."
+  },
+  {
+    "id": "puyo-puyo-tetris",
+    "title": "Puyo Puyo Tetris",
+    "platforms": [
+      "pc",
+      "playstation",
+      "xbox",
+      "switch"
+    ],
+    "year": 2014,
+    "genres": [
+      "puzzle",
+      "arcade",
+      "casual"
+    ],
+    "time_tags": [
+      15,
+      30,
+      60
+    ],
+    "energy": "medium",
+    "moods": [
+      "fun",
+      "competitive",
+      "charming"
+    ],
+    "play_style": [
+      "puzzle"
+    ],
+    "time_to_fun": "short",
+    "stop_friendliness": "anytime",
+    "multiplayer": [
+      "solo",
+      "local_coop",
+      "competitive"
+    ],
+    "description": "Two puzzle titans in one cabinet: swap mid-match and watch friendships end in garbage blocks."
+  },
+  {
+    "id": "katamari-damacy-reroll",
+    "title": "Katamari Damacy REROLL",
+    "platforms": [
+      "pc",
+      "playstation",
+      "xbox",
+      "switch"
+    ],
+    "year": 2018,
+    "genres": [
+      "arcade",
+      "casual",
+      "comedy"
+    ],
+    "time_tags": [
+      15,
+      30,
+      60
+    ],
+    "energy": "medium",
+    "moods": [
+      "fun",
+      "creative",
+      "charming"
+    ],
+    "play_style": [
+      "action"
+    ],
+    "time_to_fun": "short",
+    "stop_friendliness": "anytime",
+    "multiplayer": [
+      "solo"
+    ],
+    "description": "Roll everything on Earth into a ball to please the King of All Cosmos: still the strangest joy in games."
+  },
+  {
+    "id": "freedom-planet",
+    "title": "Freedom Planet",
+    "platforms": [
+      "pc",
+      "playstation",
+      "switch"
+    ],
+    "year": 2014,
+    "genres": [
+      "platformer",
+      "action",
+      "indie"
+    ],
+    "time_tags": [
+      15,
+      30,
+      60
+    ],
+    "energy": "high",
+    "moods": [
+      "fun",
+      "exciting",
+      "nostalgic"
+    ],
+    "play_style": [
+      "action"
+    ],
+    "time_to_fun": "short",
+    "stop_friendliness": "checkpoints",
+    "multiplayer": [
+      "solo"
+    ],
+    "description": "The Sonic successor Sega never made: momentum platforming with genuine boss-fight spectacle."
+  },
+  {
+    "id": "axiom-verge",
+    "title": "Axiom Verge",
+    "platforms": [
+      "pc",
+      "playstation",
+      "xbox",
+      "switch"
+    ],
+    "year": 2015,
+    "genres": [
+      "platformer",
+      "action",
+      "indie"
+    ],
+    "time_tags": [
+      30,
+      60,
+      90
+    ],
+    "energy": "medium",
+    "moods": [
+      "immersive",
+      "nostalgic",
+      "challenging"
+    ],
+    "play_style": [
+      "action"
+    ],
+    "time_to_fun": "short",
+    "stop_friendliness": "anytime",
+    "multiplayer": [
+      "solo"
+    ],
+    "description": "One man built a whole Metroid: glitch weapons that corrupt the world itself, secrets forty layers deep."
+  },
+  {
+    "id": "battle-chef-brigade",
+    "title": "Battle Chef Brigade",
+    "platforms": [
+      "pc",
+      "playstation",
+      "switch"
+    ],
+    "year": 2017,
+    "genres": [
+      "puzzle",
+      "action",
+      "indie"
+    ],
+    "time_tags": [
+      15,
+      30,
+      60
+    ],
+    "energy": "medium",
+    "moods": [
+      "charming",
+      "fun",
+      "creative"
+    ],
+    "play_style": [
+      "puzzle",
+      "action"
+    ],
+    "time_to_fun": "short",
+    "stop_friendliness": "anytime",
+    "multiplayer": [
+      "solo"
+    ],
+    "description": "Hunt monsters, then cook them in match-three battles for the judges: Iron Chef meets fantasy brawler."
+  },
+  {
+    "id": "hand-of-fate-2",
+    "title": "Hand of Fate 2",
+    "platforms": [
+      "pc",
+      "playstation",
+      "xbox",
+      "switch"
+    ],
+    "year": 2017,
+    "genres": [
+      "card_game",
+      "action",
+      "roguelike"
+    ],
+    "time_tags": [
+      30,
+      60,
+      90
+    ],
+    "energy": "medium",
+    "moods": [
+      "strategic",
+      "immersive",
+      "fun"
+    ],
+    "play_style": [
+      "card_game",
+      "action"
+    ],
+    "time_to_fun": "short",
+    "stop_friendliness": "anytime",
+    "multiplayer": [
+      "solo"
+    ],
+    "description": "A dealer builds your dungeon from cards, then you fight what's drawn: board game and brawler in one."
+  },
+  {
+    "id": "battle-brothers",
+    "title": "Battle Brothers",
+    "platforms": [
+      "pc",
+      "switch",
+      "mobile"
+    ],
+    "year": 2017,
+    "genres": [
+      "strategy",
+      "tactics",
+      "rpg"
+    ],
+    "time_tags": [
+      30,
+      60,
+      90,
+      120
+    ],
+    "energy": "medium",
+    "moods": [
+      "strategic",
+      "challenging",
+      "immersive"
+    ],
+    "play_style": [
+      "strategy",
+      "tactics"
+    ],
+    "time_to_fun": "medium",
+    "stop_friendliness": "anytime",
+    "multiplayer": [
+      "solo"
+    ],
+    "description": "Run a medieval mercenary company where every scar and missing eye is earned: brutal, beloved tactics."
+  },
+  {
+    "id": "anno-1800",
+    "title": "Anno 1800",
+    "platforms": [
+      "pc",
+      "playstation",
+      "xbox"
+    ],
+    "year": 2019,
+    "genres": [
+      "strategy",
+      "city-builder",
+      "simulation"
+    ],
+    "time_tags": [
+      60,
+      90,
+      120
+    ],
+    "energy": "low",
+    "moods": [
+      "strategic",
+      "creative",
+      "relaxing"
+    ],
+    "play_style": [
+      "strategy",
+      "sandbox_creative"
+    ],
+    "time_to_fun": "medium",
+    "stop_friendliness": "anytime",
+    "multiplayer": [
+      "solo",
+      "online_coop"
+    ],
+    "description": "Industrial-revolution island empires: supply chains so satisfying they should be illegal."
+  },
+  {
+    "id": "gears-tactics",
+    "title": "Gears Tactics",
+    "platforms": [
+      "pc",
+      "xbox"
+    ],
+    "year": 2020,
+    "genres": [
+      "strategy",
+      "tactics",
+      "turn-based"
+    ],
+    "time_tags": [
+      30,
+      60,
+      90
+    ],
+    "energy": "medium",
+    "moods": [
+      "intense",
+      "strategic"
+    ],
+    "play_style": [
+      "strategy",
+      "tactics"
+    ],
+    "time_to_fun": "short",
+    "stop_friendliness": "checkpoints",
+    "multiplayer": [
+      "solo"
+    ],
+    "description": "XCOM with chainsaw bayonets: aggressive, execution-fueled tactics that reward pushing forward."
+  },
+  {
+    "id": "persona-5-strikers",
+    "title": "Persona 5 Strikers",
+    "platforms": [
+      "pc",
+      "playstation",
+      "switch"
+    ],
+    "year": 2021,
+    "genres": [
+      "rpg",
+      "action",
+      "jrpg"
+    ],
+    "time_tags": [
+      30,
+      60,
+      90,
+      120
+    ],
+    "energy": "high",
+    "moods": [
+      "fun",
+      "exciting",
+      "immersive"
+    ],
+    "play_style": [
+      "action",
+      "narrative"
+    ],
+    "time_to_fun": "medium",
+    "stop_friendliness": "anytime",
+    "multiplayer": [
+      "solo"
+    ],
+    "description": "The Phantom Thieves' summer road trip: Persona's style fused with musou crowds, and it works."
+  },
+  {
+    "id": "the-red-strings-club",
+    "title": "The Red Strings Club",
+    "platforms": [
+      "pc",
+      "switch"
+    ],
+    "year": 2018,
+    "genres": [
+      "narrative",
+      "cyberpunk",
+      "indie"
+    ],
+    "time_tags": [
+      30,
+      60,
+      90
+    ],
+    "energy": "low",
+    "moods": [
+      "immersive",
+      "strategic",
+      "intense"
+    ],
+    "play_style": [
+      "narrative"
+    ],
+    "time_to_fun": "short",
+    "stop_friendliness": "anytime",
+    "multiplayer": [
+      "solo"
+    ],
+    "description": "Pour drinks that steer emotions, carve implants on a lathe, and talk an AI out of ending free will."
+  },
+  {
+    "id": "stories-untold",
+    "title": "Stories Untold",
+    "platforms": [
+      "pc",
+      "playstation",
+      "xbox",
+      "switch"
+    ],
+    "year": 2017,
+    "genres": [
+      "horror",
+      "narrative",
+      "puzzle"
+    ],
+    "time_tags": [
+      30,
+      60
+    ],
+    "energy": "low",
+    "moods": [
+      "intense",
+      "immersive",
+      "creative"
+    ],
+    "play_style": [
+      "narrative",
+      "puzzle"
+    ],
+    "time_to_fun": "short",
+    "stop_friendliness": "checkpoints",
+    "multiplayer": [
+      "solo"
+    ],
+    "description": "Four 80s-tech horror vignettes typed into old terminals: the text adventure that watches back."
+  },
+  {
+    "id": "visage",
+    "title": "Visage",
+    "platforms": [
+      "pc",
+      "playstation",
+      "xbox"
+    ],
+    "year": 2020,
+    "genres": [
+      "horror",
+      "indie"
+    ],
+    "time_tags": [
+      30,
+      60,
+      90
+    ],
+    "energy": "low",
+    "moods": [
+      "intense",
+      "immersive"
+    ],
+    "play_style": [
+      "narrative",
+      "puzzle"
+    ],
+    "time_to_fun": "medium",
+    "stop_friendliness": "checkpoints",
+    "multiplayer": [
+      "solo"
+    ],
+    "description": "P.T.'s true heir: a suburban house whose hauntings escalate so slowly you doubt your own eyes."
+  },
+  {
+    "id": "sakuna-of-rice-and-ruin",
+    "title": "Sakuna: Of Rice and Ruin",
+    "platforms": [
+      "pc",
+      "playstation",
+      "switch"
+    ],
+    "year": 2020,
+    "genres": [
+      "action",
+      "simulation",
+      "rpg"
+    ],
+    "time_tags": [
+      30,
+      60,
+      90
+    ],
+    "energy": "medium",
+    "moods": [
+      "charming",
+      "relaxing",
+      "satisfying"
+    ],
+    "play_style": [
+      "action",
+      "sandbox_creative"
+    ],
+    "time_to_fun": "medium",
+    "stop_friendliness": "anytime",
+    "multiplayer": [
+      "solo"
+    ],
+    "description": "A harvest goddess farms real rice agriculture by day and fights demons by night: both halves are excellent."
+  },
+  {
+    "id": "ys-viii",
+    "title": "Ys VIII: Lacrimosa of DANA",
+    "platforms": [
+      "pc",
+      "playstation",
+      "switch"
+    ],
+    "year": 2017,
+    "genres": [
+      "rpg",
+      "action",
+      "jrpg"
+    ],
+    "time_tags": [
+      30,
+      60,
+      90,
+      120
+    ],
+    "energy": "high",
+    "moods": [
+      "adventurous",
+      "exciting",
+      "fun"
+    ],
+    "play_style": [
+      "action"
+    ],
+    "time_to_fun": "short",
+    "stop_friendliness": "anytime",
+    "multiplayer": [
+      "solo"
+    ],
+    "description": "Shipwrecked on a cursed island: fast, generous action-JRPG comfort food with a castaway village to build."
+  },
+  {
+    "id": "card-shark",
+    "title": "Card Shark",
+    "platforms": [
+      "pc",
+      "switch",
+      "mobile"
+    ],
+    "year": 2022,
+    "genres": [
+      "card_game",
+      "adventure",
+      "indie"
+    ],
+    "time_tags": [
+      30,
+      60,
+      90
+    ],
+    "energy": "low",
+    "moods": [
+      "creative",
+      "fun",
+      "strategic"
+    ],
+    "play_style": [
+      "card_game",
+      "narrative"
+    ],
+    "time_to_fun": "short",
+    "stop_friendliness": "anytime",
+    "multiplayer": [
+      "solo"
+    ],
+    "description": "Cheat your way through 18th-century France: learn real card cons with your hands, not your stats."
+  },
+  {
+    "id": "wingspan",
+    "title": "Wingspan",
+    "platforms": [
+      "pc",
+      "playstation",
+      "xbox",
+      "switch",
+      "mobile"
+    ],
+    "year": 2020,
+    "genres": [
+      "card_game",
+      "strategy",
+      "casual"
+    ],
+    "time_tags": [
+      15,
+      30,
+      60
+    ],
+    "energy": "low",
+    "moods": [
+      "relaxing",
+      "strategic",
+      "beautiful"
+    ],
+    "play_style": [
+      "card_game",
+      "strategy"
+    ],
+    "time_to_fun": "short",
+    "stop_friendliness": "anytime",
+    "multiplayer": [
+      "solo",
+      "competitive"
+    ],
+    "description": "The award-winning bird engine-builder, digital: painted species, gentle strategy, real birdsong."
+  },
+  {
+    "id": "mega-man-11",
+    "title": "Mega Man 11",
+    "platforms": [
+      "pc",
+      "playstation",
+      "xbox",
+      "switch"
+    ],
+    "year": 2018,
+    "genres": [
+      "platformer",
+      "action"
+    ],
+    "time_tags": [
+      15,
+      30,
+      60
+    ],
+    "energy": "high",
+    "moods": [
+      "challenging",
+      "nostalgic",
+      "fun"
+    ],
+    "play_style": [
+      "action"
+    ],
+    "time_to_fun": "short",
+    "stop_friendliness": "checkpoints",
+    "multiplayer": [
+      "solo"
+    ],
+    "description": "The Blue Bomber's comeback: classic robot-master platforming with the clever Double Gear twist."
+  },
+  {
+    "id": "barotrauma",
+    "title": "Barotrauma",
+    "platforms": [
+      "pc"
+    ],
+    "year": 2023,
+    "genres": [
+      "survival",
+      "coop",
+      "simulation"
+    ],
+    "time_tags": [
+      30,
+      60,
+      90,
+      120
+    ],
+    "energy": "medium",
+    "moods": [
+      "intense",
+      "fun",
+      "strategic"
+    ],
+    "play_style": [
+      "action",
+      "strategy"
+    ],
+    "time_to_fun": "medium",
+    "stop_friendliness": "anytime",
+    "multiplayer": [
+      "online_coop",
+      "solo"
+    ],
+    "description": "Crew a submarine beneath Europa's ice with your friends: equal parts horror, physics, and hilarious panic."
+  },
+  {
+    "id": "knights-and-bikes",
+    "title": "Knights and Bikes",
+    "platforms": [
+      "pc",
+      "playstation",
+      "switch"
+    ],
+    "year": 2019,
+    "genres": [
+      "adventure",
+      "coop",
+      "indie"
+    ],
+    "time_tags": [
+      30,
+      60,
+      90
+    ],
+    "energy": "medium",
+    "moods": [
+      "charming",
+      "fun",
+      "adventurous"
+    ],
+    "play_style": [
+      "action",
+      "narrative"
+    ],
+    "time_to_fun": "short",
+    "stop_friendliness": "checkpoints",
+    "multiplayer": [
+      "solo",
+      "local_coop",
+      "online_coop"
+    ],
+    "description": "Two girls, two bikes, one treasure-haunted island: hand-painted co-op childhood at its warmest."
+  }
+]
