@@ -1,0 +1,407 @@
+[
+  {
+    "id": "ark-survival-evolved",
+    "title": "ARK: Survival Evolved",
+    "platforms": [
+      "pc",
+      "playstation",
+      "xbox",
+      "switch",
+      "mobile"
+    ],
+    "year": 2017,
+    "genres": [
+      "survival",
+      "open-world",
+      "action"
+    ],
+    "time_tags": [
+      60,
+      90,
+      120
+    ],
+    "energy": "medium",
+    "moods": [
+      "adventurous",
+      "creative",
+      "intense"
+    ],
+    "play_style": [
+      "sandbox_creative",
+      "action"
+    ],
+    "time_to_fun": "long",
+    "stop_friendliness": "commitment",
+    "multiplayer": [
+      "online_coop",
+      "competitive",
+      "solo"
+    ],
+    "description": "Tame a T-Rex, build a fortress, lose it all overnight: dinosaur survival at its most consuming."
+  },
+  {
+    "id": "dirt-rally",
+    "title": "DiRT Rally",
+    "platforms": [
+      "pc",
+      "playstation",
+      "xbox"
+    ],
+    "year": 2015,
+    "genres": [
+      "racing",
+      "simulation"
+    ],
+    "time_tags": [
+      15,
+      30,
+      60,
+      90
+    ],
+    "energy": "high",
+    "moods": [
+      "intense",
+      "challenging",
+      "satisfying"
+    ],
+    "play_style": [
+      "action"
+    ],
+    "time_to_fun": "short",
+    "stop_friendliness": "anytime",
+    "multiplayer": [
+      "solo",
+      "competitive"
+    ],
+    "description": "Rally without mercy: one mistake, one tree, one restart. The purist's stage racer."
+  },
+  {
+    "id": "mortal-kombat-11",
+    "title": "Mortal Kombat 11",
+    "platforms": [
+      "pc",
+      "playstation",
+      "xbox",
+      "switch"
+    ],
+    "year": 2019,
+    "genres": [
+      "fighting"
+    ],
+    "time_tags": [
+      15,
+      30,
+      60
+    ],
+    "energy": "high",
+    "moods": [
+      "intense",
+      "competitive"
+    ],
+    "play_style": [
+      "action"
+    ],
+    "time_to_fun": "short",
+    "stop_friendliness": "anytime",
+    "multiplayer": [
+      "solo",
+      "local_coop",
+      "competitive"
+    ],
+    "description": "Time-bending story mode, brutal krushing blows, and the series' best-feeling kombat."
+  },
+  {
+    "id": "neverwinter",
+    "title": "Neverwinter",
+    "platforms": [
+      "pc",
+      "playstation",
+      "xbox"
+    ],
+    "year": 2013,
+    "genres": [
+      "mmo",
+      "rpg",
+      "action"
+    ],
+    "time_tags": [
+      30,
+      60,
+      90,
+      120
+    ],
+    "energy": "medium",
+    "moods": [
+      "adventurous",
+      "fun"
+    ],
+    "play_style": [
+      "action"
+    ],
+    "time_to_fun": "medium",
+    "stop_friendliness": "anytime",
+    "multiplayer": [
+      "online_coop",
+      "solo"
+    ],
+    "description": "Free-to-play D&D action MMO in the Forgotten Realms: dungeon-delve with strangers who become guildmates."
+  },
+  {
+    "id": "elder-scrolls-online",
+    "title": "The Elder Scrolls Online",
+    "platforms": [
+      "pc",
+      "playstation",
+      "xbox"
+    ],
+    "year": 2014,
+    "genres": [
+      "mmo",
+      "rpg",
+      "open-world"
+    ],
+    "time_tags": [
+      30,
+      60,
+      90,
+      120
+    ],
+    "energy": "medium",
+    "moods": [
+      "adventurous",
+      "immersive"
+    ],
+    "play_style": [
+      "action",
+      "narrative"
+    ],
+    "time_to_fun": "medium",
+    "stop_friendliness": "anytime",
+    "multiplayer": [
+      "online_coop",
+      "solo",
+      "competitive"
+    ],
+    "description": "All of Tamriel, shared: quest solo like a single-player Elder Scrolls or raid with five hundred friends."
+  },
+  {
+    "id": "yakuza-kiwami",
+    "title": "Yakuza Kiwami",
+    "platforms": [
+      "pc",
+      "playstation",
+      "xbox",
+      "switch"
+    ],
+    "year": 2016,
+    "genres": [
+      "action",
+      "narrative",
+      "adventure"
+    ],
+    "time_tags": [
+      30,
+      60,
+      90,
+      120
+    ],
+    "energy": "medium",
+    "moods": [
+      "intense",
+      "fun",
+      "immersive"
+    ],
+    "play_style": [
+      "action",
+      "narrative"
+    ],
+    "time_to_fun": "medium",
+    "stop_friendliness": "anytime",
+    "multiplayer": [
+      "solo"
+    ],
+    "description": "Kiryu's origin remade: crime drama played straight, karaoke and pocket racing played straighter."
+  },
+  {
+    "id": "need-for-speed-heat",
+    "title": "Need for Speed Heat",
+    "platforms": [
+      "pc",
+      "playstation",
+      "xbox"
+    ],
+    "year": 2019,
+    "genres": [
+      "racing",
+      "open-world",
+      "arcade"
+    ],
+    "time_tags": [
+      15,
+      30,
+      60,
+      90
+    ],
+    "energy": "high",
+    "moods": [
+      "exciting",
+      "intense",
+      "fun"
+    ],
+    "play_style": [
+      "action"
+    ],
+    "time_to_fun": "short",
+    "stop_friendliness": "anytime",
+    "multiplayer": [
+      "solo",
+      "competitive"
+    ],
+    "description": "Race legal by day, outrun corrupt cops by night: the best modern NFS neon fantasy."
+  },
+  {
+    "id": "eve-online",
+    "title": "EVE Online",
+    "platforms": [
+      "pc"
+    ],
+    "year": 2003,
+    "genres": [
+      "mmo",
+      "strategy",
+      "simulation"
+    ],
+    "time_tags": [
+      60,
+      90,
+      120
+    ],
+    "energy": "medium",
+    "moods": [
+      "strategic",
+      "immersive"
+    ],
+    "play_style": [
+      "strategy"
+    ],
+    "time_to_fun": "long",
+    "stop_friendliness": "anytime",
+    "multiplayer": [
+      "online_coop",
+      "competitive",
+      "solo"
+    ],
+    "description": "The galaxy-sized sandbox where spreadsheets wage thousand-player wars and betrayal makes headlines."
+  },
+  {
+    "id": "black-desert-online",
+    "title": "Black Desert Online",
+    "platforms": [
+      "pc",
+      "playstation",
+      "xbox",
+      "mobile"
+    ],
+    "year": 2014,
+    "genres": [
+      "mmo",
+      "rpg",
+      "action"
+    ],
+    "time_tags": [
+      30,
+      60,
+      90,
+      120
+    ],
+    "energy": "medium",
+    "moods": [
+      "adventurous",
+      "beautiful",
+      "immersive"
+    ],
+    "play_style": [
+      "action"
+    ],
+    "time_to_fun": "medium",
+    "stop_friendliness": "anytime",
+    "multiplayer": [
+      "online_coop",
+      "competitive",
+      "solo"
+    ],
+    "description": "The prettiest combat in MMOs plus a life-skill rabbit hole: fish, trade, tame, and forget what year it is."
+  },
+  {
+    "id": "sega-genesis-classics",
+    "title": "SEGA Mega Drive and Genesis Classics",
+    "platforms": [
+      "pc",
+      "playstation",
+      "xbox",
+      "switch"
+    ],
+    "year": 2018,
+    "genres": [
+      "arcade",
+      "platformer",
+      "retro"
+    ],
+    "time_tags": [
+      15,
+      30,
+      60
+    ],
+    "energy": "medium",
+    "moods": [
+      "nostalgic",
+      "fun"
+    ],
+    "play_style": [
+      "action"
+    ],
+    "time_to_fun": "short",
+    "stop_friendliness": "anytime",
+    "multiplayer": [
+      "solo",
+      "local_coop"
+    ],
+    "description": "Fifty-plus Genesis greats in one collection: Sonic, Streets of Rage, and every childhood Saturday."
+  },
+  {
+    "id": "drawful-2",
+    "title": "Drawful 2",
+    "platforms": [
+      "pc",
+      "playstation",
+      "xbox",
+      "switch"
+    ],
+    "year": 2016,
+    "genres": [
+      "party",
+      "comedy",
+      "casual"
+    ],
+    "time_tags": [
+      15,
+      30,
+      60
+    ],
+    "energy": "medium",
+    "moods": [
+      "fun",
+      "charming"
+    ],
+    "play_style": [
+      "puzzle"
+    ],
+    "time_to_fun": "short",
+    "stop_friendliness": "anytime",
+    "multiplayer": [
+      "local_coop",
+      "competitive"
+    ],
+    "description": "Draw terrible pictures of impossible prompts on your phone; friends bluff titles; everyone cries laughing."
+  }
+]

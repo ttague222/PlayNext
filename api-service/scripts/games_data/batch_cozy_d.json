@@ -1,0 +1,705 @@
+[
+  {
+    "id": "trine-2",
+    "title": "Trine 2: Complete Story",
+    "platforms": [
+      "pc",
+      "playstation",
+      "xbox",
+      "switch"
+    ],
+    "year": 2013,
+    "genres": [
+      "puzzle",
+      "platformer",
+      "coop"
+    ],
+    "time_tags": [
+      30,
+      60,
+      90
+    ],
+    "energy": "low",
+    "moods": [
+      "beautiful",
+      "relaxing",
+      "fun"
+    ],
+    "play_style": [
+      "puzzle"
+    ],
+    "time_to_fun": "short",
+    "stop_friendliness": "checkpoints",
+    "multiplayer": [
+      "solo",
+      "online_coop",
+      "local_coop"
+    ],
+    "description": "A wizard, a knight, and a thief solve painterly fairy-tale puzzles: gorgeous co-op comfort food."
+  },
+  {
+    "id": "lara-croft-temple-of-osiris",
+    "title": "Lara Croft and the Temple of Osiris",
+    "platforms": [
+      "pc",
+      "playstation",
+      "xbox"
+    ],
+    "year": 2014,
+    "genres": [
+      "puzzle",
+      "action",
+      "coop"
+    ],
+    "time_tags": [
+      30,
+      60,
+      90
+    ],
+    "energy": "medium",
+    "moods": [
+      "fun",
+      "adventurous"
+    ],
+    "play_style": [
+      "action",
+      "puzzle"
+    ],
+    "time_to_fun": "short",
+    "stop_friendliness": "checkpoints",
+    "multiplayer": [
+      "solo",
+      "local_coop",
+      "online_coop"
+    ],
+    "description": "Isometric tomb-raiding built for the couch: four players, one cursed staff, endless friendly betrayal."
+  },
+  {
+    "id": "syberia",
+    "title": "Syberia",
+    "platforms": [
+      "pc",
+      "playstation",
+      "xbox",
+      "switch",
+      "mobile"
+    ],
+    "year": 2002,
+    "genres": [
+      "adventure",
+      "puzzle",
+      "narrative"
+    ],
+    "time_tags": [
+      30,
+      60,
+      90
+    ],
+    "energy": "low",
+    "moods": [
+      "immersive",
+      "beautiful",
+      "nostalgic"
+    ],
+    "play_style": [
+      "narrative",
+      "puzzle"
+    ],
+    "time_to_fun": "medium",
+    "stop_friendliness": "anytime",
+    "multiplayer": [
+      "solo"
+    ],
+    "description": "Kate Walker's clockwork odyssey across a dreamlike Europe: adventure gaming's melancholy classic."
+  },
+  {
+    "id": "goat-simulator",
+    "title": "Goat Simulator",
+    "platforms": [
+      "pc",
+      "playstation",
+      "xbox",
+      "switch",
+      "mobile"
+    ],
+    "year": 2014,
+    "genres": [
+      "comedy",
+      "sandbox",
+      "casual"
+    ],
+    "time_tags": [
+      15,
+      30,
+      60
+    ],
+    "energy": "medium",
+    "moods": [
+      "fun"
+    ],
+    "play_style": [
+      "sandbox_creative"
+    ],
+    "time_to_fun": "short",
+    "stop_friendliness": "anytime",
+    "multiplayer": [
+      "solo",
+      "local_coop"
+    ],
+    "description": "Be the goat. Break physics. Lick things. The dumbest game ever made, on purpose, gloriously."
+  },
+  {
+    "id": "grim-fandango-remastered",
+    "title": "Grim Fandango Remastered",
+    "platforms": [
+      "pc",
+      "playstation",
+      "xbox",
+      "switch",
+      "mobile"
+    ],
+    "year": 2015,
+    "genres": [
+      "adventure",
+      "puzzle",
+      "narrative"
+    ],
+    "time_tags": [
+      30,
+      60,
+      90
+    ],
+    "energy": "low",
+    "moods": [
+      "immersive",
+      "charming",
+      "nostalgic"
+    ],
+    "play_style": [
+      "narrative",
+      "puzzle"
+    ],
+    "time_to_fun": "medium",
+    "stop_friendliness": "anytime",
+    "multiplayer": [
+      "solo"
+    ],
+    "description": "Film noir in the Land of the Dead: Manny Calavera's four-year journey is adventure gaming's best script."
+  },
+  {
+    "id": "to-the-moon",
+    "title": "To the Moon",
+    "platforms": [
+      "pc",
+      "switch",
+      "mobile"
+    ],
+    "year": 2011,
+    "genres": [
+      "narrative",
+      "indie"
+    ],
+    "time_tags": [
+      30,
+      60,
+      90
+    ],
+    "energy": "low",
+    "moods": [
+      "immersive",
+      "beautiful"
+    ],
+    "play_style": [
+      "narrative"
+    ],
+    "time_to_fun": "short",
+    "stop_friendliness": "anytime",
+    "multiplayer": [
+      "solo"
+    ],
+    "description": "Two doctors rewrite a dying man's memories: a four-hour story that will wreck you, gently."
+  },
+  {
+    "id": "starbound",
+    "title": "Starbound",
+    "platforms": [
+      "pc",
+      "xbox"
+    ],
+    "year": 2016,
+    "genres": [
+      "sandbox",
+      "survival",
+      "indie"
+    ],
+    "time_tags": [
+      30,
+      60,
+      90,
+      120
+    ],
+    "energy": "medium",
+    "moods": [
+      "creative",
+      "adventurous",
+      "relaxing"
+    ],
+    "play_style": [
+      "sandbox_creative"
+    ],
+    "time_to_fun": "medium",
+    "stop_friendliness": "anytime",
+    "multiplayer": [
+      "solo",
+      "online_coop"
+    ],
+    "description": "Terraria among the stars: dig, build, and quest across infinite procedurally grown planets."
+  },
+  {
+    "id": "battleblock-theater",
+    "title": "BattleBlock Theater",
+    "platforms": [
+      "pc",
+      "xbox"
+    ],
+    "year": 2013,
+    "genres": [
+      "platformer",
+      "coop",
+      "comedy"
+    ],
+    "time_tags": [
+      15,
+      30,
+      60,
+      90
+    ],
+    "energy": "medium",
+    "moods": [
+      "fun",
+      "charming"
+    ],
+    "play_style": [
+      "action",
+      "puzzle"
+    ],
+    "time_to_fun": "short",
+    "stop_friendliness": "checkpoints",
+    "multiplayer": [
+      "solo",
+      "local_coop",
+      "online_coop",
+      "competitive"
+    ],
+    "description": "Imprisoned by cats, forced to perform: the co-op platformer where friendship means throwing your buddy into spikes."
+  },
+  {
+    "id": "orwell-keeping-an-eye-on-you",
+    "title": "Orwell: Keeping an Eye On You",
+    "platforms": [
+      "pc",
+      "mobile"
+    ],
+    "year": 2016,
+    "genres": [
+      "narrative",
+      "simulation",
+      "indie"
+    ],
+    "time_tags": [
+      30,
+      60,
+      90
+    ],
+    "energy": "low",
+    "moods": [
+      "immersive",
+      "strategic"
+    ],
+    "play_style": [
+      "narrative"
+    ],
+    "time_to_fun": "short",
+    "stop_friendliness": "anytime",
+    "multiplayer": [
+      "solo"
+    ],
+    "description": "You are the surveillance state: decide which fragments of people's lives count as evidence."
+  },
+  {
+    "id": "broken-age",
+    "title": "Broken Age",
+    "platforms": [
+      "pc",
+      "playstation",
+      "mobile"
+    ],
+    "year": 2014,
+    "genres": [
+      "adventure",
+      "puzzle",
+      "narrative"
+    ],
+    "time_tags": [
+      30,
+      60,
+      90
+    ],
+    "energy": "low",
+    "moods": [
+      "charming",
+      "relaxing"
+    ],
+    "play_style": [
+      "narrative",
+      "puzzle"
+    ],
+    "time_to_fun": "short",
+    "stop_friendliness": "anytime",
+    "multiplayer": [
+      "solo"
+    ],
+    "description": "Two teenagers, two worlds, one gorgeous hand-painted adventure from the Double Fine dream team."
+  },
+  {
+    "id": "tabletop-simulator",
+    "title": "Tabletop Simulator",
+    "platforms": [
+      "pc"
+    ],
+    "year": 2015,
+    "genres": [
+      "board-games",
+      "sandbox",
+      "party"
+    ],
+    "time_tags": [
+      30,
+      60,
+      90,
+      120
+    ],
+    "energy": "low",
+    "moods": [
+      "fun",
+      "creative"
+    ],
+    "play_style": [
+      "sandbox_creative",
+      "card_game"
+    ],
+    "time_to_fun": "medium",
+    "stop_friendliness": "anytime",
+    "multiplayer": [
+      "online_coop",
+      "competitive",
+      "solo"
+    ],
+    "description": "Every board game ever, plus physics: flip the table when you lose, it's allowed here."
+  },
+  {
+    "id": "world-of-goo",
+    "title": "World of Goo",
+    "platforms": [
+      "pc",
+      "switch",
+      "mobile"
+    ],
+    "year": 2008,
+    "genres": [
+      "puzzle",
+      "indie"
+    ],
+    "time_tags": [
+      15,
+      30,
+      60
+    ],
+    "energy": "low",
+    "moods": [
+      "creative",
+      "charming",
+      "satisfying"
+    ],
+    "play_style": [
+      "puzzle"
+    ],
+    "time_to_fun": "short",
+    "stop_friendliness": "anytime",
+    "multiplayer": [
+      "solo"
+    ],
+    "description": "Build wobbling towers from living goo balls: the physics puzzler that still feels handcrafted."
+  },
+  {
+    "id": "unravel",
+    "title": "Unravel",
+    "platforms": [
+      "pc",
+      "playstation",
+      "xbox"
+    ],
+    "year": 2016,
+    "genres": [
+      "puzzle",
+      "platformer",
+      "narrative"
+    ],
+    "time_tags": [
+      30,
+      60,
+      90
+    ],
+    "energy": "low",
+    "moods": [
+      "beautiful",
+      "relaxing",
+      "immersive"
+    ],
+    "play_style": [
+      "puzzle"
+    ],
+    "time_to_fun": "short",
+    "stop_friendliness": "checkpoints",
+    "multiplayer": [
+      "solo"
+    ],
+    "description": "Yarny unspools through Scandinavian meadows stitching memories back together: pure wordless warmth."
+  },
+  {
+    "id": "spore",
+    "title": "SPORE",
+    "platforms": [
+      "pc"
+    ],
+    "year": 2008,
+    "genres": [
+      "simulation",
+      "sandbox",
+      "strategy"
+    ],
+    "time_tags": [
+      30,
+      60,
+      90,
+      120
+    ],
+    "energy": "low",
+    "moods": [
+      "creative",
+      "fun",
+      "nostalgic"
+    ],
+    "play_style": [
+      "sandbox_creative",
+      "strategy"
+    ],
+    "time_to_fun": "medium",
+    "stop_friendliness": "anytime",
+    "multiplayer": [
+      "solo"
+    ],
+    "description": "From cell to space empire in one sitting: Wright's flawed, wonderful everything-simulator."
+  },
+  {
+    "id": "we-were-here",
+    "title": "We Were Here",
+    "platforms": [
+      "pc",
+      "playstation",
+      "xbox"
+    ],
+    "year": 2017,
+    "genres": [
+      "puzzle",
+      "coop",
+      "indie"
+    ],
+    "time_tags": [
+      30,
+      60
+    ],
+    "energy": "medium",
+    "moods": [
+      "fun",
+      "strategic"
+    ],
+    "play_style": [
+      "puzzle"
+    ],
+    "time_to_fun": "short",
+    "stop_friendliness": "checkpoints",
+    "multiplayer": [
+      "online_coop"
+    ],
+    "description": "Two players, two walkie-talkies, one frozen castle: describe what you see or freeze apart. Free, and brilliant."
+  },
+  {
+    "id": "snake-pass",
+    "title": "Snake Pass",
+    "platforms": [
+      "pc",
+      "playstation",
+      "xbox",
+      "switch"
+    ],
+    "year": 2017,
+    "genres": [
+      "puzzle",
+      "platformer",
+      "indie"
+    ],
+    "time_tags": [
+      15,
+      30,
+      60
+    ],
+    "energy": "low",
+    "moods": [
+      "relaxing",
+      "charming",
+      "challenging"
+    ],
+    "play_style": [
+      "puzzle"
+    ],
+    "time_to_fun": "short",
+    "stop_friendliness": "anytime",
+    "multiplayer": [
+      "solo"
+    ],
+    "description": "You are a snake and there is no jump button: slither physics that rewire your brain delightfully."
+  },
+  {
+    "id": "her-story",
+    "title": "Her Story",
+    "platforms": [
+      "pc",
+      "mobile"
+    ],
+    "year": 2015,
+    "genres": [
+      "narrative",
+      "detective",
+      "indie"
+    ],
+    "time_tags": [
+      30,
+      60,
+      90
+    ],
+    "energy": "low",
+    "moods": [
+      "immersive",
+      "strategic"
+    ],
+    "play_style": [
+      "narrative"
+    ],
+    "time_to_fun": "short",
+    "stop_friendliness": "anytime",
+    "multiplayer": [
+      "solo"
+    ],
+    "description": "Search a police interview database and assemble the truth yourself: the detective game as pure deduction."
+  },
+  {
+    "id": "helltaker",
+    "title": "Helltaker",
+    "platforms": [
+      "pc"
+    ],
+    "year": 2020,
+    "genres": [
+      "puzzle",
+      "comedy",
+      "indie"
+    ],
+    "time_tags": [
+      15,
+      30
+    ],
+    "energy": "low",
+    "moods": [
+      "fun",
+      "charming"
+    ],
+    "play_style": [
+      "puzzle"
+    ],
+    "time_to_fun": "short",
+    "stop_friendliness": "anytime",
+    "multiplayer": [
+      "solo"
+    ],
+    "description": "Free, short, and iconic: sokoban puzzles on a quest to assemble a harem of sharply-dressed demon girls."
+  },
+  {
+    "id": "day-of-the-tentacle-remastered",
+    "title": "Day of the Tentacle Remastered",
+    "platforms": [
+      "pc",
+      "playstation",
+      "mobile"
+    ],
+    "year": 2016,
+    "genres": [
+      "adventure",
+      "puzzle",
+      "comedy"
+    ],
+    "time_tags": [
+      30,
+      60,
+      90
+    ],
+    "energy": "low",
+    "moods": [
+      "fun",
+      "charming",
+      "nostalgic"
+    ],
+    "play_style": [
+      "narrative",
+      "puzzle"
+    ],
+    "time_to_fun": "short",
+    "stop_friendliness": "anytime",
+    "multiplayer": [
+      "solo"
+    ],
+    "description": "Three friends, three time periods, one purple tentacle bent on world domination: LucasArts at peak silly."
+  },
+  {
+    "id": "dear-esther",
+    "title": "Dear Esther: Landmark Edition",
+    "platforms": [
+      "pc",
+      "playstation",
+      "xbox"
+    ],
+    "year": 2017,
+    "genres": [
+      "narrative",
+      "indie"
+    ],
+    "time_tags": [
+      30,
+      60
+    ],
+    "energy": "low",
+    "moods": [
+      "immersive",
+      "beautiful"
+    ],
+    "play_style": [
+      "narrative"
+    ],
+    "time_to_fun": "short",
+    "stop_friendliness": "anytime",
+    "multiplayer": [
+      "solo"
+    ],
+    "description": "Walk a Hebridean island through a grief-stricken letter: the original walking simulator, still haunting."
+  }
+]

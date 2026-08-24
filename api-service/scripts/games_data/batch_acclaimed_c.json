@@ -1,0 +1,670 @@
+[
+  {
+    "id": "red-dead-redemption",
+    "title": "Red Dead Redemption",
+    "platforms": [
+      "pc",
+      "playstation",
+      "xbox",
+      "switch"
+    ],
+    "year": 2010,
+    "genres": [
+      "action",
+      "open-world",
+      "narrative"
+    ],
+    "time_tags": [
+      30,
+      60,
+      90,
+      120
+    ],
+    "energy": "medium",
+    "moods": [
+      "immersive",
+      "adventurous"
+    ],
+    "play_style": [
+      "action",
+      "narrative"
+    ],
+    "time_to_fun": "medium",
+    "stop_friendliness": "anytime",
+    "multiplayer": [
+      "solo"
+    ],
+    "description": "John Marston rides the dying West: the outlaw elegy that made Rockstar's name mean more than chaos."
+  },
+  {
+    "id": "the-last-of-us-part-2",
+    "title": "The Last of Us Part II",
+    "platforms": [
+      "pc",
+      "playstation"
+    ],
+    "year": 2020,
+    "genres": [
+      "action",
+      "narrative",
+      "survival"
+    ],
+    "time_tags": [
+      30,
+      60,
+      90,
+      120
+    ],
+    "energy": "medium",
+    "moods": [
+      "immersive",
+      "intense"
+    ],
+    "play_style": [
+      "action",
+      "narrative"
+    ],
+    "time_to_fun": "medium",
+    "stop_friendliness": "checkpoints",
+    "multiplayer": [
+      "solo"
+    ],
+    "description": "A revenge story that makes you carry the cost: brutal, beautiful, and impossible to shake."
+  },
+  {
+    "id": "batman-arkham-city",
+    "title": "Batman: Arkham City",
+    "platforms": [
+      "pc",
+      "playstation",
+      "xbox",
+      "switch"
+    ],
+    "year": 2011,
+    "genres": [
+      "action",
+      "open-world"
+    ],
+    "time_tags": [
+      30,
+      60,
+      90,
+      120
+    ],
+    "energy": "medium",
+    "moods": [
+      "immersive",
+      "intense",
+      "satisfying"
+    ],
+    "play_style": [
+      "action"
+    ],
+    "time_to_fun": "short",
+    "stop_friendliness": "checkpoints",
+    "multiplayer": [
+      "solo"
+    ],
+    "description": "The superhero game blueprint: a walled Gotham district where every rooftop hides a riddle or a fight."
+  },
+  {
+    "id": "batman-arkham-asylum",
+    "title": "Batman: Arkham Asylum",
+    "platforms": [
+      "pc",
+      "playstation",
+      "xbox",
+      "switch"
+    ],
+    "year": 2009,
+    "genres": [
+      "action"
+    ],
+    "time_tags": [
+      30,
+      60,
+      90
+    ],
+    "energy": "medium",
+    "moods": [
+      "immersive",
+      "intense"
+    ],
+    "play_style": [
+      "action"
+    ],
+    "time_to_fun": "short",
+    "stop_friendliness": "checkpoints",
+    "multiplayer": [
+      "solo"
+    ],
+    "description": "One night on Arkham Island: the tight, focused thriller that invented freeflow combat."
+  },
+  {
+    "id": "gta-iii",
+    "title": "Grand Theft Auto III",
+    "platforms": [
+      "pc",
+      "playstation",
+      "xbox",
+      "mobile"
+    ],
+    "year": 2001,
+    "genres": [
+      "action",
+      "open-world"
+    ],
+    "time_tags": [
+      30,
+      60,
+      90
+    ],
+    "energy": "medium",
+    "moods": [
+      "nostalgic",
+      "fun"
+    ],
+    "play_style": [
+      "action"
+    ],
+    "time_to_fun": "short",
+    "stop_friendliness": "anytime",
+    "multiplayer": [
+      "solo"
+    ],
+    "description": "Liberty City, year zero: the game that invented the modern open world and never looked back."
+  },
+  {
+    "id": "demons-souls-2020",
+    "title": "Demon's Souls (2020)",
+    "platforms": [
+      "playstation"
+    ],
+    "year": 2020,
+    "genres": [
+      "rpg",
+      "action",
+      "soulslike"
+    ],
+    "time_tags": [
+      60,
+      90,
+      120
+    ],
+    "energy": "high",
+    "moods": [
+      "challenging",
+      "immersive",
+      "intense"
+    ],
+    "play_style": [
+      "action"
+    ],
+    "time_to_fun": "medium",
+    "stop_friendliness": "checkpoints",
+    "multiplayer": [
+      "solo"
+    ],
+    "description": "Where the Souls genre was born, rebuilt as the most beautiful punishment on PS5."
+  },
+  {
+    "id": "deus-ex-human-revolution",
+    "title": "Deus Ex: Human Revolution",
+    "platforms": [
+      "pc",
+      "playstation",
+      "xbox"
+    ],
+    "year": 2011,
+    "genres": [
+      "rpg",
+      "action",
+      "stealth"
+    ],
+    "time_tags": [
+      30,
+      60,
+      90,
+      120
+    ],
+    "energy": "medium",
+    "moods": [
+      "immersive",
+      "strategic"
+    ],
+    "play_style": [
+      "action",
+      "narrative"
+    ],
+    "time_to_fun": "medium",
+    "stop_friendliness": "anytime",
+    "multiplayer": [
+      "solo"
+    ],
+    "description": "You never asked for this: the gold-and-black cyberpunk conspiracy that revived the immersive sim."
+  },
+  {
+    "id": "fez",
+    "title": "FEZ",
+    "platforms": [
+      "pc",
+      "playstation",
+      "xbox",
+      "switch"
+    ],
+    "year": 2012,
+    "genres": [
+      "puzzle",
+      "platformer",
+      "indie"
+    ],
+    "time_tags": [
+      15,
+      30,
+      60,
+      90
+    ],
+    "energy": "low",
+    "moods": [
+      "relaxing",
+      "creative",
+      "satisfying"
+    ],
+    "play_style": [
+      "puzzle"
+    ],
+    "time_to_fun": "short",
+    "stop_friendliness": "anytime",
+    "multiplayer": [
+      "solo"
+    ],
+    "description": "Rotate a 2D world through 3D space: a pixel wonderland hiding one of gaming's deepest secret languages."
+  },
+  {
+    "id": "dragon-age-origins",
+    "title": "Dragon Age: Origins",
+    "platforms": [
+      "pc",
+      "playstation",
+      "xbox"
+    ],
+    "year": 2009,
+    "genres": [
+      "rpg",
+      "narrative",
+      "strategy"
+    ],
+    "time_tags": [
+      60,
+      90,
+      120
+    ],
+    "energy": "medium",
+    "moods": [
+      "immersive",
+      "strategic",
+      "adventurous"
+    ],
+    "play_style": [
+      "strategy",
+      "narrative"
+    ],
+    "time_to_fun": "long",
+    "stop_friendliness": "anytime",
+    "multiplayer": [
+      "solo"
+    ],
+    "description": "BioWare's dark fantasy peak: a party worth dying for and choices that stain the whole saga."
+  },
+  {
+    "id": "fallout-3-goty",
+    "title": "Fallout 3: Game of the Year Edition",
+    "platforms": [
+      "pc",
+      "playstation",
+      "xbox"
+    ],
+    "year": 2009,
+    "genres": [
+      "rpg",
+      "open-world",
+      "shooter"
+    ],
+    "time_tags": [
+      30,
+      60,
+      90,
+      120
+    ],
+    "energy": "medium",
+    "moods": [
+      "immersive",
+      "adventurous"
+    ],
+    "play_style": [
+      "action",
+      "narrative"
+    ],
+    "time_to_fun": "medium",
+    "stop_friendliness": "anytime",
+    "multiplayer": [
+      "solo"
+    ],
+    "description": "Step out of Vault 101 into the Capital Wasteland: the moment open-world RPGs went nuclear."
+  },
+  {
+    "id": "mark-of-the-ninja-remastered",
+    "title": "Mark of the Ninja: Remastered",
+    "platforms": [
+      "pc",
+      "playstation",
+      "xbox",
+      "switch"
+    ],
+    "year": 2018,
+    "genres": [
+      "stealth",
+      "platformer",
+      "indie"
+    ],
+    "time_tags": [
+      15,
+      30,
+      60,
+      90
+    ],
+    "energy": "medium",
+    "moods": [
+      "strategic",
+      "satisfying"
+    ],
+    "play_style": [
+      "action",
+      "strategy"
+    ],
+    "time_to_fun": "short",
+    "stop_friendliness": "checkpoints",
+    "multiplayer": [
+      "solo"
+    ],
+    "description": "2D stealth perfected: every shadow, sound ring, and guard sightline made beautifully legible."
+  },
+  {
+    "id": "dragon-quest-xi-s",
+    "title": "Dragon Quest XI S: Echoes of an Elusive Age",
+    "platforms": [
+      "pc",
+      "playstation",
+      "xbox",
+      "switch"
+    ],
+    "year": 2020,
+    "genres": [
+      "rpg",
+      "jrpg",
+      "turn-based"
+    ],
+    "time_tags": [
+      30,
+      60,
+      90,
+      120
+    ],
+    "energy": "low",
+    "moods": [
+      "charming",
+      "adventurous",
+      "relaxing"
+    ],
+    "play_style": [
+      "strategy",
+      "narrative"
+    ],
+    "time_to_fun": "medium",
+    "stop_friendliness": "anytime",
+    "multiplayer": [
+      "solo"
+    ],
+    "description": "Comfort-food JRPG at its warmest: a classic hero's journey told with total sincerity and Toriyama art."
+  },
+  {
+    "id": "shadow-of-the-colossus-2018",
+    "title": "Shadow of the Colossus (2018)",
+    "platforms": [
+      "playstation"
+    ],
+    "year": 2018,
+    "genres": [
+      "adventure",
+      "action"
+    ],
+    "time_tags": [
+      30,
+      60,
+      90
+    ],
+    "energy": "medium",
+    "moods": [
+      "beautiful",
+      "immersive",
+      "intense"
+    ],
+    "play_style": [
+      "action"
+    ],
+    "time_to_fun": "short",
+    "stop_friendliness": "checkpoints",
+    "multiplayer": [
+      "solo"
+    ],
+    "description": "Sixteen colossi, one forbidden land, no filler: gaming's saddest triumph, remade shot for shot."
+  },
+  {
+    "id": "rez-infinite",
+    "title": "Rez Infinite",
+    "platforms": [
+      "pc",
+      "playstation"
+    ],
+    "year": 2016,
+    "genres": [
+      "rhythm",
+      "action",
+      "arcade"
+    ],
+    "time_tags": [
+      15,
+      30,
+      60
+    ],
+    "energy": "medium",
+    "moods": [
+      "immersive",
+      "beautiful"
+    ],
+    "play_style": [
+      "action"
+    ],
+    "time_to_fun": "short",
+    "stop_friendliness": "checkpoints",
+    "multiplayer": [
+      "solo"
+    ],
+    "description": "Synesthesia as a game: rail-shooting through pulsing wireframe worlds where every hit is a beat."
+  },
+  {
+    "id": "total-war-shogun-2",
+    "title": "Total War: SHOGUN 2",
+    "platforms": [
+      "pc"
+    ],
+    "year": 2011,
+    "genres": [
+      "strategy",
+      "war",
+      "turn-based"
+    ],
+    "time_tags": [
+      60,
+      90,
+      120
+    ],
+    "energy": "medium",
+    "moods": [
+      "strategic",
+      "immersive"
+    ],
+    "play_style": [
+      "strategy"
+    ],
+    "time_to_fun": "medium",
+    "stop_friendliness": "anytime",
+    "multiplayer": [
+      "solo",
+      "competitive"
+    ],
+    "description": "Sengoku Japan in its sharpest form: the Total War most fans still call the series' finest hour."
+  },
+  {
+    "id": "bayonetta",
+    "title": "Bayonetta",
+    "platforms": [
+      "pc",
+      "playstation",
+      "xbox",
+      "switch"
+    ],
+    "year": 2009,
+    "genres": [
+      "action",
+      "hack-and-slash"
+    ],
+    "time_tags": [
+      30,
+      60,
+      90
+    ],
+    "energy": "high",
+    "moods": [
+      "intense",
+      "fun",
+      "exciting"
+    ],
+    "play_style": [
+      "action"
+    ],
+    "time_to_fun": "short",
+    "stop_friendliness": "checkpoints",
+    "multiplayer": [
+      "solo"
+    ],
+    "description": "Witch time, hair magic, and combos as choreography: character action at its most gleefully excessive."
+  },
+  {
+    "id": "deus-ex-goty",
+    "title": "Deus Ex: Game of the Year Edition",
+    "platforms": [
+      "pc"
+    ],
+    "year": 2000,
+    "genres": [
+      "rpg",
+      "shooter",
+      "stealth"
+    ],
+    "time_tags": [
+      30,
+      60,
+      90,
+      120
+    ],
+    "energy": "medium",
+    "moods": [
+      "immersive",
+      "strategic",
+      "nostalgic"
+    ],
+    "play_style": [
+      "action",
+      "narrative"
+    ],
+    "time_to_fun": "medium",
+    "stop_friendliness": "anytime",
+    "multiplayer": [
+      "solo"
+    ],
+    "description": "What a shame. The 2000 conspiracy classic where every problem still has more answers than you'll find."
+  },
+  {
+    "id": "jet-set-radio",
+    "title": "Jet Set Radio",
+    "platforms": [
+      "pc",
+      "playstation",
+      "xbox"
+    ],
+    "year": 2000,
+    "genres": [
+      "action",
+      "platformer",
+      "sports"
+    ],
+    "time_tags": [
+      15,
+      30,
+      60
+    ],
+    "energy": "high",
+    "moods": [
+      "fun",
+      "nostalgic",
+      "exciting"
+    ],
+    "play_style": [
+      "action"
+    ],
+    "time_to_fun": "short",
+    "stop_friendliness": "checkpoints",
+    "multiplayer": [
+      "solo"
+    ],
+    "description": "Grind, tag, and outskate the law in cel-shaded Tokyo-to: pure Dreamcast joy, still the funkiest game alive."
+  },
+  {
+    "id": "braid",
+    "title": "Braid",
+    "platforms": [
+      "pc",
+      "playstation",
+      "xbox",
+      "switch",
+      "mobile"
+    ],
+    "year": 2008,
+    "genres": [
+      "puzzle",
+      "platformer",
+      "indie"
+    ],
+    "time_tags": [
+      15,
+      30,
+      60
+    ],
+    "energy": "low",
+    "moods": [
+      "strategic",
+      "beautiful",
+      "satisfying"
+    ],
+    "play_style": [
+      "puzzle"
+    ],
+    "time_to_fun": "short",
+    "stop_friendliness": "anytime",
+    "multiplayer": [
+      "solo"
+    ],
+    "description": "Rewind time itself: the puzzle-platformer that launched the indie era and still bends brains."
+  }
+]
