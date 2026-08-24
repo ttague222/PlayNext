@@ -492,6 +492,15 @@ const GameEditor = () => {
                 placeholder="https://www.gog.com/game/..."
               />
             </div>
+            <div className="form-group">
+              <label>Battle.net</label>
+              <input
+                type="url"
+                value={form.store_links?.battlenet || ''}
+                onChange={(e) => handleStoreLinkChange('battlenet', e.target.value)}
+                placeholder="https://us.shop.battle.net/en-us/product/..."
+              />
+            </div>
           </div>
         </section>
 

@@ -83,6 +83,7 @@ class StoreLinks(BaseModel):
     gog: Optional[str] = None
     ios: Optional[str] = None  # Apple App Store
     android: Optional[str] = None  # Google Play Store
+    battlenet: Optional[str] = None  # Blizzard Battle.net shop
     other: Optional[dict[str, str]] = None
 
 

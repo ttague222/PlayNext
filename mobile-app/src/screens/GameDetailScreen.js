@@ -156,6 +156,12 @@ const STORE_CONFIG = {
     textColor: '#ffffff',
     platforms: ['mobile'],
   },
+  battlenet: {
+    name: 'Battle.net',
+    colors: ['#148eff', '#0074e0'],
+    textColor: '#ffffff',
+    platforms: ['pc'],
+  },
 };
 
 const GameDetailScreen = () => {

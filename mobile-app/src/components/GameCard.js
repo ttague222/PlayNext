@@ -163,11 +163,17 @@ const STORE_CONFIG = {
     textColor: '#ffffff',
     platforms: ['mobile'],
   },
+  battlenet: {
+    name: 'Battle.net',
+    colors: ['#148eff', '#0074e0'],
+    textColor: '#ffffff',
+    platforms: ['pc'],
+  },
 };
 
 // Map user platform preferences to store platforms
 const PLATFORM_TO_STORES = {
-  pc: ['steam', 'epic', 'gog', 'xbox'],
+  pc: ['steam', 'epic', 'gog', 'battlenet', 'xbox'],
   console: ['playstation', 'xbox'],
   handheld: ['nintendo'],
   mobile: ['ios', 'android'],

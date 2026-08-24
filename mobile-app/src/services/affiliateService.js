@@ -68,6 +68,11 @@ const STORE_AFFILIATE_CONFIG = {
     affiliateId: null,
     enabled: false,
   },
+  battlenet: {
+    // Blizzard has no public affiliate program
+    affiliateId: null,
+    enabled: false,
+  },
 };
 
 // Subscription service referral configuration

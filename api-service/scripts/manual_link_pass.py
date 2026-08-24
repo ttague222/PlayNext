@@ -201,10 +201,17 @@ LINKS = {
     "yoshi-mysterious-book": {
         "nintendo": "https://www.nintendo.com/us/store/products/yoshi-and-the-mysterious-book-switch-2/",
     },
+    # --- wave 3: battlenet store key added to the schema (2026-08-24) ---
+    # Both URLs verified in a real browser (the shop 401s scripted requests)
+    "starcraft-2": {
+        "battlenet": "https://us.shop.battle.net/en-us/product/starcraft-ii",
+    },
+    "world-of-warcraft": {
+        "battlenet": "https://us.shop.battle.net/en-us/family/world-of-warcraft",
+    },
 }
 # Verified but intentionally left unlinked: 2XKO (Riot client only),
-# StarCraft II and World of Warcraft (Battle.net only — no matching store
-# key), Dreams and Cruis'n Blast (store URLs not safely derivable),
+# Dreams and Cruis'n Blast (store URLs not safely derivable),
 # Saros (PS5 2026, no store page yet).
 
 # doc_id -> field fixes (title/description corrections + missing years)
