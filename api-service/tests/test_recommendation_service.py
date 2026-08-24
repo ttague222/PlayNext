@@ -962,3 +962,145 @@ class TestGamesCache:
         service.games_collection.stream.side_effect = RuntimeError("firestore down")
         b = await service._fetch_games()
         assert b == a, "stale cache must be served on fetch failure"
+
+
+class TestWhyNotFreeTierLearning:
+    """Why-not feature (2026-08-24): free-tier learning from own signals.
+
+    Signed-in users get (a) permanent server-side exclusion of rejected games,
+    (b) a small positive taste nudge from worked/loved/accepted signals, and
+    (c) an avoid penalty from rejected games' tags - no premium flag required.
+    """
+
+    @pytest.fixture
+    def service(self, mock_firebase):
+        with patch('src.services.recommendation_service.get_collection'):
+            from src.services.recommendation_service import RecommendationService
+            return RecommendationService()
+
+    def _game(self, gid, genre_tags, mood_tags):
+        return {"game_id": gid, "title": gid, "platforms": ["pc"], "time_tags": [30],
+                "energy_level": "low", "play_style": ["action"],
+                "genre_tags": genre_tags, "mood_tags": mood_tags,
+                "stop_friendliness": "anytime", "time_to_fun": "short",
+                "multiplayer_modes": ["solo"], "subscription_services": []}
+
+    def _signal_doc(self, gid, signal_type, ts):
+        doc = MagicMock()
+        doc.to_dict.return_value = {
+            "game_id": gid, "signal_type": signal_type, "timestamp": ts,
+        }
+        return doc
+
+    @pytest.mark.asyncio
+    async def test_signal_data_derivation(self, service):
+        """One stream pass yields staleness, rejection, and profile inputs."""
+        from datetime import datetime, timedelta
+        now = datetime.utcnow()
+        old = now - timedelta(days=30)
+        service.signals_collection.where.return_value.stream.return_value = [
+            self._signal_doc("g-loved", "played_loved", old),
+            self._signal_doc("g-rejected", "not_good_fit", old),
+            self._signal_doc("g-recent", "accepted", now),
+            self._signal_doc("g-stuck", "played_didnt_stick", now),
+        ]
+        data = await service._get_user_signal_data("u1")
+
+        assert data["recently_shown"] == {"g-recent", "g-stuck"}
+        # rejection is permanent - the 30-day-old not_good_fit stays excluded
+        assert data["rejected"] == {"g-rejected", "g-stuck"}
+        assert set(data["positive_ids"]) == {"g-loved", "g-recent"}
+        assert set(data["negative_ids"]) == {"g-rejected", "g-stuck"}
+
+    @pytest.mark.asyncio
+    async def test_signal_fetch_failure_degrades_to_empty(self, service):
+        service.signals_collection.where.return_value.stream.side_effect = (
+            RuntimeError("firestore down"))
+        data = await service._get_user_signal_data("u1")
+        assert data == {"recently_shown": set(), "rejected": set(),
+                        "positive_ids": [], "negative_ids": []}
+
+    @pytest.mark.asyncio
+    async def test_rejected_games_excluded_server_side(self, service):
+        """not_good_fit games never come back, even without client exclusion."""
+        games = [self._game("keep", ["indie"], ["fun"]),
+                 self._game("rejected", ["indie"], ["fun"])]
+        request = RecommendationRequest(time_available=30, energy_mood=EnergyMood.CASUAL)
+        signal_data = {"recently_shown": set(), "rejected": {"rejected"},
+                       "positive_ids": [], "negative_ids": ["rejected"]}
+
+        filtered, _, _ = await service._filter_games(
+            games=games, request=request, user_id="u1", signal_data=signal_data)
+
+        assert [g["game_id"] for g in filtered] == ["keep"]
+
+    def test_free_profile_boosts_matching_game(self, service):
+        """Free positive nudge lifts tag matches - no favor_history flag."""
+        match = self._game("match", ["cozy"], ["relaxing"])
+        other = self._game("other", ["shooter"], ["intense"])
+        request = RecommendationRequest(time_available=30, energy_mood=EnergyMood.CASUAL)
+        profile = {"genres": {"cozy": 3}, "moods": {"relaxing": 2}}
+
+        with patch("src.services.recommendation_service.random.uniform", return_value=0.0):
+            scored = service._score_games([match, other], request, free_profile=profile)
+
+        by_id = {g["game_id"]: g["score"] for g in scored}
+        assert by_id["match"] == pytest.approx(by_id["other"] + 0.10)
+
+    def test_avoid_profile_penalizes_matching_game(self, service):
+        """Tags from rejected games drag lookalikes down for everyone."""
+        similar = self._game("similar", ["horror"], ["intense"])
+        neutral = self._game("neutral", ["puzzle"], ["relaxing"])
+        request = RecommendationRequest(time_available=30, energy_mood=EnergyMood.CASUAL)
+        avoid = {"genres": {"horror": 2}, "moods": {"intense": 2}}
+
+        with patch("src.services.recommendation_service.random.uniform", return_value=0.0):
+            scored = service._score_games([similar, neutral], request, avoid_profile=avoid)
+
+        by_id = {g["game_id"]: g["score"] for g in scored}
+        assert by_id["similar"] == pytest.approx(by_id["neutral"] - 0.10)
+
+    def test_free_nudges_are_capped(self, service):
+        """Many tag matches cannot exceed the +/-0.10 caps."""
+        from src.services.recommendation_service import FREE_TASTE_CAP
+        many_tags = self._game("many", ["a", "b", "c", "d"], ["e", "f", "g"])
+        plain = self._game("plain", ["z"], ["y"])
+        request = RecommendationRequest(time_available=30, energy_mood=EnergyMood.CASUAL)
+        profile = {"genres": {"a": 1, "b": 1, "c": 1, "d": 1},
+                   "moods": {"e": 1, "f": 1, "g": 1}}
+
+        with patch("src.services.recommendation_service.random.uniform", return_value=0.0):
+            boosted = service._score_games([dict(many_tags), dict(plain)], request,
+                                           free_profile=profile)
+            penalized = service._score_games([dict(many_tags), dict(plain)], request,
+                                             avoid_profile=profile)
+
+        b = {g["game_id"]: g["score"] for g in boosted}
+        p = {g["game_id"]: g["score"] for g in penalized}
+        assert b["many"] == pytest.approx(b["plain"] + FREE_TASTE_CAP)
+        assert p["many"] == pytest.approx(p["plain"] - FREE_TASTE_CAP)
+
+    def test_premium_cap_exceeds_free_cap(self, service):
+        """A 3-tag match earns 0.15 under premium favor_history but only the
+        0.10 cap under the free nudge - premium keeps its edge."""
+        match = self._game("match", ["cozy", "indie"], ["relaxing"])
+        profile = {"genres": {"cozy": 3, "indie": 2}, "moods": {"relaxing": 2}}
+        premium_req = RecommendationRequest(
+            time_available=30, energy_mood=EnergyMood.CASUAL, favor_history=True)
+        free_req = RecommendationRequest(time_available=30, energy_mood=EnergyMood.CASUAL)
+
+        with patch("src.services.recommendation_service.random.uniform", return_value=0.0):
+            premium = service._score_games([dict(match)], premium_req, taste_profile=profile)
+            free = service._score_games([dict(match)], free_req, free_profile=profile)
+
+        assert premium[0]["score"] == pytest.approx(free[0]["score"] + 0.05)
+
+    def test_anonymous_scoring_unchanged(self, service):
+        """No profiles passed - identical scores to the pre-feature engine."""
+        g = self._game("g", ["indie"], ["fun"])
+        request = RecommendationRequest(time_available=30, energy_mood=EnergyMood.CASUAL)
+        with patch("src.services.recommendation_service.random.uniform", return_value=0.0):
+            base = service._score_games([dict(g)], request)
+            with_none = service._score_games([dict(g)], request,
+                                             free_profile=None, avoid_profile=None)
+        assert base[0]["score"] == with_none[0]["score"]

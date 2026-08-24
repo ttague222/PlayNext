@@ -179,7 +179,7 @@ const PLATFORM_TO_STORES = {
   mobile: ['ios', 'android'],
 };
 
-const GameCard = ({ game, rank, onAccept, onAlreadyPlayed, onSave, isSwapping, isAccepting, userPlatforms }) => {
+const GameCard = ({ game, rank, onAccept, onAlreadyPlayed, onNotForMe, onSave, isSwapping, isAccepting, userPlatforms }) => {
   const [imageUrl, setImageUrl] = useState(null);
   const [fallbackColors, setFallbackColors] = useState(['#667eea', '#764ba2']);
   const [imageLoading, setImageLoading] = useState(true);
@@ -573,6 +573,22 @@ const GameCard = ({ game, rank, onAccept, onAlreadyPlayed, onSave, isSwapping, i
               )}
             </Pressable>
 
+            {/* Not For Me Button — opens the "Why not?" sheet */}
+            {onNotForMe && (
+              <TouchableOpacity
+                style={[
+                  styles.notForMeButton,
+                  isSwapping && styles.buttonDisabled,
+                ]}
+                onPress={onNotForMe}
+                disabled={isSwapping}
+                activeOpacity={0.7}
+                accessibilityLabel="Not for me"
+              >
+                <Ionicons name="thumbs-down-outline" size={18} color="#f87171" />
+              </TouchableOpacity>
+            )}
+
             {/* Save Button */}
             {onSave && (
               <TouchableOpacity
@@ -892,6 +908,16 @@ const styles = StyleSheet.create({
     fontSize: 15,
     fontWeight: '600',
     color: '#a0a0a0',
+  },
+  notForMeButton: {
+    alignItems: 'center',
+    justifyContent: 'center',
+    paddingVertical: 14,
+    paddingHorizontal: 14,
+    borderRadius: 14,
+    backgroundColor: 'rgba(248, 113, 113, 0.12)',
+    borderWidth: 1,
+    borderColor: 'rgba(248, 113, 113, 0.3)',
   },
   saveButton: {
     flexDirection: 'row',

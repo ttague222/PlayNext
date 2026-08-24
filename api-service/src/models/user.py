@@ -71,6 +71,14 @@ class User(UserBase):
         from_attributes = True
 
 
+class WhyNotReason(str, Enum):
+    """Reason a user rejected a recommendation (the "Why not?" flow)."""
+    NOT_MY_GENRE = "not_my_genre"
+    TOO_LONG = "too_long"
+    NOT_INTERESTING = "not_interesting"
+    ALREADY_PLAYED = "already_played"
+
+
 class SignalContext(BaseModel):
     """Context in which a signal was recorded."""
     time_selected: Optional[int] = None
@@ -78,6 +86,9 @@ class SignalContext(BaseModel):
     play_style_selected: Optional[str] = None
     platform_selected: Optional[str] = None
     session_type_selected: Optional[str] = None
+    genres_selected: Optional[list[str]] = None
+    # "Why not?" rejection reason — set on not_good_fit signals from the modal
+    reason: Optional[WhyNotReason] = None
 
 
 class UserSignalCreate(BaseModel):

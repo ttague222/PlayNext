@@ -20,9 +20,11 @@ import { useNavigation } from '@react-navigation/native';
 import { LinearGradient } from 'expo-linear-gradient';
 import { useRecommendation } from '../context/RecommendationContext';
 import { usePremium } from '../context/PremiumContext';
+import { useSavedGames, BUCKET_TYPES } from '../context/SavedGamesContext';
 import GameCard from '../components/GameCard';
 import CelebrationModal from '../components/CelebrationModal';
 import AlreadyPlayedModal from '../components/AlreadyPlayedModal';
+import WhyNotModal from '../components/WhyNotModal';
 import SaveToBucketModal from '../components/SaveToBucketModal';
 import AdOrPremiumModal from '../components/AdOrPremiumModal';
 import DailyCapUpsellModal from '../components/DailyCapUpsellModal';
@@ -44,9 +46,11 @@ const ResultsScreen = () => {
     reroll,
     acceptRecommendation,
     markAsPlayedAndSwap,
+    rejectAndSwap,
     submitFeedback,
     preferences,
   } = useRecommendation();
+  const { addGameToBucket } = useSavedGames();
   const {
     recordReroll,
     isPremium,
@@ -74,6 +78,8 @@ const ResultsScreen = () => {
   const [acceptingGameId, setAcceptingGameId] = useState(null);
   const [alreadyPlayedGame, setAlreadyPlayedGame] = useState(null);
   const [showAlreadyPlayedModal, setShowAlreadyPlayedModal] = useState(false);
+  const [whyNotGame, setWhyNotGame] = useState(null);
+  const [showWhyNotModal, setShowWhyNotModal] = useState(false);
   const [saveGame, setSaveGame] = useState(null);
   const [showSaveModal, setShowSaveModal] = useState(false);
   const [showAdOrPremiumModal, setShowAdOrPremiumModal] = useState(false);
@@ -121,6 +127,73 @@ const ResultsScreen = () => {
     // Show modal to collect feedback before swapping
     setAlreadyPlayedGame(game);
     setShowAlreadyPlayedModal(true);
+  };
+
+  const handleNotForMe = (game) => {
+    // Open the "Why not?" sheet to collect a rejection reason
+    setWhyNotGame(game);
+    setShowWhyNotModal(true);
+  };
+
+  const handleWhyNotReason = async (reason) => {
+    if (!whyNotGame) return;
+    const game = whyNotGame;
+
+    setShowWhyNotModal(false);
+    setSwappingGameId(game.game_id);
+
+    try {
+      // Record the rejection (server excludes it permanently and learns from
+      // its tags) and keep the local Not For Me bucket in sync so anonymous
+      // users get the same exclusion client-side.
+      const newGame = await rejectAndSwap(game.game_id, reason, game.title);
+      addGameToBucket(BUCKET_TYPES.NOT_FOR_ME, game.game_id, game.title, null, game)
+        .catch(() => {});
+      if (!newGame) {
+        Alert.alert(
+          'No more games',
+          'We\'ve shown you all the games matching your criteria. Try adjusting your filters for more options.'
+        );
+      }
+    } catch (err) {
+      Alert.alert('Error', 'Failed to get a replacement game. Please try again.');
+    } finally {
+      setSwappingGameId(null);
+      setWhyNotGame(null);
+    }
+  };
+
+  const handleWhyNotAlreadyPlayed = () => {
+    // Route to the existing played-feedback flow instead of a rejection
+    if (!whyNotGame) return;
+    setShowWhyNotModal(false);
+    setAlreadyPlayedGame(whyNotGame);
+    setWhyNotGame(null);
+    setShowAlreadyPlayedModal(true);
+  };
+
+  const handleWhyNotSkip = async () => {
+    if (!whyNotGame) return;
+    const game = whyNotGame;
+
+    setShowWhyNotModal(false);
+    setSwappingGameId(game.game_id);
+
+    try {
+      // A soft skip: no rejection recorded, just swap with a skipped signal
+      const newGame = await markAsPlayedAndSwap(game.game_id, 'skipped', game.title);
+      if (!newGame) {
+        Alert.alert(
+          'No more games',
+          'We\'ve shown you all the games matching your criteria. Try adjusting your filters for more options.'
+        );
+      }
+    } catch (err) {
+      Alert.alert('Error', 'Failed to get a replacement game. Please try again.');
+    } finally {
+      setSwappingGameId(null);
+      setWhyNotGame(null);
+    }
   };
 
   const handleSave = (game) => {
@@ -393,6 +466,7 @@ const ResultsScreen = () => {
                   rank={index + 1}
                   onAccept={() => handleAccept(game)}
                   onAlreadyPlayed={() => handleAlreadyPlayed(game)}
+                  onNotForMe={() => handleNotForMe(game)}
                   onSave={() => handleSave(game)}
                   isSwapping={swappingGameId === game.game_id}
                   isAccepting={acceptingGameId === game.game_id}
@@ -471,6 +545,14 @@ const ResultsScreen = () => {
         />
 
         {/* Already Played Feedback Modal */}
+        <WhyNotModal
+          visible={showWhyNotModal}
+          game={whyNotGame}
+          onReason={handleWhyNotReason}
+          onAlreadyPlayed={handleWhyNotAlreadyPlayed}
+          onSkip={handleWhyNotSkip}
+        />
+
         <AlreadyPlayedModal
           visible={showAlreadyPlayedModal}
           game={alreadyPlayedGame}

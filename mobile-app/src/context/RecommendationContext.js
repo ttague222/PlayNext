@@ -338,7 +338,7 @@ export const RecommendationProvider = ({ children }) => {
    * @param {string} gameTitle - Optional game title for display in history
    */
   const markAsPlayedAndSwap = useCallback(
-    async (gameId, signalType = 'already_played', gameTitle = null) => {
+    async (gameId, signalType = 'already_played', gameTitle = null, reason = null) => {
       setLoading(true);
       setError(null);
 
@@ -349,6 +349,7 @@ export const RecommendationProvider = ({ children }) => {
           mood_selected: preferences.energyMood,
           genres_selected: preferences.genres,
           game_title: gameTitle,
+          reason,
         });
 
         // Increment history version to trigger refresh in HistoryScreen
@@ -397,6 +398,22 @@ export const RecommendationProvider = ({ children }) => {
     [preferences, sessionId, buildExcludedGameIds]
   );
 
+  /**
+   * "Why not?" rejection: record not_good_fit with the user's reason and swap
+   * in a replacement. The server excludes the game permanently and feeds its
+   * tags into the free-tier avoid profile.
+   * @param {string} gameId - The game being rejected
+   * @param {string} reason - not_my_genre | too_long | not_interesting
+   * @param {string} gameTitle - Title for history display
+   */
+  const rejectAndSwap = useCallback(
+    (gameId, reason, gameTitle = null) => {
+      logEvent('why_not_reason', { reason });
+      return markAsPlayedAndSwap(gameId, 'not_good_fit', gameTitle, reason);
+    },
+    [markAsPlayedAndSwap]
+  );
+
   const value = {
     // State
     sessionId,
@@ -419,6 +436,7 @@ export const RecommendationProvider = ({ children }) => {
     acceptRecommendation,
     submitFeedback,
     markAsPlayedAndSwap,
+    rejectAndSwap,
   };
 
   return (

@@ -75,6 +75,18 @@ SUBSCRIPTION_ALIASES = {
     "ps_plus": "playstation_plus",
 }
 
+# Free-tier learning ("Why not?" feature). Games with these signals are
+# permanently excluded from a signed-in user's results, and their tags feed
+# the avoid-profile penalty in scoring.
+REJECTED_SIGNAL_TYPES = {"not_good_fit", "played_didnt_stick"}
+# Positive signals feed the free-tier taste nudge (same set the premium
+# favor_history profile uses).
+POSITIVE_SIGNAL_TYPES = {"worked", "played_loved", "accepted"}
+# Free-tier nudges are deliberately smaller than the premium favor_history
+# boost (0.15): enough to shift near-ties, not enough to override fit.
+FREE_TASTE_STEP = 0.05
+FREE_TASTE_CAP = 0.10
+
 
 def normalize_subscriptions(values) -> set:
     """Map subscription identifiers to their canonical (long) form."""
@@ -129,41 +141,66 @@ class RecommendationService:
             logger.warning("No games in catalog")
             return self._empty_response(session_id)
 
+        # One pass over the user's signals feeds staleness exclusion, the
+        # permanent "not for me" exclusion, and the free-tier taste nudges.
+        signal_data: Optional[dict] = None
+        if user_id:
+            signal_data = await self._get_user_signal_data(user_id)
+
         # Apply filters with fallback logic
         filtered_games, fallback_applied, fallback_message = await self._filter_games(
             games=games,
             request=request,
-            user_id=user_id
+            user_id=user_id,
+            signal_data=signal_data,
         )
 
         if not filtered_games:
             logger.warning("No games matched filters even with fallback")
             return self._empty_response(session_id)
 
+        games_by_id = {g["game_id"]: g for g in games}
+
         # Premium: build a taste profile from the user's positive signals when
         # favor_history is requested. Off by default, no-op for anonymous users.
         taste_profile: Optional[dict] = None
-        if request.favor_history and user_id:
-            try:
-                from ..models import SignalType
-                from . import get_signal_service
-                positive_types = [SignalType.WORKED, SignalType.PLAYED_LOVED, SignalType.ACCEPTED]
-                positive_signals = await get_signal_service().get_user_signals(
-                    user_id=user_id, signal_types=positive_types, limit=50,
-                )
-                positive_game_ids = list({s.game_id for s in positive_signals})
-                positive_games: list[dict] = []
-                for gid in positive_game_ids[:50]:
-                    doc = self.games_collection.document(gid).get()
-                    if doc.exists:
-                        positive_games.append(doc.to_dict())
+        if request.favor_history and signal_data:
+            positive_games = [
+                games_by_id[gid]
+                for gid in signal_data["positive_ids"][:50]
+                if gid in games_by_id
+            ]
+            if positive_games:
                 taste_profile = build_taste_profile(positive_games)
-            except Exception as e:
-                logger.warning(f"taste profile build failed: {e}")
-                taste_profile = None
+
+        # Free-tier learning from the user's own signals — always on for
+        # signed-in users, no flag. The positive nudge stands down when the
+        # premium favor_history profile is active (same signals, bigger boost);
+        # the avoid penalty applies to everyone.
+        free_profile: Optional[dict] = None
+        avoid_profile: Optional[dict] = None
+        if signal_data:
+            if taste_profile is None:
+                positive_games = [
+                    games_by_id[gid]
+                    for gid in signal_data["positive_ids"][:50]
+                    if gid in games_by_id
+                ]
+                if positive_games:
+                    free_profile = build_taste_profile(positive_games)
+            negative_games = [
+                games_by_id[gid]
+                for gid in signal_data["negative_ids"][:50]
+                if gid in games_by_id
+            ]
+            if negative_games:
+                avoid_profile = build_taste_profile(negative_games)
 
         # Score and rank games
-        scored_games = self._score_games(filtered_games, request, taste_profile=taste_profile)
+        scored_games = self._score_games(
+            filtered_games, request, taste_profile=taste_profile,
+            free_profile=free_profile, avoid_profile=avoid_profile,
+        )
 
         # Apply discovery mode
         if request.discovery_mode == DiscoveryMode.SURPRISE:
@@ -218,7 +255,8 @@ class RecommendationService:
         self,
         games: list[dict],
         request: RecommendationRequest,
-        user_id: Optional[str]
+        user_id: Optional[str],
+        signal_data: Optional[dict] = None,
     ) -> tuple[list[dict], bool, Optional[str]]:
         """
         Filter games with fallback hierarchy.
@@ -228,8 +266,18 @@ class RecommendationService:
         """
         excluded = set(request.excluded_game_ids)
 
-        # Get recently shown games to prevent staleness
-        if user_id:
+        # Get recently shown games to prevent staleness. Signed-in users also
+        # get their rejected games ("Why not?" / not_good_fit) excluded
+        # permanently, server-side — the client exclusion list is a courtesy,
+        # not the source of truth.
+        if signal_data is not None:
+            excluded.update(signal_data["recently_shown"])
+            excluded.update(signal_data["rejected"])
+            logger.info(
+                f"User {user_id}: excluding {len(signal_data['recently_shown'])} "
+                f"recently shown + {len(signal_data['rejected'])} rejected games"
+            )
+        elif user_id:
             recent = await self._get_recently_shown(user_id)
             excluded.update(recent)
             logger.info(f"User {user_id}: Excluding {len(recent)} recently shown games")
@@ -406,6 +454,8 @@ class RecommendationService:
         games: list[dict],
         request: RecommendationRequest,
         taste_profile: Optional[dict] = None,
+        free_profile: Optional[dict] = None,
+        avoid_profile: Optional[dict] = None,
     ) -> list[dict]:
         """Score games based on match quality."""
         games = games.copy()
@@ -462,6 +512,29 @@ class RecommendationService:
                 if matches:
                     score += min(matches * 0.05, 0.15)
 
+            # Free-tier learning: small nudges from the user's own signals.
+            # The positive nudge is only passed in when the premium taste
+            # boost is inactive (same underlying signals, smaller cap); the
+            # avoid penalty from "Why not?" rejections applies to everyone.
+            if free_profile:
+                matches = (
+                    sum(1 for t in (game.get("genre_tags") or [])
+                        if t in free_profile.get("genres", {}))
+                    + sum(1 for t in (game.get("mood_tags") or [])
+                          if t in free_profile.get("moods", {}))
+                )
+                if matches:
+                    score += min(matches * FREE_TASTE_STEP, FREE_TASTE_CAP)
+            if avoid_profile:
+                matches = (
+                    sum(1 for t in (game.get("genre_tags") or [])
+                        if t in avoid_profile.get("genres", {}))
+                    + sum(1 for t in (game.get("mood_tags") or [])
+                          if t in avoid_profile.get("moods", {}))
+                )
+                if matches:
+                    score -= min(matches * FREE_TASTE_STEP, FREE_TASTE_CAP)
+
             # Platform match boost (0-0.1)
             req_platforms = request.platforms or ([request.platform] if request.platform else None)
             game_platforms = game.get("platforms", [])
@@ -491,8 +564,9 @@ class RecommendationService:
             score += random.uniform(0, RANDOM_VARIETY_RANGE)
 
             # The ranking score is deliberately UNCAPPED. The deterministic
-            # boosts above total 1.10 (1.25 with the premium taste profile), so
-            # clamping here pinned every strong match to exactly 1.0 and let
+            # boosts above total 1.10 (1.20 with the free-tier nudge, 1.25 with
+            # the premium taste profile; the avoid penalty can subtract 0.10),
+            # so clamping here pinned every strong match to exactly 1.0 and let
             # weaker games tie them. Display clamping happens at response build.
             scored.append({**game, "score": score})
 
@@ -610,6 +684,56 @@ class RecommendationService:
         except Exception as e:
             logger.error(f"Error fetching user game history: {e}")
             return set()
+
+    async def _get_user_signal_data(self, user_id: str) -> dict:
+        """One pass over a user's signals for everything ranking needs.
+
+        Returns:
+            recently_shown: games signaled in the last 7 days (staleness window)
+            rejected: games with not_good_fit / played_didnt_stick — excluded
+                permanently, no time window
+            positive_ids / negative_ids: newest-first deduped game ids feeding
+                the free-tier taste profiles
+        """
+        out: dict = {"recently_shown": set(), "rejected": set(),
+                     "positive_ids": [], "negative_ids": []}
+        try:
+            docs = list(
+                self.signals_collection.where("user_id", "==", user_id).stream()
+            )
+        except Exception as e:
+            logger.error(f"Error fetching user signals: {e}")
+            return out
+
+        cutoff = datetime.utcnow() - timedelta(days=7)
+        rows = []
+        for doc in docs:
+            data = doc.to_dict()
+            gid = data.get("game_id")
+            if not gid:
+                continue
+            ts = data.get("timestamp")
+            if ts is not None and hasattr(ts, "timestamp"):
+                ts = datetime.utcfromtimestamp(ts.timestamp())
+            st = data.get("signal_type")
+            rows.append((ts, gid, st))
+            if ts and ts >= cutoff:
+                out["recently_shown"].add(gid)
+            if st in REJECTED_SIGNAL_TYPES:
+                out["rejected"].add(gid)
+
+        # Newest-first so the profiles reflect current taste when truncated.
+        rows.sort(key=lambda r: r[0] or datetime.min, reverse=True)
+        seen_pos: set = set()
+        seen_neg: set = set()
+        for _, gid, st in rows:
+            if st in POSITIVE_SIGNAL_TYPES and gid not in seen_pos:
+                seen_pos.add(gid)
+                out["positive_ids"].append(gid)
+            elif st in REJECTED_SIGNAL_TYPES and gid not in seen_neg:
+                seen_neg.add(gid)
+                out["negative_ids"].append(gid)
+        return out
 
     async def _get_recently_shown(self, user_id: str) -> set[str]:
         """Get games shown to user in the last 7 days."""
