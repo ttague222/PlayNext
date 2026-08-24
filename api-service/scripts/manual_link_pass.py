@@ -138,7 +138,74 @@ LINKS = {
         "ios": "https://apps.apple.com/in/app/battlegrounds-mobile-india/id1526436837",
         "android": "https://play.google.com/store/apps/details?id=com.pubg.imobile",
     },
+    # --- wave 2: docs where RAWG matched but returned an empty store set ---
+    "borderlands-goty": {
+        "steam": "https://store.steampowered.com/app/729040/Borderlands_Game_of_the_Year_Enhanced/",
+    },
+    "clash-of-kings": {
+        "ios": "https://apps.apple.com/us/app/clash-of-kings-cok/id945274928",
+        "android": "https://play.google.com/store/apps/details?id=com.hcg.cok.gp",
+    },
+    "death-gambit-afterlife": {
+        "steam": "https://store.steampowered.com/app/356650/Deaths_Gambit_Afterlife/",
+    },
+    "dragon-quest-7-reimagined": {
+        "steam": "https://store.steampowered.com/app/2499860/",
+    },
+    "evermerge": {
+        "ios": "https://apps.apple.com/us/app/evermerge-merge-games-story/id1446344746",
+        "android": "https://play.google.com/store/apps/details?id=com.bigfishgames.mergetalesgoog",
+    },
+    "fortnite": {
+        "epic": "https://store.epicgames.com/en-US/p/fortnite",
+    },
+    "forza-horizon-6": {
+        "steam": "https://store.steampowered.com/app/2483190/Forza_Horizon_6/",
+    },
+    "mario-golf-super-rush": {
+        "nintendo": "https://www.nintendo.com/us/store/products/mario-golf-super-rush-switch/",
+    },
+    "mario-kart-world": {
+        "nintendo": "https://www.nintendo.com/us/store/products/mario-kart-world-switch-2/",
+    },
+    "nainai-recipe": {
+        "steam": "https://store.steampowered.com/app/1730460/Nainais_Recipe/",
+    },
+    "niche": {
+        "steam": "https://store.steampowered.com/app/440650/Niche__a_genetics_survival_game/",
+    },
+    "nioh-3": {
+        "steam": "https://store.steampowered.com/app/3681010/Nioh_3/",
+    },
+    "pokemon-legends-za": {
+        "nintendo": "https://www.nintendo.com/us/store/products/pokemon-legends-z-a-switch/",
+    },
+    "shadow-of-the-colossus": {
+        "playstation": "https://store.playstation.com/en-us/product/UP9000-CUSA08034_00-SOTC0000000000US",
+    },
+    "spider-man-miles-morales": {
+        "steam": "https://store.steampowered.com/app/1817190/Marvels_SpiderMan_Miles_Morales/",
+        "playstation": "https://store.playstation.com/en-us/concept/10000649",
+        "epic": "https://store.epicgames.com/p/marvels-spider-man-miles-morales",
+    },
+    "sundered": {
+        "steam": "https://store.steampowered.com/app/535480/Sundered_Eldritch_Edition/",
+    },
+    "tetris-99": {
+        "nintendo": "https://www.nintendo.com/us/store/products/tetris-99-switch/",
+    },
+    "top-eleven": {
+        "ios": "https://apps.apple.com/us/app/top-eleven-be-a-soccer-manager/id459035295",
+        "android": "https://play.google.com/store/apps/details?id=eu.nordeus.topeleven.android",
+    },
+    "yoshi-mysterious-book": {
+        "nintendo": "https://www.nintendo.com/us/store/products/yoshi-and-the-mysterious-book-switch-2/",
+    },
 }
+# Verified but intentionally left unlinked: 2XKO (Riot client only),
+# StarCraft II and World of Warcraft (Battle.net only — no matching store
+# key), Dreams and Cruis'n Blast (store URLs not safely derivable),
+# Saros (PS5 2026, no store page yet).
 
 # doc_id -> field fixes (title/description corrections + missing years)
 FIELD_FIXES = {
