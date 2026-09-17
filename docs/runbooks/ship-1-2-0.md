@@ -5,6 +5,29 @@
 > works (verified 2026-08-24 — created and deleted a test edit), so BOTH
 > stores submit via `eas submit` this time. No manual .aab upload.
 
+## FINAL STATUS — SHIPPED 2026-09-17
+
+Both platforms built (iOS 1.2.0 build 14, Android 1.2.0 versionCode 21) and
+submitted the same day. Android went to the Play production track **via the
+API** — first fully automated Android submission for this app. iOS binary
+uploaded to ASC and processing; Tom creates the 1.2.0 version record (label
+= binary, converging the tracks), attaches build 14 with the release notes
+below, and submits for review.
+
+Emulator verification passed end to end on the production .aab: launch,
+rec flow with art, Why-not modal → reason → swap → undo restore, reason
+chip in Not For Me, one-tap Steam link, Netflix Games / Game Pass badges
+from the subscription refresh. Haptics deferred to a real device via
+TestFlight (simulators are silent).
+
+Two findings, neither blocking: the jest suite flaked once cold then passed
+152/152 four straight runs; and a 16.8s Cloud Run cold start exceeds the
+app's request timeout ("Network Error" + Try Again on first use of the day)
+— pre-existing behavior, consider min-instances=1 or a longer client
+timeout next release. CI push builds stay type-check-only (platform=skip);
+restoring auto-builds on push would have double-spent quota on release day
+and is arguably wrong for a free-tier solo project — revisit deliberately.
+
 ## What ships in 1.2.0
 
 - **"Why not?" + free-tier learning** — thumbs-down on cards opens the reason

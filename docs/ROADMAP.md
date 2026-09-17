@@ -1,7 +1,8 @@
 # PlayNxt Roadmap
 
-## Current State (as of 2026-08-24)
+## Current State (as of 2026-09-17)
 
+- **1.2.0 shipped 2026-09-17**: Android submitted to the Play production track via the API (first automated Android submit); iOS build 14 uploaded to ASC — Tom creates the 1.2.0 version record (label = binary, track convergence) and submits for review. Emulator-verified end to end. Known papercut for next release: Cloud Run cold start (~17s) exceeds the app request timeout on first use of the day — consider min-instances=1 or longer client timeout
 - **1.1.0 live on both stores** (approved 2026-08-21) — the full premium build (Smart History, Advanced Filters, push pre-prompt, What's New screen), plus ATT compliance, Firebase Analytics across the funnel, the store review prompt, and the consolidated recommendation fixes (staleness protection, Not For Me exclusion, uncapped ranking, time-affinity scoring, subscription-taxonomy bridge)
 - API: consolidated engine live on Cloud Run; in-process games cache (~1,100 Firestore reads/request eliminated); SendGrid removed; `/config` POST auth-guarded; `ad_interval` raised 3→4 per review feedback
 - ASO: Apple metadata updated (subtitle + keywords, title kept); Play listing intentionally held as control until ~2026-09-03
