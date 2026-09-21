@@ -55,11 +55,11 @@ The Steam Web API key lives server-side only (`STEAM_WEB_API_KEY` env var on Clo
 
 ## 4. Matching Steam apps to the catalog
 
-The catalog already carries Steam URLs (`store_links.steam`), which embed the appid (`store.steampowered.com/app/<appid>/...`). Matching pipeline:
+The catalog already carries Steam URLs (`store_links.steam`), which embed the appid (`store.steampowered.com/app/<appid>/...`). Matching pipeline (as built):
 
-1. **Backfill script** `api-service/scripts/extract_steam_appids.py` (dry-run default, like the other maintenance scripts): parse `store_links.steam` → write `steam_appid: int` onto each game doc. One-time + rerun after catalog batches.
-2. At sync time, intersect the user's owned appids with the catalog's `steam_appid` index (served from the existing in-process games cache — no extra Firestore reads per request).
-3. Report coverage honestly in the sync result: "Matched 143 of your 212 Steam games." Unmatched appids are stored raw so future catalog additions match retroactively — and the unmatched list is a **demand-driven catalog signal**, exactly the input `ROADMAP.md` says future catalog work should come from.
+1. At sync time the service builds an appid → game_id map by parsing `store_links.steam` across the catalog (a `steam_appid` field wins when present). The map is cached in-process for an hour, so no catalog backfill script is needed — one moving part removed from the original plan.
+2. Intersect the user's owned appids with that map.
+3. Report coverage honestly in the sync result: "Matched 143 of your 212 Steam games." All entries are stored with their appid, matched or not, so future catalog additions match on the next re-sync — and the unmatched list is a **demand-driven catalog signal**, exactly the input `ROADMAP.md` says future catalog work should come from.
 
 ## 5. Data model & API
 
@@ -70,16 +70,19 @@ New Firestore collection `user_libraries` (doc id = Firebase UID):
   "source": "steam",
   "steam_id": "76561198000000000",
   "synced_at": "...",
-  "auto_refresh": false,
   "games": [
     { "appid": 1145360, "game_id": "hades", "playtime_minutes": 5400 },
-    { "appid": 1868140, "game_id": "dave-the-diver", "playtime_minutes": 0 }
+    { "appid": 1868140, "game_id": "dave-the-diver", "playtime_minutes": 0 },
+    { "appid": 620, "game_id": null, "playtime_minutes": 300 }
   ],
-  "unmatched_appids": [400, 620],
   "matched_count": 143,
-  "total_count": 212
+  "total_count": 212,
+  "played_game_ids": ["hades"],
+  "owned_unplayed_game_ids": ["dave-the-diver"]
 }
 ```
+
+The two derived arrays are written at sync time so the recommendation engine gets everything it needs from a single document read. Unmatched games keep `game_id: null` (the demand-driven catalog signal).
 
 New router `routes_library.py` (`APIRouter(prefix="/library", tags=["Library"])`) + `library_service.py`, following the repo conventions (thin handlers, `Depends(get_user_id)`, explicit `response_model`, logic in the service, Firestore via `get_collection()`):
 
@@ -131,15 +134,15 @@ library_only: bool = Field(
 
 ## 9. Build order & estimate
 
-| Step | Scope | Est. |
+| Step | Scope | Status |
 |---|---|---|
-| 1 | `extract_steam_appids.py` backfill + `steam_appid` on game docs | 0.5 day |
-| 2 | `library_service` + `/library/steam/*` routes + tests | 1–2 days |
-| 3 | Mobile Connect Steam UI + LibraryContext + free exclusion wiring | 2–3 days |
+| 1 | Appid → catalog matching (sync-time parsing of `store_links.steam`; no backfill needed) | ✅ Built |
+| 2 | `library_service` + `/library/steam/*` routes + tests | ✅ Built |
+| 3 | Mobile Connect Steam UI + free exclusion wiring + "In your library" chip | ✅ Built |
 | 4 | `library_only` engine path + fallback + tests | 1–2 days |
-| 5 | Backlog toggle UI + premium gate + library chip on cards | 1–2 days |
+| 5 | Backlog toggle UI + premium gate | 1–2 days |
 
-Steps 1–3 ship alone as the free tier (a complete, review-complaint-fixing release on their own). Steps 4–5 follow as the premium release with the $2.99 price move.
+Steps 1–3 are the free tier (a complete, review-complaint-fixing release on their own; ship prerequisite: create the `STEAM_WEB_API_KEY` secret — see the comment in `.github/workflows/api-deploy.yml`). Steps 4–5 follow as the premium release with the $2.99 price move.
 
 ## 10. Success metrics
 

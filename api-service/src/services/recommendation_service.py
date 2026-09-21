@@ -11,7 +11,7 @@ import uuid
 from datetime import datetime, timedelta
 from typing import Optional
 
-from ..db.firebase import get_collection, GAMES_COLLECTION, SIGNALS_COLLECTION
+from ..db.firebase import get_collection, GAMES_COLLECTION, SIGNALS_COLLECTION, LIBRARIES_COLLECTION
 from ..models import (
     RecommendationRequest,
     RecommendationResponse,
@@ -114,6 +114,7 @@ class RecommendationService:
     def __init__(self):
         self.games_collection = get_collection(GAMES_COLLECTION)
         self.signals_collection = get_collection(SIGNALS_COLLECTION)
+        self.libraries_collection = get_collection(LIBRARIES_COLLECTION)
         self._games_cache: Optional[list[dict]] = None
         self._games_cache_at: float = 0.0
 
@@ -147,12 +148,19 @@ class RecommendationService:
         if user_id:
             signal_data = await self._get_user_signal_data(user_id)
 
+        # Synced Steam library (free tier): played games are excluded like
+        # Not For Me; owned-but-unplayed games get an "in your library" flag.
+        library_data: Optional[dict] = None
+        if user_id:
+            library_data = await self._get_library_data(user_id)
+
         # Apply filters with fallback logic
         filtered_games, fallback_applied, fallback_message = await self._filter_games(
             games=games,
             request=request,
             user_id=user_id,
             signal_data=signal_data,
+            library_played=library_data["played"] if library_data else None,
         )
 
         if not filtered_games:
@@ -211,8 +219,9 @@ class RecommendationService:
         top_games = self._ensure_franchise_diversity(scored_games, settings.max_recommendations)
 
         # Build recommendations
+        owned_unplayed = library_data["owned_unplayed"] if library_data else None
         recommendations = [
-            self._build_recommendation(game, request)
+            self._build_recommendation(game, request, in_library_ids=owned_unplayed)
             for game in top_games
         ]
 
@@ -257,6 +266,7 @@ class RecommendationService:
         request: RecommendationRequest,
         user_id: Optional[str],
         signal_data: Optional[dict] = None,
+        library_played: Optional[set] = None,
     ) -> tuple[list[dict], bool, Optional[str]]:
         """
         Filter games with fallback hierarchy.
@@ -285,6 +295,12 @@ class RecommendationService:
             recent = await self._get_recently_shown_for_session(request.session_id)
             excluded.update(recent)
             logger.info(f"Session {request.session_id}: Excluding {len(recent)} recently shown games")
+
+        # Free-tier Steam sync: games the user has real playtime in are
+        # excluded like Not For Me — no premium flag, always on once synced.
+        if library_played:
+            excluded.update(library_played)
+            logger.info(f"User {user_id}: excluding {len(library_played)} played library games")
 
         # Remove excluded games
         original_count = len(games)
@@ -735,6 +751,28 @@ class RecommendationService:
                 out["negative_ids"].append(gid)
         return out
 
+    async def _get_library_data(self, user_id: str) -> Optional[dict]:
+        """Read the user's synced library (one document read).
+
+        Returns {"played": set, "owned_unplayed": set} of catalog game ids,
+        or None when no library is synced. The derived arrays are written
+        by library_service at sync time.
+        """
+        try:
+            doc = self.libraries_collection.document(user_id).get()
+            if not doc.exists:
+                return None
+            data = doc.to_dict() or {}
+            played = set(data.get("played_game_ids") or [])
+            owned_unplayed = set(data.get("owned_unplayed_game_ids") or [])
+        except Exception as e:
+            # A broken library doc must never block recommendations
+            logger.error(f"Error fetching user library: {e}")
+            return None
+        if not played and not owned_unplayed:
+            return None
+        return {"played": played, "owned_unplayed": owned_unplayed}
+
     async def _get_recently_shown(self, user_id: str) -> set[str]:
         """Get games shown to user in the last 7 days."""
         try:
@@ -856,7 +894,8 @@ class RecommendationService:
     def _build_recommendation(
         self,
         game: dict,
-        request: RecommendationRequest
+        request: RecommendationRequest,
+        in_library_ids: Optional[set] = None,
     ) -> GameRecommendation:
         """Build a GameRecommendation from game data."""
         # Build explanation from templates
@@ -900,7 +939,8 @@ class RecommendationService:
             subscription_services=game.get("subscription_services", []),
             store_links=store_links,
             fun_fact=game.get("fun_fact"),
-            match_score=min(max(game.get("score", 0.5), 0.0), 1.0)
+            match_score=min(max(game.get("score", 0.5), 0.0), 1.0),
+            in_library=bool(in_library_ids and game["game_id"] in in_library_ids),
         )
 
     def _empty_response(self, session_id: str) -> RecommendationResponse:

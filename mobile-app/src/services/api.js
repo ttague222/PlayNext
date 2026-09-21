@@ -353,6 +353,40 @@ const api = {
   },
 
   // ============================================
+  // Library (Steam Sync)
+  // ============================================
+
+  /**
+   * Sync the user's Steam library
+   * @param {string} profile - Steam profile URL, vanity name, or 64-bit SteamID
+   */
+  syncSteamLibrary: async (profile) => {
+    const response = await apiClient.post(
+      '/library/steam/sync',
+      { profile },
+      // Steam resolution + library fetch can exceed the default 10s timeout
+      { timeout: 30000 }
+    );
+    return response.data;
+  },
+
+  /**
+   * Get the current Steam library connection status
+   */
+  getSteamLibraryStatus: async () => {
+    const response = await apiClient.get('/library/steam');
+    return response.data;
+  },
+
+  /**
+   * Disconnect Steam and delete the synced library data
+   */
+  disconnectSteamLibrary: async () => {
+    const response = await apiClient.delete('/library/steam');
+    return response.data;
+  },
+
+  // ============================================
   // Health
   // ============================================
 

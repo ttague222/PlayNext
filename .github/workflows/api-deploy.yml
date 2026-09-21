@@ -73,6 +73,15 @@ jobs:
         # The 4 old --set-secrets (SENTRY_DSN, FIREBASE_CREDENTIALS, OPENAI,
         # PINECONE) were dropped — they never existed in Secret Manager and
         # the code didn't read them. Add them back when those features ship.
+        # STEAM SYNC: to enable /library/steam endpoints in production,
+        # create the secret first (get a key at steamcommunity.com/dev/apikey):
+        #   echo -n "<key>" | gcloud secrets create STEAM_WEB_API_KEY --data-file=-
+        #   (grant the runtime SA secretAccessor on it)
+        # then change --set-secrets below to:
+        #   --set-secrets="CRON_SECRET=CRON_SECRET:latest,STEAM_WEB_API_KEY=STEAM_WEB_API_KEY:latest"
+        # Until then the API returns 503 for library sync and everything
+        # else works — a missing Secret Manager secret would fail the whole
+        # deploy, which is why this is not flipped on by default.
         run: |
           gcloud run deploy ${{ env.SERVICE }} \
             --source api-service \

@@ -143,6 +143,10 @@ class GameRecommendation(BaseModel):
         le=1.0,
         description="How well this game matches the request"
     )
+    in_library: bool = Field(
+        default=False,
+        description="Game is in the user's synced library, owned but barely played"
+    )
 
 
 class RecommendationResponse(BaseModel):

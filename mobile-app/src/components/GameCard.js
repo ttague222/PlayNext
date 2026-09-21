@@ -390,6 +390,12 @@ const GameCard = ({ game, rank, onAccept, onAlreadyPlayed, onNotForMe, onSave, i
               {STOP_FRIENDLINESS_LABELS[game.stop_friendliness] || 'Flexible'}
             </Text>
           </View>
+          {game.in_library && (
+            <View style={[styles.metaTag, styles.libraryTag]}>
+              <Ionicons name="logo-steam" size={14} color="#4ade80" />
+              <Text style={[styles.metaText, styles.libraryTagText]}>In your library</Text>
+            </View>
+          )}
         </View>
 
         {/* Subscription Services */}
@@ -774,6 +780,12 @@ const styles = StyleSheet.create({
     fontSize: 12,
     color: '#a0a0a0',
     fontWeight: '500',
+  },
+  libraryTag: {
+    backgroundColor: 'rgba(74, 222, 128, 0.1)',
+  },
+  libraryTagText: {
+    color: '#4ade80',
   },
   sectionHeader: {
     flexDirection: 'row',

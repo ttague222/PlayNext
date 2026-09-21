@@ -40,6 +40,7 @@ import BucketDetailScreen from '../screens/BucketDetailScreen';
 import GameDetailScreen from '../screens/GameDetailScreen';
 import HelpScreen from '../screens/HelpScreen';
 import WhatsNewScreen from '../screens/WhatsNewScreen';
+import ConnectSteamScreen from '../screens/ConnectSteamScreen';
 
 const Stack = createNativeStackNavigator();
 const Tab = createBottomTabNavigator();
@@ -220,6 +221,13 @@ const AppNavigator = () => {
         <RootStack.Screen
           name="WhatsNew"
           component={WhatsNewScreen}
+          options={{
+            animation: 'slide_from_right',
+          }}
+        />
+        <RootStack.Screen
+          name="ConnectSteam"
+          component={ConnectSteamScreen}
           options={{
             animation: 'slide_from_right',
           }}

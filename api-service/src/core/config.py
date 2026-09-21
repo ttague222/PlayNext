@@ -58,6 +58,9 @@ class Settings(BaseSettings):
     # Push notifications
     cron_secret: Optional[str] = None
 
+    # Steam library sync (server-side only — never expose to clients)
+    steam_web_api_key: Optional[str] = None
+
     # Recommendation Engine
     max_recommendations: int = 3
     default_time_bracket: int = 60  # minutes
