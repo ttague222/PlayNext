@@ -1,0 +1,5 @@
+Steam, meet PlayNxt.
+• Connect your Steam profile (free) and we stop recommending games you've already played — no login, just your profile link.
+• NEW in Premium — Backlog Mode: tell us your time and mood, we pick from YOUR unplayed Steam games.
+• Cards now show when a pick is already in your library.
+• Clearer errors and small fixes.

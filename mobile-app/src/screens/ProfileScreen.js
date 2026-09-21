@@ -270,6 +270,19 @@ const ProfileScreen = () => {
             </>
           )}
 
+          {/* Game Library Section */}
+          {renderSection(
+            'Game Library',
+            <TouchableOpacity
+              style={styles.menuItem}
+              onPress={() => navigation.navigate('ConnectSteam')}
+            >
+              <Ionicons name="logo-steam" size={22} color="#808080" />
+              <Text style={styles.menuItemText}>Steam Library Sync</Text>
+              <Ionicons name="chevron-forward" size={20} color="#808080" />
+            </TouchableOpacity>
+          )}
+
           {/* Premium Section */}
           {renderSection(
             'Premium',

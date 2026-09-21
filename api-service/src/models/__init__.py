@@ -45,6 +45,13 @@ from .user import (
     FeedbackRequest,
 )
 
+from .library import (
+    SteamSyncRequest,
+    LibraryGameEntry,
+    SteamSyncResult,
+    SteamLibraryStatus,
+)
+
 from .bucket import (
     BucketType,
     BUCKET_CONFIG,
@@ -97,6 +104,11 @@ __all__ = [
     "SessionCreate",
     "Session",
     "FeedbackRequest",
+    # Library models
+    "SteamSyncRequest",
+    "LibraryGameEntry",
+    "SteamSyncResult",
+    "SteamLibraryStatus",
     # Bucket models
     "BucketType",
     "BUCKET_CONFIG",

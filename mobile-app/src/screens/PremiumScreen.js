@@ -24,6 +24,11 @@ import { logEvent } from '../services/analyticsService';
 // Premium features to display — lead with value, ad-free is secondary.
 const PREMIUM_BENEFITS = [
   {
+    icon: 'library-outline',
+    title: 'Backlog Mode',
+    description: 'Tell us your time and mood — we pick from your own unplayed Steam games. Your backlog finally gets shorter.',
+  },
+  {
     icon: 'time-outline',
     title: 'Smart History',
     description: "See what's worked for you, with the context it worked in. Reuse a good fit with one tap.",
@@ -254,7 +259,7 @@ const PremiumScreen = () => {
             </LinearGradient>
             <Text style={styles.heroTitle}>Sharper picks. Yours forever.</Text>
             <Text style={styles.heroSubtitle}>
-              No ads. Smarter picks. Filters that go deeper. All yours, forever.
+              Play your own backlog. Filters that go deeper. No ads. All yours, forever.
             </Text>
           </View>
 

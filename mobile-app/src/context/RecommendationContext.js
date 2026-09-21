@@ -31,6 +31,7 @@ const DEFAULT_PREFERENCES = {
   onSubscriptions: [],       // string[]
   excludePlayed: false,
   favorHistory: false,
+  libraryOnly: false,        // Backlog Mode: pick from the user's synced Steam library
 };
 
 export const RecommendationProvider = ({ children }) => {
@@ -207,6 +208,7 @@ export const RecommendationProvider = ({ children }) => {
         ...(preferences.onSubscriptions?.length && { on_subscriptions: preferences.onSubscriptions }),
         ...(preferences.excludePlayed && { exclude_played: true }),
         ...(preferences.favorHistory && { favor_history: true }),
+        ...(preferences.libraryOnly && { library_only: true }),
       });
 
       setRecommendations(response.recommendations);
@@ -227,7 +229,9 @@ export const RecommendationProvider = ({ children }) => {
 
       return response;
     } catch (err) {
-      setError(err.message || 'Failed to get recommendations');
+      // Prefer the API's detail (e.g. "Backlog Mode needs a synced Steam
+      // library") over axios's generic status-code message.
+      setError(err.response?.data?.detail || err.message || 'Failed to get recommendations');
       throw err;
     } finally {
       setLoading(false);
@@ -262,6 +266,7 @@ export const RecommendationProvider = ({ children }) => {
         ...(preferences.onSubscriptions?.length && { on_subscriptions: preferences.onSubscriptions }),
         ...(preferences.excludePlayed && { exclude_played: true }),
         ...(preferences.favorHistory && { favor_history: true }),
+        ...(preferences.libraryOnly && { library_only: true }),
       });
 
       setRecommendations(response.recommendations);
@@ -281,7 +286,7 @@ export const RecommendationProvider = ({ children }) => {
 
       return response;
     } catch (err) {
-      setError(err.message || 'Failed to reroll');
+      setError(err.response?.data?.detail || err.message || 'Failed to reroll');
       throw err;
     } finally {
       setLoading(false);
@@ -356,6 +361,8 @@ export const RecommendationProvider = ({ children }) => {
         discovery_mode: preferences.discoveryMode,
         session_id: sessionId,
         excluded_game_ids: buildExcludedGameIds([gameId]),
+        // Keep the replacement in the same mode as the original set
+        ...(preferences.libraryOnly && { library_only: true }),
         limit: 1, // Only need one replacement
       });
 

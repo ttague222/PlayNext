@@ -7,6 +7,10 @@ Store copy was previously untracked and lived only in App Store Connect, which i
 | File | Field | Limit |
 |---|---|---|
 | `app-store/description.txt` | App Store → Description | 4,000 |
+| `app-store/whats-new-1.3.0.txt` | App Store → What's New (1.3.0 version record) | 4,000 |
+| `google-play/whats-new-1.3.0.txt` | Play Console → Release notes (1.3.0) | 500 |
+
+The description's Steam/Backlog Mode claims and both what's-new files describe the 1.3.0 build — paste them into the consoles only with that release, not before.
 
 Apple does not index the description for search, so write it for conversion. Google Play does index its long description.
 
