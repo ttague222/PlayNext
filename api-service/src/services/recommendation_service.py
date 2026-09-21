@@ -87,6 +87,17 @@ POSITIVE_SIGNAL_TYPES = {"worked", "played_loved", "accepted"}
 FREE_TASTE_STEP = 0.05
 FREE_TASTE_CAP = 0.10
 
+# Backlog Mode (premium): flat boost for library games with zero recorded
+# playtime — surfacing true backlog dust is the feature's magic moment.
+# Small on purpose: it breaks ties, it doesn't override fit.
+BACKLOG_NEVER_PLAYED_BOOST = 0.05
+
+# Shown when Backlog Mode finds nothing suitable and the engine falls back
+# to the full catalog (results must never be empty, PRD §5.6).
+BACKLOG_FALLBACK_MESSAGE = (
+    "Nothing in your backlog fits this session — here are picks from the full catalog."
+)
+
 
 def normalize_subscriptions(values) -> set:
     """Map subscription identifiers to their canonical (long) form."""
@@ -154,14 +165,54 @@ class RecommendationService:
         if user_id:
             library_data = await self._get_library_data(user_id)
 
-        # Apply filters with fallback logic
-        filtered_games, fallback_applied, fallback_message = await self._filter_games(
-            games=games,
-            request=request,
-            user_id=user_id,
-            signal_data=signal_data,
-            library_played=library_data["played"] if library_data else None,
-        )
+        # Backlog Mode (premium): restrict candidates to the user's synced,
+        # underplayed library. Requires a synced library — the mobile app
+        # routes to Connect Steam first, but the API guards regardless.
+        if request.library_only and not library_data:
+            raise ValueError(
+                "Backlog Mode needs a synced Steam library — connect Steam in Settings first"
+            )
+
+        backlog_active = False
+        filtered_games: list[dict] = []
+        fallback_applied = False
+        fallback_message: Optional[str] = None
+
+        if request.library_only:
+            backlog_pool = [
+                g for g in games if g["game_id"] in library_data["owned_unplayed"]
+            ]
+            if backlog_pool:
+                # Platform/genre/time relax within the pool, but never the
+                # partial-match catch-all: a wrong-mood backlog game is a
+                # worse answer than a right-mood catalog game, and mood is
+                # a required input. No fit here → full-catalog fallback.
+                filtered_games, fallback_applied, fallback_message = await self._filter_games(
+                    games=backlog_pool,
+                    request=request,
+                    user_id=user_id,
+                    signal_data=signal_data,
+                    allow_partial=False,
+                )
+                backlog_active = bool(filtered_games)
+            if not backlog_active:
+                logger.info(
+                    f"User {user_id}: backlog pool has no fit "
+                    f"({len(backlog_pool)} candidates) — falling back to catalog"
+                )
+
+        if not filtered_games:
+            # Standard path, and the Backlog Mode full-catalog fallback.
+            filtered_games, fallback_applied, fallback_message = await self._filter_games(
+                games=games,
+                request=request,
+                user_id=user_id,
+                signal_data=signal_data,
+                library_played=library_data["played"] if library_data else None,
+            )
+            if request.library_only and filtered_games:
+                fallback_applied = True
+                fallback_message = BACKLOG_FALLBACK_MESSAGE
 
         if not filtered_games:
             logger.warning("No games matched filters even with fallback")
@@ -210,6 +261,12 @@ class RecommendationService:
             free_profile=free_profile, avoid_profile=avoid_profile,
         )
 
+        # Backlog Mode: nudge never-launched games above barely-played ones.
+        if backlog_active:
+            for g in scored_games:
+                if library_data["playtimes"].get(g["game_id"], 1) == 0:
+                    g["score"] += BACKLOG_NEVER_PLAYED_BOOST
+
         # Apply discovery mode
         if request.discovery_mode == DiscoveryMode.SURPRISE:
             scored_games = await self._apply_surprise_boost(scored_games, user_id)
@@ -221,7 +278,12 @@ class RecommendationService:
         # Build recommendations
         owned_unplayed = library_data["owned_unplayed"] if library_data else None
         recommendations = [
-            self._build_recommendation(game, request, in_library_ids=owned_unplayed)
+            self._build_recommendation(
+                game,
+                request,
+                in_library_ids=owned_unplayed,
+                library_playtimes=library_data["playtimes"] if backlog_active else None,
+            )
             for game in top_games
         ]
 
@@ -267,6 +329,7 @@ class RecommendationService:
         user_id: Optional[str],
         signal_data: Optional[dict] = None,
         library_played: Optional[set] = None,
+        allow_partial: bool = True,
     ) -> tuple[list[dict], bool, Optional[str]]:
         """
         Filter games with fallback hierarchy.
@@ -343,7 +406,11 @@ class RecommendationService:
             original_time = request.time_available
             return filtered, True, f"No exact matches for {original_time} minutes. Showing nearby options."
 
-        # Final fallback: return best partial matches
+        # Final fallback: return best partial matches. Backlog Mode opts out
+        # (allow_partial=False) so a no-fit backlog hands over to the full
+        # catalog instead of surfacing wrong-mood library games.
+        if not allow_partial:
+            return [], True, None
         logger.warning("All filters relaxed, returning partial matches")
         return games[:10], True, "Showing best available matches"
 
@@ -754,7 +821,8 @@ class RecommendationService:
     async def _get_library_data(self, user_id: str) -> Optional[dict]:
         """Read the user's synced library (one document read).
 
-        Returns {"played": set, "owned_unplayed": set} of catalog game ids,
+        Returns {"played": set, "owned_unplayed": set, "playtimes": dict}
+        of catalog game ids (playtimes maps matched game_id -> minutes),
         or None when no library is synced. The derived arrays are written
         by library_service at sync time.
         """
@@ -765,13 +833,18 @@ class RecommendationService:
             data = doc.to_dict() or {}
             played = set(data.get("played_game_ids") or [])
             owned_unplayed = set(data.get("owned_unplayed_game_ids") or [])
+            playtimes = {
+                entry["game_id"]: int(entry.get("playtime_minutes") or 0)
+                for entry in (data.get("games") or [])
+                if isinstance(entry, dict) and entry.get("game_id")
+            }
         except Exception as e:
             # A broken library doc must never block recommendations
             logger.error(f"Error fetching user library: {e}")
             return None
         if not played and not owned_unplayed:
             return None
-        return {"played": played, "owned_unplayed": owned_unplayed}
+        return {"played": played, "owned_unplayed": owned_unplayed, "playtimes": playtimes}
 
     async def _get_recently_shown(self, user_id: str) -> set[str]:
         """Get games shown to user in the last 7 days."""
@@ -896,6 +969,7 @@ class RecommendationService:
         game: dict,
         request: RecommendationRequest,
         in_library_ids: Optional[set] = None,
+        library_playtimes: Optional[dict] = None,
     ) -> GameRecommendation:
         """Build a GameRecommendation from game data."""
         # Build explanation from templates
@@ -915,6 +989,20 @@ class RecommendationService:
             f"Great fit for your {request.time_available}-minute {request.energy_mood.value.replace('_', ' ')} session."
         )
 
+        # Backlog Mode: say why this pick comes from the user's own library.
+        # Only set when the pick actually came from the backlog pool —
+        # catalog-fallback picks don't pretend to be backlog finds.
+        library_fit = None
+        if library_playtimes is not None and game["game_id"] in library_playtimes:
+            minutes = library_playtimes[game["game_id"]]
+            if minutes == 0:
+                library_fit = "It's been sitting unplayed in your Steam library."
+            else:
+                library_fit = (
+                    f"It's in your Steam library with only {minutes} minutes played."
+                )
+            summary = f"{summary} {library_fit}"
+
         # Build store links from game data
         store_links_data = game.get("store_links", {})
         store_links = None
@@ -933,6 +1021,7 @@ class RecommendationService:
                 stop_fit=templates.get("stop_fit"),
                 style_fit=templates.get("style_fit"),
                 session_fit=templates.get("session_fit"),
+                library_fit=library_fit,
             ),
             time_to_fun=TimeToFun(game.get("time_to_fun", "medium")),
             stop_friendliness=StopFriendliness(game.get("stop_friendliness", "checkpoints")),

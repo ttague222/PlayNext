@@ -121,7 +121,7 @@ library_only: bool = Field(
 2. Normal filter + scoring pipeline runs unchanged on that pool (time, mood, stop-friendliness, franchise diversity, staleness, Not For Me).
 3. Small flat boost for `playtime_minutes == 0` (never installed/launched) — surfacing true backlog dust is the magic moment. Constant, e.g. `+0.05`.
 4. Explanation gets a library line via the existing optional-fields pattern on `RecommendationExplanation`: `library_fit: "In your Steam backlog — 0 hours played"`.
-5. **Fallback (non-negotiable #5):** if the backlog pool yields < 1 result after filters, degrade in order: (a) relax time filter within the pool, (b) relax mood, (c) fall back to full-catalog recommendations with `fallback_applied=true` and `fallback_message="Nothing in your backlog fits this session — here are picks from the full catalog."` Never empty, never silent about the switch.
+5. **Fallback (non-negotiable #5, as built):** platform, genre, and time filters relax *within* the backlog pool (the engine's standard fallback ladder), but the final partial-match catch-all is disabled there — mood is a required input, and a wrong-mood backlog game is a worse answer than a right-mood catalog game. A no-fit backlog falls back to full-catalog recommendations with `fallback_applied=true` and `fallback_message="Nothing in your backlog fits this session — here are picks from the full catalog."` Catalog-fallback picks carry no `library_fit` line — they don't pretend to be backlog finds. Never empty, never silent about the switch.
 
 **No sync yet + toggle on:** the mobile app routes to Connect Steam first; the API also guards (400 with clear detail) so the contract is safe regardless of client state.
 
@@ -139,7 +139,7 @@ library_only: bool = Field(
 | 1 | Appid → catalog matching (sync-time parsing of `store_links.steam`; no backfill needed) | ✅ Built |
 | 2 | `library_service` + `/library/steam/*` routes + tests | ✅ Built |
 | 3 | Mobile Connect Steam UI + free exclusion wiring + "In your library" chip | ✅ Built |
-| 4 | `library_only` engine path + fallback + tests | 1–2 days |
+| 4 | `library_only` engine path + fallback + tests | ✅ Built |
 | 5 | Backlog toggle UI + premium gate | 1–2 days |
 
 Steps 1–3 are the free tier (a complete, review-complaint-fixing release on their own; ship prerequisite: create the `STEAM_WEB_API_KEY` secret — see the comment in `.github/workflows/api-deploy.yml`). Steps 4–5 follow as the premium release with the $2.99 price move.

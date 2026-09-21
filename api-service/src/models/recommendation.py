@@ -114,6 +114,12 @@ class RecommendationRequest(BaseModel):
         description="Bias scoring toward genres/moods the user's positive signals favor (premium)."
     )
 
+    # Premium Backlog Mode (default: off)
+    library_only: bool = Field(
+        default=False,
+        description="Restrict candidates to the user's synced, underplayed library games (premium). Falls back to the full catalog when nothing in the backlog fits."
+    )
+
 
 class RecommendationExplanation(BaseModel):
     """Explanation for why a game was recommended."""
@@ -123,6 +129,10 @@ class RecommendationExplanation(BaseModel):
     stop_fit: Optional[str] = None
     style_fit: Optional[str] = None
     session_fit: Optional[str] = None
+    library_fit: Optional[str] = Field(
+        default=None,
+        description="Backlog Mode: why this pick comes from the user's own library"
+    )
 
 
 class GameRecommendation(BaseModel):

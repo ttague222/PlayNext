@@ -53,6 +53,9 @@ async def get_recommendations(
 
         return response
 
+    except ValueError as e:
+        # e.g. Backlog Mode requested without a synced library
+        raise HTTPException(status_code=400, detail=str(e))
     except Exception as e:
         logger.error(f"Error generating recommendations: {e}")
         raise HTTPException(
@@ -84,6 +87,8 @@ async def reroll_recommendations(
         response = await service.get_recommendations(request, user_id)
         return response
 
+    except ValueError as e:
+        raise HTTPException(status_code=400, detail=str(e))
     except Exception as e:
         logger.error(f"Error rerolling recommendations: {e}")
         raise HTTPException(
