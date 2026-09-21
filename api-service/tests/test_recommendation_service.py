@@ -418,6 +418,47 @@ class TestBuildRecommendation:
         assert rec.match_score == 0.85
         assert rec.explanation.summary is not None
 
+    def test_summary_joins_unpunctuated_templates_as_sentences(self, service, sample_game):
+        """Catalog templates without periods must not produce run-on summaries."""
+        request = RecommendationRequest(
+            time_available=30,
+            energy_mood=EnergyMood.CASUAL
+        )
+
+        sample_game["explanation_templates"] = {
+            "time_fit": "Care for your passengers for {time} minutes",
+            "mood_fit": "A beautiful, emotional journey about letting go",
+            "stop_fit": "Save anytime between activities",
+        }
+        sample_game["score"] = 0.8
+
+        rec = service._build_recommendation(sample_game, request)
+
+        assert rec.explanation.summary == (
+            "Care for your passengers for 30 minutes. "
+            "A beautiful, emotional journey about letting go. "
+            "Save anytime between activities."
+        )
+
+    def test_summary_keeps_existing_punctuation(self, service, sample_game):
+        """Templates that already end in punctuation are not double-punctuated."""
+        request = RecommendationRequest(
+            time_available=30,
+            energy_mood=EnergyMood.CASUAL
+        )
+
+        sample_game["explanation_templates"] = {
+            "time_fit": "Quick to jump in - fun in minutes.",
+            "mood_fit": "Perfect for unwinding!",
+        }
+        sample_game["score"] = 0.8
+
+        rec = service._build_recommendation(sample_game, request)
+
+        assert rec.explanation.summary == (
+            "Quick to jump in - fun in minutes. Perfect for unwinding!"
+        )
+
     def test_build_recommendation_default_explanation(self, service, sample_game):
         """Test building recommendation with default explanation."""
         request = RecommendationRequest(
