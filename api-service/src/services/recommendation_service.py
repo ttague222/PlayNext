@@ -104,6 +104,20 @@ def normalize_subscriptions(values) -> set:
     return {SUBSCRIPTION_ALIASES.get(v, v) for v in (values or [])}
 
 
+def ensure_sentence(text: str) -> str:
+    """Close a template fragment with terminal punctuation.
+
+    Catalog explanation templates are inconsistently punctuated, and joining
+    unpunctuated fragments produced run-on summaries ("...for 30 minutes A
+    beautiful, emotional journey..."). Normalizing here fixes every client
+    at once without a catalog data migration.
+    """
+    text = (text or "").strip()
+    if text and text[-1] not in ".!?…":
+        text += "."
+    return text
+
+
 def build_taste_profile(games: list[dict]) -> dict:
     """Frequency map of genre_tags and mood_tags across a list of game dicts.
 
@@ -978,12 +992,14 @@ class RecommendationService:
 
         if templates.get("time_fit"):
             explanation_parts.append(
-                templates["time_fit"].replace("{time}", str(request.time_available))
+                ensure_sentence(
+                    templates["time_fit"].replace("{time}", str(request.time_available))
+                )
             )
         if templates.get("mood_fit"):
-            explanation_parts.append(templates["mood_fit"])
+            explanation_parts.append(ensure_sentence(templates["mood_fit"]))
         if templates.get("stop_fit"):
-            explanation_parts.append(templates["stop_fit"])
+            explanation_parts.append(ensure_sentence(templates["stop_fit"]))
 
         summary = " ".join(explanation_parts) if explanation_parts else (
             f"Great fit for your {request.time_available}-minute {request.energy_mood.value.replace('_', ' ')} session."
