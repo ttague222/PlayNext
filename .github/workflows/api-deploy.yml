@@ -88,7 +88,7 @@ jobs:
             --region ${{ env.REGION }} \
             --platform managed \
             --allow-unauthenticated \
-            --set-env-vars="ENVIRONMENT=production,FIREBASE_PROJECT_ID=playnxt-1a2c6,SUPPORT_EMAIL=support@watchlightinteractive.com,FROM_EMAIL=support@watchlightinteractive.com,PYTHONUNBUFFERED=1" \
+            --set-env-vars="ENVIRONMENT=production,FIREBASE_PROJECT_ID=playnxt-1a2c6,SUPPORT_EMAIL=support@watchlightinteractive.com,FROM_EMAIL=support@watchlightinteractive.com,PYTHONUNBUFFERED=1,CORS_ORIGINS=https://playnxt-web.vercel.app" \
             --set-secrets="CRON_SECRET=CRON_SECRET:latest"
 
       - name: Get service URL
