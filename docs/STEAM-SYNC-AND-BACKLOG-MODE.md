@@ -142,7 +142,7 @@ library_only: bool = Field(
 | 4 | `library_only` engine path + fallback + tests | ✅ Built |
 | 5 | Backlog toggle UI + premium gate | ✅ Built |
 
-All five steps are built. Ship prerequisites: create the `STEAM_WEB_API_KEY` secret (see the comment in `.github/workflows/api-deploy.yml`), update the Premium screen / store copy to name Backlog Mode, and make the $2.99 price move with the release that carries it. Mode choice is deliberately per-session: `libraryOnly` resets with the other session preferences, so the default two-tap flow stays untouched.
+All five steps are built; premium/store copy names Backlog Mode. Remaining ship prerequisite: create the `STEAM_WEB_API_KEY` secret (see `docs/runbooks/ship-1-3-0.md`). **Pricing: staying at $1.99 for now (Tom's call, 2026-09-21)** — the $2.99 move is deferred until there's conversion data (`backlog_mode_locked_tap` is the signal); copy and paywall are price-agnostic so the move needs no code. Mode choice is deliberately per-session: `libraryOnly` resets with the other session preferences, so the default two-tap flow stays untouched.
 
 ## 10. Success metrics
 
