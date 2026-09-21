@@ -20,6 +20,9 @@ import { useNavigation } from '@react-navigation/native';
 import { LinearGradient } from 'expo-linear-gradient';
 import { Ionicons } from '@expo/vector-icons';
 import { useRecommendation } from '../context/RecommendationContext';
+import { usePremium } from '../context/PremiumContext';
+import api from '../services/api';
+import { logEvent } from '../services/analyticsService';
 
 const TIME_OPTIONS = [
   { value: 15, label: '15 min', description: 'Quick break', icon: '⚡' },
@@ -32,7 +35,12 @@ const TIME_OPTIONS = [
 const TimeSelectScreen = () => {
   const navigation = useNavigation();
   const { preferences, updatePreference } = useRecommendation();
+  const { isPremium } = usePremium();
   const [isNavigating, setIsNavigating] = useState(false);
+
+  // Backlog Mode (premium): whether a Steam library is synced.
+  // null = unknown (not fetched yet or fetch failed).
+  const [librarySynced, setLibrarySynced] = useState(null);
 
   // Staggered animation for options
   const animValues = useRef(TIME_OPTIONS.map(() => new Animated.Value(0))).current;
@@ -49,19 +57,48 @@ const TimeSelectScreen = () => {
     Animated.stagger(80, animations).start();
   }, []);
 
-  // Reset navigation state when screen comes back into focus
+  // Reset navigation state when screen comes back into focus, and refresh
+  // library status so returning from Connect Steam unlocks the toggle.
   useEffect(() => {
     const unsubscribe = navigation.addListener('focus', () => {
       setIsNavigating(false);
+      if (isPremium) {
+        api
+          .getSteamLibraryStatus()
+          .then((status) => setLibrarySynced(!!status?.connected))
+          .catch(() => {});
+      }
     });
     return unsubscribe;
-  }, [navigation]);
+  }, [navigation, isPremium]);
 
   const handleSelect = (value) => {
     if (isNavigating) return; // Prevent double-tap navigation
     setIsNavigating(true);
     updatePreference('timeAvailable', value);
     navigation.navigate('MoodSelect');
+  };
+
+  const handleModeSelect = (libraryOnly) => {
+    if (!libraryOnly) {
+      updatePreference('libraryOnly', false);
+      return;
+    }
+    if (!isPremium) {
+      // Locked: open the premium sheet, never interrupt the default path
+      logEvent('backlog_mode_locked_tap', {});
+      navigation.navigate('Premium');
+      return;
+    }
+    if (librarySynced === false || librarySynced === null) {
+      // No synced library (or status unknown): route to Connect Steam —
+      // it shows current state and the way to fix it either way
+      logEvent('backlog_mode_needs_sync', {});
+      navigation.navigate('ConnectSteam');
+      return;
+    }
+    logEvent('backlog_mode_selected', {});
+    updatePreference('libraryOnly', true);
   };
 
   return (
@@ -99,6 +136,51 @@ const TimeSelectScreen = () => {
           <Text style={styles.stepLabel}>STEP 1 OF 3</Text>
           <Text style={styles.question}>How much time do you have?</Text>
           <Text style={styles.hint}>We'll find games that fit your schedule</Text>
+
+          {/* Backlog Mode toggle (premium) */}
+          <View style={styles.modeToggle}>
+            <Pressable
+              style={[styles.modePill, !preferences.libraryOnly && styles.modePillActive]}
+              onPress={() => handleModeSelect(false)}
+              accessibilityLabel="Recommend from all games"
+            >
+              <Text
+                style={[
+                  styles.modePillText,
+                  !preferences.libraryOnly && styles.modePillTextActive,
+                ]}
+              >
+                Anything
+              </Text>
+            </Pressable>
+            <Pressable
+              style={[styles.modePill, preferences.libraryOnly && styles.modePillActive]}
+              onPress={() => handleModeSelect(true)}
+              accessibilityLabel="Recommend from my Steam backlog"
+            >
+              {!isPremium && (
+                <Ionicons
+                  name="lock-closed"
+                  size={13}
+                  color={preferences.libraryOnly ? '#ffffff' : '#a0a0a0'}
+                  style={styles.modePillIcon}
+                />
+              )}
+              <Text
+                style={[
+                  styles.modePillText,
+                  preferences.libraryOnly && styles.modePillTextActive,
+                ]}
+              >
+                My backlog
+              </Text>
+            </Pressable>
+          </View>
+          {preferences.libraryOnly && (
+            <Text style={styles.modeHint}>
+              Picking from your unplayed Steam games
+            </Text>
+          )}
 
           {/* Options */}
           <View style={styles.options}>
@@ -233,7 +315,43 @@ const styles = StyleSheet.create({
     fontSize: 16,
     color: '#808090',
     textAlign: 'center',
-    marginBottom: 40,
+    marginBottom: 24,
+  },
+  modeToggle: {
+    flexDirection: 'row',
+    alignSelf: 'center',
+    backgroundColor: 'rgba(255, 255, 255, 0.06)',
+    borderRadius: 999,
+    padding: 4,
+    marginBottom: 16,
+  },
+  modePill: {
+    flexDirection: 'row',
+    alignItems: 'center',
+    paddingVertical: 8,
+    paddingHorizontal: 18,
+    borderRadius: 999,
+  },
+  modePillActive: {
+    backgroundColor: '#f857a6',
+  },
+  modePillIcon: {
+    marginRight: 5,
+  },
+  modePillText: {
+    fontSize: 14,
+    fontWeight: '600',
+    color: '#a0a0a0',
+  },
+  modePillTextActive: {
+    color: '#ffffff',
+  },
+  modeHint: {
+    fontSize: 13,
+    color: '#4ade80',
+    textAlign: 'center',
+    marginTop: -8,
+    marginBottom: 16,
   },
   options: {
     gap: 12,

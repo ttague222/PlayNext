@@ -372,6 +372,12 @@ const GameCard = ({ game, rank, onAccept, onAlreadyPlayed, onNotForMe, onSave, i
                   <Text style={styles.explanationText}>{game.explanation.style_fit}</Text>
                 </View>
               )}
+              {game.explanation.library_fit && (
+                <View style={styles.explanationPoint}>
+                  <Ionicons name="logo-steam" size={14} color="#4ade80" style={styles.explanationIcon} />
+                  <Text style={styles.explanationText}>{game.explanation.library_fit}</Text>
+                </View>
+              )}
             </View>
           </View>
         )}

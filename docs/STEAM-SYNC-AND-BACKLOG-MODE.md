@@ -140,9 +140,9 @@ library_only: bool = Field(
 | 2 | `library_service` + `/library/steam/*` routes + tests | ✅ Built |
 | 3 | Mobile Connect Steam UI + free exclusion wiring + "In your library" chip | ✅ Built |
 | 4 | `library_only` engine path + fallback + tests | ✅ Built |
-| 5 | Backlog toggle UI + premium gate | 1–2 days |
+| 5 | Backlog toggle UI + premium gate | ✅ Built |
 
-Steps 1–3 are the free tier (a complete, review-complaint-fixing release on their own; ship prerequisite: create the `STEAM_WEB_API_KEY` secret — see the comment in `.github/workflows/api-deploy.yml`). Steps 4–5 follow as the premium release with the $2.99 price move.
+All five steps are built. Ship prerequisites: create the `STEAM_WEB_API_KEY` secret (see the comment in `.github/workflows/api-deploy.yml`), update the Premium screen / store copy to name Backlog Mode, and make the $2.99 price move with the release that carries it. Mode choice is deliberately per-session: `libraryOnly` resets with the other session preferences, so the default two-tap flow stays untouched.
 
 ## 10. Success metrics
 
