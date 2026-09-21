@@ -1,15 +1,19 @@
 # PlayNxt Roadmap
 
-## Current State (as of 2026-09-17)
+## Current State (as of 2026-09-21)
 
+- **1.3.0 feature set merged to main, backend LIVE on Cloud Run** (PR #2, 2026-09-21): free Steam library sync (`/library/steam` endpoints; played games excluded from picks like Not For Me; "In your library" chip), premium **Backlog Mode** (`library_only` engine path with never-empty catalog fallback), and **share cards** (branded 1080×1350 image via the native share sheet, campaign-tagged links). Versions bumped to 1.3.0 (iOS build 15 / versionCode 22); full checklist in `docs/runbooks/ship-1-3-0.md`. **Ship gates**: create the `STEAM_WEB_API_KEY` secret + flip the deploy line (Steam endpoints 503 until then), device pass, then `eas build/submit`. Price held at **$1.99** pending `backlog_mode_locked_tap` conversion data
+- **PlayNxt is on the web**: **playnxt.io** purchased (Vercel-registered 2026-09-21; DNS propagating at time of writing — `playnxt-web.vercel.app` live), separate repo `ttague222/playnxt-web` auto-deploying via Vercel. Web quiz mirrors the app: time → mood → optional filters (mood-gated genres, platforms, play mode, surprise toggle) → 3 picks with RAWG cover art (`VITE_RAWG_API_KEY` in Vercel), 3 rerolls/day then a download gate; install links tagged `utm_source=web_quiz`. API `CORS_ORIGINS` set for the web origins (PR #4). Next per `docs/SHAREABLE-RESULTS.md`: `/pick/<game>` share landing pages, then SEO list pages
+- Store copy for 1.3.0 drafted in `store/` (description + What's New both consoles) — paste only with the release; premium screen now leads with Backlog Mode
+- CI: Mobile Build workflow fixed (Node 20→22 for latest eas-cli, PR #3 — it had silently broken on 2026-09-17); run-on "Why this fits" summaries fixed server-side for all clients (PR #5, `ensure_sentence`)
 - **1.2.0 shipped 2026-09-17**: Android submitted to the Play production track via the API (first automated Android submit); iOS build 14 uploaded to ASC — Tom creates the 1.2.0 version record (label = binary, track convergence) and submits for review. Emulator-verified end to end. Known papercut for next release: Cloud Run cold start (~17s) exceeds the app request timeout on first use of the day — consider min-instances=1 or longer client timeout
 - **1.1.0 live on both stores** (approved 2026-08-21) — the full premium build (Smart History, Advanced Filters, push pre-prompt, What's New screen), plus ATT compliance, Firebase Analytics across the funnel, the store review prompt, and the consolidated recommendation fixes (staleness protection, Not For Me exclusion, uncapped ranking, time-affinity scoring, subscription-taxonomy bridge)
 - API: consolidated engine live on Cloud Run; in-process games cache (~1,100 Firestore reads/request eliminated); SendGrid removed; `/config` POST auth-guarded; `ad_interval` raised 3→4 per review feedback
 - ASO: Apple metadata updated (subtitle + keywords, title kept); Play listing intentionally held as control until ~2026-09-03
 - **Catalog: 1,390 unique games** — expanded ~330 games in the 08-22→08-24 push (curated batches A–M), deduped, store-linked to a documented tail of 4, current through Aug 2026 (see Catalog Health below)
 - `battlenet` store key added across API model, mobile UI, and web admin (chip renders from 1.2.0; older builds safely ignore it)
-- Tests: backend 139/139, mobile jest 142/142, expo-doctor 18/18
-- Release pipeline: EAS build + submit works end to end on BOTH platforms — Play service-account API verified working 2026-08-24 (test edit created/deleted), so 1.2.0 submits via `eas submit -p all`; Android upload key in three places (password manager, EAS default, local); next release must use **1.2.0 on both the ASC version label and the binary** to converge the version tracks — full checklist in `docs/runbooks/ship-1-2-0.md`
+- Tests: backend 190/190, mobile jest 176/176, expo-doctor 18/18 (locally; two checks are network-dependent)
+- Release pipeline: EAS build + submit works end to end on BOTH platforms — Play service-account API verified working 2026-08-24 (test edit created/deleted), so 1.2.0 submits via `eas submit -p all`; Android upload key in three places (password manager, EAS default, local); next release must use **1.2.0 on both the ASC version label and the binary** to converge the version tracks — 1.2.0 converged the tracks; 1.3.0 checklist in `docs/runbooks/ship-1-3-0.md`
 
 ---
 
@@ -56,7 +60,7 @@ With ~23 installs, feature ROI = ratings + retention (which feed discoverability
 | Deferred (Tom's call) | Affiliate links: sign up (Humble/Fanatical/GMG/GOG), flip `ENABLE_AFFILIATE_TRACKING` | Zero dev | Revenue stream on already-built UI, whenever wanted |
 | ✅ Done 08-21 | Keystore backup (password manager + EAS default credential) and CI platform default | Hours | Upload key now in three places |
 | ✅ Built 08-24 (ships in 1.2.0) | "Why not?" + free-tier learning from own signals | 2–4 days | Done: WhyNotModal collects rejection reasons; engine permanently excludes rejected games server-side and applies free-tier taste nudges (±0.10) from the user's own signals — no premium flag. Plus: undo toast (rejection is permanent, so misclicks need recovery), reason chips in the Not For Me list, and full modal funnel analytics (opened/reason/skip/already-played/undo). API live on deploy; UI ships with the 1.2.0 binary |
-| Gated | Steam library sync (Steam only, first) | 1–2 wks | Explicitly requested by a reviewer; build only if analytics shows retention worth investing in. Full free/premium spec: `docs/STEAM-SYNC-AND-BACKLOG-MODE.md` (free sync fixes the complaint; premium "Backlog Mode" is the conversion hook). Companion growth spec: `docs/SHAREABLE-RESULTS.md` |
+| ✅ Built 09-21 (ships in 1.3.0) | Steam library sync + Backlog Mode + share cards | 1 day (spec-first) | The reviewer complaint is fixed in the free tier (sync excludes played games); Backlog Mode is the premium conversion hook; share cards are the growth loop. Specs kept as-built: `docs/STEAM-SYNC-AND-BACKLOG-MODE.md`, `docs/SHAREABLE-RESULTS.md`. Backend live on merge; UI ships with the 1.3.0 binary |
 | Declined | Archive/collection depth | — | Contradicts "keep track, lightly"; drifts into the tracker camp we deliberately avoid (ASO-PLAN §2) |
 
 ---
