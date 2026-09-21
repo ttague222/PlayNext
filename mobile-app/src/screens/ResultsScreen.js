@@ -567,6 +567,8 @@ const ResultsScreen = () => {
           game={selectedGame}
           onDismiss={handleCelebrationDismiss}
           onKeepBrowsing={handleKeepBrowsing}
+          timeAvailable={preferences.timeAvailable}
+          energyMood={preferences.energyMood}
         />
 
         {/* Post-acceptance Feedback Modal */}

@@ -14,12 +14,19 @@ import {
   StyleSheet,
   Modal,
   Animated,
-  Share,
 } from 'react-native';
 import { LinearGradient } from 'expo-linear-gradient';
-import { buildShareMessage } from '../utils/shareGame';
+import { shareGameCard } from '../services/shareService';
+import ShareCard from './ShareCard';
 
-const CelebrationModal = ({ visible, game, onDismiss, onKeepBrowsing }) => {
+const CelebrationModal = ({
+  visible,
+  game,
+  onDismiss,
+  onKeepBrowsing,
+  timeAvailable = null,
+  energyMood = null,
+}) => {
   const scaleAnim = useRef(new Animated.Value(0)).current;
   const fadeAnim = useRef(new Animated.Value(0)).current;
   const funFactAnim = useRef(new Animated.Value(0)).current;
@@ -105,14 +112,12 @@ const CelebrationModal = ({ visible, game, onDismiss, onKeepBrowsing }) => {
     animateOut(onKeepBrowsing);
   };
 
+  const shareCardRef = useRef(null);
+
   const handleShare = async () => {
     if (!game) return;
-    try {
-      const { title, message } = buildShareMessage(game);
-      await Share.share({ title, message });
-    } catch {
-      // User dismissed or share failed — no-op
-    }
+    // Captures the off-screen ShareCard below; falls back to text-only
+    await shareGameCard(shareCardRef, game, 'celebration');
   };
 
   if (!game) return null;
@@ -125,6 +130,15 @@ const CelebrationModal = ({ visible, game, onDismiss, onKeepBrowsing }) => {
       onRequestClose={handleGoHome}
     >
       <Animated.View style={[styles.overlay, { opacity: fadeAnim }]}>
+        {/* Off-screen share card, captured by handleShare */}
+        <View style={styles.shareCardOffscreen} pointerEvents="none">
+          <ShareCard
+            ref={shareCardRef}
+            game={game}
+            timeAvailable={timeAvailable}
+            energyMood={energyMood}
+          />
+        </View>
         <Animated.View
           style={[
             styles.content,
@@ -248,6 +262,11 @@ const CelebrationModal = ({ visible, game, onDismiss, onKeepBrowsing }) => {
 };
 
 const styles = StyleSheet.create({
+  shareCardOffscreen: {
+    position: 'absolute',
+    left: -1000,
+    top: 0,
+  },
   overlay: {
     flex: 1,
     backgroundColor: 'rgba(0, 0, 0, 0.9)',

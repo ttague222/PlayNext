@@ -5,7 +5,7 @@
  * Fetches game data from API and shows purchase options.
  */
 
-import React, { useState, useEffect } from 'react';
+import React, { useState, useEffect, useRef } from 'react';
 import {
   View,
   Text,
@@ -16,7 +16,6 @@ import {
   Image,
   Linking,
   Alert,
-  Share,
 } from 'react-native';
 import { SafeAreaView } from 'react-native-safe-area-context';
 import { LinearGradient } from 'expo-linear-gradient';
@@ -30,7 +29,8 @@ import {
   trackAffiliateClick,
 } from '../services/affiliateService';
 import { useSavedGames, BUCKET_CONFIG, BUCKET_TYPES } from '../context/SavedGamesContext';
-import { buildShareMessage } from '../utils/shareGame';
+import { shareGameCard } from '../services/shareService';
+import ShareCard from '../components/ShareCard';
 import { logEvent } from '../services/analyticsService';
 import { hapticLight } from '../utils/haptics';
 
@@ -175,6 +175,7 @@ const GameDetailScreen = () => {
   const { moveGame, removeGameFromBucket } = useSavedGames();
 
   const [game, setGame] = useState(null);
+  const shareCardRef = useRef(null);
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState(null);
   const [imageUrl, setImageUrl] = useState(null);
@@ -314,11 +315,8 @@ const GameDetailScreen = () => {
   const handleShare = async () => {
     hapticLight();
     logEvent('game_shared', { game_id: gameId, source: 'detail' });
-    try {
-      await Share.share(buildShareMessage(game || { title: gameTitle }));
-    } catch (err) {
-      // User cancelled or share unavailable — nothing to do
-    }
+    // Captures the off-screen ShareCard below; falls back to text-only
+    await shareGameCard(shareCardRef, game || { title: gameTitle }, 'detail');
   };
 
   const handleSubscriptionPress = async (service) => {
@@ -388,6 +386,10 @@ const GameDetailScreen = () => {
 
   return (
     <LinearGradient colors={['#1a1a2e', '#16213e', '#0f3460']} style={styles.container}>
+      {/* Off-screen share card, captured by handleShare */}
+      <View style={styles.shareCardOffscreen} pointerEvents="none">
+        <ShareCard ref={shareCardRef} game={game || { title: displayTitle }} />
+      </View>
       <SafeAreaView style={styles.safeArea} edges={['top', 'left', 'right', 'bottom']}>
         {/* Header */}
         <View style={styles.header}>
@@ -599,6 +601,11 @@ const GameDetailScreen = () => {
 const styles = StyleSheet.create({
   container: {
     flex: 1,
+  },
+  shareCardOffscreen: {
+    position: 'absolute',
+    left: -1000,
+    top: 0,
   },
   safeArea: {
     flex: 1,

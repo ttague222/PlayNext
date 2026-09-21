@@ -1,6 +1,17 @@
 # Shareable Results — Feature Spec
 
-> Drafted 2026-09-21. Status: **proposed** — not yet scheduled.
+> Drafted 2026-09-21. Status: **v1 built** (same day) — ships with 1.3.0.
+>
+> As-built notes: the two entry points are the game detail screen and the
+> post-accept celebration modal (both upgraded from the existing text-only
+> share); the spec's third entry point — a share icon on each results card —
+> was deliberately skipped, since the celebration modal already covers the
+> results moment and the card is dense. The card is 1080×1350, captured from
+> an off-screen 360×450 view via react-native-view-shot. iOS shares image +
+> message together; Android shares the image via expo-sharing (the card
+> itself carries the branding and store line since text can't ride along).
+> Capture failure falls back to the original text share, so sharing never
+> breaks. Steps below marked accordingly.
 >
 > Goal: turn every good recommendation into a distribution channel. Recommendations are inherently share-shaped ("40 minutes, winding down → play Unpacking, here's why") but today they die inside the app.
 
@@ -61,9 +72,9 @@ North-star for the feature: installs attributed to `share_card` campaign links, 
 
 ## 7. Estimate
 
-| Step | Scope | Est. |
+| Step | Scope | Status |
 |---|---|---|
-| 1 | `ShareCard` component + view-shot capture + share sheet | 1–2 days |
-| 2 | Entry points + analytics events | 0.5–1 day |
-| 3 | Campaign-parameterized store links | 0.5 day |
+| 1 | `ShareCard` component + view-shot capture + share sheet (`services/shareService.js`) | ✅ Built |
+| 2 | Entry points (detail + celebration) + share_opened/completed/dismissed analytics | ✅ Built |
+| 3 | Campaign-parameterized store links (`utm_source=share_card`, Play install referrer) | ✅ Built |
 | 4 (v2) | Web `/pick` landing page with OG tags | with web quiz project |
