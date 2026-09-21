@@ -10,6 +10,8 @@ A **share card**: a branded image generated on-device from a recommendation, sen
 
 v1 is entirely client-side (no new API surface). v2 adds a web landing page per shared pick once the web quiz exists.
 
+**Existing foundation:** `mobile-app/src/utils/shareGame.js` already builds a text-only share message (title + store links) for accepted games. The share card upgrades that path — `buildShareMessage` stays as the accompanying text (§3), the image rides along with it.
+
 ## 2. Card design
 
 One card = one game + the context that produced it. Contents, all already present in `GameRecommendation`:
