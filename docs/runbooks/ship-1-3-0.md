@@ -75,6 +75,14 @@ npx eas-cli build --platform all --profile production
 Same credentials setup as 1.2.0 (EAS default Android key, stored ASC API
 key).
 
+Build from the local machine, not the GitHub Actions dispatch: the CI
+runner has no `GoogleService-Info.plist` / `google-services.json`
+(gitignored), and eas-cli needs them locally to resolve iOS entitlements
+before upload (run 35618290416 failed exactly there, 2026-09-21). The
+workflow now materializes them from `GOOGLE_SERVICE_INFO_PLIST_B64` /
+`GOOGLE_SERVICES_JSON_B64` repo secrets — once those are added, CI
+dispatch works too.
+
 ## Device verification (MANDATORY before any submit)
 
 Emulator/production-artifact rule from 1.1.0 still applies, plus the two

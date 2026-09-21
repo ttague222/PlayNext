@@ -58,7 +58,6 @@ jobs:
 
       - name: Run type check
         run: npx tsc --noEmit
-        continue-on-error: true
 
       - name: Determine build parameters
         id: build-params
@@ -73,6 +72,26 @@ jobs:
             echo "platform=skip" >> $GITHUB_OUTPUT
             echo "profile=preview" >> $GITHUB_OUTPUT
           fi
+
+      - name: Materialize Firebase client configs
+        if: steps.build-params.outputs.platform != 'skip'
+        env:
+          GOOGLE_SERVICE_INFO_PLIST_B64: ${{ secrets.GOOGLE_SERVICE_INFO_PLIST_B64 }}
+          GOOGLE_SERVICES_JSON_B64: ${{ secrets.GOOGLE_SERVICES_JSON_B64 }}
+        run: |
+          # eas-cli evaluates app.config.js on this runner (iOS entitlements
+          # resolution) before uploading, so both gitignored Firebase client
+          # files must exist here — EAS build servers separately receive them
+          # via the GOOGLE_SERVICE_INFO_PLIST / GOOGLE_SERVICES_JSON file-type
+          # env vars in the EAS environment.
+          if [ -z "$GOOGLE_SERVICE_INFO_PLIST_B64" ] || [ -z "$GOOGLE_SERVICES_JSON_B64" ]; then
+            echo "::error::Repo secrets GOOGLE_SERVICE_INFO_PLIST_B64 and GOOGLE_SERVICES_JSON_B64 are required for CI builds."
+            echo "Create them from the local files: base64 -i mobile-app/GoogleService-Info.plist and base64 -i mobile-app/google-services.json"
+            echo "(GitHub repo -> Settings -> Secrets and variables -> Actions). Alternatively build from a machine that has the files: npx eas-cli build --platform all --profile production"
+            exit 1
+          fi
+          echo "$GOOGLE_SERVICE_INFO_PLIST_B64" | base64 -d > GoogleService-Info.plist
+          echo "$GOOGLE_SERVICES_JSON_B64" | base64 -d > google-services.json
 
       - name: Build (all platforms)
         if: steps.build-params.outputs.platform == 'all'
