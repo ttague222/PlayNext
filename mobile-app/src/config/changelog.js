@@ -10,7 +10,7 @@ export const CHANGELOG = {
       {
         icon: 'logo-steam',
         headline: 'Steam library sync',
-        body: 'Connect Steam and picks skip games you already played.',
+        body: "Connect Steam to stop seeing games you've already played.",
         cta: { label: 'Connect Steam', screen: 'ConnectSteam' },
       },
       {
@@ -21,7 +21,7 @@ export const CHANGELOG = {
       },
       {
         icon: 'calendar-outline',
-        headline: 'Coming Soon + ratings',
+        headline: 'Coming soon & ratings',
         body: "See what's launching next, and rate games you've played.",
         cta: { label: "See What's New", screen: 'WhatsNew' },
       },
