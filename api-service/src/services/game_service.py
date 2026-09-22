@@ -16,6 +16,22 @@ from ..models import Game, GameCreate, GameSummary, Platform
 logger = logging.getLogger("playnext-api.games")
 
 
+def is_released(release_date, today=None):
+    """True unless release_date is a valid future ISO date.
+
+    Missing/malformed dates count as released — bad data must never hide
+    a game from the engine (PRD §5.6: results must never be empty).
+    """
+    if not release_date:
+        return True
+    today = today or datetime.now(timezone.utc).date()
+    try:
+        parsed = datetime.strptime(release_date, "%Y-%m-%d").date()
+    except (ValueError, TypeError):
+        return True
+    return parsed <= today
+
+
 class GameService:
     """Service for game catalog operations."""
 
