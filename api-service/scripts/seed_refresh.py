@@ -109,6 +109,19 @@ def main():
     games = json.loads(REFRESH_FILE.read_text(encoding="utf-8"))
     key = rawg_key()
 
+    # Refuse uncurated candidate entries (monthly new-release candidates land
+    # here with curation fields still blank — see new_release_candidates.py).
+    # A person must fill these in before the batch is safe to seed.
+    curated = []
+    for g in games:
+        if any(v == "FILL_ME" for v in (g.get("energy_level"), g.get("time_to_fun"),
+                                        g.get("stop_friendliness"), g.get("description_short"))) \
+                or not g.get("time_tags"):
+            print(f"SKIP (uncurated): {g.get('game_id') or g.get('id')}")
+            continue
+        curated.append(g)
+    games = curated
+
     # slug lookup from the candidate dump if present (scratchpad optional)
     slugs = {}
     for cand_path in sys.argv[1:]:
