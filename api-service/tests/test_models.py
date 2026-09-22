@@ -32,6 +32,7 @@ from src.models import (
     SignalType,
     UserSignalCreate,
     FeedbackRequest,
+    RatingUpdate,
 )
 
 
@@ -219,6 +220,26 @@ class TestFeedbackRequest:
         )
         assert feedback.game_id == "game-001"
         assert feedback.signal_type == SignalType.ACCEPTED
+
+
+class TestRatingUpdate:
+    """Test RatingUpdate model's pattern validation on `rating`."""
+
+    def test_rating_up_is_valid(self):
+        update = RatingUpdate(rating="up")
+        assert update.rating == "up"
+
+    def test_rating_down_is_valid(self):
+        update = RatingUpdate(rating="down")
+        assert update.rating == "down"
+
+    def test_rating_none_is_valid(self):
+        update = RatingUpdate()
+        assert update.rating is None
+
+    def test_rating_bad_value_rejected(self):
+        with pytest.raises(ValidationError):
+            RatingUpdate(rating="sideways")
 
 
 class TestGameModels:
