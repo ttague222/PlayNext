@@ -52,6 +52,16 @@ const STOP_FRIENDLINESS_LABELS = {
   commitment: 'Block of time',
 };
 
+// Coming Soon rows navigate here for games that haven't released yet.
+// Nobody can have "played" an unreleased game, so the rating row (and a
+// thumbs-down, which is a PERMANENT engine exclusion) must not appear.
+const isReleased = (releaseDate) => {
+  if (!releaseDate) return true; // missing/unknown -> assume released
+  const d = new Date(`${releaseDate}T00:00:00`);
+  if (Number.isNaN(d.getTime())) return true;
+  return d <= new Date();
+};
+
 // Subscription service branding
 const SUBSCRIPTION_CONFIG = {
   xbox_game_pass: {
@@ -201,7 +211,11 @@ const GameDetailScreen = () => {
       setGame(gameData);
 
       // Rating is optional decoration; never block the screen on it.
-      api.getGameRating(gameId).then(setRating).catch(() => {});
+      // Skip entirely for unreleased games — the rating row doesn't render
+      // for them, so fetching their rating would be a pointless request.
+      if (isReleased(gameData?.release_date)) {
+        api.getGameRating(gameId).then(setRating).catch(() => {});
+      }
 
       // Fetch image
       const imageResult = await getGameImage(gameId, gameData.title || gameTitle);
@@ -519,6 +533,8 @@ const GameDetailScreen = () => {
           )}
 
           {/* Rating (spec 2026-09-22: thumbs only, % shown at threshold) */}
+          {/* Unreleased games (Coming Soon) can't have been played — hide the row */}
+          {isReleased(game?.release_date) && (
           <View style={styles.ratingRow}>
             <Text style={styles.ratingLabel}>Played it?</Text>
             <View style={styles.ratingButtons}>
@@ -555,6 +571,7 @@ const GameDetailScreen = () => {
               <Text style={styles.ratingPercent}>{rating.percent_liked}% of players liked this</Text>
             )}
           </View>
+          )}
 
           {/* Fun Fact */}
           {game?.fun_fact && (
