@@ -20,6 +20,8 @@ class SignalType(str, Enum):
     SKIPPED = "skipped"
     ACCEPTED = "accepted"
     ALREADY_PLAYED = "already_played"  # User already played this game recently
+    RATED_UP = "rated_up"        # GameDetail thumbs up — feeds taste profile
+    RATED_DOWN = "rated_down"    # GameDetail thumbs down — excluded like not_good_fit
 
 
 class UserBase(BaseModel):

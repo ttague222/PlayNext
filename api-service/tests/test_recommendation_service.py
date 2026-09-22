@@ -1170,3 +1170,18 @@ class TestUnreleasedExclusion:
         assert games[0]["game_id"] not in ids
         assert games[1]["game_id"] in ids
         assert games[2]["game_id"] in ids
+
+
+class TestRatingSignalsInEngine:
+    def test_rated_down_is_a_rejected_signal(self):
+        from src.services.recommendation_service import REJECTED_SIGNAL_TYPES
+        assert "rated_down" in REJECTED_SIGNAL_TYPES
+
+    def test_rated_up_is_a_positive_signal(self):
+        from src.services.recommendation_service import POSITIVE_SIGNAL_TYPES
+        assert "rated_up" in POSITIVE_SIGNAL_TYPES
+
+    def test_signal_type_enum_has_rating_values(self):
+        from src.models import SignalType
+        assert SignalType.RATED_UP.value == "rated_up"
+        assert SignalType.RATED_DOWN.value == "rated_down"

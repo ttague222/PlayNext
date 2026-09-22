@@ -79,10 +79,10 @@ SUBSCRIPTION_ALIASES = {
 # Free-tier learning ("Why not?" feature). Games with these signals are
 # permanently excluded from a signed-in user's results, and their tags feed
 # the avoid-profile penalty in scoring.
-REJECTED_SIGNAL_TYPES = {"not_good_fit", "played_didnt_stick"}
+REJECTED_SIGNAL_TYPES = {"not_good_fit", "played_didnt_stick", "rated_down"}
 # Positive signals feed the free-tier taste nudge (same set the premium
 # favor_history profile uses).
-POSITIVE_SIGNAL_TYPES = {"worked", "played_loved", "accepted"}
+POSITIVE_SIGNAL_TYPES = {"worked", "played_loved", "accepted", "rated_up"}
 # Free-tier nudges are deliberately smaller than the premium favor_history
 # boost (0.15): enough to shift near-ties, not enough to override fit.
 FREE_TASTE_STEP = 0.05
