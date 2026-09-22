@@ -1145,3 +1145,28 @@ class TestWhyNotFreeTierLearning:
             with_none = service._score_games([dict(g)], request,
                                              free_profile=None, avoid_profile=None)
         assert base[0]["score"] == with_none[0]["score"]
+
+
+class TestUnreleasedExclusion:
+    """Games with a future release_date must never be recommended (spec: Coming Soon)."""
+
+    @pytest.fixture
+    def service(self, mock_firebase):
+        with patch('src.services.recommendation_service.get_collection'):
+            from src.services.recommendation_service import RecommendationService
+            return RecommendationService()
+
+    @pytest.mark.asyncio
+    async def test_filter_games_drops_unreleased(self, service, sample_games):
+        games = [dict(g) for g in sample_games]
+        games[0]["release_date"] = "2099-01-01"   # far future - always upcoming
+        games[1]["release_date"] = "2020-01-01"   # long released
+        # games[2] has no release_date - treated as released
+        # time_available=60 so every sample game's time_tags/energy_level
+        # clears the strict filter - this test is only about release_date.
+        request = RecommendationRequest(time_available=60, energy_mood=EnergyMood.CASUAL)
+        filtered, _, _ = await service._filter_games(games, request, user_id=None)
+        ids = {g["game_id"] for g in filtered}
+        assert games[0]["game_id"] not in ids
+        assert games[1]["game_id"] in ids
+        assert games[2]["game_id"] in ids

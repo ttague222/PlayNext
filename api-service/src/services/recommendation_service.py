@@ -12,6 +12,7 @@ from datetime import datetime, timedelta
 from typing import Optional
 
 from ..db.firebase import get_collection, GAMES_COLLECTION, SIGNALS_COLLECTION, LIBRARIES_COLLECTION
+from .game_service import is_released
 from ..models import (
     RecommendationRequest,
     RecommendationResponse,
@@ -378,6 +379,11 @@ class RecommendationService:
         if library_played:
             excluded.update(library_played)
             logger.info(f"User {user_id}: excluding {len(library_played)} played library games")
+
+        # Unreleased games (future release_date) are catalog-visible for the
+        # Coming Soon section but must never be recommended - the engine only
+        # suggests games the user can play tonight.
+        games = [g for g in games if is_released(g.get("release_date"))]
 
         # Remove excluded games
         original_count = len(games)
