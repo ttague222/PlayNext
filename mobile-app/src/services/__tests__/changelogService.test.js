@@ -2,6 +2,13 @@
  * changelogService — decides whether the post-update changelog modal shows.
  * Rules (spec 2026-09-22): fresh installs never see it; it shows once per
  * version, only when a changelog entry exists for the running version.
+ *
+ * Fresh-install protection lives in App.js, not here: App.js stamps
+ * LAST_SEEN_VERSION_KEY via markChangelogSeen when the welcome flow
+ * completes, and only calls shouldShowChangelog after welcome has already
+ * been seen. So at the service level, an empty stored key means the caller
+ * upgraded from a version before this key existed (a pre-tracking
+ * upgrader) — see the "no stored version" tests below.
  */
 import AsyncStorage from '@react-native-async-storage/async-storage';
 import {
@@ -19,10 +26,17 @@ const ENTRIES = { '1.4.0': { title: 'Test', features: [] } };
 beforeEach(() => AsyncStorage.clear());
 
 describe('shouldShowChangelog', () => {
-  it('fresh install: records version, shows nothing', async () => {
+  it('no stored version with an entry: shows (pre-tracking upgrader)', async () => {
     const show = await shouldShowChangelog('1.4.0', ENTRIES);
+    expect(show).toBe(true);
+    // Not marked seen here — the dismiss/CTA handler owns that write.
+    expect(await AsyncStorage.getItem(LAST_SEEN_VERSION_KEY)).toBeNull();
+  });
+
+  it('no stored version without an entry: records, does not show', async () => {
+    const show = await shouldShowChangelog('1.5.0', ENTRIES);
     expect(show).toBe(false);
-    expect(await AsyncStorage.getItem(LAST_SEEN_VERSION_KEY)).toBe('1.4.0');
+    expect(await AsyncStorage.getItem(LAST_SEEN_VERSION_KEY)).toBe('1.5.0');
   });
 
   it('upgrade with an entry: shows', async () => {

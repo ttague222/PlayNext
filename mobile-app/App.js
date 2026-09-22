@@ -132,7 +132,17 @@ const App = () => {
     return (
       <SafeAreaProvider>
         <StatusBar style="light" />
-        <WelcomeScreen onComplete={() => setShowWelcome(false)} />
+        <WelcomeScreen
+          onComplete={() => {
+            // Genuine fresh install: stamp the version now so this launch's
+            // welcome flow itself counts as "seen" — otherwise the next
+            // launch's empty-key check would misread this user as a
+            // pre-tracking upgrader. Fire-and-forget; storage failures are
+            // swallowed by markChangelogSeen.
+            markChangelogSeen(Constants.expoConfig?.version);
+            setShowWelcome(false);
+          }}
+        />
       </SafeAreaProvider>
     );
   }
@@ -162,8 +172,11 @@ const App = () => {
           onDidntWork={() => handleFollowUp(false)}
           onDismiss={() => setFollowUpData(null)}
         />
+        {/* Defer to the follow-up modal so two RN Modals never present at
+            once at cold start; the changelog isn't marked seen until it's
+            interacted with, so it resurfaces cleanly once follow-up closes. */}
         <ChangelogModal
-          visible={!!changelogEntry}
+          visible={!!changelogEntry && !followUpData}
           entry={changelogEntry}
           onFeaturePress={handleChangelogCta}
           onDismiss={dismissChangelog}

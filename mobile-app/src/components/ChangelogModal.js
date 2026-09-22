@@ -70,6 +70,7 @@ const styles = StyleSheet.create({
   },
   features: {
     flexGrow: 0,
+    flexShrink: 1,
   },
   featureRow: {
     flexDirection: 'row',

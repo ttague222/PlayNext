@@ -19,13 +19,27 @@ export const markChangelogSeen = async (version) => {
  * @param {string} currentVersion - running app version (Constants.expoConfig.version)
  * @param {object} [entries] - changelog map (injectable for tests; defaults to CHANGELOG)
  * @returns {Promise<boolean>} whether to show the modal for currentVersion
+ *
+ * No stored key here does NOT mean a fresh install: App.js only calls this
+ * after the welcome screen has already been seen, and it stamps
+ * LAST_SEEN_VERSION_KEY itself when the welcome flow completes — so a
+ * genuine fresh install never reaches this function with an empty key.
+ * A missing key here means the user upgraded from a version before this
+ * tracking key existed (pre-1.4.0). If there's an entry for currentVersion,
+ * show it (don't mark seen — the dismiss/CTA handler owns that write, same
+ * as any other upgrade path). If there's nothing to announce, record and
+ * stay quiet, same as the "upgrade without an entry" case below.
  */
 export const shouldShowChangelog = async (currentVersion, entries = CHANGELOG) => {
   if (!currentVersion) return false;
   try {
     const lastSeen = await AsyncStorage.getItem(LAST_SEEN_VERSION_KEY);
     if (!lastSeen) {
-      // Fresh install: nothing is "new" — record and stay quiet.
+      if (entries[currentVersion]) {
+        // Pre-tracking upgrader: announce this version's entry.
+        return true;
+      }
+      // Nothing to announce — record so future checks short-circuit.
       await markChangelogSeen(currentVersion);
       return false;
     }
