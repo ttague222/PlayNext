@@ -76,6 +76,7 @@ class GameService:
                     description_short=data.get("description_short", ""),
                     time_to_fun=data.get("time_to_fun", "medium"),
                     stop_friendliness=data.get("stop_friendliness", "checkpoints"),
+                    release_date=data.get("release_date"),
                 ))
 
             return games
@@ -96,6 +97,8 @@ class GameService:
             games = []
             for doc in query.stream():
                 data = doc.to_dict()
+                if not is_released(data.get("release_date")):
+                    continue  # upcoming games belong to /games/upcoming, not What's New
                 games.append(GameSummary(
                     game_id=doc.id,
                     title=data.get("title", ""),
@@ -103,10 +106,50 @@ class GameService:
                     description_short=data.get("description_short", ""),
                     time_to_fun=data.get("time_to_fun", "medium"),
                     stop_friendliness=data.get("stop_friendliness", "checkpoints"),
+                    release_date=data.get("release_date"),
                 ))
             return games
         except Exception as e:
             logger.error(f"Error listing recent games: {e}")
+            return []
+
+    async def list_upcoming_games(self, limit: int = 10) -> list[GameSummary]:
+        """List unreleased games (future release_date), soonest first.
+
+        Firestore narrows to release_date > today; the Python-side filter is
+        the source of truth (and what unit tests exercise).
+        """
+        try:
+            today = datetime.now(timezone.utc).date()
+            today_str = today.isoformat()
+            query = (
+                self.collection
+                .where("release_date", ">", today_str)
+                .order_by("release_date")
+                .limit(limit * 2)  # headroom; Python filter trims
+            )
+            rows = []
+            for doc in query.stream():
+                data = doc.to_dict()
+                rd = data.get("release_date")
+                if is_released(rd, today=today):
+                    continue
+                rows.append((rd, doc.id, data))
+            rows.sort(key=lambda r: r[0])
+            return [
+                GameSummary(
+                    game_id=doc_id,
+                    title=data.get("title", ""),
+                    platforms=[Platform(p) for p in data.get("platforms", [])],
+                    description_short=data.get("description_short", ""),
+                    time_to_fun=data.get("time_to_fun", "medium"),
+                    stop_friendliness=data.get("stop_friendliness", "checkpoints"),
+                    release_date=data.get("release_date"),
+                )
+                for _, doc_id, data in rows[:limit]
+            ]
+        except Exception as e:
+            logger.error(f"Error listing upcoming games: {e}")
             return []
 
     async def create_game(self, game: GameCreate) -> Game:

@@ -55,6 +55,15 @@ async def list_recent_games(
     return await service.list_recent_games(days=days, limit=limit)
 
 
+@router.get("/upcoming", response_model=list[GameSummary])
+async def list_upcoming_games(
+    limit: int = Query(default=10, ge=1, le=25),
+):
+    """List unreleased games, soonest first (for the Coming Soon section)."""
+    service = get_game_service()
+    return await service.list_upcoming_games(limit=limit)
+
+
 @router.get("/{game_id}", response_model=Game)
 async def get_game(game_id: str):
     """

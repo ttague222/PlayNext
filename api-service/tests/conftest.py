@@ -47,6 +47,7 @@ def _make_games_collection(games):
     query.where.return_value = query
     query.offset.return_value = query
     query.limit.return_value = query
+    query.order_by.return_value = query
     collection.limit.return_value = query
     collection.offset.return_value = query
     collection.where.return_value = query
