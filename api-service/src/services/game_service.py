@@ -38,6 +38,18 @@ class GameService:
     def __init__(self):
         self.collection = get_collection(GAMES_COLLECTION)
 
+    def _to_summary(self, doc_id: str, data: dict) -> GameSummary:
+        """Build a GameSummary from a Firestore doc id + its data dict."""
+        return GameSummary(
+            game_id=doc_id,
+            title=data.get("title", ""),
+            platforms=[Platform(p) for p in data.get("platforms", [])],
+            description_short=data.get("description_short", ""),
+            time_to_fun=data.get("time_to_fun", "medium"),
+            stop_friendliness=data.get("stop_friendliness", "checkpoints"),
+            release_date=data.get("release_date"),
+        )
+
     async def get_game(self, game_id: str) -> Optional[Game]:
         """Get a single game by ID."""
         try:
@@ -69,15 +81,7 @@ class GameService:
 
             for doc in docs:
                 data = doc.to_dict()
-                games.append(GameSummary(
-                    game_id=doc.id,
-                    title=data.get("title", ""),
-                    platforms=[Platform(p) for p in data.get("platforms", [])],
-                    description_short=data.get("description_short", ""),
-                    time_to_fun=data.get("time_to_fun", "medium"),
-                    stop_friendliness=data.get("stop_friendliness", "checkpoints"),
-                    release_date=data.get("release_date"),
-                ))
+                games.append(self._to_summary(doc.id, data))
 
             return games
         except Exception as e:
@@ -92,23 +96,15 @@ class GameService:
                 self.collection
                 .where("created_at", ">=", cutoff)
                 .order_by("created_at", direction=firestore.Query.DESCENDING)
-                .limit(limit)
+                .limit(limit * 2)  # headroom; Python filter below may drop some
             )
             games = []
             for doc in query.stream():
                 data = doc.to_dict()
                 if not is_released(data.get("release_date")):
                     continue  # upcoming games belong to /games/upcoming, not What's New
-                games.append(GameSummary(
-                    game_id=doc.id,
-                    title=data.get("title", ""),
-                    platforms=[Platform(p) for p in data.get("platforms", [])],
-                    description_short=data.get("description_short", ""),
-                    time_to_fun=data.get("time_to_fun", "medium"),
-                    stop_friendliness=data.get("stop_friendliness", "checkpoints"),
-                    release_date=data.get("release_date"),
-                ))
-            return games
+                games.append(self._to_summary(doc.id, data))
+            return games[:limit]
         except Exception as e:
             logger.error(f"Error listing recent games: {e}")
             return []
@@ -137,15 +133,7 @@ class GameService:
                 rows.append((rd, doc.id, data))
             rows.sort(key=lambda r: r[0])
             return [
-                GameSummary(
-                    game_id=doc_id,
-                    title=data.get("title", ""),
-                    platforms=[Platform(p) for p in data.get("platforms", [])],
-                    description_short=data.get("description_short", ""),
-                    time_to_fun=data.get("time_to_fun", "medium"),
-                    stop_friendliness=data.get("stop_friendliness", "checkpoints"),
-                    release_date=data.get("release_date"),
-                )
+                self._to_summary(doc_id, data)
                 for _, doc_id, data in rows[:limit]
             ]
         except Exception as e:

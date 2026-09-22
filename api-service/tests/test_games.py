@@ -146,6 +146,48 @@ def test_recent_games_propagates_release_date(sample_games):
     assert match["release_date"] == "2020-03-20"
 
 
+def test_recent_games_preserves_count_around_unreleased_filter():
+    """Seed limit+1 recent games where one is unreleased; requesting with
+    that limit should still return `limit` released games, not fewer.
+
+    Guards the headroom-then-trim pattern in list_recent_games: the query
+    must overfetch before the is_released filter drops unreleased games,
+    the same way list_upcoming_games already does.
+    """
+    from datetime import datetime, timezone
+
+    limit = 3
+    now = datetime.now(timezone.utc)
+
+    def _game(game_id, release_date=None):
+        return {
+            "game_id": game_id,
+            "title": f"Game {game_id}",
+            "platforms": ["pc"],
+            "description_short": "A game.",
+            "time_to_fun": "medium",
+            "stop_friendliness": "checkpoints",
+            "created_at": now,
+            "release_date": release_date,
+        }
+
+    games = [
+        _game("released-0"),
+        _game("released-1"),
+        _game("upcoming-0", release_date="2099-01-01"),  # unreleased
+        _game("released-2"),
+    ]
+    assert len(games) == limit + 1
+
+    with _client_for_games(games) as client:
+        response = client.get("/api/games/recent", params={"limit": limit})
+    assert response.status_code == 200
+    data = response.json()
+    assert len(data) == limit
+    ids = {g["game_id"] for g in data}
+    assert "upcoming-0" not in ids
+
+
 class TestIsReleased:
     def test_no_release_date_counts_as_released(self):
         assert is_released(None, today=date(2026, 9, 22)) is True
