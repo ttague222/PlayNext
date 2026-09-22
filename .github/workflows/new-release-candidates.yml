@@ -1,0 +1,54 @@
+# PlayNxt — monthly new-release candidate PR (spec 2026-09-22)
+#
+# Fetches recent + upcoming releases from RAWG, filters out games already in
+# the catalog, and opens a PR with a candidate JSON whose curation fields are
+# blank. A human fills them in on the PR branch, then seeds with
+# seed_refresh.py. This workflow NEVER writes to Firestore.
+
+name: New Release Candidates
+
+on:
+  schedule:
+    - cron: '0 9 5 * *'   # 5th of each month, 09:00 UTC
+  workflow_dispatch:
+
+jobs:
+  candidates:
+    runs-on: ubuntu-latest
+
+    permissions:
+      contents: write
+      pull-requests: write
+
+    steps:
+      - uses: actions/checkout@v6
+
+      - name: Set up Python
+        uses: actions/setup-python@v6
+        with:
+          python-version: '3.11'
+
+      - name: Generate candidate file
+        working-directory: api-service/scripts
+        env:
+          RAWG_API_KEY: ${{ secrets.RAWG_API_KEY }}
+        run: python new_release_candidates.py
+
+      - name: Open candidate PR
+        uses: peter-evans/create-pull-request@v7
+        with:
+          branch: catalog/new-release-candidates
+          commit-message: "data: monthly new-release candidates (uncurated)"
+          title: "Catalog: new-release candidates for review"
+          body: |
+            Automated monthly candidate list from RAWG (recent + upcoming releases,
+            already-cataloged and tombstoned games removed).
+
+            **Before merging:** fill in every `FILL_ME` and empty curation field
+            (`time_tags`, `energy_level`, `mood_tags`, `play_style`, `time_to_fun`,
+            `stop_friendliness`, `multiplayer_modes`, `description_short`) — these
+            are hand-curated, never scraped. Delete entries that don't belong.
+            After merge, seed with:
+            `python seed_refresh.py --file=<candidate file> --apply`
+          add-paths: api-service/scripts/games_data/candidates_*.json
+          delete-branch: true
