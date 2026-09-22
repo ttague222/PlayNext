@@ -1,4 +1,11 @@
-"""Unit tests for notification pure logic."""
+"""Unit tests for notification pure logic.
+
+Note: NotificationService.run_weekly_send() (the announced-only-window /
+first-7-days-of-month gating for the "coming soon" digest) is untested
+I/O -- it pulls from get_game_service() and the device store directly.
+No test here exercises it; covered instead by the unit tests below for
+its pure building blocks (build_digest_message, select_recipients).
+"""
 
 from datetime import datetime, timedelta, timezone
 

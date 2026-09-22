@@ -198,8 +198,22 @@ class NotificationService:
         upcoming = await get_game_service().list_upcoming_games(limit=5)
         recent_dicts = [{"title": g.title} for g in recent]
         upcoming_dicts = [{"title": g.title} for g in upcoming]
-        has_new = len(recent_dicts) > 0 or len(upcoming_dicts) > 0
-        digest_msg = build_digest_message(recent_dicts, upcoming_games=upcoming_dicts)
+        # Once upcoming titles exist, an announced-only week (no recent
+        # releases) would otherwise send a byte-identical "coming soon"
+        # push every week -- the device cap only dedupes on a 7-day
+        # window, so the same digest text keeps clearing it. Restore the
+        # spec's monthly cadence for that standalone case, without adding
+        # new state, by only treating upcoming games as digest-triggering
+        # during the first 7 days of the month. When recent games exist
+        # the "Plus N more coming soon." tail still rides along weekly --
+        # that copy varies with the recent content, so it never repeats
+        # verbatim.
+        announced_only_window = datetime.now(timezone.utc).day <= 7
+        has_new = len(recent_dicts) > 0 or (announced_only_window and len(upcoming_dicts) > 0)
+        digest_msg = build_digest_message(
+            recent_dicts,
+            upcoming_games=upcoming_dicts if (recent_dicts or announced_only_window) else [],
+        )
         reengage_msg = {"title": "Your next game is waiting \U0001F3AE",
                         "body": "Got 20 minutes? Find something to play."}
         devices = self.list_enabled_devices()
