@@ -205,7 +205,12 @@ class SignalService:
         )
         user_rating = None
         if user_id:
-            own = await self.get_user_signals(user_id, game_id=game_id, limit=10)
+            own = await self.get_user_signals(
+                user_id,
+                game_id=game_id,
+                signal_types=[SignalType.RATED_UP, SignalType.RATED_DOWN],
+                limit=10,
+            )
             for s in own:
                 if s.signal_type == SignalType.RATED_UP:
                     user_rating = "up"

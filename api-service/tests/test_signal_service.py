@@ -496,7 +496,10 @@ class TestGameRating:
             "game-001", signal_types=[SignalType.RATED_UP, SignalType.RATED_DOWN]
         )
         service.get_user_signals.assert_awaited_once_with(
-            mock_user["uid"], game_id="game-001", limit=10
+            mock_user["uid"],
+            game_id="game-001",
+            signal_types=[SignalType.RATED_UP, SignalType.RATED_DOWN],
+            limit=10,
         )
         assert summary == {
             "up": 9, "down": 1, "total": 10, "percent_liked": 90, "user_rating": "up",
