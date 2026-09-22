@@ -119,7 +119,8 @@ def main():
     for g in games:
         if any(v == "FILL_ME" for v in (g.get("energy"), g.get("time_to_fun"),
                                         g.get("stop_friendliness"), g.get("description"))) \
-                or not g.get("time_tags") or g.get("year") is None:
+                or not g.get("time_tags") or g.get("year") is None \
+                or not g.get("platforms"):
             print(f"SKIP (uncurated): {g.get('id')}")
             skipped += 1
             continue

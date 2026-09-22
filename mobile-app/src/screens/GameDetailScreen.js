@@ -528,6 +528,7 @@ const GameDetailScreen = () => {
                 activeOpacity={0.7}
                 accessibilityLabel="Thumbs up"
                 accessibilityRole="button"
+                accessibilityState={{ selected: rating?.user_rating === 'up' }}
               >
                 <Ionicons
                   name={rating?.user_rating === 'up' ? 'thumbs-up' : 'thumbs-up-outline'}
@@ -541,6 +542,7 @@ const GameDetailScreen = () => {
                 activeOpacity={0.7}
                 accessibilityLabel="Thumbs down"
                 accessibilityRole="button"
+                accessibilityState={{ selected: rating?.user_rating === 'down' }}
               >
                 <Ionicons
                   name={rating?.user_rating === 'down' ? 'thumbs-down' : 'thumbs-down-outline'}
