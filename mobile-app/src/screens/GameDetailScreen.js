@@ -182,6 +182,8 @@ const GameDetailScreen = () => {
   const [fallbackColors, setFallbackColors] = useState(['#667eea', '#764ba2']);
   const [imageLoading, setImageLoading] = useState(true);
   const [imageError, setImageError] = useState(false);
+  const [rating, setRating] = useState(null);        // RatingSummary from API
+  const [ratingBusy, setRatingBusy] = useState(false);
 
   useEffect(() => {
     fetchGameDetails();
@@ -197,6 +199,9 @@ const GameDetailScreen = () => {
     try {
       const gameData = await api.getGame(gameId);
       setGame(gameData);
+
+      // Rating is optional decoration; never block the screen on it.
+      api.getGameRating(gameId).then(setRating).catch(() => {});
 
       // Fetch image
       const imageResult = await getGameImage(gameId, gameData.title || gameTitle);
@@ -324,6 +329,25 @@ const GameDetailScreen = () => {
     if (affiliateUrl) {
       trackAffiliateClick('subscription', service, gameId, game?.title || gameTitle);
       await Linking.openURL(affiliateUrl);
+    }
+  };
+
+  const handleRate = async (value) => {
+    if (ratingBusy) return;
+    const next = rating?.user_rating === value ? null : value;  // tap again to clear
+    hapticLight();
+    logEvent('game_rated', { game_id: gameId, rating: next || 'cleared' });
+    setRatingBusy(true);
+    const previous = rating;
+    // Optimistic flip of the user's own state; counts refresh from the response.
+    setRating((r) => ({ ...(r || { up: 0, down: 0, total: 0, percent_liked: null }), user_rating: next }));
+    try {
+      const summary = await api.setGameRating(gameId, next, game?.title || gameTitle);
+      setRating(summary);
+    } catch {
+      setRating(previous);  // revert on failure
+    } finally {
+      setRatingBusy(false);
     }
   };
 
@@ -493,6 +517,42 @@ const GameDetailScreen = () => {
               )}
             </View>
           )}
+
+          {/* Rating (spec 2026-09-22: thumbs only, % shown at threshold) */}
+          <View style={styles.ratingRow}>
+            <Text style={styles.ratingLabel}>Played it?</Text>
+            <View style={styles.ratingButtons}>
+              <TouchableOpacity
+                style={[styles.ratingButton, rating?.user_rating === 'up' && styles.ratingButtonActive]}
+                onPress={() => handleRate('up')}
+                activeOpacity={0.7}
+                accessibilityLabel="Thumbs up"
+                accessibilityRole="button"
+              >
+                <Ionicons
+                  name={rating?.user_rating === 'up' ? 'thumbs-up' : 'thumbs-up-outline'}
+                  size={20}
+                  color={rating?.user_rating === 'up' ? '#f857a6' : '#a0a0a0'}
+                />
+              </TouchableOpacity>
+              <TouchableOpacity
+                style={[styles.ratingButton, rating?.user_rating === 'down' && styles.ratingButtonActive]}
+                onPress={() => handleRate('down')}
+                activeOpacity={0.7}
+                accessibilityLabel="Thumbs down"
+                accessibilityRole="button"
+              >
+                <Ionicons
+                  name={rating?.user_rating === 'down' ? 'thumbs-down' : 'thumbs-down-outline'}
+                  size={20}
+                  color={rating?.user_rating === 'down' ? '#f857a6' : '#a0a0a0'}
+                />
+              </TouchableOpacity>
+            </View>
+            {rating?.percent_liked != null && (
+              <Text style={styles.ratingPercent}>{rating.percent_liked}% of players liked this</Text>
+            )}
+          </View>
 
           {/* Fun Fact */}
           {game?.fun_fact && (
@@ -842,6 +902,35 @@ const styles = StyleSheet.create({
   collectionBadgeText: {
     fontSize: 14,
     color: '#808080',
+    fontWeight: '500',
+  },
+  ratingRow: {
+    flexDirection: 'row',
+    alignItems: 'center',
+    flexWrap: 'wrap',
+    gap: 10,
+    marginBottom: 20,
+  },
+  ratingLabel: {
+    fontSize: 14,
+    fontWeight: '600',
+    color: '#a0a0a0',
+  },
+  ratingButtons: {
+    flexDirection: 'row',
+    gap: 8,
+  },
+  ratingButton: {
+    padding: 10,
+    borderRadius: 10,
+    backgroundColor: 'rgba(255, 255, 255, 0.06)',
+  },
+  ratingButtonActive: {
+    backgroundColor: 'rgba(248, 87, 166, 0.15)',
+  },
+  ratingPercent: {
+    fontSize: 13,
+    color: '#c0c0c0',
     fontWeight: '500',
   },
 });
