@@ -147,12 +147,19 @@ def test_recent_games_propagates_release_date(sample_games):
 
 
 def test_recent_games_preserves_count_around_unreleased_filter():
-    """Seed limit+1 recent games where one is unreleased; requesting with
-    that limit should still return `limit` released games, not fewer.
+    """Seed MORE than `limit` released games plus one unreleased game;
+    requesting with that limit must still return exactly `limit` games.
 
-    Guards the headroom-then-trim pattern in list_recent_games: the query
-    must overfetch before the is_released filter drops unreleased games,
-    the same way list_upcoming_games already does.
+    The mock collection streams every seeded doc regardless of the .limit()
+    argument passed to the query, so this only exercises the fix's
+    Python-side `games[:limit]` trim (not real Firestore truncation): with
+    4 released + 1 unreleased (5 docs) and limit=3, the is_released filter
+    alone leaves 4 released games -- pre-fix code (no final trim) would
+    return all 4 and fail the length assertion below; post-fix code trims
+    to exactly 3. This is what makes the test fail on pre-fix code instead
+    of trivially passing (an earlier version seeded exactly `limit` released
+    games, where the filter alone already produced `limit` results and the
+    trim path was never actually exercised).
     """
     from datetime import datetime, timezone
 
@@ -174,10 +181,11 @@ def test_recent_games_preserves_count_around_unreleased_filter():
     games = [
         _game("released-0"),
         _game("released-1"),
-        _game("upcoming-0", release_date="2099-01-01"),  # unreleased
         _game("released-2"),
+        _game("released-3"),
+        _game("upcoming-0", release_date="2099-01-01"),  # unreleased
     ]
-    assert len(games) == limit + 1
+    assert len(games) > limit + 1  # more released games than `limit` alone
 
     with _client_for_games(games) as client:
         response = client.get("/api/games/recent", params={"limit": limit})
