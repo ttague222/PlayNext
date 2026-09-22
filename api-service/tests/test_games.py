@@ -42,16 +42,17 @@ def _client_for_games(games):
     recommendation_service._recommendation_service = None
     signal_service._signal_service = None
 
-    with patch("src.db.firebase.initialize_firebase", return_value=None), \
-         patch("src.services.recommendation_service.get_collection", side_effect=fake_get_collection), \
-         patch("src.services.game_service.get_collection", side_effect=fake_get_collection), \
-         patch("src.services.signal_service.get_collection", side_effect=fake_get_collection):
-        from src.main import app
-        yield TestClient(app)
-
-    game_service._game_service = None
-    recommendation_service._recommendation_service = None
-    signal_service._signal_service = None
+    try:
+        with patch("src.db.firebase.initialize_firebase", return_value=None), \
+             patch("src.services.recommendation_service.get_collection", side_effect=fake_get_collection), \
+             patch("src.services.game_service.get_collection", side_effect=fake_get_collection), \
+             patch("src.services.signal_service.get_collection", side_effect=fake_get_collection):
+            from src.main import app
+            yield TestClient(app)
+    finally:
+        game_service._game_service = None
+        recommendation_service._recommendation_service = None
+        signal_service._signal_service = None
 
 
 def test_list_games(client):
