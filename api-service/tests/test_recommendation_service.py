@@ -1173,6 +1173,8 @@ class TestUnreleasedExclusion:
 
 
 class TestRatingSignalsInEngine:
+    """Rating signals are wired into the engine's exclusion and taste sets."""
+
     def test_rated_down_is_a_rejected_signal(self):
         from src.services.recommendation_service import REJECTED_SIGNAL_TYPES
         assert "rated_down" in REJECTED_SIGNAL_TYPES

@@ -43,6 +43,8 @@ from .user import (
     SessionCreate,
     Session,
     FeedbackRequest,
+    RatingUpdate,
+    RatingSummary,
 )
 
 from .library import (
@@ -104,6 +106,8 @@ __all__ = [
     "SessionCreate",
     "Session",
     "FeedbackRequest",
+    "RatingUpdate",
+    "RatingSummary",
     # Library models
     "SteamSyncRequest",
     "LibraryGameEntry",

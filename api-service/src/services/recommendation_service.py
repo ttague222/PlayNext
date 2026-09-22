@@ -793,8 +793,9 @@ class RecommendationService:
 
         Returns:
             recently_shown: games signaled in the last 7 days (staleness window)
-            rejected: games with not_good_fit / played_didnt_stick — excluded
-                permanently, no time window
+            rejected: games with a REJECTED_SIGNAL_TYPES signal (not_good_fit /
+                played_didnt_stick / rated_down) — excluded permanently, no
+                time window
             positive_ids / negative_ids: newest-first deduped game ids feeding
                 the free-tier taste profiles
         """
