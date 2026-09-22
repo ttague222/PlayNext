@@ -111,16 +111,22 @@ def main():
 
     # Refuse uncurated candidate entries (monthly new-release candidates land
     # here with curation fields still blank — see new_release_candidates.py).
-    # A person must fill these in before the batch is safe to seed.
-    curated = []
+    # `games` stays the FULL file contents so the write-back below can never
+    # truncate the file on a dry run; `to_seed` is the filtered list that
+    # actually gets enriched, printed, and (on --apply) written to Firestore.
+    to_seed = []
+    skipped = 0
     for g in games:
-        if any(v == "FILL_ME" for v in (g.get("energy_level"), g.get("time_to_fun"),
-                                        g.get("stop_friendliness"), g.get("description_short"))) \
-                or not g.get("time_tags"):
-            print(f"SKIP (uncurated): {g.get('game_id') or g.get('id')}")
+        if any(v == "FILL_ME" for v in (g.get("energy"), g.get("time_to_fun"),
+                                        g.get("stop_friendliness"), g.get("description"))) \
+                or not g.get("time_tags") or g.get("year") is None:
+            print(f"SKIP (uncurated): {g.get('id')}")
+            skipped += 1
             continue
-        curated.append(g)
-    games = curated
+        to_seed.append(g)
+    if skipped:
+        print(f"\n{skipped} uncurated entries skipped — fill in FILL_ME fields "
+              f"(and time_tags/year) before seeding.\n")
 
     # slug lookup from the candidate dump if present (scratchpad optional)
     slugs = {}
@@ -130,7 +136,7 @@ def main():
                 slugs[norm(c["name"])] = c["slug"]
 
     enriched = 0
-    for g in games:
+    for g in to_seed:
         if g.get("store_links"):
             continue
         slug = slugs.get(norm(g["title"]))
@@ -141,18 +147,20 @@ def main():
             g["store_links"] = links
             enriched += 1
         time.sleep(0.4)
+    # Write back the FULL original list — uncurated entries included, untouched
+    # by reference — never `to_seed`, so a dry run can't wipe skipped entries.
     REFRESH_FILE.write_text(json.dumps(games, indent=2, ensure_ascii=False), encoding="utf-8")
-    print(f"store links enriched: {enriched}/{len(games)}")
+    print(f"store links enriched: {enriched}/{len(to_seed)}")
 
     if not apply:
-        for g in games:
+        for g in to_seed:
             print(f"  {g['id'][:34].ljust(34)} {g['year']} {g.get('energy'):>6} links={list((g.get('store_links') or {}).keys())}")
         print("\nDRY RUN — re-run with --apply to create docs in production.")
         return
 
     tok = gcloud_token()
     created = updated = 0
-    for g in games:
+    for g in to_seed:
         data = transform(g)
         doc_id = urllib.parse.quote(data["game_id"], safe="")
         # Preflight: distinguish create from in-place update so id collisions

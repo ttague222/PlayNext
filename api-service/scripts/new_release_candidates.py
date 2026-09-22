@@ -28,7 +28,7 @@ API_BASE = "https://playnxt-api-167253232570.us-central1.run.app/api"
 
 # RAWG platform slug -> catalog platform enum
 RAWG_PLATFORM_MAP = {
-    "pc": "pc",
+    "pc": "pc", "macos": "pc", "linux": "pc",
     "playstation5": "playstation", "playstation4": "playstation",
     "xbox-series-x": "xbox", "xbox-one": "xbox",
     "nintendo-switch": "switch", "nintendo-switch-2": "switch",
@@ -66,31 +66,36 @@ def filter_candidates(rawg_results, existing_ids, tombstones, min_added,
 
 
 def to_candidate_entry(g):
-    """RAWG result -> catalog entry skeleton. Curation fields stay blank on
-    purpose: the seed gate refuses FILL_ME entries until a human fills them."""
+    """RAWG result -> refresh-file entry skeleton — the SAME schema
+    seed_refresh.transform() reads from games_data/refresh_*.json (id, year,
+    genres, energy, moods, multiplayer, description, subscriptions — see
+    refresh_2025_2026.json), not the catalog/transform-output schema. Curation
+    fields stay blank on purpose: the seed gate refuses FILL_ME entries (and
+    entries with no known year) until a human fills them in."""
     released = g.get("released") or ""
+    year = int(released[:4]) if len(released) >= 4 and released[:4].isdigit() else None
     platforms = []
     for p in g.get("platforms") or []:
         mapped = RAWG_PLATFORM_MAP.get((p.get("platform") or {}).get("slug"))
         if mapped and mapped not in platforms:
             platforms.append(mapped)
     return {
-        "game_id": g["slug"],
+        "id": g["slug"],
         "title": g.get("name", ""),
-        "platforms": platforms or ["pc"],
-        "release_year": int(released[:4]) if len(released) >= 4 and released[:4].isdigit() else date.today().year,
+        "platforms": platforms,
+        "year": year,
         "release_date": released,
-        "genre_tags": [x.get("slug") for x in (g.get("genres") or []) if x.get("slug")],
+        "genres": [x.get("slug") for x in (g.get("genres") or []) if x.get("slug")],
         "time_tags": [],
-        "energy_level": "FILL_ME",
-        "mood_tags": [],
+        "energy": "FILL_ME",
+        "moods": [],
         "play_style": [],
         "time_to_fun": "FILL_ME",
         "stop_friendliness": "FILL_ME",
-        "multiplayer_modes": [],
-        "description_short": "FILL_ME",
+        "multiplayer": [],
+        "description": "FILL_ME",
         "fun_fact": "",
-        "subscription_services": [],
+        "subscriptions": [],
         "store_links": {},
     }
 
@@ -111,8 +116,15 @@ def rawg_key():
 
 
 def fetch_rawg_window(key, start, end):
-    """All RAWG results released in [start, end], paged (max 5 pages)."""
+    """All RAWG results released in [start, end], paged (max 5 pages).
+
+    Returns (results, page1_ok). page1_ok is False only when the very first
+    page request itself failed, so callers can tell a broken fetch (RAWG
+    outage, bad key) apart from a genuinely quiet month (page 1 succeeded,
+    zero results) — the two must not both look like an empty, all-clear PR.
+    """
     results, page = [], 1
+    page1_ok = True
     while True:
         q = urllib.parse.urlencode({
             "key": key, "dates": f"{start},{end}",
@@ -122,12 +134,14 @@ def fetch_rawg_window(key, start, end):
             d = json.load(urllib.request.urlopen(f"https://api.rawg.io/api/games?{q}", timeout=30))
         except Exception as e:
             print(f"RAWG fetch failed on page {page}: {e}", file=sys.stderr)
+            if page == 1:
+                page1_ok = False
             break
         results.extend(d.get("results") or [])
         if not d.get("next") or page >= 5:   # 200 games max per window is plenty
             break
         page += 1
-    return results
+    return results, page1_ok
 
 
 def fetch_existing():
@@ -163,7 +177,15 @@ def main():
     end = (today + timedelta(days=UPCOMING_DAYS)).isoformat()
     print(f"Fetching RAWG releases {start} .. {end} (min_added={min_added})")
 
-    raw = fetch_rawg_window(key, start, end)
+    raw, page1_ok = fetch_rawg_window(key, start, end)
+    if not page1_ok or not raw:
+        raise SystemExit(
+            f"RAWG fetch for {start}..{end} came back empty (page1_ok={page1_ok}) — "
+            "refusing to write a candidate file, since an empty file is "
+            "indistinguishable from a genuinely quiet month. Check RAWG_API_KEY "
+            "and https://rawg.io status before re-running."
+        )
+
     existing_ids, existing_titles = fetch_existing()
     tombstones = set(json.loads(TOMBSTONES_FILE.read_text())) if TOMBSTONES_FILE.exists() else set()
 

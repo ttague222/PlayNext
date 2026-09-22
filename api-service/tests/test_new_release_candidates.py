@@ -47,20 +47,31 @@ class TestFilterCandidates:
 
 class TestToCandidateEntry:
     def test_prefills_rawg_fields_and_blanks_curation(self):
+        # Schema matches the legacy refresh-file format seed_refresh.transform()
+        # reads (id/year/genres/energy/moods/...), not the catalog output schema.
         entry = to_candidate_entry(_rawg("new-game", "New Game", "2026-11-05",
                                          platforms=["pc", "playstation5"]))
-        assert entry["game_id"] == "new-game"
+        assert entry["id"] == "new-game"
         assert entry["title"] == "New Game"
         assert entry["release_date"] == "2026-11-05"
-        assert entry["release_year"] == 2026
+        assert entry["year"] == 2026
         assert "pc" in entry["platforms"] and "playstation" in entry["platforms"]
         # Curation fields deliberately blank — the human fills these in the PR.
         assert entry["time_tags"] == []
-        assert entry["mood_tags"] == []
-        assert entry["energy_level"] == "FILL_ME"
+        assert entry["moods"] == []
+        assert entry["energy"] == "FILL_ME"
         assert entry["stop_friendliness"] == "FILL_ME"
 
     def test_handles_missing_release_date(self):
         entry = to_candidate_entry(_rawg("mystery", "Mystery", None))
         assert entry["release_date"] == ""
-        assert isinstance(entry["release_year"], int)
+        # Honest "don't know" rather than guessing the current year — this
+        # also doubles as an uncurated-entry signal for the seed gate.
+        assert entry["year"] is None
+
+    def test_unmapped_platform_yields_empty_list(self):
+        # No fallback to ["pc"] — an empty list is a visible sign the entry
+        # needs a human to check platform support, not a silent guess.
+        entry = to_candidate_entry(_rawg("obscure-console", "Obscure Console",
+                                         "2026-09-10", platforms=["stadia"]))
+        assert entry["platforms"] == []
