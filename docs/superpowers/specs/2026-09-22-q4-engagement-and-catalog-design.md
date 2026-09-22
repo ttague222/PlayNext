@@ -71,6 +71,7 @@ Ideas raised and where they landed:
 - **Display threshold:** aggregate sentiment ("92% liked this") renders only at ≥10 ratings. Below threshold the user sees only their own rating state. This is the cold-start protection: nobody ever sees "1 person liked this".
 - No text input → no moderation surface, no Apple UGC compliance burden.
 - This is the data foundation for Phase 4 social proof (ROADMAP Phase 4: anonymous aggregate stats), not a detour from it.
+- **Future revamp candidate (Tom, 2026-09-22):** once the user base is large enough to populate them, consider upgrading to 1–5 stars plus an optional text box, since that pattern is familiar to most mobile users. Revisit alongside Phase 4. A text box brings back the Apple UGC moderation requirements (report/block tooling), so that cost comes with it. Thumbs data remains usable: 👍/👎 maps into any future scale as positive/negative, so nothing collected now is thrown away.
 
 ## Ship plan
 
