@@ -2,6 +2,10 @@
 Tests for game catalog endpoints.
 """
 
+from datetime import date
+
+from src.services.game_service import is_released
+
 
 def test_list_games(client):
     """Test listing all games."""
@@ -37,11 +41,6 @@ def test_search_games(client):
     assert response.status_code in [200, 404, 405]
 
 
-from datetime import date
-
-from src.services.game_service import is_released
-
-
 class TestIsReleased:
     def test_no_release_date_counts_as_released(self):
         assert is_released(None, today=date(2026, 9, 22)) is True
@@ -59,22 +58,3 @@ class TestIsReleased:
     def test_malformed_date_counts_as_released(self):
         # Bad data must never hide a game from the engine.
         assert is_released("soon", today=date(2026, 9, 22)) is True
-
-
-def test_game_summary_accepts_release_date():
-    from src.models import GameSummary
-    s = GameSummary(
-        game_id="g1", title="T", platforms=["pc"], description_short="d",
-        time_to_fun="short", stop_friendliness="anytime",
-        release_date="2026-11-05",
-    )
-    assert s.release_date == "2026-11-05"
-
-
-def test_game_summary_release_date_optional():
-    from src.models import GameSummary
-    s = GameSummary(
-        game_id="g1", title="T", platforms=["pc"], description_short="d",
-        time_to_fun="short", stop_friendliness="anytime",
-    )
-    assert s.release_date is None

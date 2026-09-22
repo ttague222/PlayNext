@@ -240,6 +240,29 @@ class TestGameModels:
         with pytest.raises(ValidationError):
             GameBase(title="Test")  # Missing required fields
 
+    def test_game_summary_accepts_release_date(self):
+        summary = GameSummary(
+            game_id="game-001",
+            title="Test Game",
+            platforms=[Platform.PC],
+            description_short="A test game",
+            time_to_fun=TimeToFun.SHORT,
+            stop_friendliness=StopFriendliness.ANYTIME,
+            release_date="2026-11-05",
+        )
+        assert summary.release_date == "2026-11-05"
+
+    def test_game_summary_release_date_optional(self):
+        summary = GameSummary(
+            game_id="game-001",
+            title="Test Game",
+            platforms=[Platform.PC],
+            description_short="A test game",
+            time_to_fun=TimeToFun.SHORT,
+            stop_friendliness=StopFriendliness.ANYTIME,
+        )
+        assert summary.release_date is None
+
 
 def test_recommendation_request_premium_fields_default_to_none():
     """Premium fields must default to None/False so free behavior is unchanged."""

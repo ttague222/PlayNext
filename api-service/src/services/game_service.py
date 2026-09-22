@@ -5,7 +5,7 @@ Service for managing game catalog operations.
 """
 
 import logging
-from datetime import datetime, timedelta, timezone
+from datetime import date, datetime, timedelta, timezone
 from typing import Optional
 
 from firebase_admin import firestore
@@ -16,7 +16,7 @@ from ..models import Game, GameCreate, GameSummary, Platform
 logger = logging.getLogger("playnext-api.games")
 
 
-def is_released(release_date, today=None):
+def is_released(release_date: Optional[str], today: Optional[date] = None) -> bool:
     """True unless release_date is a valid future ISO date.
 
     Missing/malformed dates count as released — bad data must never hide
