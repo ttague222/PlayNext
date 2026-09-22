@@ -98,6 +98,12 @@ export default {
         "expo-build-properties",
         {
           android: {
+            // R8 shrinking/obfuscation required by Google Play's DEX optimization
+            // policy. Firebase, Google Mobile Ads, RevenueCat, Sentry, and Expo
+            // modules all ship consumer ProGuard rules in their AARs, so only the
+            // billing keep rule (RevenueCat recommendation) is needed here.
+            enableProguardInReleaseBuilds: true,
+            enableShrinkResourcesInReleaseBuilds: true,
             extraProguardRules: "-keep class com.android.vending.billing.**"
           },
           ios: {
