@@ -94,6 +94,8 @@ def transform(g):
         "stop_friendliness": g.get("stop_friendliness", "checkpoints"),
         "multiplayer_modes": g.get("multiplayer", []),
         "description_short": g.get("description", ""),
+        "fun_fact": g.get("fun_fact"),
+        "release_date": g.get("release_date"),
         "subscription_services": g.get("subscriptions", []),
         "store_links": g.get("store_links", {}),
         "warnings": [],
