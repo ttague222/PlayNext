@@ -31,6 +31,7 @@ const ChangelogModal = ({ visible, entry, onFeaturePress, onDismiss }) => {
                       onPress={() => onFeaturePress(f.cta)}
                       accessibilityRole="button"
                       accessibilityLabel={f.cta.label}
+                      activeOpacity={0.7}
                     >
                       <Text style={styles.ctaText}>{f.cta.label} →</Text>
                     </TouchableOpacity>
@@ -39,7 +40,7 @@ const ChangelogModal = ({ visible, entry, onFeaturePress, onDismiss }) => {
               </View>
             ))}
           </ScrollView>
-          <TouchableOpacity style={styles.dismissButton} onPress={onDismiss} accessibilityRole="button" accessibilityLabel="Dismiss what's new">
+          <TouchableOpacity style={styles.dismissButton} onPress={onDismiss} accessibilityRole="button" accessibilityLabel="Dismiss what's new" activeOpacity={0.7}>
             <Text style={styles.dismissText}>Got it</Text>
           </TouchableOpacity>
         </LinearGradient>
