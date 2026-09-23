@@ -22,11 +22,13 @@ import {
  * @param {object} cardRef - Ref to the mounted (off-screen) ShareCard view
  * @param {object} game - The recommended game
  * @param {string} source - Entry point for analytics (detail | celebration)
+ * @param {{ timeAvailable?: number|null, energyMood?: string|null }} [context]
+ *   Session context riding into the /pick link when known
  * @returns {boolean} whether a share sheet was opened
  */
-export async function shareGameCard(cardRef, game, source) {
+export async function shareGameCard(cardRef, game, source, context = {}) {
   logEvent('share_opened', { source, game_id: game?.game_id || null });
-  const { title, message } = buildShareMessage(game);
+  const { title, message } = buildShareMessage(game, context);
 
   let imageUri = null;
   if (cardRef?.current) {

@@ -33,7 +33,7 @@ describe('ShareCard', () => {
 
   it('always carries the PlayNxt branding footer', async () => {
     await render(<ShareCard game={{ title: 'Celeste' }} />);
-    expect(screen.getByText('App Store · Google Play')).toBeTruthy();
+    expect(screen.getByText('playnxt.io')).toBeTruthy();
     expect(screen.getByText('What to play, in your free time')).toBeTruthy();
   });
 });
