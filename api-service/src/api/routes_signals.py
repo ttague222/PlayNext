@@ -15,6 +15,8 @@ from ..models import (
     FeedbackRequest,
     SignalType,
     Session,
+    RatingSummary,
+    RatingUpdate,
 )
 from ..services import get_signal_service, get_followup_service
 from .auth import get_user_id, require_authenticated_user
@@ -157,6 +159,44 @@ async def get_game_signals(game_id: str):
     """
     service = get_signal_service()
     return await service.get_game_signals(game_id)
+
+
+@router.get("/game/{game_id}/rating", response_model=RatingSummary)
+async def get_game_rating(
+    game_id: str,
+    user_id: Optional[str] = Depends(get_user_id),
+):
+    """Aggregate thumbs rating for a game, plus the caller's own rating.
+
+    percent_liked is null until the game has enough ratings to be meaningful.
+    """
+    try:
+        service = get_signal_service()
+        return await service.get_game_rating(game_id, user_id)
+    except Exception as e:
+        logger.error(f"Error fetching rating for game {game_id}: {e}")
+        raise HTTPException(status_code=500, detail="Failed to fetch rating")
+
+
+@router.put("/game/{game_id}/rating", response_model=RatingSummary)
+async def set_game_rating(
+    game_id: str,
+    update: RatingUpdate,
+    user: dict = Depends(require_authenticated_user),
+):
+    """Set, change, or clear the caller's thumbs rating for a game."""
+    try:
+        service = get_signal_service()
+        await service.set_game_rating(
+            user_id=user["uid"],
+            game_id=game_id,
+            rating=update.rating,
+            game_title=update.game_title,
+        )
+        return await service.get_game_rating(game_id, user["uid"])
+    except Exception as e:
+        logger.error(f"Error setting rating for game {game_id}: {e}")
+        raise HTTPException(status_code=500, detail="Failed to set rating")
 
 
 @router.post("/session", response_model=Session)

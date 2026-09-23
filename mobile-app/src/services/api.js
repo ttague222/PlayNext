@@ -14,9 +14,12 @@ const API_BASE_URL = Constants.expoConfig?.extra?.apiBaseUrl || 'http://localhos
 console.log('[API] Base URL configured:', API_BASE_URL);
 
 // Create Axios instance
+// Cloud Run cold starts run ~17s on the first request of the day; give the
+// request room instead of erroring (same rationale as the web quiz's 45s).
+// Free fix — the alternative, min-instances=1, costs standing money.
 const apiClient = axios.create({
   baseURL: API_BASE_URL,
-  timeout: 10000,
+  timeout: 45000,
   headers: {
     'Content-Type': 'application/json',
   },
@@ -135,6 +138,14 @@ const api = {
    */
   getRecentGames: async (days = 7, limit = 20) => {
     const response = await apiClient.get('/games/recent', { params: { days, limit } });
+    return response.data;
+  },
+
+  /**
+   * Get unreleased games, soonest first (Coming Soon section)
+   */
+  getUpcomingGames: async (limit = 10) => {
+    const response = await apiClient.get('/games/upcoming', { params: { limit } });
     return response.data;
   },
 
@@ -274,6 +285,28 @@ const api = {
    */
   getGameSignals: async (gameId) => {
     const response = await apiClient.get(`/signals/game/${gameId}`);
+    return response.data;
+  },
+
+  /**
+   * Get aggregate thumbs rating for a game (plus this user's own rating)
+   */
+  getGameRating: async (gameId) => {
+    const response = await apiClient.get(`/signals/game/${gameId}/rating`);
+    return response.data;
+  },
+
+  /**
+   * Set, change, or clear (rating=null) this user's thumbs rating
+   * @param {string} gameId
+   * @param {"up"|"down"|null} rating
+   * @param {string} [gameTitle]
+   */
+  setGameRating: async (gameId, rating, gameTitle = null) => {
+    const response = await apiClient.put(`/signals/game/${gameId}/rating`, {
+      rating,
+      game_title: gameTitle,
+    });
     return response.data;
   },
 

@@ -117,7 +117,7 @@ const CelebrationModal = ({
   const handleShare = async () => {
     if (!game) return;
     // Captures the off-screen ShareCard below; falls back to text-only
-    await shareGameCard(shareCardRef, game, 'celebration');
+    await shareGameCard(shareCardRef, game, 'celebration', { timeAvailable, energyMood });
   };
 
   if (!game) return null;

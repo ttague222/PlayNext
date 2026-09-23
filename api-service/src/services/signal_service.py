@@ -21,6 +21,31 @@ from ..models import (
 
 logger = logging.getLogger("playnext-api.signals")
 
+# Lightweight ratings (spec 2026-09-22). Aggregate sentiment renders only at
+# or above this many ratings — nobody ever sees "1 person liked this".
+RATING_DISPLAY_THRESHOLD = 10
+RATING_SIGNAL_VALUES = ("rated_up", "rated_down")
+# Ratings come from GameDetail, outside any recommendation session.
+RATING_SESSION_ID = "game_detail_rating"
+
+
+def build_rating_summary(counts: dict, user_rating) -> dict:
+    """Compose the rating response from raw signal counts.
+
+    Pure function so it can be unit-tested without Firestore.
+    """
+    up = counts.get("rated_up", 0)
+    down = counts.get("rated_down", 0)
+    total = up + down
+    percent = round(up * 100 / total) if total >= RATING_DISPLAY_THRESHOLD else None
+    return {
+        "up": up,
+        "down": down,
+        "total": total,
+        "percent_liked": percent,
+        "user_rating": user_rating,
+    }
+
 
 class SignalService:
     """Service for recording and retrieving user signals."""
@@ -130,6 +155,70 @@ class SignalService:
         except Exception as e:
             logger.error(f"Error fetching game signals: {e}")
             return {}
+
+    async def set_game_rating(
+        self,
+        user_id: str,
+        game_id: str,
+        rating: Optional[str],
+        game_title: Optional[str] = None,
+    ) -> Optional[UserSignal]:
+        """Set, change, or clear (rating=None) a user's thumbs rating.
+
+        One rating per user per game: any existing rated_* signals for this
+        pair are deleted before the new one is written.
+        """
+        try:
+            existing = (
+                self.signals_collection
+                .where("user_id", "==", user_id)
+                .where("game_id", "==", game_id)
+                .stream()
+            )
+            for doc in existing:
+                if doc.to_dict().get("signal_type") in RATING_SIGNAL_VALUES:
+                    doc.reference.delete()
+
+            if rating is None:
+                logger.info(f"Cleared rating for game {game_id} by user {user_id}")
+                return None
+
+            signal = UserSignalCreate(
+                game_id=game_id,
+                signal_type=SignalType.RATED_UP if rating == "up" else SignalType.RATED_DOWN,
+            )
+            return await self.record_signal(
+                signal=signal,
+                session_id=RATING_SESSION_ID,
+                user_id=user_id,
+                game_title=game_title,
+            )
+        except Exception as e:
+            logger.error(f"Error setting rating for game {game_id}: {e}")
+            raise
+
+    async def get_game_rating(self, game_id: str, user_id: Optional[str]) -> dict:
+        """Aggregate thumbs counts for a game plus the caller's own rating."""
+        counts = await self.get_game_signals(
+            game_id,
+            signal_types=[SignalType.RATED_UP, SignalType.RATED_DOWN],
+        )
+        user_rating = None
+        if user_id:
+            own = await self.get_user_signals(
+                user_id,
+                game_id=game_id,
+                signal_types=[SignalType.RATED_UP, SignalType.RATED_DOWN],
+                limit=10,
+            )
+            for s in own:
+                if s.signal_type == SignalType.RATED_UP:
+                    user_rating = "up"
+                    break
+                if s.signal_type == SignalType.RATED_DOWN:
+                    user_rating = "down"
+                    break
+        return build_rating_summary(counts, user_rating)
 
     async def create_session(
         self,

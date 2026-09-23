@@ -32,6 +32,7 @@ from src.models import (
     SignalType,
     UserSignalCreate,
     FeedbackRequest,
+    RatingUpdate,
 )
 
 
@@ -221,6 +222,26 @@ class TestFeedbackRequest:
         assert feedback.signal_type == SignalType.ACCEPTED
 
 
+class TestRatingUpdate:
+    """Test RatingUpdate model's pattern validation on `rating`."""
+
+    def test_rating_up_is_valid(self):
+        update = RatingUpdate(rating="up")
+        assert update.rating == "up"
+
+    def test_rating_down_is_valid(self):
+        update = RatingUpdate(rating="down")
+        assert update.rating == "down"
+
+    def test_rating_none_is_valid(self):
+        update = RatingUpdate()
+        assert update.rating is None
+
+    def test_rating_bad_value_rejected(self):
+        with pytest.raises(ValidationError):
+            RatingUpdate(rating="sideways")
+
+
 class TestGameModels:
     """Test game-related models."""
 
@@ -239,6 +260,29 @@ class TestGameModels:
     def test_game_base_required_fields(self):
         with pytest.raises(ValidationError):
             GameBase(title="Test")  # Missing required fields
+
+    def test_game_summary_accepts_release_date(self):
+        summary = GameSummary(
+            game_id="game-001",
+            title="Test Game",
+            platforms=[Platform.PC],
+            description_short="A test game",
+            time_to_fun=TimeToFun.SHORT,
+            stop_friendliness=StopFriendliness.ANYTIME,
+            release_date="2026-11-05",
+        )
+        assert summary.release_date == "2026-11-05"
+
+    def test_game_summary_release_date_optional(self):
+        summary = GameSummary(
+            game_id="game-001",
+            title="Test Game",
+            platforms=[Platform.PC],
+            description_short="A test game",
+            time_to_fun=TimeToFun.SHORT,
+            stop_friendliness=StopFriendliness.ANYTIME,
+        )
+        assert summary.release_date is None
 
 
 def test_recommendation_request_premium_fields_default_to_none():

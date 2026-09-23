@@ -20,14 +20,33 @@ def is_valid_expo_token(token: Optional[str]) -> bool:
     return bool(token and _EXPO_TOKEN_RE.match(token))
 
 
-def build_digest_message(recent_games: list[dict]) -> Optional[dict]:
-    """Return {title, body} for the weekly 'what's new' digest, or None if empty."""
+def build_digest_message(recent_games: list[dict], upcoming_games: Optional[list[dict]] = None) -> Optional[dict]:
+    """Return {title, body} for the weekly 'what's new' digest, or None if empty.
+
+    Mentions coming-soon games when any exist (spec 2026-09-22): re-engagement
+    rides the existing weekly send, no separate monthly job.
+    """
+    upcoming_games = upcoming_games or []
     n = len(recent_games)
-    if n == 0:
+    m = len(upcoming_games)
+    if n == 0 and m == 0:
         return None
+
+    if n == 0:
+        # Announced-only week: lead with what's coming.
+        titles = [g.get("title", "") for g in upcoming_games[:2] if g.get("title")]
+        sample = ", ".join(titles)
+        plural = "s" if m != 1 else ""
+        return {
+            "title": f"\U0001F52E {m} game{plural} coming soon",
+            "body": f"Including {sample}. Get your backlog ready.",
+        }
+
     titles = [g.get("title", "") for g in recent_games[:3] if g.get("title")]
     sample = ", ".join(titles)
     body = f"Including {sample} and more." if n > len(titles) else f"Including {sample}."
+    if m > 0:
+        body += f" Plus {m} more coming soon."
     plural = "s" if n != 1 else ""
     return {"title": f"\U0001F3AE {n} new game{plural} this week", "body": body}
 
@@ -176,9 +195,25 @@ class NotificationService:
     async def run_weekly_send(self) -> dict:
         from . import get_game_service
         recent = await get_game_service().list_recent_games(days=7, limit=20)
+        upcoming = await get_game_service().list_upcoming_games(limit=5)
         recent_dicts = [{"title": g.title} for g in recent]
-        has_new = len(recent_dicts) > 0
-        digest_msg = build_digest_message(recent_dicts)
+        upcoming_dicts = [{"title": g.title} for g in upcoming]
+        # Once upcoming titles exist, an announced-only week (no recent
+        # releases) would otherwise send a byte-identical "coming soon"
+        # push every week -- the device cap only dedupes on a 7-day
+        # window, so the same digest text keeps clearing it. Restore the
+        # spec's monthly cadence for that standalone case, without adding
+        # new state, by only treating upcoming games as digest-triggering
+        # during the first 7 days of the month. When recent games exist
+        # the "Plus N more coming soon." tail still rides along weekly --
+        # that copy varies with the recent content, so it never repeats
+        # verbatim.
+        announced_only_window = datetime.now(timezone.utc).day <= 7
+        has_new = len(recent_dicts) > 0 or (announced_only_window and len(upcoming_dicts) > 0)
+        digest_msg = build_digest_message(
+            recent_dicts,
+            upcoming_games=upcoming_dicts if (recent_dicts or announced_only_window) else [],
+        )
         reengage_msg = {"title": "Your next game is waiting \U0001F3AE",
                         "body": "Got 20 minutes? Find something to play."}
         devices = self.list_enabled_devices()

@@ -9,6 +9,7 @@ from unittest.mock import MagicMock, patch, AsyncMock
 from datetime import datetime
 
 from src.models import SignalType, UserSignalCreate
+from src.services.signal_service import build_rating_summary, RATING_DISPLAY_THRESHOLD
 
 
 class TestSignalService:
@@ -369,3 +370,148 @@ class TestPositiveSignals:
         assert set(kwargs["signal_types"]) == {
             SignalType.WORKED, SignalType.PLAYED_LOVED, SignalType.ACCEPTED,
         }
+
+
+class TestBuildRatingSummary:
+    """Pure summary builder for thumbs ratings (spec 2026-09-22)."""
+
+    def test_below_threshold_hides_percent(self):
+        s = build_rating_summary({"rated_up": 3, "rated_down": 1}, user_rating="up")
+        assert s["up"] == 3 and s["down"] == 1 and s["total"] == 4
+        assert s["percent_liked"] is None            # cold-start protection
+        assert s["user_rating"] == "up"
+
+    def test_at_threshold_shows_percent(self):
+        s = build_rating_summary({"rated_up": 9, "rated_down": 1}, user_rating=None)
+        assert s["total"] == RATING_DISPLAY_THRESHOLD
+        assert s["percent_liked"] == 90
+
+    def test_no_ratings(self):
+        s = build_rating_summary({}, user_rating=None)
+        assert s == {"up": 0, "down": 0, "total": 0, "percent_liked": None, "user_rating": None}
+
+    def test_ignores_other_signal_types(self):
+        s = build_rating_summary({"rated_up": 2, "worked": 50, "accepted": 7}, user_rating=None)
+        assert s["total"] == 2
+
+    def test_percent_rounds_to_int(self):
+        s = build_rating_summary({"rated_up": 7, "rated_down": 4}, user_rating="down")
+        assert s["percent_liked"] == 64  # 7/11 = 63.6 -> round
+
+
+class TestGameRating:
+    """SignalService.set_game_rating / get_game_rating (spec 2026-09-22)."""
+
+    @pytest.fixture
+    def service(self, mock_firebase):
+        """Create a SignalService instance with mocked Firebase."""
+        with patch('src.services.signal_service.get_collection') as mock_get_collection:
+            mock_signals_collection = MagicMock()
+            mock_sessions_collection = MagicMock()
+            mock_users_collection = MagicMock()
+
+            mock_get_collection.side_effect = lambda name: {
+                'signals': mock_signals_collection,
+                'sessions': mock_sessions_collection,
+                'users': mock_users_collection,
+            }.get(name, MagicMock())
+
+            from src.services.signal_service import SignalService
+            svc = SignalService()
+            svc.signals_collection = mock_signals_collection
+            svc.sessions_collection = mock_sessions_collection
+            svc.users_collection = mock_users_collection
+            return svc
+
+    def _mock_existing_signal_docs(self, service, docs):
+        """Wire signals_collection.where(...).where(...).stream() to return docs."""
+        mock_query = MagicMock()
+        service.signals_collection.where.return_value = mock_query
+        mock_query.where.return_value = mock_query
+        mock_query.stream.return_value = docs
+        return mock_query
+
+    def _doc(self, signal_type):
+        doc = MagicMock()
+        doc.to_dict.return_value = {"signal_type": signal_type}
+        doc.reference = MagicMock()
+        return doc
+
+    @pytest.mark.asyncio
+    async def test_set_rating_deletes_prior_rated_docs_and_records_new(self, service, mock_user):
+        """Setting a rating clears any existing rated_* docs then records the new one."""
+        rated_up_doc = self._doc("rated_up")
+        rated_down_doc = self._doc("rated_down")
+        unrelated_doc = self._doc("accepted")  # not a rating signal; must survive
+        self._mock_existing_signal_docs(service, [rated_up_doc, rated_down_doc, unrelated_doc])
+
+        recorded = MagicMock()
+        service.record_signal = AsyncMock(return_value=recorded)
+
+        result = await service.set_game_rating(
+            user_id=mock_user["uid"], game_id="game-001", rating="up", game_title="Adventure Land"
+        )
+
+        rated_up_doc.reference.delete.assert_called_once()
+        rated_down_doc.reference.delete.assert_called_once()
+        unrelated_doc.reference.delete.assert_not_called()
+
+        service.record_signal.assert_awaited_once()
+        call_kwargs = service.record_signal.call_args.kwargs
+        assert call_kwargs["session_id"] == "game_detail_rating"
+        assert call_kwargs["user_id"] == mock_user["uid"]
+        assert call_kwargs["game_title"] == "Adventure Land"
+        assert call_kwargs["signal"].game_id == "game-001"
+        assert call_kwargs["signal"].signal_type == SignalType.RATED_UP
+        assert result is recorded
+
+    @pytest.mark.asyncio
+    async def test_set_rating_none_clears_without_recording(self, service, mock_user):
+        """rating=None deletes any existing rated_* docs and records nothing."""
+        rated_down_doc = self._doc("rated_down")
+        self._mock_existing_signal_docs(service, [rated_down_doc])
+
+        service.record_signal = AsyncMock()
+
+        result = await service.set_game_rating(
+            user_id=mock_user["uid"], game_id="game-001", rating=None
+        )
+
+        rated_down_doc.reference.delete.assert_called_once()
+        service.record_signal.assert_not_awaited()
+        assert result is None
+
+    @pytest.mark.asyncio
+    async def test_get_game_rating_composes_counts_and_user_rating(self, service, mock_user):
+        """get_game_rating aggregates counts via get_game_signals and finds the caller's own rating."""
+        service.get_game_signals = AsyncMock(return_value={"rated_up": 9, "rated_down": 1})
+
+        own_signal = MagicMock()
+        own_signal.signal_type = SignalType.RATED_UP
+        service.get_user_signals = AsyncMock(return_value=[own_signal])
+
+        summary = await service.get_game_rating("game-001", mock_user["uid"])
+
+        service.get_game_signals.assert_awaited_once_with(
+            "game-001", signal_types=[SignalType.RATED_UP, SignalType.RATED_DOWN]
+        )
+        service.get_user_signals.assert_awaited_once_with(
+            mock_user["uid"],
+            game_id="game-001",
+            signal_types=[SignalType.RATED_UP, SignalType.RATED_DOWN],
+            limit=10,
+        )
+        assert summary == {
+            "up": 9, "down": 1, "total": 10, "percent_liked": 90, "user_rating": "up",
+        }
+
+    @pytest.mark.asyncio
+    async def test_get_game_rating_anonymous_caller_has_no_user_rating(self, service):
+        """No user_id means no lookup of the caller's own rating."""
+        service.get_game_signals = AsyncMock(return_value={"rated_up": 2, "rated_down": 1})
+        service.get_user_signals = AsyncMock(return_value=[])
+
+        summary = await service.get_game_rating("game-001", None)
+
+        service.get_user_signals.assert_not_awaited()
+        assert summary["user_rating"] is None

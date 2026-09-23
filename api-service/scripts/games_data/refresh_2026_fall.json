@@ -1,0 +1,606 @@
+[
+  {
+    "id": "blood-of-dawnwalker",
+    "title": "The Blood of Dawnwalker",
+    "platforms": [
+      "pc",
+      "playstation",
+      "xbox"
+    ],
+    "year": 2026,
+    "release_date": "2026-09-03",
+    "genres": [
+      "rpg",
+      "action",
+      "open-world",
+      "vampire"
+    ],
+    "time_tags": [
+      60,
+      90,
+      120
+    ],
+    "energy": "medium",
+    "moods": [
+      "immersive",
+      "gothic",
+      "dark",
+      "adventurous"
+    ],
+    "play_style": [
+      "action",
+      "narrative"
+    ],
+    "time_to_fun": "medium",
+    "stop_friendliness": "commitment",
+    "multiplayer": [
+      "solo"
+    ],
+    "description": "A dark fantasy RPG from ex-Witcher 3 developers where you're a reluctant vampire juggling mortal ties by day and predatory power by night across occupied Moravia.",
+    "fun_fact": "Rebel Wolves was founded by former CD Projekt Red veterans who led The Witcher 3, and the day/night cycle here runs on a real countdown that keeps pressuring your choices.",
+    "store_links": {}
+  },
+  {
+    "id": "onimusha-way-of-the-sword",
+    "title": "Onimusha: Way of the Sword",
+    "platforms": [
+      "pc",
+      "playstation",
+      "xbox",
+      "switch"
+    ],
+    "year": 2026,
+    "release_date": "2026-09-04",
+    "genres": [
+      "action",
+      "hack-and-slash",
+      "samurai",
+      "horror"
+    ],
+    "time_tags": [
+      30,
+      60,
+      90
+    ],
+    "energy": "high",
+    "moods": [
+      "intense",
+      "challenging",
+      "gothic",
+      "action-packed"
+    ],
+    "play_style": [
+      "action"
+    ],
+    "time_to_fun": "short",
+    "stop_friendliness": "checkpoints",
+    "multiplayer": [
+      "solo"
+    ],
+    "description": "Capcom revives its demon-slaying samurai series with a new swordsman, the Oni gauntlet, and the same parry-heavy, blade-first combat that made the originals click.",
+    "fun_fact": "It's the first new mainline Onimusha game since 2006's Onimusha: Dawn of Dreams.",
+    "store_links": {}
+  },
+  {
+    "id": "marvels-wolverine",
+    "title": "Marvel's Wolverine",
+    "platforms": [
+      "playstation"
+    ],
+    "year": 2026,
+    "release_date": "2026-09-15",
+    "genres": [
+      "action",
+      "superhero",
+      "narrative"
+    ],
+    "time_tags": [
+      60,
+      90,
+      120
+    ],
+    "energy": "high",
+    "moods": [
+      "intense",
+      "brutal",
+      "immersive",
+      "adventurous"
+    ],
+    "play_style": [
+      "action",
+      "narrative"
+    ],
+    "time_to_fun": "medium",
+    "stop_friendliness": "checkpoints",
+    "multiplayer": [
+      "solo"
+    ],
+    "description": "Insomniac's claws-out take on Logan, set in the same universe as their Spider-Man games, trades web-slinging for brutal, up-close brawling and a healing factor that shows on screen.",
+    "fun_fact": "Wolverine's wounds visibly carve into his body and knit back together in real time mid-fight, tied directly to the healing-factor combat system.",
+    "store_links": {}
+  },
+  {
+    "id": "bloomkeeper",
+    "title": "BloomKeeper",
+    "platforms": [
+      "pc"
+    ],
+    "year": 2026,
+    "release_date": "2026-09-16",
+    "genres": [
+      "adventure",
+      "tactics",
+      "cozy"
+    ],
+    "time_tags": [
+      30,
+      60,
+      90
+    ],
+    "energy": "low",
+    "moods": [
+      "cozy",
+      "gentle",
+      "charming",
+      "peaceful"
+    ],
+    "play_style": [
+      "tactics",
+      "sandbox_creative"
+    ],
+    "time_to_fun": "short",
+    "stop_friendliness": "anytime",
+    "multiplayer": [
+      "solo",
+      "local_coop"
+    ],
+    "description": "A gentle real-time tactical adventure where you guide a colony of small magical creatures called Pouics to regrow a devastated island, solo or alongside a friend.",
+    "fun_fact": "Full co-op is built in from the start, you can hand a second controller to someone and rebuild the island together.",
+    "store_links": {}
+  },
+  {
+    "id": "control-resonant",
+    "title": "Control Resonant",
+    "platforms": [
+      "pc",
+      "playstation",
+      "xbox"
+    ],
+    "year": 2026,
+    "release_date": "2026-09-24",
+    "genres": [
+      "action",
+      "supernatural",
+      "third-person-shooter"
+    ],
+    "time_tags": [
+      60,
+      90,
+      120
+    ],
+    "energy": "high",
+    "moods": [
+      "intense",
+      "atmospheric",
+      "mysterious",
+      "cosmic"
+    ],
+    "play_style": [
+      "action",
+      "narrative"
+    ],
+    "time_to_fun": "medium",
+    "stop_friendliness": "checkpoints",
+    "multiplayer": [
+      "solo"
+    ],
+    "description": "Remedy's sequel to Control sends Dylan Faden through a warped, paranatural Manhattan, wielding reality-bending powers against a cosmic threat.",
+    "fun_fact": "It's a direct sequel to 2019's Control, and Remedy has said the same New Weird tone and architecture-as-horror style carries through into a whole new city.",
+    "store_links": {}
+  },
+  {
+    "id": "silent-hill-townfall",
+    "title": "Silent Hill: Townfall",
+    "platforms": [
+      "pc",
+      "playstation"
+    ],
+    "year": 2026,
+    "release_date": "2026-09-24",
+    "genres": [
+      "horror",
+      "survival-horror",
+      "narrative"
+    ],
+    "time_tags": [
+      60,
+      90,
+      120
+    ],
+    "energy": "medium",
+    "moods": [
+      "dark",
+      "creepy",
+      "atmospheric",
+      "unsettling"
+    ],
+    "play_style": [
+      "narrative",
+      "action"
+    ],
+    "time_to_fun": "medium",
+    "stop_friendliness": "checkpoints",
+    "multiplayer": [
+      "solo"
+    ],
+    "description": "A new Silent Hill story from developer No Code (Annapurna Interactive), trading the fog-choked town for a psychological descent into a Scottish counterpart to the series' signature dread.",
+    "fun_fact": "It's a from-the-ground-up original story rather than a remake, the first fully new mainline Silent Hill narrative in years.",
+    "store_links": {}
+  },
+  {
+    "id": "ea-sports-fc-27",
+    "title": "EA Sports FC 27",
+    "platforms": [
+      "pc",
+      "playstation",
+      "xbox",
+      "switch"
+    ],
+    "year": 2026,
+    "release_date": "2026-09-25",
+    "genres": [
+      "sports",
+      "soccer",
+      "simulation"
+    ],
+    "time_tags": [
+      15,
+      30,
+      60
+    ],
+    "energy": "medium",
+    "moods": [
+      "competitive",
+      "energetic",
+      "social"
+    ],
+    "play_style": [
+      "action",
+      "strategy"
+    ],
+    "time_to_fun": "short",
+    "stop_friendliness": "anytime",
+    "multiplayer": [
+      "local_coop",
+      "online_coop",
+      "competitive"
+    ],
+    "description": "The annual soccer sim returns with The Grounds, an open-world street-football hub spanning Paris, Buenos Aires, and suburban Britain, alongside the usual club and Ultimate Team modes.",
+    "fun_fact": "The Grounds is the first time the FC series has built an explorable open-world hub connecting its street-football modes.",
+    "store_links": {}
+  },
+  {
+    "id": "minecraft-dungeons-2",
+    "title": "Minecraft Dungeons II",
+    "platforms": [
+      "pc",
+      "playstation",
+      "xbox",
+      "switch"
+    ],
+    "year": 2026,
+    "release_date": "2026-09-29",
+    "genres": [
+      "action-rpg",
+      "dungeon-crawler",
+      "co-op"
+    ],
+    "time_tags": [
+      15,
+      30,
+      60
+    ],
+    "energy": "medium",
+    "moods": [
+      "colorful",
+      "adventurous",
+      "cooperative",
+      "family-friendly"
+    ],
+    "play_style": [
+      "action"
+    ],
+    "time_to_fun": "short",
+    "stop_friendliness": "anytime",
+    "multiplayer": [
+      "solo",
+      "local_coop",
+      "online_coop"
+    ],
+    "description": "The loot-driven dungeon crawler returns with new biomes, gear, and up to four-player co-op smashing through Minecraft's blocky underworld.",
+    "fun_fact": "It launches day one in Xbox Game Pass, same as the original Dungeons did back in 2020.",
+    "subscriptions": [
+      "xbox_game_pass"
+    ],
+    "store_links": {}
+  },
+  {
+    "id": "fire-emblem-fortunes-weave",
+    "title": "Fire Emblem: Fortune's Weave",
+    "platforms": [
+      "switch"
+    ],
+    "year": 2026,
+    "release_date": "2026-09-17",
+    "genres": [
+      "tactics",
+      "rpg",
+      "strategy"
+    ],
+    "time_tags": [
+      30,
+      60,
+      90
+    ],
+    "energy": "medium",
+    "moods": [
+      "strategic",
+      "cerebral",
+      "dramatic",
+      "challenging"
+    ],
+    "play_style": [
+      "tactics",
+      "strategy",
+      "narrative"
+    ],
+    "time_to_fun": "medium",
+    "stop_friendliness": "checkpoints",
+    "multiplayer": [
+      "solo"
+    ],
+    "description": "A Switch 2 exclusive successor to Fire Emblem: Three Houses, mixing turn-based tactics with a branching academy-and-war narrative.",
+    "fun_fact": "It's Intelligent Systems' first mainline Fire Emblem built from the ground up for Switch 2 hardware.",
+    "store_links": {}
+  },
+  {
+    "id": "planet-zoo-2",
+    "title": "Planet Zoo 2",
+    "platforms": [
+      "pc",
+      "playstation",
+      "xbox"
+    ],
+    "year": 2026,
+    "release_date": "2026-10-13",
+    "genres": [
+      "simulation",
+      "management",
+      "sandbox"
+    ],
+    "time_tags": [
+      30,
+      60,
+      90,
+      120
+    ],
+    "energy": "low",
+    "moods": [
+      "creative",
+      "relaxing",
+      "detailed",
+      "ecological"
+    ],
+    "play_style": [
+      "sandbox_creative",
+      "strategy"
+    ],
+    "time_to_fun": "medium",
+    "stop_friendliness": "anytime",
+    "multiplayer": [
+      "solo"
+    ],
+    "description": "Frontier's zoo-building sim returns with aquariums and marine habitats added to the deep animal-care and park-design systems that made the first game a favorite for slow, creative sessions.",
+    "fun_fact": "This is the franchise's first console release, Planet Zoo was PC-only for its entire first run.",
+    "store_links": {}
+  },
+  {
+    "id": "warhammer-40000-boltgun-2",
+    "title": "Warhammer 40,000: Boltgun 2",
+    "platforms": [
+      "pc",
+      "playstation",
+      "xbox"
+    ],
+    "year": 2026,
+    "release_date": "2026-10-14",
+    "genres": [
+      "fps",
+      "boomer-shooter",
+      "action"
+    ],
+    "time_tags": [
+      15,
+      30,
+      60
+    ],
+    "energy": "high",
+    "moods": [
+      "fast-paced",
+      "brutal",
+      "explosive",
+      "retro"
+    ],
+    "play_style": [
+      "action"
+    ],
+    "time_to_fun": "short",
+    "stop_friendliness": "anytime",
+    "multiplayer": [
+      "solo"
+    ],
+    "description": "A pixel-art, boomstick-loud sequel to the retro Warhammer 40K shooter, throwing a Space Marine at hordes of heretics with chainswords, bolters, and no time to breathe.",
+    "fun_fact": "A Switch 2 version is planned to follow shortly after the PC/PlayStation/Xbox launch.",
+    "store_links": {}
+  },
+  {
+    "id": "harvest-moon-echoes-of-teradea",
+    "title": "Harvest Moon: Echoes of Teradea",
+    "platforms": [
+      "switch",
+      "playstation"
+    ],
+    "year": 2026,
+    "release_date": "2026-10-15",
+    "genres": [
+      "farming-sim",
+      "life-sim",
+      "rpg"
+    ],
+    "time_tags": [
+      15,
+      30,
+      60,
+      90
+    ],
+    "energy": "low",
+    "moods": [
+      "cozy",
+      "charming",
+      "relaxing",
+      "wholesome"
+    ],
+    "play_style": [
+      "sandbox_creative",
+      "narrative"
+    ],
+    "time_to_fun": "short",
+    "stop_friendliness": "anytime",
+    "multiplayer": [
+      "solo"
+    ],
+    "description": "Natsume's farming series returns with a fresh region to settle, crops to grow, and townsfolk to befriend at whatever pace you want to play.",
+    "fun_fact": "It's Natsume's own Harvest Moon line rather than the Story of Seasons series Harvest Moon split from years ago, still built around the same easygoing farm-and-friends loop.",
+    "store_links": {}
+  },
+  {
+    "id": "phantom-blade-zero",
+    "title": "Phantom Blade Zero",
+    "platforms": [
+      "pc",
+      "playstation"
+    ],
+    "year": 2026,
+    "release_date": "2026-10-29",
+    "genres": [
+      "action",
+      "hack-and-slash",
+      "wuxia"
+    ],
+    "time_tags": [
+      30,
+      60,
+      90
+    ],
+    "energy": "high",
+    "moods": [
+      "stylish",
+      "intense",
+      "fast-paced",
+      "cinematic"
+    ],
+    "play_style": [
+      "action"
+    ],
+    "time_to_fun": "short",
+    "stop_friendliness": "checkpoints",
+    "multiplayer": [
+      "solo"
+    ],
+    "description": "A stylish wuxia action game from S-GAME blending fast, combo-heavy swordplay with a dark near-future take on ancient China.",
+    "fun_fact": "It was delayed about seven weeks from its original September date so the team could polish the final act before launch.",
+    "store_links": {}
+  },
+  {
+    "id": "grand-theft-auto-vi",
+    "title": "Grand Theft Auto VI",
+    "platforms": [
+      "playstation",
+      "xbox"
+    ],
+    "year": 2026,
+    "release_date": "2026-11-19",
+    "genres": [
+      "action",
+      "open-world",
+      "crime"
+    ],
+    "time_tags": [
+      60,
+      90,
+      120
+    ],
+    "energy": "high",
+    "moods": [
+      "chaotic",
+      "cinematic",
+      "satirical",
+      "urban"
+    ],
+    "play_style": [
+      "action",
+      "narrative"
+    ],
+    "time_to_fun": "medium",
+    "stop_friendliness": "checkpoints",
+    "multiplayer": [
+      "solo",
+      "online_coop",
+      "competitive"
+    ],
+    "description": "Rockstar's long-awaited return to Vice City follows dual protagonists Jason and Lucia through a sprawling, satirical open world of crime and consequence.",
+    "fun_fact": "It's Rockstar's first mainline GTA since 2013's GTA V, and launches PS5/Xbox Series X|S only at first.",
+    "store_links": {}
+  },
+  {
+    "id": "dragon-quest-monsters-withered-world",
+    "title": "Dragon Quest Monsters: The Withered World",
+    "platforms": [
+      "pc",
+      "playstation",
+      "xbox",
+      "switch"
+    ],
+    "year": 2026,
+    "release_date": "2026-12-03",
+    "genres": [
+      "rpg",
+      "monster-collecting",
+      "jrpg"
+    ],
+    "time_tags": [
+      15,
+      30,
+      60,
+      90
+    ],
+    "energy": "medium",
+    "moods": [
+      "adventurous",
+      "charming",
+      "whimsical"
+    ],
+    "play_style": [
+      "narrative",
+      "strategy"
+    ],
+    "time_to_fun": "short",
+    "stop_friendliness": "anytime",
+    "multiplayer": [
+      "solo"
+    ],
+    "description": "Square Enix's monster-taming spin-off returns with a new world to explore, scout, and battle through, built around the classic Dragon Quest Monsters loop of collecting and breeding creatures.",
+    "fun_fact": "It ships as a simultaneous worldwide release across Switch 2, Switch, PS5, Xbox Series X|S, and PC.",
+    "store_links": {}
+  }
+]

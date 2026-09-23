@@ -12,6 +12,7 @@ from datetime import datetime, timedelta
 from typing import Optional
 
 from ..db.firebase import get_collection, GAMES_COLLECTION, SIGNALS_COLLECTION, LIBRARIES_COLLECTION
+from .game_service import is_released
 from ..models import (
     RecommendationRequest,
     RecommendationResponse,
@@ -78,10 +79,10 @@ SUBSCRIPTION_ALIASES = {
 # Free-tier learning ("Why not?" feature). Games with these signals are
 # permanently excluded from a signed-in user's results, and their tags feed
 # the avoid-profile penalty in scoring.
-REJECTED_SIGNAL_TYPES = {"not_good_fit", "played_didnt_stick"}
+REJECTED_SIGNAL_TYPES = {"not_good_fit", "played_didnt_stick", "rated_down"}
 # Positive signals feed the free-tier taste nudge (same set the premium
 # favor_history profile uses).
-POSITIVE_SIGNAL_TYPES = {"worked", "played_loved", "accepted"}
+POSITIVE_SIGNAL_TYPES = {"worked", "played_loved", "accepted", "rated_up"}
 # Free-tier nudges are deliberately smaller than the premium favor_history
 # boost (0.15): enough to shift near-ties, not enough to override fit.
 FREE_TASTE_STEP = 0.05
@@ -378,6 +379,11 @@ class RecommendationService:
         if library_played:
             excluded.update(library_played)
             logger.info(f"User {user_id}: excluding {len(library_played)} played library games")
+
+        # Unreleased games (future release_date) are catalog-visible for the
+        # Coming Soon section but must never be recommended - the engine only
+        # suggests games the user can play tonight.
+        games = [g for g in games if is_released(g.get("release_date"))]
 
         # Remove excluded games
         original_count = len(games)
@@ -787,8 +793,9 @@ class RecommendationService:
 
         Returns:
             recently_shown: games signaled in the last 7 days (staleness window)
-            rejected: games with not_good_fit / played_didnt_stick — excluded
-                permanently, no time window
+            rejected: games with a REJECTED_SIGNAL_TYPES signal (not_good_fit /
+                played_didnt_stick / rated_down) — excluded permanently, no
+                time window
             positive_ids / negative_ids: newest-first deduped game ids feeding
                 the free-tier taste profiles
         """

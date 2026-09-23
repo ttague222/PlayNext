@@ -147,7 +147,7 @@ const ShareCard = forwardRef<View, ShareCardProps>(
             </Text>
             <View style={styles.footerRight}>
               <Text style={styles.tagline}>What to play, in your free time</Text>
-              <Text style={styles.storeLine}>App Store · Google Play</Text>
+              <Text style={styles.storeLine}>playnxt.io</Text>
             </View>
           </View>
         </View>
