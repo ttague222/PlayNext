@@ -9,7 +9,7 @@ already played; Backlog Mode (premium, future) restricts picks to it.
 import logging
 import re
 import time
-from datetime import datetime, timedelta
+from datetime import datetime, timedelta, timezone
 from typing import Optional
 
 import httpx
@@ -155,7 +155,7 @@ class LibraryService:
                 else:
                     owned_unplayed_game_ids.append(game_id)
 
-        synced_at = datetime.utcnow()
+        synced_at = datetime.now(timezone.utc)
         self.libraries_collection.document(user_id).set({
             "source": "steam",
             "steam_id": steam_id,
@@ -221,9 +221,25 @@ class LibraryService:
         synced_at = doc.to_dict().get("synced_at")
         if synced_at is None:
             return
-        if hasattr(synced_at, "timestamp"):
-            synced_at = datetime.utcfromtimestamp(synced_at.timestamp())
-        if datetime.utcnow() - synced_at < timedelta(minutes=SYNC_COOLDOWN_MINUTES):
+        if not isinstance(synced_at, datetime):
+            if hasattr(synced_at, "timestamp"):
+                synced_at = datetime.fromtimestamp(
+                    synced_at.timestamp(), tz=timezone.utc
+                )
+            else:
+                logger.warning(
+                    f"Unexpected synced_at type {type(synced_at).__name__} "
+                    f"for user {user_id}; skipping cooldown check"
+                )
+                return
+        if synced_at.tzinfo is None:
+            # Naive datetimes in this collection are stored as UTC
+            synced_at = synced_at.replace(tzinfo=timezone.utc)
+        else:
+            synced_at = synced_at.astimezone(timezone.utc)
+        if datetime.now(timezone.utc) - synced_at < timedelta(
+            minutes=SYNC_COOLDOWN_MINUTES
+        ):
             raise SyncCooldownError(
                 "Library was synced recently — try again in a bit"
             )
