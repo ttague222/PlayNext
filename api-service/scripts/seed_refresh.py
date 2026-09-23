@@ -18,6 +18,7 @@ import sys
 import time
 import urllib.parse
 import urllib.request
+from datetime import datetime, timezone
 from pathlib import Path
 
 from game_seed_generator import get_default_explanation_templates
@@ -161,6 +162,7 @@ def main():
         return
 
     tok = gcloud_token()
+    now_ts = {"timestampValue": datetime.now(timezone.utc).isoformat().replace("+00:00", "Z")}
     created = updated = 0
     for g in to_seed:
         data = transform(g)
@@ -171,10 +173,17 @@ def main():
             urllib.request.urlopen(urllib.request.Request(
                 f"{BASE}/{doc_id}?mask.fieldPaths=title", headers={"Authorization": f"Bearer {tok}"}))
             updated += 1
+            is_new = False
             print(f"  UPDATE (id already exists): {data['game_id']}")
         except urllib.error.HTTPError:
             created += 1
+            is_new = True
         fields = {k: to_fs(v) for k, v in data.items() if v is not None}
+        # Timestamps: created_at powers What's New / the weekly digest, so a
+        # doc seeded without it is invisible to both. Never reset it on re-seeds.
+        fields["updated_at"] = now_ts
+        if is_new:
+            fields["created_at"] = now_ts
         mask = "&".join(f"updateMask.fieldPaths={k}" for k in fields)
         body = json.dumps({"fields": fields}).encode()
         r = urllib.request.Request(f"{BASE}/{doc_id}?{mask}", method="PATCH", data=body,
