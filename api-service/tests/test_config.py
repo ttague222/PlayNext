@@ -62,3 +62,72 @@ class TestSettings:
 
         assert settings.rate_limit_requests > 0
         assert settings.rate_limit_window > 0
+
+
+VALID_STEAM_KEY = "0123456789ABCDEF0123456789ABCDEF"
+
+
+class TestSteamWebApiKeyValidation:
+    """Steam key sanitization — guards against shell-ingestion corruption
+    (e.g. a stored secret containing `-n "<key>"` plus CRLF from cmd.exe)."""
+
+    def test_valid_key_passes_through(self):
+        from src.core.config import Settings
+
+        with patch.dict(os.environ, {"STEAM_WEB_API_KEY": VALID_STEAM_KEY}):
+            settings = Settings()
+            assert settings.steam_web_api_key == VALID_STEAM_KEY
+
+    def test_surrounding_whitespace_and_crlf_stripped(self):
+        from src.core.config import Settings
+
+        with patch.dict(os.environ, {"STEAM_WEB_API_KEY": f"  {VALID_STEAM_KEY}\r\n"}):
+            settings = Settings()
+            assert settings.steam_web_api_key == VALID_STEAM_KEY
+
+    def test_echo_n_artifact_rejected_and_logged(self, caplog):
+        """The 2026-09-21 production incident: secret contained `-n "<key>"`."""
+        from src.core.config import Settings
+
+        with patch.dict(os.environ, {"STEAM_WEB_API_KEY": f'-n "{VALID_STEAM_KEY}"\r\n'}):
+            with caplog.at_level("ERROR", logger="playnext-api.config"):
+                settings = Settings()
+        assert settings.steam_web_api_key is None
+        assert any("steam_web_api_key" in r.message for r in caplog.records)
+
+    def test_malformed_value_never_logged_verbatim(self, caplog):
+        from src.core.config import Settings
+
+        with patch.dict(os.environ, {"STEAM_WEB_API_KEY": f'-n "{VALID_STEAM_KEY}"'}):
+            with caplog.at_level("ERROR", logger="playnext-api.config"):
+                Settings()
+        assert all(VALID_STEAM_KEY not in r.getMessage() for r in caplog.records)
+
+    def test_non_hex_key_rejected(self):
+        from src.core.config import Settings
+
+        with patch.dict(os.environ, {"STEAM_WEB_API_KEY": "Z" * 32}):
+            settings = Settings()
+            assert settings.steam_web_api_key is None
+
+    def test_wrong_length_key_rejected(self):
+        from src.core.config import Settings
+
+        with patch.dict(os.environ, {"STEAM_WEB_API_KEY": "ABCDEF0123"}):
+            settings = Settings()
+            assert settings.steam_web_api_key is None
+
+    def test_empty_and_whitespace_only_treated_as_unset(self):
+        from src.core.config import Settings
+
+        for raw in ("", "   ", "\r\n"):
+            with patch.dict(os.environ, {"STEAM_WEB_API_KEY": raw}):
+                settings = Settings()
+                assert settings.steam_web_api_key is None
+
+    def test_unset_key_stays_none(self):
+        from src.core.config import Settings
+
+        with patch.dict(os.environ, {}, clear=True):
+            settings = Settings()
+            assert settings.steam_web_api_key is None

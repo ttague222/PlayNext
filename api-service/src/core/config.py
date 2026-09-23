@@ -5,9 +5,17 @@ Centralized configuration using Pydantic Settings.
 All configuration is loaded from environment variables.
 """
 
+import logging
+import re
 from pathlib import Path
 from typing import Optional
+from pydantic import field_validator
 from pydantic_settings import BaseSettings
+
+logger = logging.getLogger("playnext-api.config")
+
+# Steam Web API keys are 32 hex characters
+STEAM_KEY_PATTERN = re.compile(r"^[0-9A-Fa-f]{32}$")
 
 
 class Settings(BaseSettings):
@@ -65,6 +73,28 @@ class Settings(BaseSettings):
     max_recommendations: int = 3
     default_time_bracket: int = 60  # minutes
     recommendation_cache_ttl: int = 300  # seconds
+
+    @field_validator("steam_web_api_key", mode="before")
+    @classmethod
+    def _sanitize_steam_web_api_key(cls, value: Optional[str]) -> Optional[str]:
+        """Strip whitespace and reject malformed keys instead of sending them
+        to Steam — a corrupted stored secret (e.g. CRLF or an `echo -n`
+        artifact baked in by a Windows shell) otherwise surfaces only as
+        opaque Steam 401s at request time."""
+        if value is None:
+            return None
+        key = str(value).strip()
+        if not key:
+            return None
+        if not STEAM_KEY_PATTERN.match(key):
+            # Never log the value itself — it may still contain the real key
+            logger.error(
+                "steam_web_api_key is malformed (expected 32 hex chars, got "
+                f"{len(key)} chars after stripping whitespace) — treating as "
+                "unset, Steam library sync is disabled"
+            )
+            return None
+        return key
 
     @property
     def cors_origins_list(self) -> list[str]:
