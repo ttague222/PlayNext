@@ -1,0 +1,78 @@
+[
+  {
+    "id": "enshrouded-2",
+    "title": "Enshrouded",
+    "platforms": [
+      "pc"
+    ],
+    "year": 2026,
+    "release_date": "2026-10-15",
+    "genres": [
+      "adventure",
+      "action",
+      "role-playing-games-rpg"
+    ],
+    "time_tags": [],
+    "energy": "FILL_ME",
+    "moods": [],
+    "play_style": [],
+    "time_to_fun": "FILL_ME",
+    "stop_friendliness": "FILL_ME",
+    "multiplayer": [],
+    "description": "FILL_ME",
+    "fun_fact": "",
+    "subscriptions": [],
+    "store_links": {}
+  },
+  {
+    "id": "pocket-waifu",
+    "title": "Pocket Waifu",
+    "platforms": [
+      "pc"
+    ],
+    "year": 2026,
+    "release_date": "2026-08-12",
+    "genres": [
+      "casual",
+      "indie",
+      "simulation"
+    ],
+    "time_tags": [],
+    "energy": "FILL_ME",
+    "moods": [],
+    "play_style": [],
+    "time_to_fun": "FILL_ME",
+    "stop_friendliness": "FILL_ME",
+    "multiplayer": [],
+    "description": "FILL_ME",
+    "fun_fact": "",
+    "subscriptions": [],
+    "store_links": {}
+  },
+  {
+    "id": "resonance-a-plague-tale-legacy",
+    "title": "Resonance: A Plague Tale Legacy",
+    "platforms": [
+      "pc",
+      "playstation",
+      "xbox"
+    ],
+    "year": 2026,
+    "release_date": "2026-08-27",
+    "genres": [
+      "adventure",
+      "action"
+    ],
+    "time_tags": [],
+    "energy": "FILL_ME",
+    "moods": [],
+    "play_style": [],
+    "time_to_fun": "FILL_ME",
+    "stop_friendliness": "FILL_ME",
+    "multiplayer": [],
+    "description": "FILL_ME",
+    "fun_fact": "",
+    "subscriptions": [],
+    "store_links": {}
+  }
+]
