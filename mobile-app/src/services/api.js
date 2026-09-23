@@ -14,9 +14,12 @@ const API_BASE_URL = Constants.expoConfig?.extra?.apiBaseUrl || 'http://localhos
 console.log('[API] Base URL configured:', API_BASE_URL);
 
 // Create Axios instance
+// Cloud Run cold starts run ~17s on the first request of the day; give the
+// request room instead of erroring (same rationale as the web quiz's 45s).
+// Free fix — the alternative, min-instances=1, costs standing money.
 const apiClient = axios.create({
   baseURL: API_BASE_URL,
-  timeout: 10000,
+  timeout: 45000,
   headers: {
     'Content-Type': 'application/json',
   },
