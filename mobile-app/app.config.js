@@ -53,8 +53,11 @@ export default {
     },
     android: {
       adaptiveIcon: {
+        // Foreground is the icon artwork scaled into the ~66% safe zone
+        // (full-bleed art gets cropped by launcher masks); background
+        // matches the artwork's berry field so the masked area blends.
         foregroundImage: "./assets/images/adaptive-icon.png",
-        backgroundColor: "#1a1a2e"
+        backgroundColor: "#941F51"
       },
       package: "com.playnxt.app",
       versionCode: 23,
