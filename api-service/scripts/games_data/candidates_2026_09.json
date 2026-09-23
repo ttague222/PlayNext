@@ -1,78 +1,40 @@
 [
   {
-    "id": "enshrouded-2",
+    "id": "enshrouded",
     "title": "Enshrouded",
-    "platforms": [
-      "pc"
-    ],
+    "platforms": ["pc", "playstation"],
     "year": 2026,
     "release_date": "2026-10-15",
-    "genres": [
-      "adventure",
-      "action",
-      "role-playing-games-rpg"
-    ],
-    "time_tags": [],
-    "energy": "FILL_ME",
-    "moods": [],
-    "play_style": [],
-    "time_to_fun": "FILL_ME",
-    "stop_friendliness": "FILL_ME",
-    "multiplayer": [],
-    "description": "FILL_ME",
-    "fun_fact": "",
+    "genres": ["survival", "action-rpg", "open-world", "crafting"],
+    "time_tags": [30, 60, 90, 120],
+    "energy": "medium",
+    "moods": ["adventurous", "immersive", "creative", "cooperative"],
+    "play_style": ["action", "sandbox_creative"],
+    "time_to_fun": "medium",
+    "stop_friendliness": "anytime",
+    "multiplayer": ["solo", "online_coop"],
+    "description": "A voxel survival action RPG where you carve a home out of the fog-cursed kingdom of Embervale, solo or with up to 15 friends.",
+    "fun_fact": "The 1.0 launch ends almost three years of early access and lands on PS5 the same day as PC.",
     "subscriptions": [],
     "store_links": {}
   },
   {
-    "id": "pocket-waifu",
-    "title": "Pocket Waifu",
-    "platforms": [
-      "pc"
-    ],
-    "year": 2026,
-    "release_date": "2026-08-12",
-    "genres": [
-      "casual",
-      "indie",
-      "simulation"
-    ],
-    "time_tags": [],
-    "energy": "FILL_ME",
-    "moods": [],
-    "play_style": [],
-    "time_to_fun": "FILL_ME",
-    "stop_friendliness": "FILL_ME",
-    "multiplayer": [],
-    "description": "FILL_ME",
-    "fun_fact": "",
-    "subscriptions": [],
-    "store_links": {}
-  },
-  {
-    "id": "resonance-a-plague-tale-legacy",
+    "id": "a-plague-tale-resonance",
     "title": "Resonance: A Plague Tale Legacy",
-    "platforms": [
-      "pc",
-      "playstation",
-      "xbox"
-    ],
+    "platforms": ["pc", "playstation", "xbox"],
     "year": 2026,
     "release_date": "2026-08-27",
-    "genres": [
-      "adventure",
-      "action"
-    ],
-    "time_tags": [],
-    "energy": "FILL_ME",
-    "moods": [],
-    "play_style": [],
-    "time_to_fun": "FILL_ME",
-    "stop_friendliness": "FILL_ME",
-    "multiplayer": [],
-    "description": "FILL_ME",
-    "fun_fact": "",
-    "subscriptions": [],
+    "genres": ["action-adventure", "stealth", "narrative"],
+    "time_tags": [60, 90],
+    "energy": "medium",
+    "moods": ["cinematic", "tense", "atmospheric", "dark"],
+    "play_style": ["narrative", "action"],
+    "time_to_fun": "medium",
+    "stop_friendliness": "checkpoints",
+    "multiplayer": ["solo"],
+    "description": "Asobo's Plague Tale prequel follows young Sophia uncovering the secrets of her past through stealth, swarming rats, and cinematic storytelling.",
+    "fun_fact": "It launched day one on Xbox Game Pass with Play Anywhere support.",
+    "subscriptions": ["xbox_game_pass"],
     "store_links": {}
   }
 ]
