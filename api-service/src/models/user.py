@@ -20,6 +20,8 @@ class SignalType(str, Enum):
     SKIPPED = "skipped"
     ACCEPTED = "accepted"
     ALREADY_PLAYED = "already_played"  # User already played this game recently
+    RATED_UP = "rated_up"        # GameDetail thumbs up — feeds taste profile
+    RATED_DOWN = "rated_down"    # GameDetail thumbs down — excluded like not_good_fit
 
 
 class UserBase(BaseModel):
@@ -140,3 +142,18 @@ class FeedbackRequest(BaseModel):
     session_id: str
     context: Optional[SignalContext] = None
     game_title: Optional[str] = None  # Game title for display in history
+
+
+class RatingUpdate(BaseModel):
+    """Request body for setting a game rating. rating=None clears it."""
+    rating: Optional[str] = Field(default=None, pattern="^(up|down)$")
+    game_title: Optional[str] = None
+
+
+class RatingSummary(BaseModel):
+    """Aggregate thumbs rating for a game plus the caller's own rating."""
+    up: int
+    down: int
+    total: int
+    percent_liked: Optional[int] = None  # None below RATING_DISPLAY_THRESHOLD
+    user_rating: Optional[str] = None    # "up" | "down" | None

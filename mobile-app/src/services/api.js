@@ -138,6 +138,14 @@ const api = {
     return response.data;
   },
 
+  /**
+   * Get unreleased games, soonest first (Coming Soon section)
+   */
+  getUpcomingGames: async (limit = 10) => {
+    const response = await apiClient.get('/games/upcoming', { params: { limit } });
+    return response.data;
+  },
+
   // ============================================
   // Push Notifications
   // ============================================
@@ -274,6 +282,28 @@ const api = {
    */
   getGameSignals: async (gameId) => {
     const response = await apiClient.get(`/signals/game/${gameId}`);
+    return response.data;
+  },
+
+  /**
+   * Get aggregate thumbs rating for a game (plus this user's own rating)
+   */
+  getGameRating: async (gameId) => {
+    const response = await apiClient.get(`/signals/game/${gameId}/rating`);
+    return response.data;
+  },
+
+  /**
+   * Set, change, or clear (rating=null) this user's thumbs rating
+   * @param {string} gameId
+   * @param {"up"|"down"|null} rating
+   * @param {string} [gameTitle]
+   */
+  setGameRating: async (gameId, rating, gameTitle = null) => {
+    const response = await apiClient.put(`/signals/game/${gameId}/rating`, {
+      rating,
+      game_title: gameTitle,
+    });
     return response.data;
   },
 

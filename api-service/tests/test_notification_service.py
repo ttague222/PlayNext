@@ -1,4 +1,11 @@
-"""Unit tests for notification pure logic."""
+"""Unit tests for notification pure logic.
+
+Note: NotificationService.run_weekly_send() (the announced-only-window /
+first-7-days-of-month gating for the "coming soon" digest) is untested
+I/O -- it pulls from get_game_service() and the device store directly.
+No test here exercises it; covered instead by the unit tests below for
+its pure building blocks (build_digest_message, select_recipients).
+"""
 
 from datetime import datetime, timedelta, timezone
 
@@ -103,3 +110,32 @@ def test_prune_ignores_other_errors():
     messages = [{"to": "ExponentPushToken[a]"}]
     tickets = [{"status": "error", "details": {"error": "MessageTooBig"}}]
     assert tokens_to_prune(messages, tickets) == []
+
+
+# ---------- build_digest_message: upcoming games ----------
+
+class TestDigestUpcoming:
+    def test_upcoming_appended_to_body(self):
+        msg = build_digest_message(
+            [{"title": "Game A"}, {"title": "Game B"}],
+            upcoming_games=[{"title": "Future 1"}, {"title": "Future 2"}, {"title": "Future 3"}],
+        )
+        assert "3 more coming soon" in msg["body"]
+
+    def test_no_upcoming_keeps_old_copy(self):
+        msg = build_digest_message([{"title": "Game A"}], upcoming_games=[])
+        assert "coming soon" not in msg["body"]
+
+    def test_upcoming_alone_still_sends(self):
+        # New-release week with nothing added but games announced: still a digest.
+        msg = build_digest_message([], upcoming_games=[{"title": "Future 1"}])
+        assert msg is not None
+        assert "coming soon" in msg["body"].lower() or "coming soon" in msg["title"].lower()
+
+    def test_nothing_at_all_returns_none(self):
+        assert build_digest_message([], upcoming_games=[]) is None
+
+    def test_backward_compatible_single_arg(self):
+        # Existing callers/tests pass only recent_games.
+        msg = build_digest_message([{"title": "Game A"}])
+        assert msg is not None and "coming soon" not in msg["body"]
