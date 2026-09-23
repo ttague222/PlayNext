@@ -31,6 +31,7 @@ import { SafeAreaView } from 'react-native-safe-area-context';
 import { LinearGradient } from 'expo-linear-gradient';
 import { Ionicons } from '@expo/vector-icons';
 import { useNavigation } from '@react-navigation/native';
+import Constants from 'expo-constants';
 import AsyncStorage from '@react-native-async-storage/async-storage';
 import { useAuth } from '../context/AuthContext';
 import { usePremium } from '../context/PremiumContext';
@@ -462,7 +463,7 @@ const ProfileScreen = () => {
 
           {/* App Info */}
           <View style={styles.appInfo}>
-            <Text style={styles.appInfoText}>PlayNxt v1.0.0</Text>
+            <Text style={styles.appInfoText}>PlayNxt v{Constants.expoConfig?.version ?? ''}</Text>
             <Text style={styles.appInfoText}>A decision tool, not an engagement platform.</Text>
           </View>
         </ScrollView>
