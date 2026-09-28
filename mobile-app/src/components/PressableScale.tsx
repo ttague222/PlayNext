@@ -3,17 +3,32 @@
  * Scales to 0.97 over 120ms on press-in, springs back on release.
  */
 import React, { useRef } from 'react';
-import { Animated, Pressable, PressableProps, StyleProp, ViewStyle } from 'react-native';
+import {
+  Animated,
+  GestureResponderEvent,
+  Pressable,
+  PressableProps,
+  StyleProp,
+  ViewStyle,
+} from 'react-native';
 
 type Props = PressableProps & {
   style?: StyleProp<ViewStyle>;
   children: React.ReactNode;
 };
 
-const PressableScale = ({ style, children, disabled, onPressIn, onPressOut, ...rest }: Props) => {
+const PressableScale = ({
+  style,
+  children,
+  disabled,
+  onPressIn,
+  onPressOut,
+  accessibilityRole = 'button',
+  ...rest
+}: Props) => {
   const scale = useRef(new Animated.Value(1)).current;
 
-  const handlePressIn = (e: any) => {
+  const handlePressIn = (e: GestureResponderEvent) => {
     Animated.timing(scale, {
       toValue: 0.97,
       duration: 120,
@@ -22,7 +37,7 @@ const PressableScale = ({ style, children, disabled, onPressIn, onPressOut, ...r
     onPressIn?.(e);
   };
 
-  const handlePressOut = (e: any) => {
+  const handlePressOut = (e: GestureResponderEvent) => {
     Animated.spring(scale, {
       toValue: 1,
       stiffness: 300,
@@ -36,6 +51,7 @@ const PressableScale = ({ style, children, disabled, onPressIn, onPressOut, ...r
   return (
     <Pressable
       disabled={disabled}
+      accessibilityRole={accessibilityRole}
       onPressIn={disabled ? undefined : handlePressIn}
       onPressOut={disabled ? undefined : handlePressOut}
       {...rest}
