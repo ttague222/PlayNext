@@ -19,6 +19,7 @@ import {
 } from 'react-native';
 import { LinearGradient } from 'expo-linear-gradient';
 import { Ionicons } from '@expo/vector-icons';
+import PressableScale from './PressableScale';
 import { getGameImage } from '../services/gameImages';
 import {
   generateStoreAffiliateLink,
@@ -33,18 +34,6 @@ const PLATFORM_LABELS = {
   mobile: 'Mobile',
 };
 
-
-const TIME_TO_FUN_LABELS = {
-  short: 'Jump right in',
-  medium: 'Brief setup',
-  long: 'Worth the wait',
-};
-
-const STOP_FRIENDLINESS_LABELS = {
-  anytime: 'Stop anytime',
-  checkpoints: 'Save points',
-  commitment: 'Block of time',
-};
 
 // Subscription service branding and platform mapping
 const SUBSCRIPTION_CONFIG = {
@@ -309,6 +298,13 @@ const GameCard = ({ game, rank, onAccept, onAlreadyPlayed, onNotForMe, onSave, i
               <ActivityIndicator color="#ffffff" size="small" />
             </View>
           )}
+          {/* Hero scrim — blends thumbnail into the card body */}
+          <LinearGradient
+            colors={['transparent', 'rgba(30,30,60,0.55)', '#1e1e3c']}
+            locations={[0.45, 0.78, 1]}
+            style={styles.heroScrim}
+            pointerEvents="none"
+          />
           {/* Top Pick Badge - overlay on image */}
           {rank === 1 && (
             <View style={styles.topPickBadge}>
@@ -323,15 +319,16 @@ const GameCard = ({ game, rank, onAccept, onAlreadyPlayed, onNotForMe, onSave, i
               </LinearGradient>
             </View>
           )}
-          {/* Match badge overlay */}
-          <View style={styles.matchBadgeOverlay}>
-            <Text style={styles.matchTextOverlay}>{matchPercent}%</Text>
-          </View>
         </View>
 
         {/* Header */}
         <View style={styles.header}>
-          <Text style={styles.title}>{game.title}</Text>
+          <View style={styles.titleRow}>
+            <Text style={styles.title} numberOfLines={2}>{game.title}</Text>
+            <View style={styles.matchPill} testID="match-pill">
+              <Text style={styles.matchPillText}>{matchPercent}% match</Text>
+            </View>
+          </View>
           <Text style={styles.platforms}>
             {validatedPlatforms.map((p) => PLATFORM_LABELS[p] || p).join(' · ')}
           </Text>
@@ -340,15 +337,29 @@ const GameCard = ({ game, rank, onAccept, onAlreadyPlayed, onNotForMe, onSave, i
         {/* Description */}
         <Text style={styles.description}>{game.description_short}</Text>
 
-        {/* Why this fits - Simplified with icons */}
-        {game.explanation && (
-          <View style={styles.explanationBox}>
+        {/* Primary CTA — above the fold (P0.1) */}
+        <View testID="card-cta">
+          <PressableScale
+            style={[styles.acceptButton, (isSwapping || isAccepting) && styles.buttonDisabled]}
+            onPress={(isSwapping || isAccepting) ? undefined : onAccept}
+            disabled={isSwapping || isAccepting}
+            accessibilityLabel="I'll play this"
+          >
             <LinearGradient
-              colors={['rgba(248, 87, 166, 0.15)', 'rgba(255, 88, 88, 0.05)']}
-              style={StyleSheet.absoluteFill}
+              colors={(isSwapping || isAccepting) ? ['#888', '#666'] : ['#f857a6', '#ff5858']}
               start={{ x: 0, y: 0 }}
               end={{ x: 1, y: 0 }}
-            />
+              style={styles.acceptGradient}
+            >
+              <Ionicons name="game-controller" size={20} color="#ffffff" />
+              <Text style={styles.acceptText}>{isAccepting ? 'Saving...' : "I'll play this!"}</Text>
+            </LinearGradient>
+          </PressableScale>
+        </View>
+
+        {/* Why this fits - Simplified with icons */}
+        {game.explanation && (
+          <View style={styles.explanationBox} testID="card-why">
             <View style={styles.explanationHeader}>
               <Ionicons name="bulb-outline" size={16} color="#f857a6" />
               <Text style={styles.explanationLabel}>Why this fits</Text>
@@ -384,18 +395,6 @@ const GameCard = ({ game, rank, onAccept, onAlreadyPlayed, onNotForMe, onSave, i
 
         {/* Meta tags */}
         <View style={styles.metaRow}>
-          <View style={styles.metaTag}>
-            <Ionicons name="flash-outline" size={14} color="#a0a0a0" />
-            <Text style={styles.metaText}>
-              {TIME_TO_FUN_LABELS[game.time_to_fun] || 'Quick start'}
-            </Text>
-          </View>
-          <View style={styles.metaTag}>
-            <Ionicons name="pause-circle-outline" size={14} color="#a0a0a0" />
-            <Text style={styles.metaText}>
-              {STOP_FRIENDLINESS_LABELS[game.stop_friendliness] || 'Flexible'}
-            </Text>
-          </View>
           {game.in_library && (
             <View style={[styles.metaTag, styles.libraryTag]}>
               <Ionicons name="logo-steam" size={14} color="#4ade80" />
@@ -533,26 +532,6 @@ const GameCard = ({ game, rank, onAccept, onAlreadyPlayed, onNotForMe, onSave, i
 
         {/* Actions */}
         <View style={styles.actionsContainer}>
-          <Pressable
-            style={({ pressed }) => [
-              styles.acceptButton,
-              (isSwapping || isAccepting) && styles.buttonDisabled,
-              pressed && !isSwapping && !isAccepting && styles.buttonPressed,
-            ]}
-            onPress={(isSwapping || isAccepting) ? undefined : onAccept}
-            disabled={isSwapping || isAccepting}
-          >
-            <LinearGradient
-              colors={(isSwapping || isAccepting) ? ['#888', '#666'] : ['#f857a6', '#ff5858']}
-              start={{ x: 0, y: 0 }}
-              end={{ x: 1, y: 0 }}
-              style={styles.acceptGradient}
-            >
-              <Ionicons name="game-controller" size={20} color="#ffffff" />
-              <Text style={styles.acceptText}>{isAccepting ? 'Saving...' : "I'll play this!"}</Text>
-            </LinearGradient>
-          </Pressable>
-
           {/* Secondary actions row */}
           <View style={styles.secondaryActions}>
             {/* Already Played Button */}
@@ -696,30 +675,41 @@ const styles = StyleSheet.create({
     justifyContent: 'center',
     alignItems: 'center',
   },
-  matchBadgeOverlay: {
-    position: 'absolute',
-    top: 12,
-    right: 12,
-    backgroundColor: 'rgba(0, 0, 0, 0.7)',
-    paddingVertical: 6,
-    paddingHorizontal: 12,
-    borderRadius: 12,
-    borderWidth: 1,
-    borderColor: 'rgba(74, 222, 128, 0.5)',
-  },
-  matchTextOverlay: {
-    fontSize: 14,
-    fontWeight: '800',
-    color: '#4ade80',
+  heroScrim: {
+    ...StyleSheet.absoluteFillObject,
   },
   header: {
     marginBottom: 12,
+  },
+  titleRow: {
+    flexDirection: 'row',
+    alignItems: 'flex-start',
+    justifyContent: 'space-between',
+    gap: 10,
+  },
+  matchPill: {
+    flexDirection: 'row',
+    alignItems: 'center',
+    paddingHorizontal: 11,
+    paddingVertical: 5,
+    borderRadius: 999,
+    backgroundColor: 'rgba(74, 222, 128, 0.12)',
+    borderWidth: 1,
+    borderColor: 'rgba(74, 222, 128, 0.35)',
+    flexShrink: 0,
+  },
+  matchPillText: {
+    color: '#4ade80',
+    fontSize: 13,
+    fontWeight: '700',
   },
   title: {
     fontSize: 24,
     fontWeight: '800',
     color: '#ffffff',
     marginBottom: 6,
+    letterSpacing: -0.5,
+    flexShrink: 1,
   },
   platforms: {
     fontSize: 14,
@@ -736,8 +726,9 @@ const styles = StyleSheet.create({
     borderRadius: 14,
     padding: 14,
     marginBottom: 18,
-    borderLeftWidth: 3,
-    borderLeftColor: '#f857a6',
+    borderTopWidth: 1,
+    borderTopColor: 'rgba(255,255,255,0.06)',
+    paddingTop: 18,
     overflow: 'hidden',
   },
   explanationHeader: {
