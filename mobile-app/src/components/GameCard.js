@@ -8,8 +8,6 @@ import React, { useState, useRef, useEffect } from 'react';
 import {
   View,
   Text,
-  TouchableOpacity,
-  Pressable,
   StyleSheet,
   Animated,
   Image,
@@ -39,65 +37,38 @@ const PLATFORM_LABELS = {
 const SUBSCRIPTION_CONFIG = {
   xbox_game_pass: {
     name: 'Xbox Game Pass',
-    icon: '🟢',
-    colors: ['#107C10', '#0e6b0e'],
-    textColor: '#ffffff',
     platforms: ['pc', 'console'], // Available on PC and Xbox Console
   },
   playstation_plus: {
     name: 'PlayStation Plus',
-    icon: '🔵',
-    colors: ['#003087', '#00246d'],
-    textColor: '#ffffff',
     platforms: ['console'], // PlayStation only
   },
   ea_play: {
     name: 'EA Play',
-    icon: '⚽',
-    colors: ['#ff4747', '#cc3939'],
-    textColor: '#ffffff',
     platforms: ['pc', 'console'], // Available on PC, Xbox, PlayStation
   },
   ubisoft_plus: {
     name: 'Ubisoft+',
-    icon: '🎯',
-    colors: ['#0070ff', '#005acc'],
-    textColor: '#ffffff',
     platforms: ['pc', 'console'], // PC and consoles
   },
   nintendo_switch_online: {
     name: 'Nintendo Switch Online',
-    icon: '🔴',
-    colors: ['#e60012', '#cc0010'],
-    textColor: '#ffffff',
     platforms: ['handheld'], // Nintendo Switch
   },
   netflix_games: {
     name: 'Netflix Games',
-    icon: '📺',
-    colors: ['#E50914', '#B20710'],
-    textColor: '#ffffff',
     platforms: ['mobile'], // Mobile only
   },
   amazon_luna: {
     name: 'Amazon Luna',
-    icon: '🌙',
-    colors: ['#00A8E1', '#0078A8'],
-    textColor: '#ffffff',
     platforms: ['pc', 'mobile'], // Cloud gaming on multiple devices
   },
   apple_arcade: {
     name: 'Apple Arcade',
-    icon: '🍎',
-    colors: ['#FA243C', '#C41E32'],
-    textColor: '#ffffff',
     platforms: ['mobile', 'pc'], // iOS, macOS, tvOS
   },
   default: {
     name: 'Subscription',
-    icon: '✨',
-    colors: ['#6366f1', '#4f46e5'],
-    textColor: '#ffffff',
     platforms: [],
   },
 };
@@ -106,56 +77,38 @@ const SUBSCRIPTION_CONFIG = {
 const STORE_CONFIG = {
   steam: {
     name: 'Steam',
-    colors: ['#1b2838', '#2a475e'],
-    textColor: '#ffffff',
     platforms: ['pc'],
   },
   playstation: {
     name: 'PlayStation',
-    colors: ['#003087', '#00246d'],
-    textColor: '#ffffff',
     platforms: ['console'],
   },
   xbox: {
     name: 'Xbox',
-    colors: ['#107C10', '#0e6b0e'],
-    textColor: '#ffffff',
     platforms: ['console', 'pc'],
   },
   nintendo: {
     name: 'Nintendo',
-    colors: ['#e60012', '#cc0010'],
-    textColor: '#ffffff',
     platforms: ['handheld'],
   },
   epic: {
     name: 'Epic Games',
-    colors: ['#313131', '#1a1a1a'],
-    textColor: '#ffffff',
     platforms: ['pc'],
   },
   gog: {
     name: 'GOG',
-    colors: ['#7b5794', '#5c3d73'],
-    textColor: '#ffffff',
     platforms: ['pc'],
   },
   ios: {
     name: 'App Store',
-    colors: ['#007AFF', '#0056CC'],
-    textColor: '#ffffff',
     platforms: ['mobile'],
   },
   android: {
     name: 'Google Play',
-    colors: ['#01875f', '#016847'],
-    textColor: '#ffffff',
     platforms: ['mobile'],
   },
   battlenet: {
     name: 'Battle.net',
-    colors: ['#148eff', '#0074e0'],
-    textColor: '#ffffff',
     platforms: ['pc'],
   },
 };
@@ -480,57 +433,44 @@ const GameCard = ({ game, rank, onAccept, onAlreadyPlayed, onNotForMe, onSave, i
 
         {/* Actions */}
         <View style={styles.actionsContainer}>
-          {/* Secondary actions row */}
+          {/* Secondary actions — labeled (P0.5) */}
           <View style={styles.secondaryActions}>
-            {/* Already Played Button */}
-            <Pressable
-              style={({ pressed }) => [
-                styles.alreadyPlayedButton,
-                isSwapping && styles.buttonDisabled,
-                pressed && !isSwapping && styles.buttonPressed,
-              ]}
+            <PressableScale
+              style={[styles.secondaryButton, isSwapping && styles.buttonDisabled]}
               onPress={isSwapping ? undefined : onAlreadyPlayed}
+              disabled={isSwapping}
+              accessibilityLabel="Played it"
             >
               {isSwapping ? (
                 <ActivityIndicator color="#a0a0a0" size="small" />
               ) : (
                 <>
-                  <Text style={styles.alreadyPlayedIcon}>✓</Text>
-                  <Text style={styles.alreadyPlayedText}>Already played</Text>
+                  <Ionicons name="game-controller-outline" size={15} color="#c2c2d2" />
+                  <Text style={styles.secondaryButtonText}>Played it</Text>
                 </>
               )}
-            </Pressable>
-
-            {/* Not For Me Button — opens the "Why not?" sheet */}
+            </PressableScale>
             {onNotForMe && (
-              <TouchableOpacity
-                style={[
-                  styles.notForMeButton,
-                  isSwapping && styles.buttonDisabled,
-                ]}
-                onPress={onNotForMe}
+              <PressableScale
+                style={[styles.secondaryButton, styles.notForMeButton, isSwapping && styles.buttonDisabled]}
+                onPress={isSwapping ? undefined : onNotForMe}
                 disabled={isSwapping}
-                activeOpacity={0.7}
                 accessibilityLabel="Not for me"
               >
-                <Ionicons name="thumbs-down-outline" size={18} color="#f87171" />
-              </TouchableOpacity>
+                <Ionicons name="thumbs-down-outline" size={15} color="#f89b9b" />
+                <Text style={styles.notForMeText}>Not for me</Text>
+              </PressableScale>
             )}
-
-            {/* Save Button */}
             {onSave && (
-              <TouchableOpacity
-                style={[
-                  styles.saveButton,
-                  isSwapping && styles.buttonDisabled,
-                ]}
-                onPress={onSave}
+              <PressableScale
+                style={[styles.secondaryButton, styles.saveButton, isSwapping && styles.buttonDisabled]}
+                onPress={isSwapping ? undefined : onSave}
                 disabled={isSwapping}
-                activeOpacity={0.7}
+                accessibilityLabel="Save"
               >
-                <Ionicons name="bookmark-outline" size={18} color="#f59e0b" />
+                <Ionicons name="bookmark-outline" size={15} color="#f5b544" />
                 <Text style={styles.saveButtonText}>Save</Text>
-              </TouchableOpacity>
+              </PressableScale>
             )}
           </View>
         </View>
@@ -803,53 +743,39 @@ const styles = StyleSheet.create({
     flexDirection: 'row',
     gap: 10,
   },
-  alreadyPlayedButton: {
+  secondaryButton: {
     flex: 1,
     flexDirection: 'row',
     alignItems: 'center',
     justifyContent: 'center',
-    paddingVertical: 14,
-    borderRadius: 14,
-    backgroundColor: 'rgba(255, 255, 255, 0.08)',
+    gap: 7,
+    paddingVertical: 13,
+    borderRadius: 13,
     borderWidth: 1,
-    borderColor: 'rgba(255, 255, 255, 0.1)',
-    gap: 8,
+    borderColor: 'rgba(255,255,255,0.14)',
+    backgroundColor: 'rgba(255,255,255,0.03)',
   },
-  alreadyPlayedIcon: {
-    fontSize: 16,
-    color: '#4ade80',
-  },
-  alreadyPlayedText: {
-    fontSize: 15,
+  secondaryButtonText: {
+    fontSize: 13,
     fontWeight: '600',
-    color: '#a0a0a0',
+    color: '#c2c2d2',
   },
   notForMeButton: {
-    alignItems: 'center',
-    justifyContent: 'center',
-    paddingVertical: 14,
-    paddingHorizontal: 14,
-    borderRadius: 14,
-    backgroundColor: 'rgba(248, 113, 113, 0.12)',
-    borderWidth: 1,
-    borderColor: 'rgba(248, 113, 113, 0.3)',
+    borderColor: 'rgba(248,113,113,0.35)',
+  },
+  notForMeText: {
+    fontSize: 13,
+    fontWeight: '600',
+    color: '#f89b9b',
   },
   saveButton: {
-    flexDirection: 'row',
-    alignItems: 'center',
-    justifyContent: 'center',
-    paddingVertical: 14,
-    paddingHorizontal: 16,
-    borderRadius: 14,
-    backgroundColor: 'rgba(245, 158, 11, 0.15)',
-    borderWidth: 1,
-    borderColor: 'rgba(245, 158, 11, 0.3)',
-    gap: 6,
+    borderColor: 'rgba(245,158,11,0.4)',
+    backgroundColor: 'rgba(245,158,11,0.05)',
   },
   saveButtonText: {
-    fontSize: 15,
+    fontSize: 13,
     fontWeight: '600',
-    color: '#f59e0b',
+    color: '#f5b544',
   },
   acceptText: {
     fontSize: 18,
@@ -858,10 +784,6 @@ const styles = StyleSheet.create({
   },
   buttonDisabled: {
     opacity: 0.5,
-  },
-  buttonPressed: {
-    opacity: 0.8,
-    transform: [{ scale: 0.98 }],
   },
 });
 
