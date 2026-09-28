@@ -2,9 +2,10 @@ import React from 'react';
 import { render, fireEvent } from '@testing-library/react-native';
 
 jest.mock('../../services/gameImages', () => ({
-  getGameImage: jest.fn(() => Promise.resolve(null)), // covers render without art
+  getGameImage: jest.fn(() => Promise.resolve({ imageUrl: null, fallbackColors: ['#1a1a2e', '#16213e'] })), // covers render without art
 }));
 
+import { getGameImage } from '../../services/gameImages';
 import TonightCard, { formatContextLine } from '../TonightCard';
 
 const CONTEXT = { timeAvailable: 60, energyMood: 'wind_down', genres: [], platforms: [], sessionType: 'solo', discoveryMode: 'familiar' };
@@ -46,6 +47,17 @@ describe('TonightCard', () => {
     expect(onPress).toHaveBeenCalled();
     await fireEvent.press(getByText('Change'));
     expect(onChangePress).toHaveBeenCalled();
+  });
+
+  it('renders the image when getGameImage resolves an imageUrl', async () => {
+    getGameImage.mockImplementationOnce(() =>
+      Promise.resolve({ imageUrl: 'https://example.com/hades.jpg', fallbackColors: ['#1a1a2e', '#16213e'] })
+    );
+    const { findByTestId } = await render(
+      <TonightCard status="ready" context={CONTEXT} games={GAMES} onPress={jest.fn()} onChangePress={jest.fn()} />
+    );
+    const image = await findByTestId('tonight-thumb-image-hades');
+    expect(image.props.source).toEqual({ uri: 'https://example.com/hades.jpg' });
   });
 
   it('renders the loading state', async () => {

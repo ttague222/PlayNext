@@ -26,7 +26,7 @@ const Thumb = ({ game }) => {
   useEffect(() => {
     let mounted = true;
     getGameImage(game.game_id, game.title)
-      .then((img) => { if (mounted && img) setUri(img); })
+      .then((img) => { if (mounted) setUri(img?.imageUrl || null); })
       .catch(() => {});
     return () => { mounted = false; };
   }, [game.game_id, game.title]);
@@ -34,7 +34,12 @@ const Thumb = ({ game }) => {
   return (
     <View style={styles.thumbWrap}>
       {uri ? (
-        <Image source={{ uri }} style={styles.thumb} resizeMode="cover" />
+        <Image
+          testID={`tonight-thumb-image-${game.game_id}`}
+          source={{ uri }}
+          style={styles.thumb}
+          resizeMode="cover"
+        />
       ) : (
         <View style={[styles.thumb, styles.thumbPlaceholder]}>
           <Ionicons name="game-controller-outline" size={18} color="#4a4a6a" />
@@ -64,10 +69,15 @@ const TonightCard = ({ status, context, games, onPress, onChangePress }) => {
     >
       <View style={styles.headerRow}>
         <View style={styles.headerLeft}>
-          <Ionicons name="moon-outline" size={16} color="#e94560" />
+          <Ionicons name="moon-outline" size={16} color="#f857a6" />
           <Text style={styles.title}>Tonight's Picks</Text>
         </View>
-        <TouchableOpacity onPress={onChangePress} hitSlop={{ top: 8, bottom: 8, left: 8, right: 8 }}>
+        <TouchableOpacity
+          onPress={onChangePress}
+          hitSlop={{ top: 8, bottom: 8, left: 8, right: 8 }}
+          accessibilityRole="button"
+          accessibilityLabel="Change tonight's settings"
+        >
           <Text style={styles.change}>Change</Text>
         </TouchableOpacity>
       </View>
@@ -93,7 +103,7 @@ const styles = StyleSheet.create({
     backgroundColor: 'rgba(255, 255, 255, 0.06)',
     borderRadius: 16,
     borderWidth: 1,
-    borderColor: 'rgba(233, 69, 96, 0.25)',
+    borderColor: 'rgba(248, 87, 166, 0.25)',
     padding: 16,
     marginTop: 24,
     width: '100%',
@@ -101,7 +111,7 @@ const styles = StyleSheet.create({
   headerRow: { flexDirection: 'row', justifyContent: 'space-between', alignItems: 'center' },
   headerLeft: { flexDirection: 'row', alignItems: 'center', gap: 6 },
   title: { color: '#ffffff', fontSize: 16, fontWeight: '700' },
-  change: { color: '#e94560', fontSize: 13, fontWeight: '600' },
+  change: { color: '#f857a6', fontSize: 13, fontWeight: '600' },
   contextLine: { color: '#a0a0b8', fontSize: 13, marginTop: 4 },
   thumbRow: { flexDirection: 'row', gap: 12, marginTop: 12 },
   thumbWrap: { flex: 1, alignItems: 'center' },
