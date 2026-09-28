@@ -129,3 +129,13 @@ def test_library_fit_is_untouched(svc):
         library_playtimes={"a": 0},
     )
     assert rec.explanation.library_fit == "It's been sitting unplayed in your Steam library."
+
+
+def test_two_all_filler_games_get_distinct_fallbacks(svc):
+    filler = {"mood_fit": "Enjoyable gameplay experience."}
+    used = set()
+    rec1 = svc._build_recommendation(_game("alpha", dict(filler)), _request(), used_bullets=used)
+    rec2 = svc._build_recommendation(_game("beta", dict(filler)), _request(), used_bullets=used)
+    assert rec1.explanation.time_fit
+    assert rec2.explanation.time_fit
+    assert rec1.explanation.time_fit != rec2.explanation.time_fit

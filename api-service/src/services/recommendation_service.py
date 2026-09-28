@@ -1038,7 +1038,12 @@ class RecommendationService:
         library_playtimes: Optional[dict] = None,
         used_bullets: Optional[set] = None,
     ) -> GameRecommendation:
-        """Build a GameRecommendation from game data."""
+        """Build a GameRecommendation from game data.
+
+        `used_bullets` is mutated in place and shared across every game in
+        one response, so bullets never repeat across the (up to 3)
+        recommendations returned to the client.
+        """
         # Build explanation: at most 2 game-specific bullets, deduped across
         # the whole response (docs/GAME-CARD-REFRESH.md P0.2).
         templates = game.get("explanation_templates", {})
@@ -1049,6 +1054,11 @@ class RecommendationService:
         mood_label = request.energy_mood.value.replace("_", " ")
         if not selected:
             fallback = f"Fits a {mood_label} {request.time_available}-minute session."
+            if _normalize_bullet(fallback) in used_bullets:
+                # Plain fallback already used by another game in this
+                # response — fold in the title so it stays unique. Titles
+                # are unique within a response after franchise diversity.
+                fallback = f"{game['title']} fits a {mood_label} {request.time_available}-minute session."
             selected = [("time_fit", fallback)]
             used_bullets.add(_normalize_bullet(fallback))
 
