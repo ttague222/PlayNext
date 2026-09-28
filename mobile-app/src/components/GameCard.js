@@ -431,48 +431,45 @@ const GameCard = ({ game, rank, onAccept, onAlreadyPlayed, onNotForMe, onSave, i
           </View>
         )}
 
-        {/* Actions */}
-        <View style={styles.actionsContainer}>
-          {/* Secondary actions — labeled (P0.5) */}
-          <View style={styles.secondaryActions}>
+        {/* Secondary actions — labeled (P0.5) */}
+        <View style={styles.secondaryActions}>
+          <PressableScale
+            style={[styles.secondaryButton, isSwapping && styles.buttonDisabled]}
+            onPress={isSwapping ? undefined : onAlreadyPlayed}
+            disabled={isSwapping}
+            accessibilityLabel="Played it"
+          >
+            {isSwapping ? (
+              <ActivityIndicator color="#a0a0a0" size="small" />
+            ) : (
+              <>
+                <Ionicons name="game-controller-outline" size={15} color="#c2c2d2" />
+                <Text style={styles.secondaryButtonText} numberOfLines={1} adjustsFontSizeToFit minimumFontScale={0.85}>Played it</Text>
+              </>
+            )}
+          </PressableScale>
+          {onNotForMe && (
             <PressableScale
-              style={[styles.secondaryButton, isSwapping && styles.buttonDisabled]}
-              onPress={isSwapping ? undefined : onAlreadyPlayed}
+              style={[styles.secondaryButton, styles.notForMeButton, isSwapping && styles.buttonDisabled]}
+              onPress={isSwapping ? undefined : onNotForMe}
               disabled={isSwapping}
-              accessibilityLabel="Played it"
+              accessibilityLabel="Not for me"
             >
-              {isSwapping ? (
-                <ActivityIndicator color="#a0a0a0" size="small" />
-              ) : (
-                <>
-                  <Ionicons name="game-controller-outline" size={15} color="#c2c2d2" />
-                  <Text style={styles.secondaryButtonText}>Played it</Text>
-                </>
-              )}
+              <Ionicons name="thumbs-down-outline" size={15} color="#f89b9b" />
+              <Text style={styles.notForMeText} numberOfLines={1} adjustsFontSizeToFit minimumFontScale={0.85}>Not for me</Text>
             </PressableScale>
-            {onNotForMe && (
-              <PressableScale
-                style={[styles.secondaryButton, styles.notForMeButton, isSwapping && styles.buttonDisabled]}
-                onPress={isSwapping ? undefined : onNotForMe}
-                disabled={isSwapping}
-                accessibilityLabel="Not for me"
-              >
-                <Ionicons name="thumbs-down-outline" size={15} color="#f89b9b" />
-                <Text style={styles.notForMeText}>Not for me</Text>
-              </PressableScale>
-            )}
-            {onSave && (
-              <PressableScale
-                style={[styles.secondaryButton, styles.saveButton, isSwapping && styles.buttonDisabled]}
-                onPress={isSwapping ? undefined : onSave}
-                disabled={isSwapping}
-                accessibilityLabel="Save"
-              >
-                <Ionicons name="bookmark-outline" size={15} color="#f5b544" />
-                <Text style={styles.saveButtonText}>Save</Text>
-              </PressableScale>
-            )}
-          </View>
+          )}
+          {onSave && (
+            <PressableScale
+              style={[styles.secondaryButton, styles.saveButton, isSwapping && styles.buttonDisabled]}
+              onPress={isSwapping ? undefined : onSave}
+              disabled={isSwapping}
+              accessibilityLabel="Save"
+            >
+              <Ionicons name="bookmark-outline" size={15} color="#f5b544" />
+              <Text style={styles.saveButtonText} numberOfLines={1} adjustsFontSizeToFit minimumFontScale={0.85}>Save</Text>
+            </PressableScale>
+          )}
         </View>
 
       </View>
@@ -721,7 +718,6 @@ const styles = StyleSheet.create({
     fontWeight: '600',
     color: '#dde9e0',
   },
-  actionsContainer: {},
   acceptButton: {
     borderRadius: 16,
     overflow: 'hidden',
