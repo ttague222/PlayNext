@@ -99,6 +99,26 @@ BACKLOG_FALLBACK_MESSAGE = (
     "Nothing in your backlog fits this session — here are picks from the full catalog."
 )
 
+# Game card refresh (P0.2): bullets are capped at 2 per game and chosen
+# most-game-specific-first. Known filler strings are never emitted.
+EXPLANATION_FIELD_PRIORITY = ["style_fit", "session_fit", "time_fit", "stop_fit", "mood_fit"]
+MAX_EXPLANATION_BULLETS = 2
+
+GENERIC_FILLER = frozenset({
+    "enjoyable gameplay experience",
+    "freedom to create and explore at your pace",
+    "unwind and enjoy at your own pace",
+    "easy to pause whenever you need",
+    "perfect for unwinding - gentle pace lets you relax",
+    "a great way to pass the time",
+    "fun for everyone",
+})
+
+
+def _normalize_bullet(text: str) -> str:
+    """Lowercase, trim, and drop trailing punctuation for filler/dedupe checks."""
+    return text.strip().rstrip(".!").strip().lower()
+
 
 def normalize_subscriptions(values) -> set:
     """Map subscription identifiers to their canonical (long) form."""
@@ -984,6 +1004,27 @@ class RecommendationService:
 
         # No franchise pattern detected
         return None
+
+    def _select_explanation_fields(self, templates: dict, used: set) -> list:
+        """Pick at most MAX_EXPLANATION_BULLETS (field, text) pairs.
+
+        Priority favors game-specific fields; known filler and bullets already
+        emitted for another game in this response are skipped. `used` is
+        mutated with the normalized text of every selected bullet.
+        """
+        selected = []
+        for field in EXPLANATION_FIELD_PRIORITY:
+            text = templates.get(field)
+            if not text:
+                continue
+            norm = _normalize_bullet(text)
+            if norm in GENERIC_FILLER or norm in used:
+                continue
+            selected.append((field, text))
+            used.add(norm)
+            if len(selected) >= MAX_EXPLANATION_BULLETS:
+                break
+        return selected
 
     def _build_recommendation(
         self,
