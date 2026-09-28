@@ -137,6 +137,16 @@ Return 1–3 games. Each recommendation includes:
 
 > **Do not treat these as button labels.** Store and marketing copy must quote strings that actually exist in the build. A prior App Store description invented a "Let's Play" button that was never implemented.
 
+### 4.5 Tonight's Picks **[SHIPPED 1.5.0]**
+
+A daily-ritual shortcut on the Play tab: the last completed session's inputs
+(time, mood, optional filters) are persisted and reused to precompute three
+picks per local day, cached on-device and stable until midnight. Tapping the
+card opens the standard Results screen; "Change" runs the normal input flow,
+which rewrites both the saved context and the day's picks. Time and mood are
+carried, never omitted — every request still satisfies §3. Fully anonymous;
+no backend additions (`src/services/tonightService.js`).
+
 ---
 
 ## 5. Recommendation Engine Requirements
@@ -372,6 +382,10 @@ Previously scheduled for Phase 3; already live. `affiliateService.js` wraps stor
 - Push registration: `registerForPushNotifications()`, `notificationService.js`
 - **Weekly digest** — Cloud Scheduler, Saturdays 17:00 UTC. Currently reaching zero devices; no shipped build registers for push
 - **Follow-up queue** — prompts for feedback 22 hours after an acceptance (`FOLLOWUP_DELAY_HOURS = 22`, `followup_service.py`)
+- **Tonight's Picks reminder** **[SHIPPED 1.5.0]** — locally scheduled daily
+  notification (`expo-notifications`, no server), opt-in via a one-time soft
+  prompt after the second distinct day of use or via Profile; default 8:00pm,
+  preset times 6–10pm. Deep-links to the day's picks (`deep_link: 'tonight'`).
 
 ---
 
@@ -400,6 +414,9 @@ Firebase Analytics (`@react-native-firebase/analytics`) via `analyticsService.js
 | `purchase_started` / `_completed` / `_cancelled` / `_failed` | Purchase funnel (target 3-5%) |
 | `ad_watched` | Ad load / fill |
 | `att_result` | ATT opt-in rate, which bounds ad revenue |
+| `tonight_picks_viewed` (`via`) | Tonight's Picks ritual adoption |
+| `tonight_reminder_prompt` / `tonight_reminder_set` | Reminder opt-in funnel |
+| `rec_requested` / `rec_accepted` now carry `source: flow \| tonight` | Acceptance-rate comparison per entry path |
 
 **Every success metric in section 16 is measurable today.** No further instrumentation is needed to decide whether retention justifies more premium investment.
 
