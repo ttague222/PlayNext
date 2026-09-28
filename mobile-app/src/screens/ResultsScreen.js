@@ -22,6 +22,7 @@ import { useRecommendation } from '../context/RecommendationContext';
 import { usePremium } from '../context/PremiumContext';
 import { useSavedGames, BUCKET_TYPES } from '../context/SavedGamesContext';
 import GameCard from '../components/GameCard';
+import useReducedMotion from '../hooks/useReducedMotion';
 import CelebrationModal from '../components/CelebrationModal';
 import AlreadyPlayedModal from '../components/AlreadyPlayedModal';
 import WhyNotModal, { WHY_NOT_REASON_LABELS } from '../components/WhyNotModal';
@@ -88,6 +89,13 @@ const ResultsScreen = () => {
   const [undoState, setUndoState] = useState(null);
   const [saveGame, setSaveGame] = useState(null);
   const [showSaveModal, setShowSaveModal] = useState(false);
+  // game_ids confirmed saved this session — drives GameCard's filled
+  // bookmark + "Saved" label and its confirmation pop animation.
+  const [savedGameIds, setSavedGameIds] = useState(() => new Set());
+  // I4/M3: a BACKLOG/PLAYING save waiting to be committed into
+  // savedGameIds once the SaveToBucketModal actually closes (see
+  // handleGameSaved + the modal's onClose below).
+  const pendingSavedIdRef = useRef(null);
   const [showAdOrPremiumModal, setShowAdOrPremiumModal] = useState(false);
   const [pendingRerollAction, setPendingRerollAction] = useState(null);
   const [showRerollCallout, setShowRerollCallout] = useState(false);
@@ -97,6 +105,44 @@ const ResultsScreen = () => {
   // Animations
   const headerAnim = useRef(new Animated.Value(0)).current;
   const spinAnim = useRef(new Animated.Value(0)).current;
+  // Crossfade opacity for the results list — dipped and restored around a
+  // reroll (see performReroll). Starts at 1 so the first render is unaffected.
+  const resultsOpacityAnim = useRef(new Animated.Value(1)).current;
+  const reducedMotion = useReducedMotion();
+
+  // First-set entrance stagger: only the FIRST non-empty recommendations
+  // render gets the FadeSlideIn stagger + match count-up. Rerolls and swaps
+  // land here too (recommendations changes), but the ref is already true by
+  // then so they never re-arm the entrance animation.
+  const hasAnimatedInRef = useRef(false);
+  // Computed once per render, before hasAnimatedInRef flips in the effect
+  // below, so every card in this render's map() agrees on whether it's the
+  // first-set entrance.
+  const animateEntrance = !hasAnimatedInRef.current;
+
+  // I1/I2: per-card entrance mode. A card keeps its 'stagger' entrance only
+  // on the very first non-empty set; after that, a card whose game_id
+  // wasn't in the previous settled set (i.e. it replaced one that didn't
+  // survive a swap/reroll) gets a one-off 'settle' mount-in, and every
+  // other still-present card renders at rest ('none').
+  const prevIdsRef = useRef(new Set());
+  const prevIds = prevIdsRef.current;
+  const someSurvived = recommendations.some((g) => prevIds.has(g.game_id));
+  const entranceFor = (id) =>
+    animateEntrance ? 'stagger' : someSurvived && !prevIds.has(id) ? 'settle' : 'none';
+
+  // M4: gate on loading too — recommendations can be set while a fetch is
+  // still resolving (see C1), and flipping this ref early would skip the
+  // 'stagger' entrance for the actual first settled set.
+  useEffect(() => {
+    if (!loading && recommendations?.length) {
+      hasAnimatedInRef.current = true;
+    }
+  }, [recommendations, loading]);
+
+  useEffect(() => {
+    if (!loading) prevIdsRef.current = new Set(recommendations.map((g) => g.game_id));
+  }, [recommendations, loading]);
 
   useEffect(() => {
     Animated.timing(headerAnim, {
@@ -114,8 +160,8 @@ const ResultsScreen = () => {
   }, []);
 
   const handleAccept = async (game) => {
-    // Prevent double-tap
-    if (acceptingGameId) return;
+    // Prevent double-tap, and accepting a card that is mid-replacement
+    if (acceptingGameId || isRerolling) return;
 
     hapticSuccess();
     setAcceptingGameId(game.game_id);
@@ -131,12 +177,16 @@ const ResultsScreen = () => {
   };
 
   const handleAlreadyPlayed = (game) => {
+    // Concurrency guard: another swap or reroll is already in flight.
+    if (swappingGameId || isRerolling) return;
     // Show modal to collect feedback before swapping
     setAlreadyPlayedGame(game);
     setShowAlreadyPlayedModal(true);
   };
 
   const handleNotForMe = (game) => {
+    // Concurrency guard: another swap or reroll is already in flight.
+    if (swappingGameId || isRerolling) return;
     // Open the "Why not?" sheet to collect a rejection reason
     logEvent('why_not_opened', { game_id: game.game_id });
     setWhyNotGame(game);
@@ -233,6 +283,24 @@ const ResultsScreen = () => {
     setShowSaveModal(true);
   };
 
+  // SaveToBucketModal's bucket-selected handler (handleSelectBucket) calls
+  // addGameToBucket and, only once it resolves, fires onSaved(bucketType)
+  // before its own timeout closes the modal — so this only fires on an
+  // actual confirmed save, not just the modal opening.
+  //
+  // I4/M3: only BACKLOG and PLAYING read as "saved" — filing a game as
+  // PLAYED or NOT_FOR_ME from this modal must not fill the bookmark. The id
+  // is held as pending rather than committed here, so the GameCard save pop
+  // (isSaved flipping false -> true) fires once the modal has actually
+  // closed, not while it's still fading out on top of the card.
+  const handleGameSaved = (bucketType) => {
+    if (!saveGame) return;
+    if (bucketType !== BUCKET_TYPES.BACKLOG && bucketType !== BUCKET_TYPES.PLAYING) {
+      return;
+    }
+    pendingSavedIdRef.current = saveGame.game_id;
+  };
+
   const handleAlreadyPlayedFeedback = async (signalType) => {
     if (!alreadyPlayedGame) return;
 
@@ -295,6 +363,9 @@ const ResultsScreen = () => {
   };
 
   const handleReroll = async () => {
+    // Concurrency guard: another swap or reroll is already in flight.
+    if (swappingGameId || isRerolling) return;
+
     hapticLight();
     // Hard daily cap check — shown before the ad gate
     if (!isPremium && isDailyCapHit) {
@@ -368,6 +439,18 @@ const ResultsScreen = () => {
       await reroll();
       // Record the reroll for free tier tracking
       recordReroll();
+
+      // Subtle crossfade on the new results — skip under reduced motion,
+      // and only once the first set has already had its full entrance
+      // (it always will have by the time a reroll can happen).
+      if (!reducedMotion && hasAnimatedInRef.current) {
+        resultsOpacityAnim.setValue(0.4);
+        Animated.timing(resultsOpacityAnim, {
+          toValue: 1,
+          duration: 150,
+          useNativeDriver: true,
+        }).start();
+      }
     } catch (err) {
       Alert.alert('Error', 'Failed to get new recommendations');
     } finally {
@@ -413,7 +496,13 @@ const ResultsScreen = () => {
     outputRange: ['0deg', '360deg'],
   });
 
-  if (loading) {
+  // C1: a reroll or an in-place card swap re-arms the context's `loading`
+  // flag, but the cards behind the loader/spinner must stay mounted — only
+  // a genuine first load (or a load with nothing to show yet) should replace
+  // the whole screen with the loader.
+  const isInPlaceBusy = isRerolling || swappingGameId !== null;
+
+  if (loading && (recommendations.length === 0 || !isInPlaceBusy)) {
     return (
       <LinearGradient
         colors={['#0f0c29', '#302b63', '#24243e']}
@@ -428,7 +517,9 @@ const ResultsScreen = () => {
     );
   }
 
-  if (error) {
+  // A failed swap/reroll keeps the cards on screen — the existing Alert
+  // paths in performReroll/handleWhyNotReason/etc. already inform the user.
+  if (error && recommendations.length === 0) {
     return (
       <LinearGradient
         colors={['#0f0c29', '#302b63', '#24243e']}
@@ -491,7 +582,7 @@ const ResultsScreen = () => {
 
           {/* Recommendations */}
           {recommendations.length > 0 ? (
-            <View style={styles.recommendations}>
+            <Animated.View style={[styles.recommendations, { opacity: resultsOpacityAnim }]}>
               {recommendations.map((game, index) => (
                 <GameCard
                   key={game.game_id}
@@ -504,9 +595,12 @@ const ResultsScreen = () => {
                   isSwapping={swappingGameId === game.game_id}
                   isAccepting={acceptingGameId === game.game_id}
                   userPlatforms={preferences.platforms}
+                  entrance={entranceFor(game.game_id)}
+                  entranceIndex={index}
+                  isSaved={savedGameIds.has(game.game_id)}
                 />
               ))}
-            </View>
+            </Animated.View>
           ) : (
             <View style={styles.noResults}>
               <Text style={styles.noResultsEmoji}>🔍</Text>
@@ -524,7 +618,7 @@ const ResultsScreen = () => {
             <TouchableOpacity
               style={styles.rerollButton}
               onPress={handleReroll}
-              disabled={isRerolling || isAdLoading}
+              disabled={isRerolling || isAdLoading || swappingGameId !== null}
               activeOpacity={0.8}
             >
               <Animated.Text
@@ -609,7 +703,16 @@ const ResultsScreen = () => {
           onClose={() => {
             setShowSaveModal(false);
             setSaveGame(null);
+            // Commit any pending BACKLOG/PLAYING save now that the modal is
+            // actually closing — the GameCard save pop fires off this, not
+            // off onSaved, so it never plays underneath the modal.
+            if (pendingSavedIdRef.current) {
+              const id = pendingSavedIdRef.current;
+              pendingSavedIdRef.current = null;
+              setSavedGameIds((prev) => new Set(prev).add(id));
+            }
           }}
+          onSaved={handleGameSaved}
         />
 
         {/* Ad or Premium Choice Modal */}

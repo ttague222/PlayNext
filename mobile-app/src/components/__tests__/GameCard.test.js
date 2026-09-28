@@ -24,18 +24,34 @@ const game = {
   in_library: false,
 };
 
-const renderCard = (overrides = {}) =>
-  render(
-    <GameCard
-      game={game}
-      rank={1}
-      onAccept={jest.fn()}
-      onAlreadyPlayed={jest.fn()}
-      onNotForMe={jest.fn()}
-      onSave={jest.fn()}
-      {...overrides}
-    />
-  );
+const buildProps = (overrides = {}) => ({
+  game,
+  rank: 1,
+  onAccept: jest.fn(),
+  onAlreadyPlayed: jest.fn(),
+  onNotForMe: jest.fn(),
+  onSave: jest.fn(),
+  ...overrides,
+});
+
+const renderCard = (overrides = {}) => render(<GameCard {...buildProps(overrides)} />);
+
+// GameCard's entrance ('stagger'/'settle') and save-pop motion use several
+// delayed Animated.timing/spring calls. None of these tests assert on an
+// animation's end state, and delayed RN Animated calls schedule real
+// setTimeouts that a synchronous test doesn't wait out — left as real
+// timers, one can still be pending when this file's Jest environment tears
+// down and crash the process trying to lazily re-require Easing's bezier
+// helper. Fake timers for the whole file keep every delayed start inside
+// Jest's fake timer queue, where it's simply discarded, instead of becoming
+// a real pending OS timer.
+beforeEach(() => {
+  jest.useFakeTimers();
+});
+
+afterEach(() => {
+  jest.useRealTimers();
+});
 
 describe('GameCard (1.5.0 refresh)', () => {
   it('renders the CTA before the explanation section (P0.1)', async () => {
@@ -101,5 +117,47 @@ describe('GameCard (1.5.0 refresh)', () => {
     });
     expect(getByText('Fits a focused 60-minute session.')).toBeTruthy();
     expect(getByText('One run takes about 25 minutes.')).toBeTruthy();
+  });
+
+  it('still renders title, CTA, and a match percent with entrance animation enabled', async () => {
+    const { getAllByText, getByTestId } = await renderCard({
+      entrance: 'stagger',
+      entranceIndex: 1,
+    });
+    // Title appears twice while the thumbnail image hasn't resolved (the
+    // fallback placeholder also shows the title) — just assert it's present.
+    expect(getAllByText('Game Dev Tycoon').length).toBeGreaterThan(0);
+    expect(getByTestId('card-cta')).toBeTruthy();
+    // The count-up starts at 0 and animates toward matchPercent — assert the
+    // pill has *some* "% match" text rather than pinning an in-flight value,
+    // so the test stays deterministic without needing to drive timers to a
+    // specific point.
+    expect(getByTestId('match-pill')).toHaveTextContent(/% match/);
+  });
+});
+
+describe('GameCard (M3 save confirmation + swap motion)', () => {
+  it('renders "Saved" text and no "Save" text when isSaved', async () => {
+    const { getByText, queryByText } = await renderCard({ isSaved: true });
+    expect(getByText('Saved')).toBeTruthy();
+    expect(queryByText('Save')).toBeNull();
+  });
+
+  it('does not crash when isSaved flips from false to true', async () => {
+    const { rerender, getByText } = await renderCard({ isSaved: false });
+    await rerender(<GameCard {...buildProps({ isSaved: true })} />);
+    expect(getByText('Saved')).toBeTruthy();
+  });
+
+  it('mounts and renders content with entrance="settle" (replaces a card that did not survive a swap)', async () => {
+    // I2: 'settle' is a mount-driven entrance now (ResultsScreen always
+    // keys a 'settle' card as a fresh instance, keyed by game_id) rather
+    // than an effect keyed off game_id changing on an existing instance.
+    const { getAllByText, getByTestId } = await renderCard({
+      entrance: 'settle',
+      entranceIndex: 0,
+    });
+    expect(getAllByText('Game Dev Tycoon').length).toBeGreaterThan(0);
+    expect(getByTestId('card-cta')).toBeTruthy();
   });
 });
