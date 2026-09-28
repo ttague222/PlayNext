@@ -21,6 +21,9 @@ import {
   saveLastContext,
   getLastContext,
   LAST_CONTEXT_KEY,
+  saveTonightCache,
+  getCachedPicks,
+  TONIGHT_PICKS_KEY,
 } from '../tonightService';
 
 beforeEach(() => {
@@ -68,5 +71,31 @@ describe('last context persistence', () => {
     expect(await getLastContext()).toBeNull();
     store[LAST_CONTEXT_KEY] = '{not json';
     expect(await getLastContext()).toBeNull();
+  });
+});
+
+describe('tonight cache', () => {
+  const context = { timeAvailable: 60, energyMood: 'casual', genres: [], platforms: [], sessionType: 'any', discoveryMode: 'familiar' };
+  const games = [{ game_id: 'hades', title: 'Hades' }];
+
+  it('stores todays cache and returns it', async () => {
+    await saveTonightCache({ context, sessionId: 's1', games });
+    const cached = await getCachedPicks();
+    expect(cached.date).toBe(localDateString());
+    expect(cached.sessionId).toBe('s1');
+    expect(cached.games).toEqual(games);
+    expect(cached.context).toEqual(context);
+  });
+
+  it('returns null for a stale (yesterday) cache', async () => {
+    store[TONIGHT_PICKS_KEY] = JSON.stringify({ date: '2020-01-01', context, sessionId: 's1', games });
+    expect(await getCachedPicks()).toBeNull();
+  });
+
+  it('returns null for empty games or corrupt JSON', async () => {
+    store[TONIGHT_PICKS_KEY] = JSON.stringify({ date: localDateString(), context, sessionId: 's1', games: [] });
+    expect(await getCachedPicks()).toBeNull();
+    store[TONIGHT_PICKS_KEY] = '{broken';
+    expect(await getCachedPicks()).toBeNull();
   });
 });

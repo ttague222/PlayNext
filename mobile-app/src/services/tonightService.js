@@ -53,3 +53,28 @@ export async function getLastContext() {
     return null;
   }
 }
+
+/** Write today's cache. Callers pass the context + response they already have. */
+export async function saveTonightCache({ context, sessionId, games }) {
+  try {
+    const cache = { date: localDateString(), context, sessionId, games };
+    await AsyncStorage.setItem(TONIGHT_PICKS_KEY, JSON.stringify(cache));
+    return cache;
+  } catch {
+    return null;
+  }
+}
+
+/** Today's cache, or null when missing, stale, empty, or unreadable. */
+export async function getCachedPicks() {
+  try {
+    const raw = await AsyncStorage.getItem(TONIGHT_PICKS_KEY);
+    if (!raw) return null;
+    const cache = JSON.parse(raw);
+    if (cache?.date !== localDateString()) return null;
+    if (!Array.isArray(cache.games) || cache.games.length === 0) return null;
+    return cache;
+  } catch {
+    return null;
+  }
+}
