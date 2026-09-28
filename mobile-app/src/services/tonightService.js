@@ -78,3 +78,44 @@ export async function getCachedPicks() {
     return null;
   }
 }
+
+let _inFlight = null;
+
+/**
+ * Return today's picks, fetching and caching them on first call of the day.
+ * Concurrent callers share one request. Returns null when no context is
+ * saved yet (feature dormant). Throws on API failure — callers show a retry
+ * state. `excludedGameIds` lets callers pass Not-For-Me ids (the service has
+ * no access to SavedGamesContext).
+ */
+export async function fetchTonightsPicks({ excludedGameIds = [] } = {}) {
+  const cached = await getCachedPicks();
+  if (cached) return cached;
+  if (_inFlight) return _inFlight;
+
+  _inFlight = (async () => {
+    const context = await getLastContext();
+    if (!context) return null;
+    const response = await api.getRecommendations({
+      time_available: context.timeAvailable,
+      energy_mood: context.energyMood,
+      genres: context.genres?.length ? context.genres : null,
+      platforms: context.platforms?.length ? context.platforms : null,
+      session_type: context.sessionType,
+      discovery_mode: context.discoveryMode,
+      session_id: `local-tonight-${Date.now()}`,
+      excluded_game_ids: excludedGameIds,
+    });
+    return saveTonightCache({
+      context,
+      sessionId: response.session_id,
+      games: response.recommendations,
+    });
+  })();
+
+  try {
+    return await _inFlight;
+  } finally {
+    _inFlight = null;
+  }
+}

@@ -24,6 +24,7 @@ import {
   saveTonightCache,
   getCachedPicks,
   TONIGHT_PICKS_KEY,
+  fetchTonightsPicks,
 } from '../tonightService';
 
 beforeEach(() => {
@@ -97,5 +98,64 @@ describe('tonight cache', () => {
     expect(await getCachedPicks()).toBeNull();
     store[TONIGHT_PICKS_KEY] = '{broken';
     expect(await getCachedPicks()).toBeNull();
+  });
+});
+
+describe('fetchTonightsPicks', () => {
+  const context = { timeAvailable: 30, energyMood: 'wind_down', genres: [], platforms: ['pc'], sessionType: 'solo', discoveryMode: 'familiar' };
+  const response = { session_id: 'srv-1', recommendations: [{ game_id: 'celeste', title: 'Celeste' }], fallback_applied: false };
+
+  it('returns null without a saved context and never calls the API', async () => {
+    expect(await fetchTonightsPicks()).toBeNull();
+    expect(api.getRecommendations).not.toHaveBeenCalled();
+  });
+
+  it('fetches with the saved context and caches the result', async () => {
+    store[LAST_CONTEXT_KEY] = JSON.stringify(context);
+    api.getRecommendations.mockResolvedValue(response);
+
+    const result = await fetchTonightsPicks({ excludedGameIds: ['notme'] });
+
+    expect(api.getRecommendations).toHaveBeenCalledWith(expect.objectContaining({
+      time_available: 30,
+      energy_mood: 'wind_down',
+      genres: null,           // empty array collapses to null, matching the normal flow
+      platforms: ['pc'],
+      session_type: 'solo',
+      discovery_mode: 'familiar',
+      excluded_game_ids: ['notme'],
+    }));
+    expect(result.games).toEqual(response.recommendations);
+    expect(result.sessionId).toBe('srv-1');
+    expect(await getCachedPicks()).toEqual(result); // persisted
+  });
+
+  it('returns the existing cache without refetching', async () => {
+    store[LAST_CONTEXT_KEY] = JSON.stringify(context);
+    await saveTonightCache({ context, sessionId: 'old', games: [{ game_id: 'x', title: 'X' }] });
+    const result = await fetchTonightsPicks();
+    expect(result.sessionId).toBe('old');
+    expect(api.getRecommendations).not.toHaveBeenCalled();
+  });
+
+  it('single-flights concurrent calls', async () => {
+    store[LAST_CONTEXT_KEY] = JSON.stringify(context);
+    let resolve;
+    api.getRecommendations.mockReturnValue(new Promise((r) => { resolve = r; }));
+    const p1 = fetchTonightsPicks();
+    const p2 = fetchTonightsPicks();
+    resolve(response);
+    const [r1, r2] = await Promise.all([p1, p2]);
+    expect(api.getRecommendations).toHaveBeenCalledTimes(1);
+    expect(r1).toEqual(r2);
+  });
+
+  it('propagates API failure and clears the in-flight guard', async () => {
+    store[LAST_CONTEXT_KEY] = JSON.stringify(context);
+    api.getRecommendations.mockRejectedValueOnce(new Error('boom'));
+    await expect(fetchTonightsPicks()).rejects.toThrow('boom');
+    api.getRecommendations.mockResolvedValueOnce(response);
+    const retry = await fetchTonightsPicks(); // guard must not be stuck
+    expect(retry.sessionId).toBe('srv-1');
   });
 });
