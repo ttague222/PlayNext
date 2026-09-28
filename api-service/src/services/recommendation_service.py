@@ -99,6 +99,32 @@ BACKLOG_FALLBACK_MESSAGE = (
     "Nothing in your backlog fits this session — here are picks from the full catalog."
 )
 
+# Game card refresh (P0.2): bullets are capped at 2 per game and chosen
+# most-game-specific-first. Known filler strings are never emitted.
+EXPLANATION_FIELD_PRIORITY = ["style_fit", "stop_fit", "mood_fit", "session_fit", "time_fit"]
+MAX_EXPLANATION_BULLETS = 2
+
+# Shipped clients render only these three explanation fields (plus
+# library_fit, which is assembled separately). session_fit/time_fit are
+# reserved for future card versions and must never crowd out a renderable
+# bullet — see the fallback guarantee in _build_recommendation.
+RENDERABLE_EXPLANATION_FIELDS = frozenset({"style_fit", "stop_fit", "mood_fit"})
+
+GENERIC_FILLER = frozenset({
+    "enjoyable gameplay experience",
+    "freedom to create and explore at your pace",
+    "unwind and enjoy at your own pace",
+    "easy to pause whenever you need",
+    "perfect for unwinding - gentle pace lets you relax",
+    "a great way to pass the time",
+    "fun for everyone",
+})
+
+
+def _normalize_bullet(text: str) -> str:
+    """Lowercase, trim, and drop trailing punctuation for filler/dedupe checks."""
+    return text.strip().rstrip(".!?…").strip().lower()
+
 
 def normalize_subscriptions(values) -> set:
     """Map subscription identifiers to their canonical (long) form."""
@@ -290,17 +316,21 @@ class RecommendationService:
         scored_games.sort(key=lambda x: x["score"], reverse=True)
         top_games = self._ensure_franchise_diversity(scored_games, settings.max_recommendations)
 
-        # Build recommendations
+        # Build recommendations — one shared used_bullets set so no two
+        # games in this response show an identical explanation bullet.
         owned_unplayed = library_data["owned_unplayed"] if library_data else None
-        recommendations = [
-            self._build_recommendation(
-                game,
-                request,
-                in_library_ids=owned_unplayed,
-                library_playtimes=library_data["playtimes"] if backlog_active else None,
+        used_bullets: set = set()
+        recommendations = []
+        for game in top_games:
+            recommendations.append(
+                self._build_recommendation(
+                    game,
+                    request,
+                    in_library_ids=owned_unplayed,
+                    library_playtimes=library_data["playtimes"] if backlog_active else None,
+                    used_bullets=used_bullets,
+                )
             )
-            for game in top_games
-        ]
 
         return RecommendationResponse(
             recommendations=recommendations,
@@ -985,32 +1015,73 @@ class RecommendationService:
         # No franchise pattern detected
         return None
 
+    def _select_explanation_fields(self, templates: dict, used: set) -> list:
+        """Pick at most MAX_EXPLANATION_BULLETS (field, text) pairs.
+
+        Priority favors game-specific fields; known filler and bullets already
+        emitted for another game in this response are skipped. `used` is
+        mutated with the normalized text of every selected bullet.
+        """
+        selected = []
+        for field in EXPLANATION_FIELD_PRIORITY:
+            text = templates.get(field)
+            if not text:
+                continue
+            norm = _normalize_bullet(text)
+            if norm in GENERIC_FILLER or norm in used:
+                continue
+            selected.append((field, text))
+            used.add(norm)
+            if len(selected) >= MAX_EXPLANATION_BULLETS:
+                break
+        return selected
+
     def _build_recommendation(
         self,
         game: dict,
         request: RecommendationRequest,
         in_library_ids: Optional[set] = None,
         library_playtimes: Optional[dict] = None,
+        used_bullets: Optional[set] = None,
     ) -> GameRecommendation:
-        """Build a GameRecommendation from game data."""
-        # Build explanation from templates
+        """Build a GameRecommendation from game data.
+
+        `used_bullets` is mutated in place and shared across every game in
+        one response, so bullets never repeat across the (up to 3)
+        recommendations returned to the client.
+        """
+        # Build explanation: at most 2 game-specific bullets, deduped across
+        # the whole response (docs/GAME-CARD-REFRESH.md P0.2).
         templates = game.get("explanation_templates", {})
+        if used_bullets is None:
+            used_bullets = set()
+        selected = self._select_explanation_fields(templates, used_bullets)
+
+        mood_label = request.energy_mood.value.replace("_", " ")
+        # Guarantee at least one bullet a shipped client actually renders.
+        # Covers both the empty-selection case and the case where only
+        # session_fit/time_fit (invisible on live cards) were selected.
+        if not any(field in RENDERABLE_EXPLANATION_FIELDS for field, _ in selected):
+            fallback = f"Fits a {mood_label} {request.time_available}-minute session."
+            if _normalize_bullet(fallback) in used_bullets:
+                # Plain fallback already used by another game in this
+                # response — fold in the title so it stays unique. Titles
+                # are unique within a response after franchise diversity.
+                fallback = f"{game['title']} fits a {mood_label} {request.time_available}-minute session."
+            # Prepend so the renderable fallback survives the trim below;
+            # trimming from the front drops the lowest-priority extra.
+            selected = [("mood_fit", fallback)] + selected
+            selected = selected[:MAX_EXPLANATION_BULLETS]
+            used_bullets.add(_normalize_bullet(fallback))
+
+        emitted = {}
         explanation_parts = []
+        for field, text in selected:
+            text = text.replace("{time}", str(request.time_available))
+            emitted[field] = text
+            explanation_parts.append(ensure_sentence(text))
 
-        if templates.get("time_fit"):
-            explanation_parts.append(
-                ensure_sentence(
-                    templates["time_fit"].replace("{time}", str(request.time_available))
-                )
-            )
-        if templates.get("mood_fit"):
-            explanation_parts.append(ensure_sentence(templates["mood_fit"]))
-        if templates.get("stop_fit"):
-            explanation_parts.append(ensure_sentence(templates["stop_fit"]))
-
-        summary = " ".join(explanation_parts) if explanation_parts else (
-            f"Great fit for your {request.time_available}-minute {request.energy_mood.value.replace('_', ' ')} session."
-        )
+        summary = " ".join(explanation_parts)
 
         # Backlog Mode: say why this pick comes from the user's own library.
         # Only set when the pick actually came from the backlog pool —
@@ -1039,11 +1110,11 @@ class RecommendationService:
             description_short=game.get("description_short", ""),
             explanation=RecommendationExplanation(
                 summary=summary,
-                time_fit=templates.get("time_fit"),
-                mood_fit=templates.get("mood_fit"),
-                stop_fit=templates.get("stop_fit"),
-                style_fit=templates.get("style_fit"),
-                session_fit=templates.get("session_fit"),
+                time_fit=emitted.get("time_fit"),
+                mood_fit=emitted.get("mood_fit"),
+                stop_fit=emitted.get("stop_fit"),
+                style_fit=emitted.get("style_fit"),
+                session_fit=emitted.get("session_fit"),
                 library_fit=library_fit,
             ),
             time_to_fun=TimeToFun(game.get("time_to_fun", "medium")),
