@@ -8,6 +8,7 @@
  * Spec: docs/superpowers/specs/2026-09-28-tonights-picks-design.md
  */
 import AsyncStorage from '@react-native-async-storage/async-storage';
+import * as Notifications from 'expo-notifications';
 import api from './api';
 
 export const LAST_CONTEXT_KEY = '@playnxt_last_context';
@@ -166,4 +167,57 @@ export async function shouldOfferReminder() {
 export async function markReminderPromptShown() {
   const meta = await getMeta();
   await saveMeta({ ...meta, promptShown: true });
+}
+
+export const REMINDER_NOTIFICATION_ID = 'tonight-reminder';
+
+export async function getReminderSettings() {
+  const meta = await getMeta();
+  return { enabled: meta.reminderEnabled, time: meta.reminderTime };
+}
+
+/**
+ * Enable/disable the local daily reminder. Requests OS permission when
+ * needed. Returns { enabled, time } on success, { enabled: false,
+ * permissionDenied: true } when the OS blocks it.
+ */
+export async function setReminder(enabled, time = DEFAULT_REMINDER_TIME) {
+  const meta = await getMeta();
+
+  if (!enabled) {
+    try {
+      await Notifications.cancelScheduledNotificationAsync(REMINDER_NOTIFICATION_ID);
+    } catch {
+      // Nothing scheduled is fine.
+    }
+    await saveMeta({ ...meta, reminderEnabled: false });
+    return { enabled: false };
+  }
+
+  let { status } = await Notifications.getPermissionsAsync();
+  if (status !== 'granted') {
+    ({ status } = await Notifications.requestPermissionsAsync());
+  }
+  if (status !== 'granted') {
+    await saveMeta({ ...meta, reminderEnabled: false });
+    return { enabled: false, permissionDenied: true };
+  }
+
+  const [hour, minute] = time.split(':').map(Number);
+  try {
+    await Notifications.cancelScheduledNotificationAsync(REMINDER_NOTIFICATION_ID);
+  } catch {
+    // First schedule: nothing to cancel.
+  }
+  await Notifications.scheduleNotificationAsync({
+    identifier: REMINDER_NOTIFICATION_ID,
+    content: {
+      title: 'PlayNxt',
+      body: 'Your picks for tonight are ready.',
+      data: { deep_link: 'tonight' },
+    },
+    trigger: { type: Notifications.SchedulableTriggerInputTypes.DAILY, hour, minute },
+  });
+  await saveMeta({ ...meta, reminderEnabled: true, reminderTime: time });
+  return { enabled: true, time };
 }

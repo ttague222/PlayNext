@@ -15,6 +15,7 @@ jest.mock('../api', () => ({
 }));
 
 import AsyncStorage from '@react-native-async-storage/async-storage';
+import * as Notifications from 'expo-notifications';
 import api from '../api';
 import {
   localDateString,
@@ -29,6 +30,10 @@ import {
   shouldOfferReminder,
   markReminderPromptShown,
   TONIGHT_META_KEY,
+  getReminderSettings,
+  setReminder,
+  DEFAULT_REMINDER_TIME,
+  REMINDER_NOTIFICATION_ID,
 } from '../tonightService';
 
 beforeEach(() => {
@@ -193,5 +198,46 @@ describe('view tracking and reminder offer', () => {
     const meta = JSON.parse(store[TONIGHT_META_KEY]);
     expect(meta.viewDates).toHaveLength(30);
     expect(meta.viewDates[29]).toBe(localDateString());
+  });
+});
+
+describe('reminder scheduling', () => {
+  it('schedules a daily notification and persists settings', async () => {
+    const result = await setReminder(true, '21:00');
+    expect(result).toEqual({ enabled: true, time: '21:00' });
+    expect(Notifications.scheduleNotificationAsync).toHaveBeenCalledWith({
+      identifier: REMINDER_NOTIFICATION_ID,
+      content: {
+        title: 'PlayNxt',
+        body: 'Your picks for tonight are ready.',
+        data: { deep_link: 'tonight' },
+      },
+      trigger: { type: 'daily', hour: 21, minute: 0 },
+    });
+    expect(await getReminderSettings()).toEqual({ enabled: true, time: '21:00' });
+  });
+
+  it('cancels before rescheduling so only one reminder ever exists', async () => {
+    await setReminder(true, '20:00');
+    await setReminder(true, '22:00');
+    expect(Notifications.cancelScheduledNotificationAsync).toHaveBeenCalledWith(REMINDER_NOTIFICATION_ID);
+    expect(Notifications.scheduleNotificationAsync).toHaveBeenCalledTimes(2);
+  });
+
+  it('disabling cancels and persists', async () => {
+    await setReminder(true, '20:00');
+    const result = await setReminder(false);
+    expect(result.enabled).toBe(false);
+    expect(Notifications.cancelScheduledNotificationAsync).toHaveBeenCalledWith(REMINDER_NOTIFICATION_ID);
+    expect(await getReminderSettings()).toEqual({ enabled: false, time: '20:00' }); // time remembered
+  });
+
+  it('reports permissionDenied without scheduling when OS denies', async () => {
+    Notifications.getPermissionsAsync.mockResolvedValueOnce({ status: 'denied' });
+    Notifications.requestPermissionsAsync.mockResolvedValueOnce({ status: 'denied' });
+    const result = await setReminder(true, DEFAULT_REMINDER_TIME);
+    expect(result).toEqual({ enabled: false, permissionDenied: true });
+    expect(Notifications.scheduleNotificationAsync).not.toHaveBeenCalled();
+    expect(await getReminderSettings()).toEqual(expect.objectContaining({ enabled: false }));
   });
 });
