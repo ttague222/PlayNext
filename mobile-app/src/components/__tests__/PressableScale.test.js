@@ -11,7 +11,7 @@ describe('PressableScale', () => {
         <Text>Go</Text>
       </PressableScale>
     );
-    fireEvent.press(getByText('Go'));
+    await fireEvent.press(getByText('Go'));
     expect(onPress).toHaveBeenCalledTimes(1);
   });
 
@@ -22,7 +22,7 @@ describe('PressableScale', () => {
         <Text>Go</Text>
       </PressableScale>
     );
-    fireEvent.press(getByText('Go'));
+    await fireEvent.press(getByText('Go'));
     expect(onPress).not.toHaveBeenCalled();
   });
 
