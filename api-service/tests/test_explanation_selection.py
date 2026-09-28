@@ -196,3 +196,14 @@ def test_every_recommendation_has_renderable_bullet(svc, templates):
         getattr(rec.explanation, f)
         for f in ("style_fit", "stop_fit", "mood_fit")
     )
+
+
+def test_trimmed_bullet_is_released_for_later_games(svc):
+    shared_time = {"session_fit": "One run takes about 25 minutes.", "time_fit": "A run fits in {time} minutes."}
+    used = set()
+    rec1 = svc._build_recommendation(_game("a", dict(shared_time)), _request(), used_bullets=used)
+    # rec1: fallback mood_fit + session_fit; its time_fit was selected then trimmed
+    assert rec1.explanation.time_fit is None
+    # A later game whose ONLY template is that same time_fit must still be able to emit it
+    rec2 = svc._build_recommendation(_game("b", {"time_fit": "A run fits in {time} minutes."}), _request(), used_bullets=used)
+    assert rec2.explanation.time_fit == "A run fits in 60 minutes."

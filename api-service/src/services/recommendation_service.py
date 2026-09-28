@@ -1069,9 +1069,16 @@ class RecommendationService:
                 # are unique within a response after franchise diversity.
                 fallback = f"{game['title']} fits a {mood_label} {request.time_available}-minute session."
             # Prepend so the renderable fallback survives the trim below;
-            # trimming from the front drops the lowest-priority extra.
+            # the slice keeps the front (highest priority + the prepended
+            # fallback) and drops from the back. Dropped entries were
+            # registered in used_bullets by _select_explanation_fields but
+            # are never emitted, so release them here or they'd wrongly
+            # block an identical bullet on a later game in this response.
             selected = [("mood_fit", fallback)] + selected
+            dropped = selected[MAX_EXPLANATION_BULLETS:]
             selected = selected[:MAX_EXPLANATION_BULLETS]
+            for _, dropped_text in dropped:
+                used_bullets.discard(_normalize_bullet(dropped_text))
             used_bullets.add(_normalize_bullet(fallback))
 
         emitted = {}
