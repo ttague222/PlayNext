@@ -112,6 +112,7 @@ const styles = StyleSheet.create({
     justifyContent: 'center',
   },
   thumbTitle: { color: '#d0d0e0', fontSize: 11, marginTop: 6, maxWidth: '100%' },
+  stateText: { color: '#a0a0b8', fontSize: 13, marginTop: 12 },
 });
 
 export default TonightCard;
