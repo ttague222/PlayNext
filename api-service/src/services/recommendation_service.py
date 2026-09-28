@@ -310,17 +310,21 @@ class RecommendationService:
         scored_games.sort(key=lambda x: x["score"], reverse=True)
         top_games = self._ensure_franchise_diversity(scored_games, settings.max_recommendations)
 
-        # Build recommendations
+        # Build recommendations — one shared used_bullets set so no two
+        # games in this response show an identical explanation bullet.
         owned_unplayed = library_data["owned_unplayed"] if library_data else None
-        recommendations = [
-            self._build_recommendation(
-                game,
-                request,
-                in_library_ids=owned_unplayed,
-                library_playtimes=library_data["playtimes"] if backlog_active else None,
+        used_bullets: set = set()
+        recommendations = []
+        for game in top_games:
+            recommendations.append(
+                self._build_recommendation(
+                    game,
+                    request,
+                    in_library_ids=owned_unplayed,
+                    library_playtimes=library_data["playtimes"] if backlog_active else None,
+                    used_bullets=used_bullets,
+                )
             )
-            for game in top_games
-        ]
 
         return RecommendationResponse(
             recommendations=recommendations,
@@ -1032,26 +1036,30 @@ class RecommendationService:
         request: RecommendationRequest,
         in_library_ids: Optional[set] = None,
         library_playtimes: Optional[dict] = None,
+        used_bullets: Optional[set] = None,
     ) -> GameRecommendation:
         """Build a GameRecommendation from game data."""
-        # Build explanation from templates
+        # Build explanation: at most 2 game-specific bullets, deduped across
+        # the whole response (docs/GAME-CARD-REFRESH.md P0.2).
         templates = game.get("explanation_templates", {})
+        if used_bullets is None:
+            used_bullets = set()
+        selected = self._select_explanation_fields(templates, used_bullets)
+
+        mood_label = request.energy_mood.value.replace("_", " ")
+        if not selected:
+            fallback = f"Fits a {mood_label} {request.time_available}-minute session."
+            selected = [("time_fit", fallback)]
+            used_bullets.add(_normalize_bullet(fallback))
+
+        emitted = {}
         explanation_parts = []
+        for field, text in selected:
+            text = text.replace("{time}", str(request.time_available))
+            emitted[field] = text
+            explanation_parts.append(ensure_sentence(text))
 
-        if templates.get("time_fit"):
-            explanation_parts.append(
-                ensure_sentence(
-                    templates["time_fit"].replace("{time}", str(request.time_available))
-                )
-            )
-        if templates.get("mood_fit"):
-            explanation_parts.append(ensure_sentence(templates["mood_fit"]))
-        if templates.get("stop_fit"):
-            explanation_parts.append(ensure_sentence(templates["stop_fit"]))
-
-        summary = " ".join(explanation_parts) if explanation_parts else (
-            f"Great fit for your {request.time_available}-minute {request.energy_mood.value.replace('_', ' ')} session."
-        )
+        summary = " ".join(explanation_parts)
 
         # Backlog Mode: say why this pick comes from the user's own library.
         # Only set when the pick actually came from the backlog pool —
@@ -1080,11 +1088,11 @@ class RecommendationService:
             description_short=game.get("description_short", ""),
             explanation=RecommendationExplanation(
                 summary=summary,
-                time_fit=templates.get("time_fit"),
-                mood_fit=templates.get("mood_fit"),
-                stop_fit=templates.get("stop_fit"),
-                style_fit=templates.get("style_fit"),
-                session_fit=templates.get("session_fit"),
+                time_fit=emitted.get("time_fit"),
+                mood_fit=emitted.get("mood_fit"),
+                stop_fit=emitted.get("stop_fit"),
+                style_fit=emitted.get("style_fit"),
+                session_fit=emitted.get("session_fit"),
                 library_fit=library_fit,
             ),
             time_to_fun=TimeToFun(game.get("time_to_fun", "medium")),

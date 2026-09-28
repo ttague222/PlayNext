@@ -419,7 +419,12 @@ class TestBuildRecommendation:
         assert rec.explanation.summary is not None
 
     def test_summary_joins_unpunctuated_templates_as_sentences(self, service, sample_game):
-        """Catalog templates without periods must not produce run-on summaries."""
+        """Catalog templates without periods must not produce run-on summaries.
+
+        Game card refresh (P0.2) caps bullets at 2, chosen by
+        EXPLANATION_FIELD_PRIORITY — of time_fit/stop_fit/mood_fit here,
+        time_fit and stop_fit win and mood_fit is dropped.
+        """
         request = RecommendationRequest(
             time_available=30,
             energy_mood=EnergyMood.CASUAL
@@ -436,9 +441,9 @@ class TestBuildRecommendation:
 
         assert rec.explanation.summary == (
             "Care for your passengers for 30 minutes. "
-            "A beautiful, emotional journey about letting go. "
             "Save anytime between activities."
         )
+        assert rec.explanation.mood_fit is None
 
     def test_summary_keeps_existing_punctuation(self, service, sample_game):
         """Templates that already end in punctuation are not double-punctuated."""
