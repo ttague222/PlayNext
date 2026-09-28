@@ -5,7 +5,7 @@
  * Entry point for the recommendation flow.
  */
 
-import React, { useEffect, useRef } from 'react';
+import React, { useEffect, useRef, useCallback, useState } from 'react';
 import {
   View,
   Text,
@@ -16,24 +16,94 @@ import {
   Dimensions,
 } from 'react-native';
 import { SafeAreaView } from 'react-native-safe-area-context';
-import { useNavigation } from '@react-navigation/native';
+import { useNavigation, useRoute, useFocusEffect } from '@react-navigation/native';
 import { LinearGradient } from 'expo-linear-gradient';
 import { Ionicons } from '@expo/vector-icons';
 import { useRecommendation } from '../context/RecommendationContext';
+import { useSavedGames } from '../context/SavedGamesContext';
+import TonightCard from '../components/TonightCard';
+import { getLastContext, getCachedPicks, fetchTonightsPicks, recordTonightView } from '../services/tonightService';
+import { maybeOfferTonightReminder } from '../utils/tonightReminderPrompt';
+import { logEvent } from '../services/analyticsService';
 
 const { width: SCREEN_WIDTH } = Dimensions.get('window');
 
 const PlayScreen = () => {
   const navigation = useNavigation();
+  const route = useRoute();
   const {
     startSession,
     resetPreferences,
+    startTonightSession,
   } = useRecommendation();
+  const { notForMeGameIds } = useSavedGames();
 
   // Animations
   const pulseAnim = useRef(new Animated.Value(1)).current;
   const glowAnim = useRef(new Animated.Value(0)).current;
   const floatAnim = useRef(new Animated.Value(0)).current;
+
+  // Tonight's Picks card state
+  const [tonightStatus, setTonightStatus] = useState('hidden'); // hidden | loading | ready | error
+  const [tonightCache, setTonightCache] = useState(null);
+  const [tonightContext, setTonightContext] = useState(null);
+
+  const loadTonight = useCallback(async () => {
+    try {
+      const context = await getLastContext();
+      if (!context) {
+        setTonightStatus('hidden');
+        return null;
+      }
+      setTonightContext(context);
+      const cached = await getCachedPicks();
+      if (cached) {
+        setTonightCache(cached);
+        setTonightStatus('ready');
+        return cached;
+      }
+      setTonightStatus('loading');
+      const fresh = await fetchTonightsPicks({ excludedGameIds: notForMeGameIds || [] });
+      if (fresh) {
+        setTonightCache(fresh);
+        setTonightStatus('ready');
+        return fresh;
+      }
+      setTonightStatus('hidden');
+      return null;
+    } catch {
+      setTonightStatus('error');
+      return null;
+    }
+  }, [notForMeGameIds]);
+
+  // Refresh on every focus: catches date rollover and post-session cache rewrites.
+  useFocusEffect(
+    useCallback(() => {
+      loadTonight();
+    }, [loadTonight])
+  );
+
+  const openTonight = useCallback(
+    (cache, via) => {
+      if (!startTonightSession(cache)) return;
+      recordTonightView();
+      logEvent('tonight_picks_viewed', { via });
+      navigation.navigate('Results');
+      maybeOfferTonightReminder();
+    },
+    [startTonightSession, navigation]
+  );
+
+  const handleTonightPress = useCallback(async () => {
+    if (tonightStatus === 'ready' && tonightCache) {
+      openTonight(tonightCache, 'card');
+      return;
+    }
+    // loading/error: (re)try, then open if it lands
+    const cache = await loadTonight();
+    if (cache) openTonight(cache, 'card');
+  }, [tonightStatus, tonightCache, openTonight, loadTonight]);
 
   useEffect(() => {
     // Subtle pulse for CTA
@@ -97,6 +167,20 @@ const PlayScreen = () => {
     navigation.navigate('TimeSelect');
   };
 
+  const handleTonightChange = () => {
+    handleStart(); // same entry as the hero CTA: completing the flow rewrites context + cache
+  };
+
+  // Notification deep link: open tonight's picks as soon as they're available.
+  useEffect(() => {
+    if (!route?.params?.openTonight) return;
+    (async () => {
+      const cache = tonightStatus === 'ready' && tonightCache ? tonightCache : await loadTonight();
+      if (cache) openTonight(cache, 'notification');
+    })();
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, [route?.params?.openTonight]);
+
   const glowOpacity = glowAnim.interpolate({
     inputRange: [0, 1],
     outputRange: [0.2, 0.5],
@@ -155,6 +239,16 @@ const PlayScreen = () => {
               </TouchableOpacity>
             </Animated.View>
           </View>
+
+          {tonightStatus !== 'hidden' && (
+            <TonightCard
+              status={tonightStatus}
+              context={tonightContext}
+              games={tonightCache?.games || []}
+              onPress={handleTonightPress}
+              onChangePress={handleTonightChange}
+            />
+          )}
 
           {/* Feature Pills */}
           <View style={styles.features}>
