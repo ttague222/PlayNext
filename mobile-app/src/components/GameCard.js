@@ -314,6 +314,8 @@ const GameCard = ({ game, rank, onAccept, onAlreadyPlayed, onNotForMe, onSave, i
             onPress={(isSwapping || isAccepting) ? undefined : onAccept}
             disabled={isSwapping || isAccepting}
             accessibilityLabel="I'll play this"
+            darkenOnPress
+            pressedOverlayStyle={{ borderRadius: styles.acceptButton.borderRadius }}
           >
             <LinearGradient
               colors={(isSwapping || isAccepting) ? ['#888', '#666'] : ['#f857a6', '#ff5858']}
@@ -353,6 +355,18 @@ const GameCard = ({ game, rank, onAccept, onAlreadyPlayed, onNotForMe, onSave, i
                   <Text style={styles.explanationText}>{game.explanation.style_fit}</Text>
                 </View>
               )}
+              {game.explanation.time_fit && (
+                <View style={styles.explanationPoint}>
+                  <Ionicons name="timer-outline" size={14} color="#a0a0a0" style={styles.explanationIcon} />
+                  <Text style={styles.explanationText}>{game.explanation.time_fit}</Text>
+                </View>
+              )}
+              {game.explanation.session_fit && (
+                <View style={styles.explanationPoint}>
+                  <Ionicons name="hourglass-outline" size={14} color="#a0a0a0" style={styles.explanationIcon} />
+                  <Text style={styles.explanationText}>{game.explanation.session_fit}</Text>
+                </View>
+              )}
               {game.explanation.library_fit && (
                 <View style={styles.explanationPoint}>
                   <Ionicons name="logo-steam" size={14} color="#4ade80" style={styles.explanationIcon} />
@@ -389,7 +403,11 @@ const GameCard = ({ game, rank, onAccept, onAlreadyPlayed, onNotForMe, onSave, i
                     onPress={async () => {
                       if (affiliateUrl) {
                         trackAffiliateClick('subscription', service, game.game_id, game.title);
-                        await Linking.openURL(affiliateUrl);
+                        try {
+                          await Linking.openURL(affiliateUrl);
+                        } catch (err) {
+                          Alert.alert('Error', `Could not open ${config.name}.`);
+                        }
                       }
                     }}
                     accessibilityLabel={`Play on ${config.name}`}

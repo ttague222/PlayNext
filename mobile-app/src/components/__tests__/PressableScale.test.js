@@ -51,4 +51,29 @@ describe('PressableScale', () => {
     );
     expect(getByRole('button')).toBeTruthy();
   });
+
+  it('shows a darkening overlay while pressed when darkenOnPress is set (P0.6)', async () => {
+    const { getByText, queryByTestId } = await render(
+      <PressableScale darkenOnPress accessibilityLabel="go">
+        <Text>Go</Text>
+      </PressableScale>
+    );
+    expect(queryByTestId('pressed-overlay')).toBeNull();
+    await fireEvent(getByText('Go'), 'pressIn');
+    expect(queryByTestId('pressed-overlay')).toBeTruthy();
+    await fireEvent(getByText('Go'), 'pressOut');
+    expect(queryByTestId('pressed-overlay')).toBeNull();
+  });
+
+  it('never shows the overlay without darkenOnPress', async () => {
+    const { getByText, queryByTestId } = await render(
+      <PressableScale accessibilityLabel="go">
+        <Text>Go</Text>
+      </PressableScale>
+    );
+    await fireEvent(getByText('Go'), 'pressIn');
+    expect(queryByTestId('pressed-overlay')).toBeNull();
+    await fireEvent(getByText('Go'), 'pressOut');
+    expect(queryByTestId('pressed-overlay')).toBeNull();
+  });
 });

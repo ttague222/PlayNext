@@ -16,10 +16,10 @@ const game = {
     session_fit: null,
     library_fit: null,
   },
-  time_to_fun: 'quick',
+  time_to_fun: 'short',
   stop_friendliness: 'anytime',
   subscription_services: ['netflix_games'],
-  store_links: { app_store: 'https://x', google_play: 'https://y' },
+  store_links: { ios: 'https://x', android: 'https://y' },
   match_score: 1,
   in_library: false,
 };
@@ -56,6 +56,8 @@ describe('GameCard (1.5.0 refresh)', () => {
     expect(getByText('WHERE TO PLAY')).toBeTruthy();
     expect(queryByText('Play with subscription')).toBeNull();
     expect(queryByText('Where to buy')).toBeNull();
+    // Store chips actually render for the fixture's real STORE_CONFIG keys
+    expect(getByText('App Store')).toBeTruthy();
   });
 
   it('drops the Jump right in / Stop anytime chips (P0.4)', async () => {
@@ -76,9 +78,28 @@ describe('GameCard (1.5.0 refresh)', () => {
     expect(getByText('Save')).toBeTruthy();
   });
 
-  it('renders at most the bullets the API sent', async () => {
+  it('renders exactly the two bullets the API sent (style_fit + stop_fit)', async () => {
     const { getByText } = await renderCard();
     expect(getByText('Sim management with real depth.')).toBeTruthy();
     expect(getByText('Auto-saves between decisions.')).toBeTruthy();
+  });
+
+  it('renders time_fit and session_fit rows when the API sends them (forward-compat)', async () => {
+    const { getByText } = await renderCard({
+      game: {
+        ...game,
+        explanation: {
+          summary: 's',
+          style_fit: null,
+          stop_fit: null,
+          mood_fit: null,
+          time_fit: 'Fits a focused 60-minute session.',
+          session_fit: 'One run takes about 25 minutes.',
+          library_fit: null,
+        },
+      },
+    });
+    expect(getByText('Fits a focused 60-minute session.')).toBeTruthy();
+    expect(getByText('One run takes about 25 minutes.')).toBeTruthy();
   });
 });

@@ -101,8 +101,14 @@ BACKLOG_FALLBACK_MESSAGE = (
 
 # Game card refresh (P0.2): bullets are capped at 2 per game and chosen
 # most-game-specific-first. Known filler strings are never emitted.
-EXPLANATION_FIELD_PRIORITY = ["style_fit", "session_fit", "time_fit", "stop_fit", "mood_fit"]
+EXPLANATION_FIELD_PRIORITY = ["style_fit", "stop_fit", "mood_fit", "session_fit", "time_fit"]
 MAX_EXPLANATION_BULLETS = 2
+
+# Shipped clients render only these three explanation fields (plus
+# library_fit, which is assembled separately). session_fit/time_fit are
+# reserved for future card versions and must never crowd out a renderable
+# bullet — see the fallback guarantee in _build_recommendation.
+RENDERABLE_EXPLANATION_FIELDS = frozenset({"style_fit", "stop_fit", "mood_fit"})
 
 GENERIC_FILLER = frozenset({
     "enjoyable gameplay experience",
@@ -117,7 +123,7 @@ GENERIC_FILLER = frozenset({
 
 def _normalize_bullet(text: str) -> str:
     """Lowercase, trim, and drop trailing punctuation for filler/dedupe checks."""
-    return text.strip().rstrip(".!").strip().lower()
+    return text.strip().rstrip(".!?…").strip().lower()
 
 
 def normalize_subscriptions(values) -> set:
@@ -1052,14 +1058,20 @@ class RecommendationService:
         selected = self._select_explanation_fields(templates, used_bullets)
 
         mood_label = request.energy_mood.value.replace("_", " ")
-        if not selected:
+        # Guarantee at least one bullet a shipped client actually renders.
+        # Covers both the empty-selection case and the case where only
+        # session_fit/time_fit (invisible on live cards) were selected.
+        if not any(field in RENDERABLE_EXPLANATION_FIELDS for field, _ in selected):
             fallback = f"Fits a {mood_label} {request.time_available}-minute session."
             if _normalize_bullet(fallback) in used_bullets:
                 # Plain fallback already used by another game in this
                 # response — fold in the title so it stays unique. Titles
                 # are unique within a response after franchise diversity.
                 fallback = f"{game['title']} fits a {mood_label} {request.time_available}-minute session."
-            selected = [("time_fit", fallback)]
+            # Prepend so the renderable fallback survives the trim below;
+            # trimming from the front drops the lowest-priority extra.
+            selected = [("mood_fit", fallback)] + selected
+            selected = selected[:MAX_EXPLANATION_BULLETS]
             used_bullets.add(_normalize_bullet(fallback))
 
         emitted = {}
