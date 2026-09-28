@@ -14,6 +14,7 @@ import {
   Animated,
   Easing,
   Dimensions,
+  ScrollView,
 } from 'react-native';
 import { SafeAreaView } from 'react-native-safe-area-context';
 import { useNavigation, useRoute, useFocusEffect } from '@react-navigation/native';
@@ -48,6 +49,13 @@ const PlayScreen = () => {
   const [tonightCache, setTonightCache] = useState(null);
   const [tonightContext, setTonightContext] = useState(null);
 
+  // Read via ref inside loadTonight so an identity change of notForMeGameIds
+  // (a new array from context on every render) can't give loadTonight a new
+  // identity mid-focus and re-trigger the focus effect, clobbering a ready
+  // card back to loading.
+  const notForMeRef = useRef(notForMeGameIds);
+  notForMeRef.current = notForMeGameIds;
+
   const loadTonight = useCallback(async () => {
     try {
       const context = await getLastContext();
@@ -63,7 +71,7 @@ const PlayScreen = () => {
         return cached;
       }
       setTonightStatus('loading');
-      const fresh = await fetchTonightsPicks({ excludedGameIds: notForMeGameIds || [] });
+      const fresh = await fetchTonightsPicks({ excludedGameIds: notForMeRef.current || [] });
       if (fresh) {
         setTonightCache(fresh);
         setTonightStatus('ready');
@@ -75,7 +83,7 @@ const PlayScreen = () => {
       setTonightStatus('error');
       return null;
     }
-  }, [notForMeGameIds]);
+  }, []);
 
   // Refresh on every focus: catches date rollover and post-session cache rewrites.
   useFocusEffect(
@@ -85,9 +93,9 @@ const PlayScreen = () => {
   );
 
   const openTonight = useCallback(
-    (cache, via) => {
+    async (cache, via) => {
       if (!startTonightSession(cache)) return;
-      recordTonightView();
+      await recordTonightView();
       logEvent('tonight_picks_viewed', { via });
       navigation.navigate('Results');
       maybeOfferTonightReminder();
@@ -95,14 +103,24 @@ const PlayScreen = () => {
     [startTonightSession, navigation]
   );
 
+  // Guards against a double tap starting two sessions / recording two views
+  // / stacking two reminder alerts while the first tap is still in flight.
+  const openingRef = useRef(false);
+
   const handleTonightPress = useCallback(async () => {
-    if (tonightStatus === 'ready' && tonightCache) {
-      openTonight(tonightCache, 'card');
-      return;
+    if (openingRef.current) return;
+    openingRef.current = true;
+    try {
+      if (tonightStatus === 'ready' && tonightCache) {
+        await openTonight(tonightCache, 'card');
+        return;
+      }
+      // loading/error: (re)try, then open if it lands
+      const cache = await loadTonight();
+      if (cache) await openTonight(cache, 'card');
+    } finally {
+      openingRef.current = false;
     }
-    // loading/error: (re)try, then open if it lands
-    const cache = await loadTonight();
-    if (cache) openTonight(cache, 'card');
   }, [tonightStatus, tonightCache, openTonight, loadTonight]);
 
   useEffect(() => {
@@ -172,11 +190,18 @@ const PlayScreen = () => {
   };
 
   // Notification deep link: open tonight's picks as soon as they're available.
+  // The notification sender passes `openTonight` as a nonce (e.g. Date.now())
+  // so a re-tap of the same notification re-fires; clear the param once
+  // consumed so remounts/re-renders don't replay it.
   useEffect(() => {
     if (!route?.params?.openTonight) return;
     (async () => {
-      const cache = tonightStatus === 'ready' && tonightCache ? tonightCache : await loadTonight();
-      if (cache) openTonight(cache, 'notification');
+      try {
+        const cache = tonightStatus === 'ready' && tonightCache ? tonightCache : await loadTonight();
+        if (cache) await openTonight(cache, 'notification');
+      } finally {
+        navigation.setParams({ openTonight: undefined });
+      }
     })();
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [route?.params?.openTonight]);
@@ -198,7 +223,11 @@ const PlayScreen = () => {
           <View style={[styles.bgCircle, styles.bgCircle2]} />
         </View>
 
-        <View style={styles.content}>
+        <ScrollView
+          style={styles.contentScroll}
+          contentContainerStyle={styles.content}
+          showsVerticalScrollIndicator={false}
+        >
           {/* Center Icon */}
           <Animated.View style={[styles.iconContainer, { transform: [{ translateY: floatAnim }] }]}>
             <LinearGradient
@@ -265,7 +294,7 @@ const PlayScreen = () => {
               <Text style={styles.featureText}>Instant</Text>
             </View>
           </View>
-        </View>
+        </ScrollView>
 
         {/* Bottom Stats */}
         <View style={styles.bottomSection}>
@@ -321,8 +350,11 @@ const styles = StyleSheet.create({
     bottom: -SCREEN_WIDTH * 0.2,
     left: -SCREEN_WIDTH * 0.2,
   },
-  content: {
+  contentScroll: {
     flex: 1,
+  },
+  content: {
+    flexGrow: 1,
     justifyContent: 'center',
     alignItems: 'center',
     paddingHorizontal: 24,

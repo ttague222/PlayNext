@@ -88,13 +88,18 @@ let _inFlight = null;
  * saved yet (feature dormant). Throws on API failure — callers show a retry
  * state. `excludedGameIds` lets callers pass Not-For-Me ids (the service has
  * no access to SavedGamesContext).
+ *
+ * The single-flight guard wraps the ENTIRE body, including the initial cache
+ * check: two callers can both be mid-await on that check before either sets
+ * `_inFlight`, which would otherwise let both through to the API.
  */
 export async function fetchTonightsPicks({ excludedGameIds = [] } = {}) {
-  const cached = await getCachedPicks();
-  if (cached) return cached;
   if (_inFlight) return _inFlight;
 
   _inFlight = (async () => {
+    const cached = await getCachedPicks();
+    if (cached) return cached;
+
     const context = await getLastContext();
     if (!context) return null;
     const response = await api.getRecommendations({

@@ -2,9 +2,11 @@ import React from 'react';
 import { render, waitFor, fireEvent } from '@testing-library/react-native';
 
 const mockNavigate = jest.fn();
+const mockSetParams = jest.fn();
+let mockRouteParams;
 jest.mock('@react-navigation/native', () => ({
-  useNavigation: () => ({ navigate: mockNavigate }),
-  useRoute: () => ({ params: undefined }),
+  useNavigation: () => ({ navigate: mockNavigate, setParams: mockSetParams }),
+  useRoute: () => ({ params: mockRouteParams }),
   // Run focus effects immediately, once, like a focused mount.
   useFocusEffect: (cb) => { const React = require('react'); React.useEffect(cb, []); },
 }));
@@ -42,7 +44,10 @@ import PlayScreen from '../PlayScreen';
 const CONTEXT = { timeAvailable: 60, energyMood: 'casual', genres: [], platforms: [], sessionType: 'any', discoveryMode: 'familiar' };
 const CACHE = { date: '2026-10-05', sessionId: 's1', context: CONTEXT, games: [{ game_id: 'hades', title: 'Hades' }] };
 
-beforeEach(() => jest.clearAllMocks());
+beforeEach(() => {
+  jest.clearAllMocks();
+  mockRouteParams = undefined;
+});
 
 it('shows no card when no context is saved', async () => {
   getLastContext.mockResolvedValue(null);
@@ -88,4 +93,32 @@ it('shows the error state when the prefetch fails', async () => {
   fetchTonightsPicks.mockRejectedValue(new Error('offline'));
   const { getByText } = await render(<PlayScreen />);
   await waitFor(() => getByText("Couldn't load tonight's picks. Tap to retry."));
+});
+
+it('clears the openTonight route param after consuming it', async () => {
+  mockRouteParams = { openTonight: 12345 };
+  getLastContext.mockResolvedValue(CONTEXT);
+  getCachedPicks.mockResolvedValue(CACHE);
+  await render(<PlayScreen />);
+  await waitFor(() => expect(mockNavigate).toHaveBeenCalledWith('Results'));
+  expect(mockSetParams).toHaveBeenCalledWith({ openTonight: undefined });
+});
+
+// Kept last: firing two rapid, unflushed fireEvent.press calls in this
+// RN test renderer leaves a dangling native-touchable timer that corrupts
+// whichever render() call comes next in the file (reproduced even with a
+// fully synchronous, unrelated handler) — an environment quirk, not a
+// product bug. Real double taps always arrive on separate event-loop
+// turns, so this ordering has no bearing on the guard's real-world
+// correctness; it just keeps the rest of the suite deterministic.
+it('a double tap on a ready card only starts one session', async () => {
+  getLastContext.mockResolvedValue(CONTEXT);
+  getCachedPicks.mockResolvedValue(CACHE);
+  const { getByTestId, getByText } = await render(<PlayScreen />);
+  await waitFor(() => getByText('Hades'));
+  const card = getByTestId('tonight-card');
+  fireEvent.press(card);
+  fireEvent.press(card);
+  await waitFor(() => expect(mockNavigate).toHaveBeenCalledWith('Results'));
+  expect(mockStartTonightSession).toHaveBeenCalledTimes(1);
 });
