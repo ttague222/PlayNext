@@ -36,6 +36,23 @@ const buildProps = (overrides = {}) => ({
 
 const renderCard = (overrides = {}) => render(<GameCard {...buildProps(overrides)} />);
 
+// GameCard's entrance ('stagger'/'settle') and save-pop motion use several
+// delayed Animated.timing/spring calls. None of these tests assert on an
+// animation's end state, and delayed RN Animated calls schedule real
+// setTimeouts that a synchronous test doesn't wait out — left as real
+// timers, one can still be pending when this file's Jest environment tears
+// down and crash the process trying to lazily re-require Easing's bezier
+// helper. Fake timers for the whole file keep every delayed start inside
+// Jest's fake timer queue, where it's simply discarded, instead of becoming
+// a real pending OS timer.
+beforeEach(() => {
+  jest.useFakeTimers();
+});
+
+afterEach(() => {
+  jest.useRealTimers();
+});
+
 describe('GameCard (1.5.0 refresh)', () => {
   it('renders the CTA before the explanation section (P0.1)', async () => {
     const { toJSON } = await renderCard();
@@ -104,7 +121,7 @@ describe('GameCard (1.5.0 refresh)', () => {
 
   it('still renders title, CTA, and a match percent with entrance animation enabled', async () => {
     const { getAllByText, getByTestId } = await renderCard({
-      animateEntrance: true,
+      entrance: 'stagger',
       entranceIndex: 1,
     });
     // Title appears twice while the thumbnail image hasn't resolved (the
@@ -113,7 +130,8 @@ describe('GameCard (1.5.0 refresh)', () => {
     expect(getByTestId('card-cta')).toBeTruthy();
     // The count-up starts at 0 and animates toward matchPercent — assert the
     // pill has *some* "% match" text rather than pinning an in-flight value,
-    // so the test stays deterministic without needing to drive fake timers.
+    // so the test stays deterministic without needing to drive timers to a
+    // specific point.
     expect(getByTestId('match-pill')).toHaveTextContent(/% match/);
   });
 });
@@ -131,12 +149,15 @@ describe('GameCard (M3 save confirmation + swap motion)', () => {
     expect(getByText('Saved')).toBeTruthy();
   });
 
-  it('does not crash and renders the new title when game_id changes', async () => {
-    const gameB = { ...game, game_id: 'g2', title: 'Second Game' };
-    const { rerender, getAllByText } = await renderCard();
-    await rerender(<GameCard {...buildProps({ game: gameB })} />);
-    // Title renders in both the header and the thumbnail fallback while the
-    // image hasn't resolved — same pattern as the entrance test above.
-    expect(getAllByText('Second Game').length).toBeGreaterThan(0);
+  it('mounts and renders content with entrance="settle" (replaces a card that did not survive a swap)', async () => {
+    // I2: 'settle' is a mount-driven entrance now (ResultsScreen always
+    // keys a 'settle' card as a fresh instance, keyed by game_id) rather
+    // than an effect keyed off game_id changing on an existing instance.
+    const { getAllByText, getByTestId } = await renderCard({
+      entrance: 'settle',
+      entranceIndex: 0,
+    });
+    expect(getAllByText('Game Dev Tycoon').length).toBeGreaterThan(0);
+    expect(getByTestId('card-cta')).toBeTruthy();
   });
 });

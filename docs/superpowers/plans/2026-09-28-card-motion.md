@@ -21,3 +21,22 @@
 - [ ] **M2**: ResultsScreen tracks first-set entrance (`hasAnimatedInRef`, set after first successful non-reroll render; rerolls/swaps never re-arm) and passes `animateEntrance` + `entranceIndex` to GameCard; GameCard wraps hero / title-block(+CTA) / why-section in FadeSlideIn (delays entranceIndex*120 + 0/50/100) only when `animateEntrance`; match pill counts up 500ms only then, static otherwise. Commit "feat(mobile): first-set entrance stagger and match count-up".
 - [ ] **M3**: ResultsScreen `savedGameIds` Set state updated where the save flow confirms (read the SaveModal handler; add the id on success), passes `isSaved`; GameCard Save button renders filled bookmark + "Saved" with spring pop + label crossfade on transition; swap motion: GameCard animates out (translateX(-24), 2deg, fade, 180ms) while `isSwapping`, and settles in (translateY(12)+fade 240ms) when `game.game_id` changes without `animateEntrance`. Tests: isSaved renders "Saved"; game_id change rerender safe. Commit "feat(mobile): save confirmation and swap motion".
 - [ ] **M4**: full suites (api pytest, mobile jest, tsc) green; final integration review; merge via PR.
+
+## Accepted deviations from the motion values above (found during the combined card-motion review)
+
+- **Save confirmation spring:** shipped as `friction: 4, tension: 160` with a
+  1.25x overshoot on the bookmark icon, not the plan's `friction: 5, tension:
+  140`. The snappier spring reads better paired with the 150ms label fade;
+  no correctness or accessibility impact (still native-driver, still skipped
+  under reduced motion).
+- **Save label transition:** label fade-in only — the "Save" text simply
+  fades to "Saved" (`saveLabelOpacity` 0 -> 1). There is no old-label
+  crossfade (no "Save" fading out underneath) and no blur, since RN's core
+  `Animated` has no cheap text blur primitive (this half of the deviation
+  was already called out in the Architecture note above; documenting here
+  that the label swap itself, not just the missing blur, is a plain fade).
+- **Swap-out opacity floor:** the outgoing card fades to `0.5` while
+  `isSwapping`, not to `0`. The card (and its spinner overlay on the
+  affected action button) stays partially visible during the swap instead
+  of disappearing, which reads as "working on it" rather than "gone" — this
+  was a deliberate readability call, not an oversight.

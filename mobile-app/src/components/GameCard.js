@@ -21,6 +21,7 @@ import { Ionicons } from '@expo/vector-icons';
 import PressableScale from './PressableScale';
 import ShimmerBlock from './ShimmerBlock';
 import FadeSlideIn from './FadeSlideIn';
+import MatchPill from './MatchPill';
 import useReducedMotion from '../hooks/useReducedMotion';
 import { getGameImage } from '../services/gameImages';
 import {
@@ -125,12 +126,13 @@ const PLATFORM_TO_STORES = {
   mobile: ['ios', 'android'],
 };
 
-const MATCH_COUNT_UP_DURATION = 500;
-
 // Save confirmation motion (M3)
 const SAVE_LABEL_CROSSFADE_DURATION = 150;
 const SAVE_ICON_SPRING_FRICTION = 4;
 const SAVE_ICON_SPRING_TENSION = 160;
+// I4: hold off the pop until the SaveToBucketModal has actually finished
+// closing (its own fade-out), so the confirmation never plays underneath it.
+const SAVE_POP_DELAY = 150;
 
 // Swap motion (M3)
 const SWAP_OUT_DURATION = 180;
@@ -138,6 +140,14 @@ const SWAP_REVERT_DURATION = 150;
 const SWAP_SETTLE_DURATION = 240;
 const SWAP_SETTLE_EASING = Easing.bezier(0.23, 1, 0.32, 1);
 const REDUCED_MOTION_SWAP_DURATION = 150;
+
+// Entrance motion (I1/I2) — 'stagger' is the first result set's shell fade +
+// per-segment FadeSlideIn cascade; 'settle' is a single mount-driven
+// translate/fade used for a card that replaces one that didn't survive a
+// swap/reroll; 'none' renders at rest with no animation.
+const STAGGER_SHELL_FADE_DURATION = 150;
+const STAGGER_INDEX_DELAY_STEP = 120;
+const STAGGER_LOWER_BLOCK_DELAY_OFFSET = 150;
 
 const GameCard = ({
   game,
@@ -149,7 +159,7 @@ const GameCard = ({
   isSwapping,
   isAccepting,
   userPlatforms,
-  animateEntrance = false,
+  entrance = 'none',
   entranceIndex = 0,
   isSaved = false,
 }) => {
@@ -157,27 +167,35 @@ const GameCard = ({
   const [fallbackColors, setFallbackColors] = useState(['#667eea', '#764ba2']);
   const [imageLoading, setImageLoading] = useState(true);
   const [imageError, setImageError] = useState(false);
-  const scaleAnim = useRef(new Animated.Value(0.95)).current;
-  const opacityAnim = useRef(new Animated.Value(0)).current;
   const reducedMotion = useReducedMotion();
 
+  // Existing logic (count-up gate, FadeSlideIn `enabled`) keys off whether
+  // this is the first-set stagger entrance specifically.
+  const animateEntrance = entrance === 'stagger';
+
+  // 'stagger': the whole card shell fades in (opacity-only, native driver)
+  // while its segments cascade in via FadeSlideIn below. 'settle'/'none'
+  // render the shell at rest — 'settle' owns its own motion on the swap
+  // wrapper instead (see swapTranslateY/swapOpacity below).
+  const entranceOpacity = useRef(new Animated.Value(entrance === 'stagger' ? 0 : 1)).current;
+
   useEffect(() => {
-    Animated.parallel([
-      Animated.spring(scaleAnim, {
-        toValue: 1,
-        friction: 8,
-        tension: 40,
-        useNativeDriver: true,
-        delay: rank * 150,
-      }),
-      Animated.timing(opacityAnim, {
-        toValue: 1,
-        duration: 400,
-        delay: rank * 150,
-        useNativeDriver: true,
-      }),
-    ]).start();
-  }, [rank]);
+    if (entrance !== 'stagger') {
+      return undefined;
+    }
+    const animation = Animated.timing(entranceOpacity, {
+      toValue: 1,
+      duration: STAGGER_SHELL_FADE_DURATION,
+      delay: entranceIndex * STAGGER_INDEX_DELAY_STEP,
+      useNativeDriver: true,
+    });
+    animation.start();
+    // Stop on unmount rather than leaving a delayed/in-flight timing
+    // running past the component's lifetime.
+    return () => animation.stop();
+    // Mount-only, same as the FadeSlideIn segments it accompanies.
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, []);
 
   // Fetch game image
   useEffect(() => {
@@ -217,48 +235,99 @@ const GameCard = ({
     }
 
     saveLabelOpacity.setValue(0);
-    Animated.parallel([
-      Animated.timing(saveLabelOpacity, {
-        toValue: 1,
-        duration: SAVE_LABEL_CROSSFADE_DURATION,
-        useNativeDriver: true,
-      }),
-      Animated.sequence([
-        Animated.spring(saveIconScale, {
-          toValue: 1.25,
-          friction: SAVE_ICON_SPRING_FRICTION,
-          tension: SAVE_ICON_SPRING_TENSION,
-          useNativeDriver: true,
-        }),
-        Animated.spring(saveIconScale, {
+    Animated.sequence([
+      Animated.delay(SAVE_POP_DELAY),
+      Animated.parallel([
+        Animated.timing(saveLabelOpacity, {
           toValue: 1,
-          friction: SAVE_ICON_SPRING_FRICTION,
-          tension: SAVE_ICON_SPRING_TENSION,
+          duration: SAVE_LABEL_CROSSFADE_DURATION,
           useNativeDriver: true,
         }),
+        Animated.sequence([
+          Animated.spring(saveIconScale, {
+            toValue: 1.25,
+            friction: SAVE_ICON_SPRING_FRICTION,
+            tension: SAVE_ICON_SPRING_TENSION,
+            useNativeDriver: true,
+          }),
+          Animated.spring(saveIconScale, {
+            toValue: 1,
+            friction: SAVE_ICON_SPRING_FRICTION,
+            tension: SAVE_ICON_SPRING_TENSION,
+            useNativeDriver: true,
+          }),
+        ]),
       ]),
     ]).start();
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [isSaved]);
 
-  // --- Swap motion (M3) ---
-  // Dedicated Animated.Values, kept separate from the pre-existing
-  // rank-based scaleAnim/opacityAnim whole-card entrance above so the two
-  // never fight over the same style prop.
+  // --- Swap + settle-entrance motion (M3, I2) ---
+  // Dedicated Animated.Values, kept separate from the entranceOpacity shell
+  // fade above so the two never fight over the same style prop.
+  //
+  // For entrance === 'settle' these ALSO own the mount-in motion: seeded
+  // here, in the useRef initializers, so the card never flashes at its
+  // resting state before the mount effect below kicks off (translateY 12 ->
+  // 0, opacity 0 -> 1, or just opacity under reduced motion).
   const swapTranslateX = useRef(new Animated.Value(0)).current;
-  const swapTranslateY = useRef(new Animated.Value(0)).current;
+  const swapTranslateY = useRef(
+    new Animated.Value(entrance === 'settle' && !reducedMotion ? 12 : 0)
+  ).current;
   const swapRotate = useRef(new Animated.Value(0)).current; // degrees, 0 <-> -2
-  const swapOpacity = useRef(new Animated.Value(1)).current;
+  const swapOpacity = useRef(new Animated.Value(entrance === 'settle' ? 0 : 1)).current;
   const swapRotateInterpolated = swapRotate.interpolate({
     inputRange: [-2, 0],
     outputRange: ['-2deg', '0deg'],
   });
   const prevIsSwappingRef = useRef(isSwapping);
-  const prevGameIdRef = useRef(game.game_id);
+
+  // Settle-in on mount for entrance === 'settle' — a card that replaced one
+  // that didn't survive a swap/reroll (see ResultsScreen's entranceFor).
+  // Mount-only: with ResultsScreen keying cards by game_id, this card is
+  // always a fresh instance, never an existing one whose game_id changed in
+  // place, so there's no need to key off game.game_id here.
+  useEffect(() => {
+    if (entrance !== 'settle') {
+      return undefined;
+    }
+
+    if (reducedMotion) {
+      const animation = Animated.timing(swapOpacity, {
+        toValue: 1,
+        duration: REDUCED_MOTION_SWAP_DURATION,
+        useNativeDriver: true,
+      });
+      animation.start();
+      return () => animation.stop();
+    }
+
+    const animation = Animated.parallel([
+      Animated.timing(swapTranslateY, {
+        toValue: 0,
+        duration: SWAP_SETTLE_DURATION,
+        easing: SWAP_SETTLE_EASING,
+        useNativeDriver: true,
+      }),
+      Animated.timing(swapOpacity, {
+        toValue: 1,
+        duration: SWAP_SETTLE_DURATION,
+        easing: SWAP_SETTLE_EASING,
+        useNativeDriver: true,
+      }),
+    ]);
+    animation.start();
+    // Stop on unmount rather than leaving an in-flight settle animation
+    // running past the component's lifetime.
+    return () => animation.stop();
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, []);
 
   // Swap-out while isSwapping is true; reverses back to identity when it
-  // clears WITHOUT a game_id change — the rejectAndSwap/markAsPlayedAndSwap
-  // call failed and this same card is still showing (error path).
+  // clears — the rejectAndSwap/markAsPlayedAndSwap call failed and this
+  // same card is still showing (error path). A successful swap unmounts
+  // this instance via ResultsScreen's key={game.game_id} before isSwapping
+  // ever clears here, so clearing always means the error-path revert.
   useEffect(() => {
     if (prevIsSwappingRef.current === isSwapping) {
       return;
@@ -295,16 +364,6 @@ const GameCard = ({
       return;
     }
 
-    // isSwapping cleared. If game_id also changed, the settle-in effect
-    // below owns the animation — skip here to avoid dueling motions. (In
-    // the live app ResultsScreen keys GameCard by game_id, so a successful
-    // swap unmounts this instance before it ever sees isSwapping go false;
-    // this guard matters for non-keyed callers, e.g. this component's own
-    // tests, that reuse one instance across a swap.)
-    if (prevGameIdRef.current !== game.game_id) {
-      return;
-    }
-
     if (reducedMotion) {
       Animated.timing(swapOpacity, {
         toValue: 1,
@@ -333,87 +392,13 @@ const GameCard = ({
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [isSwapping]);
 
-  // Settle-in when this card's game_id changes on an already-mounted
-  // instance. Skipped for the first-set entrance stagger (animateEntrance),
-  // which owns the initial mount instead. Skips the initial mount of this
-  // effect itself since prevGameIdRef starts at the current game_id.
-  useEffect(() => {
-    if (prevGameIdRef.current === game.game_id) {
-      return;
-    }
-    prevGameIdRef.current = game.game_id;
-
-    if (animateEntrance) {
-      return;
-    }
-
-    if (reducedMotion) {
-      swapOpacity.setValue(0);
-      Animated.timing(swapOpacity, {
-        toValue: 1,
-        duration: REDUCED_MOTION_SWAP_DURATION,
-        useNativeDriver: true,
-      }).start();
-      return;
-    }
-
-    swapTranslateX.setValue(0);
-    swapRotate.setValue(0);
-    swapTranslateY.setValue(12);
-    swapOpacity.setValue(0);
-    Animated.parallel([
-      Animated.timing(swapTranslateY, {
-        toValue: 0,
-        duration: SWAP_SETTLE_DURATION,
-        easing: SWAP_SETTLE_EASING,
-        useNativeDriver: true,
-      }),
-      Animated.timing(swapOpacity, {
-        toValue: 1,
-        duration: SWAP_SETTLE_DURATION,
-        easing: SWAP_SETTLE_EASING,
-        useNativeDriver: true,
-      }),
-    ]).start();
-    // eslint-disable-next-line react-hooks/exhaustive-deps
-  }, [game.game_id]);
-
   const matchPercent = Math.round((game.match_score || 0.85) * 100);
 
   // Match % count-up: only on the first result set's entrance, and only
-  // when motion is allowed. Otherwise render the static final number.
+  // when motion is allowed. Otherwise MatchPill renders the static final
+  // number. (I3/M5: the count-up itself and its per-tick setState now live
+  // inside MatchPill, isolated from the rest of this card's render tree.)
   const shouldCountUpMatch = animateEntrance && !reducedMotion;
-  const matchCountAnim = useRef(new Animated.Value(shouldCountUpMatch ? 0 : matchPercent)).current;
-  const [displayedMatchPercent, setDisplayedMatchPercent] = useState(
-    shouldCountUpMatch ? 0 : matchPercent
-  );
-
-  useEffect(() => {
-    if (!shouldCountUpMatch) {
-      return undefined;
-    }
-
-    const listenerId = matchCountAnim.addListener(({ value }) => {
-      setDisplayedMatchPercent(Math.round(value));
-    });
-
-    const animation = Animated.timing(matchCountAnim, {
-      toValue: matchPercent,
-      duration: MATCH_COUNT_UP_DURATION,
-      useNativeDriver: false,
-    });
-    animation.start();
-
-    return () => {
-      // Stop the JS-driven timing loop, not just the listener — otherwise it
-      // keeps ticking (and calling setState) after unmount.
-      animation.stop();
-      matchCountAnim.removeListener(listenerId);
-    };
-    // Mount-only: the count-up runs once per card instance, same as the
-    // FadeSlideIn segments it accompanies.
-    // eslint-disable-next-line react-hooks/exhaustive-deps
-  }, []);
 
   // Derive platforms from store links AND subscription services
   const validatedPlatforms = React.useMemo(() => {
@@ -470,15 +455,7 @@ const GameCard = ({
   const sortedStores = [...prioritizedStores, ...otherStores];
 
   return (
-    <Animated.View
-      style={[
-        styles.cardWrapper,
-        {
-          opacity: opacityAnim,
-          transform: [{ scale: scaleAnim }],
-        },
-      ]}
-    >
+    <Animated.View style={[styles.cardWrapper, { opacity: entranceOpacity }]}>
       <Animated.View
         style={{
           opacity: swapOpacity,
@@ -499,7 +476,7 @@ const GameCard = ({
         )}
 
         {/* Game Thumbnail */}
-        <FadeSlideIn enabled={animateEntrance} delay={entranceIndex * 120}>
+        <FadeSlideIn enabled={animateEntrance} delay={entranceIndex * STAGGER_INDEX_DELAY_STEP}>
         <View style={styles.thumbnailContainer}>
           {imageUrl && !imageError ? (
             <Image
@@ -550,15 +527,15 @@ const GameCard = ({
         </FadeSlideIn>
 
         {/* Header + description + CTA */}
-        <FadeSlideIn enabled={animateEntrance} delay={entranceIndex * 120 + 50}>
+        <FadeSlideIn enabled={animateEntrance} delay={entranceIndex * STAGGER_INDEX_DELAY_STEP + 50}>
         <View style={styles.header}>
           <View style={styles.titleRow}>
             <Text style={styles.title} numberOfLines={2}>{game.title}</Text>
-            <View style={styles.matchPill} testID="match-pill">
-              <Text style={styles.matchPillText}>
-                {shouldCountUpMatch ? displayedMatchPercent : matchPercent}% match
-              </Text>
-            </View>
+            <MatchPill
+              matchPercent={matchPercent}
+              countUp={shouldCountUpMatch}
+              entranceIndex={entranceIndex}
+            />
           </View>
           <Text style={styles.platforms}>
             {validatedPlatforms.map((p) => PLATFORM_LABELS[p] || p).join(' · ')}
@@ -593,7 +570,7 @@ const GameCard = ({
 
         {/* Why this fits - Simplified with icons */}
         {game.explanation && (
-          <FadeSlideIn enabled={animateEntrance} delay={entranceIndex * 120 + 100}>
+          <FadeSlideIn enabled={animateEntrance} delay={entranceIndex * STAGGER_INDEX_DELAY_STEP + 100}>
           <View style={styles.explanationBox} testID="card-why">
             <View style={styles.explanationHeader}>
               <Ionicons name="bulb-outline" size={16} color="#f857a6" />
@@ -641,6 +618,10 @@ const GameCard = ({
           </FadeSlideIn>
         )}
 
+        {/* Meta tags + WHERE TO PLAY + secondary actions — the card's lower
+            block, staggered in as its own FadeSlideIn segment (I1/I2) so it
+            settles in just after the CTA/explanation above it. */}
+        <FadeSlideIn enabled={animateEntrance} delay={entranceIndex * STAGGER_INDEX_DELAY_STEP + STAGGER_LOWER_BLOCK_DELAY_OFFSET}>
         {/* Meta tags */}
         <View style={styles.metaRow}>
           {game.in_library && (
@@ -762,6 +743,7 @@ const GameCard = ({
             </PressableScale>
           )}
         </View>
+        </FadeSlideIn>
 
       </View>
       </Animated.View>
@@ -861,22 +843,6 @@ const styles = StyleSheet.create({
     alignItems: 'flex-start',
     justifyContent: 'space-between',
     gap: 10,
-  },
-  matchPill: {
-    flexDirection: 'row',
-    alignItems: 'center',
-    paddingHorizontal: 11,
-    paddingVertical: 5,
-    borderRadius: 999,
-    backgroundColor: 'rgba(74, 222, 128, 0.12)',
-    borderWidth: 1,
-    borderColor: 'rgba(74, 222, 128, 0.35)',
-    flexShrink: 0,
-  },
-  matchPillText: {
-    color: '#4ade80',
-    fontSize: 13,
-    fontWeight: '700',
   },
   title: {
     fontSize: 24,
