@@ -15,6 +15,16 @@ Spec: `docs/superpowers/specs/2026-09-22-q4-engagement-and-catalog-design.md`
 
 ## Build
 
+> **HOLD (Tom, 2026-09-28):** production build deliberately held to combine
+> 1.4.0 with the game card refresh (`docs/GAME-CARD-REFRESH.md`) and Tonight's
+> Picks (`docs/superpowers/specs/2026-09-28-tonights-picks-design.md`) in one
+> binary. Accepted risk: the Oct 3 digest window passes with 1.3.0 live, so one
+> announced-only push may reference Coming Soon before the section exists in
+> the shipped app. Emulator validation + device pass must be redone on the
+> combined diff; fold this checklist into the combined-release runbook, and
+> decide the version label there (likely 1.5.0 — merge the changelog modal
+> entries so 1.3.0 upgraders see everything).
+
 - [ ] `cd mobile-app && eas build --platform all --profile production` (queue was slow 2026-09-23 afternoon; build from commit 2316571 or later)
 - [ ] Both platforms finish green on expo.dev
 
