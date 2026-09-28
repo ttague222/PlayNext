@@ -19,6 +19,8 @@ import { LinearGradient } from 'expo-linear-gradient';
 import { Ionicons } from '@expo/vector-icons';
 import PressableScale from './PressableScale';
 import ShimmerBlock from './ShimmerBlock';
+import FadeSlideIn from './FadeSlideIn';
+import useReducedMotion from '../hooks/useReducedMotion';
 import { getGameImage } from '../services/gameImages';
 import {
   generateStoreAffiliateLink,
@@ -122,13 +124,28 @@ const PLATFORM_TO_STORES = {
   mobile: ['ios', 'android'],
 };
 
-const GameCard = ({ game, rank, onAccept, onAlreadyPlayed, onNotForMe, onSave, isSwapping, isAccepting, userPlatforms }) => {
+const MATCH_COUNT_UP_DURATION = 500;
+
+const GameCard = ({
+  game,
+  rank,
+  onAccept,
+  onAlreadyPlayed,
+  onNotForMe,
+  onSave,
+  isSwapping,
+  isAccepting,
+  userPlatforms,
+  animateEntrance = false,
+  entranceIndex = 0,
+}) => {
   const [imageUrl, setImageUrl] = useState(null);
   const [fallbackColors, setFallbackColors] = useState(['#667eea', '#764ba2']);
   const [imageLoading, setImageLoading] = useState(true);
   const [imageError, setImageError] = useState(false);
   const scaleAnim = useRef(new Animated.Value(0.95)).current;
   const opacityAnim = useRef(new Animated.Value(0)).current;
+  const reducedMotion = useReducedMotion();
 
   useEffect(() => {
     Animated.parallel([
@@ -165,6 +182,41 @@ const GameCard = ({ game, rank, onAccept, onAlreadyPlayed, onNotForMe, onSave, i
   }, [game.game_id, game.title]);
 
   const matchPercent = Math.round((game.match_score || 0.85) * 100);
+
+  // Match % count-up: only on the first result set's entrance, and only
+  // when motion is allowed. Otherwise render the static final number.
+  const shouldCountUpMatch = animateEntrance && !reducedMotion;
+  const matchCountAnim = useRef(new Animated.Value(shouldCountUpMatch ? 0 : matchPercent)).current;
+  const [displayedMatchPercent, setDisplayedMatchPercent] = useState(
+    shouldCountUpMatch ? 0 : matchPercent
+  );
+
+  useEffect(() => {
+    if (!shouldCountUpMatch) {
+      return undefined;
+    }
+
+    const listenerId = matchCountAnim.addListener(({ value }) => {
+      setDisplayedMatchPercent(Math.round(value));
+    });
+
+    const animation = Animated.timing(matchCountAnim, {
+      toValue: matchPercent,
+      duration: MATCH_COUNT_UP_DURATION,
+      useNativeDriver: false,
+    });
+    animation.start();
+
+    return () => {
+      // Stop the JS-driven timing loop, not just the listener — otherwise it
+      // keeps ticking (and calling setState) after unmount.
+      animation.stop();
+      matchCountAnim.removeListener(listenerId);
+    };
+    // Mount-only: the count-up runs once per card instance, same as the
+    // FadeSlideIn segments it accompanies.
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, []);
 
   // Derive platforms from store links AND subscription services
   const validatedPlatforms = React.useMemo(() => {
@@ -240,6 +292,7 @@ const GameCard = ({ game, rank, onAccept, onAlreadyPlayed, onNotForMe, onSave, i
         )}
 
         {/* Game Thumbnail */}
+        <FadeSlideIn enabled={animateEntrance} delay={entranceIndex * 120}>
         <View style={styles.thumbnailContainer}>
           {imageUrl && !imageError ? (
             <Image
@@ -287,13 +340,17 @@ const GameCard = ({ game, rank, onAccept, onAlreadyPlayed, onNotForMe, onSave, i
             </View>
           )}
         </View>
+        </FadeSlideIn>
 
-        {/* Header */}
+        {/* Header + description + CTA */}
+        <FadeSlideIn enabled={animateEntrance} delay={entranceIndex * 120 + 50}>
         <View style={styles.header}>
           <View style={styles.titleRow}>
             <Text style={styles.title} numberOfLines={2}>{game.title}</Text>
             <View style={styles.matchPill} testID="match-pill">
-              <Text style={styles.matchPillText}>{matchPercent}% match</Text>
+              <Text style={styles.matchPillText}>
+                {shouldCountUpMatch ? displayedMatchPercent : matchPercent}% match
+              </Text>
             </View>
           </View>
           <Text style={styles.platforms}>
@@ -325,9 +382,11 @@ const GameCard = ({ game, rank, onAccept, onAlreadyPlayed, onNotForMe, onSave, i
             </LinearGradient>
           </PressableScale>
         </View>
+        </FadeSlideIn>
 
         {/* Why this fits - Simplified with icons */}
         {game.explanation && (
+          <FadeSlideIn enabled={animateEntrance} delay={entranceIndex * 120 + 100}>
           <View style={styles.explanationBox} testID="card-why">
             <View style={styles.explanationHeader}>
               <Ionicons name="bulb-outline" size={16} color="#f857a6" />
@@ -372,6 +431,7 @@ const GameCard = ({ game, rank, onAccept, onAlreadyPlayed, onNotForMe, onSave, i
               )}
             </View>
           </View>
+          </FadeSlideIn>
         )}
 
         {/* Meta tags */}

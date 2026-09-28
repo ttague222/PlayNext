@@ -22,6 +22,7 @@ import { useRecommendation } from '../context/RecommendationContext';
 import { usePremium } from '../context/PremiumContext';
 import { useSavedGames, BUCKET_TYPES } from '../context/SavedGamesContext';
 import GameCard from '../components/GameCard';
+import useReducedMotion from '../hooks/useReducedMotion';
 import CelebrationModal from '../components/CelebrationModal';
 import AlreadyPlayedModal from '../components/AlreadyPlayedModal';
 import WhyNotModal, { WHY_NOT_REASON_LABELS } from '../components/WhyNotModal';
@@ -97,6 +98,26 @@ const ResultsScreen = () => {
   // Animations
   const headerAnim = useRef(new Animated.Value(0)).current;
   const spinAnim = useRef(new Animated.Value(0)).current;
+  // Crossfade opacity for the results list — dipped and restored around a
+  // reroll (see performReroll). Starts at 1 so the first render is unaffected.
+  const resultsOpacityAnim = useRef(new Animated.Value(1)).current;
+  const reducedMotion = useReducedMotion();
+
+  // First-set entrance stagger: only the FIRST non-empty recommendations
+  // render gets the FadeSlideIn stagger + match count-up. Rerolls and swaps
+  // land here too (recommendations changes), but the ref is already true by
+  // then so they never re-arm the entrance animation.
+  const hasAnimatedInRef = useRef(false);
+  // Computed once per render, before hasAnimatedInRef flips in the effect
+  // below, so every card in this render's map() agrees on whether it's the
+  // first-set entrance.
+  const animateEntrance = !hasAnimatedInRef.current;
+
+  useEffect(() => {
+    if (recommendations?.length) {
+      hasAnimatedInRef.current = true;
+    }
+  }, [recommendations]);
 
   useEffect(() => {
     Animated.timing(headerAnim, {
@@ -368,6 +389,18 @@ const ResultsScreen = () => {
       await reroll();
       // Record the reroll for free tier tracking
       recordReroll();
+
+      // Subtle crossfade on the new results — skip under reduced motion,
+      // and only once the first set has already had its full entrance
+      // (it always will have by the time a reroll can happen).
+      if (!reducedMotion && hasAnimatedInRef.current) {
+        resultsOpacityAnim.setValue(0.4);
+        Animated.timing(resultsOpacityAnim, {
+          toValue: 1,
+          duration: 150,
+          useNativeDriver: true,
+        }).start();
+      }
     } catch (err) {
       Alert.alert('Error', 'Failed to get new recommendations');
     } finally {
@@ -491,7 +524,7 @@ const ResultsScreen = () => {
 
           {/* Recommendations */}
           {recommendations.length > 0 ? (
-            <View style={styles.recommendations}>
+            <Animated.View style={[styles.recommendations, { opacity: resultsOpacityAnim }]}>
               {recommendations.map((game, index) => (
                 <GameCard
                   key={game.game_id}
@@ -504,9 +537,11 @@ const ResultsScreen = () => {
                   isSwapping={swappingGameId === game.game_id}
                   isAccepting={acceptingGameId === game.game_id}
                   userPlatforms={preferences.platforms}
+                  animateEntrance={animateEntrance}
+                  entranceIndex={index}
                 />
               ))}
-            </View>
+            </Animated.View>
           ) : (
             <View style={styles.noResults}>
               <Text style={styles.noResultsEmoji}>🔍</Text>

@@ -102,4 +102,19 @@ describe('GameCard (1.5.0 refresh)', () => {
     expect(getByText('Fits a focused 60-minute session.')).toBeTruthy();
     expect(getByText('One run takes about 25 minutes.')).toBeTruthy();
   });
+
+  it('still renders title, CTA, and a match percent with entrance animation enabled', async () => {
+    const { getAllByText, getByTestId } = await renderCard({
+      animateEntrance: true,
+      entranceIndex: 1,
+    });
+    // Title appears twice while the thumbnail image hasn't resolved (the
+    // fallback placeholder also shows the title) — just assert it's present.
+    expect(getAllByText('Game Dev Tycoon').length).toBeGreaterThan(0);
+    expect(getByTestId('card-cta')).toBeTruthy();
+    // The count-up starts at 0 and animates toward matchPercent — assert the
+    // pill has *some* "% match" text rather than pinning an in-flight value,
+    // so the test stays deterministic without needing to drive fake timers.
+    expect(getByTestId('match-pill')).toHaveTextContent(/% match/);
+  });
 });
