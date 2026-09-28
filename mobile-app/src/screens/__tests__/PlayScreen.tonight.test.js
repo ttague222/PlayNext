@@ -1,5 +1,5 @@
 import React from 'react';
-import { render, waitFor, fireEvent } from '@testing-library/react-native';
+import { render, waitFor, fireEvent, act } from '@testing-library/react-native';
 
 const mockNavigate = jest.fn();
 const mockSetParams = jest.fn();
@@ -106,21 +106,31 @@ it('clears the openTonight route param after consuming it', async () => {
   expect(mockSetParams).toHaveBeenCalledWith({ openTonight: undefined });
 });
 
-// Kept last: firing two rapid, unflushed fireEvent.press calls in this
-// RN test renderer leaves a dangling native-touchable timer that corrupts
-// whichever render() call comes next in the file (reproduced even with a
-// fully synchronous, unrelated handler) — an environment quirk, not a
-// product bug. Real double taps always arrive on separate event-loop
-// turns, so this ordering has no bearing on the guard's real-world
-// correctness; it just keeps the rest of the suite deterministic.
+// History note: firing two rapid UNFLUSHED fireEvent.press calls in this
+// RN test renderer leaked a native-touchable timer that corrupted the next
+// render() in the file and kept the Node process alive after a solo run
+// (until an eventual OOM crash). Wrapping both presses in one act() block
+// fixes the leak while preserving what the test needs: the second press
+// still arrives while the first's async open is in flight. Kept last out
+// of caution; the act() wrap below is the load-bearing part.
 it('a double tap on a ready card only starts one session', async () => {
   getLastContext.mockResolvedValue(CONTEXT);
   getCachedPicks.mockResolvedValue(CACHE);
-  const { getByTestId, getByText } = await render(<PlayScreen />);
-  await waitFor(() => getByText('Hades'));
-  const card = getByTestId('tonight-card');
-  fireEvent.press(card);
-  fireEvent.press(card);
+  const screen = await render(<PlayScreen />);
+  await waitFor(() => screen.getByText('Hades'));
+  const card = screen.getByTestId('tonight-card');
+  // Both presses land inside one act block: the second still arrives while
+  // the first's async open is in flight (which is what the guard must
+  // block), but the touchable's press aftermath gets flushed instead of
+  // leaking a timer that outlives the suite.
+  await act(async () => {
+    fireEvent.press(card);
+    fireEvent.press(card);
+  });
   await waitFor(() => expect(mockNavigate).toHaveBeenCalledWith('Results'));
   expect(mockStartTonightSession).toHaveBeenCalledTimes(1);
+  // Explicit teardown as belt-and-braces alongside the act() press wrap.
+  await act(async () => {
+    screen.unmount();
+  });
 });
