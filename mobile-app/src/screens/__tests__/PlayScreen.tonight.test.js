@@ -28,6 +28,8 @@ jest.mock('../../services/tonightService', () => ({
   getCachedPicks: jest.fn(),
   fetchTonightsPicks: jest.fn(),
   recordTonightView: jest.fn(() => Promise.resolve()),
+  // Matches CACHE.date so ready-card taps pass the stale-day guard.
+  localDateString: jest.fn(() => '2026-10-05'),
 }));
 jest.mock('../../utils/tonightReminderPrompt', () => ({
   maybeOfferTonightReminder: jest.fn(() => Promise.resolve(false)),

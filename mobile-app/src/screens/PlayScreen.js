@@ -23,7 +23,7 @@ import { Ionicons } from '@expo/vector-icons';
 import { useRecommendation } from '../context/RecommendationContext';
 import { useSavedGames } from '../context/SavedGamesContext';
 import TonightCard from '../components/TonightCard';
-import { getLastContext, getCachedPicks, fetchTonightsPicks, recordTonightView } from '../services/tonightService';
+import { getLastContext, getCachedPicks, fetchTonightsPicks, recordTonightView, localDateString } from '../services/tonightService';
 import { maybeOfferTonightReminder } from '../utils/tonightReminderPrompt';
 import { logEvent } from '../services/analyticsService';
 
@@ -111,7 +111,9 @@ const PlayScreen = () => {
     if (openingRef.current) return;
     openingRef.current = true;
     try {
-      if (tonightStatus === 'ready' && tonightCache) {
+      // The date guard covers an app parked on this tab across midnight with
+      // no refocus: a stale-day cache falls through to a fresh load instead.
+      if (tonightStatus === 'ready' && tonightCache && tonightCache.date === localDateString()) {
         await openTonight(tonightCache, 'card');
         return;
       }

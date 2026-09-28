@@ -112,11 +112,21 @@ export async function fetchTonightsPicks({ excludedGameIds = [] } = {}) {
       session_id: `local-tonight-${Date.now()}`,
       excluded_game_ids: excludedGameIds,
     });
-    return saveTonightCache({
+    const cache = await saveTonightCache({
       context,
       sessionId: response.session_id,
       games: response.recommendations,
     });
+    // A failed storage write must not discard a successful fetch: return the
+    // picks for this call anyway (the next call simply refetches).
+    return (
+      cache || {
+        date: localDateString(),
+        context,
+        sessionId: response.session_id,
+        games: response.recommendations,
+      }
+    );
   })();
 
   try {
