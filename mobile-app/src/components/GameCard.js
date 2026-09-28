@@ -18,6 +18,7 @@ import {
 import { LinearGradient } from 'expo-linear-gradient';
 import { Ionicons } from '@expo/vector-icons';
 import PressableScale from './PressableScale';
+import ShimmerBlock from './ShimmerBlock';
 import { getGameImage } from '../services/gameImages';
 import {
   generateStoreAffiliateLink,
@@ -263,11 +264,7 @@ const GameCard = ({ game, rank, onAccept, onAlreadyPlayed, onNotForMe, onSave, i
               <Text style={styles.thumbnailTitle}>{game.title}</Text>
             </LinearGradient>
           )}
-          {imageLoading && (
-            <View style={styles.thumbnailLoading}>
-              <ActivityIndicator color="#ffffff" size="small" />
-            </View>
-          )}
+          {imageLoading && <ShimmerBlock style={styles.thumbnailShimmer} />}
           {/* Hero scrim — soft darkening vignette, never opaque */}
           <LinearGradient
             colors={['transparent', 'rgba(15, 12, 41, 0.30)', 'rgba(15, 12, 41, 0.55)']}
@@ -572,11 +569,9 @@ const styles = StyleSheet.create({
     textAlign: 'center',
     paddingHorizontal: 16,
   },
-  thumbnailLoading: {
+  thumbnailShimmer: {
     ...StyleSheet.absoluteFillObject,
-    backgroundColor: 'rgba(0, 0, 0, 0.3)',
-    justifyContent: 'center',
-    alignItems: 'center',
+    borderRadius: 14,
   },
   heroScrim: {
     ...StyleSheet.absoluteFillObject,
