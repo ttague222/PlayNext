@@ -184,6 +184,8 @@ export const RecommendationProvider = ({ children }) => {
     setShownGameIds(cache.games.map((g) => g.game_id));
     setFallbackApplied(false);
     setFallbackMessage(null);
+    setError(null);
+    setLoading(false);
     setSessionSource('tonight');
     setPreferences({
       ...DEFAULT_PREFERENCES,

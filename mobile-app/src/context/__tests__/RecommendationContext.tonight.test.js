@@ -40,6 +40,13 @@ const RESPONSE = {
   fallback_message: null,
 };
 
+const CACHE = {
+  date: '2026-10-05',
+  sessionId: 'cached-sess',
+  context: { timeAvailable: 30, energyMood: 'wind_down', genres: [], platforms: [], sessionType: 'solo', discoveryMode: 'familiar' },
+  games: RESPONSE.recommendations,
+};
+
 // Probe harness: exposes the hook value to the test.
 let ctx;
 const Probe = () => {
@@ -77,14 +84,8 @@ it('persists context and rewrites todays cache on successful normal fetch', asyn
 
 it('startTonightSession seeds state from cache with no API call', async () => {
   await renderCtx();
-  const cache = {
-    date: '2026-10-05',
-    sessionId: 'cached-sess',
-    context: { timeAvailable: 30, energyMood: 'wind_down', genres: [], platforms: [], sessionType: 'solo', discoveryMode: 'familiar' },
-    games: RESPONSE.recommendations,
-  };
   await act(async () => {
-    expect(ctx.startTonightSession(cache)).toBe(true);
+    expect(ctx.startTonightSession(CACHE)).toBe(true);
   });
   await waitFor(() => expect(ctx.recommendations).toEqual(RESPONSE.recommendations));
   expect(ctx.sessionId).toBe('cached-sess');
@@ -101,8 +102,23 @@ it('startTonightSession seeds state from cache with no API call', async () => {
 
 it('rejects an empty cache', async () => {
   await renderCtx();
-  act(() => {
+  await act(async () => {
     expect(ctx.startTonightSession({ games: [] })).toBe(false);
     expect(ctx.startTonightSession(null)).toBe(false);
   });
+});
+
+it('clears stale error state when seeding a tonight session', async () => {
+  api.getRecommendations.mockRejectedValueOnce(new Error('network down'));
+  await renderCtx();
+
+  await act(async () => {
+    await expect(ctx.getRecommendations()).rejects.toThrow('network down');
+  });
+  await waitFor(() => expect(ctx.error).toBeTruthy());
+
+  await act(async () => {
+    expect(ctx.startTonightSession(CACHE)).toBe(true);
+  });
+  await waitFor(() => expect(ctx.error).toBeNull());
 });
