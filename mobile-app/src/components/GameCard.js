@@ -249,6 +249,23 @@ const GameCard = ({ game, rank, onAccept, onAlreadyPlayed, onNotForMe, onSave, i
     return derivedPlatforms.length > 0 ? derivedPlatforms : game.platforms;
   }, [game.platforms, game.store_links, game.subscription_services]);
 
+  // Store prioritization by user platform preferences (WHERE TO PLAY, P0.3)
+  const availableStores = Object.entries(game.store_links || {})
+    .filter(([, url]) => url)
+    .map(([store]) => store);
+  let prioritizedStores = [];
+  let otherStores = [];
+  if (userPlatforms && userPlatforms.length > 0) {
+    const preferredStoreIds = new Set(
+      userPlatforms.flatMap((platform) => PLATFORM_TO_STORES[platform] || [])
+    );
+    prioritizedStores = availableStores.filter((s) => preferredStoreIds.has(s));
+    otherStores = availableStores.filter((s) => !preferredStoreIds.has(s));
+  } else {
+    prioritizedStores = availableStores;
+  }
+  const sortedStores = [...prioritizedStores, ...otherStores];
+
   return (
     <Animated.View
       style={[
@@ -403,129 +420,60 @@ const GameCard = ({ game, rank, onAccept, onAlreadyPlayed, onNotForMe, onSave, i
           )}
         </View>
 
-        {/* Subscription Services */}
-        {game.subscription_services?.length > 0 && (
-          <View style={styles.subscriptionSection}>
-            <View style={styles.sectionHeader}>
-              <Ionicons name="ticket-outline" size={14} color="#a0a0a0" />
-              <Text style={styles.subscriptionLabel}>Play with subscription</Text>
-            </View>
-            <View style={styles.subscriptionChips}>
-              {game.subscription_services.map((service) => {
+        {/* WHERE TO PLAY — one demoted commerce row (P0.3) */}
+        {(game.subscription_services?.length > 0 || sortedStores.length > 0) && (
+          <View style={styles.whereToPlaySection}>
+            <Text style={styles.whereToPlayLabel}>WHERE TO PLAY</Text>
+            <View style={styles.whereToPlayChips}>
+              {game.subscription_services?.map((service) => {
                 const config = SUBSCRIPTION_CONFIG[service] || SUBSCRIPTION_CONFIG.default;
                 const affiliateUrl = generateSubscriptionAffiliateLink(service, game.title);
-
-                const handleSubscriptionPress = async () => {
-                  if (affiliateUrl) {
-                    trackAffiliateClick('subscription', service, game.game_id, game.title);
-                    await Linking.openURL(affiliateUrl);
-                  }
-                };
-
                 return (
-                  <TouchableOpacity
+                  <PressableScale
                     key={service}
-                    style={styles.subscriptionChip}
-                    onPress={handleSubscriptionPress}
-                    activeOpacity={affiliateUrl ? 0.8 : 1}
+                    style={[styles.ghostChip, styles.ghostChipIncluded]}
                     disabled={!affiliateUrl}
+                    onPress={async () => {
+                      if (affiliateUrl) {
+                        trackAffiliateClick('subscription', service, game.game_id, game.title);
+                        await Linking.openURL(affiliateUrl);
+                      }
+                    }}
+                    accessibilityLabel={`Play on ${config.name}`}
                   >
-                    <LinearGradient
-                      colors={config.colors}
-                      start={{ x: 0, y: 0 }}
-                      end={{ x: 1, y: 0 }}
-                      style={styles.subscriptionChipGradient}
-                    >
-                      <Text style={styles.subscriptionChipIcon}>{config.icon}</Text>
-                      <Text style={[styles.subscriptionChipText, { color: config.textColor }]}>
-                        {config.name}
-                      </Text>
-                    </LinearGradient>
-                  </TouchableOpacity>
+                    <View style={styles.includedDot} />
+                    <Text style={styles.ghostChipTextIncluded}>{config.name} · included</Text>
+                  </PressableScale>
                 );
               })}
-            </View>
-          </View>
-        )}
-
-        {/* Store Links */}
-        {game.store_links && Object.keys(game.store_links).length > 0 && (
-          <View style={styles.storeSection}>
-            <View style={styles.sectionHeader}>
-              <Ionicons name="cart-outline" size={14} color="#a0a0a0" />
-              <Text style={styles.storeLabel}>Where to buy</Text>
-            </View>
-            <View style={styles.storeChips}>
-              {(() => {
-                // Get available stores from store_links
-                const availableStores = Object.entries(game.store_links)
-                  .filter(([, url]) => url)
-                  .map(([store]) => store);
-
-                // Prioritize stores based on user platform preferences
-                let prioritizedStores = [];
-                let otherStores = [];
-
-                if (userPlatforms && userPlatforms.length > 0) {
-                  // Get stores that match user's platform preferences
-                  const preferredStoreIds = new Set(
-                    userPlatforms.flatMap((platform) => PLATFORM_TO_STORES[platform] || [])
-                  );
-                  prioritizedStores = availableStores.filter((store) =>
-                    preferredStoreIds.has(store)
-                  );
-                  otherStores = availableStores.filter(
-                    (store) => !preferredStoreIds.has(store)
-                  );
-                } else {
-                  prioritizedStores = availableStores;
-                }
-
-                // Show prioritized stores first, then others
-                const sortedStores = [...prioritizedStores, ...otherStores];
-
-                return sortedStores.map((store, index) => {
-                  const config = STORE_CONFIG[store];
-                  if (!config) return null;
-                  const originalUrl = game.store_links[store];
-                  const affiliateUrl = generateStoreAffiliateLink(store, originalUrl, game.game_id);
-                  const isPrioritized = prioritizedStores.includes(store);
-
-                  // Open directly — a confirm dialog here just taxes the
-                  // app's most valuable tap (removed 2026-08-24)
-                  const handleStorePress = async () => {
-                    trackAffiliateClick('store', store, game.game_id, game.title);
-                    try {
-                      await Linking.openURL(affiliateUrl);
-                    } catch (err) {
-                      Alert.alert('Error', `Could not open ${config.name}.`);
-                    }
-                  };
-
-                  return (
-                    <TouchableOpacity
-                      key={store}
-                      style={[
-                        styles.storeChip,
-                        !isPrioritized && userPlatforms?.length > 0 && styles.storeChipDimmed,
-                      ]}
-                      onPress={handleStorePress}
-                      activeOpacity={0.8}
-                    >
-                      <LinearGradient
-                        colors={config.colors}
-                        start={{ x: 0, y: 0 }}
-                        end={{ x: 1, y: 0 }}
-                        style={styles.storeChipGradient}
-                      >
-                        <Text style={[styles.storeChipText, { color: config.textColor }]}>
-                          {config.name}
-                        </Text>
-                      </LinearGradient>
-                    </TouchableOpacity>
-                  );
-                });
-              })()}
+              {sortedStores.map((store) => {
+                const config = STORE_CONFIG[store];
+                if (!config) return null;
+                const affiliateUrl = generateStoreAffiliateLink(
+                  store, game.store_links[store], game.game_id
+                );
+                const isPrioritized = prioritizedStores.includes(store);
+                return (
+                  <PressableScale
+                    key={store}
+                    style={[
+                      styles.ghostChip,
+                      !isPrioritized && userPlatforms?.length > 0 && styles.ghostChipDimmed,
+                    ]}
+                    onPress={async () => {
+                      trackAffiliateClick('store', store, game.game_id, game.title);
+                      try {
+                        await Linking.openURL(affiliateUrl);
+                      } catch (err) {
+                        Alert.alert('Error', `Could not open ${config.name}.`);
+                      }
+                    }}
+                    accessibilityLabel={`Buy on ${config.name}`}
+                  >
+                    <Text style={styles.ghostChipText}>{config.name}</Text>
+                  </PressableScale>
+                );
+              })}
             </View>
           </View>
         )}
@@ -784,84 +732,54 @@ const styles = StyleSheet.create({
   libraryTagText: {
     color: '#4ade80',
   },
-  sectionHeader: {
-    flexDirection: 'row',
-    alignItems: 'center',
-    gap: 6,
-    marginBottom: 8,
-  },
-  subscriptionSection: {
+  whereToPlaySection: {
+    borderTopWidth: 1,
+    borderTopColor: 'rgba(255,255,255,0.06)',
+    paddingTop: 18,
     marginBottom: 16,
+    gap: 12,
   },
-  subscriptionLabel: {
-    fontSize: 12,
-    fontWeight: '600',
-    color: '#a0a0a0',
-  },
-  subscriptionChips: {
-    flexDirection: 'row',
-    flexWrap: 'wrap',
-    gap: 8,
-  },
-  subscriptionChip: {
-    borderRadius: 10,
-    overflow: 'hidden',
-    elevation: 3,
-    shadowColor: '#000',
-    shadowOffset: { width: 0, height: 2 },
-    shadowOpacity: 0.2,
-    shadowRadius: 3,
-  },
-  subscriptionChipGradient: {
-    flexDirection: 'row',
-    alignItems: 'center',
-    paddingVertical: 8,
-    paddingHorizontal: 12,
-    gap: 6,
-  },
-  subscriptionChipIcon: {
-    fontSize: 14,
-  },
-  subscriptionChipText: {
-    fontSize: 13,
+  whereToPlayLabel: {
+    fontSize: 11,
     fontWeight: '700',
-    letterSpacing: 0.3,
+    letterSpacing: 1.6,
+    color: '#8a8aa5',
   },
-  storeSection: {
-    marginBottom: 16,
-  },
-  storeLabel: {
-    fontSize: 12,
-    fontWeight: '600',
-    color: '#a0a0a0',
-  },
-  storeChips: {
+  whereToPlayChips: {
     flexDirection: 'row',
     flexWrap: 'wrap',
     gap: 8,
   },
-  storeChip: {
-    borderRadius: 10,
-    overflow: 'hidden',
-    elevation: 3,
-    shadowColor: '#000',
-    shadowOffset: { width: 0, height: 2 },
-    shadowOpacity: 0.2,
-    shadowRadius: 3,
+  ghostChip: {
+    flexDirection: 'row',
+    alignItems: 'center',
+    gap: 7,
+    paddingHorizontal: 13,
+    paddingVertical: 9,
+    borderRadius: 999,
+    borderWidth: 1,
+    borderColor: 'rgba(255,255,255,0.13)',
   },
-  storeChipDimmed: {
+  ghostChipIncluded: {
+    borderColor: 'rgba(74, 222, 128, 0.3)',
+  },
+  ghostChipDimmed: {
     opacity: 0.5,
   },
-  storeChipGradient: {
-    flexDirection: 'row',
-    alignItems: 'center',
-    paddingVertical: 8,
-    paddingHorizontal: 12,
+  includedDot: {
+    width: 6,
+    height: 6,
+    borderRadius: 3,
+    backgroundColor: '#4ade80',
   },
-  storeChipText: {
+  ghostChipText: {
     fontSize: 13,
-    fontWeight: '700',
-    letterSpacing: 0.3,
+    color: '#b8b8c8',
+  },
+  ghostChipTextIncluded: {
+    fontSize: 13,
+    fontWeight: '600',
+    color: '#dde9e0',
   },
   actionsContainer: {},
   acceptButton: {
