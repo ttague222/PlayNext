@@ -171,15 +171,37 @@ export async function markReminderPromptShown() {
 
 export const REMINDER_NOTIFICATION_ID = 'tonight-reminder';
 
+const REMINDER_TIME_RE = /^([01]\d|2[0-3]):([0-5]\d)$/;
+
+/** Parse a strict 'HH:MM' 24-hour time string. Returns { hour, minute } or null. */
+function parseReminderTime(time) {
+  const match = typeof time === 'string' ? time.match(REMINDER_TIME_RE) : null;
+  if (!match) return null;
+  return { hour: Number(match[1]), minute: Number(match[2]) };
+}
+
+/**
+ * Reminder settings as stored, reconciled against the live OS permission.
+ * A revoked OS permission overrides a stale `reminderEnabled: true` in
+ * storage (without rewriting storage — the grant may come back).
+ */
 export async function getReminderSettings() {
   const meta = await getMeta();
-  return { enabled: meta.reminderEnabled, time: meta.reminderTime };
+  if (!meta.reminderEnabled) {
+    return { enabled: false, time: meta.reminderTime };
+  }
+  const { status } = await Notifications.getPermissionsAsync();
+  if (status !== 'granted') {
+    return { enabled: false, time: meta.reminderTime };
+  }
+  return { enabled: true, time: meta.reminderTime };
 }
 
 /**
  * Enable/disable the local daily reminder. Requests OS permission when
  * needed. Returns { enabled, time } on success, { enabled: false,
- * permissionDenied: true } when the OS blocks it.
+ * permissionDenied: true } when the OS blocks it. An invalid `time` falls
+ * back to DEFAULT_REMINDER_TIME for both the trigger and persisted state.
  */
 export async function setReminder(enabled, time = DEFAULT_REMINDER_TIME) {
   const meta = await getMeta();
@@ -203,7 +225,8 @@ export async function setReminder(enabled, time = DEFAULT_REMINDER_TIME) {
     return { enabled: false, permissionDenied: true };
   }
 
-  const [hour, minute] = time.split(':').map(Number);
+  const parsed = parseReminderTime(time) || parseReminderTime(DEFAULT_REMINDER_TIME);
+  const resolvedTime = `${String(parsed.hour).padStart(2, '0')}:${String(parsed.minute).padStart(2, '0')}`;
   try {
     await Notifications.cancelScheduledNotificationAsync(REMINDER_NOTIFICATION_ID);
   } catch {
@@ -216,8 +239,8 @@ export async function setReminder(enabled, time = DEFAULT_REMINDER_TIME) {
       body: 'Your picks for tonight are ready.',
       data: { deep_link: 'tonight' },
     },
-    trigger: { type: Notifications.SchedulableTriggerInputTypes.DAILY, hour, minute },
+    trigger: { type: Notifications.SchedulableTriggerInputTypes.DAILY, hour: parsed.hour, minute: parsed.minute },
   });
-  await saveMeta({ ...meta, reminderEnabled: true, reminderTime: time });
-  return { enabled: true, time };
+  await saveMeta({ ...meta, reminderEnabled: true, reminderTime: resolvedTime });
+  return { enabled: true, time: resolvedTime };
 }

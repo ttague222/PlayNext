@@ -240,4 +240,21 @@ describe('reminder scheduling', () => {
     expect(Notifications.scheduleNotificationAsync).not.toHaveBeenCalled();
     expect(await getReminderSettings()).toEqual(expect.objectContaining({ enabled: false }));
   });
+
+  it('falls back to the default time when given an invalid time string', async () => {
+    const result = await setReminder(true, '8:00 PM');
+    expect(result).toEqual({ enabled: true, time: DEFAULT_REMINDER_TIME });
+    expect(Notifications.scheduleNotificationAsync).toHaveBeenCalledWith(
+      expect.objectContaining({
+        trigger: { type: 'daily', hour: 20, minute: 0 },
+      })
+    );
+    expect(await getReminderSettings()).toEqual({ enabled: true, time: '20:00' });
+  });
+
+  it('reconciles stale enabled state when OS permission was revoked after the fact', async () => {
+    await setReminder(true, '21:00');
+    Notifications.getPermissionsAsync.mockResolvedValueOnce({ status: 'denied' });
+    expect(await getReminderSettings()).toEqual({ enabled: false, time: '21:00' });
+  });
 });
