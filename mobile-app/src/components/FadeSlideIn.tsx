@@ -50,16 +50,17 @@ const FadeSlideIn = ({ children, delay = 0, enabled = true, style }: Props) => {
     }
 
     if (reducedMotion) {
-      Animated.timing(opacity, {
+      const fade = Animated.timing(opacity, {
         toValue: 1,
         duration: REDUCED_MOTION_DURATION,
         delay,
         useNativeDriver: true,
-      }).start();
-      return;
+      });
+      fade.start();
+      return () => fade.stop();
     }
 
-    Animated.parallel([
+    const entrance = Animated.parallel([
       Animated.timing(opacity, {
         toValue: 1,
         duration: ENTRANCE_DURATION,
@@ -74,7 +75,9 @@ const FadeSlideIn = ({ children, delay = 0, enabled = true, style }: Props) => {
         easing: ENTRANCE_EASING,
         useNativeDriver: true,
       }),
-    ]).start();
+    ]);
+    entrance.start();
+    return () => entrance.stop();
     // Mount-only by design (see module doc) — intentionally not re-running
     // when enabled/delay/reducedMotion change after the first render.
     // eslint-disable-next-line react-hooks/exhaustive-deps

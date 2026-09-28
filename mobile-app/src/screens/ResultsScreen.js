@@ -160,8 +160,8 @@ const ResultsScreen = () => {
   }, []);
 
   const handleAccept = async (game) => {
-    // Prevent double-tap
-    if (acceptingGameId) return;
+    // Prevent double-tap, and accepting a card that is mid-replacement
+    if (acceptingGameId || isRerolling) return;
 
     hapticSuccess();
     setAcceptingGameId(game.game_id);
