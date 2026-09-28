@@ -89,6 +89,9 @@ const ResultsScreen = () => {
   const [undoState, setUndoState] = useState(null);
   const [saveGame, setSaveGame] = useState(null);
   const [showSaveModal, setShowSaveModal] = useState(false);
+  // game_ids confirmed saved this session — drives GameCard's filled
+  // bookmark + "Saved" label and its confirmation pop animation.
+  const [savedGameIds, setSavedGameIds] = useState(() => new Set());
   const [showAdOrPremiumModal, setShowAdOrPremiumModal] = useState(false);
   const [pendingRerollAction, setPendingRerollAction] = useState(null);
   const [showRerollCallout, setShowRerollCallout] = useState(false);
@@ -252,6 +255,15 @@ const ResultsScreen = () => {
   const handleSave = (game) => {
     setSaveGame(game);
     setShowSaveModal(true);
+  };
+
+  // SaveToBucketModal's bucket-selected handler (handleSelectBucket) calls
+  // addGameToBucket and, only once it resolves, fires onSaved before its
+  // own timeout closes the modal — so this only marks the game saved on an
+  // actual confirmed save, not just the modal opening.
+  const handleGameSaved = () => {
+    if (!saveGame) return;
+    setSavedGameIds((prev) => new Set(prev).add(saveGame.game_id));
   };
 
   const handleAlreadyPlayedFeedback = async (signalType) => {
@@ -539,6 +551,7 @@ const ResultsScreen = () => {
                   userPlatforms={preferences.platforms}
                   animateEntrance={animateEntrance}
                   entranceIndex={index}
+                  isSaved={savedGameIds.has(game.game_id)}
                 />
               ))}
             </Animated.View>
@@ -645,6 +658,7 @@ const ResultsScreen = () => {
             setShowSaveModal(false);
             setSaveGame(null);
           }}
+          onSaved={handleGameSaved}
         />
 
         {/* Ad or Premium Choice Modal */}

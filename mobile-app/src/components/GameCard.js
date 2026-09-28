@@ -10,6 +10,7 @@ import {
   Text,
   StyleSheet,
   Animated,
+  Easing,
   Image,
   ActivityIndicator,
   Linking,
@@ -126,6 +127,18 @@ const PLATFORM_TO_STORES = {
 
 const MATCH_COUNT_UP_DURATION = 500;
 
+// Save confirmation motion (M3)
+const SAVE_LABEL_CROSSFADE_DURATION = 150;
+const SAVE_ICON_SPRING_FRICTION = 4;
+const SAVE_ICON_SPRING_TENSION = 160;
+
+// Swap motion (M3)
+const SWAP_OUT_DURATION = 180;
+const SWAP_REVERT_DURATION = 150;
+const SWAP_SETTLE_DURATION = 240;
+const SWAP_SETTLE_EASING = Easing.bezier(0.23, 1, 0.32, 1);
+const REDUCED_MOTION_SWAP_DURATION = 150;
+
 const GameCard = ({
   game,
   rank,
@@ -138,6 +151,7 @@ const GameCard = ({
   userPlatforms,
   animateEntrance = false,
   entranceIndex = 0,
+  isSaved = false,
 }) => {
   const [imageUrl, setImageUrl] = useState(null);
   const [fallbackColors, setFallbackColors] = useState(['#667eea', '#764ba2']);
@@ -180,6 +194,189 @@ const GameCard = ({
     };
     fetchImage();
   }, [game.game_id, game.title]);
+
+  // --- Save confirmation motion (M3) ---
+  // Bookmark spring-pop + label crossfade when isSaved flips false -> true.
+  // Skips the initial mount (a card can render already-saved with no pop).
+  const saveIconScale = useRef(new Animated.Value(1)).current;
+  const saveLabelOpacity = useRef(new Animated.Value(1)).current;
+  const isSavedMountRef = useRef(true);
+
+  useEffect(() => {
+    if (isSavedMountRef.current) {
+      isSavedMountRef.current = false;
+      return;
+    }
+    if (!isSaved) {
+      // Only the false -> true transition gets a confirmation animation.
+      return;
+    }
+    if (reducedMotion) {
+      // Instant swap — the icon/label already reflect isSaved via render.
+      return;
+    }
+
+    saveLabelOpacity.setValue(0);
+    Animated.parallel([
+      Animated.timing(saveLabelOpacity, {
+        toValue: 1,
+        duration: SAVE_LABEL_CROSSFADE_DURATION,
+        useNativeDriver: true,
+      }),
+      Animated.sequence([
+        Animated.spring(saveIconScale, {
+          toValue: 1.25,
+          friction: SAVE_ICON_SPRING_FRICTION,
+          tension: SAVE_ICON_SPRING_TENSION,
+          useNativeDriver: true,
+        }),
+        Animated.spring(saveIconScale, {
+          toValue: 1,
+          friction: SAVE_ICON_SPRING_FRICTION,
+          tension: SAVE_ICON_SPRING_TENSION,
+          useNativeDriver: true,
+        }),
+      ]),
+    ]).start();
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, [isSaved]);
+
+  // --- Swap motion (M3) ---
+  // Dedicated Animated.Values, kept separate from the pre-existing
+  // rank-based scaleAnim/opacityAnim whole-card entrance above so the two
+  // never fight over the same style prop.
+  const swapTranslateX = useRef(new Animated.Value(0)).current;
+  const swapTranslateY = useRef(new Animated.Value(0)).current;
+  const swapRotate = useRef(new Animated.Value(0)).current; // degrees, 0 <-> -2
+  const swapOpacity = useRef(new Animated.Value(1)).current;
+  const swapRotateInterpolated = swapRotate.interpolate({
+    inputRange: [-2, 0],
+    outputRange: ['-2deg', '0deg'],
+  });
+  const prevIsSwappingRef = useRef(isSwapping);
+  const prevGameIdRef = useRef(game.game_id);
+
+  // Swap-out while isSwapping is true; reverses back to identity when it
+  // clears WITHOUT a game_id change — the rejectAndSwap/markAsPlayedAndSwap
+  // call failed and this same card is still showing (error path).
+  useEffect(() => {
+    if (prevIsSwappingRef.current === isSwapping) {
+      return;
+    }
+    prevIsSwappingRef.current = isSwapping;
+
+    if (isSwapping) {
+      if (reducedMotion) {
+        Animated.timing(swapOpacity, {
+          toValue: 0.5,
+          duration: REDUCED_MOTION_SWAP_DURATION,
+          useNativeDriver: true,
+        }).start();
+      } else {
+        Animated.timing(swapTranslateX, {
+          toValue: -24,
+          duration: SWAP_OUT_DURATION,
+          easing: Easing.out(Easing.ease),
+          useNativeDriver: true,
+        }).start();
+        Animated.timing(swapRotate, {
+          toValue: -2,
+          duration: SWAP_OUT_DURATION,
+          easing: Easing.out(Easing.ease),
+          useNativeDriver: true,
+        }).start();
+        Animated.timing(swapOpacity, {
+          toValue: 0.5,
+          duration: SWAP_OUT_DURATION,
+          easing: Easing.out(Easing.ease),
+          useNativeDriver: true,
+        }).start();
+      }
+      return;
+    }
+
+    // isSwapping cleared. If game_id also changed, the settle-in effect
+    // below owns the animation — skip here to avoid dueling motions. (In
+    // the live app ResultsScreen keys GameCard by game_id, so a successful
+    // swap unmounts this instance before it ever sees isSwapping go false;
+    // this guard matters for non-keyed callers, e.g. this component's own
+    // tests, that reuse one instance across a swap.)
+    if (prevGameIdRef.current !== game.game_id) {
+      return;
+    }
+
+    if (reducedMotion) {
+      Animated.timing(swapOpacity, {
+        toValue: 1,
+        duration: REDUCED_MOTION_SWAP_DURATION,
+        useNativeDriver: true,
+      }).start();
+    } else {
+      Animated.parallel([
+        Animated.timing(swapTranslateX, {
+          toValue: 0,
+          duration: SWAP_REVERT_DURATION,
+          useNativeDriver: true,
+        }),
+        Animated.timing(swapRotate, {
+          toValue: 0,
+          duration: SWAP_REVERT_DURATION,
+          useNativeDriver: true,
+        }),
+        Animated.timing(swapOpacity, {
+          toValue: 1,
+          duration: SWAP_REVERT_DURATION,
+          useNativeDriver: true,
+        }),
+      ]).start();
+    }
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, [isSwapping]);
+
+  // Settle-in when this card's game_id changes on an already-mounted
+  // instance. Skipped for the first-set entrance stagger (animateEntrance),
+  // which owns the initial mount instead. Skips the initial mount of this
+  // effect itself since prevGameIdRef starts at the current game_id.
+  useEffect(() => {
+    if (prevGameIdRef.current === game.game_id) {
+      return;
+    }
+    prevGameIdRef.current = game.game_id;
+
+    if (animateEntrance) {
+      return;
+    }
+
+    if (reducedMotion) {
+      swapOpacity.setValue(0);
+      Animated.timing(swapOpacity, {
+        toValue: 1,
+        duration: REDUCED_MOTION_SWAP_DURATION,
+        useNativeDriver: true,
+      }).start();
+      return;
+    }
+
+    swapTranslateX.setValue(0);
+    swapRotate.setValue(0);
+    swapTranslateY.setValue(12);
+    swapOpacity.setValue(0);
+    Animated.parallel([
+      Animated.timing(swapTranslateY, {
+        toValue: 0,
+        duration: SWAP_SETTLE_DURATION,
+        easing: SWAP_SETTLE_EASING,
+        useNativeDriver: true,
+      }),
+      Animated.timing(swapOpacity, {
+        toValue: 1,
+        duration: SWAP_SETTLE_DURATION,
+        easing: SWAP_SETTLE_EASING,
+        useNativeDriver: true,
+      }),
+    ]).start();
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, [game.game_id]);
 
   const matchPercent = Math.round((game.match_score || 0.85) * 100);
 
@@ -282,6 +479,16 @@ const GameCard = ({
         },
       ]}
     >
+      <Animated.View
+        style={{
+          opacity: swapOpacity,
+          transform: [
+            { translateX: swapTranslateX },
+            { translateY: swapTranslateY },
+            { rotate: swapRotateInterpolated },
+          ],
+        }}
+      >
       <View style={[styles.card, rank === 1 && styles.cardTopPick]}>
         {/* Top Pick Glow - background effect */}
         {rank === 1 && (
@@ -539,15 +746,25 @@ const GameCard = ({
               style={[styles.secondaryButton, styles.saveButton, isSwapping && styles.buttonDisabled]}
               onPress={isSwapping ? undefined : onSave}
               disabled={isSwapping}
-              accessibilityLabel="Save"
+              accessibilityLabel={isSaved ? 'Saved' : 'Save'}
             >
-              <Ionicons name="bookmark-outline" size={15} color="#f5b544" />
-              <Text style={styles.saveButtonText} numberOfLines={1} adjustsFontSizeToFit minimumFontScale={0.85}>Save</Text>
+              <Animated.View style={{ transform: [{ scale: saveIconScale }] }}>
+                <Ionicons name={isSaved ? 'bookmark' : 'bookmark-outline'} size={15} color="#f5b544" />
+              </Animated.View>
+              <Animated.Text
+                style={[styles.saveButtonText, { opacity: saveLabelOpacity }]}
+                numberOfLines={1}
+                adjustsFontSizeToFit
+                minimumFontScale={0.85}
+              >
+                {isSaved ? 'Saved' : 'Save'}
+              </Animated.Text>
             </PressableScale>
           )}
         </View>
 
       </View>
+      </Animated.View>
     </Animated.View>
   );
 };

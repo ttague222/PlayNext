@@ -24,18 +24,17 @@ const game = {
   in_library: false,
 };
 
-const renderCard = (overrides = {}) =>
-  render(
-    <GameCard
-      game={game}
-      rank={1}
-      onAccept={jest.fn()}
-      onAlreadyPlayed={jest.fn()}
-      onNotForMe={jest.fn()}
-      onSave={jest.fn()}
-      {...overrides}
-    />
-  );
+const buildProps = (overrides = {}) => ({
+  game,
+  rank: 1,
+  onAccept: jest.fn(),
+  onAlreadyPlayed: jest.fn(),
+  onNotForMe: jest.fn(),
+  onSave: jest.fn(),
+  ...overrides,
+});
+
+const renderCard = (overrides = {}) => render(<GameCard {...buildProps(overrides)} />);
 
 describe('GameCard (1.5.0 refresh)', () => {
   it('renders the CTA before the explanation section (P0.1)', async () => {
@@ -116,5 +115,28 @@ describe('GameCard (1.5.0 refresh)', () => {
     // pill has *some* "% match" text rather than pinning an in-flight value,
     // so the test stays deterministic without needing to drive fake timers.
     expect(getByTestId('match-pill')).toHaveTextContent(/% match/);
+  });
+});
+
+describe('GameCard (M3 save confirmation + swap motion)', () => {
+  it('renders "Saved" text and no "Save" text when isSaved', async () => {
+    const { getByText, queryByText } = await renderCard({ isSaved: true });
+    expect(getByText('Saved')).toBeTruthy();
+    expect(queryByText('Save')).toBeNull();
+  });
+
+  it('does not crash when isSaved flips from false to true', async () => {
+    const { rerender, getByText } = await renderCard({ isSaved: false });
+    await rerender(<GameCard {...buildProps({ isSaved: true })} />);
+    expect(getByText('Saved')).toBeTruthy();
+  });
+
+  it('does not crash and renders the new title when game_id changes', async () => {
+    const gameB = { ...game, game_id: 'g2', title: 'Second Game' };
+    const { rerender, getAllByText } = await renderCard();
+    await rerender(<GameCard {...buildProps({ game: gameB })} />);
+    // Title renders in both the header and the thumbnail fallback while the
+    // image hasn't resolved — same pattern as the entrance test above.
+    expect(getAllByText('Second Game').length).toBeGreaterThan(0);
   });
 });
