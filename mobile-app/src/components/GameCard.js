@@ -8,8 +8,6 @@ import React, { useState, useRef, useEffect } from 'react';
 import {
   View,
   Text,
-  TouchableOpacity,
-  Pressable,
   StyleSheet,
   Animated,
   Image,
@@ -19,6 +17,7 @@ import {
 } from 'react-native';
 import { LinearGradient } from 'expo-linear-gradient';
 import { Ionicons } from '@expo/vector-icons';
+import PressableScale from './PressableScale';
 import { getGameImage } from '../services/gameImages';
 import {
   generateStoreAffiliateLink,
@@ -34,81 +33,42 @@ const PLATFORM_LABELS = {
 };
 
 
-const TIME_TO_FUN_LABELS = {
-  short: 'Jump right in',
-  medium: 'Brief setup',
-  long: 'Worth the wait',
-};
-
-const STOP_FRIENDLINESS_LABELS = {
-  anytime: 'Stop anytime',
-  checkpoints: 'Save points',
-  commitment: 'Block of time',
-};
-
 // Subscription service branding and platform mapping
 const SUBSCRIPTION_CONFIG = {
   xbox_game_pass: {
     name: 'Xbox Game Pass',
-    icon: '🟢',
-    colors: ['#107C10', '#0e6b0e'],
-    textColor: '#ffffff',
     platforms: ['pc', 'console'], // Available on PC and Xbox Console
   },
   playstation_plus: {
     name: 'PlayStation Plus',
-    icon: '🔵',
-    colors: ['#003087', '#00246d'],
-    textColor: '#ffffff',
     platforms: ['console'], // PlayStation only
   },
   ea_play: {
     name: 'EA Play',
-    icon: '⚽',
-    colors: ['#ff4747', '#cc3939'],
-    textColor: '#ffffff',
     platforms: ['pc', 'console'], // Available on PC, Xbox, PlayStation
   },
   ubisoft_plus: {
     name: 'Ubisoft+',
-    icon: '🎯',
-    colors: ['#0070ff', '#005acc'],
-    textColor: '#ffffff',
     platforms: ['pc', 'console'], // PC and consoles
   },
   nintendo_switch_online: {
     name: 'Nintendo Switch Online',
-    icon: '🔴',
-    colors: ['#e60012', '#cc0010'],
-    textColor: '#ffffff',
     platforms: ['handheld'], // Nintendo Switch
   },
   netflix_games: {
     name: 'Netflix Games',
-    icon: '📺',
-    colors: ['#E50914', '#B20710'],
-    textColor: '#ffffff',
     platforms: ['mobile'], // Mobile only
   },
   amazon_luna: {
     name: 'Amazon Luna',
-    icon: '🌙',
-    colors: ['#00A8E1', '#0078A8'],
-    textColor: '#ffffff',
     platforms: ['pc', 'mobile'], // Cloud gaming on multiple devices
   },
   apple_arcade: {
     name: 'Apple Arcade',
-    icon: '🍎',
-    colors: ['#FA243C', '#C41E32'],
-    textColor: '#ffffff',
     platforms: ['mobile', 'pc'], // iOS, macOS, tvOS
   },
   default: {
     name: 'Subscription',
-    icon: '✨',
-    colors: ['#6366f1', '#4f46e5'],
-    textColor: '#ffffff',
     platforms: [],
   },
 };
@@ -117,56 +77,38 @@ const SUBSCRIPTION_CONFIG = {
 const STORE_CONFIG = {
   steam: {
     name: 'Steam',
-    colors: ['#1b2838', '#2a475e'],
-    textColor: '#ffffff',
     platforms: ['pc'],
   },
   playstation: {
     name: 'PlayStation',
-    colors: ['#003087', '#00246d'],
-    textColor: '#ffffff',
     platforms: ['console'],
   },
   xbox: {
     name: 'Xbox',
-    colors: ['#107C10', '#0e6b0e'],
-    textColor: '#ffffff',
     platforms: ['console', 'pc'],
   },
   nintendo: {
     name: 'Nintendo',
-    colors: ['#e60012', '#cc0010'],
-    textColor: '#ffffff',
     platforms: ['handheld'],
   },
   epic: {
     name: 'Epic Games',
-    colors: ['#313131', '#1a1a1a'],
-    textColor: '#ffffff',
     platforms: ['pc'],
   },
   gog: {
     name: 'GOG',
-    colors: ['#7b5794', '#5c3d73'],
-    textColor: '#ffffff',
     platforms: ['pc'],
   },
   ios: {
     name: 'App Store',
-    colors: ['#007AFF', '#0056CC'],
-    textColor: '#ffffff',
     platforms: ['mobile'],
   },
   android: {
     name: 'Google Play',
-    colors: ['#01875f', '#016847'],
-    textColor: '#ffffff',
     platforms: ['mobile'],
   },
   battlenet: {
     name: 'Battle.net',
-    colors: ['#148eff', '#0074e0'],
-    textColor: '#ffffff',
     platforms: ['pc'],
   },
 };
@@ -260,6 +202,23 @@ const GameCard = ({ game, rank, onAccept, onAlreadyPlayed, onNotForMe, onSave, i
     return derivedPlatforms.length > 0 ? derivedPlatforms : game.platforms;
   }, [game.platforms, game.store_links, game.subscription_services]);
 
+  // Store prioritization by user platform preferences (WHERE TO PLAY, P0.3)
+  const availableStores = Object.entries(game.store_links || {})
+    .filter(([, url]) => url)
+    .map(([store]) => store);
+  let prioritizedStores = [];
+  let otherStores = [];
+  if (userPlatforms && userPlatforms.length > 0) {
+    const preferredStoreIds = new Set(
+      userPlatforms.flatMap((platform) => PLATFORM_TO_STORES[platform] || [])
+    );
+    prioritizedStores = availableStores.filter((s) => preferredStoreIds.has(s));
+    otherStores = availableStores.filter((s) => !preferredStoreIds.has(s));
+  } else {
+    prioritizedStores = availableStores;
+  }
+  const sortedStores = [...prioritizedStores, ...otherStores];
+
   return (
     <Animated.View
       style={[
@@ -309,6 +268,13 @@ const GameCard = ({ game, rank, onAccept, onAlreadyPlayed, onNotForMe, onSave, i
               <ActivityIndicator color="#ffffff" size="small" />
             </View>
           )}
+          {/* Hero scrim — soft darkening vignette, never opaque */}
+          <LinearGradient
+            colors={['transparent', 'rgba(15, 12, 41, 0.30)', 'rgba(15, 12, 41, 0.55)']}
+            locations={[0.45, 0.78, 1]}
+            style={styles.heroScrim}
+            pointerEvents="none"
+          />
           {/* Top Pick Badge - overlay on image */}
           {rank === 1 && (
             <View style={styles.topPickBadge}>
@@ -323,15 +289,16 @@ const GameCard = ({ game, rank, onAccept, onAlreadyPlayed, onNotForMe, onSave, i
               </LinearGradient>
             </View>
           )}
-          {/* Match badge overlay */}
-          <View style={styles.matchBadgeOverlay}>
-            <Text style={styles.matchTextOverlay}>{matchPercent}%</Text>
-          </View>
         </View>
 
         {/* Header */}
         <View style={styles.header}>
-          <Text style={styles.title}>{game.title}</Text>
+          <View style={styles.titleRow}>
+            <Text style={styles.title} numberOfLines={2}>{game.title}</Text>
+            <View style={styles.matchPill} testID="match-pill">
+              <Text style={styles.matchPillText}>{matchPercent}% match</Text>
+            </View>
+          </View>
           <Text style={styles.platforms}>
             {validatedPlatforms.map((p) => PLATFORM_LABELS[p] || p).join(' · ')}
           </Text>
@@ -340,15 +307,31 @@ const GameCard = ({ game, rank, onAccept, onAlreadyPlayed, onNotForMe, onSave, i
         {/* Description */}
         <Text style={styles.description}>{game.description_short}</Text>
 
-        {/* Why this fits - Simplified with icons */}
-        {game.explanation && (
-          <View style={styles.explanationBox}>
+        {/* Primary CTA — above the fold (P0.1) */}
+        <View testID="card-cta">
+          <PressableScale
+            style={[styles.acceptButton, (isSwapping || isAccepting) && styles.buttonDisabled]}
+            onPress={(isSwapping || isAccepting) ? undefined : onAccept}
+            disabled={isSwapping || isAccepting}
+            accessibilityLabel="I'll play this"
+            darkenOnPress
+            pressedOverlayStyle={{ borderRadius: styles.acceptButton.borderRadius }}
+          >
             <LinearGradient
-              colors={['rgba(248, 87, 166, 0.15)', 'rgba(255, 88, 88, 0.05)']}
-              style={StyleSheet.absoluteFill}
+              colors={(isSwapping || isAccepting) ? ['#888', '#666'] : ['#f857a6', '#ff5858']}
               start={{ x: 0, y: 0 }}
               end={{ x: 1, y: 0 }}
-            />
+              style={styles.acceptGradient}
+            >
+              <Ionicons name="game-controller" size={20} color="#ffffff" />
+              <Text style={styles.acceptText}>{isAccepting ? 'Saving...' : "I'll play this!"}</Text>
+            </LinearGradient>
+          </PressableScale>
+        </View>
+
+        {/* Why this fits - Simplified with icons */}
+        {game.explanation && (
+          <View style={styles.explanationBox} testID="card-why">
             <View style={styles.explanationHeader}>
               <Ionicons name="bulb-outline" size={16} color="#f857a6" />
               <Text style={styles.explanationLabel}>Why this fits</Text>
@@ -372,6 +355,18 @@ const GameCard = ({ game, rank, onAccept, onAlreadyPlayed, onNotForMe, onSave, i
                   <Text style={styles.explanationText}>{game.explanation.style_fit}</Text>
                 </View>
               )}
+              {game.explanation.time_fit && (
+                <View style={styles.explanationPoint}>
+                  <Ionicons name="timer-outline" size={14} color="#a0a0a0" style={styles.explanationIcon} />
+                  <Text style={styles.explanationText}>{game.explanation.time_fit}</Text>
+                </View>
+              )}
+              {game.explanation.session_fit && (
+                <View style={styles.explanationPoint}>
+                  <Ionicons name="hourglass-outline" size={14} color="#a0a0a0" style={styles.explanationIcon} />
+                  <Text style={styles.explanationText}>{game.explanation.session_fit}</Text>
+                </View>
+              )}
               {game.explanation.library_fit && (
                 <View style={styles.explanationPoint}>
                   <Ionicons name="logo-steam" size={14} color="#4ade80" style={styles.explanationIcon} />
@@ -384,18 +379,6 @@ const GameCard = ({ game, rank, onAccept, onAlreadyPlayed, onNotForMe, onSave, i
 
         {/* Meta tags */}
         <View style={styles.metaRow}>
-          <View style={styles.metaTag}>
-            <Ionicons name="flash-outline" size={14} color="#a0a0a0" />
-            <Text style={styles.metaText}>
-              {TIME_TO_FUN_LABELS[game.time_to_fun] || 'Quick start'}
-            </Text>
-          </View>
-          <View style={styles.metaTag}>
-            <Ionicons name="pause-circle-outline" size={14} color="#a0a0a0" />
-            <Text style={styles.metaText}>
-              {STOP_FRIENDLINESS_LABELS[game.stop_friendliness] || 'Flexible'}
-            </Text>
-          </View>
           {game.in_library && (
             <View style={[styles.metaTag, styles.libraryTag]}>
               <Ionicons name="logo-steam" size={14} color="#4ade80" />
@@ -404,208 +387,107 @@ const GameCard = ({ game, rank, onAccept, onAlreadyPlayed, onNotForMe, onSave, i
           )}
         </View>
 
-        {/* Subscription Services */}
-        {game.subscription_services?.length > 0 && (
-          <View style={styles.subscriptionSection}>
-            <View style={styles.sectionHeader}>
-              <Ionicons name="ticket-outline" size={14} color="#a0a0a0" />
-              <Text style={styles.subscriptionLabel}>Play with subscription</Text>
-            </View>
-            <View style={styles.subscriptionChips}>
-              {game.subscription_services.map((service) => {
+        {/* WHERE TO PLAY — one demoted commerce row (P0.3) */}
+        {(game.subscription_services?.length > 0 || sortedStores.length > 0) && (
+          <View style={styles.whereToPlaySection}>
+            <Text style={styles.whereToPlayLabel}>WHERE TO PLAY</Text>
+            <View style={styles.whereToPlayChips}>
+              {game.subscription_services?.map((service) => {
                 const config = SUBSCRIPTION_CONFIG[service] || SUBSCRIPTION_CONFIG.default;
                 const affiliateUrl = generateSubscriptionAffiliateLink(service, game.title);
-
-                const handleSubscriptionPress = async () => {
-                  if (affiliateUrl) {
-                    trackAffiliateClick('subscription', service, game.game_id, game.title);
-                    await Linking.openURL(affiliateUrl);
-                  }
-                };
-
                 return (
-                  <TouchableOpacity
+                  <PressableScale
                     key={service}
-                    style={styles.subscriptionChip}
-                    onPress={handleSubscriptionPress}
-                    activeOpacity={affiliateUrl ? 0.8 : 1}
+                    style={[styles.ghostChip, styles.ghostChipIncluded]}
                     disabled={!affiliateUrl}
+                    onPress={async () => {
+                      if (affiliateUrl) {
+                        trackAffiliateClick('subscription', service, game.game_id, game.title);
+                        try {
+                          await Linking.openURL(affiliateUrl);
+                        } catch (err) {
+                          Alert.alert('Error', `Could not open ${config.name}.`);
+                        }
+                      }
+                    }}
+                    accessibilityLabel={`Play on ${config.name}`}
                   >
-                    <LinearGradient
-                      colors={config.colors}
-                      start={{ x: 0, y: 0 }}
-                      end={{ x: 1, y: 0 }}
-                      style={styles.subscriptionChipGradient}
-                    >
-                      <Text style={styles.subscriptionChipIcon}>{config.icon}</Text>
-                      <Text style={[styles.subscriptionChipText, { color: config.textColor }]}>
-                        {config.name}
-                      </Text>
-                    </LinearGradient>
-                  </TouchableOpacity>
+                    <View style={styles.includedDot} />
+                    <Text style={styles.ghostChipTextIncluded}>{config.name} · included</Text>
+                  </PressableScale>
+                );
+              })}
+              {sortedStores.map((store) => {
+                const config = STORE_CONFIG[store];
+                if (!config) return null;
+                const affiliateUrl = generateStoreAffiliateLink(
+                  store, game.store_links[store], game.game_id
+                );
+                const isPrioritized = prioritizedStores.includes(store);
+                return (
+                  <PressableScale
+                    key={store}
+                    style={[
+                      styles.ghostChip,
+                      !isPrioritized && userPlatforms?.length > 0 && styles.ghostChipDimmed,
+                    ]}
+                    onPress={async () => {
+                      trackAffiliateClick('store', store, game.game_id, game.title);
+                      try {
+                        await Linking.openURL(affiliateUrl);
+                      } catch (err) {
+                        Alert.alert('Error', `Could not open ${config.name}.`);
+                      }
+                    }}
+                    accessibilityLabel={`Buy on ${config.name}`}
+                  >
+                    <Text style={styles.ghostChipText}>{config.name}</Text>
+                  </PressableScale>
                 );
               })}
             </View>
           </View>
         )}
 
-        {/* Store Links */}
-        {game.store_links && Object.keys(game.store_links).length > 0 && (
-          <View style={styles.storeSection}>
-            <View style={styles.sectionHeader}>
-              <Ionicons name="cart-outline" size={14} color="#a0a0a0" />
-              <Text style={styles.storeLabel}>Where to buy</Text>
-            </View>
-            <View style={styles.storeChips}>
-              {(() => {
-                // Get available stores from store_links
-                const availableStores = Object.entries(game.store_links)
-                  .filter(([, url]) => url)
-                  .map(([store]) => store);
-
-                // Prioritize stores based on user platform preferences
-                let prioritizedStores = [];
-                let otherStores = [];
-
-                if (userPlatforms && userPlatforms.length > 0) {
-                  // Get stores that match user's platform preferences
-                  const preferredStoreIds = new Set(
-                    userPlatforms.flatMap((platform) => PLATFORM_TO_STORES[platform] || [])
-                  );
-                  prioritizedStores = availableStores.filter((store) =>
-                    preferredStoreIds.has(store)
-                  );
-                  otherStores = availableStores.filter(
-                    (store) => !preferredStoreIds.has(store)
-                  );
-                } else {
-                  prioritizedStores = availableStores;
-                }
-
-                // Show prioritized stores first, then others
-                const sortedStores = [...prioritizedStores, ...otherStores];
-
-                return sortedStores.map((store, index) => {
-                  const config = STORE_CONFIG[store];
-                  if (!config) return null;
-                  const originalUrl = game.store_links[store];
-                  const affiliateUrl = generateStoreAffiliateLink(store, originalUrl, game.game_id);
-                  const isPrioritized = prioritizedStores.includes(store);
-
-                  // Open directly — a confirm dialog here just taxes the
-                  // app's most valuable tap (removed 2026-08-24)
-                  const handleStorePress = async () => {
-                    trackAffiliateClick('store', store, game.game_id, game.title);
-                    try {
-                      await Linking.openURL(affiliateUrl);
-                    } catch (err) {
-                      Alert.alert('Error', `Could not open ${config.name}.`);
-                    }
-                  };
-
-                  return (
-                    <TouchableOpacity
-                      key={store}
-                      style={[
-                        styles.storeChip,
-                        !isPrioritized && userPlatforms?.length > 0 && styles.storeChipDimmed,
-                      ]}
-                      onPress={handleStorePress}
-                      activeOpacity={0.8}
-                    >
-                      <LinearGradient
-                        colors={config.colors}
-                        start={{ x: 0, y: 0 }}
-                        end={{ x: 1, y: 0 }}
-                        style={styles.storeChipGradient}
-                      >
-                        <Text style={[styles.storeChipText, { color: config.textColor }]}>
-                          {config.name}
-                        </Text>
-                      </LinearGradient>
-                    </TouchableOpacity>
-                  );
-                });
-              })()}
-            </View>
-          </View>
-        )}
-
-        {/* Actions */}
-        <View style={styles.actionsContainer}>
-          <Pressable
-            style={({ pressed }) => [
-              styles.acceptButton,
-              (isSwapping || isAccepting) && styles.buttonDisabled,
-              pressed && !isSwapping && !isAccepting && styles.buttonPressed,
-            ]}
-            onPress={(isSwapping || isAccepting) ? undefined : onAccept}
-            disabled={isSwapping || isAccepting}
+        {/* Secondary actions — labeled (P0.5) */}
+        <View style={styles.secondaryActions}>
+          <PressableScale
+            style={[styles.secondaryButton, isSwapping && styles.buttonDisabled]}
+            onPress={isSwapping ? undefined : onAlreadyPlayed}
+            disabled={isSwapping}
+            accessibilityLabel="Played it"
           >
-            <LinearGradient
-              colors={(isSwapping || isAccepting) ? ['#888', '#666'] : ['#f857a6', '#ff5858']}
-              start={{ x: 0, y: 0 }}
-              end={{ x: 1, y: 0 }}
-              style={styles.acceptGradient}
-            >
-              <Ionicons name="game-controller" size={20} color="#ffffff" />
-              <Text style={styles.acceptText}>{isAccepting ? 'Saving...' : "I'll play this!"}</Text>
-            </LinearGradient>
-          </Pressable>
-
-          {/* Secondary actions row */}
-          <View style={styles.secondaryActions}>
-            {/* Already Played Button */}
-            <Pressable
-              style={({ pressed }) => [
-                styles.alreadyPlayedButton,
-                isSwapping && styles.buttonDisabled,
-                pressed && !isSwapping && styles.buttonPressed,
-              ]}
-              onPress={isSwapping ? undefined : onAlreadyPlayed}
-            >
-              {isSwapping ? (
-                <ActivityIndicator color="#a0a0a0" size="small" />
-              ) : (
-                <>
-                  <Text style={styles.alreadyPlayedIcon}>✓</Text>
-                  <Text style={styles.alreadyPlayedText}>Already played</Text>
-                </>
-              )}
-            </Pressable>
-
-            {/* Not For Me Button — opens the "Why not?" sheet */}
-            {onNotForMe && (
-              <TouchableOpacity
-                style={[
-                  styles.notForMeButton,
-                  isSwapping && styles.buttonDisabled,
-                ]}
-                onPress={onNotForMe}
-                disabled={isSwapping}
-                activeOpacity={0.7}
-                accessibilityLabel="Not for me"
-              >
-                <Ionicons name="thumbs-down-outline" size={18} color="#f87171" />
-              </TouchableOpacity>
+            {isSwapping ? (
+              <ActivityIndicator color="#a0a0a0" size="small" />
+            ) : (
+              <>
+                <Ionicons name="game-controller-outline" size={15} color="#c2c2d2" />
+                <Text style={styles.secondaryButtonText} numberOfLines={1} adjustsFontSizeToFit minimumFontScale={0.85}>Played it</Text>
+              </>
             )}
-
-            {/* Save Button */}
-            {onSave && (
-              <TouchableOpacity
-                style={[
-                  styles.saveButton,
-                  isSwapping && styles.buttonDisabled,
-                ]}
-                onPress={onSave}
-                disabled={isSwapping}
-                activeOpacity={0.7}
-              >
-                <Ionicons name="bookmark-outline" size={18} color="#f59e0b" />
-                <Text style={styles.saveButtonText}>Save</Text>
-              </TouchableOpacity>
-            )}
-          </View>
+          </PressableScale>
+          {onNotForMe && (
+            <PressableScale
+              style={[styles.secondaryButton, styles.notForMeButton, isSwapping && styles.buttonDisabled]}
+              onPress={isSwapping ? undefined : onNotForMe}
+              disabled={isSwapping}
+              accessibilityLabel="Not for me"
+            >
+              <Ionicons name="thumbs-down-outline" size={15} color="#f89b9b" />
+              <Text style={styles.notForMeText} numberOfLines={1} adjustsFontSizeToFit minimumFontScale={0.85}>Not for me</Text>
+            </PressableScale>
+          )}
+          {onSave && (
+            <PressableScale
+              style={[styles.secondaryButton, styles.saveButton, isSwapping && styles.buttonDisabled]}
+              onPress={isSwapping ? undefined : onSave}
+              disabled={isSwapping}
+              accessibilityLabel="Save"
+            >
+              <Ionicons name="bookmark-outline" size={15} color="#f5b544" />
+              <Text style={styles.saveButtonText} numberOfLines={1} adjustsFontSizeToFit minimumFontScale={0.85}>Save</Text>
+            </PressableScale>
+          )}
         </View>
 
       </View>
@@ -696,30 +578,41 @@ const styles = StyleSheet.create({
     justifyContent: 'center',
     alignItems: 'center',
   },
-  matchBadgeOverlay: {
-    position: 'absolute',
-    top: 12,
-    right: 12,
-    backgroundColor: 'rgba(0, 0, 0, 0.7)',
-    paddingVertical: 6,
-    paddingHorizontal: 12,
-    borderRadius: 12,
-    borderWidth: 1,
-    borderColor: 'rgba(74, 222, 128, 0.5)',
-  },
-  matchTextOverlay: {
-    fontSize: 14,
-    fontWeight: '800',
-    color: '#4ade80',
+  heroScrim: {
+    ...StyleSheet.absoluteFillObject,
   },
   header: {
     marginBottom: 12,
+  },
+  titleRow: {
+    flexDirection: 'row',
+    alignItems: 'flex-start',
+    justifyContent: 'space-between',
+    gap: 10,
+  },
+  matchPill: {
+    flexDirection: 'row',
+    alignItems: 'center',
+    paddingHorizontal: 11,
+    paddingVertical: 5,
+    borderRadius: 999,
+    backgroundColor: 'rgba(74, 222, 128, 0.12)',
+    borderWidth: 1,
+    borderColor: 'rgba(74, 222, 128, 0.35)',
+    flexShrink: 0,
+  },
+  matchPillText: {
+    color: '#4ade80',
+    fontSize: 13,
+    fontWeight: '700',
   },
   title: {
     fontSize: 24,
     fontWeight: '800',
     color: '#ffffff',
     marginBottom: 6,
+    letterSpacing: -0.5,
+    flexShrink: 1,
   },
   platforms: {
     fontSize: 14,
@@ -736,8 +629,9 @@ const styles = StyleSheet.create({
     borderRadius: 14,
     padding: 14,
     marginBottom: 18,
-    borderLeftWidth: 3,
-    borderLeftColor: '#f857a6',
+    borderTopWidth: 1,
+    borderTopColor: 'rgba(255,255,255,0.06)',
+    paddingTop: 18,
     overflow: 'hidden',
   },
   explanationHeader: {
@@ -793,87 +687,54 @@ const styles = StyleSheet.create({
   libraryTagText: {
     color: '#4ade80',
   },
-  sectionHeader: {
-    flexDirection: 'row',
-    alignItems: 'center',
-    gap: 6,
-    marginBottom: 8,
-  },
-  subscriptionSection: {
+  whereToPlaySection: {
+    borderTopWidth: 1,
+    borderTopColor: 'rgba(255,255,255,0.06)',
+    paddingTop: 18,
     marginBottom: 16,
+    gap: 12,
   },
-  subscriptionLabel: {
-    fontSize: 12,
-    fontWeight: '600',
-    color: '#a0a0a0',
-  },
-  subscriptionChips: {
-    flexDirection: 'row',
-    flexWrap: 'wrap',
-    gap: 8,
-  },
-  subscriptionChip: {
-    borderRadius: 10,
-    overflow: 'hidden',
-    elevation: 3,
-    shadowColor: '#000',
-    shadowOffset: { width: 0, height: 2 },
-    shadowOpacity: 0.2,
-    shadowRadius: 3,
-  },
-  subscriptionChipGradient: {
-    flexDirection: 'row',
-    alignItems: 'center',
-    paddingVertical: 8,
-    paddingHorizontal: 12,
-    gap: 6,
-  },
-  subscriptionChipIcon: {
-    fontSize: 14,
-  },
-  subscriptionChipText: {
-    fontSize: 13,
+  whereToPlayLabel: {
+    fontSize: 11,
     fontWeight: '700',
-    letterSpacing: 0.3,
+    letterSpacing: 1.6,
+    color: '#8a8aa5',
   },
-  storeSection: {
-    marginBottom: 16,
-  },
-  storeLabel: {
-    fontSize: 12,
-    fontWeight: '600',
-    color: '#a0a0a0',
-  },
-  storeChips: {
+  whereToPlayChips: {
     flexDirection: 'row',
     flexWrap: 'wrap',
     gap: 8,
   },
-  storeChip: {
-    borderRadius: 10,
-    overflow: 'hidden',
-    elevation: 3,
-    shadowColor: '#000',
-    shadowOffset: { width: 0, height: 2 },
-    shadowOpacity: 0.2,
-    shadowRadius: 3,
+  ghostChip: {
+    flexDirection: 'row',
+    alignItems: 'center',
+    gap: 7,
+    paddingHorizontal: 13,
+    paddingVertical: 9,
+    borderRadius: 999,
+    borderWidth: 1,
+    borderColor: 'rgba(255,255,255,0.13)',
   },
-  storeChipDimmed: {
+  ghostChipIncluded: {
+    borderColor: 'rgba(74, 222, 128, 0.3)',
+  },
+  ghostChipDimmed: {
     opacity: 0.5,
   },
-  storeChipGradient: {
-    flexDirection: 'row',
-    alignItems: 'center',
-    paddingVertical: 8,
-    paddingHorizontal: 12,
+  includedDot: {
+    width: 6,
+    height: 6,
+    borderRadius: 3,
+    backgroundColor: '#4ade80',
   },
-  storeChipText: {
+  ghostChipText: {
     fontSize: 13,
-    fontWeight: '700',
-    letterSpacing: 0.3,
+    color: '#b8b8c8',
   },
-  actionsContainer: {
-    gap: 12,
+  ghostChipTextIncluded: {
+    fontSize: 13,
+    fontWeight: '600',
+    color: '#dde9e0',
   },
   acceptButton: {
     borderRadius: 16,
@@ -883,6 +744,7 @@ const styles = StyleSheet.create({
     shadowOffset: { width: 0, height: 4 },
     shadowOpacity: 0.4,
     shadowRadius: 12,
+    marginBottom: 18,
   },
   acceptGradient: {
     flexDirection: 'row',
@@ -895,53 +757,39 @@ const styles = StyleSheet.create({
     flexDirection: 'row',
     gap: 10,
   },
-  alreadyPlayedButton: {
+  secondaryButton: {
     flex: 1,
     flexDirection: 'row',
     alignItems: 'center',
     justifyContent: 'center',
-    paddingVertical: 14,
-    borderRadius: 14,
-    backgroundColor: 'rgba(255, 255, 255, 0.08)',
+    gap: 7,
+    paddingVertical: 13,
+    borderRadius: 13,
     borderWidth: 1,
-    borderColor: 'rgba(255, 255, 255, 0.1)',
-    gap: 8,
+    borderColor: 'rgba(255,255,255,0.14)',
+    backgroundColor: 'rgba(255,255,255,0.03)',
   },
-  alreadyPlayedIcon: {
-    fontSize: 16,
-    color: '#4ade80',
-  },
-  alreadyPlayedText: {
-    fontSize: 15,
+  secondaryButtonText: {
+    fontSize: 13,
     fontWeight: '600',
-    color: '#a0a0a0',
+    color: '#c2c2d2',
   },
   notForMeButton: {
-    alignItems: 'center',
-    justifyContent: 'center',
-    paddingVertical: 14,
-    paddingHorizontal: 14,
-    borderRadius: 14,
-    backgroundColor: 'rgba(248, 113, 113, 0.12)',
-    borderWidth: 1,
-    borderColor: 'rgba(248, 113, 113, 0.3)',
+    borderColor: 'rgba(248,113,113,0.35)',
+  },
+  notForMeText: {
+    fontSize: 13,
+    fontWeight: '600',
+    color: '#f89b9b',
   },
   saveButton: {
-    flexDirection: 'row',
-    alignItems: 'center',
-    justifyContent: 'center',
-    paddingVertical: 14,
-    paddingHorizontal: 16,
-    borderRadius: 14,
-    backgroundColor: 'rgba(245, 158, 11, 0.15)',
-    borderWidth: 1,
-    borderColor: 'rgba(245, 158, 11, 0.3)',
-    gap: 6,
+    borderColor: 'rgba(245,158,11,0.4)',
+    backgroundColor: 'rgba(245,158,11,0.05)',
   },
   saveButtonText: {
-    fontSize: 15,
+    fontSize: 13,
     fontWeight: '600',
-    color: '#f59e0b',
+    color: '#f5b544',
   },
   acceptText: {
     fontSize: 18,
@@ -950,10 +798,6 @@ const styles = StyleSheet.create({
   },
   buttonDisabled: {
     opacity: 0.5,
-  },
-  buttonPressed: {
-    opacity: 0.8,
-    transform: [{ scale: 0.98 }],
   },
 });
 

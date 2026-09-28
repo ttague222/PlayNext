@@ -419,7 +419,13 @@ class TestBuildRecommendation:
         assert rec.explanation.summary is not None
 
     def test_summary_joins_unpunctuated_templates_as_sentences(self, service, sample_game):
-        """Catalog templates without periods must not produce run-on summaries."""
+        """Catalog templates without periods must not produce run-on summaries.
+
+        Game card refresh (P0.2) caps bullets at 2, chosen by
+        EXPLANATION_FIELD_PRIORITY — of time_fit/mood_fit/stop_fit here,
+        stop_fit and mood_fit win (both renderable on shipped clients) and
+        time_fit is dropped.
+        """
         request = RecommendationRequest(
             time_available=30,
             energy_mood=EnergyMood.CASUAL
@@ -435,13 +441,18 @@ class TestBuildRecommendation:
         rec = service._build_recommendation(sample_game, request)
 
         assert rec.explanation.summary == (
-            "Care for your passengers for 30 minutes. "
-            "A beautiful, emotional journey about letting go. "
-            "Save anytime between activities."
+            "Save anytime between activities. "
+            "A beautiful, emotional journey about letting go."
         )
+        assert rec.explanation.time_fit is None
 
     def test_summary_keeps_existing_punctuation(self, service, sample_game):
-        """Templates that already end in punctuation are not double-punctuated."""
+        """Templates that already end in punctuation are not double-punctuated.
+
+        Priority now selects mood_fit before time_fit (mood_fit is
+        renderable on shipped clients, time_fit is not), so it leads the
+        summary.
+        """
         request = RecommendationRequest(
             time_available=30,
             energy_mood=EnergyMood.CASUAL
@@ -456,7 +467,7 @@ class TestBuildRecommendation:
         rec = service._build_recommendation(sample_game, request)
 
         assert rec.explanation.summary == (
-            "Quick to jump in - fun in minutes. Perfect for unwinding!"
+            "Perfect for unwinding! Quick to jump in - fun in minutes."
         )
 
     def test_build_recommendation_default_explanation(self, service, sample_game):
