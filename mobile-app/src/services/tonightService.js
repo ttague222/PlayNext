@@ -119,3 +119,51 @@ export async function fetchTonightsPicks({ excludedGameIds = [] } = {}) {
     _inFlight = null;
   }
 }
+
+export const DEFAULT_REMINDER_TIME = '20:00';
+
+const DEFAULT_META = {
+  viewDates: [],        // distinct local dates the user viewed tonight picks
+  promptShown: false,   // soft prompt is once-ever
+  reminderEnabled: false,
+  reminderTime: DEFAULT_REMINDER_TIME,
+};
+
+async function getMeta() {
+  try {
+    const raw = await AsyncStorage.getItem(TONIGHT_META_KEY);
+    return raw ? { ...DEFAULT_META, ...JSON.parse(raw) } : { ...DEFAULT_META };
+  } catch {
+    return { ...DEFAULT_META };
+  }
+}
+
+async function saveMeta(meta) {
+  try {
+    await AsyncStorage.setItem(TONIGHT_META_KEY, JSON.stringify(meta));
+  } catch {
+    // Meta is best-effort; losing it only delays the soft prompt.
+  }
+}
+
+/** Record that the user viewed tonight's picks today (deduped per day). */
+export async function recordTonightView() {
+  const meta = await getMeta();
+  const today = localDateString();
+  if (!meta.viewDates.includes(today)) {
+    meta.viewDates = [...meta.viewDates, today].slice(-30);
+    await saveMeta(meta);
+  }
+  return meta;
+}
+
+/** Soft prompt gate: second distinct viewing day, never shown before, not already enabled. */
+export async function shouldOfferReminder() {
+  const meta = await getMeta();
+  return !meta.promptShown && !meta.reminderEnabled && new Set(meta.viewDates).size >= 2;
+}
+
+export async function markReminderPromptShown() {
+  const meta = await getMeta();
+  await saveMeta({ ...meta, promptShown: true });
+}

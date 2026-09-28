@@ -25,6 +25,10 @@ import {
   getCachedPicks,
   TONIGHT_PICKS_KEY,
   fetchTonightsPicks,
+  recordTonightView,
+  shouldOfferReminder,
+  markReminderPromptShown,
+  TONIGHT_META_KEY,
 } from '../tonightService';
 
 beforeEach(() => {
@@ -157,5 +161,37 @@ describe('fetchTonightsPicks', () => {
     api.getRecommendations.mockResolvedValueOnce(response);
     const retry = await fetchTonightsPicks(); // guard must not be stuck
     expect(retry.sessionId).toBe('srv-1');
+  });
+});
+
+describe('view tracking and reminder offer', () => {
+  it('does not offer after a single day of views', async () => {
+    await recordTonightView();
+    await recordTonightView(); // same day, deduped
+    const meta = JSON.parse(store[TONIGHT_META_KEY]);
+    expect(meta.viewDates).toHaveLength(1);
+    expect(await shouldOfferReminder()).toBe(false);
+  });
+
+  it('offers on the second distinct day, once', async () => {
+    store[TONIGHT_META_KEY] = JSON.stringify({ viewDates: ['2020-01-01'], promptShown: false, reminderEnabled: false, reminderTime: '20:00' });
+    await recordTonightView(); // second distinct day
+    expect(await shouldOfferReminder()).toBe(true);
+    await markReminderPromptShown();
+    expect(await shouldOfferReminder()).toBe(false); // never re-prompt
+  });
+
+  it('does not offer when the reminder is already enabled', async () => {
+    store[TONIGHT_META_KEY] = JSON.stringify({ viewDates: ['2020-01-01', localDateString()], promptShown: false, reminderEnabled: true, reminderTime: '20:00' });
+    expect(await shouldOfferReminder()).toBe(false);
+  });
+
+  it('caps stored view dates at 30', async () => {
+    const dates = Array.from({ length: 30 }, (_, i) => `2020-01-${String(i + 1).padStart(2, '0')}`);
+    store[TONIGHT_META_KEY] = JSON.stringify({ viewDates: dates, promptShown: true, reminderEnabled: false, reminderTime: '20:00' });
+    await recordTonightView();
+    const meta = JSON.parse(store[TONIGHT_META_KEY]);
+    expect(meta.viewDates).toHaveLength(30);
+    expect(meta.viewDates[29]).toBe(localDateString());
   });
 });
