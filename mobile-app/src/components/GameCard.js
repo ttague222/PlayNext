@@ -298,9 +298,9 @@ const GameCard = ({ game, rank, onAccept, onAlreadyPlayed, onNotForMe, onSave, i
               <ActivityIndicator color="#ffffff" size="small" />
             </View>
           )}
-          {/* Hero scrim — blends thumbnail into the card body */}
+          {/* Hero scrim — soft darkening vignette, never opaque */}
           <LinearGradient
-            colors={['transparent', 'rgba(30,30,60,0.55)', '#1e1e3c']}
+            colors={['transparent', 'rgba(15, 12, 41, 0.30)', 'rgba(15, 12, 41, 0.55)']}
             locations={[0.45, 0.78, 1]}
             style={styles.heroScrim}
             pointerEvents="none"
@@ -863,9 +863,7 @@ const styles = StyleSheet.create({
     fontWeight: '700',
     letterSpacing: 0.3,
   },
-  actionsContainer: {
-    gap: 12,
-  },
+  actionsContainer: {},
   acceptButton: {
     borderRadius: 16,
     overflow: 'hidden',
@@ -874,6 +872,7 @@ const styles = StyleSheet.create({
     shadowOffset: { width: 0, height: 4 },
     shadowOpacity: 0.4,
     shadowRadius: 12,
+    marginBottom: 18,
   },
   acceptGradient: {
     flexDirection: 'row',
