@@ -456,7 +456,6 @@ export const PremiumProvider = ({ children }) => {
 
     // Actions
     recordReroll: ads?.recordReroll ?? (() => {}),
-    recordRecommendationFetch: ads?.recordRecommendationFetch ?? (() => {}),
     purchase,
     restorePurchases,
     manageSubscription,

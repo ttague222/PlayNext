@@ -289,18 +289,6 @@ export const AdProvider = ({ children }) => {
   }, []);
 
   /**
-   * Record a recommendation fetch (initial or reroll)
-   * This prevents the exploit where users navigate back to get free recommendations
-   * Every fetch counts toward the daily reroll count
-   */
-  const recordRecommendationFetch = useCallback(() => {
-    // Every recommendation fetch counts as a reroll
-    // The first N fetches are free (determined by adInterval), then ads are shown
-    setDailyRerollCount((prev) => prev + 1);
-    setTotalRerollCount((prev) => prev + 1);
-  }, []);
-
-  /**
    * Get number of free rerolls remaining before ads start
    * @param {boolean} isPremium - Whether user is premium
    */
@@ -388,7 +376,6 @@ export const AdProvider = ({ children }) => {
     preloadAd,
     showRewardedAd,
     recordReroll,
-    recordRecommendationFetch,
     resetDailyTracking,
     refreshConfig,
 

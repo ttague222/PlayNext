@@ -13,6 +13,31 @@ from ..core.config import settings
 
 router = APIRouter(prefix="/config", tags=["Config"])
 
+# 3 -> 4 on 2026-08-20: direct response to the "ads every 2 suggestions" Play
+# review. The client's initial results fetch was silently consuming a reroll
+# (recordRecommendationFetch() on the first fetch), so the visible ad gate
+# effectively fired after 2 rerolls; bumping ad_interval to 4 compensated for
+# that off-by-one without a client release. 4 -> 3 on 2026-09-29 now that the
+# client bug is fixed (>= 1.5.1 no longer counts the initial fetch): those
+# clients get the real default of 3 again. Older clients (< 1.5.1, or an
+# unparseable/missing version) still get 4 via the version gate below, since
+# they still carry the bug.
+LEGACY_AD_INTERVAL = 4
+FIXED_CLIENT_VERSION = (1, 5, 1)
+
+
+def _version_tuple(v: str) -> tuple:
+    """Parse a dotted version string into a comparable int tuple.
+
+    Tolerates junk (non-numeric, missing, malformed) by returning (0, 0, 0),
+    which sorts as "old" -- the safe default for the buggy fleet.
+    """
+    try:
+        parts = tuple(int(p) for p in v.split("."))
+        return parts if parts else (0, 0, 0)
+    except (ValueError, AttributeError):
+        return (0, 0, 0)
+
 
 class AppConfig(BaseModel):
     """Remote configuration response model."""
@@ -20,9 +45,7 @@ class AppConfig(BaseModel):
     # Ad control
     ads_enabled: bool = True
     ads_test_mode: bool = False
-    # 3 -> 4 on 2026-08-20: direct response to the "ads every 2 suggestions"
-    # Play review. Watch ad_watched vs retention in Firebase before tuning again.
-    ad_interval: int = 4
+    ad_interval: int = 3
 
     # Feature flags
     maintenance_mode: bool = False
@@ -97,9 +120,11 @@ async def get_app_config(request: Request):
     app_version = request.headers.get("X-App-Version", "unknown")
     platform = request.headers.get("X-Platform", "unknown")
 
-    # Could add version-specific config logic here
-    # if app_version < "1.1.0":
-    #     config.force_update = True
+    # Clients on old binaries (< 1.5.1) still carry the initial-fetch-counts-
+    # as-a-reroll bug, so they still need the compensating ad_interval of 4.
+    # Unknown/unparseable versions count as old -- safest for the buggy fleet.
+    if _version_tuple(app_version) < FIXED_CLIENT_VERSION:
+        config = config.model_copy(update={"ad_interval": LEGACY_AD_INTERVAL})
 
     return config
 

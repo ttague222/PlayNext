@@ -37,7 +37,6 @@ import FeedbackModal from '../components/FeedbackModal';
 import { maybePromptForPush } from '../utils/pushPrompt';
 import { maybeShowWorkedUpsell } from '../utils/upsellPrompt';
 import { maybeRequestReview } from '../utils/reviewPrompt';
-import { DAILY_REROLL_CAP } from '../utils/rerollCap';
 
 const ResultsScreen = () => {
   const navigation = useNavigation();
@@ -67,7 +66,6 @@ const ResultsScreen = () => {
     shouldShowPremiumPrompt,
     AD_INTERVAL,
     isDailyCapHit,
-    rerollsRemainingToday,
     getPackageByType,
     formatPrice,
   } = usePremium();
@@ -75,6 +73,19 @@ const ResultsScreen = () => {
   // Compute premium price from RevenueCat
   const lifetimePackage = getPackageByType?.('LIFETIME');
   const premiumPriceString = lifetimePackage ? formatPrice(lifetimePackage.product) : '$1.99';
+
+  // Honest reroll countdown: how many free rerolls are left before the NEXT
+  // reroll shows an ad (the actual gate), not how many rerolls are left
+  // before the 10/day hard cap (which is a different, much larger number and
+  // never matches when ads fire). null when ads aren't gating rerolls at all
+  // (premium, or rewarded ads disabled) -- getRerollsUntilAd() returns
+  // Infinity in that case, which isn't renderable copy.
+  const rerollsUntilAd = getRerollsUntilAd();
+  const rerollsUntilAdText = Number.isFinite(rerollsUntilAd)
+    ? rerollsUntilAd === 0
+      ? 'Next reroll plays a short ad'
+      : `${rerollsUntilAd} free reroll${rerollsUntilAd !== 1 ? 's' : ''} left, then a short ad`
+    : null;
 
   const [selectedGame, setSelectedGame] = useState(null);
   const [showCelebration, setShowCelebration] = useState(false);
@@ -633,11 +644,9 @@ const ResultsScreen = () => {
                 <Text style={styles.rerollText}>
                   {isRerolling ? 'Finding more...' : isAdLoading ? 'Loading...' : 'Show different games'}
                 </Text>
-                {!isPremium && !isRerolling && !isAdLoading && (
+                {!isPremium && !isRerolling && !isAdLoading && (isDailyCapHit || rerollsUntilAdText) && (
                   <Text style={styles.rerollsRemaining}>
-                    {isDailyCapHit
-                      ? 'No rerolls left today'
-                      : `${rerollsRemainingToday} reroll${rerollsRemainingToday !== 1 ? 's' : ''} left today`}
+                    {isDailyCapHit ? 'No rerolls left today' : rerollsUntilAdText}
                   </Text>
                 )}
                 {isPremium && !isRerolling && (
@@ -740,10 +749,8 @@ const ResultsScreen = () => {
           id="results_reroll_explanation"
           emoji="🔄"
           title="Reroll Your Picks"
-          description={`Not feeling these games? Tap "Show different games" to get new recommendations. ${
-  rerollsRemainingToday === DAILY_REROLL_CAP
-    ? `You get ${DAILY_REROLL_CAP} rerolls per day.`
-    : `${rerollsRemainingToday} reroll${rerollsRemainingToday !== 1 ? 's' : ''} left today.`
+          description={`Not feeling these games? Tap "Show different games" to get new recommendations.${
+  rerollsUntilAdText ? ` ${rerollsUntilAdText}.` : ''
 } Premium users get unlimited rerolls!`}
           visible={showRerollCallout && !loading && recommendations.length > 0}
           onDismiss={() => setShowRerollCallout(false)}
