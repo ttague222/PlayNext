@@ -120,7 +120,6 @@ const OptionalFiltersScreen = () => {
   const navigation = useNavigation();
   const { preferences, updatePreference, getRecommendations } = useRecommendation();
   const {
-    recordRecommendationFetch,
     dailyRerollCount,
     shouldShowAdBeforeReroll,
     showRewardedAd,
@@ -180,9 +179,6 @@ const OptionalFiltersScreen = () => {
         return;
       }
     }
-
-    // Track the recommendation fetch - every fetch counts toward the daily limit
-    recordRecommendationFetch();
 
     // Navigate immediately - Results screen will show loading state
     navigation.navigate('Results');
