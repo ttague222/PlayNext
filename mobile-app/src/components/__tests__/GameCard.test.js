@@ -67,6 +67,13 @@ describe('GameCard (1.5.0 refresh)', () => {
     expect(getByTestId('match-pill')).toHaveTextContent('100% match');
   });
 
+  it('shows 0% match for a legitimate zero match_score instead of falling back (nullish, not ||)', async () => {
+    // match_score: 0 is falsy, so a `||` fallback wrongly substitutes the
+    // default 0.85 (85%) here. Only null/undefined should fall back.
+    const { getByTestId } = await renderCard({ game: { ...game, match_score: 0 } });
+    expect(getByTestId('match-pill')).toHaveTextContent('0% match');
+  });
+
   it('merges commerce into one WHERE TO PLAY section (P0.3)', async () => {
     const { getByText, queryByText } = await renderCard();
     expect(getByText('WHERE TO PLAY')).toBeTruthy();

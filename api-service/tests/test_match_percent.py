@@ -71,9 +71,12 @@ class TestMatchRatio:
         assert scored[0]["match_ratio"] == pytest.approx(1.0)
 
     def test_partial_fit_matches_computed_ratio(self, svc):
-        """0.25 earned out of a 0.90 denominator (no genres/taste/free/platform request)."""
+        """0.25 earned out of a 0.80 denominator (no genres/taste/free/platform
+        request; time component of fit_max is 0 here because nothing in this
+        one-game pool has time_tags, so the pool-relative ceiling is 0 too).
+        """
         scored = svc._score_games([_partial_game()], _request())
-        assert scored[0]["match_ratio"] == pytest.approx(0.25 / 0.90)
+        assert scored[0]["match_ratio"] == pytest.approx(0.25 / 0.80)
 
     def test_match_ratio_is_deterministic_despite_random_ranking_score(self, svc):
         """score varies run to run (random variety term); match_ratio must not."""
@@ -131,3 +134,33 @@ class TestMatchRatio:
         bumped = {**scored[0], "score": scored[0]["score"] + 5.0}
 
         assert bumped["match_ratio"] == original_ratio
+
+    def test_time_ceiling_is_pool_relative_not_request_relative(self, svc):
+        """Most of the catalog tops out well under a long session. If the
+        denominator assumed every game could reach request.time_available,
+        an otherwise-perfect game whose deepest tag is 60 would be stuck
+        under 100% for a 120-minute request even though nothing in the pool
+        could do better. The ceiling must reflect what the POOL can attain.
+        """
+        game = {**_perfect_game(), "time_tags": [60]}
+        request = _request(time_available=120)
+
+        scored = svc._score_games([game], request)
+        assert scored[0]["match_ratio"] == pytest.approx(1.0)
+
+    def test_time_ceiling_lets_deeper_game_reach_full_ratio_while_shallower_cannot(self, svc):
+        """With both a 60-tag and a 120-tag game in the pool for a 120-minute
+        request, best_depth is 120: the deep game can still reach 1.0, but
+        the shallow game — identical in every other respect — now correctly
+        falls short, since the pool proved 120 was attainable.
+        """
+        request = _request(time_available=120)
+        deep = {**_perfect_game("deep"), "time_tags": [120]}
+        shallow = {**_perfect_game("shallow"), "time_tags": [60]}
+
+        scored = svc._score_games([deep, shallow], request)
+        ratios = {g["game_id"]: g["match_ratio"] for g in scored}
+
+        assert ratios["deep"] == pytest.approx(1.0)
+        assert ratios["shallow"] == pytest.approx(0.85 / 0.90)
+        assert ratios["shallow"] < ratios["deep"]

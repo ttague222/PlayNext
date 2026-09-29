@@ -606,6 +606,19 @@ class RecommendationService:
 
         req_platforms = request.platforms or ([request.platform] if request.platform else None)
 
+        # Time-affinity ceiling is POOL-relative, not request-relative: the
+        # full 0.1 is only attainable when some candidate's time_tags can
+        # actually reach request.time_available. Most of the catalog tops
+        # out well under long (e.g. 120-minute) sessions, so anchoring the
+        # denominator to the full 0.1 made the ratio silently cap under 100%
+        # for long-session requests even when a game earned everything the
+        # pool could offer. best_depth mirrors the per-game earning formula
+        # (min(max(tags), time_available)) but takes the max across the pool.
+        best_depth = max(
+            (min(max(g["time_tags"]), request.time_available) for g in games if g.get("time_tags")),
+            default=0,
+        )
+
         # fit_max: the maximum deterministic request-fit points achievable
         # for THIS request context, used to normalize the display match %
         # (see fit_points below). Identical for every game in this call.
@@ -617,8 +630,8 @@ class RecommendationService:
         if free_profile:
             fit_max += FREE_TASTE_CAP
         fit_max += 0.1 if req_platforms else 0.05
-        if request.time_available:
-            fit_max += 0.1
+        if request.time_available and best_depth:
+            fit_max += 0.1 * (best_depth / request.time_available)
 
         for game in games:
             score = 0.0
@@ -708,6 +721,9 @@ class RecommendationService:
             # for long sessions, but a 2-hour request should rank deep games
             # above quick-hitters. For short requests every eligible game
             # reaches the full ratio, so short-session ranking is unchanged.
+            # (The fit_max denominator above uses this same formula, maxed
+            # across the candidate pool, so a game hitting the pool's best
+            # attainable depth earns a full match_ratio contribution here.)
             game_time_tags = game.get("time_tags") or []
             if game_time_tags and request.time_available:
                 depth = min(max(game_time_tags), request.time_available)
