@@ -392,7 +392,7 @@ const GameCard = ({
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [isSwapping]);
 
-  const matchPercent = Math.round((game.match_score || 0.85) * 100);
+  const matchPercent = Math.round((game.match_score ?? 0.85) * 100);
 
   // Match % count-up: only on the first result set's entrance, and only
   // when motion is allowed. Otherwise MatchPill renders the static final
