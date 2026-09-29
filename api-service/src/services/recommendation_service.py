@@ -595,6 +595,31 @@ class RecommendationService:
 
         scored = []
 
+        # Resolve request-only inputs once — identical for every game in this
+        # call — and use them both for fit_max and inside the per-game loop
+        # below (genres/req_platforms previously re-derived every iteration).
+        genres = request.genres
+        if not genres:
+            play_styles = request.play_styles or ([request.play_style] if request.play_style else None)
+            if play_styles:
+                genres = [s.value for s in play_styles]
+
+        req_platforms = request.platforms or ([request.platform] if request.platform else None)
+
+        # fit_max: the maximum deterministic request-fit points achievable
+        # for THIS request context, used to normalize the display match %
+        # (see fit_points below). Identical for every game in this call.
+        fit_max = 0.25 + 0.2 + 0.2 + 0.1  # stop + time-to-fun + mood + subscription
+        if genres:
+            fit_max += 0.15
+        if taste_profile and request.favor_history:
+            fit_max += 0.15
+        if free_profile:
+            fit_max += FREE_TASTE_CAP
+        fit_max += 0.1 if req_platforms else 0.05
+        if request.time_available:
+            fit_max += 0.1
+
         for game in games:
             score = 0.0
 
@@ -618,13 +643,8 @@ class RecommendationService:
                 score += 0.2
 
             # Genre match boost (0-0.15)
-            # Supports new genres field and legacy play_styles
-            genres = request.genres
-            if not genres:
-                play_styles = request.play_styles or ([request.play_style] if request.play_style else None)
-                if play_styles:
-                    genres = [s.value for s in play_styles]
-
+            # Supports new genres field and legacy play_styles.
+            # `genres` is resolved once above the loop (request-only input).
             if genres:
                 game_styles = game.get("play_style", [])
                 game_genre_tags = game.get("genre_tags", [])
@@ -669,7 +689,7 @@ class RecommendationService:
                     score -= min(matches * FREE_TASTE_STEP, FREE_TASTE_CAP)
 
             # Platform match boost (0-0.1)
-            req_platforms = request.platforms or ([request.platform] if request.platform else None)
+            # `req_platforms` is resolved once above the loop (request-only input).
             game_platforms = game.get("platforms", [])
             if req_platforms:
                 platform_values = [p.value for p in req_platforms]
@@ -693,6 +713,15 @@ class RecommendationService:
                 depth = min(max(game_time_tags), request.time_available)
                 score += 0.1 * (depth / request.time_available)
 
+            # fit_points: the deterministic request-fit boosts accumulated so
+            # far (stop, time-to-fun, mood, genre, taste, free nudge, avoid
+            # penalty, platform, subscription, time affinity) — everything
+            # above this line, and nothing below it. This deliberately
+            # excludes the random variety term added next, and excludes
+            # ranking-only adjustments applied outside this method (surprise
+            # mode's indie/popularity boosts, BACKLOG_NEVER_PLAYED_BOOST).
+            fit_points = score
+
             # Add randomness so near-ties shuffle between rerolls.
             score += random.uniform(0, RANDOM_VARIETY_RANGE)
 
@@ -700,8 +729,14 @@ class RecommendationService:
             # boosts above total 1.10 (1.20 with the free-tier nudge, 1.25 with
             # the premium taste profile; the avoid penalty can subtract 0.10),
             # so clamping here pinned every strong match to exactly 1.0 and let
-            # weaker games tie them. Display clamping happens at response build.
-            scored.append({**game, "score": score})
+            # weaker games tie them. Ranking stays uncapped; the displayed
+            # match % instead uses `match_ratio` below, normalized against
+            # fit_max (the fit points achievable for THIS request), so a
+            # genuinely perfect fit for a narrow request reads as 100% without
+            # every top pick saturating regardless of how well it actually fits.
+            match_ratio = (max(0.0, fit_points) / fit_max) if fit_max > 0 else 0.5
+
+            scored.append({**game, "score": score, "match_ratio": match_ratio})
 
         return scored
 
@@ -1129,7 +1164,7 @@ class RecommendationService:
             subscription_services=game.get("subscription_services", []),
             store_links=store_links,
             fun_fact=game.get("fun_fact"),
-            match_score=min(max(game.get("score", 0.5), 0.0), 1.0),
+            match_score=min(max(game.get("match_ratio", game.get("score", 0.5)), 0.0), 1.0),
             in_library=bool(in_library_ids and game["game_id"] in in_library_ids),
         )
 
