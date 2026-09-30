@@ -219,8 +219,10 @@ export const PremiumProvider = ({ children }) => {
 
   /**
    * Purchase a subscription package
+   * @param {object} packageToPurchase - RevenueCat package
+   * @param {{ entryScreen?: string }} [options] - where the upsell was shown (analytics)
    */
-  const purchase = useCallback(async (packageToPurchase) => {
+  const purchase = useCallback(async (packageToPurchase, { entryScreen } = {}) => {
     const purchaseService = getPurchaseService();
     if (!ENABLE_REVENUECAT || !purchaseService) {
       Alert.alert('Coming Soon', 'Premium subscriptions will be available soon!');
@@ -243,6 +245,10 @@ export const PremiumProvider = ({ children }) => {
           logEvent('purchase_completed', {
             package_type: packageToPurchase?.packageType,
             product_id: packageToPurchase?.product?.identifier,
+          });
+          logEvent('premium_purchase', {
+            platform: Platform.OS,
+            entry_screen: entryScreen || 'unknown',
           });
           Alert.alert(
             'Welcome to Premium!',

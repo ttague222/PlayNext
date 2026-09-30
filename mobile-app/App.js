@@ -33,6 +33,7 @@ import { shouldShowChangelog, markChangelogSeen } from './src/services/changelog
 import { CHANGELOG } from './src/config/changelog';
 import api from './src/services/api';
 import { logEvent } from './src/services/analyticsService';
+import { initAttribution } from './src/services/attributionService';
 import { maybeRequestReview } from './src/utils/reviewPrompt';
 
 const App = () => {
@@ -85,6 +86,11 @@ const App = () => {
       navigationRef.navigate(cta.screen, cta.params);
     }
   };
+
+  // Resolve install source once; tags every later event with `source`.
+  useEffect(() => {
+    initAttribution();
+  }, []);
 
   useEffect(() => {
     const checkFirstLaunch = async () => {

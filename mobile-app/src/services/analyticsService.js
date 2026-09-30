@@ -77,6 +77,35 @@ export const setAnalyticsUserId = (userId) => {
 };
 
 /**
+ * Attach params to every event logged after this call (e.g. install source).
+ * @param {Object} params - flat map of string/number params
+ */
+export const setDefaultEventParams = (params) => {
+  const instance = getAnalyticsInstance();
+  if (!instance) return;
+  try {
+    _firebaseAnalytics.setDefaultEventParameters(instance, params)?.catch?.(() => {});
+  } catch {
+    // Never let analytics break app flow
+  }
+};
+
+/**
+ * Set a user-scoped property (sticks to the user across sessions).
+ * @param {string} name
+ * @param {string|null} value
+ */
+export const setUserProperty = (name, value) => {
+  const instance = getAnalyticsInstance();
+  if (!instance) return;
+  try {
+    _firebaseAnalytics.setUserProperty(instance, name, value)?.catch?.(() => {});
+  } catch {
+    // Never let analytics break app flow
+  }
+};
+
+/**
  * Test-only: reset cached module state so availability is re-evaluated.
  */
 export const _resetForTesting = () => {

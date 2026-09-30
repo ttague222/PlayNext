@@ -8,12 +8,33 @@ import React, { createContext, useContext, useState, useCallback, useEffect } fr
 import AsyncStorage from '@react-native-async-storage/async-storage';
 import api from '../services/api';
 import { logEvent } from '../services/analyticsService';
+import { getInstallSource } from '../services/attributionService';
 import { useSavedGames } from './SavedGamesContext';
 
 const PREFERRED_PLATFORMS_KEY = '@playnxt_preferred_platforms';
 const PREFERRED_TIME_KEY = '@playnxt_preferred_time';
 
 const RecommendationContext = createContext({});
+
+// Activation scoreboard params (analytics event brief). Names are fixed:
+// the scorecard formulas key on them.
+const platformFilterParam = (platforms) =>
+  platforms?.length ? [...platforms].sort().join(',') : 'none';
+
+const libraryModeParam = (prefs) => (prefs.libraryOnly ? 'steam_synced' : 'none');
+
+/** A valid set of picks is on screen; `source` rides along per the brief. */
+const logRecommendationViewed = (resultCount, startedAt) => {
+  if (!resultCount) return;
+  const latencyMs = Date.now() - startedAt;
+  getInstallSource().then((source) => {
+    logEvent('recommendation_viewed', {
+      result_count: resultCount,
+      latency_ms: latencyMs,
+      source,
+    });
+  });
+};
 
 export const useRecommendation = () => useContext(RecommendationContext);
 
@@ -184,6 +205,13 @@ export const RecommendationProvider = ({ children }) => {
     setLoading(true);
     setError(null);
 
+    logEvent('recommendation_started', {
+      minutes: preferences.timeAvailable,
+      mood: preferences.energyMood,
+      platform_filter: platformFilterParam(preferences.platforms),
+      library_mode: libraryModeParam(preferences),
+    });
+
     try {
       // Ensure we have a session
       let currentSessionId = sessionId;
@@ -192,6 +220,7 @@ export const RecommendationProvider = ({ children }) => {
         currentSessionId = session.session_id;
       }
 
+      const startedAt = Date.now();
       const response = await api.getRecommendations({
         time_available: preferences.timeAvailable,
         energy_mood: preferences.energyMood,
@@ -226,6 +255,7 @@ export const RecommendationProvider = ({ children }) => {
         is_reroll: false,
         result_count: response.recommendations.length,
       });
+      logRecommendationViewed(response.recommendations.length, startedAt);
 
       return response;
     } catch (err) {
@@ -250,6 +280,7 @@ export const RecommendationProvider = ({ children }) => {
     setError(null);
 
     try {
+      const startedAt = Date.now();
       const response = await api.rerollRecommendations({
         time_available: preferences.timeAvailable,
         energy_mood: preferences.energyMood,
@@ -283,6 +314,7 @@ export const RecommendationProvider = ({ children }) => {
         is_reroll: true,
         result_count: response.recommendations.length,
       });
+      logRecommendationViewed(response.recommendations.length, startedAt);
 
       return response;
     } catch (err) {
@@ -300,6 +332,15 @@ export const RecommendationProvider = ({ children }) => {
    */
   const acceptRecommendation = useCallback(
     async (gameId, gameTitle = null) => {
+      // THE activation event: fires on the tap, whether or not the
+      // history write below succeeds.
+      const rank = recommendations.findIndex((r) => r.game_id === gameId) + 1;
+      logEvent('game_selected', {
+        game_id: gameId,
+        ...(rank > 0 && { rank }),
+        minutes: preferences.timeAvailable,
+        mood: preferences.energyMood,
+      });
       try {
         await api.acceptRecommendation(gameId, sessionId, gameTitle);
         // Increment history version to trigger refresh in HistoryScreen
@@ -310,7 +351,7 @@ export const RecommendationProvider = ({ children }) => {
         return false;
       }
     },
-    [sessionId]
+    [sessionId, recommendations, preferences]
   );
 
   /**
