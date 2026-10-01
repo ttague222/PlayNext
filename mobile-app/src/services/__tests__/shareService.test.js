@@ -103,6 +103,34 @@ describe('shareGameCard', () => {
     expect(shareSpy).toHaveBeenCalled();
   });
 
+  describe('result_shared (activation scoreboard)', () => {
+    const shared = () =>
+      logEvent.mock.calls.filter(([n]) => n === 'result_shared').map(([, p]) => p);
+
+    it('card share carries the scenario from the session context', async () => {
+      await shareGameCard(cardRef, game, 'celebration', { timeAvailable: 30, energyMood: 'wind_down' });
+      expect(shared()).toEqual([{ surface: 'card', scenario: '30min_wind_down', game_count: 1 }]);
+    });
+
+    it('text-only share is a link; no context means scenario none', async () => {
+      captureRef.mockRejectedValue(new Error('not laid out'));
+      await shareGameCard(cardRef, game, 'detail');
+      expect(shared()).toEqual([{ surface: 'link', scenario: 'none', game_count: 1 }]);
+    });
+
+    it('Android image share counts as a card', async () => {
+      Platform.OS = 'android';
+      await shareGameCard(cardRef, game, 'celebration', { timeAvailable: 15, energyMood: 'casual' });
+      expect(shared()).toEqual([{ surface: 'card', scenario: '15min_casual', game_count: 1 }]);
+    });
+
+    it('does not fire when the sheet is dismissed', async () => {
+      shareSpy.mockResolvedValue({ action: Share.dismissedAction });
+      await shareGameCard(cardRef, game, 'detail', { timeAvailable: 30, energyMood: 'wind_down' });
+      expect(shared()).toEqual([]);
+    });
+  });
+
   it('returns false and logs a dismissal when sharing throws', async () => {
     shareSpy.mockRejectedValue(new Error('unavailable'));
 

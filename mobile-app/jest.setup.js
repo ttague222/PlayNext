@@ -44,6 +44,15 @@ jest.mock('@react-native-firebase/analytics', () => ({
   logEvent: jest.fn(() => Promise.resolve()),
   logScreenView: jest.fn(() => Promise.resolve()),
   setUserId: jest.fn(() => Promise.resolve()),
+  setDefaultEventParameters: jest.fn(() => Promise.resolve()),
+  setUserProperty: jest.fn(() => Promise.resolve()),
+}));
+
+// Mock expo-application (install referrer / install time are native-only)
+jest.mock('expo-application', () => ({
+  nativeApplicationVersion: '1.5.1',
+  getInstallReferrerAsync: jest.fn(() => Promise.resolve('')),
+  getInstallationTimeAsync: jest.fn(() => Promise.resolve(new Date())),
 }));
 
 // Mock expo-tracking-transparency (ATT prompt)
@@ -110,6 +119,18 @@ jest.mock('react-native-reanimated', () => {
   Reanimated.default.call = () => {};
   return Reanimated;
 });
+
+// Mock expo-notifications (native module, not available in jest)
+jest.mock('expo-notifications', () => ({
+  setNotificationHandler: jest.fn(),
+  getPermissionsAsync: jest.fn(() => Promise.resolve({ status: 'granted' })),
+  requestPermissionsAsync: jest.fn(() => Promise.resolve({ status: 'granted' })),
+  getExpoPushTokenAsync: jest.fn(() => Promise.resolve({ data: 'ExponentPushToken[test]' })),
+  addNotificationResponseReceivedListener: jest.fn(() => ({ remove: jest.fn() })),
+  scheduleNotificationAsync: jest.fn(() => Promise.resolve('tonight-reminder')),
+  cancelScheduledNotificationAsync: jest.fn(() => Promise.resolve()),
+  SchedulableTriggerInputTypes: { DAILY: 'daily' },
+}));
 
 // Silence console warnings in tests
 global.console = {

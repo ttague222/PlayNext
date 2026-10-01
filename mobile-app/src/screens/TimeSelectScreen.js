@@ -87,7 +87,7 @@ const TimeSelectScreen = () => {
     if (!isPremium) {
       // Locked: open the premium sheet, never interrupt the default path
       logEvent('backlog_mode_locked_tap', {});
-      navigation.navigate('Premium');
+      navigation.navigate('Premium', { source: 'backlog' });
       return;
     }
     if (librarySynced === false || librarySynced === null) {

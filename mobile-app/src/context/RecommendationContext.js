@@ -8,12 +8,41 @@ import React, { createContext, useContext, useState, useCallback, useEffect } fr
 import AsyncStorage from '@react-native-async-storage/async-storage';
 import api from '../services/api';
 import { logEvent } from '../services/analyticsService';
+import { getInstallSource } from '../services/attributionService';
 import { useSavedGames } from './SavedGamesContext';
+import { saveLastContext, saveTonightCache } from '../services/tonightService';
 
 const PREFERRED_PLATFORMS_KEY = '@playnxt_preferred_platforms';
 const PREFERRED_TIME_KEY = '@playnxt_preferred_time';
 
 const RecommendationContext = createContext({});
+
+// Activation scoreboard params (analytics event brief). Names are fixed:
+// the scorecard formulas key on them.
+const platformFilterParam = (platforms) =>
+  platforms?.length ? [...platforms].sort().join(',') : 'none';
+
+const libraryModeParam = (prefs) => (prefs.libraryOnly ? 'steam_synced' : 'none');
+
+/**
+ * A valid set of picks is on screen; the install source rides along per the
+ * brief. Tonight's Picks open from cache, so they carry no latency_ms.
+ * @param {number} resultCount
+ * @param {number|null} startedAt - request start time, null for cached picks
+ * @param {'flow'|'tonight'} pickSource
+ */
+const logRecommendationViewed = (resultCount, startedAt, pickSource) => {
+  if (!resultCount) return;
+  const latencyMs = startedAt == null ? null : Date.now() - startedAt;
+  getInstallSource().then((source) => {
+    logEvent('recommendation_viewed', {
+      result_count: resultCount,
+      ...(latencyMs != null && { latency_ms: latencyMs }),
+      install_source: source,
+      pick_source: pickSource,
+    });
+  });
+};
 
 export const useRecommendation = () => useContext(RecommendationContext);
 
@@ -41,6 +70,10 @@ export const RecommendationProvider = ({ children }) => {
 
   // Current session
   const [sessionId, setSessionId] = useState(null);
+
+  // Where the current session came from: 'flow' (normal input flow) or
+  // 'tonight' (seeded from the Tonight's Picks cache). Rides analytics events.
+  const [sessionSource, setSessionSource] = useState('flow');
 
   // User preferences for current session
   const [preferences, setPreferences] = useState(DEFAULT_PREFERENCES);
@@ -149,6 +182,7 @@ export const RecommendationProvider = ({ children }) => {
    * Start a new session
    */
   const startSession = useCallback(async () => {
+    setSessionSource('flow');
     try {
       const session = await api.createSession();
       setSessionId(session.session_id);
@@ -163,6 +197,35 @@ export const RecommendationProvider = ({ children }) => {
       setSessionId(localSessionId);
       return { session_id: localSessionId };
     }
+  }, []);
+
+  /**
+   * Seed a Results session from the Tonight's Picks cache — no network call.
+   * Reroll/accept/swap then work exactly as in a fetch-seeded session: the
+   * cached server session id carries over and the cached games are already
+   * in shownGameIds, so rerolls exclude them.
+   */
+  const startTonightSession = useCallback((cache) => {
+    if (!cache?.games?.length || !cache?.context) return false;
+    setSessionId(cache.sessionId || `local-tonight-${Date.now()}`);
+    setRecommendations(cache.games);
+    setShownGameIds(cache.games.map((g) => g.game_id));
+    setFallbackApplied(false);
+    setFallbackMessage(null);
+    setError(null);
+    setLoading(false);
+    setSessionSource('tonight');
+    logRecommendationViewed(cache.games.length, null, 'tonight');
+    setPreferences({
+      ...DEFAULT_PREFERENCES,
+      timeAvailable: cache.context.timeAvailable,
+      energyMood: cache.context.energyMood,
+      genres: cache.context.genres || [],
+      platforms: cache.context.platforms || [],
+      sessionType: cache.context.sessionType || 'any',
+      discoveryMode: cache.context.discoveryMode || 'familiar',
+    });
+    return true;
   }, []);
 
   /**
@@ -184,6 +247,13 @@ export const RecommendationProvider = ({ children }) => {
     setLoading(true);
     setError(null);
 
+    logEvent('recommendation_started', {
+      minutes: preferences.timeAvailable,
+      mood: preferences.energyMood,
+      platform_filter: platformFilterParam(preferences.platforms),
+      library_mode: libraryModeParam(preferences),
+    });
+
     try {
       // Ensure we have a session
       let currentSessionId = sessionId;
@@ -192,6 +262,7 @@ export const RecommendationProvider = ({ children }) => {
         currentSessionId = session.session_id;
       }
 
+      const startedAt = Date.now();
       const response = await api.getRecommendations({
         time_available: preferences.timeAvailable,
         energy_mood: preferences.energyMood,
@@ -220,12 +291,33 @@ export const RecommendationProvider = ({ children }) => {
       const newGameIds = response.recommendations.map((r) => r.game_id);
       setShownGameIds((prev) => [...new Set([...prev, ...newGameIds])]);
 
+      // Tonight's Picks: a completed normal-flow fetch is the user's freshest
+      // real context, so it seeds/rewrites both the saved context and today's
+      // ritual cache. Fire-and-forget; failures never affect the session.
+      if (sessionSource === 'flow') {
+        saveLastContext(preferences);
+        saveTonightCache({
+          context: {
+            timeAvailable: preferences.timeAvailable,
+            energyMood: preferences.energyMood,
+            genres: preferences.genres || [],
+            platforms: preferences.platforms || [],
+            sessionType: preferences.sessionType,
+            discoveryMode: preferences.discoveryMode,
+          },
+          sessionId: response.session_id,
+          games: response.recommendations,
+        });
+      }
+
       logEvent('rec_requested', {
         time: preferences.timeAvailable,
         mood: preferences.energyMood,
         is_reroll: false,
         result_count: response.recommendations.length,
+        pick_source: sessionSource,
       });
+      logRecommendationViewed(response.recommendations.length, startedAt, sessionSource);
 
       return response;
     } catch (err) {
@@ -236,7 +328,7 @@ export const RecommendationProvider = ({ children }) => {
     } finally {
       setLoading(false);
     }
-  }, [preferences, sessionId, buildExcludedGameIds, startSession]);
+  }, [preferences, sessionId, sessionSource, buildExcludedGameIds, startSession]);
 
   /**
    * Reroll to get different recommendations
@@ -250,6 +342,7 @@ export const RecommendationProvider = ({ children }) => {
     setError(null);
 
     try {
+      const startedAt = Date.now();
       const response = await api.rerollRecommendations({
         time_available: preferences.timeAvailable,
         energy_mood: preferences.energyMood,
@@ -282,7 +375,9 @@ export const RecommendationProvider = ({ children }) => {
         mood: preferences.energyMood,
         is_reroll: true,
         result_count: response.recommendations.length,
+        pick_source: sessionSource,
       });
+      logRecommendationViewed(response.recommendations.length, startedAt, sessionSource);
 
       return response;
     } catch (err) {
@@ -291,7 +386,7 @@ export const RecommendationProvider = ({ children }) => {
     } finally {
       setLoading(false);
     }
-  }, [preferences, sessionId, buildExcludedGameIds, getRecommendations]);
+  }, [preferences, sessionId, sessionSource, buildExcludedGameIds, getRecommendations]);
 
   /**
    * Accept a recommendation
@@ -300,17 +395,27 @@ export const RecommendationProvider = ({ children }) => {
    */
   const acceptRecommendation = useCallback(
     async (gameId, gameTitle = null) => {
+      // THE activation event: fires on the tap, whether or not the
+      // history write below succeeds.
+      const rank = recommendations.findIndex((r) => r.game_id === gameId) + 1;
+      logEvent('game_selected', {
+        game_id: gameId,
+        ...(rank > 0 && { rank }),
+        minutes: preferences.timeAvailable,
+        mood: preferences.energyMood,
+        pick_source: sessionSource,
+      });
       try {
         await api.acceptRecommendation(gameId, sessionId, gameTitle);
         // Increment history version to trigger refresh in HistoryScreen
         setHistoryVersion((v) => v + 1);
-        logEvent('rec_accepted', { game_id: gameId });
+        logEvent('rec_accepted', { game_id: gameId, pick_source: sessionSource });
         return true;
       } catch (err) {
         return false;
       }
     },
-    [sessionId]
+    [sessionId, sessionSource, recommendations, preferences]
   );
 
   /**
@@ -498,6 +603,7 @@ export const RecommendationProvider = ({ children }) => {
     resetPreferences,
     seedFromGame,
     startSession,
+    startTonightSession,
     getRecommendations,
     reroll,
     acceptRecommendation,

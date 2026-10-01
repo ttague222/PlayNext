@@ -37,6 +37,8 @@ import { useAuth } from '../context/AuthContext';
 import { usePremium } from '../context/PremiumContext';
 import api from '../services/api';
 import { registerForPushNotifications, unregisterFromPushNotifications } from '../services/notificationService';
+import { getReminderSettings, setReminder, DEFAULT_REMINDER_TIME } from '../services/tonightService';
+import { logEvent } from '../services/analyticsService';
 
 const NOTIFICATIONS_ENABLED_KEY = '@playnxt_notifications_enabled';
 
@@ -77,6 +79,42 @@ const ProfileScreen = () => {
       setNotificationsEnabled(v === 'true');
     })();
   }, []);
+
+  // Tonight's Picks reminder (local notification, independent of push)
+  const [tonightReminder, setTonightReminder] = useState({ enabled: false, time: DEFAULT_REMINDER_TIME });
+  const [tonightReminderBusy, setTonightReminderBusy] = useState(false);
+
+  useEffect(() => {
+    getReminderSettings().then(setTonightReminder).catch(() => {});
+  }, []);
+
+  const REMINDER_TIMES = [
+    { label: '6 PM', value: '18:00' },
+    { label: '7 PM', value: '19:00' },
+    { label: '8 PM', value: '20:00' },
+    { label: '9 PM', value: '21:00' },
+    { label: '10 PM', value: '22:00' },
+  ];
+
+  const applyTonightReminder = async (enabled, time) => {
+    if (tonightReminderBusy) return;
+    setTonightReminderBusy(true);
+    try {
+      const result = await setReminder(enabled, time);
+      if (result.permissionDenied) {
+        Alert.alert(
+          'Notifications blocked',
+          'Enable notifications for PlayNxt in your device Settings to get the nightly reminder.'
+        );
+      }
+      setTonightReminder({ enabled: !!result.enabled, time: result.time || time });
+      logEvent('tonight_reminder_set', { enabled: !!result.enabled });
+    } catch (e) {
+      // Native scheduling failure: leave state as-is, no crash
+    } finally {
+      setTonightReminderBusy(false);
+    }
+  };
 
   const handleNotificationsToggle = async (next) => {
     if (notificationsBusy) return;
@@ -128,7 +166,7 @@ const ProfileScreen = () => {
   };
 
   const handleUpgrade = () => {
-    navigation.navigate('Premium');
+    navigation.navigate('Premium', { source: 'profile' });
   };
 
   const handleRestore = async () => {
@@ -332,15 +370,52 @@ const ProfileScreen = () => {
           {/* Notifications Section */}
           {renderSection(
             'Notifications',
-            <View style={styles.menuItem}>
-              <Ionicons name="notifications-outline" size={22} color="#808080" />
-              <Text style={[styles.menuItemText, { flex: 1 }]}>Weekly digest</Text>
-              <Switch
-                value={notificationsEnabled}
-                onValueChange={handleNotificationsToggle}
-                disabled={notificationsBusy}
-              />
-            </View>
+            <>
+              <View style={styles.menuItem}>
+                <Ionicons name="notifications-outline" size={22} color="#808080" />
+                <Text style={[styles.menuItemText, { flex: 1 }]}>Weekly digest</Text>
+                <Switch
+                  value={notificationsEnabled}
+                  onValueChange={handleNotificationsToggle}
+                  disabled={notificationsBusy}
+                />
+              </View>
+              <View style={styles.menuItem}>
+                <Ionicons name="moon-outline" size={22} color="#808080" />
+                <Text style={[styles.menuItemText, { flex: 1 }]}>Nightly picks reminder</Text>
+                <Switch
+                  value={tonightReminder.enabled}
+                  onValueChange={(next) => applyTonightReminder(next, tonightReminder.time)}
+                  disabled={tonightReminderBusy}
+                />
+              </View>
+              {tonightReminder.enabled && (
+                <View style={styles.reminderTimesRow}>
+                  {REMINDER_TIMES.map((t) => (
+                    <TouchableOpacity
+                      key={t.value}
+                      style={[
+                        styles.timeChip,
+                        tonightReminder.time === t.value && styles.timeChipActive,
+                      ]}
+                      onPress={() => applyTonightReminder(true, t.value)}
+                      disabled={tonightReminderBusy}
+                      accessibilityRole="button"
+                      accessibilityState={{ selected: tonightReminder.time === t.value }}
+                    >
+                      <Text
+                        style={[
+                          styles.timeChipText,
+                          tonightReminder.time === t.value && styles.timeChipTextActive,
+                        ]}
+                      >
+                        {t.label}
+                      </Text>
+                    </TouchableOpacity>
+                  ))}
+                </View>
+              )}
+            </>
           )}
 
           {/* Default Preferences Section */}
@@ -702,6 +777,30 @@ const styles = StyleSheet.create({
   },
   optionTextSelected: {
     color: '#ffffff',
+  },
+  reminderTimesRow: {
+    flexDirection: 'row',
+    gap: 8,
+    paddingHorizontal: 16,
+    paddingVertical: 12,
+    flexWrap: 'wrap',
+  },
+  timeChip: {
+    paddingVertical: 6,
+    paddingHorizontal: 12,
+    borderRadius: 16,
+    backgroundColor: 'rgba(255, 255, 255, 0.05)',
+  },
+  timeChipActive: {
+    backgroundColor: '#e94560',
+  },
+  timeChipText: {
+    color: '#808080',
+    fontSize: 13,
+  },
+  timeChipTextActive: {
+    color: '#ffffff',
+    fontWeight: '600',
   },
   appInfo: {
     alignItems: 'center',
