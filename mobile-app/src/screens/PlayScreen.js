@@ -191,18 +191,22 @@ const PlayScreen = () => {
     handleStart(); // same entry as the hero CTA: completing the flow rewrites context + cache
   };
 
-  // Notification deep link: open tonight's picks as soon as they're available.
-  // The notification sender passes `openTonight` as a nonce (e.g. Date.now())
-  // so a re-tap of the same notification re-fires; clear the param once
-  // consumed so remounts/re-renders don't replay it.
+  // Deep link (nightly reminder, What's New): open tonight's picks as soon as
+  // they're available. The sender passes `openTonight` as a nonce (e.g.
+  // Date.now()) so a re-tap of the same link re-fires, plus an optional
+  // `openTonightVia` for analytics; both are cleared once consumed so
+  // remounts/re-renders don't replay it. With no picks yet (no finished
+  // session to learn from), start the quiz instead of landing on nothing.
   useEffect(() => {
     if (!route?.params?.openTonight) return;
+    const via = route.params.openTonightVia || 'notification';
     (async () => {
       try {
         const cache = tonightStatus === 'ready' && tonightCache ? tonightCache : await loadTonight();
-        if (cache) await openTonight(cache, 'notification');
+        if (cache) await openTonight(cache, via);
+        else handleStart();
       } finally {
-        navigation.setParams({ openTonight: undefined });
+        navigation.setParams({ openTonight: undefined, openTonightVia: undefined });
       }
     })();
     // eslint-disable-next-line react-hooks/exhaustive-deps
@@ -281,21 +285,24 @@ const PlayScreen = () => {
             />
           )}
 
-          {/* Feature Pills */}
-          <View style={styles.features}>
-            <View style={styles.featurePill}>
-              <Ionicons name="time-outline" size={16} color="#a78bfa" />
-              <Text style={styles.featureText}>Time-matched</Text>
+          {/* Feature Pills: the Tonight card replaces them once it shows (the
+              screen would overflow into the stats bar with both) */}
+          {tonightStatus === 'hidden' && (
+            <View style={styles.features}>
+              <View style={styles.featurePill}>
+                <Ionicons name="time-outline" size={16} color="#a78bfa" />
+                <Text style={styles.featureText}>Time-matched</Text>
+              </View>
+              <View style={styles.featurePill}>
+                <Ionicons name="heart-outline" size={16} color="#f472b6" />
+                <Text style={styles.featureText}>Mood-based</Text>
+              </View>
+              <View style={styles.featurePill}>
+                <Ionicons name="flash-outline" size={16} color="#fbbf24" />
+                <Text style={styles.featureText}>Instant</Text>
+              </View>
             </View>
-            <View style={styles.featurePill}>
-              <Ionicons name="heart-outline" size={16} color="#f472b6" />
-              <Text style={styles.featureText}>Mood-based</Text>
-            </View>
-            <View style={styles.featurePill}>
-              <Ionicons name="flash-outline" size={16} color="#fbbf24" />
-              <Text style={styles.featureText}>Instant</Text>
-            </View>
-          </View>
+          )}
         </ScrollView>
 
         {/* Bottom Stats */}

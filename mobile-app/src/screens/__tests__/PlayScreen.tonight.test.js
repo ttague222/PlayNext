@@ -103,7 +103,39 @@ it('clears the openTonight route param after consuming it', async () => {
   getCachedPicks.mockResolvedValue(CACHE);
   await render(<PlayScreen />);
   await waitFor(() => expect(mockNavigate).toHaveBeenCalledWith('Results'));
-  expect(mockSetParams).toHaveBeenCalledWith({ openTonight: undefined });
+  expect(mockSetParams).toHaveBeenCalledWith({ openTonight: undefined, openTonightVia: undefined });
+});
+
+it('hides the feature pills while the Tonight card is showing', async () => {
+  getLastContext.mockResolvedValue(CONTEXT);
+  getCachedPicks.mockResolvedValue(CACHE);
+  const { getByText, queryByText } = await render(<PlayScreen />);
+  await waitFor(() => getByText("Tonight's Picks"));
+  expect(queryByText('Time-matched')).toBeNull();
+});
+
+it('keeps the feature pills when there is no Tonight card', async () => {
+  getLastContext.mockResolvedValue(null);
+  const { findByText } = await render(<PlayScreen />);
+  await findByText('Time-matched');
+});
+
+it("What's New link opens tonight's picks and tags the view", async () => {
+  mockRouteParams = { openTonight: 'whats_new', openTonightVia: 'whats_new' };
+  getLastContext.mockResolvedValue(CONTEXT);
+  getCachedPicks.mockResolvedValue(CACHE);
+  await render(<PlayScreen />);
+  await waitFor(() => expect(mockNavigate).toHaveBeenCalledWith('Results'));
+  expect(logEvent).toHaveBeenCalledWith('tonight_picks_viewed', { via: 'whats_new' });
+  expect(mockSetParams).toHaveBeenCalledWith({ openTonight: undefined, openTonightVia: undefined });
+});
+
+it("What's New link starts the quiz when there are no picks yet", async () => {
+  mockRouteParams = { openTonight: 'whats_new', openTonightVia: 'whats_new' };
+  getLastContext.mockResolvedValue(null);
+  await render(<PlayScreen />);
+  await waitFor(() => expect(mockNavigate).toHaveBeenCalledWith('TimeSelect'));
+  expect(mockStartTonightSession).not.toHaveBeenCalled();
 });
 
 // History note: firing two rapid UNFLUSHED fireEvent.press calls in this
