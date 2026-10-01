@@ -175,8 +175,8 @@ class TestRecommendationService:
         )
 
         games = [
-            {**sample_games[0], "subscription_services": ["gamepass"], "stop_friendliness": "checkpoints", "time_to_fun": "medium"},
-            {**sample_games[1], "subscription_services": [], "stop_friendliness": "checkpoints", "time_to_fun": "medium"},
+            {**sample_games[0], "subscription_services": ["gamepass"], "stop_friendliness": "checkpoints", "time_to_fun": "medium", "mood_tags": []},
+            {**sample_games[1], "subscription_services": [], "stop_friendliness": "checkpoints", "time_to_fun": "medium", "mood_tags": []},
         ]
 
         # Patch out the random variety factor so the test isolates the
@@ -1088,10 +1088,12 @@ class TestWhyNotFreeTierLearning:
 
     def test_free_profile_boosts_matching_game(self, service):
         """Free positive nudge lifts tag matches - no favor_history flag."""
-        match = self._game("match", ["cozy"], ["relaxing"])
-        other = self._game("other", ["shooter"], ["intense"])
+        # Mood tags are mood-neutral for CASUAL so mood-tag affinity
+        # doesn't separate the two games.
+        match = self._game("match", ["cozy"], ["nostalgic"])
+        other = self._game("other", ["shooter"], ["anime"])
         request = RecommendationRequest(time_available=30, energy_mood=EnergyMood.CASUAL)
-        profile = {"genres": {"cozy": 3}, "moods": {"relaxing": 2}}
+        profile = {"genres": {"cozy": 3}, "moods": {"nostalgic": 2}}
 
         with patch("src.services.recommendation_service.random.uniform", return_value=0.0):
             scored = service._score_games([match, other], request, free_profile=profile)
@@ -1101,10 +1103,12 @@ class TestWhyNotFreeTierLearning:
 
     def test_avoid_profile_penalizes_matching_game(self, service):
         """Tags from rejected games drag lookalikes down for everyone."""
-        similar = self._game("similar", ["horror"], ["intense"])
-        neutral = self._game("neutral", ["puzzle"], ["relaxing"])
+        # Mood tags are mood-neutral for CASUAL so mood-tag affinity
+        # doesn't separate the two games.
+        similar = self._game("similar", ["horror"], ["gothic"])
+        neutral = self._game("neutral", ["puzzle"], ["retro"])
         request = RecommendationRequest(time_available=30, energy_mood=EnergyMood.CASUAL)
-        avoid = {"genres": {"horror": 2}, "moods": {"intense": 2}}
+        avoid = {"genres": {"horror": 2}, "moods": {"gothic": 2}}
 
         with patch("src.services.recommendation_service.random.uniform", return_value=0.0):
             scored = service._score_games([similar, neutral], request, avoid_profile=avoid)

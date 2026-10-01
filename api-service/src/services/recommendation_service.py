@@ -48,6 +48,59 @@ MOOD_TO_ENERGY = {
     EnergyMood.INTENSE: EnergyLevel.HIGH,
 }
 
+# Mood-tag affinity. MOOD_TO_ENERGY is a yes/no check every strong pick
+# passes, so on its own it left 100+ games tied at a 100% match. mood_tags
+# (on every catalog game, 272-tag vocabulary) grade how well a game's feel
+# fits the requested mood. Only tags that exist in the catalog are listed;
+# vague ones ("fun", "immersive", "nostalgic") are deliberately left out.
+MOOD_TAG_AFFINITY = {
+    EnergyMood.WIND_DOWN: frozenset({
+        "relaxing", "peaceful", "zen", "cozy", "meditative", "contemplative",
+        "wholesome", "heartwarming", "beautiful", "atmospheric", "dreamlike",
+        "whimsical", "charming", "artistic",
+    }),
+    EnergyMood.CASUAL: frozenset({
+        "charming", "cozy", "relaxing", "cute", "funny", "humorous", "silly",
+        "quirky", "lighthearted", "whimsical", "colorful", "joyful", "wholesome",
+        "hilarious", "family-friendly", "casual", "accessible", "social",
+        "heartwarming", "satisfying",
+    }),
+    EnergyMood.FOCUSED: frozenset({
+        "strategic", "thoughtful", "tactical", "clever", "challenging", "complex",
+        "cerebral", "thought-provoking", "mind-bending", "brain-teasing", "deep",
+        "precise", "technical", "rewarding", "satisfying", "mysterious", "focused",
+        "story-rich", "philosophical",
+    }),
+    EnergyMood.INTENSE: frozenset({
+        "intense", "action-packed", "tense", "exciting", "fast", "fast-paced",
+        "competitive", "challenging", "chaotic", "epic", "brutal", "thrilling",
+        "explosive", "aggressive", "terrifying", "scary", "over-the-top",
+    }),
+}
+# Tags that work against the requested mood (a "competitive" golf game for
+# a wind-down session).
+MOOD_TAG_CLASH = {
+    EnergyMood.WIND_DOWN: frozenset({
+        "intense", "tense", "scary", "terrifying", "creepy", "stressful", "chaotic",
+        "competitive", "brutal", "frustrating", "aggressive", "action-packed",
+        "fast-paced", "fast", "disturbing", "explosive",
+    }),
+    EnergyMood.CASUAL: frozenset({
+        "brutal", "terrifying", "stressful", "frustrating", "disturbing", "complex",
+        "tense", "scary", "creepy",
+    }),
+    EnergyMood.FOCUSED: frozenset({"chaotic", "silly", "over-the-top"}),
+    EnergyMood.INTENSE: frozenset({
+        "relaxing", "peaceful", "zen", "cozy", "meditative", "wholesome", "contemplative",
+    }),
+}
+MOOD_TAG_AFFINITY_MAX = 0.15
+# Affinity is the share of a game's mood_tags that are on-mood, with the
+# denominator floored here so one lucky tag can't earn full affinity.
+MOOD_TAG_MIN_DENOMINATOR = 3
+MOOD_TAG_CLASH_PENALTY = 0.05
+MOOD_TAG_CLASH_CAP = 0.10
+
 # Mapping from session type to multiplayer modes
 SESSION_TO_MULTIPLAYER = {
     SessionType.SOLO: [MultiplayerMode.SOLO],
@@ -605,6 +658,8 @@ class RecommendationService:
                 genres = [s.value for s in play_styles]
 
         req_platforms = request.platforms or ([request.platform] if request.platform else None)
+        on_mood_tags = MOOD_TAG_AFFINITY.get(request.energy_mood, frozenset())
+        clash_mood_tags = MOOD_TAG_CLASH.get(request.energy_mood, frozenset())
 
         # Time-affinity ceiling is POOL-relative, not request-relative: the
         # full 0.1 is only attainable when some candidate's time_tags can
@@ -622,14 +677,17 @@ class RecommendationService:
         # fit_max: the maximum deterministic request-fit points achievable
         # for THIS request context, used to normalize the display match %
         # (see fit_points below). Identical for every game in this call.
-        fit_max = 0.25 + 0.2 + 0.2 + 0.1  # stop + time-to-fun + mood + subscription
+        # Subscription availability and multi-platform reach are ranking-only
+        # (see below), so they are not part of fit_max either.
+        fit_max = 0.25 + 0.2 + 0.2 + MOOD_TAG_AFFINITY_MAX  # stop + time-to-fun + mood + mood tags
         if genres:
             fit_max += 0.15
         if taste_profile and request.favor_history:
             fit_max += 0.15
         if free_profile:
             fit_max += FREE_TASTE_CAP
-        fit_max += 0.1 if req_platforms else 0.05
+        if req_platforms:
+            fit_max += 0.1
         if request.time_available and best_depth:
             fit_max += 0.1 * (best_depth / request.time_available)
 
@@ -654,6 +712,14 @@ class RecommendationService:
             target_energy = MOOD_TO_ENERGY.get(request.energy_mood)
             if target_energy and game.get("energy_level") == target_energy.value:
                 score += 0.2
+
+            # Mood-tag affinity (0-0.15) minus clash penalty (0-0.10)
+            game_mood_tags = set(game.get("mood_tags") or [])
+            if game_mood_tags:
+                on_mood = len(game_mood_tags & on_mood_tags)
+                score += MOOD_TAG_AFFINITY_MAX * on_mood / max(len(game_mood_tags), MOOD_TAG_MIN_DENOMINATOR)
+                clashes = len(game_mood_tags & clash_mood_tags)
+                score -= min(clashes * MOOD_TAG_CLASH_PENALTY, MOOD_TAG_CLASH_CAP)
 
             # Genre match boost (0-0.15)
             # Supports new genres field and legacy play_styles.
@@ -708,13 +774,6 @@ class RecommendationService:
                 platform_values = [p.value for p in req_platforms]
                 if any(p in game_platforms for p in platform_values):
                     score += 0.1
-            elif len(game_platforms) >= 2:
-                # Bonus for multi-platform games when no platform specified
-                score += 0.05
-
-            # Subscription availability boost (0-0.1)
-            if game.get("subscription_services"):
-                score += 0.1
 
             # Time affinity boost (0-0.1): reward depth that matches the
             # session length. Short games legitimately pass the time filter
@@ -730,20 +789,31 @@ class RecommendationService:
                 score += 0.1 * (depth / request.time_available)
 
             # fit_points: the deterministic request-fit boosts accumulated so
-            # far (stop, time-to-fun, mood, genre, taste, free nudge, avoid
-            # penalty, platform, subscription, time affinity) — everything
-            # above this line, and nothing below it. This deliberately
-            # excludes the random variety term added next, and excludes
+            # far (stop, time-to-fun, mood, mood-tag affinity and clash, genre,
+            # taste, free nudge, avoid penalty, requested platform, time
+            # affinity) — everything above
+            # this line, and nothing below it. This deliberately excludes the
+            # ranking-only boosts and random variety term added next, and
             # ranking-only adjustments applied outside this method (surprise
             # mode's indie/popularity boosts, BACKLOG_NEVER_PLAYED_BOOST).
             fit_points = score
+
+            # Ranking-only boosts: being on a subscription or on several
+            # platforms makes a pick easier to act on, but says nothing about
+            # fit to the request. Counting them in the match % inflated the
+            # 100% tier (2026-09-30: 85% of returned picks showed 100%).
+            if len(game_platforms) >= 2 and not req_platforms:
+                score += 0.05  # multi-platform reach (0-0.05)
+            if game.get("subscription_services"):
+                score += 0.1  # subscription availability (0-0.1)
 
             # Add randomness so near-ties shuffle between rerolls.
             score += random.uniform(0, RANDOM_VARIETY_RANGE)
 
             # The ranking score is deliberately UNCAPPED. The deterministic
-            # boosts above total 1.10 (1.20 with the free-tier nudge, 1.25 with
-            # the premium taste profile; the avoid penalty can subtract 0.10),
+            # boosts above total 1.25 (1.35 with the free-tier nudge, 1.40 with
+            # the premium taste profile; the avoid penalty and mood-tag clash
+            # can each subtract 0.10),
             # so clamping here pinned every strong match to exactly 1.0 and let
             # weaker games tie them. Ranking stays uncapped; the displayed
             # match % instead uses `match_ratio` below, normalized against
