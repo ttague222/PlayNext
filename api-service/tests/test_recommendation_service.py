@@ -483,9 +483,12 @@ class TestBuildRecommendation:
 
         rec = service._build_recommendation(sample_game, request)
 
-        # Should generate default explanation
-        assert "30-minute" in rec.explanation.summary
-        assert "casual" in rec.explanation.summary
+        # Should generate an explanation from catalog fields, not the old
+        # "Fits a casual 30-minute session." filler (GAME-CARD-REFRESH P0.2)
+        assert rec.explanation.style_fit
+        assert rec.explanation.stop_fit
+        assert "30 minutes" in rec.explanation.stop_fit
+        assert "minute session" not in rec.explanation.summary
 
 
 class TestPremiumFilters:
