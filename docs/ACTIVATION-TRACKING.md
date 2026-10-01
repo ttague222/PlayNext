@@ -65,17 +65,20 @@ Naming: `utm_source` = `scenario-pages | reddit | creator | newsletter`,
 The scenario page builds its own link from `campaign` in
 `playnxt-web/api/_scenarios.js`.
 
-### App Store (create in App Store Connect)
+### App Store (ready)
 
-App Analytics > Campaigns, one per row. Paste the scenario one into
-`iosCampaignUrl` in `playnxt-web/api/_scenarios.js`; until then the page uses
-the plain App Store URL.
+Provider token `128357651` is fixed for the account; a new campaign is the
+same URL with a different `ct`. No setup needed in App Store Connect, results
+show under Analytics > Acquisition > Campaigns once traffic arrives.
 
-| Campaign name | Placement |
+| Placement | URL |
 |---|---|
-| `playnxt-30min-lowenergy` | Scenario page CTA |
-| `playnxt-community` | Reddit / community |
-| `playnxt-challenge` | Creator outreach |
+| Scenario page, 30 min low energy | `https://apps.apple.com/app/apple-store/id6757089064?pt=128357651&ct=playnxt-30min-lowenergy&mt=8` |
+| Reddit / community | `https://apps.apple.com/app/apple-store/id6757089064?pt=128357651&ct=playnxt-community&mt=8` |
+| Creator outreach | `https://apps.apple.com/app/apple-store/id6757089064?pt=128357651&ct=playnxt-challenge&mt=8` |
+
+New scenario pages: put the link in `iosCampaignUrl` in
+`playnxt-web/api/_scenarios.js` (falls back to the plain App Store URL).
 
 ## Code
 
