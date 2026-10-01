@@ -260,9 +260,15 @@ TIME_TO_FUN_CLAUSES = {
     TimeToFun.LONG.value: "that rewards time spent learning it",
 }
 
+# The longest time option is "2+ hours / Deep dive", sent as 120. It is
+# open-ended, so bullets call it a long session instead of "120 minutes".
+LONG_SESSION_MINUTES = 120
+
 # (generic phrasing, phrasing naming the game via {thing}). The second form
 # keeps the bullet unique when another pick in the response shares this
-# stop_friendliness value.
+# stop_friendliness value. Templates are written already capitalized:
+# formatting must never re-case {thing}, which may be a title like
+# "eFootball". A leading {thing} is filled with "This <noun>" or the title.
 STOP_TEMPLATES = {
     StopFriendliness.ANYTIME.value: (
         "Saves anytime, so you can stop the moment your {time} minutes are up.",
@@ -277,6 +283,20 @@ STOP_TEMPLATES = {
         "{thing} plays best in one sitting, so plan to use all {time} minutes.",
     ),
 }
+LONG_SESSION_STOP_TEMPLATES = {
+    StopFriendliness.ANYTIME.value: (
+        "Saves anytime, so a long session can end whenever you're ready.",
+        "Saves anytime, so you can put {thing} down whenever your long session ends.",
+    ),
+    StopFriendliness.CHECKPOINTS.value: (
+        "Regular checkpoints, so a long session can end at any natural break.",
+        "Regular checkpoints, so you can leave {thing} at any natural break in a long session.",
+    ),
+    StopFriendliness.COMMITMENT.value: (
+        "Plays best in one long sitting, which a deep-dive session has room for.",
+        "{thing} plays best in one long sitting, which a deep-dive session has room for.",
+    ),
+}
 
 
 def _normalize_bullet(text: str) -> str:
@@ -284,8 +304,12 @@ def _normalize_bullet(text: str) -> str:
 
     Collapsing punctuation means "Save and quit whenever - no progress lost."
     and "Save and quit whenever: no progress lost!" count as the same bullet.
+    Curly apostrophes fold to straight ones ("You’ll" == "You'll") and the
+    Unicode word class keeps accented letters inside a word ("Pokémon", not
+    "pok mon").
     """
-    return " ".join(re.findall(r"[a-z0-9{}']+", text.lower()))
+    text = text.lower().replace("\u2019", "'").replace("\u2018", "'")
+    return " ".join(re.findall(r"[\w{}']+", text))
 
 
 def _with_article(phrase: str) -> str:
@@ -337,17 +361,40 @@ def generate_bullets(game: dict, time_available: int) -> dict[str, list[str]]:
     style = [f"{d[0].upper()}{d[1:]} {clause}." for d in descriptions]
     style.append(f"{title} is {descriptions[0]} {clause}.")
 
-    generic, named = STOP_TEMPLATES.get(
-        game.get("stop_friendliness"), STOP_TEMPLATES[StopFriendliness.CHECKPOINTS.value]
+    templates = (
+        LONG_SESSION_STOP_TEMPLATES if time_available >= LONG_SESSION_MINUTES else STOP_TEMPLATES
     )
-    this_noun = f"this {noun}"
+    generic, named = templates.get(
+        game.get("stop_friendliness"), templates[StopFriendliness.CHECKPOINTS.value]
+    )
+    this_noun = f"{'This' if named.startswith('{thing}') else 'this'} {noun}"
     stop = [
         generic.format(time=time_available),
         named.format(thing=this_noun, time=time_available),
         named.format(thing=title, time=time_available),
     ]
-    stop = [s[0].upper() + s[1:] for s in stop]
     return {"style_fit": style, "stop_fit": stop}
+
+
+def display_order(games: list[dict]) -> list[dict]:
+    """Order picks for display by match % (the number each card shows).
+
+    Picks are chosen by ranking score, which includes ranking-only boosts
+    (subscription, multi-platform) and the random variety term, so score
+    order could put an 86% card labeled TOP PICK above a 96% one. Stable, so
+    equal match % keeps ranking order.
+    """
+    return sorted(games, key=lambda g: g.get("match_ratio", g.get("score", 0.0)), reverse=True)
+
+
+def unmatched_mood_tags(games: list[dict]) -> set[str]:
+    """Tags in MOOD_TAG_AFFINITY / MOOD_TAG_CLASH that no catalog game carries.
+
+    A renamed catalog tag would otherwise silently stop matching.
+    """
+    mapped = set().union(*MOOD_TAG_AFFINITY.values(), *MOOD_TAG_CLASH.values())
+    present = {t for g in games or [] for t in (g.get("mood_tags") or [])}
+    return mapped - present
 
 
 def count_template_share(games: list[dict]) -> dict[str, int]:
@@ -408,6 +455,7 @@ class RecommendationService:
         self._games_cache: Optional[list[dict]] = None
         self._games_cache_at: float = 0.0
         self._template_share: dict[str, int] = {}
+        self._warned_unmatched_tags: frozenset = frozenset()
 
     async def get_recommendations(
         self,
@@ -551,14 +599,23 @@ class RecommendationService:
         if request.discovery_mode == DiscoveryMode.SURPRISE:
             scored_games = await self._apply_surprise_boost(scored_games, user_id)
 
-        # Sort by score and take top 3, ensuring franchise diversity
+        # Pick by ranking score (top 3, or `limit`), ensuring franchise
+        # diversity, then show them highest match % first.
         scored_games.sort(key=lambda x: x["score"], reverse=True)
-        top_games = self._ensure_franchise_diversity(scored_games, settings.max_recommendations)
+        limit = request.limit or settings.max_recommendations
+        top_games = display_order(self._ensure_franchise_diversity(scored_games, limit))
 
         # Build recommendations — one shared used_bullets set so no two
         # games in this response show an identical explanation bullet.
+        # A swap (limit below a full set) replaces one card while the others
+        # stay on screen, so their possible bullets count as used too.
         owned_unplayed = library_data["owned_unplayed"] if library_data else None
         used_bullets: set = set()
+        if limit < settings.max_recommendations:
+            used_bullets = self._possible_bullets(
+                [games_by_id[gid] for gid in request.excluded_game_ids if gid in games_by_id],
+                request.time_available,
+            )
         recommendations = []
         for game in top_games:
             recommendations.append(
@@ -599,6 +656,7 @@ class RecommendationService:
             self._games_cache = games
             self._games_cache_at = now
             self._template_share = count_template_share(games)
+            self._warn_unmatched_mood_tags(games)
             return games
         except Exception as e:
             logger.error(f"Error fetching games: {e}")
@@ -606,6 +664,15 @@ class RecommendationService:
                 logger.warning("Serving stale games cache after fetch failure")
                 return self._games_cache
             return []
+
+    def _warn_unmatched_mood_tags(self, games: list[dict]) -> None:
+        missing = frozenset(unmatched_mood_tags(games))
+        if missing and missing != getattr(self, "_warned_unmatched_tags", frozenset()):
+            logger.warning(
+                "Mood-tag tables reference tags no catalog game carries: %s",
+                ", ".join(sorted(missing)),
+            )
+        self._warned_unmatched_tags = missing
 
     async def _filter_games(
         self,
@@ -1323,6 +1390,27 @@ class RecommendationService:
         # No franchise pattern detected
         return None
 
+    def _possible_bullets(self, games: list[dict], time_available: int) -> set:
+        """Normalized text of every bullet these games could have shown.
+
+        The client's excluded ids include every game shown this session, not
+        just the cards on screen, and a card's exact variant depended on its
+        original response. Blocking every candidate guarantees no repeat;
+        the cost is that a swap card more often gets a game-named variant.
+        """
+        share = getattr(self, "_template_share", None) or {}
+        possible: set = set()
+        for game in games:
+            for text in (game.get("explanation_templates") or {}).values():
+                if (
+                    isinstance(text, str) and text.strip()
+                    and share.get(_normalize_bullet(text), 0) <= MAX_TEMPLATE_SHARE
+                ):
+                    possible.add(_normalize_bullet(text.replace("{time}", str(time_available))))
+            for candidates in generate_bullets(game, time_available).values():
+                possible.update(_normalize_bullet(c) for c in candidates)
+        return possible
+
     def _select_explanation_fields(
         self, templates: dict, used: set, time_available: Optional[int] = None
     ) -> list:
@@ -1403,7 +1491,12 @@ class RecommendationService:
         # rec has a clear explanation). Only reachable if two picks share a
         # title, since the title variants are otherwise unique.
         if not any(field in RENDERABLE_EXPLANATION_FIELDS for field, _ in selected):
-            selected = [("style_fit", generated["style_fit"][-1])] + selected[: MAX_EXPLANATION_BULLETS - 1]
+            fallback = generated["style_fit"][-1]
+            selected = [("style_fit", fallback)] + selected
+            for _, dropped in selected[MAX_EXPLANATION_BULLETS:]:
+                used_bullets.discard(_normalize_bullet(dropped))
+            selected = selected[:MAX_EXPLANATION_BULLETS]
+            used_bullets.add(_normalize_bullet(fallback))
 
         selected.sort(key=lambda pair: EXPLANATION_FIELD_PRIORITY.index(pair[0]))
         emitted = {}
