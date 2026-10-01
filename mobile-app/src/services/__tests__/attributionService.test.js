@@ -76,13 +76,13 @@ describe('initAttribution', () => {
   it('Android: tags every event with the referrer source and logs app_first_open once', async () => {
     await initAttribution();
 
-    expect(setDefaultEventParams).toHaveBeenCalledWith({ source: 'scenario-pages' });
+    expect(setDefaultEventParams).toHaveBeenCalledWith({ install_source: 'scenario-pages' });
     expect(setUserProperty).toHaveBeenCalledWith('install_source', 'scenario-pages');
     expect(setUserProperty).toHaveBeenCalledWith('install_campaign', 'playnxt-30min-lowenergy');
     expect(logEvent).toHaveBeenCalledWith('app_first_open', {
       platform: 'android',
       app_version: '1.5.1',
-      source: 'scenario-pages',
+      install_source: 'scenario-pages',
     });
 
     // Second launch: same source, no second app_first_open
@@ -92,17 +92,17 @@ describe('initAttribution', () => {
     await initAttribution();
     expect(logEvent).not.toHaveBeenCalled();
     expect(Application.getInstallReferrerAsync).not.toHaveBeenCalled();
-    expect(setDefaultEventParams).toHaveBeenLastCalledWith({ source: 'scenario-pages' });
+    expect(setDefaultEventParams).toHaveBeenLastCalledWith({ install_source: 'scenario-pages' });
   });
 
   it('iOS: resolves to organic without touching the referrer API', async () => {
     Platform.OS = 'ios';
     await initAttribution();
     expect(Application.getInstallReferrerAsync).not.toHaveBeenCalled();
-    expect(setDefaultEventParams).toHaveBeenCalledWith({ source: 'organic' });
+    expect(setDefaultEventParams).toHaveBeenCalledWith({ install_source: 'organic' });
     expect(logEvent).toHaveBeenCalledWith(
       'app_first_open',
-      expect.objectContaining({ platform: 'ios', source: 'organic' })
+      expect.objectContaining({ platform: 'ios', install_source: 'organic' })
     );
   });
 
@@ -110,7 +110,7 @@ describe('initAttribution', () => {
     Application.getInstallationTimeAsync.mockResolvedValue(new Date(Date.now() - 30 * 86400000));
     await initAttribution();
     expect(logEvent).not.toHaveBeenCalled();
-    expect(setDefaultEventParams).toHaveBeenCalledWith({ source: 'scenario-pages' });
+    expect(setDefaultEventParams).toHaveBeenCalledWith({ install_source: 'scenario-pages' });
     expect(store['@playnxt_first_open_logged']).toBe('1');
   });
 

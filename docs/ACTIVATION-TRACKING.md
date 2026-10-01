@@ -9,25 +9,32 @@ Older events (`rec_requested`, `rec_accepted`, `share_completed`,
 
 | Event | Fires when | Params |
 |---|---|---|
-| `app_first_open` | First launch of a fresh install | `platform` ios/android, `app_version`, `source` |
+| `app_first_open` | First launch of a fresh install | `platform` ios/android, `app_version`, `install_source` |
 | `recommendation_started` | User submits time + mood (not on reroll) | `minutes`, `mood`, `platform_filter`, `library_mode` |
-| `recommendation_viewed` | A non-empty set of picks comes back (initial and reroll) | `result_count`, `latency_ms`, `source` |
+| `recommendation_viewed` | A non-empty set of picks comes back (initial and reroll) | `result_count`, `latency_ms`, `install_source` |
 | `game_selected` ⭐ | User taps "I'll play this!" on a pick | `game_id`, `rank` 1-3, `minutes`, `mood` |
 | `result_shared` | Share sheet completes | `surface` card/link, `scenario`, `game_count` |
 | `premium_purchase` | Unlock succeeds | `platform`, `entry_screen` |
 
-Every event logged after startup also carries `source` (set as a default event
-parameter), and the user has `install_source` / `install_campaign` user
-properties.
+Every event logged after startup also carries `install_source` (set as a
+default event parameter), and the user has `install_source` / `install_campaign`
+user properties. Register `install_source` as a custom dimension (event scope,
+and user scope for the property) in Firebase before the release ships;
+registration isn't retroactive.
 
 ## Where this differs from the brief, and why
+
+- **`source` is `install_source`.** Firebase predefines `source` as a
+  campaign-attribution param (`campaign_details`). Since this one rides on
+  every event, including automatic ones, reusing that name risks colliding
+  with GA4's own traffic attribution and its built-in Source dimension.
 
 - **`first_open` is `app_first_open`.** Firebase reserves `first_open` and logs
   it automatically; the SDK rejects a custom event with that name. Use the
   built-in `first_open` for raw install counts and `app_first_open` for the
   per-source split. Users upgrading from a build without this code don't fire
   it (install older than 24h), so it counts new installs only.
-- **iOS `source` is always `organic`.** App Store Connect campaign links report
+- **iOS `install_source` is always `organic`.** App Store Connect campaign links report
   inside App Store Connect only; iOS gives the app nothing to read. iOS
   channel comparison has to come from ASC's Campaigns report, and iOS
   "organic" includes campaign installs.
@@ -86,7 +93,7 @@ New scenario pages: put the link in `iosCampaignUrl` in
 
 ## Code
 
-- `mobile-app/src/services/attributionService.ts`: referrer parsing, `source`, `app_first_open`
+- `mobile-app/src/services/attributionService.ts`: referrer parsing, `install_source`, `app_first_open`
 - `mobile-app/src/context/RecommendationContext.js`: started, viewed, selected
 - `mobile-app/src/services/shareService.js`: result_shared
 - `mobile-app/src/context/PremiumContext.js`: premium_purchase

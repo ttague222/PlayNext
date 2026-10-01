@@ -113,7 +113,7 @@ describe('activation scoreboard events', () => {
     });
   });
 
-  it('recommendation_viewed fires for initial picks and rerolls, with source', async () => {
+  it('recommendation_viewed fires for initial picks and rerolls, with install_source', async () => {
     const result = await renderWithPrefs({ timeAvailable: 30, energyMood: 'wind_down' });
     await act(async () => {
       await result.current.getRecommendations();
@@ -127,7 +127,7 @@ describe('activation scoreboard events', () => {
     expect(first).toEqual({
       result_count: 3,
       latency_ms: expect.any(Number),
-      source: 'scenario-pages',
+      install_source: 'scenario-pages',
     });
     expect(second.result_count).toBe(2);
     // A reroll is not a new request: only one recommendation_started

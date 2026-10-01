@@ -23,7 +23,7 @@ const platformFilterParam = (platforms) =>
 
 const libraryModeParam = (prefs) => (prefs.libraryOnly ? 'steam_synced' : 'none');
 
-/** A valid set of picks is on screen; `source` rides along per the brief. */
+/** A valid set of picks is on screen; the install source rides along per the brief. */
 const logRecommendationViewed = (resultCount, startedAt) => {
   if (!resultCount) return;
   const latencyMs = Date.now() - startedAt;
@@ -31,7 +31,7 @@ const logRecommendationViewed = (resultCount, startedAt) => {
     logEvent('recommendation_viewed', {
       result_count: resultCount,
       latency_ms: latencyMs,
-      source,
+      install_source: source,
     });
   });
 };

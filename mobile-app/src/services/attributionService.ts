@@ -2,14 +2,18 @@
  * Install attribution for the activation scoreboard.
  *
  * Resolves where this install came from once, persists it, and attaches it to
- * every analytics event as `source` so marketing can compare channels by
+ * every analytics event as `install_source` so marketing can compare channels by
  * activated users. Android reads the Play Install Referrer (the `referrer`
  * param on tagged Play links). iOS has no in-app equivalent for App Store
  * Connect campaign links, so iOS installs always resolve to "organic".
  *
+ * The param is `install_source`, not the brief's `source`: Firebase predefines
+ * `source` as a campaign-attribution param (campaign_details), and this one
+ * rides on every event, so it must not collide with GA4's own attribution.
+ *
  * Also logs `app_first_open` once per install. Firebase reserves the name
  * `first_open` (it logs that one itself), so the custom twin carries the
- * brief's params: platform, app_version, source.
+ * brief's params: platform, app_version, install_source.
  */
 
 import { Platform } from 'react-native';
@@ -112,7 +116,7 @@ async function isNewInstall(): Promise<boolean> {
 }
 
 /**
- * Call once at app start. Tags all later events with `source` and logs
+ * Call once at app start. Tags all later events with `install_source` and logs
  * `app_first_open` on a fresh install. Never throws.
  */
 export async function initAttribution(): Promise<void> {
@@ -120,7 +124,7 @@ export async function initAttribution(): Promise<void> {
     if (!_attribution) _attribution = loadAttribution();
     const { source, campaign } = await _attribution;
 
-    setDefaultEventParams({ source });
+    setDefaultEventParams({ install_source: source });
     setUserProperty('install_source', source);
     if (campaign) setUserProperty('install_campaign', campaign);
 
@@ -129,7 +133,7 @@ export async function initAttribution(): Promise<void> {
       logEvent('app_first_open', {
         platform: Platform.OS,
         app_version: Application.nativeApplicationVersion || 'unknown',
-        source,
+        install_source: source,
       });
     }
     await AsyncStorage.setItem(FIRST_OPEN_LOGGED_KEY, '1');
