@@ -719,8 +719,9 @@ class TestScoreRankingAndVariety:
     def _good_not_perfect(self, base_game):
         """Scores 0.80: perfect fit minus the platform and subscription boosts.
 
-        The 0.20 gap against _perfect_fit is the discriminating case. The old
-        0.30 random range flipped it roughly 17% of the time; 0.15 cannot.
+        The 0.20 gap against _perfect_fit is the discriminating case. The
+        0.25 random range flips it about 2% of the time ((0.25-0.20)^2 /
+        (2 * 0.25^2)); 0.15 could not flip it at all.
         """
         return {
             **self._perfect_fit(base_game),
@@ -750,10 +751,12 @@ class TestScoreRankingAndVariety:
             platform=Platform.PC,
         )
 
-    def test_random_variety_range_is_small(self):
-        """Pin the constant. Widening it re-introduces bad-match promotion."""
+    def test_random_variety_range_is_pinned(self):
+        """Pin the constant. 0.25 was chosen from a live-catalog sweep (see the
+        comment on RANDOM_VARIETY_RANGE); widening it further promotes bad
+        matches, so change it deliberately, not as a side effect."""
         from src.services.recommendation_service import RANDOM_VARIETY_RANGE
-        assert RANDOM_VARIETY_RANGE == 0.15
+        assert RANDOM_VARIETY_RANGE == 0.25
 
     def test_ranking_score_is_uncapped(self, service, base_game):
         """A perfect fit must be able to exceed 1.0 so it can outrank others."""

@@ -95,7 +95,7 @@ class TestMatchRatio:
         assert ratios == {round(1.0, 12)}
         # Sanity: the ranking score really does include a random term, so this
         # test isn't accidentally checking two constants against each other.
-        # (RANDOM_VARIETY_RANGE=0.15 over 20 draws: collision odds are negligible.)
+        # (RANDOM_VARIETY_RANGE over 20 continuous draws: collision odds are negligible.)
         assert len(scores) > 1
 
     def test_denominator_grows_when_request_specifies_genres(self, svc):

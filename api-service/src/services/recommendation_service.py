@@ -37,9 +37,14 @@ logger = logging.getLogger("playnext-api.recommendation")
 # Mapping from user mood to game energy level
 # Width of the random variety term added to every ranking score.
 # Reroll freshness comes primarily from excluding already-shown games
-# (see _filter_games), not from this term. Keep it small: at 0.30 a game
-# fitting 0.20 worse still won ~17% of the time.
-RANDOM_VARIETY_RANGE = 0.15
+# (see _filter_games); this term spreads FIRST responses across near-fits.
+# A game fitting `gap` worse wins with probability (r - gap)^2 / (2 r^2):
+# at 0.25 that is ~2% for a 0.20 gap and ~18% for a 0.10 gap. Raised from
+# 0.15 when mood-tag affinity broke the old 100%-match ties: at 0.15 one
+# game took over half of fresh responses for 6-11 of 20 request types;
+# 0.25 matched the pre-affinity spread (2 of 20) while keeping match % <90%
+# for 22% of picks (2026-10-01 sweep, production catalog).
+RANDOM_VARIETY_RANGE = 0.25
 
 MOOD_TO_ENERGY = {
     EnergyMood.WIND_DOWN: EnergyLevel.LOW,
