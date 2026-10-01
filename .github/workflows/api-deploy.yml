@@ -11,6 +11,14 @@ on:
       - '.github/workflows/api-deploy.yml'
   workflow_dispatch:
 
+# One deploy at a time, newest wins. Two quick merges to main used to run
+# in parallel, so an older run could finish last and leave Cloud Run on the
+# older revision (2026-10-01, PRs #17 and #19). A running deploy is never
+# cancelled mid-rollout; GitHub keeps only the newest pending run behind it.
+concurrency:
+  group: api-deploy
+  cancel-in-progress: false
+
 env:
   PROJECT_ID: ${{ secrets.GCP_PROJECT_ID }}
   SERVICE: playnxt-api
