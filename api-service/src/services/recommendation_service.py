@@ -94,7 +94,9 @@ MOOD_TAG_CLASH = {
         "relaxing", "peaceful", "zen", "cozy", "meditative", "wholesome", "contemplative",
     }),
 }
-MOOD_TAG_AFFINITY_MAX = 0.15
+# 0.10 rather than 0.15: at 0.15 the most on-mood games won too often on a
+# fresh request (Tiny Bookshop in 31 of 40 for 15-minute wind-down).
+MOOD_TAG_AFFINITY_MAX = 0.10
 # Affinity is the share of a game's mood_tags that are on-mood, with the
 # denominator floored here so one lucky tag can't earn full affinity.
 MOOD_TAG_MIN_DENOMINATOR = 3
@@ -713,7 +715,7 @@ class RecommendationService:
             if target_energy and game.get("energy_level") == target_energy.value:
                 score += 0.2
 
-            # Mood-tag affinity (0-0.15) minus clash penalty (0-0.10)
+            # Mood-tag affinity (0-MOOD_TAG_AFFINITY_MAX) minus clash penalty (0-0.10)
             game_mood_tags = set(game.get("mood_tags") or [])
             if game_mood_tags:
                 on_mood = len(game_mood_tags & on_mood_tags)
@@ -811,7 +813,7 @@ class RecommendationService:
             score += random.uniform(0, RANDOM_VARIETY_RANGE)
 
             # The ranking score is deliberately UNCAPPED. The deterministic
-            # boosts above total 1.25 (1.35 with the free-tier nudge, 1.40 with
+            # boosts above total 1.20 (1.30 with the free-tier nudge, 1.35 with
             # the premium taste profile; the avoid penalty and mood-tag clash
             # can each subtract 0.10),
             # so clamping here pinned every strong match to exactly 1.0 and let

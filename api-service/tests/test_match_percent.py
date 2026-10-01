@@ -10,7 +10,10 @@ separate from the (unchanged, still-uncapped) ranking `score`.
 import pytest
 
 from src.models import EnergyMood, RecommendationRequest
-from src.services.recommendation_service import RecommendationService
+from src.services.recommendation_service import (
+    MOOD_TAG_AFFINITY_MAX as AFFINITY,
+    RecommendationService,
+)
 
 
 @pytest.fixture
@@ -28,10 +31,10 @@ def _perfect_game(game_id="perfect"):
     """Earns every fit point available to a no-genre, no-platform request.
 
     stop=anytime (+0.25), ttf=short (+0.2), energy_level=medium matches
-    FOCUSED (+0.2), every mood_tag on-mood for FOCUSED (+0.15),
-    time_tags reaching the full session length (+0.1). Total fit = 0.90,
-    and fit_max for this request (no genres, no taste/free profile, no
-    platform requested) is also 0.90. Its
+    FOCUSED (+0.2), every mood_tag on-mood for FOCUSED (+AFFINITY),
+    time_tags reaching the full session length (+0.1). Total fit =
+    0.75 + AFFINITY, and fit_max for this request (no genres, no
+    taste/free profile, no platform requested) is the same. Its
     subscription and 2+ platforms are ranking-only boosts that never
     count toward the match ratio.
     """
@@ -73,12 +76,12 @@ class TestMatchRatio:
         assert scored[0]["match_ratio"] == pytest.approx(1.0)
 
     def test_partial_fit_matches_computed_ratio(self, svc):
-        """0.25 earned out of a 0.80 denominator (no genres/taste/free/platform
+        """0.25 earned out of a 0.65 + AFFINITY denominator (no genres/taste/free/platform
         request; time component of fit_max is 0 here because nothing in this
         one-game pool has time_tags, so the pool-relative ceiling is 0 too).
         """
         scored = svc._score_games([_partial_game()], _request())
-        assert scored[0]["match_ratio"] == pytest.approx(0.25 / 0.80)
+        assert scored[0]["match_ratio"] == pytest.approx(0.25 / (0.65 + AFFINITY))
 
     def test_match_ratio_is_deterministic_despite_random_ranking_score(self, svc):
         """score varies run to run (random variety term); match_ratio must not."""
@@ -108,7 +111,7 @@ class TestMatchRatio:
         genre_ratio = svc._score_games([game], genre_request)[0]["match_ratio"]
 
         assert no_genre_ratio == pytest.approx(1.0)
-        assert genre_ratio == pytest.approx(0.90 / 1.05)
+        assert genre_ratio == pytest.approx((0.75 + AFFINITY) / (0.90 + AFFINITY))
         assert genre_ratio < no_genre_ratio
 
     def test_build_recommendation_uses_match_ratio_when_present(self, svc):
@@ -164,7 +167,7 @@ class TestMatchRatio:
         ratios = {g["game_id"]: g["match_ratio"] for g in scored}
 
         assert ratios["deep"] == pytest.approx(1.0)
-        assert ratios["shallow"] == pytest.approx(0.85 / 0.90)
+        assert ratios["shallow"] == pytest.approx((0.70 + AFFINITY) / (0.75 + AFFINITY))
         assert ratios["shallow"] < ratios["deep"]
 
 
@@ -204,7 +207,7 @@ class TestRankingOnlyBoosts:
         scored = {g["game_id"]: g for g in svc._score_games([on_xbox, off_xbox], request)}
 
         assert scored["on_xbox"]["match_ratio"] == pytest.approx(1.0)
-        assert scored["off_xbox"]["match_ratio"] == pytest.approx(0.90 / 1.00)
+        assert scored["off_xbox"]["match_ratio"] == pytest.approx((0.75 + AFFINITY) / (0.85 + AFFINITY))
 
 
 class TestMoodTagAffinity:
@@ -220,8 +223,8 @@ class TestMoodTagAffinity:
         half_on = self._ratio(svc, ["strategic", "thoughtful", "nostalgic", "colorful"])
         none_on = self._ratio(svc, ["nostalgic", "colorful", "retro", "anime"])
         assert all_on == pytest.approx(1.0)
-        assert half_on == pytest.approx((0.75 + 0.075) / 0.90)
-        assert none_on == pytest.approx(0.75 / 0.90)
+        assert half_on == pytest.approx((0.75 + AFFINITY / 2) / (0.75 + AFFINITY))
+        assert none_on == pytest.approx(0.75 / (0.75 + AFFINITY))
 
     def test_vague_tags_dilute_affinity(self, svc):
         """3 of 3 on-mood beats 3 of 6 on-mood."""
@@ -234,7 +237,7 @@ class TestMoodTagAffinity:
         can't outscore a game with three on-mood tags."""
         one_tag = self._ratio(svc, ["strategic"])
         three_tags = self._ratio(svc, ["strategic", "thoughtful", "clever"])
-        assert one_tag == pytest.approx((0.75 + 0.05) / 0.90)
+        assert one_tag == pytest.approx((0.75 + AFFINITY / 3) / (0.75 + AFFINITY))
         assert one_tag < three_tags
 
     def test_clashing_tags_are_penalized(self, svc):
@@ -252,7 +255,7 @@ class TestMoodTagAffinity:
         scored = {g["game_id"]: g for g in svc._score_games(
             [game, no_tags], _request(energy_mood=EnergyMood.WIND_DOWN))}
         gap = scored["no_tags"]["match_ratio"] - scored["perfect"]["match_ratio"]
-        assert gap * 0.90 == pytest.approx(MOOD_TAG_CLASH_CAP)
+        assert gap * (0.75 + AFFINITY) == pytest.approx(MOOD_TAG_CLASH_CAP)
 
     def test_every_request_mood_has_affinity_and_no_tag_is_both_on_and_clashing(self):
         from src.services.recommendation_service import MOOD_TAG_AFFINITY, MOOD_TAG_CLASH
@@ -267,4 +270,4 @@ class TestMoodTagAffinity:
         on = {**_perfect_game("on")}
         off = {**_perfect_game("off"), "mood_tags": ["nostalgic", "colorful", "retro"]}
         scored = {g["game_id"]: g for g in svc._score_games([on, off], _request())}
-        assert scored["on"]["score"] == pytest.approx(scored["off"]["score"] + 0.15)
+        assert scored["on"]["score"] == pytest.approx(scored["off"]["score"] + AFFINITY)
