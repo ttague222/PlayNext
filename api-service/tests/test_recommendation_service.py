@@ -175,8 +175,8 @@ class TestRecommendationService:
         )
 
         games = [
-            {**sample_games[0], "subscription_services": ["gamepass"], "stop_friendliness": "checkpoints", "time_to_fun": "medium"},
-            {**sample_games[1], "subscription_services": [], "stop_friendliness": "checkpoints", "time_to_fun": "medium"},
+            {**sample_games[0], "subscription_services": ["gamepass"], "stop_friendliness": "checkpoints", "time_to_fun": "medium", "mood_tags": []},
+            {**sample_games[1], "subscription_services": [], "stop_friendliness": "checkpoints", "time_to_fun": "medium", "mood_tags": []},
         ]
 
         # Patch out the random variety factor so the test isolates the
@@ -722,8 +722,9 @@ class TestScoreRankingAndVariety:
     def _good_not_perfect(self, base_game):
         """Scores 0.80: perfect fit minus the platform and subscription boosts.
 
-        The 0.20 gap against _perfect_fit is the discriminating case. The old
-        0.30 random range flipped it roughly 17% of the time; 0.15 cannot.
+        The 0.20 gap against _perfect_fit is the discriminating case. The
+        0.25 random range flips it about 2% of the time ((0.25-0.20)^2 /
+        (2 * 0.25^2)); 0.15 could not flip it at all.
         """
         return {
             **self._perfect_fit(base_game),
@@ -753,10 +754,12 @@ class TestScoreRankingAndVariety:
             platform=Platform.PC,
         )
 
-    def test_random_variety_range_is_small(self):
-        """Pin the constant. Widening it re-introduces bad-match promotion."""
+    def test_random_variety_range_is_pinned(self):
+        """Pin the constant. 0.25 was chosen from a live-catalog sweep (see the
+        comment on RANDOM_VARIETY_RANGE); widening it further promotes bad
+        matches, so change it deliberately, not as a side effect."""
         from src.services.recommendation_service import RANDOM_VARIETY_RANGE
-        assert RANDOM_VARIETY_RANGE == 0.15
+        assert RANDOM_VARIETY_RANGE == 0.25
 
     def test_ranking_score_is_uncapped(self, service, base_game):
         """A perfect fit must be able to exceed 1.0 so it can outrank others."""
@@ -1091,10 +1094,12 @@ class TestWhyNotFreeTierLearning:
 
     def test_free_profile_boosts_matching_game(self, service):
         """Free positive nudge lifts tag matches - no favor_history flag."""
-        match = self._game("match", ["cozy"], ["relaxing"])
-        other = self._game("other", ["shooter"], ["intense"])
+        # Mood tags are mood-neutral for CASUAL so mood-tag affinity
+        # doesn't separate the two games.
+        match = self._game("match", ["cozy"], ["nostalgic"])
+        other = self._game("other", ["shooter"], ["anime"])
         request = RecommendationRequest(time_available=30, energy_mood=EnergyMood.CASUAL)
-        profile = {"genres": {"cozy": 3}, "moods": {"relaxing": 2}}
+        profile = {"genres": {"cozy": 3}, "moods": {"nostalgic": 2}}
 
         with patch("src.services.recommendation_service.random.uniform", return_value=0.0):
             scored = service._score_games([match, other], request, free_profile=profile)
@@ -1104,10 +1109,12 @@ class TestWhyNotFreeTierLearning:
 
     def test_avoid_profile_penalizes_matching_game(self, service):
         """Tags from rejected games drag lookalikes down for everyone."""
-        similar = self._game("similar", ["horror"], ["intense"])
-        neutral = self._game("neutral", ["puzzle"], ["relaxing"])
+        # Mood tags are mood-neutral for CASUAL so mood-tag affinity
+        # doesn't separate the two games.
+        similar = self._game("similar", ["horror"], ["gothic"])
+        neutral = self._game("neutral", ["puzzle"], ["retro"])
         request = RecommendationRequest(time_available=30, energy_mood=EnergyMood.CASUAL)
-        avoid = {"genres": {"horror": 2}, "moods": {"intense": 2}}
+        avoid = {"genres": {"horror": 2}, "moods": {"gothic": 2}}
 
         with patch("src.services.recommendation_service.random.uniform", return_value=0.0):
             scored = service._score_games([similar, neutral], request, avoid_profile=avoid)
