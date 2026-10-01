@@ -4,7 +4,7 @@
  * cta.screen values are navigation route names; params optional.
  */
 export const CHANGELOG = {
-  '1.5.0': {
+  '1.6.0': {
     title: "Tonight's Picks",
     features: [
       {
