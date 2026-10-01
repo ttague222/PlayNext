@@ -6,6 +6,7 @@ Core recommendation engine with heuristics and randomization for variety.
 
 import logging
 import random
+import re
 import time
 import uuid
 from datetime import datetime, timedelta
@@ -115,15 +116,192 @@ GENERIC_FILLER = frozenset({
     "freedom to create and explore at your pace",
     "unwind and enjoy at your own pace",
     "easy to pause whenever you need",
-    "perfect for unwinding - gentle pace lets you relax",
+    "perfect for unwinding gentle pace lets you relax",
     "a great way to pass the time",
     "fun for everyone",
 })
 
+# Catalog template strings carried by more than this many games are seeded
+# boilerplate, not game-specific copy. On 2026-09-30, 1,011 of the 1,249
+# games with templates carried ONLY strings shared by 10+ games ("Quick to
+# jump in - you'll be having fun in minutes." alone sits on 535), and 158
+# more had no templates at all. Shared strings are skipped in favor of
+# bullets generated from the game's own catalog fields (generate_bullets).
+# Two lets a franchise pair share hand-written copy.
+MAX_TEMPLATE_SHARE = 2
+
+# genre_tags -> noun phrase, most specific first: the first entry a game
+# carries wins, so a roguelike also tagged "action" reads as a roguelike.
+# Tags absent here (indie, casual, co-op, comedy, ...) describe audience or
+# tone rather than how the game plays, so they never name the game.
+GENRE_NOUNS = {
+    "metroidvania": "metroidvania",
+    "souls-like": "soulslike",
+    "roguelike": "roguelike",
+    "roguelite": "roguelite",
+    "deckbuilder": "deckbuilder",
+    "card-game": "card game",
+    "tower-defense": "tower defense game",
+    "city-builder": "city builder",
+    "visual-novel": "visual novel",
+    "rhythm": "rhythm game",
+    "fighting": "fighting game",
+    "racing": "racing game",
+    "soccer": "soccer game",
+    "sports": "sports game",
+    "party": "party game",
+    "jrpg": "JRPG",
+    "action-rpg": "action RPG",
+    "rpg": "RPG",
+    "tactics": "tactics game",
+    "strategy": "strategy game",
+    "farming": "farming sim",
+    "life-sim": "life sim",
+    "management": "management sim",
+    "survival": "survival game",
+    "horror": "horror game",
+    "stealth": "stealth game",
+    "hack-and-slash": "hack-and-slash",
+    "fps": "shooter",
+    "shooter": "shooter",
+    "platformer": "platformer",
+    "puzzle": "puzzle game",
+    "mystery": "mystery",
+    "building": "building game",
+    "sandbox": "sandbox game",
+    "simulation": "sim",
+    "open-world": "open-world game",
+    "action-adventure": "action-adventure",
+    "adventure": "adventure",
+    "narrative": "story game",
+    "arcade": "arcade game",
+    "exploration": "exploration game",
+    "action": "action game",
+}
+
+# play_style -> noun phrase, used when no genre_tag maps.
+PLAY_STYLE_NOUNS = {
+    PlayStyle.CARD_GAME.value: "card game",
+    PlayStyle.TACTICS.value: "tactics game",
+    PlayStyle.PUZZLE_STRATEGY.value: "puzzle-strategy game",
+    PlayStyle.PUZZLE.value: "puzzle game",
+    PlayStyle.STRATEGY.value: "strategy game",
+    PlayStyle.SANDBOX_CREATIVE.value: "sandbox game",
+    PlayStyle.NARRATIVE.value: "story-driven game",
+    PlayStyle.ACTION.value: "action game",
+}
+
+# mood_tags too vague to describe a game by themselves.
+VAGUE_MOOD_TAGS = frozenset({"fun", "unique", "casual", "addictive"})
+
+TIME_TO_FUN_CLAUSES = {
+    TimeToFun.SHORT.value: "that's fun within minutes",
+    TimeToFun.MEDIUM.value: "that gets going after a short warm-up",
+    TimeToFun.LONG.value: "that rewards time spent learning it",
+}
+
+# (generic phrasing, phrasing naming the game via {thing}). The second form
+# keeps the bullet unique when another pick in the response shares this
+# stop_friendliness value.
+STOP_TEMPLATES = {
+    StopFriendliness.ANYTIME.value: (
+        "Saves anytime, so you can stop the moment your {time} minutes are up.",
+        "Saves anytime, so you can put {thing} down the moment your {time} minutes are up.",
+    ),
+    StopFriendliness.CHECKPOINTS.value: (
+        "Regular checkpoints, so stopping after {time} minutes rarely costs progress.",
+        "Regular checkpoints, so you can leave {thing} after {time} minutes without losing much.",
+    ),
+    StopFriendliness.COMMITMENT.value: (
+        "Plays best in one sitting, so plan to use all {time} minutes.",
+        "{thing} plays best in one sitting, so plan to use all {time} minutes.",
+    ),
+}
+
 
 def _normalize_bullet(text: str) -> str:
-    """Lowercase, trim, and drop trailing punctuation for filler/dedupe checks."""
-    return text.strip().rstrip(".!?…").strip().lower()
+    """Lowercase words only, for filler and near-duplicate checks.
+
+    Collapsing punctuation means "Save and quit whenever - no progress lost."
+    and "Save and quit whenever: no progress lost!" count as the same bullet.
+    """
+    return " ".join(re.findall(r"[a-z0-9{}']+", text.lower()))
+
+
+def _with_article(phrase: str) -> str:
+    """Prefix "a"/"an"; acronyms like RPG go by letter sound ("an RPG")."""
+    first = phrase.split()[0]
+    if first.isupper() and len(first) > 1:
+        vowel_sound = first[0] in "AEFHILMNORSX"
+    else:
+        vowel_sound = first[0].lower() in "aeiou"
+    return f"{'an' if vowel_sound else 'a'} {phrase}"
+
+
+def _genre_noun(game: dict) -> str:
+    tags = set(game.get("genre_tags") or [])
+    for tag, noun in GENRE_NOUNS.items():
+        if tag in tags:
+            return noun
+    styles = set(game.get("play_style") or [])
+    for style, noun in PLAY_STYLE_NOUNS.items():
+        if style in styles:
+            return noun
+    return "game"
+
+
+def _mood_adjectives(game: dict, noun: str) -> list[str]:
+    """Descriptive mood_tags in catalog order, minus ones echoing the noun
+    ("strategic strategy game", "action-packed action game")."""
+    return [
+        tag for tag in (game.get("mood_tags") or [])
+        if tag not in VAGUE_MOOD_TAGS and tag[:5] not in noun
+    ]
+
+
+def generate_bullets(game: dict, time_available: int) -> dict[str, list[str]]:
+    """Explanation bullets built from the game's own catalog fields.
+
+    Every catalog game has genre/play_style, time_to_fun, and
+    stop_friendliness, so this always yields bullets with a game-specific
+    clause. Each field's candidates run most-natural first and end with a
+    title-bearing variant, which is unique within a response (titles are
+    unique after franchise diversity), so cross-game dedupe never runs dry.
+    """
+    title = game.get("title") or "this game"
+    noun = _genre_noun(game)
+    clause = TIME_TO_FUN_CLAUSES.get(game.get("time_to_fun"), TIME_TO_FUN_CLAUSES["medium"])
+    adjectives = _mood_adjectives(game, noun)
+
+    descriptions = [_with_article(f"{adj} {noun}") for adj in adjectives[:2]] or [_with_article(noun)]
+    style = [f"{d[0].upper()}{d[1:]} {clause}." for d in descriptions]
+    style.append(f"{title} is {descriptions[0]} {clause}.")
+
+    generic, named = STOP_TEMPLATES.get(
+        game.get("stop_friendliness"), STOP_TEMPLATES[StopFriendliness.CHECKPOINTS.value]
+    )
+    this_noun = f"this {noun}"
+    stop = [
+        generic.format(time=time_available),
+        named.format(thing=this_noun, time=time_available),
+        named.format(thing=title, time=time_available),
+    ]
+    stop = [s[0].upper() + s[1:] for s in stop]
+    return {"style_fit": style, "stop_fit": stop}
+
+
+def count_template_share(games: list[dict]) -> dict[str, int]:
+    """How many games carry each (normalized) explanation template string."""
+    counts: dict[str, int] = {}
+    for g in games or []:
+        texts = {
+            _normalize_bullet(v)
+            for v in (g.get("explanation_templates") or {}).values()
+            if isinstance(v, str) and v.strip()
+        }
+        for t in texts:
+            counts[t] = counts.get(t, 0) + 1
+    return counts
 
 
 def normalize_subscriptions(values) -> set:
@@ -169,6 +347,7 @@ class RecommendationService:
         self.libraries_collection = get_collection(LIBRARIES_COLLECTION)
         self._games_cache: Optional[list[dict]] = None
         self._games_cache_at: float = 0.0
+        self._template_share: dict[str, int] = {}
 
     async def get_recommendations(
         self,
@@ -359,6 +538,7 @@ class RecommendationService:
             games = [doc.to_dict() | {"game_id": doc.id} for doc in docs]
             self._games_cache = games
             self._games_cache_at = now
+            self._template_share = count_template_share(games)
             return games
         except Exception as e:
             logger.error(f"Error fetching games: {e}")
@@ -1066,18 +1246,34 @@ class RecommendationService:
         # No franchise pattern detected
         return None
 
-    def _select_explanation_fields(self, templates: dict, used: set) -> list:
-        """Pick at most MAX_EXPLANATION_BULLETS (field, text) pairs.
+    def _select_explanation_fields(
+        self, templates: dict, used: set, time_available: Optional[int] = None
+    ) -> list:
+        """Pick at most MAX_EXPLANATION_BULLETS distinctive catalog (field, text) pairs.
 
-        Priority favors game-specific fields; known filler and bullets already
-        emitted for another game in this response are skipped. `used` is
-        mutated with the normalized text of every selected bullet.
+        Priority favors game-specific fields. Skipped: known filler,
+        boilerplate shared across the catalog (MAX_TEMPLATE_SHARE), bullets
+        already emitted for another game in this response, and a
+        non-renderable field that would take the last slot before any
+        renderable bullet is chosen. `used` is mutated with the normalized
+        rendered text of every selected bullet.
         """
+        share = getattr(self, "_template_share", None) or {}
         selected = []
         for field in EXPLANATION_FIELD_PRIORITY:
-            text = templates.get(field)
+            text = (templates or {}).get(field)
             if not text:
                 continue
+            if share.get(_normalize_bullet(text), 0) > MAX_TEMPLATE_SHARE:
+                continue
+            if (
+                field not in RENDERABLE_EXPLANATION_FIELDS
+                and len(selected) == MAX_EXPLANATION_BULLETS - 1
+                and not any(f in RENDERABLE_EXPLANATION_FIELDS for f, _ in selected)
+            ):
+                continue
+            if time_available is not None:
+                text = text.replace("{time}", str(time_available))
             norm = _normalize_bullet(text)
             if norm in GENERIC_FILLER or norm in used:
                 continue
@@ -1102,40 +1298,40 @@ class RecommendationService:
         recommendations returned to the client.
         """
         # Build explanation: at most 2 game-specific bullets, deduped across
-        # the whole response (docs/GAME-CARD-REFRESH.md P0.2).
-        templates = game.get("explanation_templates", {})
+        # the whole response (docs/GAME-CARD-REFRESH.md P0.2). Distinctive
+        # hand-written catalog copy goes first; open slots are filled from
+        # bullets generated off the game's own catalog fields. The old
+        # "Fits a casual 30-minute session." fallback carried nothing about
+        # the game and won for most of the catalog, so it is gone.
         if used_bullets is None:
             used_bullets = set()
-        selected = self._select_explanation_fields(templates, used_bullets)
+        selected = self._select_explanation_fields(
+            game.get("explanation_templates"), used_bullets, request.time_available
+        )
 
-        mood_label = request.energy_mood.value.replace("_", " ")
-        # Guarantee at least one bullet a shipped client actually renders.
-        # Covers both the empty-selection case and the case where only
-        # session_fit/time_fit (invisible on live cards) were selected.
+        generated = generate_bullets(game, request.time_available)
+        for field, candidates in generated.items():
+            if len(selected) >= MAX_EXPLANATION_BULLETS:
+                break
+            if any(f == field for f, _ in selected):
+                continue
+            for text in candidates:
+                norm = _normalize_bullet(text)
+                if norm not in used_bullets:
+                    selected.append((field, text))
+                    used_bullets.add(norm)
+                    break
+
+        # Guarantee at least one bullet a shipped client renders (PRD: every
+        # rec has a clear explanation). Only reachable if two picks share a
+        # title, since the title variants are otherwise unique.
         if not any(field in RENDERABLE_EXPLANATION_FIELDS for field, _ in selected):
-            fallback = f"Fits a {mood_label} {request.time_available}-minute session."
-            if _normalize_bullet(fallback) in used_bullets:
-                # Plain fallback already used by another game in this
-                # response — fold in the title so it stays unique. Titles
-                # are unique within a response after franchise diversity.
-                fallback = f"{game['title']} fits a {mood_label} {request.time_available}-minute session."
-            # Prepend so the renderable fallback survives the trim below;
-            # the slice keeps the front (highest priority + the prepended
-            # fallback) and drops from the back. Dropped entries were
-            # registered in used_bullets by _select_explanation_fields but
-            # are never emitted, so release them here or they'd wrongly
-            # block an identical bullet on a later game in this response.
-            selected = [("mood_fit", fallback)] + selected
-            dropped = selected[MAX_EXPLANATION_BULLETS:]
-            selected = selected[:MAX_EXPLANATION_BULLETS]
-            for _, dropped_text in dropped:
-                used_bullets.discard(_normalize_bullet(dropped_text))
-            used_bullets.add(_normalize_bullet(fallback))
+            selected = [("style_fit", generated["style_fit"][-1])] + selected[: MAX_EXPLANATION_BULLETS - 1]
 
+        selected.sort(key=lambda pair: EXPLANATION_FIELD_PRIORITY.index(pair[0]))
         emitted = {}
         explanation_parts = []
         for field, text in selected:
-            text = text.replace("{time}", str(request.time_available))
             emitted[field] = text
             explanation_parts.append(ensure_sentence(text))
 

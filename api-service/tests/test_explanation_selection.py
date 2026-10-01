@@ -108,19 +108,22 @@ def test_two_games_never_share_a_bullet(svc):
     rec1 = svc._build_recommendation(_game("a", dict(shared)), _request(), used_bullets=used)
     rec2 = svc._build_recommendation(_game("b", dict(shared)), _request(), used_bullets=used)
     assert rec1.explanation.stop_fit == "Save and quit whenever - no progress lost."
-    assert rec2.explanation.stop_fit is None
+    assert rec2.explanation.stop_fit != rec1.explanation.stop_fit
 
 
-def test_all_filler_falls_back_to_generated_mood_bullet(svc):
+def test_all_filler_falls_back_to_field_generated_bullets(svc):
     rec = svc._build_recommendation(
         _game("a", {"mood_fit": "Enjoyable gameplay experience."}),
         _request(),
         used_bullets=set(),
     )
-    # PRD non-negotiable: every rec has a clear explanation, and it must be
-    # a field shipped clients actually render.
-    assert rec.explanation.mood_fit == "Fits a focused 60-minute session."
-    assert rec.explanation.time_fit is None
+    # PRD non-negotiable: every rec has a clear explanation. The fallback is
+    # built from catalog fields, never the old "Fits a focused 60-minute
+    # session." filler.
+    assert rec.explanation.mood_fit is None
+    assert rec.explanation.style_fit
+    assert rec.explanation.stop_fit
+    assert "60-minute session" not in rec.explanation.summary
     assert rec.explanation.summary
 
 
@@ -139,9 +142,10 @@ def test_two_all_filler_games_get_distinct_fallbacks(svc):
     used = set()
     rec1 = svc._build_recommendation(_game("alpha", dict(filler)), _request(), used_bullets=used)
     rec2 = svc._build_recommendation(_game("beta", dict(filler)), _request(), used_bullets=used)
-    assert rec1.explanation.mood_fit
-    assert rec2.explanation.mood_fit
-    assert rec1.explanation.mood_fit != rec2.explanation.mood_fit
+    assert rec1.explanation.style_fit
+    assert rec2.explanation.style_fit
+    assert rec1.explanation.style_fit != rec2.explanation.style_fit
+    assert rec1.explanation.stop_fit != rec2.explanation.stop_fit
 
 
 def test_session_and_time_only_templates_still_yield_renderable_bullet(svc):
@@ -154,13 +158,12 @@ def test_session_and_time_only_templates_still_yield_renderable_bullet(svc):
         _request(),
         used_bullets=set(),
     )
-    assert rec.explanation.mood_fit == "Fits a focused 60-minute session."
+    # One catalog bullet plus a generated renderable one; two non-renderable
+    # bullets never crowd out everything a shipped client shows.
     assert rec.explanation.session_fit == "One run takes about 25 minutes."
     assert rec.explanation.time_fit is None
-    assert any(
-        getattr(rec.explanation, f)
-        for f in ("style_fit", "stop_fit", "mood_fit")
-    )
+    assert rec.explanation.style_fit
+    assert rec.explanation.mood_fit is None
 
 
 @pytest.mark.parametrize(
@@ -198,11 +201,11 @@ def test_every_recommendation_has_renderable_bullet(svc, templates):
     )
 
 
-def test_trimmed_bullet_is_released_for_later_games(svc):
+def test_unselected_bullet_stays_available_for_later_games(svc):
     shared_time = {"session_fit": "One run takes about 25 minutes.", "time_fit": "A run fits in {time} minutes."}
     used = set()
     rec1 = svc._build_recommendation(_game("a", dict(shared_time)), _request(), used_bullets=used)
-    # rec1: fallback mood_fit + session_fit; its time_fit was selected then trimmed
+    # rec1: session_fit + a generated renderable bullet; its time_fit was never selected
     assert rec1.explanation.time_fit is None
     # A later game whose ONLY template is that same time_fit must still be able to emit it
     rec2 = svc._build_recommendation(_game("b", {"time_fit": "A run fits in {time} minutes."}), _request(), used_bullets=used)
