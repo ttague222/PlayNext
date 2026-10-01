@@ -18,6 +18,19 @@ import {
 } from '../components/ShareCard';
 
 /**
+ * Scoreboard's result_shared: "card" when the image went out, "link" when
+ * only the text message (with the /pick link) did. Shares are one game each.
+ */
+function logResultShared(withImage, context) {
+  const { timeAvailable, energyMood } = context || {};
+  logEvent('result_shared', {
+    surface: withImage ? 'card' : 'link',
+    scenario: timeAvailable && energyMood ? `${timeAvailable}min_${energyMood}` : 'none',
+    game_count: 1,
+  });
+}
+
+/**
  * Capture the ShareCard behind cardRef and open the native share sheet.
  * @param {object} cardRef - Ref to the mounted (off-screen) ShareCard view
  * @param {object} game - The recommended game
@@ -53,6 +66,7 @@ export async function shareGameCard(cardRef, game, source, context = {}) {
         logEvent('share_dismissed', { source });
       } else {
         logEvent('share_completed', { source, with_image: true });
+        logResultShared(true, context);
       }
       return true;
     }
@@ -65,6 +79,7 @@ export async function shareGameCard(cardRef, game, source, context = {}) {
         dialogTitle: title,
       });
       logEvent('share_completed', { source, with_image: true });
+      logResultShared(true, context);
       return true;
     }
 
@@ -74,6 +89,7 @@ export async function shareGameCard(cardRef, game, source, context = {}) {
       logEvent('share_dismissed', { source });
     } else {
       logEvent('share_completed', { source, with_image: false });
+      logResultShared(false, context);
     }
     return true;
   } catch (err) {

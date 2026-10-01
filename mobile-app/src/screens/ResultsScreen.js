@@ -420,7 +420,7 @@ const ResultsScreen = () => {
   const handleGoPremium = () => {
     setShowAdOrPremiumModal(false);
     setPendingRerollAction(null);
-    navigation.navigate('Premium');
+    navigation.navigate('Premium', { source: 'results' });
   };
 
   /**
@@ -739,7 +739,7 @@ const ResultsScreen = () => {
           priceString={premiumPriceString}
           onGoPremium={() => {
             setShowDailyCapModal(false);
-            navigation.navigate('Premium');
+            navigation.navigate('Premium', { source: 'results' });
           }}
           onDismiss={() => setShowDailyCapModal(false)}
         />

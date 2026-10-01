@@ -17,7 +17,7 @@ import {
 import { SafeAreaView } from 'react-native-safe-area-context';
 import { LinearGradient } from 'expo-linear-gradient';
 import { Ionicons } from '@expo/vector-icons';
-import { useNavigation } from '@react-navigation/native';
+import { useNavigation, useRoute } from '@react-navigation/native';
 import { usePremium } from '../context/PremiumContext';
 import { logEvent } from '../services/analyticsService';
 
@@ -57,6 +57,7 @@ const PREMIUM_BENEFITS = [
 
 const PremiumScreen = () => {
   const navigation = useNavigation();
+  const route = useRoute();
   const {
     isPremium,
     isLoading,
@@ -94,7 +95,7 @@ const PremiumScreen = () => {
 
     setPurchasing(true);
     try {
-      await purchase(selectedPackage);
+      await purchase(selectedPackage, { entryScreen: route.params?.source });
     } finally {
       setPurchasing(false);
     }

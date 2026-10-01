@@ -128,7 +128,7 @@ const ProfileScreen = () => {
   };
 
   const handleUpgrade = () => {
-    navigation.navigate('Premium');
+    navigation.navigate('Premium', { source: 'profile' });
   };
 
   const handleRestore = async () => {

@@ -70,7 +70,7 @@ describe('TimeSelectScreen', () => {
   it('free user tapping My backlog opens the premium sheet, not the mode', async () => {
     await render(<TimeSelectScreen />);
     await fireEvent.press(screen.getByText('My backlog'));
-    expect(mockNavigate).toHaveBeenCalledWith('Premium');
+    expect(mockNavigate).toHaveBeenCalledWith('Premium', { source: 'backlog' });
     expect(mockUpdatePreference).not.toHaveBeenCalledWith('libraryOnly', true);
   });
 
@@ -98,7 +98,7 @@ describe('TimeSelectScreen', () => {
     await fireEvent.press(screen.getByText('My backlog'));
     expect(mockUpdatePreference).toHaveBeenCalledWith('libraryOnly', true);
     expect(mockNavigate).not.toHaveBeenCalledWith('ConnectSteam');
-    expect(mockNavigate).not.toHaveBeenCalledWith('Premium');
+    expect(mockNavigate.mock.calls.filter(([screen]) => screen === 'Premium')).toHaveLength(0);
   });
 
   it('tapping Anything turns Backlog Mode off', async () => {
