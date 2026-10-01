@@ -52,6 +52,8 @@ properties.
 ## Tagged links
 
 Naming: `utm_source` = `scenario-pages | reddit | creator | newsletter`,
+plus the site's own `web_quiz` (quiz pages and the card's get-the-app sheet)
+and `pick_page` (share landing pages),
 `utm_medium` = `web | social | email`, `utm_campaign` = `playnxt-<slug>`.
 
 ### Google Play (ready)
@@ -61,6 +63,7 @@ Naming: `utm_source` = `scenario-pages | reddit | creator | newsletter`,
 | Scenario page, 30 min low energy | `https://play.google.com/store/apps/details?id=com.playnxt.app&referrer=utm_source%3Dscenario-pages%26utm_medium%3Dweb%26utm_campaign%3Dplaynxt-30min-lowenergy` |
 | Reddit | `https://play.google.com/store/apps/details?id=com.playnxt.app&referrer=utm_source%3Dreddit%26utm_medium%3Dsocial%26utm_campaign%3Dplaynxt-community` |
 | Creator outreach | `https://play.google.com/store/apps/details?id=com.playnxt.app&referrer=utm_source%3Dcreator%26utm_medium%3Demail%26utm_campaign%3Dplaynxt-challenge` |
+| Web quiz card, "I'll play this!" sheet | `https://play.google.com/store/apps/details?id=com.playnxt.app&referrer=utm_source%3Dweb_quiz%26utm_medium%3Dweb%26utm_campaign%3Dplaynxt-web-pick` |
 
 The scenario page builds its own link from `campaign` in
 `playnxt-web/api/_scenarios.js`.
@@ -76,6 +79,7 @@ show under Analytics > Acquisition > Campaigns once traffic arrives.
 | Scenario page, 30 min low energy | `https://apps.apple.com/app/apple-store/id6757089064?pt=128357651&ct=playnxt-30min-lowenergy&mt=8` |
 | Reddit / community | `https://apps.apple.com/app/apple-store/id6757089064?pt=128357651&ct=playnxt-community&mt=8` |
 | Creator outreach | `https://apps.apple.com/app/apple-store/id6757089064?pt=128357651&ct=playnxt-challenge&mt=8` |
+| Web quiz card, "I'll play this!" sheet | `https://apps.apple.com/app/apple-store/id6757089064?pt=128357651&ct=playnxt-web-pick&mt=8` |
 
 New scenario pages: put the link in `iosCampaignUrl` in
 `playnxt-web/api/_scenarios.js` (falls back to the plain App Store URL).
