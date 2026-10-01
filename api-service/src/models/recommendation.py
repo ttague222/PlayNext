@@ -89,6 +89,15 @@ class RecommendationRequest(BaseModel):
         default_factory=list,
         description="Games to exclude (already shown)"
     )
+    limit: Optional[int] = Field(
+        default=None,
+        ge=1,
+        le=3,
+        description=(
+            "Return at most this many picks. The app's single-card swap "
+            "(Played it / Not for me) sends 1; shipped clients already send it."
+        ),
+    )
 
     # Premium-only advanced filters (default: not applied)
     stop_friendliness: Optional[StopFriendliness] = Field(
