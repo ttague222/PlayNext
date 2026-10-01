@@ -118,6 +118,14 @@ const App = () => {
         }
       } else if (data.deep_link === 'whats_new') {
         navigationRef.navigate('WhatsNew');
+      } else if (data.deep_link === 'tonight') {
+        // Local nightly reminder: land on Play, which auto-opens tonight's picks.
+        // The nonce must reach PlayScreen itself ('PlayHome' inside PlayStack):
+        // params left on the tab route are not forwarded to nested screens.
+        navigationRef.navigate('Main', {
+          screen: 'Play',
+          params: { screen: 'PlayHome', params: { openTonight: Date.now() } },
+        });
       } else {
         // Default: surface the play tab.
         navigationRef.navigate('Main', { screen: 'Play' });

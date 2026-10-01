@@ -85,7 +85,7 @@ One release a week, mixing binary releases with server/web/no-code weeks so the 
 | Week of | Release | Contents |
 |---|---|---|
 | Sep 28 | **1.4.0 ship** + no-code | Production build, device pass, submit. In parallel: Play ASO refresh (control window long over), first iOS In-App Event ("Fall releases, picked for you"), start the review-response habit |
-| Oct 5 | **1.4.1 — Tonight's Picks** (F1) | Precomputed daily 3, opt-in evening reminder, one-tap "decide for me" entry on Home |
+| Oct 5 | **1.5.0 — Tonight's Picks** (built; ship gate: device pass) | Precomputed daily 3, opt-in evening reminder, one-tap "decide for me" entry on Home |
 | Oct 12 | **Android widget** (F2) | Tonight's pick on the home screen; measure widget-user retention from day one |
 | Oct 19 | **Vibe search** (F3) + digest upgrade (F7) | Server-led; app ships the text box. Digest gets personalization + Friday timing + leaving-subscriptions nudge |
 | Oct 26 | **Player-type quiz** (F4) + share card redesign (F12) | The shareable identity asset, wired into explanations |

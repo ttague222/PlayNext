@@ -11,8 +11,8 @@ Older events (`rec_requested`, `rec_accepted`, `share_completed`,
 |---|---|---|
 | `app_first_open` | First launch of a fresh install | `platform` ios/android, `app_version`, `install_source` |
 | `recommendation_started` | User submits time + mood (not on reroll) | `minutes`, `mood`, `platform_filter`, `library_mode` |
-| `recommendation_viewed` | A non-empty set of picks comes back (initial and reroll) | `result_count`, `latency_ms`, `install_source` |
-| `game_selected` ⭐ | User taps "I'll play this!" on a pick | `game_id`, `rank` 1-3, `minutes`, `mood` |
+| `recommendation_viewed` | A non-empty set of picks is on screen: initial, reroll, or opening Tonight's Picks | `result_count`, `latency_ms` (not for Tonight's Picks, which open from cache), `install_source`, `pick_source` |
+| `game_selected` ⭐ | User taps "I'll play this!" on a pick | `game_id`, `rank` 1-3, `minutes`, `mood`, `pick_source` |
 | `result_shared` | Share sheet completes | `surface` card/link, `scenario`, `game_count` |
 | `premium_purchase` | Unlock succeeds | `platform`, `entry_screen` |
 
@@ -21,6 +21,11 @@ default event parameter), and the user has `install_source` / `install_campaign`
 user properties. Register `install_source` as a custom dimension (event scope,
 and user scope for the property) in Firebase before the release ships;
 registration isn't retroactive.
+
+`pick_source` is `flow` (user went through time + mood) or `tonight` (opened
+Tonight's Picks from the Play tab). `rec_requested` / `rec_accepted` carry it
+too. Tonight's Picks precompute in the background without firing any of these
+events; only opening them counts.
 
 ## Where this differs from the brief, and why
 

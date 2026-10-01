@@ -128,6 +128,7 @@ describe('activation scoreboard events', () => {
       result_count: 3,
       latency_ms: expect.any(Number),
       install_source: 'scenario-pages',
+      pick_source: 'flow',
     });
     expect(second.result_count).toBe(2);
     // A reroll is not a new request: only one recommendation_started
@@ -154,7 +155,33 @@ describe('activation scoreboard events', () => {
     });
 
     expect(eventsNamed('game_selected')).toEqual([
-      { game_id: 'tinykin', rank: 3, minutes: 30, mood: 'wind_down' },
+      { game_id: 'tinykin', rank: 3, minutes: 30, mood: 'wind_down', pick_source: 'flow' },
+    ]);
+  });
+
+  it("opening Tonight's Picks counts as a view (no latency) and tags selections", async () => {
+    const result = await renderWithPrefs({});
+    await act(async () => {
+      result.current.startTonightSession({
+        sessionId: 'session-tonight',
+        games: PICKS,
+        context: { timeAvailable: 30, energyMood: 'wind_down' },
+      });
+    });
+    await waitFor(() => expect(eventsNamed('recommendation_viewed')).toHaveLength(1));
+    expect(eventsNamed('recommendation_viewed')[0]).toEqual({
+      result_count: 3,
+      install_source: 'scenario-pages',
+      pick_source: 'tonight',
+    });
+    // Seeding from cache is not a new request
+    expect(eventsNamed('recommendation_started')).toHaveLength(0);
+
+    await act(async () => {
+      await result.current.acceptRecommendation('unpacking', 'Unpacking');
+    });
+    expect(eventsNamed('game_selected')).toEqual([
+      { game_id: 'unpacking', rank: 2, minutes: 30, mood: 'wind_down', pick_source: 'tonight' },
     ]);
   });
 
@@ -169,7 +196,7 @@ describe('activation scoreboard events', () => {
     });
 
     expect(eventsNamed('game_selected')).toEqual([
-      { game_id: 'hidden-folks', rank: 1, minutes: 15, mood: 'casual' },
+      { game_id: 'hidden-folks', rank: 1, minutes: 15, mood: 'casual', pick_source: 'flow' },
     ]);
   });
 });
