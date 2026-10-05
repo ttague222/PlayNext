@@ -12,6 +12,7 @@ import pytest
 from src.models import EnergyMood, RecommendationRequest
 from src.services.recommendation_service import (
     MOOD_TAG_AFFINITY_MAX as AFFINITY,
+    SUBSCRIPTION_BOOST,
     RecommendationService,
 )
 
@@ -175,16 +176,20 @@ class TestRankingOnlyBoosts:
     """Subscription availability and multi-platform reach help ranking but
     say nothing about fit to the request, so they stay out of match_ratio."""
 
-    def test_subscription_does_not_change_match_ratio_but_still_ranks(self, svc, monkeypatch):
+    def test_subscription_does_not_change_match_ratio_but_ranks_for_subscribers(self, svc, monkeypatch):
+        """With on_subscriptions set, a game on one of the user's services gets
+        the ranking boost; it never counts toward the match ratio."""
         monkeypatch.setattr("src.services.recommendation_service.random.uniform", lambda a, b: 0.0)
-        with_sub = _perfect_game("with_sub")
+        with_sub = _perfect_game("with_sub")  # subscription_services: ["game_pass"]
         without_sub = {**_perfect_game("without_sub"), "subscription_services": []}
 
-        scored = {g["game_id"]: g for g in svc._score_games([with_sub, without_sub], _request())}
+        scored = {g["game_id"]: g for g in svc._score_games(
+            [with_sub, without_sub], _request(on_subscriptions=["game_pass"]))}
 
         assert scored["with_sub"]["match_ratio"] == pytest.approx(1.0)
         assert scored["without_sub"]["match_ratio"] == pytest.approx(1.0)
-        assert scored["with_sub"]["score"] == pytest.approx(scored["without_sub"]["score"] + 0.1)
+        assert scored["with_sub"]["score"] == pytest.approx(
+            scored["without_sub"]["score"] + SUBSCRIPTION_BOOST)
 
     def test_multi_platform_does_not_change_match_ratio_but_still_ranks(self, svc, monkeypatch):
         monkeypatch.setattr("src.services.recommendation_service.random.uniform", lambda a, b: 0.0)
@@ -271,3 +276,42 @@ class TestMoodTagAffinity:
         off = {**_perfect_game("off"), "mood_tags": ["nostalgic", "colorful", "retro"]}
         scored = {g["game_id"]: g for g in svc._score_games([on, off], _request())}
         assert scored["on"]["score"] == pytest.approx(scored["off"]["score"] + AFFINITY)
+
+
+class TestSubscriptionBoostOptIn:
+    """The subscription ranking boost applies only when the user has said
+    which services they have (on_subscriptions), and only for games on one
+    of those services. Without it, Game Pass titles were pushed to users who
+    may not subscribe to anything."""
+
+    @pytest.fixture(autouse=True)
+    def _no_jitter(self, monkeypatch):
+        monkeypatch.setattr("src.services.recommendation_service.random.uniform", lambda a, b: 0.0)
+
+    def _scores(self, svc, request, games):
+        return {g["game_id"]: g["score"] for g in svc._score_games(games, request)}
+
+    def test_no_boost_when_user_has_not_set_subscriptions(self, svc):
+        on_sub = _perfect_game("on_sub")
+        off_sub = {**_perfect_game("off_sub"), "subscription_services": []}
+        scores = self._scores(svc, _request(), [on_sub, off_sub])
+        assert scores["on_sub"] == pytest.approx(scores["off_sub"])
+
+    def test_boost_for_a_game_on_one_of_the_users_services(self, svc):
+        on_sub = _perfect_game("on_sub")
+        off_sub = {**_perfect_game("off_sub"), "subscription_services": []}
+        scores = self._scores(svc, _request(on_subscriptions=["game_pass", "ps_plus"]), [on_sub, off_sub])
+        assert scores["on_sub"] == pytest.approx(scores["off_sub"] + SUBSCRIPTION_BOOST)
+
+    def test_no_boost_for_a_service_the_user_did_not_pick(self, svc):
+        ea = {**_perfect_game("ea"), "subscription_services": ["ea_play"]}
+        none = {**_perfect_game("none"), "subscription_services": []}
+        scores = self._scores(svc, _request(on_subscriptions=["game_pass"]), [ea, none])
+        assert scores["ea"] == pytest.approx(scores["none"])
+
+    def test_short_and_long_service_names_match(self, svc):
+        """App filter chips send short forms; catalog data uses long forms."""
+        long_form = {**_perfect_game("long"), "subscription_services": ["xbox_game_pass"]}
+        none = {**_perfect_game("none"), "subscription_services": []}
+        scores = self._scores(svc, _request(on_subscriptions=["game_pass"]), [long_form, none])
+        assert scores["long"] == pytest.approx(scores["none"] + SUBSCRIPTION_BOOST)
