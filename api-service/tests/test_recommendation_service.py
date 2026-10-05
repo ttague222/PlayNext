@@ -168,10 +168,12 @@ class TestRecommendationService:
         assert short_game["score"] > long_game["score"]
 
     def test_score_games_subscription_boost(self, service, sample_games):
-        """Test that subscription availability affects scoring."""
+        """A game on one of the user's chosen services ranks higher. The boost
+        only applies when on_subscriptions is set (see SUBSCRIPTION_BOOST)."""
         request = RecommendationRequest(
             time_available=60,
-            energy_mood=EnergyMood.FOCUSED
+            energy_mood=EnergyMood.FOCUSED,
+            on_subscriptions=["gamepass"],
         )
 
         games = [
@@ -720,17 +722,19 @@ class TestScoreRankingAndVariety:
         }
 
     def _good_not_perfect(self, base_game):
-        """Scores 0.80: perfect fit minus the platform and subscription boosts.
+        """0.20 below _perfect_fit: misses the requested platform and is
+        slower to get fun (medium instead of short time-to-fun).
 
-        The 0.20 gap against _perfect_fit is the discriminating case. The
-        0.25 random range flips it about 2% of the time ((0.25-0.20)^2 /
-        (2 * 0.25^2)); 0.15 could not flip it at all.
+        The 0.20 gap is the discriminating case. The 0.25 random range flips
+        it about 2% of the time ((0.25-0.20)^2 / (2 * 0.25^2)); 0.15 could not
+        flip it at all. (The subscription boost no longer applies here: the
+        request below doesn't set on_subscriptions.)
         """
         return {
             **self._perfect_fit(base_game),
             "game_id": "good",
             "platforms": ["console"],        # no +0.10, request asks for pc
-            "subscription_services": [],     # no +0.10
+            "time_to_fun": "medium",         # +0.10 instead of +0.20
         }
 
     def _weak_fit(self, base_game):

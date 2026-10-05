@@ -137,6 +137,13 @@ SUBSCRIPTION_ALIASES = {
     "ps_plus": "playstation_plus",
 }
 
+# Ranking-only boost for games on a service the user said they have
+# (on_subscriptions). Not applied otherwise: boosting any subscription game
+# for everyone pushed Game Pass titles to users with no subscriptions.
+# on_subscriptions is also a hard filter in every tier but the last-resort
+# partial fallback, so for subscribers this mostly ties; it matters there.
+SUBSCRIPTION_BOOST = 0.1
+
 # Free-tier learning ("Why not?" feature). Games with these signals are
 # permanently excluded from a signed-in user's results, and their tags feed
 # the avoid-profile penalty in scoring.
@@ -912,6 +919,7 @@ class RecommendationService:
                 genres = [s.value for s in play_styles]
 
         req_platforms = request.platforms or ([request.platform] if request.platform else None)
+        user_subscriptions = normalize_subscriptions(request.on_subscriptions)
         on_mood_tags = MOOD_TAG_AFFINITY.get(request.energy_mood, frozenset())
         clash_mood_tags = MOOD_TAG_CLASH.get(request.energy_mood, frozenset())
 
@@ -1058,8 +1066,10 @@ class RecommendationService:
             # 100% tier (2026-09-30: 85% of returned picks showed 100%).
             if len(game_platforms) >= 2 and not req_platforms:
                 score += 0.05  # multi-platform reach (0-0.05)
-            if game.get("subscription_services"):
-                score += 0.1  # subscription availability (0-0.1)
+            if user_subscriptions and user_subscriptions & normalize_subscriptions(
+                game.get("subscription_services")
+            ):
+                score += SUBSCRIPTION_BOOST
 
             # Add randomness so near-ties shuffle between rerolls.
             score += random.uniform(0, RANDOM_VARIETY_RANGE)

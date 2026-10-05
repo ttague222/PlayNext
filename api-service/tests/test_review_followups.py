@@ -70,10 +70,11 @@ def _bullets(rec):
 
 # --- display order (review #19-1) -------------------------------------------
 
-# Ranks first on score only because of ranking-only boosts (subscription and
-# multi-platform), but fits the casual request worse than the others.
-BOOSTED = _game("boosted", "Boosted", subscription_services=["xbox_game_pass"],
-                platforms=["pc", "xbox"], mood_tags=["nostalgic", "retro", "anime"])
+# Ranks first on score only because of the ranking-only multi-platform boost
+# (+0.05), but fits the casual request slightly worse than On Mood (2 of 3
+# on-mood tags instead of 3 of 3).
+BOOSTED = _game("boosted", "Boosted", platforms=["pc", "xbox"],
+                mood_tags=["cozy", "charming", "retro"])
 ON_MOOD = _game("on_mood", "On Mood", mood_tags=["cozy", "charming", "cute"])
 MIDDLE = _game("middle", "Middle", mood_tags=["cozy", "retro", "anime"])
 OFF_ENERGY = _game("off_energy", "Off Energy", energy_level="medium")
@@ -95,8 +96,7 @@ async def test_cards_are_ordered_by_match_percent(no_jitter):
     assert set(ids) == {"boosted", "on_mood", "middle"}
     # ...shown highest match % first, so "TOP PICK" is never below card #2.
     assert scores == sorted(scores, reverse=True)
-    assert ids[0] == "on_mood"
-    assert ids[-1] == "boosted"
+    assert ids == ["on_mood", "boosted", "middle"]
 
 
 def test_display_order_is_stable_for_ties():
