@@ -73,6 +73,9 @@ and `pick_page` (share landing pages),
 | Placement | URL |
 |---|---|
 | Scenario page, 30 min low energy | `https://play.google.com/store/apps/details?id=com.playnxt.app&referrer=utm_source%3Dscenario-pages%26utm_medium%3Dweb%26utm_campaign%3Dplaynxt-30min-lowenergy` |
+| Scenario page, 15 min casual | `https://play.google.com/store/apps/details?id=com.playnxt.app&referrer=utm_source%3Dscenario-pages%26utm_medium%3Dweb%26utm_campaign%3Dplaynxt-15min-casual` |
+| Scenario page, 1 hour focused | `https://play.google.com/store/apps/details?id=com.playnxt.app&referrer=utm_source%3Dscenario-pages%26utm_medium%3Dweb%26utm_campaign%3Dplaynxt-1hr-focused` |
+| Scenario page, 2 hours intense | `https://play.google.com/store/apps/details?id=com.playnxt.app&referrer=utm_source%3Dscenario-pages%26utm_medium%3Dweb%26utm_campaign%3Dplaynxt-2hr-intense` |
 | Reddit | `https://play.google.com/store/apps/details?id=com.playnxt.app&referrer=utm_source%3Dreddit%26utm_medium%3Dsocial%26utm_campaign%3Dplaynxt-community` |
 | Creator outreach | `https://play.google.com/store/apps/details?id=com.playnxt.app&referrer=utm_source%3Dcreator%26utm_medium%3Demail%26utm_campaign%3Dplaynxt-challenge` |
 | Web quiz card, "I'll play this!" sheet | `https://play.google.com/store/apps/details?id=com.playnxt.app&referrer=utm_source%3Dweb_quiz%26utm_medium%3Dweb%26utm_campaign%3Dplaynxt-web-pick` |
@@ -89,6 +92,9 @@ show under Analytics > Acquisition > Campaigns once traffic arrives.
 | Placement | URL |
 |---|---|
 | Scenario page, 30 min low energy | `https://apps.apple.com/app/apple-store/id6757089064?pt=128357651&ct=playnxt-30min-lowenergy&mt=8` |
+| Scenario page, 15 min casual | `https://apps.apple.com/app/apple-store/id6757089064?pt=128357651&ct=playnxt-15min-casual&mt=8` |
+| Scenario page, 1 hour focused | `https://apps.apple.com/app/apple-store/id6757089064?pt=128357651&ct=playnxt-1hr-focused&mt=8` |
+| Scenario page, 2 hours intense | `https://apps.apple.com/app/apple-store/id6757089064?pt=128357651&ct=playnxt-2hr-intense&mt=8` |
 | Reddit / community | `https://apps.apple.com/app/apple-store/id6757089064?pt=128357651&ct=playnxt-community&mt=8` |
 | Creator outreach | `https://apps.apple.com/app/apple-store/id6757089064?pt=128357651&ct=playnxt-challenge&mt=8` |
 | Web quiz card, "I'll play this!" sheet | `https://apps.apple.com/app/apple-store/id6757089064?pt=128357651&ct=playnxt-web-pick&mt=8` |

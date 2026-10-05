@@ -11,7 +11,16 @@ export const CHANGELOG = {
         icon: 'moon-outline',
         headline: 'Your picks, ready every evening',
         body: 'Three games chosen for your usual time and mood, waiting on the Play tab. Same three all day. No more deciding.',
-        cta: { label: "See tonight's picks", screen: 'Main', params: { screen: 'Play' } },
+        // Through PlayHome's openTonight deep link: opens the picks, or starts
+        // the quiz for upgraders who haven't finished a session yet.
+        cta: {
+          label: "See tonight's picks",
+          screen: 'Main',
+          params: {
+            screen: 'Play',
+            params: { screen: 'PlayHome', params: { openTonight: 'whats_new', openTonightVia: 'whats_new' } },
+          },
+        },
       },
       {
         icon: 'notifications-outline',

@@ -39,7 +39,7 @@ jest.mock('../../services/gameImages', () => ({
   getGameImage: jest.fn(() => Promise.resolve({ imageUrl: null, fallbackColors: ['#1a1a2e', '#16213e'] })),
 }));
 
-import { getLastContext, getCachedPicks, fetchTonightsPicks, recordTonightView } from '../../services/tonightService';
+import { getLastContext, getCachedPicks, fetchTonightsPicks, recordTonightView, localDateString } from '../../services/tonightService';
 import { logEvent } from '../../services/analyticsService';
 import PlayScreen from '../PlayScreen';
 
@@ -103,7 +103,86 @@ it('clears the openTonight route param after consuming it', async () => {
   getCachedPicks.mockResolvedValue(CACHE);
   await render(<PlayScreen />);
   await waitFor(() => expect(mockNavigate).toHaveBeenCalledWith('Results'));
-  expect(mockSetParams).toHaveBeenCalledWith({ openTonight: undefined });
+  expect(mockSetParams).toHaveBeenCalledWith({ openTonight: undefined, openTonightVia: undefined });
+});
+
+it('hides the feature pills while the Tonight card is showing', async () => {
+  getLastContext.mockResolvedValue(CONTEXT);
+  getCachedPicks.mockResolvedValue(CACHE);
+  const { getByText, queryByText } = await render(<PlayScreen />);
+  await waitFor(() => getByText("Tonight's Picks"));
+  expect(queryByText('Time-matched')).toBeNull();
+});
+
+it('keeps the feature pills when there is no Tonight card', async () => {
+  getLastContext.mockResolvedValue(null);
+  const { findByText } = await render(<PlayScreen />);
+  await findByText('Time-matched');
+});
+
+it("What's New link opens tonight's picks and tags the view", async () => {
+  mockRouteParams = { openTonight: 'whats_new', openTonightVia: 'whats_new' };
+  getLastContext.mockResolvedValue(CONTEXT);
+  getCachedPicks.mockResolvedValue(CACHE);
+  await render(<PlayScreen />);
+  await waitFor(() => expect(mockNavigate).toHaveBeenCalledWith('Results'));
+  expect(logEvent).toHaveBeenCalledWith('tonight_picks_viewed', { via: 'whats_new' });
+  expect(mockSetParams).toHaveBeenCalledWith({ openTonight: undefined, openTonightVia: undefined });
+});
+
+it("What's New link starts the quiz when there are no picks yet", async () => {
+  mockRouteParams = { openTonight: 'whats_new', openTonightVia: 'whats_new' };
+  getLastContext.mockResolvedValue(null);
+  await render(<PlayScreen />);
+  await waitFor(() => expect(mockNavigate).toHaveBeenCalledWith('TimeSelect'));
+  expect(mockStartTonightSession).not.toHaveBeenCalled();
+});
+
+it('deep link keeps a returning user on Play when the picks fail to load', async () => {
+  // A fetch error is not "no picks yet": the quiz would reset their
+  // preferences and fail offline too. The card's error state offers a retry.
+  mockRouteParams = { openTonight: 123 };
+  getLastContext.mockResolvedValue(CONTEXT);
+  getCachedPicks.mockResolvedValue(null);
+  fetchTonightsPicks.mockRejectedValue(new Error('offline'));
+  const { findByText } = await render(<PlayScreen />);
+  await findByText("Couldn't load tonight's picks. Tap to retry.");
+  await waitFor(() => expect(mockSetParams).toHaveBeenCalledWith({ openTonight: undefined, openTonightVia: undefined }));
+  expect(mockNavigate).not.toHaveBeenCalledWith('TimeSelect');
+  expect(mockNavigate).not.toHaveBeenCalledWith('Results');
+});
+
+it("deep link starts the quiz when the picks can't open a session", async () => {
+  // A cache the session rejects (no games / no context) must not dead-end.
+  mockRouteParams = { openTonight: 'whats_new', openTonightVia: 'whats_new' };
+  mockStartTonightSession.mockReturnValueOnce(false);
+  getLastContext.mockResolvedValue(CONTEXT);
+  getCachedPicks.mockResolvedValue(CACHE);
+  await render(<PlayScreen />);
+  await waitFor(() => expect(mockNavigate).toHaveBeenCalledWith('TimeSelect'));
+  expect(mockNavigate).not.toHaveBeenCalledWith('Results');
+  expect(logEvent).not.toHaveBeenCalledWith('tonight_picks_viewed', expect.anything());
+});
+
+it("deep link reloads instead of opening yesterday's ready card", async () => {
+  // App parked on Play across midnight: the in-memory card is still 'ready'
+  // with yesterday's picks when the reminder (or What's New) link arrives.
+  getLastContext.mockResolvedValue(CONTEXT);
+  getCachedPicks.mockResolvedValue(CACHE);
+  const { getByText, rerender } = await render(<PlayScreen />);
+  await waitFor(() => getByText('Hades'));
+
+  const TODAY = { ...CACHE, date: '2026-10-06', sessionId: 's2', games: [{ game_id: 'celeste', title: 'Celeste' }] };
+  localDateString.mockReturnValue('2026-10-06');
+  getCachedPicks.mockResolvedValue(null);
+  fetchTonightsPicks.mockResolvedValue(TODAY);
+  mockRouteParams = { openTonight: 456 };
+  await rerender(<PlayScreen />);
+
+  await waitFor(() => expect(mockNavigate).toHaveBeenCalledWith('Results'));
+  expect(mockStartTonightSession).toHaveBeenCalledWith(TODAY);
+  expect(mockStartTonightSession).not.toHaveBeenCalledWith(CACHE);
+  localDateString.mockReturnValue('2026-10-05');
 });
 
 // History note: firing two rapid UNFLUSHED fireEvent.press calls in this

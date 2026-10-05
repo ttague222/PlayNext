@@ -29,6 +29,10 @@ import { logEvent } from '../services/analyticsService';
 
 const { width: SCREEN_WIDTH } = Dimensions.get('window');
 
+// An app parked on the Play tab across midnight keeps yesterday's picks in
+// state with no refocus; every path that reuses the in-memory card checks this.
+const isTodaysCache = (cache) => Boolean(cache) && cache.date === localDateString();
+
 const PlayScreen = () => {
   const navigation = useNavigation();
   const route = useRoute();
@@ -56,32 +60,35 @@ const PlayScreen = () => {
   const notForMeRef = useRef(notForMeGameIds);
   notForMeRef.current = notForMeGameIds;
 
+  // Resolves to { cache, failed }: cache is today's picks or null; failed is
+  // true only when loading threw (offline, API down), so callers can tell
+  // "no picks yet" apart from "couldn't load them".
   const loadTonight = useCallback(async () => {
     try {
       const context = await getLastContext();
       if (!context) {
         setTonightStatus('hidden');
-        return null;
+        return { cache: null, failed: false };
       }
       setTonightContext(context);
       const cached = await getCachedPicks();
       if (cached) {
         setTonightCache(cached);
         setTonightStatus('ready');
-        return cached;
+        return { cache: cached, failed: false };
       }
       setTonightStatus('loading');
       const fresh = await fetchTonightsPicks({ excludedGameIds: notForMeRef.current || [] });
       if (fresh) {
         setTonightCache(fresh);
         setTonightStatus('ready');
-        return fresh;
+        return { cache: fresh, failed: false };
       }
       setTonightStatus('hidden');
-      return null;
+      return { cache: null, failed: false };
     } catch {
       setTonightStatus('error');
-      return null;
+      return { cache: null, failed: true };
     }
   }, []);
 
@@ -92,13 +99,16 @@ const PlayScreen = () => {
     }, [loadTonight])
   );
 
+  // Resolves to whether the picks actually opened: startTonightSession
+  // rejects a cache with no games or no context.
   const openTonight = useCallback(
     async (cache, via) => {
-      if (!startTonightSession(cache)) return;
+      if (!startTonightSession(cache)) return false;
       await recordTonightView();
       logEvent('tonight_picks_viewed', { via });
       navigation.navigate('Results');
       maybeOfferTonightReminder();
+      return true;
     },
     [startTonightSession, navigation]
   );
@@ -111,14 +121,13 @@ const PlayScreen = () => {
     if (openingRef.current) return;
     openingRef.current = true;
     try {
-      // The date guard covers an app parked on this tab across midnight with
-      // no refocus: a stale-day cache falls through to a fresh load instead.
-      if (tonightStatus === 'ready' && tonightCache && tonightCache.date === localDateString()) {
+      // A stale-day cache falls through to a fresh load (see isTodaysCache).
+      if (tonightStatus === 'ready' && isTodaysCache(tonightCache)) {
         await openTonight(tonightCache, 'card');
         return;
       }
       // loading/error: (re)try, then open if it lands
-      const cache = await loadTonight();
+      const { cache } = await loadTonight();
       if (cache) await openTonight(cache, 'card');
     } finally {
       openingRef.current = false;
@@ -191,18 +200,27 @@ const PlayScreen = () => {
     handleStart(); // same entry as the hero CTA: completing the flow rewrites context + cache
   };
 
-  // Notification deep link: open tonight's picks as soon as they're available.
-  // The notification sender passes `openTonight` as a nonce (e.g. Date.now())
-  // so a re-tap of the same notification re-fires; clear the param once
-  // consumed so remounts/re-renders don't replay it.
+  // Deep link (nightly reminder, What's New): open tonight's picks as soon as
+  // they're available. The sender passes `openTonight` as a nonce (e.g.
+  // Date.now()) so a re-tap of the same link re-fires, plus an optional
+  // `openTonightVia` for analytics; both are cleared once consumed so
+  // remounts/re-renders don't replay it. With no usable picks (no finished
+  // session yet, or a cache that can't open), start the quiz instead of
+  // landing on nothing. A load error is different: stay on Play, where the
+  // card's error state offers a retry, rather than reset into the quiz.
   useEffect(() => {
     if (!route?.params?.openTonight) return;
+    const via = route.params.openTonightVia || 'notification';
     (async () => {
       try {
-        const cache = tonightStatus === 'ready' && tonightCache ? tonightCache : await loadTonight();
-        if (cache) await openTonight(cache, 'notification');
+        let cache = tonightStatus === 'ready' && isTodaysCache(tonightCache) ? tonightCache : null;
+        let failed = false;
+        if (!cache) ({ cache, failed } = await loadTonight());
+        if (failed) return;
+        const opened = cache ? await openTonight(cache, via) : false;
+        if (!opened) handleStart();
       } finally {
-        navigation.setParams({ openTonight: undefined });
+        navigation.setParams({ openTonight: undefined, openTonightVia: undefined });
       }
     })();
     // eslint-disable-next-line react-hooks/exhaustive-deps
@@ -281,21 +299,24 @@ const PlayScreen = () => {
             />
           )}
 
-          {/* Feature Pills */}
-          <View style={styles.features}>
-            <View style={styles.featurePill}>
-              <Ionicons name="time-outline" size={16} color="#a78bfa" />
-              <Text style={styles.featureText}>Time-matched</Text>
+          {/* Feature Pills: the Tonight card replaces them once it shows (the
+              screen would overflow into the stats bar with both) */}
+          {tonightStatus === 'hidden' && (
+            <View style={styles.features}>
+              <View style={styles.featurePill}>
+                <Ionicons name="time-outline" size={16} color="#a78bfa" />
+                <Text style={styles.featureText}>Time-matched</Text>
+              </View>
+              <View style={styles.featurePill}>
+                <Ionicons name="heart-outline" size={16} color="#f472b6" />
+                <Text style={styles.featureText}>Mood-based</Text>
+              </View>
+              <View style={styles.featurePill}>
+                <Ionicons name="flash-outline" size={16} color="#fbbf24" />
+                <Text style={styles.featureText}>Instant</Text>
+              </View>
             </View>
-            <View style={styles.featurePill}>
-              <Ionicons name="heart-outline" size={16} color="#f472b6" />
-              <Text style={styles.featureText}>Mood-based</Text>
-            </View>
-            <View style={styles.featurePill}>
-              <Ionicons name="flash-outline" size={16} color="#fbbf24" />
-              <Text style={styles.featureText}>Instant</Text>
-            </View>
-          </View>
+          )}
         </ScrollView>
 
         {/* Bottom Stats */}
