@@ -4,6 +4,21 @@
  * cta.screen values are navigation route names; params optional.
  */
 export const CHANGELOG = {
+  '1.7.0': {
+    title: 'Share your picks',
+    features: [
+      {
+        icon: 'share-social-outline',
+        headline: 'One card, all three picks',
+        body: 'Sharing your results now sends a single card with every pick and why it fits, plus a link that shows friends exactly what you got.',
+      },
+      {
+        icon: 'link-outline',
+        headline: 'Share links open in the app',
+        body: "Tap a friend's PlayNxt link and it opens right here instead of the browser.",
+      },
+    ],
+  },
   '1.6.0': {
     title: "Tonight's Picks",
     features: [
