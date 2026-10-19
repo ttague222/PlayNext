@@ -168,6 +168,13 @@ sends are discarded (security review, 2026-10-19):
   text in Firestore is exactly the text the allowlist approved. Validating
   one form and storing another let a decomposed combining mark through.
 
+  Letters that draw a *standalone* dot (sinological dot, Canadian syllabics
+  middle dot, and six others) fold to "." so they are detected rather than
+  rejected. That set is curated on purpose: 187 letter-category characters
+  have "DOT" in their Unicode name and 179 are ordinary accented letters
+  (Vietnamese ạ, Turkish İ, Irish ṡ), so a name-derived rule would have
+  broken real titles. A test pins both halves of that distinction.
+
   Homoglyph domains need no extra rule: Cyrillic and Greek letters match the
   TLD class, so "evil.cОm" is already caught. A confusables skeleton or a
   mixed-script ban was considered and declined — no demonstrated bypass, and

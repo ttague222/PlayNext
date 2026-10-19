@@ -573,3 +573,47 @@ def test_a_longer_domain_built_onto_a_title_is_not_exempt():
     from src.models.share import contains_link
 
     assert contains_link("Play Chess.com.evil now", ("Chess.com",)) is True
+
+
+# --- Letters that render as a bare dot ---
+
+
+@pytest.mark.parametrize(
+    "ch,name",
+    [
+        ("ᐧ", "canadian syllabics final middle dot"),
+        ("ᣟ", "canadian syllabics final raised dot"),
+        ("ꞏ", "latin letter sinological dot"),
+        ("ࢇ", "arabic baseline round dot"),
+        ("ॱ", "devanagari sign high spacing dot"),
+        ("ꓸ", "lisu letter tone mya ti"),
+        ("\U0001bc84", "duployan affix high dot"),
+        ("\U0001bc94", "duployan affix low dot"),
+    ],
+)
+def test_letters_that_render_as_a_bare_dot_are_treated_as_dots(ch, name):
+    """These are Unicode letters, so the category allowlist admits them, but
+    they draw a standalone dot -- "evil<x>com" reads as a domain. Folding
+    them to '.' turns a bypass into a detection."""
+    from src.models.share import contains_link
+
+    assert contains_link(f"Claim at evil{ch}com now", ()) is True, name
+
+
+@pytest.mark.parametrize(
+    "text",
+    [
+        "A calm trip to Hạ Long.",          # a with dot below
+        "İstanbul at dusk.",                 # I with dot above
+        "A ṣand-swept ruin.",                # s with dot below
+        "Explore Bailé Átha Cliath.",   # accented Irish
+    ],
+)
+def test_letters_that_merely_carry_a_dot_are_not_treated_as_dots(text):
+    """179 of the 187 letter-category characters whose Unicode name mentions
+    DOT are ordinary accented letters. Folding those would break Vietnamese,
+    Turkish and Irish titles, so the dot set is curated, not name-derived."""
+    from src.models.share import contains_link, _reject_links
+
+    _reject_links(text)                      # must not raise
+    assert contains_link(text, ()) is False

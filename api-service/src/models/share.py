@@ -49,6 +49,22 @@ _DOT_LOOKALIKES = {
     "‧": ".",  # HYPHENATION POINT
     "・": ".",  # KATAKANA MIDDLE DOT
     "･": ".",  # HALFWIDTH KATAKANA MIDDLE DOT
+    # Letter-category characters that draw a standalone dot. The category
+    # allowlist admits them because they genuinely are letters, so they fold
+    # here instead -- turning a bypass into a detection.
+    #
+    # Curated deliberately, NOT derived from Unicode names: 187 letters have
+    # "DOT" in their name and 179 of them are ordinary accented letters
+    # (Vietnamese ạ, Turkish İ, Irish ṡ). Folding those would break real
+    # titles, which is why only bare-dot glyphs appear below.
+    "ᐧ": ".",      # CANADIAN SYLLABICS FINAL MIDDLE DOT
+    "ᣟ": ".",      # CANADIAN SYLLABICS FINAL RAISED DOT
+    "ꞏ": ".",      # LATIN LETTER SINOLOGICAL DOT
+    "ࢇ": ".",      # ARABIC BASELINE ROUND DOT
+    "ॱ": ".",      # DEVANAGARI SIGN HIGH SPACING DOT
+    "ꓸ": ".",      # LISU LETTER TONE MYA TI
+    "𛲄": ".",  # DUPLOYAN AFFIX HIGH DOT
+    "𛲔": ".",  # DUPLOYAN AFFIX LOW DOT
 }
 _DOT_TRANSLATION = str.maketrans(_DOT_LOOKALIKES)
 
