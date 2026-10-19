@@ -126,72 +126,44 @@ sends are discarded (security review, 2026-10-19):
   id could recompute the token and prove who shared), so `sharer_token` is
   served as `null` instead. Attribution is off until the key is set; nothing
   else breaks.
-- **`why` may not contain a link or a domain.** It's the one field a caller
-  still owns, so a 422 keeps a destination off a playnxt.io page. The check
-  runs on an NFKC-folded copy with dot-lookalikes translated, because NFKC
-  folds U+FF0E but *not* U+3002 or U+FF61 — "evil。example" reads as a domain
-  and would otherwise walk past an ASCII `\.`. Bare IPv4 is rejected too.
-  Letters are matched Unicode-aware, so "café" and "Pokémon" are fine; the
-  stored text is always exactly what the engine wrote. Any Unicode format
-  (Cf) character — zero-width space, joiner, soft hyphen, BOM — is rejected
-  outright, since those are invisible to a reader but break the label-dot
-  adjacency the patterns rely on; a scan of 2354 real catalog strings found
-  no Cf character at all, so the whole category is safe to refuse. Tests pin
-  the bypasses and the real engine lines ("e.g.", "No. 1", an en dash) that
-  must survive.
+- **`why` is not an input surface at all (2026-10-19).** Six rounds of review
+  into filtering the caller's `why` — dot lookalikes, invisible characters,
+  an inverted allowlist, a dotted-title exemption with carve-out bugs — the
+  rule was replaced by the root fix the last round named: the engine now
+  signs what it recommends, and the share repeats it.
 
-  **`why` is now an allowlist, not a denylist.** Five rounds of review each
-  found another way to spell a dot or hide a character, so the rule was
-  inverted: only letters (any script, by Unicode category), digits, spaces
-  and plain punctuation are accepted. That rejects zero-width spaces,
-  joiners, soft hyphens, the BOM, combining marks, variation selectors,
-  braille blanks, emoji and every dot-lookalike in one rule instead of
-  naming them one at a time. The allowed punctuation was derived from the
-  corpus, not guessed: 2354 catalog strings plus the engine's own templates
-  use only `.,:;!?'"()[]-/&+%`, curly quotes, en/em dashes and an ellipsis.
+  Every `GameRecommendation` carries a **pick token**
+  (`services/pick_token.py`): base64url JSON of `{game, why line, match %,
+  time, mood}` plus an HMAC-SHA256. The why line is the one the clients
+  render first — highest-priority fit bullet, else the summary's first
+  sentence — computed server-side at recommendation time. `POST /api/shares`
+  takes `{game_id, pick_token}` per pick, verifies the signature *before*
+  parsing the payload, and reads `why` and `match_percentage` out of the
+  token. The body fields by those names no longer exist (extras are ignored,
+  not read), so there is no client-owned text to filter and the whole
+  link-filter apparatus is gone.
 
-  **Dotted game titles are exempt.** The live catalog contains Agar.io,
-  Chess.com, BeamNG.drive, Diep.io and Dirt Rally 2.0, and the engine writes
-  titles into its explanations — so a naive domain rule made those games
-  unshareable. The link check runs in the share service, where the
-  catalog-resolved titles are known, and removes them before matching. All
-  2354 catalog strings now pass both checks.
+  Checks on a verified token: it must name the pick's own `game_id` and the
+  share's own scenario (time + mood), or the request is a 400 — a why line
+  signed for one game in one scenario can't caption anything else. Tokens are
+  per pick, not per response, because a card swap leaves the final set
+  spanning two engine responses; any mix verifies as long as the scenario
+  matches. Dotted titles (Agar.io, Chess.com, BeamNG.drive) need no special
+  case anymore: the engine wrote the text, so whatever it says is shareable.
 
-  The title exemption is anchored to token boundaries and applies only to
-  titles containing a dot, because removing a title as a bare substring
-  turned the exemption into a hiding place — "evilChess.com" reads as a
-  domain but vanished when "Chess.com" was cut out of its middle. A
-  sentence-ending period after a title is still allowed; another label
-  ("Chess.com.evil") is not.
+  The key is `SHARE_TOKEN_SALT`, shared with sharer tokens but
+  domain-separated by a message prefix (`pick-token-v1:`), so one production
+  secret lights up both attribution and pick signing. With no key, the
+  engine issues no tokens and the verifier vouches for nothing: shares still
+  work but carry no why line or match — sharing never breaks, text the
+  server can't vouch for just doesn't render. A *malformed or tampered*
+  token, by contrast, is a 400: that's tamper evidence, not degradation.
 
-  `why` is normalised to NFC once and that form is what gets stored, so the
-  text in Firestore is exactly the text the allowlist approved. Validating
-  one form and storing another let a decomposed combining mark through.
-
-  Letters that draw a *standalone* dot (sinological dot, Canadian syllabics
-  middle dot, and six others) fold to "." so they are detected rather than
-  rejected. That set is curated on purpose: 187 letter-category characters
-  have "DOT" in their Unicode name and 179 are ordinary accented letters
-  (Vietnamese ạ, Turkish İ, Irish ṡ), so a name-derived rule would have
-  broken real titles. A test pins both halves of that distinction.
-
-  Homoglyph domains need no extra rule: Cyrillic and Greek letters match the
-  TLD class, so "evil.cОm" is already caught. A confusables skeleton or a
-  mixed-script ban was considered and declined — no demonstrated bypass, and
-  a script restriction risks rejecting legitimate titles.
-
-  The root fix is still regenerating `why` server-side from a signed
-  recommendation id; the allowlist is what makes the interim rule hold
-  instead of leaking a new bypass every round.
-
-`why` is still client-supplied — the engine writes it per request and it
-exists nowhere else — so it's capped at 300 chars, link-filtered, and
-HTML-escaped by the page. An abusive share could still carry 300 characters
-of link-free text; that's the residual risk, and it's the price of showing
-the sharer's real explanation. The proper fix is for the engine to issue a
-signed recommendation id that `create_share` verifies, so `why` is read from
-a server-side record instead of the request — worth doing if shares ever earn
-the sharer anything.
+  Residual risk: a token is a bearer record — anyone who obtained a real
+  recommendation can share those exact picks with that exact text. That's
+  the feature working as intended; what's gone is the ability to put chosen
+  text on a playnxt.io page. The page still HTML-escapes everything it
+  renders.
 
 The landing page's inline analytics JSON is escaped for a **script** context,
 not an HTML one (`</script>` in a value would close the block early), and a
@@ -206,4 +178,5 @@ share id that doesn't match the id format is dropped rather than echoed.
 - Needs `VITE_GA4_MEASUREMENT_ID` in Vercel and an `api-service` deploy.
 - The `shares` collection has no retention policy yet.
 - `SHARE_TOKEN_SALT` is unset by default; without it there is no
-  `sharer_token` at all, so set it before launch or attribution is dark.
+  `sharer_token` (attribution is dark) and no pick tokens (shares render
+  without why lines or match percentages), so set it before launch.

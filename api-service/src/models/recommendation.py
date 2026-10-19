@@ -166,6 +166,15 @@ class GameRecommendation(BaseModel):
         default=False,
         description="Game is in the user's synced library, owned but barely played"
     )
+    pick_token: Optional[str] = Field(
+        default=None,
+        description=(
+            "Signed record of this pick (game, why line, match, scenario). "
+            "Passed back to POST /api/shares so the share page can show "
+            "engine-authored text without trusting the request body. None "
+            "when no signing key is configured."
+        ),
+    )
 
 
 class RecommendationResponse(BaseModel):

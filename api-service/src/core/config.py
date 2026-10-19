@@ -50,8 +50,10 @@ class Settings(BaseSettings):
 
     # CORS — must be explicitly set in production (no wildcard default)
     cors_origins: str = ""
-    # Salts the public sharer_token on share pages; unset still works,
-    # but set it in production so the digest cannot be recomputed.
+    # HMAC key for the share loop: keys the public sharer_token on share
+    # pages AND signs pick tokens (the engine's record of why it recommended
+    # a game, which shares repeat). Unset still works, but shares then carry
+    # no attribution token and no why/match text — set it in production.
     share_token_salt: str = ""
 
     # Rate Limiting

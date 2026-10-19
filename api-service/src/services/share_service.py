@@ -19,8 +19,8 @@ from typing import Optional
 from ..core.config import settings
 from ..db.firebase import get_collection, SHARES_COLLECTION
 from ..models import Share, ShareCreate, SharePick, SharePublic
-from ..models.share import contains_link
 from .game_service import get_game_service
+from .pick_token import verify_pick_token
 
 logger = logging.getLogger("playnext-api.services.share")
 
@@ -82,37 +82,47 @@ class ShareService:
         self.shares_collection = get_collection(SHARES_COLLECTION)
 
     async def _resolve_picks(self, payload: ShareCreate) -> list[SharePick]:
-        """Rebuild the picks from the catalog, keeping only what the client owns.
+        """Rebuild the picks from what the server can vouch for.
 
         Titles come from the catalog, so a share page can never display text a
-        caller chose. `match_percentage` and `why` describe the sharer's own
-        recommendation run and exist nowhere else, so they are kept as sent --
-        capped by the model, escaped by the page that renders them.
+        caller chose. `why` and `match_percentage` come from the pick token the
+        engine signed for this exact game and scenario -- never from the body.
+        A share without a verifiable token is still created; it just carries
+        neither, so sharing works even before a signing key is configured.
         """
         game_service = get_game_service()
 
-        games = []
+        resolved: list[SharePick] = []
         for pick in payload.picks:
             game = await game_service.get_game(pick.game_id)
             if game is None:
                 raise ValueError(f"Unknown game: {pick.game_id}")
-            games.append(game)
 
-        # The engine writes titles into its explanations, and real titles
-        # contain domain-like dots (Chess.com, BeamNG.drive). Exempt the
-        # share's own catalog titles so a legitimate pick stays shareable.
-        titles = tuple(game.title for game in games)
+            why = None
+            match_percentage = None
+            if pick.pick_token:
+                # Raises ValueError on a malformed or tampered token (a 400);
+                # returns None when no key is configured, which degrades to a
+                # tokenless share rather than failing it.
+                token = verify_pick_token(pick.pick_token)
+                if token is not None:
+                    if (
+                        token.game_id != pick.game_id
+                        or token.time_available != payload.time_available
+                        or token.energy_mood != payload.energy_mood.value
+                    ):
+                        # The why line was signed for one game in one
+                        # scenario; it must not caption anything else.
+                        raise ValueError("pick token does not match this share")
+                    why = token.why
+                    match_percentage = token.match_percentage
 
-        resolved: list[SharePick] = []
-        for pick, game in zip(payload.picks, games):
-            if pick.why and contains_link(pick.why, titles):
-                raise ValueError("why must not contain a link or domain")
             resolved.append(
                 SharePick(
                     game_id=game.game_id,
                     title=game.title,
-                    match_percentage=pick.match_percentage,
-                    why=pick.why,
+                    match_percentage=match_percentage,
+                    why=why,
                 )
             )
 

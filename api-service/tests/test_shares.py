@@ -65,15 +65,28 @@ def share_payload():
         "sharer_id": "anon-abc123",
         "time_available": 30,
         "energy_mood": "wind_down",
-        "picks": [
-            {
-                "game_id": "game-001",
-                "title": "Adventure Land",
-                "match_percentage": 92,
-                "why": "Saves anytime, so you can stop when your 30 minutes are up.",
-            }
-        ],
+        "picks": [{"game_id": "game-001"}],
     }
+
+
+WHY_LINE = "Saves anytime, so you can stop when your 30 minutes are up."
+
+
+def _mint_pick_token(**overrides):
+    """A token as the engine would issue it for the fixture's scenario.
+
+    Caller is responsible for patching share_token_salt while minting."""
+    from src.services.pick_token import issue_pick_token
+
+    kwargs = {
+        "game_id": "game-001",
+        "why": WHY_LINE,
+        "match_percentage": 92,
+        "time_available": 30,
+        "energy_mood": "wind_down",
+    }
+    kwargs.update(overrides)
+    return issue_pick_token(**kwargs)
 
 
 def test_create_share_returns_a_share_id(client, shares_collection, share_payload):
@@ -96,13 +109,15 @@ def test_get_share_returns_the_picks_that_were_stored(client, shares_collection,
 
 
 def test_get_share_preserves_the_why_line_the_sharer_saw(client, shares_collection, share_payload):
-    share_id = client.post("/api/shares", json=share_payload).json()["share_id"]
+    from unittest.mock import patch
 
-    resp = client.get(f"/api/shares/{share_id}")
+    with patch("src.core.config.settings.share_token_salt", "a-real-key"):
+        share_payload["picks"][0]["pick_token"] = _mint_pick_token()
+        share_id = client.post("/api/shares", json=share_payload).json()["share_id"]
 
-    assert resp.json()["picks"][0]["why"] == (
-        "Saves anytime, so you can stop when your 30 minutes are up."
-    )
+        resp = client.get(f"/api/shares/{share_id}")
+
+    assert resp.json()["picks"][0]["why"] == WHY_LINE
 
 
 def test_get_unknown_share_returns_404(client, shares_collection):
@@ -303,333 +318,153 @@ def test_a_sharer_token_is_served_when_a_key_is_configured(
     assert body["sharer_token"]
 
 
-def test_create_share_rejects_a_why_line_containing_a_link(
+
+# --- Security: `why` comes from a signed engine record, not the caller ---
+#
+# The engine issues a pick token (HMAC over game, why line, match and
+# scenario) with every recommendation. `create_share` verifies it and reads
+# `why` and `match_percentage` from the token, so the request body has no
+# text field a caller controls -- the link filter this replaced is gone.
+
+
+def test_a_verified_token_puts_the_engines_why_and_match_on_the_share(
     client, shares_collection, share_payload
 ):
-    """`why` is the one field the client still owns, so it must not be able to
-    carry a destination onto a playnxt.io page."""
+    with patch("src.core.config.settings.share_token_salt", "a-real-key"):
+        share_payload["picks"][0]["pick_token"] = _mint_pick_token()
+        share_id = client.post("/api/shares", json=share_payload).json()["share_id"]
+
+        pick = client.get(f"/api/shares/{share_id}").json()["picks"][0]
+
+    assert pick["why"] == WHY_LINE
+    assert pick["match_percentage"] == 92
+
+
+def test_a_share_without_a_token_stores_no_why_or_match(
+    client, shares_collection, share_payload
+):
+    """A tokenless share (older client, no signing key, a share made outside a
+    fresh engine run) still works -- it just carries no engine text."""
+    with patch("src.core.config.settings.share_token_salt", "a-real-key"):
+        resp = client.post("/api/shares", json=share_payload)
+        assert resp.status_code == 201
+
+        pick = client.get(f"/api/shares/{resp.json()['share_id']}").json()["picks"][0]
+
+    assert pick["why"] is None
+    assert pick["match_percentage"] is None
+
+
+def test_a_client_supplied_why_is_ignored(client, shares_collection, share_payload):
+    """`why` is no longer an input surface: a body field by that name is not
+    read at all, so there is nothing to filter."""
     share_payload["picks"][0]["why"] = "Claim your prize at https://evil.example"
 
-    resp = client.post("/api/shares", json=share_payload)
+    with patch("src.core.config.settings.share_token_salt", "a-real-key"):
+        resp = client.post("/api/shares", json=share_payload)
+        assert resp.status_code == 201
 
-    assert resp.status_code in (400, 422)
+        body = client.get(f"/api/shares/{resp.json()['share_id']}").json()
+
+    assert "evil.example" not in str(body)
+    assert body["picks"][0]["why"] is None
 
 
-def test_create_share_rejects_a_why_line_containing_a_bare_domain(
+def test_a_client_supplied_match_percentage_is_ignored(
     client, shares_collection, share_payload
 ):
-    share_payload["picks"][0]["why"] = "Go to evil.example now"
+    share_payload["picks"][0]["match_percentage"] = 100
 
-    resp = client.post("/api/shares", json=share_payload)
+    with patch("src.core.config.settings.share_token_salt", "a-real-key"):
+        resp = client.post("/api/shares", json=share_payload)
+        pick = client.get(f"/api/shares/{resp.json()['share_id']}").json()["picks"][0]
 
-    assert resp.status_code in (400, 422)
-
-
-def test_create_share_keeps_an_ordinary_why_line(client, shares_collection, share_payload):
-    """The engine's real output must survive the filter unchanged."""
-    real = "Saves anytime, so you can stop when your 30 minutes are up."
-    share_payload["picks"][0]["why"] = real
-
-    share_id = client.post("/api/shares", json=share_payload).json()["share_id"]
-
-    body = client.get(f"/api/shares/{share_id}").json()
-    assert body["picks"][0]["why"] == real
+    assert pick["match_percentage"] is None
 
 
-# --- Security: the link filter must not be bypassable with lookalike dots ---
+def test_a_tampered_token_is_rejected(client, shares_collection, share_payload):
+    import base64
+    import json as jsonlib
+
+    with patch("src.core.config.settings.share_token_salt", "a-real-key"):
+        token = _mint_pick_token()
+        payload_b64, sig = token.rsplit(".", 1)
+        decoded = jsonlib.loads(base64.urlsafe_b64decode(payload_b64 + "=="))
+        decoded["w"] = "Visit evil.example for free keys"
+        share_payload["picks"][0]["pick_token"] = (
+            base64.urlsafe_b64encode(jsonlib.dumps(decoded).encode()).rstrip(b"=").decode()
+            + "."
+            + sig
+        )
+
+        resp = client.post("/api/shares", json=share_payload)
+
+    assert resp.status_code == 400
 
 
-@pytest.mark.parametrize(
-    "dot,name",
-    [
-        ("．", "fullwidth full stop"),
-        ("。", "ideographic full stop"),
-        ("｡", "halfwidth ideographic full stop"),
-    ],
-)
-def test_create_share_rejects_a_domain_built_from_a_lookalike_dot(
-    client, shares_collection, share_payload, dot, name
+def test_a_token_for_another_game_is_rejected(client, shares_collection, share_payload):
+    """A token binds its why line to one game; it cannot be replayed onto a
+    different pick to caption it with another game's text."""
+    with patch("src.core.config.settings.share_token_salt", "a-real-key"):
+        share_payload["picks"][0]["pick_token"] = _mint_pick_token(game_id="game-002")
+
+        resp = client.post("/api/shares", json=share_payload)
+
+    assert resp.status_code == 400
+
+
+def test_a_token_for_another_scenario_is_rejected(client, shares_collection, share_payload):
+    """The why line was written for a scenario; showing it under a different
+    one would misrepresent what the engine said."""
+    with patch("src.core.config.settings.share_token_salt", "a-real-key"):
+        share_payload["picks"][0]["pick_token"] = _mint_pick_token(time_available=120)
+        assert client.post("/api/shares", json=share_payload).status_code == 400
+
+        share_payload["picks"][0]["pick_token"] = _mint_pick_token(energy_mood="intense")
+        assert client.post("/api/shares", json=share_payload).status_code == 400
+
+
+def test_picks_from_two_engine_responses_can_share_one_scenario(
+    client, shares_collection, share_payload
 ):
-    """A denylist with a trivial bypass is worse than none -- it invites
-    false confidence. These render as a domain to a reader."""
-    share_payload["picks"][0]["why"] = f"Go to evil{dot}example now"
+    """A swap replaces one card, so the final set mixes two responses. Tokens
+    are per pick, so a mixed set verifies as long as the scenario matches."""
+    with patch("src.core.config.settings.share_token_salt", "a-real-key"):
+        share_payload["picks"] = [
+            {"game_id": "game-001", "pick_token": _mint_pick_token()},
+            {
+                "game_id": "game-002",
+                "pick_token": _mint_pick_token(
+                    game_id="game-002", why="A puzzle you can put down anytime.",
+                    match_percentage=88,
+                ),
+            },
+        ]
 
-    resp = client.post("/api/shares", json=share_payload)
+        resp = client.post("/api/shares", json=share_payload)
+        assert resp.status_code == 201
 
-    assert resp.status_code in (400, 422), f"{name} bypassed the filter"
+        picks = client.get(f"/api/shares/{resp.json()['share_id']}").json()["picks"]
 
-
-def test_create_share_rejects_a_bare_ip_address(client, shares_collection, share_payload):
-    share_payload["picks"][0]["why"] = "Visit 192.168.1.1 for your prize"
-
-    resp = client.post("/api/shares", json=share_payload)
-
-    assert resp.status_code in (400, 422)
-
-
-def test_create_share_keeps_accented_prose(client, shares_collection, share_payload):
-    """The filter must not reject real titles: Pokemon, Okami, cafe sims."""
-    real = "A cozy café sim with Pokémon energy that's fun within minutes."
-    share_payload["picks"][0]["why"] = real
-
-    share_id = client.post("/api/shares", json=share_payload).json()["share_id"]
-
-    body = client.get(f"/api/shares/{share_id}").json()
-    assert body["picks"][0]["why"] == real
+    assert [p["why"] for p in picks] == [
+        WHY_LINE,
+        "A puzzle you can put down anytime.",
+    ]
 
 
-@pytest.mark.parametrize(
-    "ch,name",
-    [
-        ("​", "zero width space"),
-        ("‌", "zero width non-joiner"),
-        ("‍", "zero width joiner"),
-        ("­", "soft hyphen"),
-        ("﻿", "byte order mark"),
-    ],
-)
-def test_create_share_rejects_invisible_characters_in_why(
-    client, shares_collection, share_payload, ch, name
+def test_with_no_key_a_token_is_stored_as_unverified_not_rejected(
+    client, shares_collection, share_payload
 ):
-    """An invisible char between label and dot hides a domain from the regex
-    while a reader still sees one. No engine output contains a format
-    character -- 2354 catalog strings carry none -- so rejecting the whole
-    Cf category is safe and closes the class, not one instance."""
-    share_payload["picks"][0]["why"] = f"Go to evil{ch}.example now"
-
-    resp = client.post("/api/shares", json=share_payload)
-
-    assert resp.status_code in (400, 422), f"{name} bypassed the filter"
-
-
-@pytest.mark.parametrize("ch", ["·", "•", "・", "⋅"])
-def test_create_share_rejects_dot_lookalike_separators(
-    client, shares_collection, share_payload, ch
-):
-    share_payload["picks"][0]["why"] = f"Go to evil{ch}example now"
-
-    resp = client.post("/api/shares", json=share_payload)
-
-    assert resp.status_code in (400, 422)
-
-
-def test_create_share_keeps_an_en_dash(client, shares_collection, share_payload):
-    """The real catalog contains an en dash; the filter must not reject it."""
-    real = "A short, cozy adventure – fun within minutes."
-    share_payload["picks"][0]["why"] = real
-
-    share_id = client.post("/api/shares", json=share_payload).json()["share_id"]
-
-    assert client.get(f"/api/shares/{share_id}").json()["picks"][0]["why"] == real
-
-
-@pytest.mark.parametrize(
-    "ch,name",
-    [
-        ("⠀", "braille pattern blank"),
-        ("᠎", "mongolian vowel separator"),
-        ("͏", "combining grapheme joiner"),
-        ("️", "variation selector-16"),
-        ("\U000e0101", "variation selector-18"),
-        ("·", "middle dot"),
-        ("\U0001f600", "emoji"),
-        ("⁡", "function application"),
-    ],
-)
-def test_create_share_rejects_characters_outside_the_allowed_set(
-    client, shares_collection, share_payload, ch, name
-):
-    """`why` is restricted to letters, digits, space and plain punctuation.
-    An allowlist ends the lookalike arms race: no invisible, symbol or
-    dot-alike character can reach the matcher to dodge it."""
-    share_payload["picks"][0]["why"] = f"Go to evil{ch}example now"
-
-    resp = client.post("/api/shares", json=share_payload)
-
-    assert resp.status_code == 422, f"{name} was accepted"
-
-
-@pytest.mark.parametrize("ch", ["ㅤ", "ᅟ", "ᅠ", "ﾠ"])
-def test_blank_rendering_letters_still_cannot_hide_a_domain(
-    client, shares_collection, share_payload, ch
-):
-    """Hangul fillers render blank but are Unicode letters, so an allowlist
-    keyed on category lets them through. They must not break the matcher."""
-    share_payload["picks"][0]["why"] = f"Go to evil{ch}.example now"
-
-    resp = client.post("/api/shares", json=share_payload)
-
-    assert resp.status_code in (400, 422)
-
-
-@pytest.mark.parametrize(
-    "text",
-    [
-        "A cozy café sim with Pokémon energy.",
-        "A short, cozy adventure – fun within minutes.",
-        "Meditative — like Abzu, but calmer.",
-        "It's a builder; stop anytime (no timers).",
-        "Roughly 80% exploration, 20% combat.",
-        "Co-op/solo: both work for a 30 minute run.",
-        "Saves anytime, so you can stop when your 30 minutes are up.",
-        "Short runs; stop anytime. No. 1 for wind-down.",
-        "Quietly brilliant… and it respects your time.",
-        "A ‘small’ game with a “big” heart.",
-    ],
-)
-def test_real_prose_survives_the_allowlist(client, shares_collection, share_payload, text):
-    """The filter must never reject what the engine actually writes."""
-    share_payload["picks"][0]["why"] = text
-
-    share_id = client.post("/api/shares", json=share_payload).json()["share_id"]
-
-    assert client.get(f"/api/shares/{share_id}").json()["picks"][0]["why"] == text
-
-
-# --- The link check must not break real games with dotted titles ---
-
-
-def test_a_dotted_game_title_is_not_mistaken_for_a_domain():
-    """Chess.com, BeamNG.drive, Survivor.io and BIT.TRIP are real titles the
-    engine writes into its explanations. Rejecting them would make those
-    games unshareable."""
-    from src.models.share import contains_link
-
-    why = "Saves anytime, so you can put Chess.com down when your 30 minutes are up."
-
-    assert contains_link(why, ("Chess.com",)) is False
-    # Without the exemption it looks exactly like a domain -- which is why
-    # the check has to know the share's real titles.
-    assert contains_link(why, ()) is True
-
-
-def test_a_real_domain_is_still_caught_alongside_a_dotted_title():
-    from src.models.share import contains_link
-
-    why = "Play Chess.com, then claim your prize at evil.example"
-
-    assert contains_link(why, ("Chess.com",)) is True
-
-
-# --- The title exemption must not become a hiding place ---
-
-
-def test_a_domain_glued_to_a_title_is_not_exempted():
-    """Removing a title as a bare substring lets a domain hide inside one:
-    "evilChess.com" reads as a domain but vanished with the title."""
-    from src.models.share import contains_link
-
-    assert contains_link("Visit evilChess.com now", ("Chess.com",)) is True
-
-
-def test_a_title_cannot_be_used_to_split_a_domain():
-    from src.models.share import contains_link
-
-    assert contains_link("goto evilDirt Rally 2.0.example", ("Dirt Rally 2.0",)) is True
-
-
-def test_a_whole_token_title_is_still_exempt():
-    """The real case this exemption exists for must keep working."""
-    from src.models.share import contains_link
-
-    why = "Saves anytime, so you can put Chess.com down when your 30 minutes are up."
-    assert contains_link(why, ("Chess.com",)) is False
-
-
-def test_a_title_at_the_end_of_a_sentence_is_still_exempt():
-    from src.models.share import contains_link
-
-    assert contains_link("A quick round of Chess.com.", ("Chess.com",)) is False
-
-
-# --- What we validate must be what we store ---
-
-
-def test_the_stored_why_is_the_text_the_allowlist_approved():
-    """Validating the NFC form but storing the original means storing a
-    combining mark the allowlist would have rejected on its own."""
-    import unicodedata
-    from src.models.share import SharePickCreate
-
-    pick = SharePickCreate(game_id="g", why="café sim")
-
-    assert pick.why == "café sim"
-    assert not any(unicodedata.category(c) == "Mn" for c in pick.why)
-
-
-@pytest.mark.parametrize("ch", ["ᅟ", "ᅠ", "ㅤ", "ﾠ"])
-def test_blank_rendering_filler_letters_are_rejected(ch):
-    """These are Unicode letters, so the category allowlist passes them, but
-    they render as nothing -- stored text should match what a reader sees."""
-    from src.models.share import SharePickCreate
-    from pydantic import ValidationError
-
-    with pytest.raises(ValidationError):
-        SharePickCreate(game_id="g", why=f"Chess{ch} is fun")
-
-
-def test_a_longer_domain_built_onto_a_title_is_not_exempt():
-    """A sentence period after a title is fine; another label is not."""
-    from src.models.share import contains_link
-
-    assert contains_link("Play Chess.com.evil now", ("Chess.com",)) is True
-
-
-# --- Letters that render as a bare dot ---
-
-
-@pytest.mark.parametrize(
-    "ch,name",
-    [
-        ("ᐧ", "canadian syllabics final middle dot"),
-        ("ᣟ", "canadian syllabics final raised dot"),
-        ("ꞏ", "latin letter sinological dot"),
-        ("ࢇ", "arabic baseline round dot"),
-        ("ॱ", "devanagari sign high spacing dot"),
-        ("ꓸ", "lisu letter tone mya ti"),
-        ("\U0001bc84", "duployan affix high dot"),
-        ("\U0001bc94", "duployan affix low dot"),
-    ],
-)
-def test_letters_that_render_as_a_bare_dot_are_treated_as_dots(ch, name):
-    """These are Unicode letters, so the category allowlist admits them, but
-    they draw a standalone dot -- "evil<x>com" reads as a domain. Folding
-    them to '.' turns a bypass into a detection."""
-    from src.models.share import contains_link
-
-    assert contains_link(f"Claim at evil{ch}com now", ()) is True, name
-
-
-@pytest.mark.parametrize(
-    "text",
-    [
-        "A calm trip to Hạ Long.",          # a with dot below
-        "İstanbul at dusk.",                 # I with dot above
-        "A ṣand-swept ruin.",                # s with dot below
-        "Explore Bailé Átha Cliath.",   # accented Irish
-    ],
-)
-def test_letters_that_merely_carry_a_dot_are_not_treated_as_dots(text):
-    """179 of the 187 letter-category characters whose Unicode name mentions
-    DOT are ordinary accented letters. Folding those would break Vietnamese,
-    Turkish and Irish titles, so the dot set is curated, not name-derived."""
-    from src.models.share import contains_link, _reject_links
-
-    _reject_links(text)                      # must not raise
-    assert contains_link(text, ()) is False
-
-
-@pytest.mark.parametrize(
-    "why,titles",
-    [
-        # A dotted title at the head of a longer domain: exempting the title
-        # must not carve the rest of the hostname out of the match.
-        ("Claim at survivor.io.evil.com now", ("Survivor.io",)),
-        ("Go to winbit.trip.com for a prize", ("BIT.TRIP",)),
-    ],
-)
-def test_a_dotted_title_cannot_carve_a_longer_domain(why, titles):
-    """Attack cases contributed by an independent review of this branch."""
-    from src.models.share import contains_link
-
-    assert contains_link(why, titles) is True
+    """No key means the server cannot vouch for any token. Sharing must not
+    break, so the share is created without the engine text."""
+    with patch("src.core.config.settings.share_token_salt", "a-real-key"):
+        token = _mint_pick_token()
+
+    with patch("src.core.config.settings.share_token_salt", ""):
+        share_payload["picks"][0]["pick_token"] = token
+        resp = client.post("/api/shares", json=share_payload)
+        assert resp.status_code == 201
+
+        pick = client.get(f"/api/shares/{resp.json()['share_id']}").json()["picks"][0]
+
+    assert pick["why"] is None
