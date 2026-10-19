@@ -133,9 +133,11 @@ scoreboard reads one event across both surfaces instead of two shapes.
   same GA4 property Firebase writes to. Unset, every web event silently
   no-ops; nothing else breaks.
 - **`sharer_token`, not `sharer_id`.** Share links are public, so the raw
-  sharer id is never served; the token is a salted digest that stays stable
-  per sharer. Group by it to count shares per sharer; it maps back to a
-  person only inside the `shares` collection.
+  sharer id is never served; the token is an HMAC that stays stable per
+  sharer. Group by it to count shares per sharer; it maps back to a person
+  only inside the `shares` collection. **It is `null` unless
+  `SHARE_TOKEN_SALT` is set on the API** — set it, or `share_open` lands with
+  no sharer at all and per-sharer attribution is dark.
 - **`app_open_from_share` does not exist yet.** It needs iOS Universal Links
   and Android App Links, which the app has not got (no `associatedDomains`,
   and the only intent filter is `playnxt://*/oauth`), so a share link always

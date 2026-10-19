@@ -9,6 +9,7 @@ and a pick whose game isn't in the catalog is rejected rather than shown.
 """
 
 import hashlib
+import hmac
 import logging
 import secrets
 import string
@@ -37,15 +38,39 @@ def generate_share_id() -> str:
     return "".join(secrets.choice(SHARE_ID_ALPHABET) for _ in range(SHARE_ID_LENGTH))
 
 
-def sharer_token(sharer_id: str) -> str:
-    """Opaque, stable token for a sharer.
+def namespaced_sharer_id(sharer_id: str, user_id: Optional[str]) -> str:
+    """Tag an identity with how it was established.
+
+    Without this, an anonymous caller could put a known Firebase uid in the
+    body and produce a record -- and a token -- indistinguishable from that
+    user's own shares, which is attribution forgery. A verified uid also wins
+    outright over whatever the body claimed.
+    """
+    if user_id:
+        return f"uid:{user_id}"
+    return f"anon:{sharer_id}"
+
+
+def sharer_token(sharer_id: str) -> Optional[str]:
+    """Opaque, stable token for a sharer, or None when no key is configured.
 
     Share links are public, so the raw id -- a Firebase uid for app shares --
-    must never be served. Salting keeps the mapping from being reproducible by
-    anyone who can guess an id.
+    must never be served. This is an HMAC rather than a salted digest: with no
+    key, a plain hash is a confirmation oracle, since anyone holding a
+    candidate id could recompute the token and prove who shared. With no key
+    configured we serve no token at all rather than a weak one, which costs
+    attribution but never leaks identity.
     """
-    salt = getattr(settings, "share_token_salt", "") or ""
-    digest = hashlib.sha256(f"{salt}:{sharer_id}".encode("utf-8")).hexdigest()
+    key = getattr(settings, "share_token_salt", "") or ""
+    if not key:
+        logger.warning(
+            "SHARE_TOKEN_SALT is unset; serving no sharer_token. "
+            "Share attribution is disabled until it is configured."
+        )
+        return None
+    digest = hmac.new(
+        key.encode("utf-8"), sharer_id.encode("utf-8"), hashlib.sha256
+    ).hexdigest()
     return digest[:SHARER_TOKEN_LENGTH]
 
 
@@ -93,7 +118,7 @@ class ShareService:
             share_id=generate_share_id(),
             created_at=datetime.now(timezone.utc),
             surface=payload.surface,
-            sharer_id=user_id or payload.sharer_id,
+            sharer_id=namespaced_sharer_id(payload.sharer_id, user_id),
             time_available=payload.time_available,
             energy_mood=payload.energy_mood,
             picks=await self._resolve_picks(payload),

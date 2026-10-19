@@ -115,15 +115,33 @@ sends are discarded (security review, 2026-10-19):
   landing page resolves art itself — which closes the "point our page at any
   image host" hole.
 - **`sharer_id` never leaves the server.** The public response carries
-  `sharer_token`, a salted SHA-256 prefix, so attribution can still group a
+  `sharer_token`, an HMAC-SHA256 prefix, so attribution can still group a
   sharer's shares without handing every recipient their id (a Firebase uid,
-  for app shares). A verified `user_id` beats the body's self-asserted id.
-  Set `SHARE_TOKEN_SALT` in Cloud Run so the digest can't be recomputed.
+  for app shares). A verified `user_id` beats the body's self-asserted id,
+  and the stored id is namespaced `uid:` or `anon:` — without that, an
+  anonymous caller could put a known uid in the body and mint that user's
+  token, which is attribution forgery.
+- **`SHARE_TOKEN_SALT` is required for attribution.** It's the HMAC key. With
+  no key, a plain digest is a confirmation oracle (anyone holding a candidate
+  id could recompute the token and prove who shared), so `sharer_token` is
+  served as `null` instead. Attribution is off until the key is set; nothing
+  else breaks.
+- **`why` may not contain a link or a domain.** It's the one field a caller
+  still owns, so a 422 keeps a destination off a playnxt.io page. The engine's
+  own prose never contains one, and a test pins that.
 
 `why` is still client-supplied — the engine writes it per request and it
-exists nowhere else — so it's capped at 300 chars and HTML-escaped by the
-page. An abusive share could still carry 300 characters of text; that's the
-residual risk, and it's the price of showing the sharer's real explanation.
+exists nowhere else — so it's capped at 300 chars, link-filtered, and
+HTML-escaped by the page. An abusive share could still carry 300 characters
+of link-free text; that's the residual risk, and it's the price of showing
+the sharer's real explanation. The proper fix is for the engine to issue a
+signed recommendation id that `create_share` verifies, so `why` is read from
+a server-side record instead of the request — worth doing if shares ever earn
+the sharer anything.
+
+The landing page's inline analytics JSON is escaped for a **script** context,
+not an HTML one (`</script>` in a value would close the block early), and a
+share id that doesn't match the id format is dropped rather than echoed.
 
 **Known gaps**
 
@@ -133,4 +151,5 @@ residual risk, and it's the price of showing the sharer's real explanation.
 - `share_channel` on web is `web_share` / `copy_link` / `other` only.
 - Needs `VITE_GA4_MEASUREMENT_ID` in Vercel and an `api-service` deploy.
 - The `shares` collection has no retention policy yet.
-- `SHARE_TOKEN_SALT` is unset by default; set it before launch.
+- `SHARE_TOKEN_SALT` is unset by default; without it there is no
+  `sharer_token` at all, so set it before launch or attribution is dark.

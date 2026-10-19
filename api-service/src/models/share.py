@@ -23,13 +23,33 @@ it exists nowhere else -- so it is length-capped here and HTML-escaped by the
 page that renders it.
 """
 
+import re
 from datetime import datetime
 from enum import Enum
 from typing import Optional
 
-from pydantic import BaseModel, Field
+from pydantic import BaseModel, Field, field_validator
 
 from .recommendation import EnergyMood
+
+# `why` is the one field a caller still controls, so it must not be able to
+# carry a destination onto a playnxt.io page. The engine's own output is plain
+# prose and never contains a link, so rejecting one costs nothing real.
+# Short TLD-like fragments ("e.g.", "i.e.") are left alone by the 2+ char TLD.
+_LINK_PATTERNS = (
+    re.compile(r"://"),
+    re.compile(r"\bwww\.", re.IGNORECASE),
+    re.compile(r"\bmailto:", re.IGNORECASE),
+    # Any label.tld, whatever the TLD. Engine prose never puts a letter
+    # immediately after a full stop, so real "why" lines don't trip this.
+    re.compile(r"\b[a-z0-9][a-z0-9-]*\.[a-z]{2,24}\b", re.IGNORECASE),
+)
+
+
+def _reject_links(value: Optional[str]) -> Optional[str]:
+    if value and any(p.search(value) for p in _LINK_PATTERNS):
+        raise ValueError("why must not contain a link or domain")
+    return value
 
 
 class ShareSurface(str, Enum):
@@ -57,6 +77,11 @@ class SharePickCreate(BaseModel):
         max_length=300,
         description="The 'why this fits' line the sharer saw",
     )
+
+    @field_validator("why")
+    @classmethod
+    def why_has_no_link(cls, value: Optional[str]) -> Optional[str]:
+        return _reject_links(value)
 
 
 class SharePick(BaseModel):
@@ -105,9 +130,13 @@ class SharePublic(BaseModel):
     share_id: str
     created_at: datetime
     surface: ShareSurface
-    sharer_token: str = Field(
-        ...,
-        description="Opaque and stable per sharer -- groups shares without naming anyone",
+    sharer_token: Optional[str] = Field(
+        default=None,
+        description=(
+            "Opaque and stable per sharer -- groups shares without naming anyone. "
+            "None when no SHARE_TOKEN_SALT is configured, since a keyless digest "
+            "would let anyone holding a candidate id confirm who shared."
+        ),
     )
     time_available: int
     energy_mood: EnergyMood

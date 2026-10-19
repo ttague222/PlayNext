@@ -193,9 +193,13 @@ def test_public_share_carries_a_stable_sharer_token_for_attribution(
     first = client.post("/api/shares", json=share_payload).json()["share_id"]
     second = client.post("/api/shares", json=share_payload).json()["share_id"]
 
-    token_a = client.get(f"/api/shares/{first}").json()["sharer_token"]
-    token_b = client.get(f"/api/shares/{second}").json()["sharer_token"]
+    from unittest.mock import patch
 
+    with patch("src.core.config.settings.share_token_salt", "a-real-key"):
+        token_a = client.get(f"/api/shares/{first}").json()["sharer_token"]
+        token_b = client.get(f"/api/shares/{second}").json()["sharer_token"]
+
+    assert token_a
     assert token_a == token_b
     assert token_a != "anon-abc123"
 
@@ -206,9 +210,13 @@ def test_a_different_sharer_gets_a_different_token(client, shares_collection, sh
     share_payload["sharer_id"] = "anon-someone-else"
     second = client.post("/api/shares", json=share_payload).json()["share_id"]
 
-    token_a = client.get(f"/api/shares/{first}").json()["sharer_token"]
-    token_b = client.get(f"/api/shares/{second}").json()["sharer_token"]
+    from unittest.mock import patch
 
+    with patch("src.core.config.settings.share_token_salt", "a-real-key"):
+        token_a = client.get(f"/api/shares/{first}").json()["sharer_token"]
+        token_b = client.get(f"/api/shares/{second}").json()["sharer_token"]
+
+    assert token_a
     assert token_a != token_b
 
 
@@ -227,9 +235,102 @@ def test_an_authenticated_sharer_is_taken_from_the_token_not_the_body(
 
     anonymous = client.post("/api/shares", json=share_payload).json()["share_id"]
 
-    token_signed_in = client.get(f"/api/shares/{signed_in}").json()["sharer_token"]
-    token_anonymous = client.get(f"/api/shares/{anonymous}").json()["sharer_token"]
+    from unittest.mock import patch
+
+    with patch("src.core.config.settings.share_token_salt", "a-real-key"):
+        token_signed_in = client.get(f"/api/shares/{signed_in}").json()["sharer_token"]
+        token_anonymous = client.get(f"/api/shares/{anonymous}").json()["sharer_token"]
 
     # The body said "anon-abc123" both times; the signed-in share must not
     # be attributed to it.
     assert token_signed_in != token_anonymous
+
+
+# --- Security: identity namespaces, token strength, and `why` content ---
+
+
+def test_an_anonymous_caller_cannot_forge_an_authenticated_sharers_token(
+    client, shares_collection, share_payload
+):
+    """Hashing the bare id would let anyone who knows a uid mint its token."""
+    from src.main import app
+    from src.api.auth import get_user_id
+
+    from unittest.mock import patch
+
+    app.dependency_overrides[get_user_id] = lambda: "victim-uid"
+    try:
+        real = client.post("/api/shares", json=share_payload).json()["share_id"]
+    finally:
+        app.dependency_overrides.pop(get_user_id, None)
+
+    share_payload["sharer_id"] = "victim-uid"  # anonymous caller claims the uid
+    forged = client.post("/api/shares", json=share_payload).json()["share_id"]
+
+    with patch("src.core.config.settings.share_token_salt", "a-real-key"):
+        real_token = client.get(f"/api/shares/{real}").json()["sharer_token"]
+        forged_token = client.get(f"/api/shares/{forged}").json()["sharer_token"]
+
+    assert real_token
+    assert real_token != forged_token
+
+
+def test_no_sharer_token_is_served_when_no_key_is_configured(
+    client, shares_collection, share_payload
+):
+    """A keyless digest is a confirmation oracle: anyone holding an id could
+    recompute it and prove who shared. Better to serve nothing."""
+    from unittest.mock import patch
+
+    share_id = client.post("/api/shares", json=share_payload).json()["share_id"]
+
+    with patch("src.core.config.settings.share_token_salt", ""):
+        body = client.get(f"/api/shares/{share_id}").json()
+
+    assert body["sharer_token"] is None
+
+
+def test_a_sharer_token_is_served_when_a_key_is_configured(
+    client, shares_collection, share_payload
+):
+    from unittest.mock import patch
+
+    share_id = client.post("/api/shares", json=share_payload).json()["share_id"]
+
+    with patch("src.core.config.settings.share_token_salt", "a-real-key"):
+        body = client.get(f"/api/shares/{share_id}").json()
+
+    assert body["sharer_token"]
+
+
+def test_create_share_rejects_a_why_line_containing_a_link(
+    client, shares_collection, share_payload
+):
+    """`why` is the one field the client still owns, so it must not be able to
+    carry a destination onto a playnxt.io page."""
+    share_payload["picks"][0]["why"] = "Claim your prize at https://evil.example"
+
+    resp = client.post("/api/shares", json=share_payload)
+
+    assert resp.status_code == 422
+
+
+def test_create_share_rejects_a_why_line_containing_a_bare_domain(
+    client, shares_collection, share_payload
+):
+    share_payload["picks"][0]["why"] = "Go to evil.example now"
+
+    resp = client.post("/api/shares", json=share_payload)
+
+    assert resp.status_code == 422
+
+
+def test_create_share_keeps_an_ordinary_why_line(client, shares_collection, share_payload):
+    """The engine's real output must survive the filter unchanged."""
+    real = "Saves anytime, so you can stop when your 30 minutes are up."
+    share_payload["picks"][0]["why"] = real
+
+    share_id = client.post("/api/shares", json=share_payload).json()["share_id"]
+
+    body = client.get(f"/api/shares/{share_id}").json()
+    assert body["picks"][0]["why"] == real
