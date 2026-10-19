@@ -98,7 +98,7 @@ ABZU's real links ended up.
 
 | ids | game | evidence | keep |
 |---|---|---|---|
-| `crash-4` + `crash-bandicoot-4` | Crash Bandicoot 4 | Share all three console store links | **`crash-bandicoot-4`** — its Steam id 1378990 is correct; `crash-4`'s 1378310 resolves to **"Eternal Return: Black Survival Demo"**, an unrelated game. Move `crash-4`'s `xbox_game_pass` tag across. |
+| `crash-4` + `crash-bandicoot-4` | Crash Bandicoot 4 | Share all three console store links | **`crash-bandicoot-4`** — its Steam id 1378990 is correct; `crash-4`'s 1378310 resolves to **"Eternal Return: Black Survival Demo"**, an unrelated game. Move `crash-4`'s `xbox_game_pass` tag across. **But fix its PlayStation link whichever way this goes** — see below. |
 | `demons-souls-2020` + `demons-souls-remake` | Demon's Souls (2020) | Identical single PlayStation link, same year | Either; `demons-souls-remake` has `franchise: souls` set |
 | `dragon-ball-dokkan` + `dragon-ball-z-fighters` | Dragon Ball Z Dokkan Battle | **Identical title string**, identical iOS + Android ids | Either. `dragon-ball-z-fighters` is a misleading id for this game |
 | `resident-evil-9-requiem` + `resident-evil-requiem` | Resident Evil Requiem | Same Steam app 3764200, which resolves to **"Resident Evil Requiem"** | **`resident-evil-requiem`** — the official title has no "9" |
@@ -106,6 +106,16 @@ ABZU's real links ended up.
 
 > Note on `marvels-spider-man`: a case can be made for keeping both, since the PS4 2018 release
 > and the PS5/PC Remastered are separately purchasable on PlayStation. Flagged, not assumed.
+
+> **`crash-bandicoot-4` needs a link fix regardless of this decision.** The item 12 pass found
+> that the PlayStation id these two records share, `UP0002-CUSA19035_00-CB4STANDARD00001`, is not
+> merely duplicated — it is **dead**. It redirects to `store.playstation.com/en-us/error`
+> (`widgetStatusCode=204`), verified 2026-10-19. `crash-4` was in scope for that pass and was
+> fixed; `crash-bandicoot-4` was not in the twelve, so it still carries the dead id. Whichever
+> record survives item 6 needs a working PlayStation link, and if the survivor is
+> `crash-bandicoot-4` — the recommendation above — that fix has not happened yet. The same pass
+> found dead (not just wrong) PlayStation ids on `prison-architect-2` and `dead-space-remake`
+> too; both were in scope and are fixed.
 
 ### A3 — Mode / edition records to fold into a parent
 
@@ -376,13 +386,20 @@ served**, more than any other record. It has `store_links: {}` and `subscription
 It released 2026-10-15, four days ago. Every user who gets this pick sees a game card with no
 way to act on it.
 
-It is not alone: 12 records have neither store links nor subscriptions — `2xko`, `bloomkeeper`,
-`control-resonant`, `cruisn-blast`, `dragon-quest-monsters-withered-world`, `dreams`,
-`enshrouded`, `fire-emblem-fortunes-weave`, `harvest-moon-echoes-of-teradea`,
-`onimusha-way-of-the-sword`, `phantom-blade-zero`, `silent-hill-townfall`. Four appeared in the
-sweep. Most are unreleased, but `cruisn-blast`, `dreams` and `enshrouded` are out.
+It is not alone: **13** records have neither store links nor subscriptions — `2xko`,
+`bloomkeeper`, `control-resonant`, `cruisn-blast`, `dragon-quest-monsters-withered-world`,
+`dreams`, `enshrouded`, `fire-emblem-fortunes-weave`, `harvest-moon-echoes-of-teradea`,
+`onimusha-way-of-the-sword`, `phantom-blade-zero`, `plants-vs-zombies-3`,
+`silent-hill-townfall`. Four appeared in the sweep. Most are unreleased, but `cruisn-blast`,
+`dreams` and `enshrouded` are out.
 
-This is worth a guardrail rather than 12 one-off fixes: **a released game with no store links
+`plants-vs-zombies-3` joined this set as a result of the item 12 store-link pass, not by
+oversight: all four of its links pointed at other games and had to be removed, and there is
+nothing correct to put back. EA pulled the game in Nov 2024, and the Apr 2026 "PvZ 3: Evolved"
+relaunch is Ireland/Philippines early-access only, so no US listing exists to link to. It is the
+clearest case for the guardrail below — a record the catalog can describe but no user can act on.
+
+This is worth a guardrail rather than 13 one-off fixes: **a released game with no store links
 and no subscriptions has nothing for the user to do, and arguably should not be recommendable.**
 It would need weighing against PRD §5.6 (the engine must never return empty results) — a filter
 here has to be absorbed by the fallback hierarchy.
