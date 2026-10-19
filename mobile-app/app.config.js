@@ -20,6 +20,9 @@ export default {
       bundleIdentifier: "com.playnxt.app",
       buildNumber: "20",
       usesAppleSignIn: true,
+      // Universal Links for share landing pages (playnxt.io/s/*); the
+      // matching apple-app-site-association is served by playnxt-web.
+      associatedDomains: ["applinks:playnxt.io"],
       // Local file is gitignored; EAS builds get it via file-type env var
       googleServicesFile: process.env.GOOGLE_SERVICE_INFO_PLIST || "./GoogleService-Info.plist",
       infoPlist: {
@@ -72,6 +75,21 @@ export default {
               scheme: "playnxt",
               host: "*",
               pathPrefix: "/oauth"
+            }
+          ],
+          category: ["BROWSABLE", "DEFAULT"]
+        },
+        // App Links for share landing pages only — the rest of playnxt.io
+        // stays in the browser. Verified against /.well-known/assetlinks.json
+        // served by playnxt-web.
+        {
+          action: "VIEW",
+          autoVerify: true,
+          data: [
+            {
+              scheme: "https",
+              host: "playnxt.io",
+              pathPrefix: "/s/"
             }
           ],
           category: ["BROWSABLE", "DEFAULT"]

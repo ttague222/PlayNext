@@ -8,9 +8,10 @@
  */
 
 import React, { useRef } from 'react';
-import { Platform } from 'react-native';
+import { Linking, Platform } from 'react-native';
 import { NavigationContainer, createNavigationContainerRef } from '@react-navigation/native';
 import { logScreenView } from '../services/analyticsService';
+import { handleShareUrl } from '../services/deepLinkService';
 
 // Exported ref so non-React code (e.g. notification tap handlers) can navigate.
 export const navigationRef = createNavigationContainerRef();
@@ -45,6 +46,40 @@ import ConnectSteamScreen from '../screens/ConnectSteamScreen';
 const Stack = createNativeStackNavigator();
 const Tab = createBottomTabNavigator();
 const RootStack = createNativeStackNavigator();
+
+/**
+ * Deep linking (Universal Links / App Links for playnxt.io/s/*).
+ *
+ * Share links are handled imperatively in deepLinkService — count the open,
+ * land the viewer on the Play tab — rather than mapped to a route, because
+ * the app has no share-viewing screen on purpose: the landing page already
+ * showed the picks, and in-app the next step is getting your own. Other
+ * links (OAuth redirects) pass through to their own handlers untouched.
+ */
+const linking = {
+  prefixes: ['https://playnxt.io', 'playnxt://'],
+  config: { screens: {} },
+  async getInitialURL() {
+    const url = await Linking.getInitialURL();
+    // Cold start from a share link: count it; the default route is already
+    // the Play tab, so there is nowhere further to go.
+    if (handleShareUrl(url)) return null;
+    return url;
+  },
+  subscribe(listener) {
+    const subscription = Linking.addEventListener('url', ({ url }) => {
+      if (handleShareUrl(url)) {
+        // Warm open: surface the Play tab so the link visibly did something.
+        if (navigationRef.isReady()) {
+          navigationRef.navigate('Main', { screen: 'Play', params: { screen: 'PlayHome' } });
+        }
+        return;
+      }
+      listener(url);
+    });
+    return () => subscription.remove();
+  },
+};
 
 const stackScreenOptions = {
   headerShown: false,
@@ -159,6 +194,7 @@ const AppNavigator = () => {
   return (
     <NavigationContainer
       ref={navigationRef}
+      linking={linking}
       onReady={() => {
         routeNameRef.current = navigationRef.getCurrentRoute()?.name;
         logScreenView(routeNameRef.current);
