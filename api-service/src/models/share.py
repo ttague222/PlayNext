@@ -71,6 +71,12 @@ _ALLOWED_PUNCTUATION = frozenset(
 )
 
 
+# Unicode letters that render as nothing. The category allowlist passes them
+# because they really are letters, but stored text should match what a reader
+# sees, so they are named explicitly.
+_BLANK_LETTERS = frozenset("ᅟᅠㅤﾠ")
+
+
 def _reject_unexpected_characters(value: str) -> None:
     """Refuse anything outside letters, digits, space and plain punctuation.
 
@@ -79,6 +85,8 @@ def _reject_unexpected_characters(value: str) -> None:
     dot-lookalike in one rule, rather than naming them one at a time.
     """
     for ch in value:
+        if ch in _BLANK_LETTERS:
+            raise ValueError("why must not contain blank-rendering characters")
         if ch == " " or ch in _ALLOWED_PUNCTUATION:
             continue
         category = unicodedata.category(ch)
@@ -124,11 +132,24 @@ def contains_link(value: str, allowed_titles: tuple[str, ...] = ()) -> bool:
 
     Lives here beside the patterns, but is called from the share service,
     which is the only place that knows the catalog-resolved titles.
+
+    The exemption is anchored to token boundaries and applies only to titles
+    that contain a dot. Removing a title as a bare substring would turn the
+    exemption into a hiding place: "evilChess.com" reads as a domain but
+    disappears when "Chess.com" is cut out of the middle of it.
     """
     haystack = _fold_for_matching(value)
     for title in allowed_titles:
-        if title:
-            haystack = haystack.replace(_fold_for_matching(title), " ")
+        folded = _fold_for_matching(title or "")
+        if "." not in folded:
+            # Only a dotted title can be mistaken for a domain; exempting
+            # anything else just widens the hole for no benefit.
+            continue
+        # The trailing lookahead allows a sentence-ending period after the
+        # title ("...a round of Chess.com.") while still refusing a longer
+        # domain built onto it ("Chess.com.evil").
+        anchored = re.compile(rf"(?<![\w.-]){re.escape(folded)}(?!\.?[\w-])")
+        haystack = anchored.sub(" ", haystack)
     return any(p.search(haystack) for p in _LINK_PATTERNS)
 
 
@@ -142,7 +163,12 @@ def _reject_links(value: Optional[str]) -> Optional[str]:
     if not value:
         return value
 
-    _reject_unexpected_characters(unicodedata.normalize("NFC", value))
+    # Normalise once and return that form, so the text we store is exactly
+    # the text the allowlist approved. Validating the NFC form while storing
+    # the original would let a decomposed combining mark through.
+    normalised = unicodedata.normalize("NFC", value)
+    _reject_unexpected_characters(normalised)
+    return normalised
     return value
 
 

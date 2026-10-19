@@ -509,3 +509,67 @@ def test_a_real_domain_is_still_caught_alongside_a_dotted_title():
     why = "Play Chess.com, then claim your prize at evil.example"
 
     assert contains_link(why, ("Chess.com",)) is True
+
+
+# --- The title exemption must not become a hiding place ---
+
+
+def test_a_domain_glued_to_a_title_is_not_exempted():
+    """Removing a title as a bare substring lets a domain hide inside one:
+    "evilChess.com" reads as a domain but vanished with the title."""
+    from src.models.share import contains_link
+
+    assert contains_link("Visit evilChess.com now", ("Chess.com",)) is True
+
+
+def test_a_title_cannot_be_used_to_split_a_domain():
+    from src.models.share import contains_link
+
+    assert contains_link("goto evilDirt Rally 2.0.example", ("Dirt Rally 2.0",)) is True
+
+
+def test_a_whole_token_title_is_still_exempt():
+    """The real case this exemption exists for must keep working."""
+    from src.models.share import contains_link
+
+    why = "Saves anytime, so you can put Chess.com down when your 30 minutes are up."
+    assert contains_link(why, ("Chess.com",)) is False
+
+
+def test_a_title_at_the_end_of_a_sentence_is_still_exempt():
+    from src.models.share import contains_link
+
+    assert contains_link("A quick round of Chess.com.", ("Chess.com",)) is False
+
+
+# --- What we validate must be what we store ---
+
+
+def test_the_stored_why_is_the_text_the_allowlist_approved():
+    """Validating the NFC form but storing the original means storing a
+    combining mark the allowlist would have rejected on its own."""
+    import unicodedata
+    from src.models.share import SharePickCreate
+
+    pick = SharePickCreate(game_id="g", why="café sim")
+
+    assert pick.why == "café sim"
+    assert not any(unicodedata.category(c) == "Mn" for c in pick.why)
+
+
+@pytest.mark.parametrize("ch", ["ᅟ", "ᅠ", "ㅤ", "ﾠ"])
+def test_blank_rendering_filler_letters_are_rejected(ch):
+    """These are Unicode letters, so the category allowlist passes them, but
+    they render as nothing -- stored text should match what a reader sees."""
+    from src.models.share import SharePickCreate
+    from pydantic import ValidationError
+
+    with pytest.raises(ValidationError):
+        SharePickCreate(game_id="g", why=f"Chess{ch} is fun")
+
+
+def test_a_longer_domain_built_onto_a_title_is_not_exempt():
+    """A sentence period after a title is fine; another label is not."""
+    from src.models.share import contains_link
+
+    assert contains_link("Play Chess.com.evil now", ("Chess.com",)) is True

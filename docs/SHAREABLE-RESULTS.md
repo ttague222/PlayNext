@@ -157,6 +157,22 @@ sends are discarded (security review, 2026-10-19):
   catalog-resolved titles are known, and removes them before matching. All
   2354 catalog strings now pass both checks.
 
+  The title exemption is anchored to token boundaries and applies only to
+  titles containing a dot, because removing a title as a bare substring
+  turned the exemption into a hiding place — "evilChess.com" reads as a
+  domain but vanished when "Chess.com" was cut out of its middle. A
+  sentence-ending period after a title is still allowed; another label
+  ("Chess.com.evil") is not.
+
+  `why` is normalised to NFC once and that form is what gets stored, so the
+  text in Firestore is exactly the text the allowlist approved. Validating
+  one form and storing another let a decomposed combining mark through.
+
+  Homoglyph domains need no extra rule: Cyrillic and Greek letters match the
+  TLD class, so "evil.cОm" is already caught. A confusables skeleton or a
+  mixed-script ban was considered and declined — no demonstrated bypass, and
+  a script restriction risks rejecting legitimate titles.
+
   The root fix is still regenerating `why` server-side from a signed
   recommendation id; the allowlist is what makes the interim rule hold
   instead of leaking a new bypass every round.
