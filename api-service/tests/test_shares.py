@@ -376,3 +376,48 @@ def test_create_share_keeps_accented_prose(client, shares_collection, share_payl
 
     body = client.get(f"/api/shares/{share_id}").json()
     assert body["picks"][0]["why"] == real
+
+
+@pytest.mark.parametrize(
+    "ch,name",
+    [
+        ("​", "zero width space"),
+        ("‌", "zero width non-joiner"),
+        ("‍", "zero width joiner"),
+        ("­", "soft hyphen"),
+        ("﻿", "byte order mark"),
+    ],
+)
+def test_create_share_rejects_invisible_characters_in_why(
+    client, shares_collection, share_payload, ch, name
+):
+    """An invisible char between label and dot hides a domain from the regex
+    while a reader still sees one. No engine output contains a format
+    character -- 2354 catalog strings carry none -- so rejecting the whole
+    Cf category is safe and closes the class, not one instance."""
+    share_payload["picks"][0]["why"] = f"Go to evil{ch}.example now"
+
+    resp = client.post("/api/shares", json=share_payload)
+
+    assert resp.status_code == 422, f"{name} bypassed the filter"
+
+
+@pytest.mark.parametrize("ch", ["·", "•", "・", "⋅"])
+def test_create_share_rejects_dot_lookalike_separators(
+    client, shares_collection, share_payload, ch
+):
+    share_payload["picks"][0]["why"] = f"Go to evil{ch}example now"
+
+    resp = client.post("/api/shares", json=share_payload)
+
+    assert resp.status_code == 422
+
+
+def test_create_share_keeps_an_en_dash(client, shares_collection, share_payload):
+    """The real catalog contains an en dash; the filter must not reject it."""
+    real = "A short, cozy adventure – fun within minutes."
+    share_payload["picks"][0]["why"] = real
+
+    share_id = client.post("/api/shares", json=share_payload).json()["share_id"]
+
+    assert client.get(f"/api/shares/{share_id}").json()["picks"][0]["why"] == real

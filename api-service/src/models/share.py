@@ -42,8 +42,27 @@ _DOT_LOOKALIKES = {
     "｡": ".",  # HALFWIDTH IDEOGRAPHIC FULL STOP
     "․": ".",  # ONE DOT LEADER
     "﹒": ".",  # SMALL FULL STOP
+    "·": ".",  # MIDDLE DOT
+    "•": ".",  # BULLET
+    "∙": ".",  # BULLET OPERATOR
+    "⋅": ".",  # DOT OPERATOR
+    "‧": ".",  # HYPHENATION POINT
+    "・": ".",  # KATAKANA MIDDLE DOT
+    "･": ".",  # HALFWIDTH KATAKANA MIDDLE DOT
 }
 _DOT_TRANSLATION = str.maketrans(_DOT_LOOKALIKES)
+
+
+def _has_format_characters(value: str) -> bool:
+    """True if the text carries any Unicode format (Cf) character.
+
+    Zero-width spaces, joiners, soft hyphens and the BOM are invisible to a
+    reader but break the label-dot adjacency the link patterns rely on, so
+    "evil<ZWSP>.example" would read as a domain and match nothing. A scan of
+    2354 real catalog strings found no Cf character at all, so rejecting the
+    whole category costs nothing and closes the class rather than one member.
+    """
+    return any(unicodedata.category(ch) == "Cf" for ch in value)
 
 
 def _fold_for_matching(value: str) -> str:
@@ -72,7 +91,11 @@ _LINK_PATTERNS = (
 
 
 def _reject_links(value: Optional[str]) -> Optional[str]:
-    if value and any(p.search(_fold_for_matching(value)) for p in _LINK_PATTERNS):
+    if not value:
+        return value
+    if _has_format_characters(value):
+        raise ValueError("why must not contain invisible formatting characters")
+    if any(p.search(_fold_for_matching(value)) for p in _LINK_PATTERNS):
         raise ValueError("why must not contain a link or domain")
     return value
 

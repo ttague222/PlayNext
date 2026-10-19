@@ -132,8 +132,17 @@ sends are discarded (security review, 2026-10-19):
   folds U+FF0E but *not* U+3002 or U+FF61 — "evil。example" reads as a domain
   and would otherwise walk past an ASCII `\.`. Bare IPv4 is rejected too.
   Letters are matched Unicode-aware, so "café" and "Pokémon" are fine; the
-  stored text is always exactly what the engine wrote. Tests pin both the
-  bypasses and the real engine lines ("e.g.", "No. 1") that must survive.
+  stored text is always exactly what the engine wrote. Any Unicode format
+  (Cf) character — zero-width space, joiner, soft hyphen, BOM — is rejected
+  outright, since those are invisible to a reader but break the label-dot
+  adjacency the patterns rely on; a scan of 2354 real catalog strings found
+  no Cf character at all, so the whole category is safe to refuse. Tests pin
+  the bypasses and the real engine lines ("e.g.", "No. 1", an en dash) that
+  must survive.
+
+  Each round of review has found one more way to spell a dot. That is the
+  nature of a denylist, and the reason the root fix — regenerating `why`
+  server-side from a signed recommendation id — is the one that ends it.
 
 `why` is still client-supplied — the engine writes it per request and it
 exists nowhere else — so it's capped at 300 chars, link-filtered, and
