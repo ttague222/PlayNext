@@ -184,10 +184,25 @@ share id that doesn't match the id format is dropped rather than echoed.
 - `result_shared` now reports `game_count`/`num_picks` as the number of
   games the share carried.
 
-**Known gaps**
+**Incoming share links (2026-10-19)**
 
-- No `app_open_from_share`: the app can't receive an incoming link at all
-  (no Universal Links / App Links). A share link always opens the browser.
+- iOS Universal Links (`associatedDomains: applinks:playnxt.io`) and verified
+  Android App Links (https intent filter, `pathPrefix: /s/`) are declared in
+  `app.config.js`, scoped to share pages only — the rest of playnxt.io stays
+  in the browser. `app_open_from_share` fires with `share_id` on cold and
+  warm opens (`services/deepLinkService.js`); the viewer lands on the Play
+  tab, since the landing page already showed the picks and the in-app next
+  step is getting your own. OAuth links pass through untouched.
+- playnxt-web serves `/.well-known/apple-app-site-association` and
+  `/.well-known/assetlinks.json` from env vars (`api/aasa.js`,
+  `api/assetlinks.js`). Both routes **404 until `APPLE_TEAM_ID` /
+  `ANDROID_CERT_SHA256` are set in Vercel** — deliberately, since the OSes
+  cache these files and a wrong one fails silently. The Android value is the
+  Play App Signing cert's SHA-256 (Play Console → App signing; add the
+  upload key's too, comma-separated, for sideloaded builds).
+- Needs a **native build + store review** to take effect (entitlement and
+  intent filter are build-time); EAS manages the Associated Domains
+  capability on the provisioning profile.
 - `share_channel` on web is `web_share` / `copy_link` / `other` only.
 - Needs `VITE_GA4_MEASUREMENT_ID` in Vercel and an `api-service` deploy.
 - The `shares` collection has no retention policy yet.

@@ -15,6 +15,7 @@ Older events (`rec_requested`, `rec_accepted`, `share_completed`,
 | `game_selected` ⭐ | User taps "I'll play this!" on a pick | `game_id`, `rank` 1-3, `minutes`, `mood`, `pick_source` |
 | `result_shared` | Share sheet completes (app) or a share link is made (web) | `surface` card/link, `scenario`, `game_count`, plus `share_channel`, `time_bucket`, `mood`, `num_picks` on web |
 | `share_open` | A /s/<share-id> page is opened (web only) | `share_id`, `sharer_token`, `utm_source=share`, `time_bucket`, `mood`, `num_picks` |
+| `app_open_from_share` | The app opens from a playnxt.io/s/* link (Universal/App Links; cold or warm) | `share_id` |
 | `premium_purchase` | Unlock succeeds | `platform`, `entry_screen` |
 
 Every event logged after startup also carries `install_source` (set as a
@@ -112,6 +113,7 @@ New scenario pages: put the link in `iosCampaignUrl` in
 - `mobile-app/src/services/attributionService.ts`: referrer parsing, `install_source`, `app_first_open`
 - `mobile-app/src/context/RecommendationContext.js`: started, viewed, selected
 - `mobile-app/src/services/shareService.js`: result_shared (app)
+- `mobile-app/src/services/deepLinkService.js`: app_open_from_share (wired in `navigation/AppNavigator.js`)
 - `playnxt-web/src/share.js`: result_shared (web), via `resultSharedParams`
 - `playnxt-web/api/s.js`: share_open, fired server-side on the share landing page
 - `mobile-app/src/context/PremiumContext.js`: premium_purchase
