@@ -617,3 +617,19 @@ def test_letters_that_merely_carry_a_dot_are_not_treated_as_dots(text):
 
     _reject_links(text)                      # must not raise
     assert contains_link(text, ()) is False
+
+
+@pytest.mark.parametrize(
+    "why,titles",
+    [
+        # A dotted title at the head of a longer domain: exempting the title
+        # must not carve the rest of the hostname out of the match.
+        ("Claim at survivor.io.evil.com now", ("Survivor.io",)),
+        ("Go to winbit.trip.com for a prize", ("BIT.TRIP",)),
+    ],
+)
+def test_a_dotted_title_cannot_carve_a_longer_domain(why, titles):
+    """Attack cases contributed by an independent review of this branch."""
+    from src.models.share import contains_link
+
+    assert contains_link(why, titles) is True
