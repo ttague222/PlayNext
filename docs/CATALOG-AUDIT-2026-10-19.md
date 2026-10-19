@@ -361,6 +361,12 @@ plus `ea-sports-fc-26` and `ea-sports-fc-27` (both verified real; FC 27 shipped 
 Whichever game `ea-sports-fc-25` is meant to be, the `ea_play` tag is wrong as written — FC 24
 is **not** in today's EA Play list, while FC 25 and FC 26 are. Needs a decision, then a fix.
 
+This is also an argument for settling the Tier 2 duplicates *before* the refresh pipeline is
+given authority to remove tags. The refresh matches source titles against the record's `title`,
+so a record whose id contradicts its own title gets the wrong answer by construction: matching
+`ea-sports-fc-25` on "EA Sports FC 24" strips a tag that would survive under its id. Removal
+authority over a record like this produces a confidently wrong result.
+
 ### C3 — The most-recommended game in the catalog has nowhere to play
 
 `harvest-moon-echoes-of-teradea` took **37 of 1440 slots — 2.6% of every recommendation
@@ -403,13 +409,25 @@ here has to be absorbed by the fallback hierarchy.
    this doc offered as an equivalent route. It is **not** equivalent in scope: it also applied
    7 tag *additions* the refresh found. Those 7 were reverted to their pre-write values
    (verified against the pre-write catalog dump) within minutes, so only the 4 approved
-   removals remain. Removing a false claim and adding a new one are different decisions —
-   especially now that playnxt.io scenario pages read `subscription_services` from the catalog
-   at render time and edge-cache it for 24h, so an addition becomes a public claim with no
-   human review in between. **Do not use the `--apply` shortcut for a removal-only change.**
+   removals remain. Removing a false claim and adding a new one are different decisions, and
+   the summary given at the moment of approval described only the removals.
+   **Do not use the `--apply` shortcut for a removal-only change.**
 
-   The 7 additions below are correct against today's authoritative lists but are **awaiting a
-   separate go-ahead** and are not applied:
+   *Correction (same day).* An earlier version of this section justified the revert by claiming
+   playnxt.io scenario pages read `subscription_services` from the catalog at render time and
+   edge-cache it for 24h, making any addition self-publishing. **That is wrong.**
+   `playnxt-web/api/_scenarios.js` hand-copies every fact as a literal, on purpose, and its
+   header documents three reasons a render-time fetch was rejected; `api/play.js` fetches only
+   cover art per request, so the 24h `s-maxage` caches a page whose subscription line is static.
+   A catalog write therefore reaches the app's game card, the `on_subscriptions` premium filter
+   and the share image — the surfaces listed in (B) — and puts the scenario pages out of date,
+   which `scripts/check-scenario-drift.js` flags weekly. It does not publish itself to the
+   crawler-facing pages. The revert still stands on the scope reason above; it does not need the
+   publishing one.
+
+   The 7 additions below are correct against today's authoritative lists. Thomas approved them
+   later the same day, but the write was blocked by the environment's permission classifier, so
+   as of this commit they are **still not applied**:
 
    | record | addition |
    |---|---|
@@ -444,13 +462,15 @@ value is set. Pre-existing gap, unrelated to this audit.
 
 ### Tier 3 — code changes, separate PRs
 
-9. Move the subscription-refresh cron from monthly to weekly. **Weigh this against the
-   render-time path first:** the workflow runs `--apply` unattended, and playnxt.io scenario
-   pages now read `subscription_services` from the catalog at render time (edge-cached 24h), so
-   every run publishes both removals *and* additions with no human review. Weekly makes stale
-   false claims much rarer, which is the win — but it also quadruples the rate of unreviewed new
-   public claims. Worth considering a split: apply removals automatically on the weekly run, and
-   hold additions for review (the script already computes the two directions separately).
+9. Move the subscription-refresh cron from monthly to weekly. **Note that the workflow runs
+   `--apply` unattended, so scheduling is the apply** — there is no human gate between the dry
+   run and production, which is also why merging a change to the script's matching rules ships
+   its diff. Weekly makes stale false claims much rarer, which is the win. Worth considering a
+   split all the same: apply removals automatically and hold additions for review. The script
+   already computes the two directions separately, and they carry different risk — a false
+   removal costs a user a game their subscription covers, while a false addition promises access
+   they do not have. Changing the catalog also dates playnxt-web's hand-copied scenario facts,
+   which `scripts/check-scenario-drift.js` reports weekly.
 10. Add the EA Play sigl `b8900d09-a491-44cc-916e-32b5acae621b` as a fifth source; promote
     `ea_play` to MANAGED.
 11. Add publisher-prefix stripping to `clean()`; re-run the dry run and hand-approve the diff.
