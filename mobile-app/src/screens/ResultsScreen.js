@@ -668,6 +668,7 @@ const ResultsScreen = () => {
         <CelebrationModal
           visible={showCelebration}
           game={selectedGame}
+          picks={recommendations}
           onDismiss={handleCelebrationDismiss}
           onKeepBrowsing={handleKeepBrowsing}
           timeAvailable={preferences.timeAvailable}

@@ -14,6 +14,7 @@ from typing import Optional
 
 from ..db.firebase import get_collection, GAMES_COLLECTION, SIGNALS_COLLECTION, LIBRARIES_COLLECTION
 from .game_service import is_released
+from .pick_token import issue_pick_token
 from ..models import (
     RecommendationRequest,
     RecommendationResponse,
@@ -1537,6 +1538,24 @@ class RecommendationService:
         if store_links_data and any(store_links_data.values()):
             store_links = StoreLinks(**store_links_data)
 
+        match_score = min(max(game.get("match_ratio", game.get("score", 0.5)), 0.0), 1.0)
+
+        # Sign what a share of this pick may show: the why line is the one the
+        # clients render first (highest-priority fit bullet, else the summary's
+        # first sentence -- mirroring the web's pickWhyLine).
+        why_line = next(
+            (emitted[f] for f in EXPLANATION_FIELD_PRIORITY if emitted.get(f)), None
+        )
+        if not why_line and summary:
+            why_line = re.split(r"(?<=[.!?])\s+", summary)[0]
+        pick_token = issue_pick_token(
+            game_id=game["game_id"],
+            why=why_line,
+            match_percentage=round(match_score * 100),
+            time_available=request.time_available,
+            energy_mood=request.energy_mood.value,
+        )
+
         return GameRecommendation(
             game_id=game["game_id"],
             title=game["title"],
@@ -1556,8 +1575,9 @@ class RecommendationService:
             subscription_services=game.get("subscription_services", []),
             store_links=store_links,
             fun_fact=game.get("fun_fact"),
-            match_score=min(max(game.get("match_ratio", game.get("score", 0.5)), 0.0), 1.0),
+            match_score=match_score,
             in_library=bool(in_library_ids and game["game_id"] in in_library_ids),
+            pick_token=pick_token,
         )
 
     def _empty_response(self, session_id: str) -> RecommendationResponse:

@@ -12,6 +12,7 @@ from .firebase import (
     USERS_COLLECTION,
     SIGNALS_COLLECTION,
     SESSIONS_COLLECTION,
+    SHARES_COLLECTION,
 )
 
 __all__ = [
@@ -22,4 +23,5 @@ __all__ = [
     "USERS_COLLECTION",
     "SIGNALS_COLLECTION",
     "SESSIONS_COLLECTION",
+    "SHARES_COLLECTION",
 ]

@@ -426,7 +426,7 @@ const GameDetailScreen = () => {
     <LinearGradient colors={['#1a1a2e', '#16213e', '#0f3460']} style={styles.container}>
       {/* Off-screen share card, captured by handleShare */}
       <View style={styles.shareCardOffscreen} pointerEvents="none">
-        <ShareCard ref={shareCardRef} game={game || { title: displayTitle }} />
+        <ShareCard ref={shareCardRef} picks={[game || { title: displayTitle }]} />
       </View>
       <SafeAreaView style={styles.safeArea} edges={['top', 'left', 'right', 'bottom']}>
         {/* Header */}

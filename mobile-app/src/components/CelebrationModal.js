@@ -26,6 +26,9 @@ const CelebrationModal = ({
   onKeepBrowsing,
   timeAvailable = null,
   energyMood = null,
+  // The full recommendation set, when the caller has it: the share card
+  // carries all the picks, not just the accepted one.
+  picks = null,
 }) => {
   const scaleAnim = useRef(new Animated.Value(0)).current;
   const fadeAnim = useRef(new Animated.Value(0)).current;
@@ -116,8 +119,13 @@ const CelebrationModal = ({
 
   const handleShare = async () => {
     if (!game) return;
-    // Captures the off-screen ShareCard below; falls back to text-only
-    await shareGameCard(shareCardRef, game, 'celebration', { timeAvailable, energyMood });
+    // Captures the off-screen ShareCard below; falls back to text-only.
+    // The full pick set rides along so the stored share matches the card.
+    await shareGameCard(shareCardRef, game, 'celebration', {
+      timeAvailable,
+      energyMood,
+      picks: picks?.length ? picks : undefined,
+    });
   };
 
   if (!game) return null;
@@ -134,7 +142,7 @@ const CelebrationModal = ({
         <View style={styles.shareCardOffscreen} pointerEvents="none">
           <ShareCard
             ref={shareCardRef}
-            game={game}
+            picks={picks?.length ? picks : [game]}
             timeAvailable={timeAvailable}
             energyMood={energyMood}
           />
