@@ -431,9 +431,18 @@ here has to be absorbed by the fallback hierarchy.
    Before writing, each was re-verified against source lists re-fetched at the time: 7 of 7 still
    present, and neither the Game Pass nor the PS Plus list had moved since the original dry run.
    They were written one document at a time with a guard on each record's expected prior value,
-   rather than by re-running the refresh, because the repo copy of `subscription_refresh.py` had
-   by then been modified to promote `ea_play` to MANAGED and would have carried an unreviewed
-   20-record `ea_play` change along with them:
+   rather than by re-running the refresh, so that the write could touch only the seven approved
+   records and would skip any whose value had shifted underneath:
+
+   *Correction to the commit message of `086fe4e`.* That commit says the narrow route was chosen
+   because the repo copy of `subscription_refresh.py` had `ea_play` promoted to MANAGED and would
+   have carried an unreviewed 20-record change. **That was out of date at the moment of the
+   write.** The hazard was real earlier in the day — the shared checkout did hold that
+   modification, and it is why the route was chosen — but the session responsible had restored
+   `api-service/scripts/` to HEAD beforehand, so the refresh would have produced only these seven
+   rows. The narrow route still stands on the reason above; it did not avert the `ea_play` risk
+   stated in that commit message. **Check `MANAGED` before running that script** regardless, since
+   a shared checkout can hold another session's edits:
 
    | record | addition |
    |---|---|
