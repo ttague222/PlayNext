@@ -7,13 +7,15 @@ classes of bad record:
   distinct games
 - **(B)** `subscription_services` values that no longer match reality
 
-**Status: Tier 1 of the write plan was applied on 2026-10-19 with Thomas's approval** (see
-*Proposed write plan* at the end). Tiers 2 and 3 are untouched and still need decisions.
-Catalog is now **1403 records**, down from 1407.
+**Status: Tier 1 of the write plan was applied on 2026-10-19 with Thomas's approval, and
+Tier 3 item 12 (the A5 store links) was applied the same day with his separate approval** (see
+*Proposed write plan* at the end). Tier 2 and the rest of Tier 3 are untouched and still need
+decisions. Catalog is now **1403 records**, down from 1407.
 
 Every record touched was backed up first to
-`api-service/scripts/catalog_audit_2026_10_19_backup.json` (full pre-write Firestore documents
-for all six), and the four deleted ids were appended to the existing
+`api-service/scripts/catalog_audit_2026_10_19_backup.json` — full pre-write Firestore documents
+for all 18 (six from Tier 1, twelve from item 12), with a `writes` key recording which pass
+touched which ids — and the four deleted ids were appended to the existing
 `api-service/scripts/deleted_game_ids.json`.
 
 ---
@@ -474,10 +476,103 @@ value is set. Pre-existing gap, unrelated to this audit.
 10. Add the EA Play sigl `b8900d09-a491-44cc-916e-32b5acae621b` as a fifth source; promote
     `ea_play` to MANAGED.
 11. Add publisher-prefix stripping to `clean()`; re-run the dry run and hand-approve the diff.
-12. Fix the 12 A5 wrong-store-link records.
+12. ✅ **Applied 2026-10-19 with Thomas's approval.** Fixed the 12 A5 wrong-store-link records:
+    **18 link replacements and 12 removals** across the 12 records, plus
+    `mortal-kombat-x.platforms` losing `mobile` and `madden-nfl-26.year` 2021 → 2025. Every
+    replacement was resolved against the live storefront and verified **by product name**, not
+    by URL slug (Steam `appdetails`, iTunes `lookup`, Play Store `og:title`, the Xbox product
+    page's final redirect, a PS Store `/error` redirect to detect dead product ids, and the GOG
+    catalog API). Where a game is genuinely not sold on a store the key was **removed** rather
+    than guessed — no link was invented. Nothing was left unresolved. See
+    *Applied: A5 store-link fixes* at the end of this doc for the per-record detail.
+    Two findings beyond the A5 table above: `crash-4` and `dead-space-remake` both carried
+    PlayStation product ids that are **dead**, not merely wrong (they redirect to the PS Store
+    `/error` page), and `prison-architect-2`'s PlayStation id is dead too.
 13. Mechanical link hygiene: `http://` → `https://`, strip non-US locales, replace the 35 dead
     `marketplace.xbox.com` links, drop the 5 empty `other` keys.
 14. Consider a guardrail for released games with no store links and no subscriptions.
+
+---
+
+## Applied: A5 store-link fixes (Tier 3 item 12)
+
+Applied 2026-10-19 with Thomas's approval. 18 link replacements, 12 removals, one `platforms`
+fix, one `year` fix. Pre-write Firestore documents for all 12 are in
+`api-service/scripts/catalog_audit_2026_10_19_backup.json` under `records_before`, tagged by the
+`writes` key. Verified afterwards by reading every record back through `GET /api/games/<id>` and
+asserting the exact expected link set — every replacement present, every removal gone, every
+untouched key preserved.
+
+**How each value was checked.** Steam: `store.steampowered.com/api/appdetails?appids=<id>&cc=us`
+(product name, type, release date). App Store: `itunes.apple.com/lookup?id=<n>&country=us`
+(trackName, sellerName, bundleId, kind). Play Store: fetched the listing and read `og:title`;
+HTTP 404 means no listing. Xbox: fetched the product URL and read the final redirect and
+`<title>`. PlayStation: fetched the product id; a redirect to `/en-us/error?...` means the id is
+dead. GOG: `catalog.gog.com/v1/catalog`.
+
+| record | field | old | new | checked against |
+|---|---|---|---|---|
+| `crash-4` | steam | `app/1378310/` | `app/1378990/` | 1378310 = "Eternal Return: Black Survival Demo" (type=demo); 1378990 = "Crash Bandicoot 4: It's About Time" |
+| | playstation | `CUSA19035_00-CB4STANDARD00001` | `PPSA02432_00-CB4THEGAME000001` | old id **dead** (→ `/error`); new returns "Crash Bandicoot 4: It's About Time" |
+| `lost-judgment` | steam | `app/2058180/` | `app/2058190/` | 2058180 = "Judgment"; 2058190 = "Lost Judgment" |
+| `nba-2k25` | steam | `app/2338770/NBA_2K25/` | `app/2878980/` | 2338770 = "NBA 2K24" — the slug was cosmetic; 2878980 = "NBA 2K25" (2024-09-03) |
+| `planet-zoo-2` | steam | `app/703080/` | `app/3219030/` | 703080 = "Planet Zoo" (2019); 3219030 = "Planet Zoo 2" (2026-10-13) |
+| `prison-architect-2` | steam | `http…app/233450/` | `https…app/1257610/` | 233450 = "Prison Architect"; 1257610 = "Prison Architect 2" (release TBA) |
+| | xbox | `…all-day-and-a-psych/brrdgtr9hb1x` | **removed** | resolves to "Prison Architect: All Day And A Psych" (PA1); no PA2 Xbox listing |
+| | playstation | `UP4415-CUSA03481_00-PRISONBUNDLE0002` | **removed** | a PA1 bundle id, and **dead** |
+| | nintendo | `…prison-architect-nintendo-switch-edition` | **removed** | HTTP 404; PA2 never announced for Switch |
+| | gog | `http…/game/prison_architect` | **removed** | that slug is PA1; GOG catalog has no PA2 |
+| `kotor-2` | steam | `http…app/32370/` | `https…app/208580/` | 32370 = KOTOR 1; 208580 = "KOTOR II - The Sith Lords" |
+| | xbox | `…knights-of-the-old-republic/bs8lfd7729cl` | `…/star-wars-kotor-ii/BQ4GD4LDGLTB` | old = "STAR WARS - Knights of the Old Republic"; new = "Star Wars KOTOR II" |
+| | nintendo | `…kotor-switch/` | `…kotor-ii-the-sith-lords-switch/` | page titles name KOTOR 1 and KOTOR II respectively |
+| | gog | `http…/star_wars_knights_of_the_old_republic` | `https…_ii_the_sith_lords` | new = "KOTOR II: The Sith Lords \| GOG.com" |
+| | ios | `id416608891?mt=12&uo=4` | `id963230767` | 416608891 = "Star Wars: KOTOR", **kind=mac-software** — wrong game *and* a Mac listing; 963230767 = "Star Wars: KOTOR II", Aspyr, `com.aspyr.kotor2.ios` |
+| | android | `com.aspyr.swkotor` | `com.aspyr.swkotorii` | og:title "Star Wars: KOTOR" vs "STAR WARS: KOTOR II" |
+| `plants-vs-zombies-3` | ios | `id893677096` | **removed** | = "Plants vs. Zombies" (PvZ 1), `com.ea.pvzfree.bv`; no PvZ 3 app in iTunes search |
+| | android | `com.ea.game.pvzfree_row` | **removed** | og:title "Plants vs. Zombies" (PvZ 1) |
+| | xbox | `plants-vs-zombies/br1d9cr82zm8` | **removed** | a PvZ 1 listing; PvZ 3 is mobile-only |
+| | nintendo | `…/plants-vs-zombies-ds` | **removed** | HTTP 404 |
+| `batman-arkham-knight` | nintendo | `batman-arkham-city-switch/` | **removed** | "Batman: Arkham City for Nintendo Switch"; Arkham Knight has no Switch release |
+| `dead-space-remake` | steam | `http…app/17470/` | `https…app/1693980/` | 17470 = "Dead Space (2008)"; 1693980 = "Dead Space" (2023-01-27) |
+| | xbox | `dead-space/brjlj6rplqtj` | `…/dead-space/9nlb6v0gnc9p` | old redirects to `/dead-space-2008/`; new = "Dead Space" |
+| | playstation | `NPUB30569_00-DS1HDDNAEFS00001` | `PPSA03845_00-BEYONDPS5GAME000` | old is the DS1 PS3 id and **dead**; new returns "Dead Space" |
+| | gog | `http…/game/dead_space` | **removed** | that slug is "Dead Space (2008)"; the remake is not sold on GOG |
+| `ea-fc-mobile` | ios | `id1094591345` | `id1094930513` | 1094591345 = "Pokémon GO" (`com.nianticlabs.pokemongo`); 1094930513 = "EA SPORTS FC Soccer Mobile 27", `com.ea.ios.fifamobile` — the iOS twin of this record's correct Android package |
+| `mortal-kombat-x` | ios | `id949701151?mt=8&uo=4` | **removed** | = "Mortal Kombat" (WB, `com.wb.MK.Brawler2015`) — MK Mobile. MKX was never on iOS |
+| | android | `com.wb.goog.mkx` | **removed** | og:title "Mortal Kombat" — MK Mobile; the `mkx` package name is legacy |
+| | `platforms` | `[pc,playstation,xbox,mobile]` | `[pc,playstation,xbox]` | a consequence of the two removals |
+| `madden-nfl-26` | steam | `app/1519350/` | `app/3230400/` | 1519350 = "Madden NFL 22" (2021-08-19); 3230400 = "EA SPORTS Madden NFL 26" (2025-08-14) |
+| | xbox | `madden-nfl-22-xbox-one/9nnrbcqv631v` | `ea-sports-madden-nfl-26/9NVD16NP4J8T` | old = "Madden NFL 22 Xbox One"; new = "EA SPORTS Madden NFL 26" |
+| | `year` | `2021` | `2025` | Steam release date of app 3230400 — 2021 was Madden 22's year, carried in with the wrong link |
+
+### Left for other items, deliberately
+
+`batman-arkham-knight` keeps `http://` on steam and gog and a `/ru/` locale on epic, and
+`mortal-kombat-x` keeps `http://` on steam. None of those keys was being rewritten, so they
+belong to item 13's catalog-wide pass. Where a link *was* being rewritten it was written in
+clean `https` US form.
+
+### Follow-ups this pass surfaced
+
+- **`plants-vs-zombies-3` now has no store links at all** — the same shape as C3. EA pulled PvZ
+  3 from both stores in Nov 2024; it returned in April 2026 as "Plants vs. Zombies 3: Evolved"
+  in early access limited to Ireland and the Philippines, so there is no US listing on any
+  store. It is a released-looking record with nowhere to buy it, which is what item 14 is about.
+- **`prison-architect-2` now has only a Steam coming-soon link, for a game that has never
+  released** (Steam says "To be announced"; Paradox refunded console pre-orders in 2024).
+  Arguably an A1 record rather than A5 — worth folding into the Tier 2 decisions.
+- **`crash-bandicoot-4` carries the same dead PlayStation id** `CUSA19035_00-CB4STANDARD00001`
+  as `crash-4` did. Its Steam link is already correct (1378990). It was left untouched because
+  it is not one of the 12; if it wins the item 6 duplicate decision it needs the same PS fix.
+- **`kotor-2`'s `platforms` has no `xbox`** even though a real Xbox listing exists and the record
+  carried an xbox link all along. Pre-existing; left alone.
+- **Correct links that are simply absent** were not added, since this item was about wrong links,
+  not missing ones: `madden-nfl-26` has no playstation link, `nba-2k25` has no
+  xbox/playstation/nintendo, and `planet-zoo-2` has no xbox/playstation, though all three ship
+  on those platforms.
+- **`year` is not exposed by the API.** `GET /api/games/madden-nfl-26` reports `year: null`
+  although Firestore holds 2025 — the same response-model gap already noted for `franchise`.
+  The `year` fix had to be verified against Firestore directly.
 
 ---
 

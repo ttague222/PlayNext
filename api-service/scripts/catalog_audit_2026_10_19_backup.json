@@ -9,7 +9,54 @@
  ],
  "patched": [
   "unpacking",
-  "abzu"
+  "abzu",
+  "crash-4",
+  "lost-judgment",
+  "nba-2k25",
+  "planet-zoo-2",
+  "prison-architect-2",
+  "kotor-2",
+  "plants-vs-zombies-3",
+  "batman-arkham-knight",
+  "dead-space-remake",
+  "ea-fc-mobile",
+  "mortal-kombat-x",
+  "madden-nfl-26"
+ ],
+ "writes": [
+  {
+   "pass": "Tier 1 record cleanup",
+   "written_at_utc": "2026-10-19",
+   "deleted": [
+    "unpacking-zen",
+    "unpacking-2",
+    "abzu-2",
+    "xdefiant"
+   ],
+   "patched": [
+    "unpacking",
+    "abzu"
+   ]
+  },
+  {
+   "pass": "Tier 3 item 12 - A5 wrong store links",
+   "written_at_utc": "2026-10-19",
+   "deleted": [],
+   "patched": [
+    "crash-4",
+    "lost-judgment",
+    "nba-2k25",
+    "planet-zoo-2",
+    "prison-architect-2",
+    "kotor-2",
+    "plants-vs-zombies-3",
+    "batman-arkham-knight",
+    "dead-space-remake",
+    "ea-fc-mobile",
+    "mortal-kombat-x",
+    "madden-nfl-26"
+   ]
+  }
  ],
  "records_before": {
   "unpacking-zen": {
@@ -1229,6 +1276,2370 @@
    },
    "createTime": "2025-12-17T19:52:55.957682Z",
    "updateTime": "2026-08-21T19:32:57.954505Z"
+  },
+  "crash-4": {
+   "name": "projects/playnxt-1a2c6/databases/(default)/documents/games/crash-4",
+   "fields": {
+    "title": {
+     "stringValue": "Crash Bandicoot 4: It's About Time"
+    },
+    "explanation_templates": {
+     "mapValue": {
+      "fields": {
+       "stop_fit": {
+        "stringValue": "Frequent checkpoints."
+       },
+       "time_fit": {
+        "stringValue": "Levels take 10-15 minutes."
+       },
+       "mood_fit": {
+        "stringValue": "Challenging platforming fun."
+       }
+      }
+     }
+    },
+    "genre_tags": {
+     "arrayValue": {
+      "values": [
+       {
+        "stringValue": "platformer"
+       },
+       {
+        "stringValue": "3d"
+       },
+       {
+        "stringValue": "challenging"
+       }
+      ]
+     }
+    },
+    "title_lower": {
+     "stringValue": "crash bandicoot 4: it's about time"
+    },
+    "moods": {
+     "arrayValue": {
+      "values": [
+       {
+        "stringValue": "fun"
+       },
+       {
+        "stringValue": "challenging"
+       },
+       {
+        "stringValue": "nostalgic"
+       }
+      ]
+     }
+    },
+    "time_to_fun": {
+     "stringValue": "short"
+    },
+    "stop_friendliness": {
+     "stringValue": "checkpoints"
+    },
+    "updated_at": {
+     "timestampValue": "2026-01-19T03:44:36.533298Z"
+    },
+    "subscription_services": {
+     "arrayValue": {
+      "values": [
+       {
+        "stringValue": "xbox_game_pass"
+       }
+      ]
+     }
+    },
+    "fun_fact": {
+     "stringValue": "Features dimensional masks that change gameplay mechanics."
+    },
+    "release_year": {
+     "integerValue": "2020"
+    },
+    "game_id": {
+     "stringValue": "crash-4"
+    },
+    "genres": {
+     "arrayValue": {
+      "values": [
+       {
+        "stringValue": "platformer"
+       },
+       {
+        "stringValue": "3d"
+       },
+       {
+        "stringValue": "challenging"
+       }
+      ]
+     }
+    },
+    "year": {
+     "integerValue": "2020"
+    },
+    "time_tags": {
+     "arrayValue": {
+      "values": [
+       {
+        "integerValue": "30"
+       },
+       {
+        "integerValue": "60"
+       }
+      ]
+     }
+    },
+    "energy_level": {
+     "stringValue": "medium"
+    },
+    "mood_tags": {
+     "arrayValue": {
+      "values": [
+       {
+        "stringValue": "fun"
+       },
+       {
+        "stringValue": "challenging"
+       },
+       {
+        "stringValue": "nostalgic"
+       }
+      ]
+     }
+    },
+    "description_short": {
+     "stringValue": "The true sequel to the original Crash trilogy."
+    },
+    "multiplayer_modes": {
+     "arrayValue": {
+      "values": [
+       {
+        "stringValue": "solo"
+       },
+       {
+        "stringValue": "local_coop"
+       }
+      ]
+     }
+    },
+    "platforms": {
+     "arrayValue": {
+      "values": [
+       {
+        "stringValue": "pc"
+       },
+       {
+        "stringValue": "playstation"
+       },
+       {
+        "stringValue": "xbox"
+       },
+       {
+        "stringValue": "switch"
+       }
+      ]
+     }
+    },
+    "store_links": {
+     "mapValue": {
+      "fields": {
+       "steam": {
+        "stringValue": "https://store.steampowered.com/app/1378310/Crash_Bandicoot_4_Its_About_Time/"
+       },
+       "playstation": {
+        "stringValue": "https://store.playstation.com/en-us/product/UP0002-CUSA19035_00-CB4STANDARD00001"
+       },
+       "xbox": {
+        "stringValue": "https://www.microsoft.com/en-us/p/crash-bandicoot-4-its-about-time/9pmxpq307z5p"
+       },
+       "nintendo": {
+        "stringValue": "https://www.nintendo.com/games/detail/crash-bandicoot-4-its-about-time-switch/"
+       }
+      }
+     }
+    },
+    "play_style": {
+     "arrayValue": {
+      "values": [
+       {
+        "stringValue": "action"
+       }
+      ]
+     }
+    },
+    "created_at": {
+     "timestampValue": "2026-01-19T03:44:36.533295Z"
+    }
+   },
+   "createTime": "2026-01-19T03:41:24.686227Z",
+   "updateTime": "2026-08-24T16:51:36.084865Z"
+  },
+  "lost-judgment": {
+   "name": "projects/playnxt-1a2c6/databases/(default)/documents/games/lost-judgment",
+   "fields": {
+    "fun_fact": {
+     "stringValue": "Features undercover investigation at a school."
+    },
+    "subscription_services": {
+     "arrayValue": {}
+    },
+    "game_id": {
+     "stringValue": "lost-judgment"
+    },
+    "updated_at": {
+     "timestampValue": "2026-05-31T21:28:18.532295Z"
+    },
+    "explanation_templates": {
+     "mapValue": {
+      "fields": {
+       "stop_fit": {
+        "stringValue": "Save and quit whenever - no progress lost."
+       },
+       "mood_fit": {
+        "stringValue": "High-energy gameplay for when you want intensity."
+       },
+       "time_fit": {
+        "stringValue": "Quick to jump in - you'll be having fun in minutes."
+       },
+       "style_fit": {
+        "stringValue": "Fast-paced action keeps the adrenaline flowing."
+       }
+      }
+     }
+    },
+    "mood_tags": {
+     "arrayValue": {
+      "values": [
+       {
+        "stringValue": "dramatic"
+       },
+       {
+        "stringValue": "dark"
+       },
+       {
+        "stringValue": "school"
+       },
+       {
+        "stringValue": "investigative"
+       }
+      ]
+     }
+    },
+    "release_year": {
+     "integerValue": "2021"
+    },
+    "genres": {
+     "arrayValue": {
+      "values": [
+       {
+        "stringValue": "action"
+       },
+       {
+        "stringValue": "detective"
+       },
+       {
+        "stringValue": "beat-em-up"
+       }
+      ]
+     }
+    },
+    "genre_tags": {
+     "arrayValue": {
+      "values": [
+       {
+        "stringValue": "action"
+       },
+       {
+        "stringValue": "detective"
+       },
+       {
+        "stringValue": "beat-em-up"
+       }
+      ]
+     }
+    },
+    "franchise": {
+     "nullValue": null
+    },
+    "stop_friendliness": {
+     "stringValue": "anytime"
+    },
+    "play_style": {
+     "arrayValue": {
+      "values": [
+       {
+        "stringValue": "action"
+       },
+       {
+        "stringValue": "narrative"
+       }
+      ]
+     }
+    },
+    "created_at": {
+     "timestampValue": "2026-01-30T17:07:27.591557Z"
+    },
+    "title_lower": {
+     "stringValue": "lost judgment"
+    },
+    "description_short": {
+     "stringValue": "Investigate a murder at a high school."
+    },
+    "warnings": {
+     "arrayValue": {}
+    },
+    "time_tags": {
+     "arrayValue": {
+      "values": [
+       {
+        "integerValue": "60"
+       },
+       {
+        "integerValue": "90"
+       }
+      ]
+     }
+    },
+    "platforms": {
+     "arrayValue": {
+      "values": [
+       {
+        "stringValue": "pc"
+       },
+       {
+        "stringValue": "playstation"
+       },
+       {
+        "stringValue": "xbox"
+       }
+      ]
+     }
+    },
+    "time_to_fun": {
+     "stringValue": "short"
+    },
+    "multiplayer_modes": {
+     "arrayValue": {
+      "values": [
+       {
+        "stringValue": "solo"
+       }
+      ]
+     }
+    },
+    "moods": {
+     "arrayValue": {
+      "values": [
+       {
+        "stringValue": "dramatic"
+       },
+       {
+        "stringValue": "dark"
+       },
+       {
+        "stringValue": "school"
+       },
+       {
+        "stringValue": "investigative"
+       }
+      ]
+     }
+    },
+    "year": {
+     "integerValue": "2021"
+    },
+    "title": {
+     "stringValue": "Lost Judgment"
+    },
+    "store_links": {
+     "mapValue": {
+      "fields": {
+       "xbox": {
+        "stringValue": "https://www.microsoft.com/en-us/p/lost-judgment/9n2fmgkzkgpg?cid=msft_web_chart"
+       },
+       "steam": {
+        "stringValue": "https://store.steampowered.com/app/2058180/"
+       },
+       "playstation": {
+        "stringValue": "https://store.playstation.com/en-us/product/UP0177-PPSA03774_00-LOSTJUDGMENT0000"
+       }
+      }
+     }
+    },
+    "energy_level": {
+     "stringValue": "high"
+    }
+   },
+   "createTime": "2025-12-26T14:16:18.423954Z",
+   "updateTime": "2026-05-31T21:26:07.328707Z"
+  },
+  "nba-2k25": {
+   "name": "projects/playnxt-1a2c6/databases/(default)/documents/games/nba-2k25",
+   "fields": {
+    "moods": {
+     "arrayValue": {
+      "values": [
+       {
+        "stringValue": "competitive"
+       },
+       {
+        "stringValue": "sports"
+       },
+       {
+        "stringValue": "social"
+       }
+      ]
+     }
+    },
+    "genre_tags": {
+     "arrayValue": {
+      "values": [
+       {
+        "stringValue": "sports"
+       },
+       {
+        "stringValue": "basketball"
+       },
+       {
+        "stringValue": "simulation"
+       }
+      ]
+     }
+    },
+    "created_at": {
+     "timestampValue": "2026-01-19T03:44:35.114982Z"
+    },
+    "release_year": {
+     "integerValue": "2024"
+    },
+    "title_lower": {
+     "stringValue": "nba 2k25"
+    },
+    "subscription_services": {
+     "arrayValue": {}
+    },
+    "description_short": {
+     "stringValue": "The premier basketball simulation experience."
+    },
+    "stop_friendliness": {
+     "stringValue": "checkpoints"
+    },
+    "energy_level": {
+     "stringValue": "medium"
+    },
+    "play_style": {
+     "arrayValue": {
+      "values": [
+       {
+        "stringValue": "action"
+       }
+      ]
+     }
+    },
+    "game_id": {
+     "stringValue": "nba-2k25"
+    },
+    "store_links": {
+     "mapValue": {
+      "fields": {
+       "steam": {
+        "stringValue": "https://store.steampowered.com/app/2338770/NBA_2K25/"
+       }
+      }
+     }
+    },
+    "updated_at": {
+     "timestampValue": "2026-01-19T03:44:35.114986Z"
+    },
+    "mood_tags": {
+     "arrayValue": {
+      "values": [
+       {
+        "stringValue": "competitive"
+       },
+       {
+        "stringValue": "sports"
+       },
+       {
+        "stringValue": "social"
+       }
+      ]
+     }
+    },
+    "explanation_templates": {
+     "mapValue": {
+      "fields": {
+       "mood_fit": {
+        "stringValue": "Authentic NBA action."
+       },
+       "time_fit": {
+        "stringValue": "Games take 20-40 minutes."
+       },
+       "stop_fit": {
+        "stringValue": "Save between games."
+       }
+      }
+     }
+    },
+    "year": {
+     "integerValue": "2024"
+    },
+    "platforms": {
+     "arrayValue": {
+      "values": [
+       {
+        "stringValue": "pc"
+       },
+       {
+        "stringValue": "playstation"
+       },
+       {
+        "stringValue": "xbox"
+       },
+       {
+        "stringValue": "switch"
+       }
+      ]
+     }
+    },
+    "multiplayer_modes": {
+     "arrayValue": {
+      "values": [
+       {
+        "stringValue": "solo"
+       },
+       {
+        "stringValue": "local_coop"
+       },
+       {
+        "stringValue": "online_coop"
+       },
+       {
+        "stringValue": "competitive"
+       }
+      ]
+     }
+    },
+    "time_to_fun": {
+     "stringValue": "short"
+    },
+    "genres": {
+     "arrayValue": {
+      "values": [
+       {
+        "stringValue": "sports"
+       },
+       {
+        "stringValue": "basketball"
+       },
+       {
+        "stringValue": "simulation"
+       }
+      ]
+     }
+    },
+    "title": {
+     "stringValue": "NBA 2K25"
+    },
+    "fun_fact": {
+     "stringValue": "MyCareer mode lets you live the life of an NBA player."
+    },
+    "time_tags": {
+     "arrayValue": {
+      "values": [
+       {
+        "integerValue": "30"
+       },
+       {
+        "integerValue": "60"
+       }
+      ]
+     }
+    }
+   },
+   "createTime": "2026-01-19T03:41:23.284010Z",
+   "updateTime": "2026-08-21T19:33:19.399289Z"
+  },
+  "planet-zoo-2": {
+   "name": "projects/playnxt-1a2c6/databases/(default)/documents/games/planet-zoo-2",
+   "fields": {
+    "moods": {
+     "arrayValue": {
+      "values": [
+       {
+        "stringValue": "creative"
+       },
+       {
+        "stringValue": "relaxing"
+       },
+       {
+        "stringValue": "detailed"
+       },
+       {
+        "stringValue": "ecological"
+       }
+      ]
+     }
+    },
+    "stop_friendliness": {
+     "stringValue": "anytime"
+    },
+    "updated_at": {
+     "timestampValue": "2026-09-23T15:52:36.102007Z"
+    },
+    "genres": {
+     "arrayValue": {
+      "values": [
+       {
+        "stringValue": "simulation"
+       },
+       {
+        "stringValue": "management"
+       },
+       {
+        "stringValue": "sandbox"
+       }
+      ]
+     }
+    },
+    "warnings": {
+     "arrayValue": {}
+    },
+    "time_to_fun": {
+     "stringValue": "medium"
+    },
+    "energy_level": {
+     "stringValue": "low"
+    },
+    "genre_tags": {
+     "arrayValue": {
+      "values": [
+       {
+        "stringValue": "simulation"
+       },
+       {
+        "stringValue": "management"
+       },
+       {
+        "stringValue": "sandbox"
+       }
+      ]
+     }
+    },
+    "explanation_templates": {
+     "mapValue": {
+      "fields": {
+       "time_fit": {
+        "stringValue": "Perfect for a relaxing {time}-minute session"
+       },
+       "stop_fit": {
+        "stringValue": "Easy to pause whenever you need"
+       },
+       "mood_fit": {
+        "stringValue": "Unwind and enjoy at your own pace"
+       },
+       "style_fit": {
+        "stringValue": "Freedom to create and explore"
+       }
+      }
+     }
+    },
+    "time_tags": {
+     "arrayValue": {
+      "values": [
+       {
+        "integerValue": "30"
+       },
+       {
+        "integerValue": "60"
+       },
+       {
+        "integerValue": "90"
+       },
+       {
+        "integerValue": "120"
+       }
+      ]
+     }
+    },
+    "game_id": {
+     "stringValue": "planet-zoo-2"
+    },
+    "year": {
+     "integerValue": "2026"
+    },
+    "release_year": {
+     "integerValue": "2026"
+    },
+    "title": {
+     "stringValue": "Planet Zoo 2"
+    },
+    "play_style": {
+     "arrayValue": {
+      "values": [
+       {
+        "stringValue": "sandbox_creative"
+       },
+       {
+        "stringValue": "strategy"
+       }
+      ]
+     }
+    },
+    "multiplayer_modes": {
+     "arrayValue": {
+      "values": [
+       {
+        "stringValue": "solo"
+       }
+      ]
+     }
+    },
+    "store_links": {
+     "mapValue": {
+      "fields": {
+       "steam": {
+        "stringValue": "https://store.steampowered.com/app/703080/"
+       }
+      }
+     }
+    },
+    "description_short": {
+     "stringValue": "Frontier's zoo-building sim returns with aquariums and marine habitats added to the deep animal-care and park-design systems that made the first game a favorite for slow, creative sessions."
+    },
+    "mood_tags": {
+     "arrayValue": {
+      "values": [
+       {
+        "stringValue": "creative"
+       },
+       {
+        "stringValue": "relaxing"
+       },
+       {
+        "stringValue": "detailed"
+       },
+       {
+        "stringValue": "ecological"
+       }
+      ]
+     }
+    },
+    "release_date": {
+     "stringValue": "2026-10-13"
+    },
+    "created_at": {
+     "timestampValue": "2026-09-23T15:52:36.102007Z"
+    },
+    "subscription_services": {
+     "arrayValue": {}
+    },
+    "fun_fact": {
+     "stringValue": "This is the franchise's first console release, Planet Zoo was PC-only for its entire first run."
+    },
+    "platforms": {
+     "arrayValue": {
+      "values": [
+       {
+        "stringValue": "pc"
+       },
+       {
+        "stringValue": "playstation"
+       },
+       {
+        "stringValue": "xbox"
+       }
+      ]
+     }
+    }
+   },
+   "createTime": "2026-09-23T15:49:29.234482Z",
+   "updateTime": "2026-09-23T15:57:52.458120Z"
+  },
+  "prison-architect-2": {
+   "name": "projects/playnxt-1a2c6/databases/(default)/documents/games/prison-architect-2",
+   "fields": {
+    "franchise": {
+     "nullValue": null
+    },
+    "subscription_services": {
+     "arrayValue": {}
+    },
+    "time_to_fun": {
+     "stringValue": "medium"
+    },
+    "fun_fact": {
+     "stringValue": "The original was inspired by Dwarf Fortress's complexity."
+    },
+    "moods": {
+     "arrayValue": {
+      "values": [
+       {
+        "stringValue": "strategic"
+       },
+       {
+        "stringValue": "challenging"
+       },
+       {
+        "stringValue": "creative"
+       },
+       {
+        "stringValue": "moral"
+       }
+      ]
+     }
+    },
+    "year": {
+     "integerValue": "2024"
+    },
+    "genre_tags": {
+     "arrayValue": {
+      "values": [
+       {
+        "stringValue": "simulation"
+       },
+       {
+        "stringValue": "management"
+       },
+       {
+        "stringValue": "building"
+       }
+      ]
+     }
+    },
+    "play_style": {
+     "arrayValue": {
+      "values": [
+       {
+        "stringValue": "sandbox_creative"
+       }
+      ]
+     }
+    },
+    "explanation_templates": {
+     "mapValue": {
+      "fields": {
+       "style_fit": {
+        "stringValue": "Freedom to create and explore at your pace."
+       },
+       "stop_fit": {
+        "stringValue": "Save and quit whenever - no progress lost."
+       },
+       "time_fit": {
+        "stringValue": "Easy to get into with a bit of learning."
+       },
+       "mood_fit": {
+        "stringValue": "Balanced experience that keeps you engaged without overwhelming."
+       }
+      }
+     }
+    },
+    "stop_friendliness": {
+     "stringValue": "anytime"
+    },
+    "energy_level": {
+     "stringValue": "medium"
+    },
+    "multiplayer_modes": {
+     "arrayValue": {
+      "values": [
+       {
+        "stringValue": "solo"
+       }
+      ]
+     }
+    },
+    "game_id": {
+     "stringValue": "prison-architect-2"
+    },
+    "warnings": {
+     "arrayValue": {}
+    },
+    "platforms": {
+     "arrayValue": {
+      "values": [
+       {
+        "stringValue": "pc"
+       },
+       {
+        "stringValue": "playstation"
+       },
+       {
+        "stringValue": "xbox"
+       }
+      ]
+     }
+    },
+    "title": {
+     "stringValue": "Prison Architect 2"
+    },
+    "title_lower": {
+     "stringValue": "prison architect 2"
+    },
+    "store_links": {
+     "mapValue": {
+      "fields": {
+       "xbox": {
+        "stringValue": "https://www.microsoft.com/en-us/store/p/prison-architect-all-day-and-a-psych/brrdgtr9hb1x"
+       },
+       "gog": {
+        "stringValue": "http://www.gog.com/game/prison_architect"
+       },
+       "steam": {
+        "stringValue": "http://store.steampowered.com/app/233450/"
+       },
+       "playstation": {
+        "stringValue": "https://store.playstation.com/en-us/product/UP4415-CUSA03481_00-PRISONBUNDLE0002"
+       },
+       "nintendo": {
+        "stringValue": "https://www.nintendo.com/games/detail/prison-architect-nintendo-switch-edition"
+       }
+      }
+     }
+    },
+    "updated_at": {
+     "timestampValue": "2026-05-31T21:28:32.106160Z"
+    },
+    "description_short": {
+     "stringValue": "Design and manage prisons in 3D."
+    },
+    "release_year": {
+     "integerValue": "2024"
+    },
+    "time_tags": {
+     "arrayValue": {
+      "values": [
+       {
+        "integerValue": "60"
+       },
+       {
+        "integerValue": "90"
+       }
+      ]
+     }
+    },
+    "created_at": {
+     "timestampValue": "2026-01-30T17:07:13.263193Z"
+    },
+    "genres": {
+     "arrayValue": {
+      "values": [
+       {
+        "stringValue": "simulation"
+       },
+       {
+        "stringValue": "management"
+       },
+       {
+        "stringValue": "building"
+       }
+      ]
+     }
+    },
+    "mood_tags": {
+     "arrayValue": {
+      "values": [
+       {
+        "stringValue": "strategic"
+       },
+       {
+        "stringValue": "challenging"
+       },
+       {
+        "stringValue": "creative"
+       },
+       {
+        "stringValue": "moral"
+       }
+      ]
+     }
+    }
+   },
+   "createTime": "2025-12-26T14:16:03.677391Z",
+   "updateTime": "2026-05-31T21:26:20.965752Z"
+  },
+  "kotor-2": {
+   "name": "projects/playnxt-1a2c6/databases/(default)/documents/games/kotor-2",
+   "fields": {
+    "time_tags": {
+     "arrayValue": {
+      "values": [
+       {
+        "integerValue": "60"
+       },
+       {
+        "integerValue": "90"
+       },
+       {
+        "integerValue": "120"
+       }
+      ]
+     }
+    },
+    "game_id": {
+     "stringValue": "kotor-2"
+    },
+    "updated_at": {
+     "timestampValue": "2026-09-23T15:51:43.506989Z"
+    },
+    "genres": {
+     "arrayValue": {
+      "values": [
+       {
+        "stringValue": "rpg"
+       },
+       {
+        "stringValue": "narrative"
+       },
+       {
+        "stringValue": "turn-based"
+       }
+      ]
+     }
+    },
+    "year": {
+     "integerValue": "2004"
+    },
+    "platforms": {
+     "arrayValue": {
+      "values": [
+       {
+        "stringValue": "pc"
+       },
+       {
+        "stringValue": "switch"
+       },
+       {
+        "stringValue": "mobile"
+       }
+      ]
+     }
+    },
+    "warnings": {
+     "arrayValue": {}
+    },
+    "time_to_fun": {
+     "stringValue": "long"
+    },
+    "play_style": {
+     "arrayValue": {
+      "values": [
+       {
+        "stringValue": "strategy"
+       },
+       {
+        "stringValue": "narrative"
+       }
+      ]
+     }
+    },
+    "title": {
+     "stringValue": "Star Wars: Knights of the Old Republic II"
+    },
+    "stop_friendliness": {
+     "stringValue": "anytime"
+    },
+    "subscription_services": {
+     "arrayValue": {}
+    },
+    "release_year": {
+     "integerValue": "2004"
+    },
+    "energy_level": {
+     "stringValue": "medium"
+    },
+    "explanation_templates": {
+     "mapValue": {
+      "fields": {
+       "mood_fit": {
+        "stringValue": "Engaging without being overwhelming"
+       },
+       "style_fit": {
+        "stringValue": "Rich story to get lost in"
+       },
+       "time_fit": {
+        "stringValue": "Great for a {time}-minute gaming session"
+       },
+       "stop_fit": {
+        "stringValue": "Good stopping points throughout"
+       }
+      }
+     }
+    },
+    "mood_tags": {
+     "arrayValue": {
+      "values": [
+       {
+        "stringValue": "immersive"
+       },
+       {
+        "stringValue": "strategic"
+       }
+      ]
+     }
+    },
+    "genre_tags": {
+     "arrayValue": {
+      "values": [
+       {
+        "stringValue": "rpg"
+       },
+       {
+        "stringValue": "narrative"
+       },
+       {
+        "stringValue": "turn-based"
+       }
+      ]
+     }
+    },
+    "store_links": {
+     "mapValue": {
+      "fields": {
+       "gog": {
+        "stringValue": "http://www.gog.com/game/star_wars_knights_of_the_old_republic"
+       },
+       "nintendo": {
+        "stringValue": "https://www.nintendo.com/games/detail/star-wars-knights-of-the-old-republic-switch/"
+       },
+       "xbox": {
+        "stringValue": "https://www.microsoft.com/en-us/p/star-wars-knights-of-the-old-republic/bs8lfd7729cl#activetab=pivot:overviewtab"
+       },
+       "android": {
+        "stringValue": "https://play.google.com/store/apps/details?id=com.aspyr.swkotor"
+       },
+       "ios": {
+        "stringValue": "https://apps.apple.com/us/app/star-wars-knights-of-the-old-republic/id416608891?mt=12&uo=4"
+       },
+       "steam": {
+        "stringValue": "http://store.steampowered.com/app/32370/"
+       }
+      }
+     }
+    },
+    "description_short": {
+     "stringValue": "Obsidian's darker Star Wars: Kreia deconstructs the Force while you rebuild yourself."
+    },
+    "multiplayer_modes": {
+     "arrayValue": {
+      "values": [
+       {
+        "stringValue": "solo"
+       }
+      ]
+     }
+    },
+    "moods": {
+     "arrayValue": {
+      "values": [
+       {
+        "stringValue": "immersive"
+       },
+       {
+        "stringValue": "strategic"
+       }
+      ]
+     }
+    }
+   },
+   "createTime": "2026-08-24T14:32:00.738100Z",
+   "updateTime": "2026-09-23T15:50:46.074541Z"
+  },
+  "plants-vs-zombies-3": {
+   "name": "projects/playnxt-1a2c6/databases/(default)/documents/games/plants-vs-zombies-3",
+   "fields": {
+    "stop_friendliness": {
+     "stringValue": "checkpoints"
+    },
+    "warnings": {
+     "arrayValue": {}
+    },
+    "store_links": {
+     "mapValue": {
+      "fields": {
+       "xbox": {
+        "stringValue": "https://www.microsoft.com/en-us/p/plants-vs-zombies/br1d9cr82zm8?cid=msft_web_chart"
+       },
+       "nintendo": {
+        "stringValue": "https://www.nintendo.com/games/detail/plants-vs-zombies-ds"
+       },
+       "android": {
+        "stringValue": "https://play.google.com/store/apps/details?id=com.ea.game.pvzfree_row&hl=en&gl=us"
+       },
+       "ios": {
+        "stringValue": "https://apps.apple.com/us/app/plants-vs-zombies/id893677096?uo=4"
+       }
+      }
+     }
+    },
+    "release_year": {
+     "integerValue": "2020"
+    },
+    "play_style": {
+     "arrayValue": {
+      "values": [
+       {
+        "stringValue": "strategy"
+       }
+      ]
+     }
+    },
+    "explanation_templates": {
+     "mapValue": {
+      "fields": {
+       "mood_fit": {
+        "stringValue": "Perfect for unwinding - gentle pace lets you relax."
+       },
+       "stop_fit": {
+        "stringValue": "Regular checkpoints let you pause when needed."
+       },
+       "style_fit": {
+        "stringValue": "Deep strategic gameplay for thoughtful decisions."
+       },
+       "time_fit": {
+        "stringValue": "Quick to jump in - you'll be having fun in minutes."
+       }
+      }
+     }
+    },
+    "genre_tags": {
+     "arrayValue": {
+      "values": [
+       {
+        "stringValue": "tower-defense"
+       },
+       {
+        "stringValue": "strategy"
+       },
+       {
+        "stringValue": "casual"
+       }
+      ]
+     }
+    },
+    "time_to_fun": {
+     "stringValue": "short"
+    },
+    "genres": {
+     "arrayValue": {
+      "values": [
+       {
+        "stringValue": "tower-defense"
+       },
+       {
+        "stringValue": "strategy"
+       },
+       {
+        "stringValue": "casual"
+       }
+      ]
+     }
+    },
+    "franchise": {
+     "stringValue": "plants_vs_zombies"
+    },
+    "time_tags": {
+     "arrayValue": {
+      "values": [
+       {
+        "integerValue": "15"
+       }
+      ]
+     }
+    },
+    "fun_fact": {
+     "stringValue": "Introduces new 3D portrait mode gameplay!"
+    },
+    "title_lower": {
+     "stringValue": "plants vs. zombies 3"
+    },
+    "created_at": {
+     "timestampValue": "2026-01-30T17:07:44.425023Z"
+    },
+    "title": {
+     "stringValue": "Plants vs. Zombies 3"
+    },
+    "description_short": {
+     "stringValue": "The latest in the beloved tower defense series."
+    },
+    "platforms": {
+     "arrayValue": {
+      "values": [
+       {
+        "stringValue": "mobile"
+       }
+      ]
+     }
+    },
+    "mood_tags": {
+     "arrayValue": {
+      "values": [
+       {
+        "stringValue": "fun"
+       },
+       {
+        "stringValue": "strategic"
+       },
+       {
+        "stringValue": "relaxing"
+       }
+      ]
+     }
+    },
+    "year": {
+     "integerValue": "2020"
+    },
+    "updated_at": {
+     "timestampValue": "2026-05-31T21:28:31.167775Z"
+    },
+    "energy_level": {
+     "stringValue": "low"
+    },
+    "moods": {
+     "arrayValue": {
+      "values": [
+       {
+        "stringValue": "fun"
+       },
+       {
+        "stringValue": "strategic"
+       },
+       {
+        "stringValue": "relaxing"
+       }
+      ]
+     }
+    },
+    "game_id": {
+     "stringValue": "plants-vs-zombies-3"
+    },
+    "subscription_services": {
+     "arrayValue": {}
+    },
+    "multiplayer_modes": {
+     "arrayValue": {
+      "values": [
+       {
+        "stringValue": "solo"
+       }
+      ]
+     }
+    }
+   },
+   "createTime": "2026-01-20T17:06:23.087860Z",
+   "updateTime": "2026-08-21T18:17:38.386217Z"
+  },
+  "batman-arkham-knight": {
+   "name": "projects/playnxt-1a2c6/databases/(default)/documents/games/batman-arkham-knight",
+   "fields": {
+    "genre_tags": {
+     "arrayValue": {
+      "values": [
+       {
+        "stringValue": "action"
+       },
+       {
+        "stringValue": "open-world"
+       }
+      ]
+     }
+    },
+    "multiplayer_modes": {
+     "arrayValue": {
+      "values": [
+       {
+        "stringValue": "solo"
+       }
+      ]
+     }
+    },
+    "mood_tags": {
+     "arrayValue": {
+      "values": [
+       {
+        "stringValue": "immersive"
+       },
+       {
+        "stringValue": "intense"
+       },
+       {
+        "stringValue": "satisfying"
+       }
+      ]
+     }
+    },
+    "stop_friendliness": {
+     "stringValue": "checkpoints"
+    },
+    "release_year": {
+     "integerValue": "2015"
+    },
+    "time_tags": {
+     "arrayValue": {
+      "values": [
+       {
+        "integerValue": "30"
+       },
+       {
+        "integerValue": "60"
+       },
+       {
+        "integerValue": "90"
+       },
+       {
+        "integerValue": "120"
+       }
+      ]
+     }
+    },
+    "subscription_services": {
+     "arrayValue": {
+      "values": [
+       {
+        "stringValue": "xbox_game_pass"
+       }
+      ]
+     }
+    },
+    "year": {
+     "integerValue": "2015"
+    },
+    "time_to_fun": {
+     "stringValue": "short"
+    },
+    "genres": {
+     "arrayValue": {
+      "values": [
+       {
+        "stringValue": "action"
+       },
+       {
+        "stringValue": "open-world"
+       }
+      ]
+     }
+    },
+    "description_short": {
+     "stringValue": "Be the Batman across a rain-slick Gotham: the freeflow combat series at its most complete."
+    },
+    "explanation_templates": {
+     "mapValue": {
+      "fields": {
+       "time_fit": {
+        "stringValue": "Great for a {time}-minute gaming session"
+       },
+       "stop_fit": {
+        "stringValue": "Good stopping points throughout"
+       },
+       "style_fit": {
+        "stringValue": "Fast-paced gameplay"
+       },
+       "mood_fit": {
+        "stringValue": "Engaging without being overwhelming"
+       }
+      }
+     }
+    },
+    "energy_level": {
+     "stringValue": "medium"
+    },
+    "play_style": {
+     "arrayValue": {
+      "values": [
+       {
+        "stringValue": "action"
+       }
+      ]
+     }
+    },
+    "updated_at": {
+     "timestampValue": "2026-09-23T15:51:30.307192Z"
+    },
+    "store_links": {
+     "mapValue": {
+      "fields": {
+       "epic": {
+        "stringValue": "https://www.epicgames.com/store/ru/product/batman-arkham-knight/home"
+       },
+       "xbox": {
+        "stringValue": "https://www.microsoft.com/en-us/store/p/batman-arkham-knight/bslx1rnxr6h7?cid=msft_web_chart"
+       },
+       "nintendo": {
+        "stringValue": "https://www.nintendo.com/us/store/products/batman-arkham-city-switch/"
+       },
+       "gog": {
+        "stringValue": "https://www.gog.com/game/batman_arkham_knight"
+       },
+       "playstation": {
+        "stringValue": "https://store.playstation.com/en-us/product/UP1018-CUSA00133_00-BATMANARKHAMKNHT"
+       },
+       "steam": {
+        "stringValue": "http://store.steampowered.com/app/208650/"
+       }
+      }
+     }
+    },
+    "title": {
+     "stringValue": "Batman: Arkham Knight"
+    },
+    "warnings": {
+     "arrayValue": {}
+    },
+    "platforms": {
+     "arrayValue": {
+      "values": [
+       {
+        "stringValue": "pc"
+       },
+       {
+        "stringValue": "playstation"
+       },
+       {
+        "stringValue": "xbox"
+       }
+      ]
+     }
+    },
+    "moods": {
+     "arrayValue": {
+      "values": [
+       {
+        "stringValue": "immersive"
+       },
+       {
+        "stringValue": "intense"
+       },
+       {
+        "stringValue": "satisfying"
+       }
+      ]
+     }
+    },
+    "game_id": {
+     "stringValue": "batman-arkham-knight"
+    }
+   },
+   "createTime": "2026-08-21T20:02:36.045322Z",
+   "updateTime": "2026-09-23T15:50:32.903407Z"
+  },
+  "dead-space-remake": {
+   "name": "projects/playnxt-1a2c6/databases/(default)/documents/games/dead-space-remake",
+   "fields": {
+    "mood_tags": {
+     "arrayValue": {
+      "values": [
+       {
+        "stringValue": "terrifying"
+       },
+       {
+        "stringValue": "atmospheric"
+       },
+       {
+        "stringValue": "intense"
+       },
+       {
+        "stringValue": "isolated"
+       }
+      ]
+     }
+    },
+    "stop_friendliness": {
+     "stringValue": "checkpoints"
+    },
+    "title": {
+     "stringValue": "Dead Space Remake"
+    },
+    "updated_at": {
+     "timestampValue": "2026-05-31T21:27:52.659261Z"
+    },
+    "year": {
+     "integerValue": "2023"
+    },
+    "fun_fact": {
+     "stringValue": "The necromorphs' audio uses slowed-down recordings of actual surgical procedures."
+    },
+    "description_short": {
+     "stringValue": "Survive the horrors of the USG Ishimura."
+    },
+    "game_id": {
+     "stringValue": "dead-space-remake"
+    },
+    "genres": {
+     "arrayValue": {
+      "values": [
+       {
+        "stringValue": "survival-horror"
+       },
+       {
+        "stringValue": "sci-fi"
+       },
+       {
+        "stringValue": "action"
+       }
+      ]
+     }
+    },
+    "content_warnings": {
+     "arrayValue": {
+      "values": [
+       {
+        "stringValue": "horror"
+       },
+       {
+        "stringValue": "gore"
+       }
+      ]
+     }
+    },
+    "time_tags": {
+     "arrayValue": {
+      "values": [
+       {
+        "integerValue": "60"
+       },
+       {
+        "integerValue": "90"
+       }
+      ]
+     }
+    },
+    "multiplayer_modes": {
+     "arrayValue": {
+      "values": [
+       {
+        "stringValue": "solo"
+       }
+      ]
+     }
+    },
+    "release_year": {
+     "integerValue": "2023"
+    },
+    "platforms": {
+     "arrayValue": {
+      "values": [
+       {
+        "stringValue": "pc"
+       },
+       {
+        "stringValue": "playstation"
+       },
+       {
+        "stringValue": "xbox"
+       }
+      ]
+     }
+    },
+    "warnings": {
+     "arrayValue": {
+      "values": [
+       {
+        "stringValue": "horror"
+       },
+       {
+        "stringValue": "gore"
+       }
+      ]
+     }
+    },
+    "store_links": {
+     "mapValue": {
+      "fields": {
+       "xbox": {
+        "stringValue": "https://www.microsoft.com/en-us/p/dead-space/brjlj6rplqtj?cid=msft_web_chart"
+       },
+       "playstation": {
+        "stringValue": "https://store.playstation.com/en-us/product/UP0006-NPUB30569_00-DS1HDDNAEFS00001"
+       },
+       "gog": {
+        "stringValue": "http://www.gog.com/game/dead_space"
+       },
+       "steam": {
+        "stringValue": "http://store.steampowered.com/app/17470/"
+       }
+      }
+     }
+    },
+    "explanation_templates": {
+     "mapValue": {
+      "fields": {
+       "style_fit": {
+        "stringValue": "Fast-paced action keeps the adrenaline flowing."
+       },
+       "time_fit": {
+        "stringValue": "Quick to jump in - you'll be having fun in minutes."
+       },
+       "stop_fit": {
+        "stringValue": "Regular checkpoints let you pause when needed."
+       },
+       "mood_fit": {
+        "stringValue": "Balanced experience that keeps you engaged without overwhelming."
+       }
+      }
+     }
+    },
+    "play_style": {
+     "arrayValue": {
+      "values": [
+       {
+        "stringValue": "action"
+       }
+      ]
+     }
+    },
+    "title_lower": {
+     "stringValue": "dead space remake"
+    },
+    "genre_tags": {
+     "arrayValue": {
+      "values": [
+       {
+        "stringValue": "survival-horror"
+       },
+       {
+        "stringValue": "sci-fi"
+       },
+       {
+        "stringValue": "action"
+       }
+      ]
+     }
+    },
+    "created_at": {
+     "timestampValue": "2026-01-30T17:07:18.354550Z"
+    },
+    "time_to_fun": {
+     "stringValue": "short"
+    },
+    "energy_level": {
+     "stringValue": "medium"
+    },
+    "franchise": {
+     "nullValue": null
+    },
+    "subscription_services": {
+     "arrayValue": {
+      "values": [
+       {
+        "stringValue": "ea_play"
+       }
+      ]
+     }
+    },
+    "moods": {
+     "arrayValue": {
+      "values": [
+       {
+        "stringValue": "terrifying"
+       },
+       {
+        "stringValue": "atmospheric"
+       },
+       {
+        "stringValue": "intense"
+       },
+       {
+        "stringValue": "isolated"
+       }
+      ]
+     }
+    }
+   },
+   "createTime": "2025-12-26T14:16:08.863807Z",
+   "updateTime": "2026-05-31T21:25:41.444934Z"
+  },
+  "ea-fc-mobile": {
+   "name": "projects/playnxt-1a2c6/databases/(default)/documents/games/ea-fc-mobile",
+   "fields": {
+    "genre_tags": {
+     "arrayValue": {
+      "values": [
+       {
+        "stringValue": "sports"
+       },
+       {
+        "stringValue": "soccer"
+       },
+       {
+        "stringValue": "simulation"
+       }
+      ]
+     }
+    },
+    "description": {
+     "stringValue": "Build your Ultimate Team and compete in real-time PvP football on mobile. Features licensed leagues and players."
+    },
+    "moods": {
+     "arrayValue": {
+      "values": [
+       {
+        "stringValue": "competitive"
+       },
+       {
+        "stringValue": "exciting"
+       },
+       {
+        "stringValue": "social"
+       }
+      ]
+     }
+    },
+    "description_short": {
+     "stringValue": "Build your Ultimate Team and compete in real-time PvP football on mobile."
+    },
+    "fun_fact": {
+     "stringValue": "Rebranded from FIFA Mobile, with all progress carrying over from the previous version."
+    },
+    "explanation_templates": {
+     "mapValue": {
+      "fields": {
+       "mood_fit": {
+        "stringValue": "Balanced experience that keeps you engaged without overwhelming."
+       },
+       "time_fit": {
+        "stringValue": "Quick to jump in - you'll be having fun in minutes."
+       },
+       "style_fit": {
+        "stringValue": "Fast-paced action keeps the adrenaline flowing."
+       },
+       "stop_fit": {
+        "stringValue": "Regular checkpoints let you pause when needed."
+       }
+      }
+     }
+    },
+    "year": {
+     "integerValue": "2023"
+    },
+    "title_lower": {
+     "stringValue": "ea sports fc mobile"
+    },
+    "time_to_fun": {
+     "stringValue": "short"
+    },
+    "warnings": {
+     "arrayValue": {}
+    },
+    "mood_tags": {
+     "arrayValue": {
+      "values": [
+       {
+        "stringValue": "competitive"
+       },
+       {
+        "stringValue": "exciting"
+       },
+       {
+        "stringValue": "social"
+       }
+      ]
+     }
+    },
+    "genres": {
+     "arrayValue": {
+      "values": [
+       {
+        "stringValue": "sports"
+       },
+       {
+        "stringValue": "soccer"
+       },
+       {
+        "stringValue": "simulation"
+       }
+      ]
+     }
+    },
+    "stop_friendliness": {
+     "stringValue": "checkpoints"
+    },
+    "multiplayer_modes": {
+     "arrayValue": {
+      "values": [
+       {
+        "stringValue": "solo"
+       },
+       {
+        "stringValue": "online_coop"
+       },
+       {
+        "stringValue": "competitive"
+       }
+      ]
+     }
+    },
+    "updated_at": {
+     "timestampValue": "2026-05-31T21:27:55.717972Z"
+    },
+    "platforms": {
+     "arrayValue": {
+      "values": [
+       {
+        "stringValue": "mobile"
+       }
+      ]
+     }
+    },
+    "search_keywords": {
+     "arrayValue": {
+      "values": [
+       {
+        "stringValue": "fifa"
+       },
+       {
+        "stringValue": "ea sports fc"
+       },
+       {
+        "stringValue": "football"
+       },
+       {
+        "stringValue": "soccer"
+       },
+       {
+        "stringValue": "ea fc"
+       }
+      ]
+     }
+    },
+    "franchise": {
+     "stringValue": "ea_sports_fc"
+    },
+    "title": {
+     "stringValue": "EA SPORTS FC Mobile"
+    },
+    "multiplayer": {
+     "arrayValue": {
+      "values": [
+       {
+        "stringValue": "solo"
+       },
+       {
+        "stringValue": "online_coop"
+       },
+       {
+        "stringValue": "competitive"
+       }
+      ]
+     }
+    },
+    "store_links": {
+     "mapValue": {
+      "fields": {
+       "android": {
+        "stringValue": "https://play.google.com/store/apps/details?id=com.ea.gp.fifamobile"
+       },
+       "ios": {
+        "stringValue": "https://apps.apple.com/app/ea-sports-fc-mobile-soccer/id1094591345"
+       }
+      }
+     }
+    },
+    "game_id": {
+     "stringValue": "ea-fc-mobile"
+    },
+    "release_year": {
+     "integerValue": "2023"
+    },
+    "play_style": {
+     "arrayValue": {
+      "values": [
+       {
+        "stringValue": "action"
+       }
+      ]
+     }
+    },
+    "subscription_services": {
+     "arrayValue": {}
+    },
+    "created_at": {
+     "timestampValue": "2026-01-30T17:07:35.324661Z"
+    },
+    "energy": {
+     "stringValue": "medium"
+    },
+    "energy_level": {
+     "stringValue": "medium"
+    },
+    "time_tags": {
+     "arrayValue": {
+      "values": [
+       {
+        "integerValue": "15"
+       },
+       {
+        "integerValue": "30"
+       }
+      ]
+     }
+    }
+   },
+   "createTime": "2026-01-20T16:42:46.338990Z",
+   "updateTime": "2026-08-21T18:17:30.209962Z"
+  },
+  "mortal-kombat-x": {
+   "name": "projects/playnxt-1a2c6/databases/(default)/documents/games/mortal-kombat-x",
+   "fields": {
+    "warnings": {
+     "arrayValue": {}
+    },
+    "title": {
+     "stringValue": "Mortal Kombat X"
+    },
+    "time_to_fun": {
+     "stringValue": "short"
+    },
+    "description_short": {
+     "stringValue": "Fatalities in gorgeous slow-motion horror: the kombat generation's gateway drug."
+    },
+    "energy_level": {
+     "stringValue": "high"
+    },
+    "game_id": {
+     "stringValue": "mortal-kombat-x"
+    },
+    "platforms": {
+     "arrayValue": {
+      "values": [
+       {
+        "stringValue": "pc"
+       },
+       {
+        "stringValue": "playstation"
+       },
+       {
+        "stringValue": "xbox"
+       },
+       {
+        "stringValue": "mobile"
+       }
+      ]
+     }
+    },
+    "multiplayer_modes": {
+     "arrayValue": {
+      "values": [
+       {
+        "stringValue": "solo"
+       },
+       {
+        "stringValue": "local_coop"
+       },
+       {
+        "stringValue": "competitive"
+       }
+      ]
+     }
+    },
+    "release_year": {
+     "integerValue": "2015"
+    },
+    "play_style": {
+     "arrayValue": {
+      "values": [
+       {
+        "stringValue": "action"
+       }
+      ]
+     }
+    },
+    "mood_tags": {
+     "arrayValue": {
+      "values": [
+       {
+        "stringValue": "intense"
+       },
+       {
+        "stringValue": "competitive"
+       }
+      ]
+     }
+    },
+    "genre_tags": {
+     "arrayValue": {
+      "values": [
+       {
+        "stringValue": "fighting"
+       }
+      ]
+     }
+    },
+    "subscription_services": {
+     "arrayValue": {}
+    },
+    "year": {
+     "integerValue": "2015"
+    },
+    "time_tags": {
+     "arrayValue": {
+      "values": [
+       {
+        "integerValue": "15"
+       },
+       {
+        "integerValue": "30"
+       },
+       {
+        "integerValue": "60"
+       }
+      ]
+     }
+    },
+    "explanation_templates": {
+     "mapValue": {
+      "fields": {
+       "time_fit": {
+        "stringValue": "Get your adrenaline pumping in {time} minutes"
+       },
+       "style_fit": {
+        "stringValue": "Fast-paced gameplay"
+       },
+       "mood_fit": {
+        "stringValue": "Intense action when you're ready for it"
+       },
+       "stop_fit": {
+        "stringValue": "Best enjoyed in longer sessions"
+       }
+      }
+     }
+    },
+    "updated_at": {
+     "timestampValue": "2026-09-23T15:51:46.253367Z"
+    },
+    "stop_friendliness": {
+     "stringValue": "anytime"
+    },
+    "genres": {
+     "arrayValue": {
+      "values": [
+       {
+        "stringValue": "fighting"
+       }
+      ]
+     }
+    },
+    "moods": {
+     "arrayValue": {
+      "values": [
+       {
+        "stringValue": "intense"
+       },
+       {
+        "stringValue": "competitive"
+       }
+      ]
+     }
+    },
+    "store_links": {
+     "mapValue": {
+      "fields": {
+       "xbox": {
+        "stringValue": "https://www.microsoft.com/en-us/store/p/mortal-kombat-x/c01z9j8s9bjp?cid=msft_web_chart"
+       },
+       "steam": {
+        "stringValue": "http://store.steampowered.com/app/307780/"
+       },
+       "ios": {
+        "stringValue": "https://apps.apple.com/us/app/mortal-kombat-x/id949701151?mt=8&uo=4"
+       },
+       "android": {
+        "stringValue": "https://play.google.com/store/apps/details?id=com.wb.goog.mkx&hl=en&gl=us"
+       },
+       "playstation": {
+        "stringValue": "https://store.playstation.com/en-us/product/UP1018-CUSA00967_00-MORTALKOMBATX000"
+       }
+      }
+     }
+    }
+   },
+   "createTime": "2026-08-21T20:02:41.006533Z",
+   "updateTime": "2026-09-23T15:50:48.809394Z"
+  },
+  "madden-nfl-26": {
+   "name": "projects/playnxt-1a2c6/databases/(default)/documents/games/madden-nfl-26",
+   "fields": {
+    "year": {
+     "integerValue": "2021"
+    },
+    "time_tags": {
+     "arrayValue": {
+      "values": [
+       {
+        "integerValue": "30"
+       },
+       {
+        "integerValue": "60"
+       }
+      ]
+     }
+    },
+    "multiplayer_modes": {
+     "arrayValue": {
+      "values": [
+       {
+        "stringValue": "solo"
+       },
+       {
+        "stringValue": "local_coop"
+       },
+       {
+        "stringValue": "online_coop"
+       },
+       {
+        "stringValue": "competitive"
+       }
+      ]
+     }
+    },
+    "game_id": {
+     "stringValue": "madden-nfl-26"
+    },
+    "store_links": {
+     "mapValue": {
+      "fields": {
+       "steam": {
+        "stringValue": "https://store.steampowered.com/app/1519350/"
+       },
+       "xbox": {
+        "stringValue": "https://www.microsoft.com/en-us/p/madden-nfl-22-xbox-one/9nnrbcqv631v?cid=msft_web_chart"
+       }
+      }
+     }
+    },
+    "energy_level": {
+     "stringValue": "medium"
+    },
+    "platforms": {
+     "arrayValue": {
+      "values": [
+       {
+        "stringValue": "pc"
+       },
+       {
+        "stringValue": "playstation"
+       },
+       {
+        "stringValue": "xbox"
+       }
+      ]
+     }
+    },
+    "created_at": {
+     "timestampValue": "2026-05-31T20:34:22.421760Z"
+    },
+    "subscription_services": {
+     "arrayValue": {}
+    },
+    "title": {
+     "stringValue": "Madden NFL 26"
+    },
+    "time_to_fun": {
+     "stringValue": "short"
+    },
+    "play_style": {
+     "arrayValue": {
+      "values": [
+       {
+        "stringValue": "action"
+       },
+       {
+        "stringValue": "strategy"
+       }
+      ]
+     }
+    },
+    "moods": {
+     "arrayValue": {
+      "values": [
+       {
+        "stringValue": "competitive"
+       },
+       {
+        "stringValue": "sports"
+       },
+       {
+        "stringValue": "strategic"
+       }
+      ]
+     }
+    },
+    "genres": {
+     "arrayValue": {
+      "values": [
+       {
+        "stringValue": "sports"
+       },
+       {
+        "stringValue": "football"
+       },
+       {
+        "stringValue": "simulation"
+       }
+      ]
+     }
+    },
+    "description_short": {
+     "stringValue": "The latest official NFL football simulation."
+    },
+    "explanation_templates": {
+     "mapValue": {
+      "fields": {
+       "stop_fit": {
+        "stringValue": "Save at halftime or after games."
+       },
+       "time_fit": {
+        "stringValue": "Games take 30-45 minutes."
+       },
+       "mood_fit": {
+        "stringValue": "Strategic football action."
+       }
+      }
+     }
+    },
+    "release_year": {
+     "integerValue": "2025"
+    },
+    "genre_tags": {
+     "arrayValue": {
+      "values": [
+       {
+        "stringValue": "sports"
+       },
+       {
+        "stringValue": "football"
+       },
+       {
+        "stringValue": "simulation"
+       }
+      ]
+     }
+    },
+    "updated_at": {
+     "timestampValue": "2026-05-31T20:34:22.421763Z"
+    },
+    "fun_fact": {
+     "stringValue": "Features updated rosters and presentation for the new NFL season."
+    },
+    "mood_tags": {
+     "arrayValue": {
+      "values": [
+       {
+        "stringValue": "competitive"
+       },
+       {
+        "stringValue": "sports"
+       },
+       {
+        "stringValue": "strategic"
+       }
+      ]
+     }
+    },
+    "stop_friendliness": {
+     "stringValue": "checkpoints"
+    }
+   },
+   "createTime": "2026-05-31T20:32:11.134132Z",
+   "updateTime": "2026-08-21T19:33:16.912066Z"
   }
  }
 }
