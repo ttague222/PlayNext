@@ -119,8 +119,13 @@ const CelebrationModal = ({
 
   const handleShare = async () => {
     if (!game) return;
-    // Captures the off-screen ShareCard below; falls back to text-only
-    await shareGameCard(shareCardRef, game, 'celebration', { timeAvailable, energyMood });
+    // Captures the off-screen ShareCard below; falls back to text-only.
+    // The full pick set rides along so the stored share matches the card.
+    await shareGameCard(shareCardRef, game, 'celebration', {
+      timeAvailable,
+      energyMood,
+      picks: picks?.length ? picks : undefined,
+    });
   };
 
   if (!game) return null;
