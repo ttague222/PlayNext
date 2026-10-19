@@ -127,8 +127,13 @@ sends are discarded (security review, 2026-10-19):
   served as `null` instead. Attribution is off until the key is set; nothing
   else breaks.
 - **`why` may not contain a link or a domain.** It's the one field a caller
-  still owns, so a 422 keeps a destination off a playnxt.io page. The engine's
-  own prose never contains one, and a test pins that.
+  still owns, so a 422 keeps a destination off a playnxt.io page. The check
+  runs on an NFKC-folded copy with dot-lookalikes translated, because NFKC
+  folds U+FF0E but *not* U+3002 or U+FF61 — "evil。example" reads as a domain
+  and would otherwise walk past an ASCII `\.`. Bare IPv4 is rejected too.
+  Letters are matched Unicode-aware, so "café" and "Pokémon" are fine; the
+  stored text is always exactly what the engine wrote. Tests pin both the
+  bypasses and the real engine lines ("e.g.", "No. 1") that must survive.
 
 `why` is still client-supplied — the engine writes it per request and it
 exists nowhere else — so it's capped at 300 chars, link-filtered, and

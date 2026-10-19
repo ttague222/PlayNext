@@ -24,6 +24,7 @@ page that renders it.
 """
 
 import re
+import unicodedata
 from datetime import datetime
 from enum import Enum
 from typing import Optional
@@ -32,22 +33,46 @@ from pydantic import BaseModel, Field, field_validator
 
 from .recommendation import EnergyMood
 
+# Characters a reader sees as a dot. NFKC folds the fullwidth stop to "."
+# but NOT the two CJK ones, so they are translated explicitly -- otherwise
+# "evil。example" reads as a domain and walks straight past an ASCII `\.`.
+_DOT_LOOKALIKES = {
+    "．": ".",  # FULLWIDTH FULL STOP
+    "。": ".",  # IDEOGRAPHIC FULL STOP
+    "｡": ".",  # HALFWIDTH IDEOGRAPHIC FULL STOP
+    "․": ".",  # ONE DOT LEADER
+    "﹒": ".",  # SMALL FULL STOP
+}
+_DOT_TRANSLATION = str.maketrans(_DOT_LOOKALIKES)
+
+
+def _fold_for_matching(value: str) -> str:
+    """Normalise away the ways a domain can be spelled to dodge a filter.
+
+    Used only for the check; the stored text is whatever the engine wrote.
+    """
+    return unicodedata.normalize("NFKC", value).translate(_DOT_TRANSLATION)
+
+
 # `why` is the one field a caller still controls, so it must not be able to
 # carry a destination onto a playnxt.io page. The engine's own output is plain
 # prose and never contains a link, so rejecting one costs nothing real.
-# Short TLD-like fragments ("e.g.", "i.e.") are left alone by the 2+ char TLD.
+# Short TLD-like fragments ("e.g.", "i.e.") are left alone by the 2+ char TLD,
+# and letters are matched Unicode-aware so "café" and "Pokémon" are fine.
 _LINK_PATTERNS = (
     re.compile(r"://"),
     re.compile(r"\bwww\.", re.IGNORECASE),
     re.compile(r"\bmailto:", re.IGNORECASE),
-    # Any label.tld, whatever the TLD. Engine prose never puts a letter
-    # immediately after a full stop, so real "why" lines don't trip this.
-    re.compile(r"\b[a-z0-9][a-z0-9-]*\.[a-z]{2,24}\b", re.IGNORECASE),
+    # label.tld, whatever the TLD. Engine prose never puts a letter straight
+    # after a full stop, so real "why" lines don't trip this.
+    re.compile(r"\w[\w-]*\.[^\W\d_]{2,24}\b"),
+    # Bare IPv4, which the letters-only TLD above deliberately misses.
+    re.compile(r"\b\d{1,3}(?:\.\d{1,3}){3}\b"),
 )
 
 
 def _reject_links(value: Optional[str]) -> Optional[str]:
-    if value and any(p.search(value) for p in _LINK_PATTERNS):
+    if value and any(p.search(_fold_for_matching(value)) for p in _LINK_PATTERNS):
         raise ValueError("why must not contain a link or domain")
     return value
 

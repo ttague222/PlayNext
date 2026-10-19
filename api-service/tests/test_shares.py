@@ -334,3 +334,45 @@ def test_create_share_keeps_an_ordinary_why_line(client, shares_collection, shar
 
     body = client.get(f"/api/shares/{share_id}").json()
     assert body["picks"][0]["why"] == real
+
+
+# --- Security: the link filter must not be bypassable with lookalike dots ---
+
+
+@pytest.mark.parametrize(
+    "dot,name",
+    [
+        ("．", "fullwidth full stop"),
+        ("。", "ideographic full stop"),
+        ("｡", "halfwidth ideographic full stop"),
+    ],
+)
+def test_create_share_rejects_a_domain_built_from_a_lookalike_dot(
+    client, shares_collection, share_payload, dot, name
+):
+    """A denylist with a trivial bypass is worse than none -- it invites
+    false confidence. These render as a domain to a reader."""
+    share_payload["picks"][0]["why"] = f"Go to evil{dot}example now"
+
+    resp = client.post("/api/shares", json=share_payload)
+
+    assert resp.status_code == 422, f"{name} bypassed the filter"
+
+
+def test_create_share_rejects_a_bare_ip_address(client, shares_collection, share_payload):
+    share_payload["picks"][0]["why"] = "Visit 192.168.1.1 for your prize"
+
+    resp = client.post("/api/shares", json=share_payload)
+
+    assert resp.status_code == 422
+
+
+def test_create_share_keeps_accented_prose(client, shares_collection, share_payload):
+    """The filter must not reject real titles: Pokemon, Okami, cafe sims."""
+    real = "A cozy café sim with Pokémon energy that's fun within minutes."
+    share_payload["picks"][0]["why"] = real
+
+    share_id = client.post("/api/shares", json=share_payload).json()["share_id"]
+
+    body = client.get(f"/api/shares/{share_id}").json()
+    assert body["picks"][0]["why"] == real
