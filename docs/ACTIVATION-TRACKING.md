@@ -54,7 +54,9 @@ events; only opening them counts.
   there is no steam_deck filter.
 - **`library_mode`** is `steam_synced` in Backlog Mode, else `none`. The app
   has no manual library, so `manual` never fires.
-- **`game_count`** is always 1: shares are one game at a time.
+- **`game_count`** is the number of games the share carried. App celebration
+  shares carry the whole pick set (the card shows all of them) and send
+  `num_picks` alongside, matching the web; detail-screen shares stay 1.
 - **`result_shared` on Android** fires when the image share sheet closes;
   Android doesn't report whether the user actually picked a target, so it
   overcounts a little there.

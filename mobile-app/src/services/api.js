@@ -424,6 +424,20 @@ const api = {
   // ============================================
 
   /**
+   * Store the picks behind a /s/<share-id> share link.
+   *
+   * Each pick carries the engine's signed pick_token; the API reads the why
+   * line and match percentage out of it and resolves titles from the catalog.
+   * A verified Firebase uid (from the auth header) beats the body's sharer_id.
+   * @param {object} payload - { surface, sharer_id, time_available, energy_mood, picks }
+   * @returns {Promise<{share_id: string}>}
+   */
+  createShare: async (payload) => {
+    const response = await apiClient.post('/shares', payload);
+    return response.data;
+  },
+
+  /**
    * Check API health
    */
   healthCheck: async () => {

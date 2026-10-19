@@ -2,7 +2,7 @@
  * Share links point at the playnxt.io /pick landing page (spec §4 v2),
  * carrying session context so the page can render "40 min · Wind Down".
  */
-import { buildPickLink, buildShareMessage } from '../shareGame';
+import { buildPickLink, buildShareLink, buildShareMessage } from '../shareGame';
 
 const game = { game_id: 'hades', title: 'Hades' };
 
@@ -35,6 +35,18 @@ describe('buildPickLink', () => {
   });
 });
 
+describe('buildShareLink', () => {
+  it('links to the /s share page with share attribution', () => {
+    expect(buildShareLink('aK3m9Qp2Rb')).toBe(
+      'https://playnxt.io/s/aK3m9Qp2Rb?utm_source=share&utm_medium=app'
+    );
+  });
+
+  it('encodes unusual share ids safely', () => {
+    expect(buildShareLink('a b')).toContain('/s/a%20b?');
+  });
+});
+
 describe('buildShareMessage', () => {
   it('includes the context sentence and pick link', () => {
     const { title, message } = buildShareMessage(game, { timeAvailable: 40, energyMood: 'wind_down' });
@@ -47,5 +59,15 @@ describe('buildShareMessage', () => {
     const { message } = buildShareMessage(game);
     expect(message).toContain('PlayNxt said: Hades.');
     expect(message).toContain('https://playnxt.io/pick/hades?utm_source=share_card');
+  });
+
+  it('uses the share page link when one is given', () => {
+    const { message } = buildShareMessage(
+      game,
+      { timeAvailable: 40, energyMood: 'wind_down' },
+      'https://playnxt.io/s/aK3m9Qp2Rb?utm_source=share&utm_medium=app'
+    );
+    expect(message).toContain('/s/aK3m9Qp2Rb');
+    expect(message).not.toContain('/pick/');
   });
 });

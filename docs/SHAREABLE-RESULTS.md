@@ -169,9 +169,23 @@ The landing page's inline analytics JSON is escaped for a **script** context,
 not an HTML one (`</script>` in a value would close the block early), and a
 share id that doesn't match the id format is dropped rather than echoed.
 
+**App share (2026-10-19)**
+
+- The share card now carries the scenario header and the **whole pick set**
+  (up to 3, with each pick's why line and match). A single-pick share — the
+  detail screen — keeps the roomier one-game layout with badges.
+- Celebration shares store the picks via `POST /api/shares`
+  (`surface: "app"`, each pick's signed `pick_token`) and the message links
+  to `/s/<share-id>`. The API prefers the verified Firebase uid over the
+  body's `sharer_id`. If the share can't be stored (API down, or no scenario
+  as on the detail screen), the message falls back to the game's `/pick`
+  page — sharing never breaks, and capture failure still falls back to the
+  text-only share.
+- `result_shared` now reports `game_count`/`num_picks` as the number of
+  games the share carried.
+
 **Known gaps**
 
-- The app still shares **one game**, not three; the 3-pick card is not built.
 - No `app_open_from_share`: the app can't receive an incoming link at all
   (no Universal Links / App Links). A share link always opens the browser.
 - `share_channel` on web is `web_share` / `copy_link` / `other` only.

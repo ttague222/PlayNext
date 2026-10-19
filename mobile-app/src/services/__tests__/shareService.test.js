@@ -17,7 +17,18 @@ jest.mock('../analyticsService', () => ({
   logEvent: jest.fn(),
 }));
 
-const game = { game_id: 'hades', title: 'Hades' };
+jest.mock('../api', () => ({
+  __esModule: true,
+  default: { createShare: jest.fn() },
+}));
+
+jest.mock('../../config/firebase', () => ({
+  auth: { currentUser: { uid: 'firebase-uid-123' } },
+}));
+
+import api from '../api';
+
+const game = { game_id: 'hades', title: 'Hades', pick_token: 'signed.hades' };
 const cardRef = { current: {} };
 
 describe('shareGameCard', () => {
@@ -30,6 +41,7 @@ describe('shareGameCard', () => {
     captureRef.mockResolvedValue('file:///tmp/card.png');
     Sharing.isAvailableAsync.mockResolvedValue(true);
     Sharing.shareAsync.mockResolvedValue(undefined);
+    api.createShare.mockResolvedValue({ share_id: 'aK3m9Qp2Rb' });
   });
 
   afterEach(() => {
@@ -103,25 +115,105 @@ describe('shareGameCard', () => {
     expect(shareSpy).toHaveBeenCalled();
   });
 
+  describe('the share loop (/s/<share-id>)', () => {
+    const picks = [
+      game,
+      { game_id: 'unpacking', title: 'Unpacking', pick_token: 'signed.unpacking' },
+      { game_id: 'celeste', title: 'Celeste', pick_token: null },
+    ];
+    const context = { timeAvailable: 30, energyMood: 'wind_down', picks };
+
+    it('stores the picks and points the message at the share page', async () => {
+      await shareGameCard(cardRef, game, 'celebration', context);
+
+      expect(api.createShare).toHaveBeenCalledWith({
+        surface: 'app',
+        sharer_id: 'firebase-uid-123',
+        time_available: 30,
+        energy_mood: 'wind_down',
+        picks: [
+          { game_id: 'hades', pick_token: 'signed.hades' },
+          { game_id: 'unpacking', pick_token: 'signed.unpacking' },
+          { game_id: 'celeste', pick_token: null },
+        ],
+      });
+      expect(shareSpy).toHaveBeenCalledWith(
+        expect.objectContaining({
+          message: expect.stringContaining('/s/aK3m9Qp2Rb'),
+        })
+      );
+    });
+
+    it('shares the accepted game alone when the caller has no pick list', async () => {
+      await shareGameCard(cardRef, game, 'celebration', {
+        timeAvailable: 30,
+        energyMood: 'wind_down',
+      });
+
+      expect(api.createShare).toHaveBeenCalledWith(
+        expect.objectContaining({
+          picks: [{ game_id: 'hades', pick_token: 'signed.hades' }],
+        })
+      );
+    });
+
+    it('falls back to the /pick link when the share cannot be stored', async () => {
+      // Sharing must never break: the link degrades, the sheet still opens.
+      api.createShare.mockRejectedValue(new Error('api down'));
+
+      const ok = await shareGameCard(cardRef, game, 'celebration', context);
+
+      expect(ok).toBe(true);
+      expect(shareSpy).toHaveBeenCalledWith(
+        expect.objectContaining({
+          message: expect.stringContaining('/pick/hades'),
+        })
+      );
+    });
+
+    it('does not try to store a share without the required scenario', async () => {
+      // The detail screen shares outside a fresh engine run: no time/mood,
+      // and the API requires both, so go straight to the /pick link.
+      await shareGameCard(cardRef, game, 'detail');
+
+      expect(api.createShare).not.toHaveBeenCalled();
+      expect(shareSpy).toHaveBeenCalledWith(
+        expect.objectContaining({
+          message: expect.stringContaining('/pick/hades'),
+        })
+      );
+    });
+  });
+
   describe('result_shared (activation scoreboard)', () => {
     const shared = () =>
       logEvent.mock.calls.filter(([n]) => n === 'result_shared').map(([, p]) => p);
 
-    it('card share carries the scenario from the session context', async () => {
-      await shareGameCard(cardRef, game, 'celebration', { timeAvailable: 30, energyMood: 'wind_down' });
-      expect(shared()).toEqual([{ surface: 'card', scenario: '30min_wind_down', game_count: 1 }]);
+    it('card share carries the scenario and the number of picks shared', async () => {
+      await shareGameCard(cardRef, game, 'celebration', {
+        timeAvailable: 30,
+        energyMood: 'wind_down',
+        picks: [game, { game_id: 'unpacking' }, { game_id: 'celeste' }],
+      });
+      expect(shared()).toEqual([
+        { surface: 'card', scenario: '30min_wind_down', game_count: 3, num_picks: 3 },
+      ]);
     });
 
     it('text-only share is a link; no context means scenario none', async () => {
       captureRef.mockRejectedValue(new Error('not laid out'));
       await shareGameCard(cardRef, game, 'detail');
-      expect(shared()).toEqual([{ surface: 'link', scenario: 'none', game_count: 1 }]);
+      expect(shared()).toEqual([
+        { surface: 'link', scenario: 'none', game_count: 1, num_picks: 1 },
+      ]);
     });
 
     it('Android image share counts as a card', async () => {
       Platform.OS = 'android';
       await shareGameCard(cardRef, game, 'celebration', { timeAvailable: 15, energyMood: 'casual' });
-      expect(shared()).toEqual([{ surface: 'card', scenario: '15min_casual', game_count: 1 }]);
+      expect(shared()).toEqual([
+        { surface: 'card', scenario: '15min_casual', game_count: 1, num_picks: 1 },
+      ]);
     });
 
     it('does not fire when the sheet is dismissed', async () => {

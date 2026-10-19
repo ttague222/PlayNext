@@ -4,7 +4,11 @@
  * Branded card rendered off-screen and captured as an image for the native
  * share sheet (see services/shareService). Laid out at 360x450 and captured
  * at 3x (1080x1350), which renders well in Discord embeds and phone chats.
- * No user-identifying data — only the pick and the session context chips.
+ * No user-identifying data — only the picks and the session context chips.
+ *
+ * One card carries the whole set: the scenario header and up to 3 picks,
+ * each with its why line. A single pick (the detail-screen share) keeps the
+ * roomier layout with its badges; the full set drops them for space.
  */
 
 import React, { forwardRef } from 'react';
@@ -52,15 +56,22 @@ const MOOD_LABELS: Record<string, string> = {
   intense: '🔥 Intense',
 };
 
+// The engine's explanation priority (EXPLANATION_FIELD_PRIORITY): the most
+// game-specific line first, matching what the results cards render on top.
+const WHY_FIELD_ORDER = ['style_fit', 'stop_fit', 'mood_fit', 'session_fit', 'time_fit'] as const;
+
+type ShareGame = {
+  title?: string;
+  description_short?: string;
+  explanation?: Partial<Record<(typeof WHY_FIELD_ORDER)[number] | 'summary', string>>;
+  time_to_fun?: string;
+  stop_friendliness?: string;
+  subscription_services?: string[];
+  match_score?: number;
+};
+
 type ShareCardProps = {
-  game: {
-    title?: string;
-    description_short?: string;
-    explanation?: { summary?: string; mood_fit?: string };
-    time_to_fun?: string;
-    stop_friendliness?: string;
-    subscription_services?: string[];
-  };
+  picks: ShareGame[];
   timeAvailable?: number | null;
   energyMood?: string | null;
 };
@@ -68,15 +79,100 @@ type ShareCardProps = {
 const truncate = (text: string, max: number) =>
   text.length <= max ? text : `${text.slice(0, max - 1).trimEnd()}…`;
 
+/** The one line that best explains a pick, for the compact multi-pick rows. */
+const whyLine = (game: ShareGame) => {
+  const explanation = game?.explanation;
+  if (explanation) {
+    for (const field of WHY_FIELD_ORDER) {
+      if (explanation[field]) return explanation[field] as string;
+    }
+    if (explanation.summary) return explanation.summary;
+  }
+  return game?.description_short || '';
+};
+
+const SinglePick = ({ game }: { game: ShareGame }) => {
+  const why = game?.explanation?.summary || game?.description_short || '';
+  const subscription = (game?.subscription_services || []).find(
+    (s) => SUBSCRIPTION_LABELS[s]
+  );
+
+  return (
+    <>
+      <Text style={styles.title} numberOfLines={2}>
+        {game?.title || 'A great game'}
+      </Text>
+
+      {!!why && (
+        <View style={styles.whyBox}>
+          <Text style={styles.whyLabel}>Why this fits</Text>
+          <Text style={styles.whyText}>{truncate(why, 160)}</Text>
+        </View>
+      )}
+
+      <View style={styles.badgeRow}>
+        {game?.time_to_fun && TIME_TO_FUN_LABELS[game.time_to_fun] && (
+          <View style={styles.badge}>
+            <Text style={styles.badgeText}>
+              ⚡ {TIME_TO_FUN_LABELS[game.time_to_fun]}
+            </Text>
+          </View>
+        )}
+        {game?.stop_friendliness &&
+          STOP_FRIENDLINESS_LABELS[game.stop_friendliness] && (
+            <View style={styles.badge}>
+              <Text style={styles.badgeText}>
+                ✋ {STOP_FRIENDLINESS_LABELS[game.stop_friendliness]}
+              </Text>
+            </View>
+          )}
+        {subscription && (
+          <View style={[styles.badge, styles.subscriptionBadge]}>
+            <Text style={[styles.badgeText, styles.subscriptionBadgeText]}>
+              {SUBSCRIPTION_LABELS[subscription]}
+            </Text>
+          </View>
+        )}
+      </View>
+    </>
+  );
+};
+
+const PickRow = ({ game, rank }: { game: ShareGame; rank: number }) => {
+  const why = whyLine(game);
+  const match =
+    typeof game?.match_score === 'number'
+      ? `${Math.round(game.match_score * 100)}%`
+      : null;
+
+  return (
+    <View style={styles.pickRow}>
+      <View style={styles.rankBubble}>
+        <Text style={styles.rankText}>{rank}</Text>
+      </View>
+      <View style={styles.pickBody}>
+        <View style={styles.pickTitleRow}>
+          <Text style={styles.pickTitle} numberOfLines={1}>
+            {game?.title || 'A great game'}
+          </Text>
+          {match && <Text style={styles.pickMatch}>{match}</Text>}
+        </View>
+        {!!why && (
+          <Text style={styles.pickWhy} numberOfLines={2}>
+            {truncate(why, 110)}
+          </Text>
+        )}
+      </View>
+    </View>
+  );
+};
+
 const ShareCard = forwardRef<View, ShareCardProps>(
-  ({ game, timeAvailable, energyMood }, ref) => {
+  ({ picks, timeAvailable, energyMood }, ref) => {
+    const games = (picks || []).slice(0, 3);
     const timeLabel = timeAvailable ? TIME_LABELS[timeAvailable] : null;
     const moodLabel = energyMood ? MOOD_LABELS[energyMood] : null;
-    const why =
-      game?.explanation?.summary || game?.description_short || '';
-    const subscription = (game?.subscription_services || []).find(
-      (s) => SUBSCRIPTION_LABELS[s]
-    );
+    const single = games.length <= 1;
 
     return (
       <View ref={ref} collapsable={false} style={styles.card}>
@@ -102,42 +198,19 @@ const ShareCard = forwardRef<View, ShareCardProps>(
             </View>
           )}
 
-          <Text style={styles.kicker}>TONIGHT'S PICK</Text>
-          <Text style={styles.title} numberOfLines={2}>
-            {game?.title || 'A great game'}
+          <Text style={styles.kicker}>
+            {single ? "TONIGHT'S PICK" : "TONIGHT'S PICKS"}
           </Text>
 
-          {!!why && (
-            <View style={styles.whyBox}>
-              <Text style={styles.whyLabel}>Why this fits</Text>
-              <Text style={styles.whyText}>{truncate(why, 160)}</Text>
+          {single ? (
+            <SinglePick game={games[0] || {}} />
+          ) : (
+            <View style={styles.pickList}>
+              {games.map((game, index) => (
+                <PickRow key={game?.title || index} game={game} rank={index + 1} />
+              ))}
             </View>
           )}
-
-          <View style={styles.badgeRow}>
-            {game?.time_to_fun && TIME_TO_FUN_LABELS[game.time_to_fun] && (
-              <View style={styles.badge}>
-                <Text style={styles.badgeText}>
-                  ⚡ {TIME_TO_FUN_LABELS[game.time_to_fun]}
-                </Text>
-              </View>
-            )}
-            {game?.stop_friendliness &&
-              STOP_FRIENDLINESS_LABELS[game.stop_friendliness] && (
-                <View style={styles.badge}>
-                  <Text style={styles.badgeText}>
-                    ✋ {STOP_FRIENDLINESS_LABELS[game.stop_friendliness]}
-                  </Text>
-                </View>
-              )}
-            {subscription && (
-              <View style={[styles.badge, styles.subscriptionBadge]}>
-                <Text style={[styles.badgeText, styles.subscriptionBadgeText]}>
-                  {SUBSCRIPTION_LABELS[subscription]}
-                </Text>
-              </View>
-            )}
-          </View>
 
           <View style={styles.spacer} />
 
@@ -241,6 +314,58 @@ const styles = StyleSheet.create({
   },
   subscriptionBadgeText: {
     color: '#4ade80',
+  },
+  pickList: {
+    marginTop: 4,
+    gap: 14,
+  },
+  pickRow: {
+    flexDirection: 'row',
+    alignItems: 'flex-start',
+    gap: 11,
+  },
+  rankBubble: {
+    width: 26,
+    height: 26,
+    borderRadius: 13,
+    backgroundColor: 'rgba(248, 87, 166, 0.18)',
+    borderColor: 'rgba(248, 87, 166, 0.45)',
+    borderWidth: 1,
+    alignItems: 'center',
+    justifyContent: 'center',
+    marginTop: 1,
+  },
+  rankText: {
+    fontSize: 13,
+    fontWeight: '800',
+    color: '#f857a6',
+  },
+  pickBody: {
+    flex: 1,
+  },
+  pickTitleRow: {
+    flexDirection: 'row',
+    alignItems: 'baseline',
+    justifyContent: 'space-between',
+    gap: 8,
+  },
+  pickTitle: {
+    flexShrink: 1,
+    fontSize: 19,
+    lineHeight: 24,
+    fontWeight: '800',
+    color: '#ffffff',
+  },
+  pickMatch: {
+    fontSize: 12,
+    fontWeight: '700',
+    color: '#4ade80',
+  },
+  pickWhy: {
+    fontSize: 13,
+    lineHeight: 18,
+    color: '#c9c9d6',
+    marginTop: 3,
   },
   spacer: {
     flex: 1,
