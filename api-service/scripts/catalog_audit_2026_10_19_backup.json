@@ -1,0 +1,1234 @@
+{
+ "audit": "docs/CATALOG-AUDIT-2026-10-19.md",
+ "written_at_utc": "2026-10-19",
+ "deleted": [
+  "unpacking-zen",
+  "unpacking-2",
+  "abzu-2",
+  "xdefiant"
+ ],
+ "patched": [
+  "unpacking",
+  "abzu"
+ ],
+ "records_before": {
+  "unpacking-zen": {
+   "name": "projects/playnxt-1a2c6/databases/(default)/documents/games/unpacking-zen",
+   "fields": {
+    "year": {
+     "integerValue": "2021"
+    },
+    "play_style": {
+     "arrayValue": {
+      "values": [
+       {
+        "stringValue": "puzzle"
+       }
+      ]
+     }
+    },
+    "created_at": {
+     "timestampValue": "2026-01-30T17:06:54.066596Z"
+    },
+    "stop_friendliness": {
+     "stringValue": "anytime"
+    },
+    "game_id": {
+     "stringValue": "unpacking-zen"
+    },
+    "mood_tags": {
+     "arrayValue": {
+      "values": [
+       {
+        "stringValue": "relaxing"
+       },
+       {
+        "stringValue": "cozy"
+       },
+       {
+        "stringValue": "thoughtful"
+       },
+       {
+        "stringValue": "nostalgic"
+       }
+      ]
+     }
+    },
+    "multiplayer_modes": {
+     "arrayValue": {
+      "values": [
+       {
+        "stringValue": "solo"
+       }
+      ]
+     }
+    },
+    "warnings": {
+     "arrayValue": {}
+    },
+    "title": {
+     "stringValue": "Unpacking Zen Mode"
+    },
+    "energy_level": {
+     "stringValue": "low"
+    },
+    "updated_at": {
+     "timestampValue": "2026-05-31T21:28:48.495630Z"
+    },
+    "platforms": {
+     "arrayValue": {
+      "values": [
+       {
+        "stringValue": "pc"
+       },
+       {
+        "stringValue": "playstation"
+       },
+       {
+        "stringValue": "xbox"
+       },
+       {
+        "stringValue": "switch"
+       }
+      ]
+     }
+    },
+    "store_links": {
+     "mapValue": {
+      "fields": {
+       "nintendo": {
+        "stringValue": "https://www.nintendo.com/games/detail/unpacking-switch/"
+       },
+       "steam": {
+        "stringValue": "https://store.steampowered.com/app/1135690/"
+       },
+       "gog": {
+        "stringValue": "https://www.gog.com/game/unpacking"
+       }
+      }
+     }
+    },
+    "moods": {
+     "arrayValue": {
+      "values": [
+       {
+        "stringValue": "relaxing"
+       },
+       {
+        "stringValue": "cozy"
+       },
+       {
+        "stringValue": "thoughtful"
+       },
+       {
+        "stringValue": "nostalgic"
+       }
+      ]
+     }
+    },
+    "subscription_services": {
+     "arrayValue": {}
+    },
+    "franchise": {
+     "stringValue": "unpacking"
+    },
+    "genre_tags": {
+     "arrayValue": {
+      "values": [
+       {
+        "stringValue": "puzzle"
+       },
+       {
+        "stringValue": "zen"
+       },
+       {
+        "stringValue": "narrative"
+       },
+       {
+        "stringValue": "indie"
+       }
+      ]
+     }
+    },
+    "time_to_fun": {
+     "stringValue": "short"
+    },
+    "title_lower": {
+     "stringValue": "unpacking zen mode"
+    },
+    "release_year": {
+     "integerValue": "2021"
+    },
+    "genres": {
+     "arrayValue": {
+      "values": [
+       {
+        "stringValue": "puzzle"
+       },
+       {
+        "stringValue": "zen"
+       },
+       {
+        "stringValue": "narrative"
+       },
+       {
+        "stringValue": "indie"
+       }
+      ]
+     }
+    },
+    "time_tags": {
+     "arrayValue": {
+      "values": [
+       {
+        "integerValue": "15"
+       },
+       {
+        "integerValue": "30"
+       },
+       {
+        "integerValue": "60"
+       }
+      ]
+     }
+    },
+    "fun_fact": {
+     "stringValue": "Zen mode was added after players requested an even more relaxed experience."
+    },
+    "description_short": {
+     "stringValue": "Zen mode removes all hints for a pure unpacking experience."
+    },
+    "explanation_templates": {
+     "mapValue": {
+      "fields": {
+       "mood_fit": {
+        "stringValue": "Perfect for unwinding - gentle pace lets you relax."
+       },
+       "time_fit": {
+        "stringValue": "Quick to jump in - you'll be having fun in minutes."
+       },
+       "style_fit": {
+        "stringValue": "Satisfying puzzles that reward clever thinking."
+       },
+       "stop_fit": {
+        "stringValue": "Save and quit whenever - no progress lost."
+       }
+      }
+     }
+    }
+   },
+   "createTime": "2025-12-26T14:15:45.118660Z",
+   "updateTime": "2026-08-24T16:52:01.793035Z"
+  },
+  "unpacking-2": {
+   "name": "projects/playnxt-1a2c6/databases/(default)/documents/games/unpacking-2",
+   "fields": {
+    "title": {
+     "stringValue": "Unpacking DLC"
+    },
+    "genres": {
+     "arrayValue": {
+      "values": [
+       {
+        "stringValue": "puzzle"
+       },
+       {
+        "stringValue": "zen"
+       },
+       {
+        "stringValue": "narrative"
+       },
+       {
+        "stringValue": "indie"
+       }
+      ]
+     }
+    },
+    "time_to_fun": {
+     "stringValue": "short"
+    },
+    "mood_tags": {
+     "arrayValue": {
+      "values": [
+       {
+        "stringValue": "relaxing"
+       },
+       {
+        "stringValue": "cozy"
+       },
+       {
+        "stringValue": "thoughtful"
+       },
+       {
+        "stringValue": "nostalgic"
+       }
+      ]
+     }
+    },
+    "game_id": {
+     "stringValue": "unpacking-2"
+    },
+    "description_short": {
+     "stringValue": "More rooms to unpack, more stories to discover."
+    },
+    "play_style": {
+     "arrayValue": {
+      "values": [
+       {
+        "stringValue": "puzzle"
+       }
+      ]
+     }
+    },
+    "created_at": {
+     "timestampValue": "2026-01-30T17:06:52.107347Z"
+    },
+    "updated_at": {
+     "timestampValue": "2026-05-31T21:28:48.428430Z"
+    },
+    "subscription_services": {
+     "arrayValue": {}
+    },
+    "year": {
+     "integerValue": "2024"
+    },
+    "moods": {
+     "arrayValue": {
+      "values": [
+       {
+        "stringValue": "relaxing"
+       },
+       {
+        "stringValue": "cozy"
+       },
+       {
+        "stringValue": "thoughtful"
+       },
+       {
+        "stringValue": "nostalgic"
+       }
+      ]
+     }
+    },
+    "time_tags": {
+     "arrayValue": {
+      "values": [
+       {
+        "integerValue": "15"
+       },
+       {
+        "integerValue": "30"
+       },
+       {
+        "integerValue": "60"
+       }
+      ]
+     }
+    },
+    "multiplayer_modes": {
+     "arrayValue": {
+      "values": [
+       {
+        "stringValue": "solo"
+       }
+      ]
+     }
+    },
+    "release_year": {
+     "integerValue": "2024"
+    },
+    "fun_fact": {
+     "stringValue": "The developers added new life stages based on player feedback."
+    },
+    "genre_tags": {
+     "arrayValue": {
+      "values": [
+       {
+        "stringValue": "puzzle"
+       },
+       {
+        "stringValue": "zen"
+       },
+       {
+        "stringValue": "narrative"
+       },
+       {
+        "stringValue": "indie"
+       }
+      ]
+     }
+    },
+    "explanation_templates": {
+     "mapValue": {
+      "fields": {
+       "mood_fit": {
+        "stringValue": "Perfect for unwinding - gentle pace lets you relax."
+       },
+       "time_fit": {
+        "stringValue": "Quick to jump in - you'll be having fun in minutes."
+       },
+       "stop_fit": {
+        "stringValue": "Save and quit whenever - no progress lost."
+       },
+       "style_fit": {
+        "stringValue": "Satisfying puzzles that reward clever thinking."
+       }
+      }
+     }
+    },
+    "energy_level": {
+     "stringValue": "low"
+    },
+    "stop_friendliness": {
+     "stringValue": "anytime"
+    },
+    "platforms": {
+     "arrayValue": {
+      "values": [
+       {
+        "stringValue": "pc"
+       },
+       {
+        "stringValue": "playstation"
+       },
+       {
+        "stringValue": "xbox"
+       },
+       {
+        "stringValue": "switch"
+       }
+      ]
+     }
+    },
+    "warnings": {
+     "arrayValue": {}
+    },
+    "franchise": {
+     "stringValue": "unpacking"
+    },
+    "title_lower": {
+     "stringValue": "unpacking dlc"
+    },
+    "store_links": {
+     "mapValue": {
+      "fields": {
+       "nintendo": {
+        "stringValue": "https://www.nintendo.com/games/detail/unpacking-switch/"
+       },
+       "gog": {
+        "stringValue": "https://www.gog.com/game/unpacking"
+       },
+       "steam": {
+        "stringValue": "https://store.steampowered.com/app/1135690/"
+       }
+      }
+     }
+    }
+   },
+   "createTime": "2025-12-26T14:15:43.243351Z",
+   "updateTime": "2026-08-24T16:52:01.700548Z"
+  },
+  "abzu-2": {
+   "name": "projects/playnxt-1a2c6/databases/(default)/documents/games/abzu-2",
+   "fields": {
+    "genres": {
+     "arrayValue": {
+      "values": [
+       {
+        "stringValue": "adventure"
+       },
+       {
+        "stringValue": "exploration"
+       },
+       {
+        "stringValue": "artistic"
+       },
+       {
+        "stringValue": "indie"
+       }
+      ]
+     }
+    },
+    "genre_tags": {
+     "arrayValue": {
+      "values": [
+       {
+        "stringValue": "adventure"
+       },
+       {
+        "stringValue": "exploration"
+       },
+       {
+        "stringValue": "artistic"
+       },
+       {
+        "stringValue": "indie"
+       }
+      ]
+     }
+    },
+    "release_year": {
+     "integerValue": "2016"
+    },
+    "mood_tags": {
+     "arrayValue": {
+      "values": [
+       {
+        "stringValue": "zen"
+       },
+       {
+        "stringValue": "peaceful"
+       },
+       {
+        "stringValue": "immersive"
+       },
+       {
+        "stringValue": "artistic"
+       }
+      ]
+     }
+    },
+    "warnings": {
+     "arrayValue": {}
+    },
+    "description_short": {
+     "stringValue": "Dive deeper into the beautiful underwater world full of mystery."
+    },
+    "time_tags": {
+     "arrayValue": {
+      "values": [
+       {
+        "integerValue": "30"
+       },
+       {
+        "integerValue": "60"
+       }
+      ]
+     }
+    },
+    "store_links": {
+     "mapValue": {
+      "fields": {
+       "gog": {
+        "stringValue": "http://www.gog.com/game/abzu"
+       },
+       "steam": {
+        "stringValue": "http://store.steampowered.com/app/384190/"
+       },
+       "playstation": {
+        "stringValue": "https://store.playstation.com/en-us/product/UP4040-CUSA03349_00-ABZUGAME00000000"
+       },
+       "xbox": {
+        "stringValue": "https://www.microsoft.com/en-us/p/abzu/bq2307m831zg?cid=msft_web_chart"
+       },
+       "nintendo": {
+        "stringValue": "https://www.nintendo.com/games/detail/abzu-switch"
+       }
+      }
+     }
+    },
+    "time_to_fun": {
+     "stringValue": "short"
+    },
+    "subscription_services": {
+     "arrayValue": {}
+    },
+    "stop_friendliness": {
+     "stringValue": "checkpoints"
+    },
+    "explanation_templates": {
+     "mapValue": {
+      "fields": {
+       "mood_fit": {
+        "stringValue": "Perfect for unwinding - gentle pace lets you relax."
+       },
+       "stop_fit": {
+        "stringValue": "Regular checkpoints let you pause when needed."
+       },
+       "time_fit": {
+        "stringValue": "Quick to jump in - you'll be having fun in minutes."
+       },
+       "style_fit": {
+        "stringValue": "Rich storytelling pulls you into the experience."
+       }
+      }
+     }
+    },
+    "moods": {
+     "arrayValue": {
+      "values": [
+       {
+        "stringValue": "zen"
+       },
+       {
+        "stringValue": "peaceful"
+       },
+       {
+        "stringValue": "immersive"
+       },
+       {
+        "stringValue": "artistic"
+       }
+      ]
+     }
+    },
+    "platforms": {
+     "arrayValue": {
+      "values": [
+       {
+        "stringValue": "pc"
+       },
+       {
+        "stringValue": "playstation"
+       },
+       {
+        "stringValue": "xbox"
+       }
+      ]
+     }
+    },
+    "year": {
+     "integerValue": "2016"
+    },
+    "fun_fact": {
+     "stringValue": "The game's title comes from ancient Sumerian mythology - 'Abzu' refers to the primordial sea."
+    },
+    "multiplayer_modes": {
+     "arrayValue": {
+      "values": [
+       {
+        "stringValue": "solo"
+       }
+      ]
+     }
+    },
+    "franchise": {
+     "nullValue": null
+    },
+    "title": {
+     "stringValue": "ABZU: The Depths"
+    },
+    "title_lower": {
+     "stringValue": "abzu: the depths"
+    },
+    "updated_at": {
+     "timestampValue": "2026-05-31T21:27:31.225996Z"
+    },
+    "play_style": {
+     "arrayValue": {
+      "values": [
+       {
+        "stringValue": "narrative"
+       }
+      ]
+     }
+    },
+    "created_at": {
+     "timestampValue": "2026-01-30T17:06:55.965005Z"
+    },
+    "game_id": {
+     "stringValue": "abzu-2"
+    },
+    "energy_level": {
+     "stringValue": "low"
+    }
+   },
+   "createTime": "2025-12-26T14:15:47.178540Z",
+   "updateTime": "2026-05-31T21:25:20.078651Z"
+  },
+  "xdefiant": {
+   "name": "projects/playnxt-1a2c6/databases/(default)/documents/games/xdefiant",
+   "fields": {
+    "created_at": {
+     "timestampValue": "2026-01-30T17:07:24.096724Z"
+    },
+    "description_short": {
+     "stringValue": "Arena shooter with Ubisoft factions."
+    },
+    "stop_friendliness": {
+     "stringValue": "checkpoints"
+    },
+    "game_id": {
+     "stringValue": "xdefiant"
+    },
+    "updated_at": {
+     "timestampValue": "2026-05-31T21:28:51.865646Z"
+    },
+    "genres": {
+     "arrayValue": {
+      "values": [
+       {
+        "stringValue": "fps"
+       },
+       {
+        "stringValue": "arena"
+       },
+       {
+        "stringValue": "free-to-play"
+       }
+      ]
+     }
+    },
+    "time_to_fun": {
+     "stringValue": "short"
+    },
+    "energy_level": {
+     "stringValue": "high"
+    },
+    "time_tags": {
+     "arrayValue": {
+      "values": [
+       {
+        "integerValue": "15"
+       },
+       {
+        "integerValue": "30"
+       }
+      ]
+     }
+    },
+    "franchise": {
+     "nullValue": null
+    },
+    "multiplayer_modes": {
+     "arrayValue": {
+      "values": [
+       {
+        "stringValue": "competitive"
+       }
+      ]
+     }
+    },
+    "year": {
+     "integerValue": "2024"
+    },
+    "moods": {
+     "arrayValue": {
+      "values": [
+       {
+        "stringValue": "fast"
+       },
+       {
+        "stringValue": "competitive"
+       },
+       {
+        "stringValue": "accessible"
+       },
+       {
+        "stringValue": "nostalgic"
+       }
+      ]
+     }
+    },
+    "platforms": {
+     "arrayValue": {
+      "values": [
+       {
+        "stringValue": "pc"
+       },
+       {
+        "stringValue": "playstation"
+       },
+       {
+        "stringValue": "xbox"
+       }
+      ]
+     }
+    },
+    "store_links": {
+     "mapValue": {
+      "fields": {
+       "playstation": {
+        "stringValue": "https://store.playstation.com/en-us/concept/10002211"
+       }
+      }
+     }
+    },
+    "title_lower": {
+     "stringValue": "xdefiant"
+    },
+    "genre_tags": {
+     "arrayValue": {
+      "values": [
+       {
+        "stringValue": "fps"
+       },
+       {
+        "stringValue": "arena"
+       },
+       {
+        "stringValue": "free-to-play"
+       }
+      ]
+     }
+    },
+    "warnings": {
+     "arrayValue": {}
+    },
+    "play_style": {
+     "arrayValue": {
+      "values": [
+       {
+        "stringValue": "action"
+       }
+      ]
+     }
+    },
+    "title": {
+     "stringValue": "XDefiant"
+    },
+    "subscription_services": {
+     "arrayValue": {
+      "values": [
+       {
+        "stringValue": "ubisoft_plus"
+       }
+      ]
+     }
+    },
+    "fun_fact": {
+     "stringValue": "Features factions from various Ubisoft games."
+    },
+    "explanation_templates": {
+     "mapValue": {
+      "fields": {
+       "mood_fit": {
+        "stringValue": "High-energy gameplay for when you want intensity."
+       },
+       "style_fit": {
+        "stringValue": "Fast-paced action keeps the adrenaline flowing."
+       },
+       "time_fit": {
+        "stringValue": "Quick to jump in - you'll be having fun in minutes."
+       },
+       "stop_fit": {
+        "stringValue": "Regular checkpoints let you pause when needed."
+       }
+      }
+     }
+    },
+    "mood_tags": {
+     "arrayValue": {
+      "values": [
+       {
+        "stringValue": "fast"
+       },
+       {
+        "stringValue": "competitive"
+       },
+       {
+        "stringValue": "accessible"
+       },
+       {
+        "stringValue": "nostalgic"
+       }
+      ]
+     }
+    },
+    "release_year": {
+     "integerValue": "2024"
+    }
+   },
+   "createTime": "2025-12-26T14:16:14.839929Z",
+   "updateTime": "2026-05-31T21:26:40.648903Z"
+  },
+  "unpacking": {
+   "name": "projects/playnxt-1a2c6/databases/(default)/documents/games/unpacking",
+   "fields": {
+    "genre_tags": {
+     "arrayValue": {
+      "values": [
+       {
+        "stringValue": "puzzle"
+       },
+       {
+        "stringValue": "zen"
+       },
+       {
+        "stringValue": "narrative"
+       },
+       {
+        "stringValue": "indie"
+       }
+      ]
+     }
+    },
+    "avg_session_length": {
+     "integerValue": "30"
+    },
+    "genres": {
+     "arrayValue": {
+      "values": [
+       {
+        "stringValue": "puzzle"
+       },
+       {
+        "stringValue": "zen"
+       },
+       {
+        "stringValue": "narrative"
+       },
+       {
+        "stringValue": "indie"
+       }
+      ]
+     }
+    },
+    "description_short": {
+     "stringValue": "Unpack boxes and discover a life story through belongings."
+    },
+    "time_tags": {
+     "arrayValue": {
+      "values": [
+       {
+        "integerValue": "15"
+       },
+       {
+        "integerValue": "30"
+       },
+       {
+        "integerValue": "60"
+       }
+      ]
+     }
+    },
+    "title": {
+     "stringValue": "Unpacking"
+    },
+    "game_id": {
+     "stringValue": "unpacking"
+    },
+    "store_links": {
+     "mapValue": {
+      "fields": {
+       "steam": {
+        "stringValue": "https://store.steampowered.com/app/1135690/Unpacking/"
+       }
+      }
+     }
+    },
+    "title_lower": {
+     "stringValue": "unpacking"
+    },
+    "platforms": {
+     "arrayValue": {
+      "values": [
+       {
+        "stringValue": "pc"
+       },
+       {
+        "stringValue": "playstation"
+       },
+       {
+        "stringValue": "xbox"
+       },
+       {
+        "stringValue": "switch"
+       }
+      ]
+     }
+    },
+    "explanation_templates": {
+     "mapValue": {
+      "fields": {
+       "time_fit": {
+        "stringValue": "Unpack a room in {time} minutes"
+       },
+       "stop_fit": {
+        "stringValue": "Save between moves"
+       },
+       "mood_fit": {
+        "stringValue": "Zen puzzle relaxation"
+       },
+       "style_fit": {
+        "stringValue": "Meditative organization"
+       }
+      }
+     }
+    },
+    "subscription_services": {
+     "arrayValue": {
+      "values": [
+       {
+        "stringValue": "apple_arcade"
+       }
+      ]
+     }
+    },
+    "content_warnings": {
+     "arrayValue": {}
+    },
+    "year": {
+     "integerValue": "2021"
+    },
+    "release_year": {
+     "integerValue": "2021"
+    },
+    "mood_tags": {
+     "arrayValue": {
+      "values": [
+       {
+        "stringValue": "relaxing"
+       },
+       {
+        "stringValue": "meditative"
+       },
+       {
+        "stringValue": "nostalgic"
+       },
+       {
+        "stringValue": "cozy"
+       }
+      ]
+     }
+    },
+    "multiplayer_modes": {
+     "arrayValue": {
+      "values": [
+       {
+        "stringValue": "solo"
+       }
+      ]
+     }
+    },
+    "play_style": {
+     "arrayValue": {
+      "values": [
+       {
+        "stringValue": "puzzle_strategy"
+       }
+      ]
+     }
+    },
+    "energy_level": {
+     "stringValue": "low"
+    },
+    "stop_friendliness": {
+     "stringValue": "anytime"
+    },
+    "time_to_fun": {
+     "stringValue": "short"
+    },
+    "updated_at": {
+     "timestampValue": "2026-01-31T22:07:20.532678Z"
+    },
+    "created_at": {
+     "timestampValue": "2026-01-31T22:07:20.532676Z"
+    },
+    "moods": {
+     "arrayValue": {
+      "values": [
+       {
+        "stringValue": "relaxing"
+       },
+       {
+        "stringValue": "meditative"
+       },
+       {
+        "stringValue": "nostalgic"
+       },
+       {
+        "stringValue": "cozy"
+       }
+      ]
+     }
+    }
+   },
+   "createTime": "2025-12-17T19:52:54.682287Z",
+   "updateTime": "2026-08-24T16:52:01.596963Z"
+  },
+  "abzu": {
+   "name": "projects/playnxt-1a2c6/databases/(default)/documents/games/abzu",
+   "fields": {
+    "time_tags": {
+     "arrayValue": {
+      "values": [
+       {
+        "integerValue": "30"
+       },
+       {
+        "integerValue": "60"
+       }
+      ]
+     }
+    },
+    "content_warnings": {
+     "arrayValue": {}
+    },
+    "mood_tags": {
+     "arrayValue": {
+      "values": [
+       {
+        "stringValue": "zen"
+       },
+       {
+        "stringValue": "peaceful"
+       },
+       {
+        "stringValue": "immersive"
+       },
+       {
+        "stringValue": "artistic"
+       }
+      ]
+     }
+    },
+    "explanation_templates": {
+     "mapValue": {
+      "fields": {
+       "time_fit": {
+        "stringValue": "Swim through an area in {time} minutes"
+       },
+       "style_fit": {
+        "stringValue": "Peaceful exploration and discovery"
+       },
+       "mood_fit": {
+        "stringValue": "A meditative dive into ocean beauty"
+       },
+       "stop_fit": {
+        "stringValue": "Save at dive checkpoints"
+       }
+      }
+     }
+    },
+    "store_links": {
+     "mapValue": {
+      "fields": {
+       "steam": {
+        "stringValue": "https://store.steampowered.com/app/384190/ABZU/"
+       }
+      }
+     }
+    },
+    "game_id": {
+     "stringValue": "abzu"
+    },
+    "stop_friendliness": {
+     "stringValue": "checkpoints"
+    },
+    "genre_tags": {
+     "arrayValue": {
+      "values": [
+       {
+        "stringValue": "adventure"
+       },
+       {
+        "stringValue": "exploration"
+       },
+       {
+        "stringValue": "artistic"
+       },
+       {
+        "stringValue": "indie"
+       }
+      ]
+     }
+    },
+    "subscription_services": {
+     "arrayValue": {}
+    },
+    "platforms": {
+     "arrayValue": {
+      "values": [
+       {
+        "stringValue": "pc"
+       },
+       {
+        "stringValue": "playstation"
+       },
+       {
+        "stringValue": "xbox"
+       }
+      ]
+     }
+    },
+    "release_year": {
+     "integerValue": "2016"
+    },
+    "updated_at": {
+     "timestampValue": "2026-01-31T22:06:58.963772Z"
+    },
+    "title_lower": {
+     "stringValue": "abzu"
+    },
+    "multiplayer_modes": {
+     "arrayValue": {
+      "values": [
+       {
+        "stringValue": "solo"
+       }
+      ]
+     }
+    },
+    "title": {
+     "stringValue": "Abzu"
+    },
+    "energy_level": {
+     "stringValue": "low"
+    },
+    "play_style": {
+     "arrayValue": {
+      "values": [
+       {
+        "stringValue": "narrative"
+       }
+      ]
+     }
+    },
+    "description_short": {
+     "stringValue": "Dive into a beautiful underwater world full of mystery and wonder."
+    },
+    "time_to_fun": {
+     "stringValue": "short"
+    },
+    "avg_session_length": {
+     "integerValue": "45"
+    },
+    "created_at": {
+     "timestampValue": "2026-01-31T22:06:58.963769Z"
+    },
+    "moods": {
+     "arrayValue": {
+      "values": [
+       {
+        "stringValue": "zen"
+       },
+       {
+        "stringValue": "peaceful"
+       },
+       {
+        "stringValue": "immersive"
+       },
+       {
+        "stringValue": "artistic"
+       }
+      ]
+     }
+    },
+    "year": {
+     "integerValue": "2016"
+    },
+    "genres": {
+     "arrayValue": {
+      "values": [
+       {
+        "stringValue": "adventure"
+       },
+       {
+        "stringValue": "exploration"
+       },
+       {
+        "stringValue": "artistic"
+       },
+       {
+        "stringValue": "indie"
+       }
+      ]
+     }
+    }
+   },
+   "createTime": "2025-12-17T19:52:55.957682Z",
+   "updateTime": "2026-08-21T19:32:57.954505Z"
+  }
+ }
+}
