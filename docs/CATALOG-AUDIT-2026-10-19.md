@@ -427,9 +427,13 @@ here has to be absorbed by the fallback hierarchy.
    crawler-facing pages. The revert still stands on the scope reason above; it does not need the
    publishing one.
 
-   The 7 additions below are correct against today's authoritative lists. Thomas approved them
-   later the same day, but the write was blocked by the environment's permission classifier, so
-   as of this commit they are **still not applied**:
+   The 7 additions below were approved separately later the same day and **are now applied**.
+   Before writing, each was re-verified against source lists re-fetched at the time: 7 of 7 still
+   present, and neither the Game Pass nor the PS Plus list had moved since the original dry run.
+   They were written one document at a time with a guard on each record's expected prior value,
+   rather than by re-running the refresh, because the repo copy of `subscription_refresh.py` had
+   by then been modified to promote `ea_play` to MANAGED and would have carried an unreviewed
+   20-record `ea_play` change along with them:
 
    | record | addition |
    |---|---|
@@ -446,8 +450,8 @@ here has to be absorbed by the fallback hierarchy.
 all four deleted ids return 404; `total_games` = 1403; `unpacking` carries steam + gog +
 nintendo and `abzu` carries all five stores; the four stale `xbox_game_pass` tags are gone and
 `clair-obscur-expedition-33` kept its correct `playstation_plus`; the seven additions read back
-at their pre-write values; and 120 fresh recommendation slots returned none of the deleted ids,
-with `unpacking` still recommendable.
+at their approved values with the four removals still removed; and 120 fresh recommendation slots
+returned none of the deleted ids, with `unpacking` still recommendable.
 
 One note from verification: `franchise` is stored in Firestore and read at runtime by
 `_ensure_franchise_diversity` (`recommendation_service.py:1337`), but it is **not** part of the
