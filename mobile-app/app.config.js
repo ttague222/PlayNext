@@ -2,7 +2,7 @@ export default {
   expo: {
     name: "PlayNxt",
     slug: "playnxt",
-    version: "1.6.0",
+    version: "1.7.0",
     orientation: "portrait",
     icon: "./assets/images/icon.png",
     scheme: "playnxt",
@@ -18,7 +18,7 @@ export default {
     ios: {
       supportsTablet: true,
       bundleIdentifier: "com.playnxt.app",
-      buildNumber: "20",
+      buildNumber: "21",
       usesAppleSignIn: true,
       // Universal Links for share landing pages (playnxt.io/s/*); the
       // matching apple-app-site-association is served by playnxt-web.
@@ -63,7 +63,7 @@ export default {
         backgroundColor: "#941F51"
       },
       package: "com.playnxt.app",
-      versionCode: 27,
+      versionCode: 28,
       // Local file is gitignored; EAS builds get it via file-type env var
       googleServicesFile: process.env.GOOGLE_SERVICES_JSON || "./google-services.json",
       intentFilters: [
