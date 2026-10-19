@@ -312,7 +312,7 @@ def test_create_share_rejects_a_why_line_containing_a_link(
 
     resp = client.post("/api/shares", json=share_payload)
 
-    assert resp.status_code == 422
+    assert resp.status_code in (400, 422)
 
 
 def test_create_share_rejects_a_why_line_containing_a_bare_domain(
@@ -322,7 +322,7 @@ def test_create_share_rejects_a_why_line_containing_a_bare_domain(
 
     resp = client.post("/api/shares", json=share_payload)
 
-    assert resp.status_code == 422
+    assert resp.status_code in (400, 422)
 
 
 def test_create_share_keeps_an_ordinary_why_line(client, shares_collection, share_payload):
@@ -356,7 +356,7 @@ def test_create_share_rejects_a_domain_built_from_a_lookalike_dot(
 
     resp = client.post("/api/shares", json=share_payload)
 
-    assert resp.status_code == 422, f"{name} bypassed the filter"
+    assert resp.status_code in (400, 422), f"{name} bypassed the filter"
 
 
 def test_create_share_rejects_a_bare_ip_address(client, shares_collection, share_payload):
@@ -364,7 +364,7 @@ def test_create_share_rejects_a_bare_ip_address(client, shares_collection, share
 
     resp = client.post("/api/shares", json=share_payload)
 
-    assert resp.status_code == 422
+    assert resp.status_code in (400, 422)
 
 
 def test_create_share_keeps_accented_prose(client, shares_collection, share_payload):
@@ -399,7 +399,7 @@ def test_create_share_rejects_invisible_characters_in_why(
 
     resp = client.post("/api/shares", json=share_payload)
 
-    assert resp.status_code == 422, f"{name} bypassed the filter"
+    assert resp.status_code in (400, 422), f"{name} bypassed the filter"
 
 
 @pytest.mark.parametrize("ch", ["·", "•", "・", "⋅"])
@@ -410,7 +410,7 @@ def test_create_share_rejects_dot_lookalike_separators(
 
     resp = client.post("/api/shares", json=share_payload)
 
-    assert resp.status_code == 422
+    assert resp.status_code in (400, 422)
 
 
 def test_create_share_keeps_an_en_dash(client, shares_collection, share_payload):
@@ -421,3 +421,91 @@ def test_create_share_keeps_an_en_dash(client, shares_collection, share_payload)
     share_id = client.post("/api/shares", json=share_payload).json()["share_id"]
 
     assert client.get(f"/api/shares/{share_id}").json()["picks"][0]["why"] == real
+
+
+@pytest.mark.parametrize(
+    "ch,name",
+    [
+        ("⠀", "braille pattern blank"),
+        ("᠎", "mongolian vowel separator"),
+        ("͏", "combining grapheme joiner"),
+        ("️", "variation selector-16"),
+        ("\U000e0101", "variation selector-18"),
+        ("·", "middle dot"),
+        ("\U0001f600", "emoji"),
+        ("⁡", "function application"),
+    ],
+)
+def test_create_share_rejects_characters_outside_the_allowed_set(
+    client, shares_collection, share_payload, ch, name
+):
+    """`why` is restricted to letters, digits, space and plain punctuation.
+    An allowlist ends the lookalike arms race: no invisible, symbol or
+    dot-alike character can reach the matcher to dodge it."""
+    share_payload["picks"][0]["why"] = f"Go to evil{ch}example now"
+
+    resp = client.post("/api/shares", json=share_payload)
+
+    assert resp.status_code == 422, f"{name} was accepted"
+
+
+@pytest.mark.parametrize("ch", ["ㅤ", "ᅟ", "ᅠ", "ﾠ"])
+def test_blank_rendering_letters_still_cannot_hide_a_domain(
+    client, shares_collection, share_payload, ch
+):
+    """Hangul fillers render blank but are Unicode letters, so an allowlist
+    keyed on category lets them through. They must not break the matcher."""
+    share_payload["picks"][0]["why"] = f"Go to evil{ch}.example now"
+
+    resp = client.post("/api/shares", json=share_payload)
+
+    assert resp.status_code in (400, 422)
+
+
+@pytest.mark.parametrize(
+    "text",
+    [
+        "A cozy café sim with Pokémon energy.",
+        "A short, cozy adventure – fun within minutes.",
+        "Meditative — like Abzu, but calmer.",
+        "It's a builder; stop anytime (no timers).",
+        "Roughly 80% exploration, 20% combat.",
+        "Co-op/solo: both work for a 30 minute run.",
+        "Saves anytime, so you can stop when your 30 minutes are up.",
+        "Short runs; stop anytime. No. 1 for wind-down.",
+        "Quietly brilliant… and it respects your time.",
+        "A ‘small’ game with a “big” heart.",
+    ],
+)
+def test_real_prose_survives_the_allowlist(client, shares_collection, share_payload, text):
+    """The filter must never reject what the engine actually writes."""
+    share_payload["picks"][0]["why"] = text
+
+    share_id = client.post("/api/shares", json=share_payload).json()["share_id"]
+
+    assert client.get(f"/api/shares/{share_id}").json()["picks"][0]["why"] == text
+
+
+# --- The link check must not break real games with dotted titles ---
+
+
+def test_a_dotted_game_title_is_not_mistaken_for_a_domain():
+    """Chess.com, BeamNG.drive, Survivor.io and BIT.TRIP are real titles the
+    engine writes into its explanations. Rejecting them would make those
+    games unshareable."""
+    from src.models.share import contains_link
+
+    why = "Saves anytime, so you can put Chess.com down when your 30 minutes are up."
+
+    assert contains_link(why, ("Chess.com",)) is False
+    # Without the exemption it looks exactly like a domain -- which is why
+    # the check has to know the share's real titles.
+    assert contains_link(why, ()) is True
+
+
+def test_a_real_domain_is_still_caught_alongside_a_dotted_title():
+    from src.models.share import contains_link
+
+    why = "Play Chess.com, then claim your prize at evil.example"
+
+    assert contains_link(why, ("Chess.com",)) is True

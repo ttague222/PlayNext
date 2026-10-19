@@ -19,6 +19,7 @@ from typing import Optional
 from ..core.config import settings
 from ..db.firebase import get_collection, SHARES_COLLECTION
 from ..models import Share, ShareCreate, SharePick, SharePublic
+from ..models.share import contains_link
 from .game_service import get_game_service
 
 logger = logging.getLogger("playnext-api.services.share")
@@ -89,12 +90,23 @@ class ShareService:
         capped by the model, escaped by the page that renders them.
         """
         game_service = get_game_service()
-        resolved: list[SharePick] = []
 
+        games = []
         for pick in payload.picks:
             game = await game_service.get_game(pick.game_id)
             if game is None:
                 raise ValueError(f"Unknown game: {pick.game_id}")
+            games.append(game)
+
+        # The engine writes titles into its explanations, and real titles
+        # contain domain-like dots (Chess.com, BeamNG.drive). Exempt the
+        # share's own catalog titles so a legitimate pick stays shareable.
+        titles = tuple(game.title for game in games)
+
+        resolved: list[SharePick] = []
+        for pick, game in zip(payload.picks, games):
+            if pick.why and contains_link(pick.why, titles):
+                raise ValueError("why must not contain a link or domain")
             resolved.append(
                 SharePick(
                     game_id=game.game_id,

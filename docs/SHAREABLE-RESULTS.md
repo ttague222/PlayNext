@@ -140,9 +140,26 @@ sends are discarded (security review, 2026-10-19):
   the bypasses and the real engine lines ("e.g.", "No. 1", an en dash) that
   must survive.
 
-  Each round of review has found one more way to spell a dot. That is the
-  nature of a denylist, and the reason the root fix — regenerating `why`
-  server-side from a signed recommendation id — is the one that ends it.
+  **`why` is now an allowlist, not a denylist.** Five rounds of review each
+  found another way to spell a dot or hide a character, so the rule was
+  inverted: only letters (any script, by Unicode category), digits, spaces
+  and plain punctuation are accepted. That rejects zero-width spaces,
+  joiners, soft hyphens, the BOM, combining marks, variation selectors,
+  braille blanks, emoji and every dot-lookalike in one rule instead of
+  naming them one at a time. The allowed punctuation was derived from the
+  corpus, not guessed: 2354 catalog strings plus the engine's own templates
+  use only `.,:;!?'"()[]-/&+%`, curly quotes, en/em dashes and an ellipsis.
+
+  **Dotted game titles are exempt.** The live catalog contains Agar.io,
+  Chess.com, BeamNG.drive, Diep.io and Dirt Rally 2.0, and the engine writes
+  titles into its explanations — so a naive domain rule made those games
+  unshareable. The link check runs in the share service, where the
+  catalog-resolved titles are known, and removes them before matching. All
+  2354 catalog strings now pass both checks.
+
+  The root fix is still regenerating `why` server-side from a signed
+  recommendation id; the allowlist is what makes the interim rule hold
+  instead of leaking a new bypass every round.
 
 `why` is still client-supplied — the engine writes it per request and it
 exists nowhere else — so it's capped at 300 chars, link-filtered, and

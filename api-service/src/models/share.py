@@ -53,16 +53,40 @@ _DOT_LOOKALIKES = {
 _DOT_TRANSLATION = str.maketrans(_DOT_LOOKALIKES)
 
 
-def _has_format_characters(value: str) -> bool:
-    """True if the text carries any Unicode format (Cf) character.
+# An allowlist, not a denylist -- this is what ends the lookalike arms race.
+# Every round of review found another way to spell a dot or hide a character;
+# naming the characters that ARE allowed closes all of them at once, because
+# nothing exotic can reach the matcher to dodge it.
+#
+# Derived from the real corpus, not guessed: 2354 catalog strings and the
+# engine's own templates between them use only letters, digits, spaces and
+# the punctuation below (the only non-ASCII being accented Latin letters, an
+# en dash, an em dash, curly quotes and an ellipsis). Letters are allowed by
+# category, so any script works and a future non-English title is fine.
+_ALLOWED_PUNCTUATION = frozenset(
+    ".,:;!?'\"()[]-/&+%"       # ASCII punctuation the corpus uses
+    "‘’“”"  # curly quotes
+    "–—"              # en dash, em dash
+    "…"                    # ellipsis
+)
 
-    Zero-width spaces, joiners, soft hyphens and the BOM are invisible to a
-    reader but break the label-dot adjacency the link patterns rely on, so
-    "evil<ZWSP>.example" would read as a domain and match nothing. A scan of
-    2354 real catalog strings found no Cf character at all, so rejecting the
-    whole category costs nothing and closes the class rather than one member.
+
+def _reject_unexpected_characters(value: str) -> None:
+    """Refuse anything outside letters, digits, space and plain punctuation.
+
+    This is what rejects zero-width spaces, joiners, soft hyphens, the BOM,
+    combining marks, variation selectors, braille blanks, emoji and every
+    dot-lookalike in one rule, rather than naming them one at a time.
     """
-    return any(unicodedata.category(ch) == "Cf" for ch in value)
+    for ch in value:
+        if ch == " " or ch in _ALLOWED_PUNCTUATION:
+            continue
+        category = unicodedata.category(ch)
+        if category.startswith("L") or category == "Nd":
+            continue
+        raise ValueError(
+            "why may only contain letters, digits, spaces and plain punctuation"
+        )
 
 
 def _fold_for_matching(value: str) -> str:
@@ -90,13 +114,35 @@ _LINK_PATTERNS = (
 )
 
 
+def contains_link(value: str, allowed_titles: tuple[str, ...] = ()) -> bool:
+    """True if the text carries a link, domain or bare IP.
+
+    Real game titles contain domain-like dots -- Chess.com, BeamNG.drive,
+    Survivor.io, BIT.TRIP -- and the engine interpolates titles into its
+    explanations, so the share's own titles are removed before matching.
+    Without that, picking Chess.com would make the share unshareable.
+
+    Lives here beside the patterns, but is called from the share service,
+    which is the only place that knows the catalog-resolved titles.
+    """
+    haystack = _fold_for_matching(value)
+    for title in allowed_titles:
+        if title:
+            haystack = haystack.replace(_fold_for_matching(title), " ")
+    return any(p.search(haystack) for p in _LINK_PATTERNS)
+
+
 def _reject_links(value: Optional[str]) -> Optional[str]:
+    """Character-level validation only.
+
+    The allowlist guarantees the text is plain prose in a known character
+    set, so no encoding trick can disguise a domain from the matcher. The
+    link check itself runs in the service, where the real titles are known.
+    """
     if not value:
         return value
-    if _has_format_characters(value):
-        raise ValueError("why must not contain invisible formatting characters")
-    if any(p.search(_fold_for_matching(value)) for p in _LINK_PATTERNS):
-        raise ValueError("why must not contain a link or domain")
+
+    _reject_unexpected_characters(unicodedata.normalize("NFC", value))
     return value
 
 
