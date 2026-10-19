@@ -70,6 +70,16 @@ from .bucket import (
     MoveGameRequest,
 )
 
+from .share import (
+    ShareSurface,
+    SharePickCreate,
+    SharePick,
+    ShareCreate,
+    Share,
+    SharePublic,
+    ShareCreateResponse,
+)
+
 __all__ = [
     # Game models
     "EnergyLevel",
@@ -127,4 +137,12 @@ __all__ = [
     "UserBucketsResponse",
     "AddGameToBucketRequest",
     "MoveGameRequest",
+    # Share models
+    "ShareSurface",
+    "SharePickCreate",
+    "SharePick",
+    "ShareCreate",
+    "Share",
+    "SharePublic",
+    "ShareCreateResponse",
 ]

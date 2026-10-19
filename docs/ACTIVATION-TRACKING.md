@@ -13,7 +13,8 @@ Older events (`rec_requested`, `rec_accepted`, `share_completed`,
 | `recommendation_started` | User submits time + mood (not on reroll) | `minutes`, `mood`, `platform_filter`, `library_mode` |
 | `recommendation_viewed` | A non-empty set of picks is on screen: initial, reroll, or opening Tonight's Picks | `result_count`, `latency_ms` (not for Tonight's Picks, which open from cache), `install_source`, `pick_source` |
 | `game_selected` ⭐ | User taps "I'll play this!" on a pick | `game_id`, `rank` 1-3, `minutes`, `mood`, `pick_source` |
-| `result_shared` | Share sheet completes | `surface` card/link, `scenario`, `game_count` |
+| `result_shared` | Share sheet completes (app) or a share link is made (web) | `surface` card/link, `scenario`, `game_count`, plus `share_channel`, `time_bucket`, `mood`, `num_picks` on web |
+| `share_open` | A /s/<share-id> page is opened (web only) | `share_id`, `sharer_token`, `utm_source=share`, `time_bucket`, `mood`, `num_picks` |
 | `premium_purchase` | Unlock succeeds | `platform`, `entry_screen` |
 
 Every event logged after startup also carries `install_source` (set as a
@@ -108,9 +109,34 @@ New scenario pages: put the link in `iosCampaignUrl` in
 
 - `mobile-app/src/services/attributionService.ts`: referrer parsing, `install_source`, `app_first_open`
 - `mobile-app/src/context/RecommendationContext.js`: started, viewed, selected
-- `mobile-app/src/services/shareService.js`: result_shared
+- `mobile-app/src/services/shareService.js`: result_shared (app)
+- `playnxt-web/src/share.js`: result_shared (web), via `resultSharedParams`
+- `playnxt-web/api/s.js`: share_open, fired server-side on the share landing page
 - `mobile-app/src/context/PremiumContext.js`: premium_purchase
 - Tests: `__tests__/activationEvents.test.js`, `__tests__/premiumPurchaseEvent.test.js`,
   `src/services/__tests__/attributionService.test.js`, `shareService.test.js`
 
 Ships with the next app build (needs a native build: adds `expo-application`).
+
+## Web share events (added 2026-10-19)
+
+Web `result_shared` carries the app's existing params *and* the analytics
+brief's (`share_channel`, `time_bucket`, `mood`, `num_picks`), so the
+scoreboard reads one event across both surfaces instead of two shapes.
+
+- **`share_channel` on web is `web_share`, `copy_link` or `other`.** The Web
+  Share API never reports which target the user picked, so `imessage` /
+  `whatsapp` / `x` / `reddit` are not knowable here. Don't read the web's
+  channel split as a per-app breakdown.
+- **`surface` is always `link` on web** — the web shares a URL, never an image.
+- **Web events need `VITE_GA4_MEASUREMENT_ID`** set in Vercel, pointing at the
+  same GA4 property Firebase writes to. Unset, every web event silently
+  no-ops; nothing else breaks.
+- **`sharer_token`, not `sharer_id`.** Share links are public, so the raw
+  sharer id is never served; the token is a salted digest that stays stable
+  per sharer. Group by it to count shares per sharer; it maps back to a
+  person only inside the `shares` collection.
+- **`app_open_from_share` does not exist yet.** It needs iOS Universal Links
+  and Android App Links, which the app has not got (no `associatedDomains`,
+  and the only intent filter is `playnxt://*/oauth`), so a share link always
+  opens in the browser.

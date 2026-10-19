@@ -11,6 +11,7 @@ from .bucket_service import BucketService, get_bucket_service
 from .notification_service import NotificationService, get_notification_service
 from .followup_service import FollowUpService, get_followup_service
 from .library_service import LibraryService, get_library_service
+from .share_service import ShareService, get_share_service
 
 __all__ = [
     "RecommendationService",
@@ -27,4 +28,6 @@ __all__ = [
     "get_followup_service",
     "LibraryService",
     "get_library_service",
+    "ShareService",
+    "get_share_service",
 ]

@@ -50,6 +50,9 @@ class Settings(BaseSettings):
 
     # CORS — must be explicitly set in production (no wildcard default)
     cors_origins: str = ""
+    # Salts the public sharer_token on share pages; unset still works,
+    # but set it in production so the digest cannot be recomputed.
+    share_token_salt: str = ""
 
     # Rate Limiting
     rate_limit_requests: int = 100
