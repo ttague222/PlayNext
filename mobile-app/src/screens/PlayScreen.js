@@ -64,7 +64,8 @@ const useReadyPromise = (ready) => {
 };
 
 // One seasonal collection: prefetches today's picks on focus (the service
-// caches per collection per local date and shares one in-flight request),
+// caches per collection, platform filter and local date, and shares one
+// in-flight request),
 // logs its daily view, and opens the picks on tap. Mirrors the Tonight card's
 // state and tap flow, kept per collection so two cards load independently.
 const SeasonalCollection = ({ collection, season, showHeaderImage, dateKey }) => {
