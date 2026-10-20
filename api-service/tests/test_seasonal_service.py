@@ -238,6 +238,35 @@ def test_half_windowed_collection_rejected(window):
         SeasonalContent.model_validate(data)
 
 
+@pytest.mark.parametrize(
+    "bad",
+    ["2026-11-01T00:00:00", "2026-11-01T00:00:00Z", 1793491200, "2026-11-1", " 2026-11-01"],
+    ids=["datetime", "datetime-z", "int", "unpadded", "padded-space"],
+)
+def test_season_dates_must_be_yyyy_mm_dd_strings(bad):
+    data = _content(_season())
+    data["seasons"][0]["starts"] = bad
+    with pytest.raises(ValidationError, match="YYYY-MM-DD"):
+        SeasonalContent.model_validate(data)
+
+
+@pytest.mark.parametrize("field", ["starts", "ends"])
+@pytest.mark.parametrize("bad", ["2026-11-10T00:00:00", 1794268800], ids=["datetime", "int"])
+def test_collection_dates_must_be_yyyy_mm_dd_strings(field, bad):
+    window = {"starts": "2026-11-10", "ends": "2026-11-12"}
+    window[field] = bad
+    data = _content(_season(collections=[_collection("m", 45, **window)]))
+    with pytest.raises(ValidationError, match="YYYY-MM-DD"):
+        SeasonalContent.model_validate(data)
+
+
+def test_impossible_calendar_date_rejected():
+    data = _content(_season())
+    data["seasons"][0]["ends"] = "2026-11-31"
+    with pytest.raises(ValidationError):
+        SeasonalContent.model_validate(data)
+
+
 def test_failing_palette_rejected():
     errors = _errors(_season("harvest-2026", palette="harvest"))
     assert any("focused" in e.lower() for e in errors)

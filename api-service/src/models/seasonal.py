@@ -7,10 +7,11 @@ filters (on_subscriptions, stop_friendliness, ...) and library_only can never be
 smuggled into a collection.
 """
 
-from datetime import date
-from typing import Annotated, List, Literal, Optional
+import re
+from datetime import date, datetime
+from typing import Annotated, Any, List, Literal, Optional
 
-from pydantic import BaseModel, ConfigDict, Field, HttpUrl, model_validator
+from pydantic import BaseModel, BeforeValidator, ConfigDict, Field, HttpUrl, model_validator
 
 from src.models.recommendation import DiscoveryMode, EnergyMood, SessionType
 
@@ -20,6 +21,24 @@ MAX_TIME_AVAILABLE = 240
 GRADIENT_STOPS = 3
 
 HexColor = Annotated[str, Field(pattern=HEX_COLOR_PATTERN)]
+
+ISO_DATE_RE = re.compile(r"[0-9]{4}-[0-9]{2}-[0-9]{2}")
+
+
+def _require_iso_date(value: Any) -> Any:
+    """Accept only a 'YYYY-MM-DD' string (or a real date, which the route's own
+    response re-validation passes). Pydantic's lax mode would also take a
+    datetime string or a Unix timestamp; the API would normalize those, but the
+    app's bundled copy of the raw file would not, and the app compares dates
+    as strings."""
+    if isinstance(value, date) and not isinstance(value, datetime):
+        return value
+    if isinstance(value, str) and ISO_DATE_RE.fullmatch(value):
+        return value
+    raise ValueError(f"must be a YYYY-MM-DD date string, got {value!r}")
+
+
+IsoDate = Annotated[date, BeforeValidator(_require_iso_date)]
 
 
 class CollectionParams(BaseModel):
@@ -43,8 +62,8 @@ class Collection(BaseModel):
     title: str
     blurb: str
     params: CollectionParams
-    starts: Optional[date] = None
-    ends: Optional[date] = None
+    starts: Optional[IsoDate] = None
+    ends: Optional[IsoDate] = None
 
     @model_validator(mode="after")
     def _window_has_both_bounds(self) -> "Collection":
@@ -82,8 +101,8 @@ class Season(BaseModel):
 
     id: str
     name: str
-    starts: date
-    ends: date
+    starts: IsoDate
+    ends: IsoDate
     palette: Palette
     header_image: Optional[HeaderImage] = None
     collections: List[Collection]
