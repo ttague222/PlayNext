@@ -1,0 +1,193 @@
+{
+  "note": "Pre-write Firestore document, 2026-10-20, before removing playstation_plus (PS Plus only offers a 1.5h Premium trial; the game is not included).",
+  "record_before": {
+    "name": "projects/playnxt-1a2c6/databases/(default)/documents/games/lego-batman-legacy",
+    "fields": {
+      "store_links": {
+        "mapValue": {
+          "fields": {
+            "epic": {
+              "stringValue": "https://store.epicgames.com/en-US/p/lego-batman-legacy-of-the-dark-knight-c82b6b"
+            },
+            "nintendo": {
+              "stringValue": "https://www.nintendo.com/us/store/products/lego-batman-legacy-of-the-dark-knight-switch-2/"
+            },
+            "steam": {
+              "stringValue": "https://store.steampowered.com/app/2215200/LEGO_Batman_Legacy_of_the_Dark_Knight/"
+            },
+            "xbox": {
+              "stringValue": "https://www.microsoft.com/store/productId/9N0PBQXBF0RL"
+            },
+            "playstation": {
+              "stringValue": "https://store.playstation.com/en-ca/concept/10008537"
+            }
+          }
+        }
+      },
+      "genre_tags": {
+        "arrayValue": {
+          "values": [
+            {
+              "stringValue": "action-adventure"
+            },
+            {
+              "stringValue": "lego"
+            },
+            {
+              "stringValue": "co-op"
+            },
+            {
+              "stringValue": "comedy"
+            }
+          ]
+        }
+      },
+      "release_year": {
+        "integerValue": "2026"
+      },
+      "stop_friendliness": {
+        "stringValue": "anytime"
+      },
+      "multiplayer_modes": {
+        "arrayValue": {
+          "values": [
+            {
+              "stringValue": "solo"
+            },
+            {
+              "stringValue": "local_coop"
+            }
+          ]
+        }
+      },
+      "updated_at": {
+        "timestampValue": "2026-06-01T00:50:57.052420Z"
+      },
+      "created_at": {
+        "timestampValue": "2026-06-01T00:50:57.052416Z"
+      },
+      "description_short": {
+        "stringValue": "Build-and-bash through Gotham in classic LEGO style."
+      },
+      "explanation_templates": {
+        "mapValue": {}
+      },
+      "energy_level": {
+        "stringValue": "low"
+      },
+      "title": {
+        "stringValue": "LEGO Batman: Legacy of the Dark Knight"
+      },
+      "genres": {
+        "arrayValue": {
+          "values": [
+            {
+              "stringValue": "action-adventure"
+            },
+            {
+              "stringValue": "lego"
+            },
+            {
+              "stringValue": "co-op"
+            },
+            {
+              "stringValue": "comedy"
+            }
+          ]
+        }
+      },
+      "year": {
+        "integerValue": "2026"
+      },
+      "platforms": {
+        "arrayValue": {
+          "values": [
+            {
+              "stringValue": "pc"
+            },
+            {
+              "stringValue": "playstation"
+            },
+            {
+              "stringValue": "xbox"
+            },
+            {
+              "stringValue": "switch"
+            }
+          ]
+        }
+      },
+      "moods": {
+        "arrayValue": {
+          "values": [
+            {
+              "stringValue": "fun"
+            },
+            {
+              "stringValue": "lighthearted"
+            },
+            {
+              "stringValue": "family-friendly"
+            }
+          ]
+        }
+      },
+      "time_to_fun": {
+        "stringValue": "short"
+      },
+      "play_style": {
+        "arrayValue": {
+          "values": [
+            {
+              "stringValue": "action"
+            }
+          ]
+        }
+      },
+      "subscription_services": {
+        "arrayValue": {
+          "values": [
+            {
+              "stringValue": "playstation_plus"
+            }
+          ]
+        }
+      },
+      "mood_tags": {
+        "arrayValue": {
+          "values": [
+            {
+              "stringValue": "fun"
+            },
+            {
+              "stringValue": "lighthearted"
+            },
+            {
+              "stringValue": "family-friendly"
+            }
+          ]
+        }
+      },
+      "fun_fact": {
+        "stringValue": "TT Games' return to the beloved LEGO Batman series."
+      },
+      "game_id": {
+        "stringValue": "lego-batman-legacy"
+      },
+      "time_tags": {
+        "arrayValue": {
+          "values": [
+            {
+              "integerValue": "30"
+            },
+            {
+              "integerValue": "60"
+            }
+          ]
+        }
+      }
+    },
+    "createTime": "2026-06-01T00:48:46.230415Z",
+    "updateTime": "2026-08-24T16:51:48.363036Z"
+  }
+}
