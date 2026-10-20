@@ -92,7 +92,13 @@ describe('activation scoreboard events', () => {
     });
 
     expect(eventsNamed('recommendation_started')).toEqual([
-      { minutes: 30, mood: 'wind_down', platform_filter: 'pc,switch', library_mode: 'none' },
+      {
+        minutes: 30,
+        mood: 'wind_down',
+        platform_filter: 'pc,switch',
+        library_mode: 'none',
+        pick_source: 'flow',
+      },
     ]);
   });
 

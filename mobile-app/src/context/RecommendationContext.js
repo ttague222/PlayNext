@@ -4,7 +4,7 @@
  * Manages recommendation state and user preferences.
  */
 
-import React, { createContext, useContext, useState, useCallback, useEffect } from 'react';
+import React, { createContext, useContext, useState, useCallback, useEffect, useMemo } from 'react';
 import AsyncStorage from '@react-native-async-storage/async-storage';
 import api from '../services/api';
 import { logEvent } from '../services/analyticsService';
@@ -29,9 +29,10 @@ const libraryModeParam = (prefs) => (prefs.libraryOnly ? 'steam_synced' : 'none'
  * brief. Tonight's Picks open from cache, so they carry no latency_ms.
  * @param {number} resultCount
  * @param {number|null} startedAt - request start time, null for cached picks
- * @param {'flow'|'tonight'} pickSource
+ * @param {'flow'|'tonight'|'seasonal'} pickSource
+ * @param {string|null} [collectionId] - seasonal collection, when pickSource is 'seasonal'
  */
-const logRecommendationViewed = (resultCount, startedAt, pickSource) => {
+const logRecommendationViewed = (resultCount, startedAt, pickSource, collectionId = null) => {
   if (!resultCount) return;
   const latencyMs = startedAt == null ? null : Date.now() - startedAt;
   getInstallSource().then((source) => {
@@ -40,6 +41,7 @@ const logRecommendationViewed = (resultCount, startedAt, pickSource) => {
       ...(latencyMs != null && { latency_ms: latencyMs }),
       install_source: source,
       pick_source: pickSource,
+      ...(collectionId && { collection_id: collectionId }),
     });
   });
 };
@@ -71,9 +73,14 @@ export const RecommendationProvider = ({ children }) => {
   // Current session
   const [sessionId, setSessionId] = useState(null);
 
-  // Where the current session came from: 'flow' (normal input flow) or
-  // 'tonight' (seeded from the Tonight's Picks cache). Rides analytics events.
+  // Where the current session came from: 'flow' (normal input flow),
+  // 'tonight' (seeded from the Tonight's Picks cache) or 'seasonal' (seeded
+  // from a seasonal collection). Rides analytics events.
   const [sessionSource, setSessionSource] = useState('flow');
+
+  // The seasonal collection behind the current session; null unless
+  // sessionSource is 'seasonal'. Rides analytics events alongside pick_source.
+  const [collectionId, setCollectionId] = useState(null);
 
   // User preferences for current session
   const [preferences, setPreferences] = useState(DEFAULT_PREFERENCES);
@@ -183,6 +190,7 @@ export const RecommendationProvider = ({ children }) => {
    */
   const startSession = useCallback(async () => {
     setSessionSource('flow');
+    setCollectionId(null);
     try {
       const session = await api.createSession();
       setSessionId(session.session_id);
@@ -215,6 +223,7 @@ export const RecommendationProvider = ({ children }) => {
     setError(null);
     setLoading(false);
     setSessionSource('tonight');
+    setCollectionId(null);
     logRecommendationViewed(cache.games.length, null, 'tonight');
     setPreferences({
       ...DEFAULT_PREFERENCES,
@@ -227,6 +236,59 @@ export const RecommendationProvider = ({ children }) => {
     });
     return true;
   }, []);
+
+  /**
+   * Seed a Results session from a seasonal collection's picks — no network
+   * call, same shape as startTonightSession. Preferences come from the
+   * collection params (the user's saved platforms are kept); premium-only
+   * filters reset. Never touches the saved Tonight's Picks context/cache
+   * (those are gated on sessionSource === 'flow'). Caller navigates after.
+   * @param {import('../services/seasonalService').Collection} collection
+   * @param {import('../services/seasonalService').CollectionPicks} picks
+   * @returns {boolean} false (no-op) when there are no picks to show
+   */
+  const startCollectionSession = useCallback(
+    (collection, picks) => {
+      if (!collection?.id || !picks?.games?.length) return false;
+      const params = collection.params || {};
+      const seeded = {
+        ...DEFAULT_PREFERENCES,
+        timeAvailable: params.time_available,
+        energyMood: params.energy_mood,
+        genres: params.genres ?? [],
+        platforms: savedPlatforms,
+        sessionType: params.session_type ?? 'any',
+        discoveryMode: params.discovery_mode ?? 'familiar',
+      };
+      setSessionId(picks.sessionId || `local-seasonal-${Date.now()}`);
+      setRecommendations(picks.games);
+      setShownGameIds(picks.games.map((g) => g.game_id));
+      setFallbackApplied(!!picks.fallbackApplied);
+      setFallbackMessage(picks.fallbackMessage ?? null);
+      setError(null);
+      setLoading(false);
+      setSessionSource('seasonal');
+      setCollectionId(collection.id);
+      setPreferences(seeded);
+      logEvent('recommendation_started', {
+        minutes: seeded.timeAvailable,
+        mood: seeded.energyMood,
+        platform_filter: platformFilterParam(seeded.platforms),
+        library_mode: libraryModeParam(seeded),
+        pick_source: 'seasonal',
+        collection_id: collection.id,
+      });
+      logRecommendationViewed(picks.games.length, null, 'seasonal', collection.id);
+      return true;
+    },
+    [savedPlatforms]
+  );
+
+  // collection_id rides every event of a seasonal session and nothing else.
+  const seasonalParams = useMemo(
+    () => (sessionSource === 'seasonal' && collectionId ? { collection_id: collectionId } : {}),
+    [sessionSource, collectionId]
+  );
 
   /**
    * Games to keep out of the next request: everything already shown this
@@ -252,6 +314,7 @@ export const RecommendationProvider = ({ children }) => {
       mood: preferences.energyMood,
       platform_filter: platformFilterParam(preferences.platforms),
       library_mode: libraryModeParam(preferences),
+      pick_source: sessionSource,
     });
 
     try {
@@ -316,8 +379,14 @@ export const RecommendationProvider = ({ children }) => {
         is_reroll: false,
         result_count: response.recommendations.length,
         pick_source: sessionSource,
+        ...seasonalParams,
       });
-      logRecommendationViewed(response.recommendations.length, startedAt, sessionSource);
+      logRecommendationViewed(
+        response.recommendations.length,
+        startedAt,
+        sessionSource,
+        seasonalParams.collection_id
+      );
 
       return response;
     } catch (err) {
@@ -328,7 +397,7 @@ export const RecommendationProvider = ({ children }) => {
     } finally {
       setLoading(false);
     }
-  }, [preferences, sessionId, sessionSource, buildExcludedGameIds, startSession]);
+  }, [preferences, sessionId, sessionSource, seasonalParams, buildExcludedGameIds, startSession]);
 
   /**
    * Reroll to get different recommendations
@@ -376,8 +445,14 @@ export const RecommendationProvider = ({ children }) => {
         is_reroll: true,
         result_count: response.recommendations.length,
         pick_source: sessionSource,
+        ...seasonalParams,
       });
-      logRecommendationViewed(response.recommendations.length, startedAt, sessionSource);
+      logRecommendationViewed(
+        response.recommendations.length,
+        startedAt,
+        sessionSource,
+        seasonalParams.collection_id
+      );
 
       return response;
     } catch (err) {
@@ -386,7 +461,7 @@ export const RecommendationProvider = ({ children }) => {
     } finally {
       setLoading(false);
     }
-  }, [preferences, sessionId, sessionSource, buildExcludedGameIds, getRecommendations]);
+  }, [preferences, sessionId, sessionSource, seasonalParams, buildExcludedGameIds, getRecommendations]);
 
   /**
    * Accept a recommendation
@@ -404,18 +479,23 @@ export const RecommendationProvider = ({ children }) => {
         minutes: preferences.timeAvailable,
         mood: preferences.energyMood,
         pick_source: sessionSource,
+        ...seasonalParams,
       });
       try {
         await api.acceptRecommendation(gameId, sessionId, gameTitle);
         // Increment history version to trigger refresh in HistoryScreen
         setHistoryVersion((v) => v + 1);
-        logEvent('rec_accepted', { game_id: gameId, pick_source: sessionSource });
+        logEvent('rec_accepted', {
+          game_id: gameId,
+          pick_source: sessionSource,
+          ...seasonalParams,
+        });
         return true;
       } catch (err) {
         return false;
       }
     },
-    [sessionId, sessionSource, recommendations, preferences]
+    [sessionId, sessionSource, seasonalParams, recommendations, preferences]
   );
 
   /**
@@ -596,6 +676,7 @@ export const RecommendationProvider = ({ children }) => {
     fallbackApplied,
     fallbackMessage,
     shownGameIds,
+    collectionId, // Seasonal collection behind the current session, else null
     historyVersion, // Increments when signals are recorded, used to trigger history refresh
 
     // Actions
@@ -604,6 +685,7 @@ export const RecommendationProvider = ({ children }) => {
     seedFromGame,
     startSession,
     startTonightSession,
+    startCollectionSession,
     getRecommendations,
     reroll,
     acceptRecommendation,
