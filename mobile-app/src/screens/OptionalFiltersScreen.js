@@ -60,7 +60,7 @@ const ALL_GENRE_OPTIONS = [
 
 // Map moods to appropriate genres
 // This prevents users from selecting laid-back genres when in "intense" mood
-const MOOD_TO_GENRES = {
+export const MOOD_TO_GENRES = {
   // Intense: High-energy, challenging, competitive games
   intense: [
     'action',
@@ -96,6 +96,7 @@ const MOOD_TO_GENRES = {
     'platformer',
     'racing',
     'indie',
+    'horror',
   ],
   // Wind down: Relaxing, low-stress games
   wind_down: [
@@ -104,6 +105,7 @@ const MOOD_TO_GENRES = {
     'sandbox_creative',
     'simulation',
     'indie',
+    'horror',
   ],
 };
 
