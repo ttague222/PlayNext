@@ -60,6 +60,7 @@ Use the emulator recipe from the earlier releases (`docs/runbooks/ship-1-3-0.md`
 - [ ] Default screenshots match the pre-change ones except the two spec §6.4 fixes (dark text on small pink pills, the lighter gray on Results).
 - [ ] Under Harvest, brand pink stays on every tappable element (buttons, selected chips, match %). The season accent only shows on non-interactive highlights. Mood and status colors are unchanged.
 - [ ] Mood select takes only the seasonal background and decor, no season accent.
+- [ ] The share card stays pink and is identical under Harvest and default (spec §2: shares never take the seasonal palette).
 - [ ] Tapping the Harvest card shows the same three picks as the card thumbnails, and they are real recommend output.
 - [ ] A date outside the calendar (before 2026-11-01 or after 2027-10-31) shows neither card nor palette. Also spot-check one date in each other season (Dec 15, Feb 14 for the Valentine's collection, Apr 1, Jul 1, Oct 1) for the right card and palette.
 
@@ -76,7 +77,7 @@ Use the emulator recipe from the earlier releases (`docs/runbooks/ship-1-3-0.md`
 ## Analytics: DebugView
 
 1. `adb shell setprop debug.firebase.analytics.app com.playnxt.app`
-2. Open Firebase console > DebugView, and set the date to 2026-11-05.
+2. Open Firebase console > DebugView, and set the device date to 2026-11-05.
 3. Open the Play tab, tap the Harvest card, accept a pick ("I'll play this!"), go back and reroll once.
 
 Confirm each event, with `collection_id = harvest-2026-long-weekend`:
