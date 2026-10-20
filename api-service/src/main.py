@@ -18,7 +18,8 @@ from .core.config import settings
 from .core.logging_config import setup_logging
 from .core.rate_limiter import limiter
 from .db.firebase import initialize_firebase
-from .api import recommend_router, games_router, signals_router, buckets_router, config_router, notifications_router, library_router, shares_router
+from .api import recommend_router, games_router, signals_router, buckets_router, config_router, notifications_router, library_router, shares_router, seasonal_router
+from .services.seasonal_service import get_seasonal
 
 
 # Setup logging
@@ -52,6 +53,11 @@ async def lifespan(app: FastAPI):
         logger.error(f"Failed to initialize Firebase: {e}")
         if settings.environment == "production":
             raise
+
+    # Validate the seasonal content file. A bad file must fail the container
+    # boot in every environment, not surface on the first request.
+    seasonal = get_seasonal()
+    logger.info(f"Seasonal content loaded ({len(seasonal.seasons)} seasons)")
 
     yield
 
@@ -144,6 +150,7 @@ app.include_router(config_router, prefix="/api")
 app.include_router(notifications_router, prefix="/api")
 app.include_router(shares_router, prefix="/api")
 app.include_router(library_router, prefix="/api")
+app.include_router(seasonal_router, prefix="/api")
 
 
 # Root endpoint

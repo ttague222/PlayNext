@@ -12,6 +12,7 @@ from .routes_config import router as config_router
 from .routes_notifications import router as notifications_router
 from .routes_library import router as library_router
 from .routes_shares import router as shares_router
+from .routes_seasonal import router as seasonal_router
 
 __all__ = [
     "recommend_router",
@@ -22,4 +23,5 @@ __all__ = [
     "notifications_router",
     "library_router",
     "shares_router",
+    "seasonal_router",
 ]
