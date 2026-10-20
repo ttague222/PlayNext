@@ -110,6 +110,7 @@ and `pick_page` (share landing pages),
 | Scenario page, post-travel wind-down | `https://play.google.com/store/apps/details?id=com.playnxt.app&referrer=utm_source%3Dscenario-pages%26utm_medium%3Dweb%26utm_campaign%3Dplaynxt-post-travel-winddown` |
 | Scenario page, long flight | `https://play.google.com/store/apps/details?id=com.playnxt.app&referrer=utm_source%3Dscenario-pages%26utm_medium%3Dweb%26utm_campaign%3Dplaynxt-long-flight` |
 | Scenario page, holiday couch multiplayer (seasonal) | `https://play.google.com/store/apps/details?id=com.playnxt.app&referrer=utm_source%3Dscenario-pages%26utm_medium%3Dweb%26utm_campaign%3Dplaynxt-holiday-multiplayer` |
+| Scenario page, spooky October (seasonal) | `https://play.google.com/store/apps/details?id=com.playnxt.app&referrer=utm_source%3Dscenario-pages%26utm_medium%3Dweb%26utm_campaign%3Dplaynxt-spooky-october` |
 | Reddit | `https://play.google.com/store/apps/details?id=com.playnxt.app&referrer=utm_source%3Dreddit%26utm_medium%3Dsocial%26utm_campaign%3Dplaynxt-community` |
 | Creator outreach | `https://play.google.com/store/apps/details?id=com.playnxt.app&referrer=utm_source%3Dcreator%26utm_medium%3Demail%26utm_campaign%3Dplaynxt-challenge` |
 | Web quiz card, "I'll play this!" sheet | `https://play.google.com/store/apps/details?id=com.playnxt.app&referrer=utm_source%3Dweb_quiz%26utm_medium%3Dweb%26utm_campaign%3Dplaynxt-web-pick` |
@@ -133,6 +134,7 @@ show under Analytics > Acquisition > Campaigns once traffic arrives.
 | Scenario page, post-travel wind-down | `https://apps.apple.com/app/apple-store/id6757089064?pt=128357651&ct=playnxt-post-travel-winddown&mt=8` |
 | Scenario page, long flight | `https://apps.apple.com/app/apple-store/id6757089064?pt=128357651&ct=playnxt-long-flight&mt=8` |
 | Scenario page, holiday couch multiplayer (seasonal) | `https://apps.apple.com/app/apple-store/id6757089064?pt=128357651&ct=playnxt-holiday-multiplayer&mt=8` |
+| Scenario page, spooky October (seasonal) | `https://apps.apple.com/app/apple-store/id6757089064?pt=128357651&ct=playnxt-spooky-october&mt=8` |
 | Reddit / community | `https://apps.apple.com/app/apple-store/id6757089064?pt=128357651&ct=playnxt-community&mt=8` |
 | Creator outreach | `https://apps.apple.com/app/apple-store/id6757089064?pt=128357651&ct=playnxt-challenge&mt=8` |
 | Web quiz card, "I'll play this!" sheet | `https://apps.apple.com/app/apple-store/id6757089064?pt=128357651&ct=playnxt-web-pick&mt=8` |
