@@ -458,8 +458,9 @@
     ],
     "energy": "medium",
     "moods": [
-      "immersive",
-      "intense"
+      "atmospheric",
+      "tense",
+      "thought-provoking"
     ],
     "play_style": [
       "action",
@@ -470,7 +471,8 @@
     "multiplayer": [
       "solo"
     ],
-    "description": "Would you kindly visit Rapture: the underwater city where objectivism drowned and shooters grew a brain."
+    "description": "Would you kindly visit Rapture: the underwater city where objectivism drowned and shooters grew a brain.",
+    "fun_fact": "Its 'Would you kindly?' twist is one of gaming's most famous moments."
   },
   {
     "id": "bioshock-2",

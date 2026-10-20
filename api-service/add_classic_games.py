@@ -48,16 +48,6 @@ CLASSIC_GAMES = [
         "explanation_templates": {}, "subscription_services": [], "store_links": {}
     },
     {
-        "game_id": "bioshock", "title": "BioShock", "platforms": ["pc", "playstation", "xbox", "switch"],
-        "release_year": 2007, "genre_tags": ["fps", "shooter", "horror", "narrative"],
-        "time_tags": [60, 90], "energy_level": "high", "mood_tags": ["atmospheric", "tense", "thought-provoking"],
-        "play_style": ["action", "narrative"], "time_to_fun": "medium", "stop_friendliness": "checkpoints",
-        "multiplayer_modes": ["solo"],
-        "description_short": "Explore the fallen underwater city of Rapture in this atmospheric shooter.",
-        "fun_fact": "Its 'Would you kindly?' twist is one of gaming's most famous moments.",
-        "explanation_templates": {}, "subscription_services": [], "store_links": {}
-    },
-    {
         "game_id": "bioshock-infinite", "title": "BioShock Infinite", "platforms": ["pc", "playstation", "xbox", "switch"],
         "release_year": 2013, "genre_tags": ["fps", "shooter", "narrative", "sci-fi"],
         "time_tags": [60, 90], "energy_level": "high", "mood_tags": ["immersive", "thought-provoking", "stylish"],

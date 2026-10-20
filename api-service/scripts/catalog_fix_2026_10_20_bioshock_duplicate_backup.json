@@ -1,0 +1,379 @@
+{
+ "taken_at": "2026-10-20T21:58:12.913838+00:00",
+ "documents": {
+  "bioshock-remastered": {
+   "name": "projects/playnxt-1a2c6/databases/(default)/documents/games/bioshock-remastered",
+   "fields": {
+    "multiplayer_modes": {
+     "arrayValue": {
+      "values": [
+       {
+        "stringValue": "solo"
+       }
+      ]
+     }
+    },
+    "moods": {
+     "arrayValue": {
+      "values": [
+       {
+        "stringValue": "immersive"
+       },
+       {
+        "stringValue": "intense"
+       }
+      ]
+     }
+    },
+    "warnings": {
+     "arrayValue": {}
+    },
+    "game_id": {
+     "stringValue": "bioshock-remastered"
+    },
+    "release_year": {
+     "integerValue": "2016"
+    },
+    "platforms": {
+     "arrayValue": {
+      "values": [
+       {
+        "stringValue": "pc"
+       },
+       {
+        "stringValue": "playstation"
+       },
+       {
+        "stringValue": "xbox"
+       },
+       {
+        "stringValue": "switch"
+       }
+      ]
+     }
+    },
+    "mood_tags": {
+     "arrayValue": {
+      "values": [
+       {
+        "stringValue": "immersive"
+       },
+       {
+        "stringValue": "intense"
+       }
+      ]
+     }
+    },
+    "time_to_fun": {
+     "stringValue": "medium"
+    },
+    "description_short": {
+     "stringValue": "Would you kindly visit Rapture: the underwater city where objectivism drowned and shooters grew a brain."
+    },
+    "title": {
+     "stringValue": "BioShock Remastered"
+    },
+    "play_style": {
+     "arrayValue": {
+      "values": [
+       {
+        "stringValue": "action"
+       },
+       {
+        "stringValue": "narrative"
+       }
+      ]
+     }
+    },
+    "updated_at": {
+     "timestampValue": "2026-09-23T15:51:31.659054Z"
+    },
+    "stop_friendliness": {
+     "stringValue": "checkpoints"
+    },
+    "year": {
+     "integerValue": "2016"
+    },
+    "subscription_services": {
+     "arrayValue": {}
+    },
+    "energy_level": {
+     "stringValue": "medium"
+    },
+    "time_tags": {
+     "arrayValue": {
+      "values": [
+       {
+        "integerValue": "30"
+       },
+       {
+        "integerValue": "60"
+       },
+       {
+        "integerValue": "90"
+       },
+       {
+        "integerValue": "120"
+       }
+      ]
+     }
+    },
+    "explanation_templates": {
+     "mapValue": {
+      "fields": {
+       "mood_fit": {
+        "stringValue": "Engaging without being overwhelming"
+       },
+       "stop_fit": {
+        "stringValue": "Good stopping points throughout"
+       },
+       "time_fit": {
+        "stringValue": "Great for a {time}-minute gaming session"
+       },
+       "style_fit": {
+        "stringValue": "Rich story to get lost in"
+       }
+      }
+     }
+    },
+    "genre_tags": {
+     "arrayValue": {
+      "values": [
+       {
+        "stringValue": "shooter"
+       },
+       {
+        "stringValue": "narrative"
+       },
+       {
+        "stringValue": "horror"
+       }
+      ]
+     }
+    },
+    "genres": {
+     "arrayValue": {
+      "values": [
+       {
+        "stringValue": "shooter"
+       },
+       {
+        "stringValue": "narrative"
+       },
+       {
+        "stringValue": "horror"
+       }
+      ]
+     }
+    },
+    "store_links": {
+     "mapValue": {
+      "fields": {
+       "ios": {
+        "stringValue": "https://apps.apple.com/us/app/bioshock-remastered/id1252653641?mt=12&uo=4"
+       },
+       "steam": {
+        "stringValue": "http://store.steampowered.com/app/409710/"
+       },
+       "playstation": {
+        "stringValue": "https://store.playstation.com/en-us/product/UP1001-CUSA13049_00-BIO1REMASTERED00"
+       },
+       "gog": {
+        "stringValue": "http://www.gog.com/game/bioshock_remastered"
+       },
+       "epic": {
+        "stringValue": "https://store.epicgames.com/p/bioshock-remastered"
+       },
+       "nintendo": {
+        "stringValue": "https://www.nintendo.com/games/detail/bioshock-remastered-switch/"
+       }
+      }
+     }
+    }
+   },
+   "createTime": "2026-08-21T20:02:36.858195Z",
+   "updateTime": "2026-09-23T15:50:34.227688Z"
+  },
+  "bioshock": {
+   "name": "projects/playnxt-1a2c6/databases/(default)/documents/games/bioshock",
+   "fields": {
+    "energy_level": {
+     "stringValue": "high"
+    },
+    "moods": {
+     "arrayValue": {
+      "values": [
+       {
+        "stringValue": "atmospheric"
+       },
+       {
+        "stringValue": "tense"
+       },
+       {
+        "stringValue": "thought-provoking"
+       }
+      ]
+     }
+    },
+    "play_style": {
+     "arrayValue": {
+      "values": [
+       {
+        "stringValue": "action"
+       },
+       {
+        "stringValue": "narrative"
+       }
+      ]
+     }
+    },
+    "description_short": {
+     "stringValue": "Explore the fallen underwater city of Rapture in this atmospheric shooter."
+    },
+    "time_to_fun": {
+     "stringValue": "medium"
+    },
+    "platforms": {
+     "arrayValue": {
+      "values": [
+       {
+        "stringValue": "pc"
+       },
+       {
+        "stringValue": "playstation"
+       },
+       {
+        "stringValue": "xbox"
+       },
+       {
+        "stringValue": "switch"
+       }
+      ]
+     }
+    },
+    "genre_tags": {
+     "arrayValue": {
+      "values": [
+       {
+        "stringValue": "fps"
+       },
+       {
+        "stringValue": "shooter"
+       },
+       {
+        "stringValue": "horror"
+       },
+       {
+        "stringValue": "narrative"
+       }
+      ]
+     }
+    },
+    "release_year": {
+     "integerValue": "2007"
+    },
+    "time_tags": {
+     "arrayValue": {
+      "values": [
+       {
+        "integerValue": "60"
+       },
+       {
+        "integerValue": "90"
+       }
+      ]
+     }
+    },
+    "mood_tags": {
+     "arrayValue": {
+      "values": [
+       {
+        "stringValue": "atmospheric"
+       },
+       {
+        "stringValue": "tense"
+       },
+       {
+        "stringValue": "thought-provoking"
+       }
+      ]
+     }
+    },
+    "created_at": {
+     "timestampValue": "2026-06-01T00:42:23.782135Z"
+    },
+    "title": {
+     "stringValue": "BioShock"
+    },
+    "game_id": {
+     "stringValue": "bioshock"
+    },
+    "year": {
+     "integerValue": "2007"
+    },
+    "genres": {
+     "arrayValue": {
+      "values": [
+       {
+        "stringValue": "fps"
+       },
+       {
+        "stringValue": "shooter"
+       },
+       {
+        "stringValue": "horror"
+       },
+       {
+        "stringValue": "narrative"
+       }
+      ]
+     }
+    },
+    "updated_at": {
+     "timestampValue": "2026-06-01T00:42:23.782139Z"
+    },
+    "fun_fact": {
+     "stringValue": "Its 'Would you kindly?' twist is one of gaming's most famous moments."
+    },
+    "explanation_templates": {
+     "mapValue": {}
+    },
+    "stop_friendliness": {
+     "stringValue": "checkpoints"
+    },
+    "store_links": {
+     "mapValue": {
+      "fields": {
+       "ios": {
+        "stringValue": "https://apps.apple.com/us/app/bioshock/id414198302?mt=12&uo=4"
+       },
+       "xbox": {
+        "stringValue": "https://www.microsoft.com/en-us/p/bioshock/bncbcs5rjwh7?cid=msft_web_chart"
+       },
+       "steam": {
+        "stringValue": "http://store.steampowered.com/app/7670/"
+       },
+       "playstation": {
+        "stringValue": "https://store.playstation.com/en-us/product/UP1001-NPUB30393_00-BIOSHOCKPSN00001"
+       }
+      }
+     }
+    },
+    "subscription_services": {
+     "arrayValue": {}
+    },
+    "multiplayer_modes": {
+     "arrayValue": {
+      "values": [
+       {
+        "stringValue": "solo"
+       }
+      ]
+     }
+    }
+   },
+   "createTime": "2026-06-01T00:40:12.951766Z",
+   "updateTime": "2026-08-21T19:33:01.068065Z"
+  }
+ }
+}
