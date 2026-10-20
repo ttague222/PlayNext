@@ -81,11 +81,14 @@ const BUNDLED: SeasonalContent = bundledContent as SeasonalContent;
 let memoryContent: SeasonalContent | null = null;
 // Per-collection in-flight picks requests (see fetchCollectionPicks).
 const inFlightPicks = new Map<string, Promise<CollectionPicks>>();
+// Tail of the picks-cache write queue (see storePicks).
+let picksWriteQueue: Promise<void> = Promise.resolve();
 
 /** Clear module state between tests. */
 export function __resetSeasonalServiceForTests(): void {
   memoryContent = null;
   inFlightPicks.clear();
+  picksWriteQueue = Promise.resolve();
 }
 
 const isObject = (x: unknown): x is Record<string, unknown> =>
@@ -201,6 +204,24 @@ async function readPicksCache(): Promise<Record<string, CollectionPicks>> {
   }
 }
 
+/**
+ * Add one entry to the shared picks map. Writes are serialized through a
+ * promise chain with the read inside the queued step: two collections often
+ * resolve together, and an unqueued read-modify-write would let the second
+ * writer's stale read overwrite the first writer's entry. Only today's entries
+ * are kept so the stored map cannot grow without bound. Rejects if the storage
+ * write fails; the queue itself keeps running.
+ */
+function storePicks(picks: CollectionPicks): Promise<void> {
+  const step = picksWriteQueue.then(async () => {
+    const entries = Object.entries(await readPicksCache()).filter(([, p]) => p?.date === picks.date);
+    const next = { ...Object.fromEntries(entries), [picksKey(picks.collectionId, picks.date)]: picks };
+    await AsyncStorage.setItem(COLLECTION_PICKS_KEY, JSON.stringify(next));
+  });
+  picksWriteQueue = step.catch(() => {});
+  return step;
+}
+
 /** Cached picks for this collection on `date`, or null when missing, stale, empty, or unreadable. */
 export async function getCachedCollectionPicks(
   collectionId: string,
@@ -250,10 +271,7 @@ export async function fetchCollectionPicks(
     };
     if (picks.games.length > 0) {
       try {
-        // Keep only today's entries so the stored map cannot grow without bound.
-        const entries = Object.entries(await readPicksCache()).filter(([, p]) => p?.date === date);
-        const next = { ...Object.fromEntries(entries), [picksKey(collection.id, date)]: picks };
-        await AsyncStorage.setItem(COLLECTION_PICKS_KEY, JSON.stringify(next));
+        await storePicks(picks);
       } catch {
         // A failed storage write must not discard a successful fetch; the next call refetches.
       }

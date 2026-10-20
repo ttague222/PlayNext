@@ -304,6 +304,16 @@ describe('collection picks', () => {
     expect(api.getRecommendations).toHaveBeenCalledTimes(2);
   });
 
+  it('keeps both entries when two collections resolve together', async () => {
+    api.getRecommendations.mockImplementation(async (p) => ({ ...response, session_id: `srv-${p.time_available}` }));
+    const [a, b] = await Promise.all([
+      fetchCollectionPicks(collectionA, { platforms: [] }),
+      fetchCollectionPicks(collectionB, { platforms: [] }),
+    ]);
+    expect(await getCachedCollectionPicks('col-a')).toEqual(a);
+    expect(await getCachedCollectionPicks('col-b')).toEqual(b);
+  });
+
   it('serves a same-day repeat from cache without refetching', async () => {
     api.getRecommendations.mockResolvedValue(response);
     const first = await fetchCollectionPicks(collectionA, { platforms: [] });
