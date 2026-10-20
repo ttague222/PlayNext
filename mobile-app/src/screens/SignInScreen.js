@@ -23,11 +23,13 @@ import {
 } from 'react-native';
 import { SafeAreaView } from 'react-native-safe-area-context';
 import { LinearGradient } from 'expo-linear-gradient';
+import { useTheme } from '../theme/ThemeContext';
 import { Ionicons } from '@expo/vector-icons';
 import { useNavigation } from '@react-navigation/native';
 import { useAuth } from '../context/AuthContext';
 
 const SignInScreen = () => {
+  const theme = useTheme();
   const navigation = useNavigation();
   const {
     signInAnonymousUser,
@@ -90,7 +92,7 @@ const SignInScreen = () => {
 
   return (
     <LinearGradient
-      colors={['#0f0c29', '#302b63', '#24243e']}
+      colors={theme.bg.flow}
       style={styles.container}
     >
       <SafeAreaView style={styles.safeArea} edges={['top', 'left', 'right', 'bottom']}>

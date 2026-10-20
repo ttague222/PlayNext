@@ -16,6 +16,7 @@ import {
 import { SafeAreaView } from 'react-native-safe-area-context';
 import { useNavigation } from '@react-navigation/native';
 import { LinearGradient } from 'expo-linear-gradient';
+import { useTheme } from '../theme/ThemeContext';
 import { Ionicons } from '@expo/vector-icons';
 
 const FAQ_SECTIONS = [
@@ -116,6 +117,7 @@ const FAQItem = ({ question, answer }) => {
 const SUPPORT_EMAIL = 'support@watchlightinteractive.com';
 
 const HelpScreen = () => {
+  const theme = useTheme();
   const navigation = useNavigation();
 
   const handleContactSupport = () => {
@@ -126,7 +128,7 @@ const HelpScreen = () => {
 
   return (
     <LinearGradient
-      colors={['#0f0c29', '#302b63', '#24243e']}
+      colors={theme.bg.flow}
       style={styles.container}
     >
       <SafeAreaView style={styles.safeArea} edges={['top', 'left', 'right', 'bottom']}>

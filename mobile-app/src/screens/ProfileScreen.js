@@ -29,6 +29,7 @@ import {
 } from 'react-native';
 import { SafeAreaView } from 'react-native-safe-area-context';
 import { LinearGradient } from 'expo-linear-gradient';
+import { useTheme } from '../theme/ThemeContext';
 import { Ionicons } from '@expo/vector-icons';
 import { useNavigation } from '@react-navigation/native';
 import Constants from 'expo-constants';
@@ -61,6 +62,7 @@ const SESSION_LENGTHS = [
 ];
 
 const ProfileScreen = () => {
+  const theme = useTheme();
   const navigation = useNavigation();
   const { user, signOut, isAnonymous } = useAuth();
   const { isPremium, restorePurchases } = usePremium();
@@ -247,7 +249,7 @@ const ProfileScreen = () => {
 
   return (
     <LinearGradient
-      colors={['#1a1a2e', '#16213e', '#0f3460']}
+      colors={theme.bg.side}
       style={styles.container}
     >
       <SafeAreaView style={styles.safeArea} edges={['top', 'left', 'right', 'bottom']}>

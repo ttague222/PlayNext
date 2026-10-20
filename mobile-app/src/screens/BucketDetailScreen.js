@@ -17,11 +17,13 @@ import {
 import { SafeAreaView } from 'react-native-safe-area-context';
 import { FlatList } from 'react-native-gesture-handler';
 import { LinearGradient } from 'expo-linear-gradient';
+import { useTheme } from '../theme/ThemeContext';
 import { Ionicons } from '@expo/vector-icons';
 import { useNavigation, useRoute, useFocusEffect } from '@react-navigation/native';
 import { useSavedGames, BUCKET_CONFIG, BUCKET_TYPES } from '../context/SavedGamesContext';
 
 const BucketDetailScreen = () => {
+  const theme = useTheme();
   const navigation = useNavigation();
   const route = useRoute();
   const { bucketType, bucketName, bucketIcon, bucketColor, bucketDescription } = route.params || {};
@@ -216,7 +218,7 @@ const BucketDetailScreen = () => {
 
   return (
     <LinearGradient
-      colors={['#1a1a2e', '#16213e', '#0f3460']}
+      colors={theme.bg.side}
       style={styles.container}
     >
       <SafeAreaView style={styles.safeArea} edges={['top', 'left', 'right', 'bottom']}>

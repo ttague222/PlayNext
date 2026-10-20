@@ -15,6 +15,7 @@ import {
 } from 'react-native';
 import { SafeAreaView } from 'react-native-safe-area-context';
 import { LinearGradient } from 'expo-linear-gradient';
+import { useTheme } from '../theme/ThemeContext';
 import { Ionicons } from '@expo/vector-icons';
 import { useNavigation } from '@react-navigation/native';
 import api from '../services/api';
@@ -35,6 +36,7 @@ const formatReleaseDate = (iso) => {
 };
 
 const WhatsNewScreen = () => {
+  const theme = useTheme();
   const navigation = useNavigation();
   const [games, setGames] = useState([]);
   const [upcoming, setUpcoming] = useState([]);
@@ -78,7 +80,7 @@ const WhatsNewScreen = () => {
   );
 
   return (
-    <LinearGradient colors={['#1a1a2e', '#16213e', '#0f3460']} style={styles.container}>
+    <LinearGradient colors={theme.bg.side} style={styles.container}>
       <SafeAreaView style={styles.safeArea} edges={['top', 'left', 'right']}>
         <View style={styles.header}>
           <TouchableOpacity onPress={() => navigation.goBack()} style={styles.backBtn}>

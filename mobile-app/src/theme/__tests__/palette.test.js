@@ -122,6 +122,7 @@ describe('themeForPalette', () => {
     const theme = themeForPalette(spooky);
     expect(theme.bg.home).toEqual(spooky.bg_gradient);
     expect(theme.bg.flow).toEqual(spooky.bg_gradient);
+    expect(theme.bg.side).toEqual(spooky.bg_gradient);
     expect(theme.bg.flow[1]).toBe('#22103a');
     expect(theme.bg.decor).toBe('#ff8a3d');
     expect(theme.accent.season).toBe('#ff8a3d');
@@ -158,6 +159,10 @@ describe('themeForPalette', () => {
 });
 
 describe('DEFAULT_THEME', () => {
+  it("keeps today's Library/Profile background", () => {
+    expect(DEFAULT_THEME.bg.side).toEqual(['#1a1a2e', '#16213e', '#0f3460']);
+  });
+
   it("keeps today's tab bar colors", () => {
     expect(DEFAULT_THEME.nav).toEqual({
       bar: '#1a1a2e',

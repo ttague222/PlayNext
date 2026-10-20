@@ -15,7 +15,8 @@ export type { SeasonPalette } from './palette';
 type Gradient = [string, string, string];
 
 export type Theme = {
-  bg: { home: Gradient; flow: Gradient; decor: string | null };
+  /** home: Play tab. flow: quiz + results. side: Library, Profile and the screens they open. */
+  bg: { home: Gradient; flow: Gradient; side: Gradient; decor: string | null };
   accent: { season: string | null; brand: string; brandEnd: string };
   onAccent: { season: string | null; brand: string; brandSmall: string };
   glow: { brand: string };
@@ -33,6 +34,7 @@ export const DEFAULT_THEME: Theme = {
   bg: {
     home: ['#0a0a1a', '#1a1a2e', '#16213e'],
     flow: ['#0f0c29', '#302b63', '#24243e'],
+    side: ['#1a1a2e', '#16213e', '#0f3460'],
     decor: null,
   },
   accent: { season: null, brand: '#f857a6', brandEnd: '#ff5858' },
@@ -62,6 +64,7 @@ export function themeForPalette(palette: SeasonPalette | null | undefined): Them
     bg: {
       home: [stops[0], stops[1], stops[2]],
       flow: [stops[0], stops[1], stops[2]],
+      side: [stops[0], stops[1], stops[2]],
       decor: palette.bg_decor,
     },
     accent: { ...DEFAULT_THEME.accent, season: palette.accent_season },

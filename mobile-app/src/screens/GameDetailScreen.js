@@ -19,6 +19,7 @@ import {
 } from 'react-native';
 import { SafeAreaView } from 'react-native-safe-area-context';
 import { LinearGradient } from 'expo-linear-gradient';
+import { useTheme } from '../theme/ThemeContext';
 import { Ionicons } from '@expo/vector-icons';
 import { useNavigation, useRoute } from '@react-navigation/native';
 import api from '../services/api';
@@ -179,6 +180,7 @@ const STORE_CONFIG = {
 };
 
 const GameDetailScreen = () => {
+  const theme = useTheme();
   const navigation = useNavigation();
   const route = useRoute();
   const { gameId, gameTitle, bucketType, savedGameData } = route.params || {};
@@ -387,7 +389,7 @@ const GameDetailScreen = () => {
 
   if (loading) {
     return (
-      <LinearGradient colors={['#1a1a2e', '#16213e', '#0f3460']} style={styles.container}>
+      <LinearGradient colors={theme.bg.side} style={styles.container}>
         <SafeAreaView style={styles.safeArea} edges={['top', 'left', 'right', 'bottom']}>
           <View style={styles.loadingContainer}>
             <ActivityIndicator color="#f857a6" size="large" />
@@ -400,7 +402,7 @@ const GameDetailScreen = () => {
 
   if (error) {
     return (
-      <LinearGradient colors={['#1a1a2e', '#16213e', '#0f3460']} style={styles.container}>
+      <LinearGradient colors={theme.bg.side} style={styles.container}>
         <SafeAreaView style={styles.safeArea} edges={['top', 'left', 'right', 'bottom']}>
           <View style={styles.header}>
             <TouchableOpacity style={styles.backButton} onPress={() => navigation.goBack()} accessibilityLabel="Go back" accessibilityRole="button">
@@ -423,7 +425,7 @@ const GameDetailScreen = () => {
   const displayTitle = game?.title || gameTitle || 'Unknown Game';
 
   return (
-    <LinearGradient colors={['#1a1a2e', '#16213e', '#0f3460']} style={styles.container}>
+    <LinearGradient colors={theme.bg.side} style={styles.container}>
       {/* Off-screen share card, captured by handleShare */}
       <View style={styles.shareCardOffscreen} pointerEvents="none">
         <ShareCard ref={shareCardRef} picks={[game || { title: displayTitle }]} />
