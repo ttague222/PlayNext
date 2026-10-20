@@ -21,6 +21,7 @@ import { useNavigation } from '@react-navigation/native';
 import { LinearGradient } from 'expo-linear-gradient';
 import { Ionicons } from '@expo/vector-icons';
 import { useRecommendation } from '../context/RecommendationContext';
+import { useTheme } from '../theme/ThemeContext';
 
 const { width: SCREEN_WIDTH } = Dimensions.get('window');
 const GRID_PADDING = 24;
@@ -33,34 +34,35 @@ const MOOD_OPTIONS = [
     label: 'Wind Down',
     description: 'Relaxing, peaceful vibes',
     emoji: '😌',
-    color: '#7c3aed',
+    moodKey: 'windDown',
   },
   {
     value: 'casual',
     label: 'Casual',
     description: 'Light & easygoing',
     emoji: '🙂',
-    color: '#06b6d4',
+    moodKey: 'casual',
   },
   {
     value: 'focused',
     label: 'Focused',
     description: 'Ready to get immersed',
     emoji: '🎯',
-    color: '#f59e0b',
+    moodKey: 'focused',
   },
   {
     value: 'intense',
     label: 'Intense',
     description: 'Bring the challenge!',
     emoji: '🔥',
-    color: '#ef4444',
+    moodKey: 'intense',
   },
 ];
 
 const MoodSelectScreen = () => {
   const navigation = useNavigation();
   const { preferences, updatePreference } = useRecommendation();
+  const theme = useTheme();
   const [isNavigating, setIsNavigating] = useState(false);
 
   // Staggered animation for options
@@ -111,7 +113,7 @@ const MoodSelectScreen = () => {
 
   return (
     <LinearGradient
-      colors={['#0f0c29', '#302b63', '#24243e']}
+      colors={theme.bg.flow}
       style={styles.container}
     >
       <SafeAreaView style={styles.safeArea} edges={['top', 'left', 'right', 'bottom']}>
@@ -135,7 +137,7 @@ const MoodSelectScreen = () => {
           <View style={styles.progress}>
             <View style={[styles.progressDot, styles.progressComplete]} />
             <View style={[styles.progressLine, styles.progressLineComplete]} />
-            <View style={[styles.progressDot, styles.progressActive]} />
+            <View style={[styles.progressDot, styles.progressActive, { shadowColor: theme.glow.brand }]} />
             <View style={styles.progressLine} />
             <View style={styles.progressDot} />
           </View>
@@ -151,6 +153,7 @@ const MoodSelectScreen = () => {
             <View style={styles.gridRow}>
               {MOOD_OPTIONS.slice(0, 2).map((option, index) => {
                 const isSelected = preferences.energyMood === option.value;
+                const moodColor = theme.mood[option.moodKey];
 
                 return (
                   <Animated.View
@@ -175,7 +178,7 @@ const MoodSelectScreen = () => {
                       style={({ pressed }) => [
                         styles.optionButton,
                         isSelected && styles.optionSelected,
-                        isSelected && { borderColor: option.color },
+                        isSelected && { borderColor: moodColor },
                         pressed && styles.optionPressed,
                         isNavigating && styles.optionDisabled,
                       ]}
@@ -185,17 +188,17 @@ const MoodSelectScreen = () => {
                     >
                       {isSelected && (
                         <LinearGradient
-                          colors={[`${option.color}30`, `${option.color}10`]}
+                          colors={[`${moodColor}30`, `${moodColor}10`]}
                           style={StyleSheet.absoluteFill}
                         />
                       )}
                       <Text style={styles.emoji}>{option.emoji}</Text>
-                      <Text style={[styles.optionLabel, isSelected && { color: option.color }]}>
+                      <Text style={[styles.optionLabel, isSelected && { color: moodColor }]}>
                         {option.label}
                       </Text>
                       <Text style={styles.optionDescription}>{option.description}</Text>
                       {isSelected && (
-                        <View style={[styles.checkmark, { backgroundColor: option.color }]}>
+                        <View style={[styles.checkmark, { backgroundColor: moodColor }]}>
                           <Text style={styles.checkmarkText}>✓</Text>
                         </View>
                       )}
@@ -209,6 +212,7 @@ const MoodSelectScreen = () => {
               {MOOD_OPTIONS.slice(2, 4).map((option, index) => {
                 const actualIndex = index + 2;
                 const isSelected = preferences.energyMood === option.value;
+                const moodColor = theme.mood[option.moodKey];
 
                 return (
                   <Animated.View
@@ -233,7 +237,7 @@ const MoodSelectScreen = () => {
                       style={({ pressed }) => [
                         styles.optionButton,
                         isSelected && styles.optionSelected,
-                        isSelected && { borderColor: option.color },
+                        isSelected && { borderColor: moodColor },
                         pressed && styles.optionPressed,
                         isNavigating && styles.optionDisabled,
                       ]}
@@ -243,17 +247,17 @@ const MoodSelectScreen = () => {
                     >
                       {isSelected && (
                         <LinearGradient
-                          colors={[`${option.color}30`, `${option.color}10`]}
+                          colors={[`${moodColor}30`, `${moodColor}10`]}
                           style={StyleSheet.absoluteFill}
                         />
                       )}
                       <Text style={styles.emoji}>{option.emoji}</Text>
-                      <Text style={[styles.optionLabel, isSelected && { color: option.color }]}>
+                      <Text style={[styles.optionLabel, isSelected && { color: moodColor }]}>
                         {option.label}
                       </Text>
                       <Text style={styles.optionDescription}>{option.description}</Text>
                       {isSelected && (
-                        <View style={[styles.checkmark, { backgroundColor: option.color }]}>
+                        <View style={[styles.checkmark, { backgroundColor: moodColor }]}>
                           <Text style={styles.checkmarkText}>✓</Text>
                         </View>
                       )}

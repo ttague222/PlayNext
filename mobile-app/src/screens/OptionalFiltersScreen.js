@@ -22,6 +22,8 @@ import { LinearGradient } from 'expo-linear-gradient';
 import { Ionicons } from '@expo/vector-icons';
 import { useRecommendation } from '../context/RecommendationContext';
 import { usePremium } from '../context/PremiumContext';
+import { useTheme } from '../theme/ThemeContext';
+import { alpha } from '../theme/palette';
 import {
   lockedFilterAction,
   nextSingleSelectChip,
@@ -120,6 +122,7 @@ const getGenreOptionsForMood = (energyMood) => {
 
 const OptionalFiltersScreen = () => {
   const navigation = useNavigation();
+  const theme = useTheme();
   const { preferences, updatePreference, getRecommendations } = useRecommendation();
   const {
     dailyRerollCount,
@@ -215,7 +218,7 @@ const OptionalFiltersScreen = () => {
             >
               {isSelected && (
                 <LinearGradient
-                  colors={['rgba(248, 87, 166, 0.3)', 'rgba(255, 88, 88, 0.2)']}
+                  colors={[alpha(theme.accent.brand, 0.3), alpha(theme.accent.brandEnd, 0.2)]}
                   style={StyleSheet.absoluteFill}
                   start={{ x: 0, y: 0 }}
                   end={{ x: 1, y: 0 }}
@@ -235,7 +238,7 @@ const OptionalFiltersScreen = () => {
 
   return (
     <LinearGradient
-      colors={['#0f0c29', '#302b63', '#24243e']}
+      colors={theme.bg.flow}
       style={styles.container}
     >
       <SafeAreaView style={styles.safeArea} edges={['top', 'left', 'right', 'bottom']}>
@@ -257,7 +260,7 @@ const OptionalFiltersScreen = () => {
             <View style={[styles.progressLine, styles.progressLineComplete]} />
             <View style={[styles.progressDot, styles.progressComplete]} />
             <View style={[styles.progressLine, styles.progressLineComplete]} />
-            <View style={[styles.progressDot, styles.progressActive]} />
+            <View style={[styles.progressDot, styles.progressActive, { shadowColor: theme.glow.brand }]} />
           </View>
 
           {/* Header */}
@@ -543,13 +546,13 @@ const OptionalFiltersScreen = () => {
           {/* Get recommendations button */}
           <Animated.View style={{ transform: [{ scale: pulseAnim }] }}>
             <TouchableOpacity
-              style={[styles.ctaButton, (showingAd || isAdLoading) && styles.ctaButtonDisabled]}
+              style={[styles.ctaButton, { shadowColor: theme.glow.brand }, (showingAd || isAdLoading) && styles.ctaButtonDisabled]}
               onPress={handleGetRecommendations}
               activeOpacity={0.9}
               disabled={showingAd || isAdLoading}
             >
               <LinearGradient
-                colors={(showingAd || isAdLoading) ? ['#666', '#555'] : ['#f857a6', '#ff5858']}
+                colors={(showingAd || isAdLoading) ? ['#666', '#555'] : [theme.accent.brand, theme.accent.brandEnd]}
                 start={{ x: 0, y: 0 }}
                 end={{ x: 1, y: 0 }}
                 style={styles.ctaGradient}
