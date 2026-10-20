@@ -201,6 +201,16 @@ export function paletteViolations(palette: SeasonPalette): string[] {
     );
   }
 
+  // The tab bar takes the bottom stop and labels it in text.secondary.
+  const bottom = stops[2];
+  ratio = contrastRatio(TEXT_SECONDARY, bottom);
+  if (ratio < MIN_TEXT_CONTRAST) {
+    violations.push(
+      `contrast: text.secondary ${TEXT_SECONDARY} on bottom stop ${bottom} is ${ratio.toFixed(2)}:1 ` +
+        `(need >= ${MIN_TEXT_CONTRAST})`
+    );
+  }
+
   // First stop wins a luminance tie, as with Python's max().
   const lightest = stops.reduce((best, stop) =>
     relativeLuminance(stop) > relativeLuminance(best) ? stop : best

@@ -246,6 +246,8 @@ const PlayScreen = () => {
   );
   const season = activeSeason(seasonalContent, today);
   const collections = visibleCollections(season, today);
+  // Any card on screen: the feature pills and the stats bar give way to it.
+  const hasCards = tonightStatus !== 'hidden' || collections.length > 0;
 
   // Resolves to whether the picks actually opened: startTonightSession
   // rejects a cache with no games or no context.
@@ -393,7 +395,7 @@ const PlayScreen = () => {
 
         <ScrollView
           style={styles.contentScroll}
-          contentContainerStyle={styles.content}
+          contentContainerStyle={[styles.content, hasCards && styles.contentWithCards]}
           showsVerticalScrollIndicator={false}
         >
           {/* Center Icon */}
@@ -459,7 +461,7 @@ const PlayScreen = () => {
 
           {/* Feature Pills: the Tonight or a seasonal card replaces them once
               one shows (the screen would overflow into the stats bar) */}
-          {tonightStatus === 'hidden' && collections.length === 0 && (
+          {!hasCards && (
             <View style={styles.features}>
               <View style={styles.featurePill}>
                 <Ionicons name="time-outline" size={16} color="#a78bfa" />
@@ -477,25 +479,29 @@ const PlayScreen = () => {
           )}
         </ScrollView>
 
-        {/* Bottom Stats */}
-        <View style={styles.bottomSection}>
-          <View style={styles.statsRow}>
-            <View style={styles.statItem}>
-              <Text style={styles.statValue}>AI</Text>
-              <Text style={styles.statLabel}>Powered</Text>
-            </View>
-            <View style={styles.statDivider} />
-            <View style={styles.statItem}>
-              <Text style={styles.statValue}>5</Text>
-              <Text style={styles.statLabel}>Platforms</Text>
-            </View>
-            <View style={styles.statDivider} />
-            <View style={styles.statItem}>
-              <Text style={styles.statValue}>30s</Text>
-              <Text style={styles.statLabel}>To Decide</Text>
+        {/* Bottom Stats: decoration like the feature pills, so it gives way to
+            the cards. Pinned under the scroll view, it would cut off whichever
+            card sits lowest (Tonight + a seasonal card overflow most phones). */}
+        {!hasCards && (
+          <View style={styles.bottomSection}>
+            <View style={styles.statsRow}>
+              <View style={styles.statItem}>
+                <Text style={styles.statValue}>AI</Text>
+                <Text style={styles.statLabel}>Powered</Text>
+              </View>
+              <View style={styles.statDivider} />
+              <View style={styles.statItem}>
+                <Text style={styles.statValue}>5</Text>
+                <Text style={styles.statLabel}>Platforms</Text>
+              </View>
+              <View style={styles.statDivider} />
+              <View style={styles.statItem}>
+                <Text style={styles.statValue}>30s</Text>
+                <Text style={styles.statLabel}>To Decide</Text>
+              </View>
             </View>
           </View>
-        </View>
+        )}
       </SafeAreaView>
     </LinearGradient>
   );
@@ -539,6 +545,9 @@ const styles = StyleSheet.create({
     justifyContent: 'center',
     alignItems: 'center',
     paddingHorizontal: 24,
+  },
+  contentWithCards: {
+    paddingBottom: 24,
   },
   iconContainer: {
     marginBottom: 24,

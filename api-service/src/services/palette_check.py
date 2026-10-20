@@ -181,6 +181,15 @@ def palette_violations(palette: dict) -> List[str]:
             f"{ratio:.2f}:1 (need >= {MIN_TEXT_CONTRAST})"
         )
 
+    # The app's tab bar takes the bottom stop and labels it in text.secondary.
+    bottom = stops[2]
+    ratio = contrast_ratio(TEXT_SECONDARY, bottom)
+    if ratio < MIN_TEXT_CONTRAST:
+        violations.append(
+            f"contrast: text.secondary {TEXT_SECONDARY} on bottom stop {bottom} is "
+            f"{ratio:.2f}:1 (need >= {MIN_TEXT_CONTRAST})"
+        )
+
     lightest = max(stops, key=_relative_luminance)
     ratio = contrast_ratio(BRAND, lightest)
     if ratio < MIN_UI_CONTRAST:

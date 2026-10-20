@@ -7,7 +7,7 @@
  * - Profile: Settings and account management
  */
 
-import React, { useRef } from 'react';
+import React, { useMemo, useRef } from 'react';
 import { Platform } from 'react-native';
 import { NavigationContainer, createNavigationContainerRef } from '@react-navigation/native';
 import { logScreenView } from '../services/analyticsService';
@@ -19,6 +19,7 @@ import { createNativeStackNavigator } from '@react-navigation/native-stack';
 import { createBottomTabNavigator } from '@react-navigation/bottom-tabs';
 import { Ionicons } from '@expo/vector-icons';
 import { useSafeAreaInsets } from 'react-native-safe-area-context';
+import { useTheme } from '../theme/ThemeContext';
 
 // Play Flow Screens
 import PlayScreen from '../screens/PlayScreen';
@@ -51,21 +52,23 @@ const RootStack = createNativeStackNavigator();
 // why no URL is ever handed to the navigator itself.
 const linking = createLinking(navigationRef);
 
-const stackScreenOptions = {
+const stackScreenOptions = (screenColor) => ({
   headerShown: false,
   animation: 'slide_from_right',
   contentStyle: {
-    backgroundColor: '#1a1a2e',
+    backgroundColor: screenColor,
   },
-};
+});
 
 /**
  * Play Tab Stack
  * Contains the full recommendation flow
  */
 const PlayStack = () => {
+  const theme = useTheme();
+  const screenOptions = useMemo(() => stackScreenOptions(theme.nav.screen), [theme.nav.screen]);
   return (
-    <Stack.Navigator screenOptions={stackScreenOptions}>
+    <Stack.Navigator screenOptions={screenOptions}>
       <Stack.Screen name="PlayHome" component={PlayScreen} />
       <Stack.Screen name="TimeSelect" component={TimeSelectScreen} />
       <Stack.Screen name="MoodSelect" component={MoodSelectScreen} />
@@ -81,6 +84,7 @@ const PlayStack = () => {
  */
 const TabNavigator = () => {
   const insets = useSafeAreaInsets();
+  const theme = useTheme();
 
   // Calculate tab bar height based on platform and safe area
   // Android needs extra padding to avoid system navigation bar
@@ -100,15 +104,15 @@ const TabNavigator = () => {
       screenOptions={({ route }) => ({
         headerShown: false,
         tabBarStyle: {
-          backgroundColor: '#1a1a2e',
-          borderTopColor: '#2a2a4e',
+          backgroundColor: theme.nav.bar,
+          borderTopColor: theme.nav.border,
           borderTopWidth: 1,
           paddingTop: 8,
           paddingBottom: tabBarPaddingBottom,
           height: tabBarHeight,
         },
-        tabBarActiveTintColor: '#e94560',
-        tabBarInactiveTintColor: '#808080',
+        tabBarActiveTintColor: theme.nav.active,
+        tabBarInactiveTintColor: theme.nav.inactive,
         tabBarLabelStyle: {
           fontSize: 12,
           fontWeight: '500',

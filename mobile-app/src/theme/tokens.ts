@@ -25,6 +25,8 @@ export type Theme = {
   mood: { windDown: string; casual: string; focused: string; intense: string };
   overlay: { scrim: string };
   share: { gradient: Gradient };
+  /** Tab bar and the stack's backing color behind screens. */
+  nav: { bar: string; border: string; active: string; inactive: string; screen: string };
 };
 
 export const DEFAULT_THEME: Theme = {
@@ -44,6 +46,7 @@ export const DEFAULT_THEME: Theme = {
   mood: { windDown: '#7c3aed', casual: '#06b6d4', focused: '#f59e0b', intense: '#ef4444' },
   overlay: { scrim: '#0f0c29' },
   share: { gradient: ['#0f0c29', '#1a1a2e', '#16213e'] },
+  nav: { bar: '#1a1a2e', border: '#2a2a4e', active: '#e94560', inactive: '#808080', screen: '#1a1a2e' },
 };
 
 /**
@@ -64,5 +67,15 @@ export function themeForPalette(palette: SeasonPalette | null | undefined): Them
     accent: { ...DEFAULT_THEME.accent, season: palette.accent_season },
     onAccent: { ...DEFAULT_THEME.onAccent, season: palette.on_accent_season },
     overlay: { scrim: stops[0] },
+    // The bar takes the gradient's bottom stop so it reads as one surface with
+    // the screen above it. Labels use brand pink (active) and text.secondary
+    // (inactive); the guardrail checks text.secondary on that stop.
+    nav: {
+      bar: stops[2],
+      border: stops[1],
+      active: DEFAULT_THEME.accent.brand,
+      inactive: DEFAULT_THEME.text.secondary,
+      screen: stops[0],
+    },
   };
 }

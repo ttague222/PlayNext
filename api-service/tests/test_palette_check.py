@@ -83,6 +83,14 @@ def test_secondary_text_checked_on_middle_stop(spooky):
     assert any(TEXT_SECONDARY in v and "#4a4a6a" in v for v in violations)
 
 
+def test_secondary_text_checked_on_bottom_stop(spooky):
+    # The app's tab bar sits on the bottom stop with text.secondary labels.
+    # #4a4a6a passes white (>=4.5) but fails #a0a0a0 (<4.5).
+    bad = {**spooky, "bg_gradient": ["#0d0716", "#22103a", "#4a4a6a"]}
+    violations = palette_violations(bad)
+    assert any("bottom stop #4a4a6a" in v for v in violations)
+
+
 def test_brand_checked_on_lightest_stop_only(spooky):
     # Lightest stop (highest luminance) is the one measured, wherever it sits.
     bad = {**spooky, "bg_gradient": ["#d0d0e0", "#22103a", "#2e1546"]}

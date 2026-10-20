@@ -50,6 +50,11 @@ describe('paletteViolations', () => {
     expect(paletteViolations(light).some((v) => /text\.secondary.*middle stop #707070/.test(v))).toBe(true);
   });
 
+  it('flags secondary text that fails on the bottom stop (the tab bar)', () => {
+    const light = { ...paletteNamed('spooky'), bg_gradient: ['#0d0716', '#22103a', '#4a4a6a'] };
+    expect(paletteViolations(light).some((v) => /text\.secondary.*bottom stop #4a4a6a/.test(v))).toBe(true);
+  });
+
   it('flags brand pink that disappears against the lightest stop', () => {
     const pinkish = { ...paletteNamed('spooky'), bg_gradient: ['#0d0716', '#22103a', '#f857a6'] };
     expect(paletteViolations(pinkish).some((v) => /brand #f857a6 on lightest stop #f857a6/.test(v))).toBe(true);
@@ -130,6 +135,16 @@ describe('themeForPalette', () => {
     expect(theme.mood).toEqual(DEFAULT_THEME.mood);
     expect(theme.semantic).toEqual(DEFAULT_THEME.semantic);
     expect(theme.share).toEqual(DEFAULT_THEME.share);
+
+    // Tab bar: one surface with the screen's bottom stop, brand pink active,
+    // text.secondary inactive (the guardrail checks it on that stop).
+    expect(theme.nav).toEqual({
+      bar: '#2e1546',
+      border: '#22103a',
+      active: '#f857a6',
+      inactive: '#a0a0a0',
+      screen: '#0d0716',
+    });
   });
 
   it('does not alias the palette gradient array or mutate the default theme', () => {
@@ -143,6 +158,16 @@ describe('themeForPalette', () => {
 });
 
 describe('DEFAULT_THEME', () => {
+  it("keeps today's tab bar colors", () => {
+    expect(DEFAULT_THEME.nav).toEqual({
+      bar: '#1a1a2e',
+      border: '#2a2a4e',
+      active: '#e94560',
+      inactive: '#808080',
+      screen: '#1a1a2e',
+    });
+  });
+
   it('passes the guardrail text rules on its own flow gradient, including muted text', () => {
     const [, mid] = DEFAULT_THEME.bg.flow;
     expect(contrastRatio(DEFAULT_THEME.text.primary, mid)).toBeGreaterThanOrEqual(4.5);

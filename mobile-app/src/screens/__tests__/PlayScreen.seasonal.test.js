@@ -178,6 +178,19 @@ it('replaces the feature pills while a seasonal card is showing', async () => {
   expect(queryByText('Time-matched')).toBeNull();
 });
 
+it('drops the stats bar while a card shows, so it cannot cut the card off', async () => {
+  const { findByText, queryByText } = await render(<PlayScreen />);
+  await findByText('Hades');
+  expect(queryByText('To Decide')).toBeNull();
+});
+
+it('keeps the stats bar when no card shows', async () => {
+  localDateString.mockReturnValue('2026-10-25');
+  const { findByText, getByText } = await render(<PlayScreen />);
+  await findByText('Time-matched');
+  getByText('To Decide');
+});
+
 it('keeps the hero Start Playing CTA ahead of the seasonal card', async () => {
   const screen = await render(<PlayScreen />);
   await screen.findByText('Hades');

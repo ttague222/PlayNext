@@ -10,7 +10,7 @@ export const CHANGELOG = {
       {
         icon: 'leaf-outline',
         headline: 'Seasonal picks on the Play tab',
-        body: 'Each season now has a few picks made for it, like couch co-op for a long weekend. Tap one and you get three games that fit.',
+        body: "Starting November 1, each season has a few picks made for it, like couch co-op for when everyone's over. Tap one and you get three games that fit.",
       },
       {
         icon: 'color-palette-outline',
@@ -20,7 +20,7 @@ export const CHANGELOG = {
       {
         icon: 'skull-outline',
         headline: 'Horror for every mood',
-        body: 'The Horror filter is now there whatever mood you pick, not just when you want something intense.',
+        body: 'The Horror filter is now there whatever mood you pick, and there are a lot more horror games to choose from.',
       },
     ],
   },
