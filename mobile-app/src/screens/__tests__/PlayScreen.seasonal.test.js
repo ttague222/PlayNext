@@ -12,14 +12,16 @@ jest.mock('@react-navigation/native', () => ({
 jest.mock('expo-linear-gradient', () => ({ LinearGradient: ({ children }) => children ?? null }));
 
 const mockStartCollectionSession = jest.fn(() => true);
-const mockSavedPlatforms = ['pc'];
+// Mutable so a test can play the provider hydrating saved preferences after mount.
+const mockRec = { savedPlatforms: ['pc'], savedPreferencesLoaded: true };
 jest.mock('../../context/RecommendationContext', () => ({
   useRecommendation: () => ({
     startSession: jest.fn(),
     resetPreferences: jest.fn(),
     startTonightSession: jest.fn(() => true),
     startCollectionSession: mockStartCollectionSession,
-    savedPlatforms: mockSavedPlatforms,
+    savedPlatforms: mockRec.savedPlatforms,
+    savedPreferencesLoaded: mockRec.savedPreferencesLoaded,
   }),
 }));
 jest.mock('../../context/SavedGamesContext', () => ({
@@ -60,6 +62,7 @@ const COLLECTION_ID = 'harvest-2026-long-weekend';
 const PICKS = {
   date: '2026-11-05',
   collectionId: COLLECTION_ID,
+  platformFilter: 'pc',
   sessionId: 's1',
   games: [
     { game_id: 'hades', title: 'Hades' },
@@ -88,6 +91,67 @@ beforeEach(() => {
   loadSeasonalContent.mockImplementation(() => Promise.resolve(getCachedSeasonalContentSync()));
   fetchCollectionPicks.mockResolvedValue(PICKS);
   mockStartCollectionSession.mockReturnValue(true);
+  mockRec.savedPlatforms = ['pc'];
+  mockRec.savedPreferencesLoaded = true;
+});
+
+describe('saved platforms still loading at mount', () => {
+  // The provider hydrates savedPlatforms from storage after PlayScreen mounts.
+  const hydrate = async (screen, platforms) => {
+    mockRec.savedPlatforms = platforms;
+    mockRec.savedPreferencesLoaded = true;
+    await screen.rerender(<PlayScreen />);
+  };
+
+  beforeEach(() => {
+    mockRec.savedPlatforms = [];
+    mockRec.savedPreferencesLoaded = false;
+  });
+
+  it('holds the first picks fetch until they load, then fetches with them', async () => {
+    const screen = await render(<PlayScreen />);
+    await screen.findByTestId('seasonal-card-loading');
+    await act(async () => {
+      await Promise.resolve();
+    });
+    expect(fetchCollectionPicks).not.toHaveBeenCalled();
+
+    await hydrate(screen, ['switch']);
+    await screen.findByText('Hades');
+    expect(fetchCollectionPicks).toHaveBeenCalledTimes(1);
+    expect(fetchCollectionPicks).toHaveBeenCalledWith(harvestCollection(), { platforms: ['switch'] });
+  });
+
+  it('a tap before they load waits, then opens picks fetched with them', async () => {
+    const switchPicks = { ...PICKS, platformFilter: 'switch' };
+    fetchCollectionPicks.mockResolvedValue(switchPicks);
+    const screen = await render(<PlayScreen />);
+    await act(async () => {
+      fireEvent.press(await screen.findByTestId(`seasonal-card-${COLLECTION_ID}`));
+    });
+    expect(fetchCollectionPicks).not.toHaveBeenCalled();
+    expect(mockNavigate).not.toHaveBeenCalled();
+
+    await hydrate(screen, ['switch']);
+    await waitFor(() => expect(mockNavigate).toHaveBeenCalledWith('Results'));
+    expect(mockStartCollectionSession).toHaveBeenCalledWith(harvestCollection(), switchPicks);
+    expect(fetchCollectionPicks.mock.calls.every(([, opts]) => opts.platforms[0] === 'switch')).toBe(true);
+  });
+});
+
+it('a tap refetches when the saved platforms changed since the card loaded', async () => {
+  const screen = await render(<PlayScreen />);
+  await screen.findByText('Hades');
+  mockRec.savedPlatforms = ['switch'];
+  await screen.rerender(<PlayScreen />);
+  const switchPicks = { ...PICKS, platformFilter: 'switch', sessionId: 's2' };
+  fetchCollectionPicks.mockResolvedValue(switchPicks);
+  await act(async () => {
+    fireEvent.press(screen.getByTestId(`seasonal-card-${COLLECTION_ID}`));
+  });
+  await waitFor(() => expect(mockNavigate).toHaveBeenCalledWith('Results'));
+  expect(fetchCollectionPicks).toHaveBeenLastCalledWith(harvestCollection(), { platforms: ['switch'] });
+  expect(mockStartCollectionSession).toHaveBeenCalledWith(harvestCollection(), switchPicks);
 });
 
 it('shows the seasonal card in season, prefetching with the saved platforms', async () => {

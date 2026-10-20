@@ -19,6 +19,8 @@ jest.mock('../../context/RecommendationContext', () => ({
   useRecommendation: () => ({
     startSession: jest.fn(),
     resetPreferences: jest.fn(),
+    savedPlatforms: [],
+    savedPreferencesLoaded: true,
     startTonightSession: jest.fn(() => true),
   }),
 }));

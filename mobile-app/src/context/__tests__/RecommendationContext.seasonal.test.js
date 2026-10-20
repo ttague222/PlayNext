@@ -97,6 +97,33 @@ it('exposes the saved platform filter, empty by default', async () => {
   expect(ctx.savedPlatforms).toEqual([]);
 });
 
+it('flags saved preferences loaded once the mount hydration finishes', async () => {
+  let release;
+  AsyncStorage.getItem.mockImplementation(
+    (key) => new Promise((r) => {
+      if (key === '@playnxt_preferred_platforms') release = () => r(JSON.stringify(['switch']));
+      else r(null);
+    })
+  );
+  await renderCtx();
+  expect(ctx.savedPreferencesLoaded).toBe(false);
+  expect(ctx.savedPlatforms).toEqual([]);
+  await act(async () => {
+    release();
+  });
+  await waitFor(() => expect(ctx.savedPreferencesLoaded).toBe(true));
+  expect(ctx.savedPlatforms).toEqual(['switch']);
+});
+
+it('flags saved preferences loaded even when hydration fails', async () => {
+  const warn = jest.spyOn(console, 'warn').mockImplementation(() => {});
+  AsyncStorage.getItem.mockImplementation(() => Promise.reject(new Error('storage down')));
+  await renderCtx();
+  await waitFor(() => expect(ctx.savedPreferencesLoaded).toBe(true));
+  expect(ctx.savedPlatforms).toEqual([]);
+  warn.mockRestore();
+});
+
 it('seeds a session from the collection with no network call', async () => {
   await renderCtx();
   await act(async () => {

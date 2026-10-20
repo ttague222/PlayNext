@@ -88,6 +88,9 @@ export const RecommendationProvider = ({ children }) => {
   // Saved preferences (persisted across sessions)
   const [savedPlatforms, setSavedPlatforms] = useState([]);
   const [savedTimeAvailable, setSavedTimeAvailable] = useState(null);
+  // True once the mount hydration below has finished, whether or not it found
+  // anything. Until then savedPlatforms is a placeholder [], not the user's filter.
+  const [savedPreferencesLoaded, setSavedPreferencesLoaded] = useState(false);
 
   // Load saved preferences on mount
   useEffect(() => {
@@ -117,6 +120,8 @@ export const RecommendationProvider = ({ children }) => {
         }
       } catch (err) {
         console.warn('[RecommendationContext] Failed to load saved preferences:', err);
+      } finally {
+        setSavedPreferencesLoaded(true);
       }
     };
     loadSavedPreferences();
@@ -678,6 +683,7 @@ export const RecommendationProvider = ({ children }) => {
     shownGameIds,
     collectionId, // Seasonal collection behind the current session, else null
     savedPlatforms, // Saved platform filter (read-only); seasonal cards fetch with it
+    savedPreferencesLoaded, // True once savedPlatforms reflects storage (read-only)
     historyVersion, // Increments when signals are recorded, used to trigger history refresh
 
     // Actions

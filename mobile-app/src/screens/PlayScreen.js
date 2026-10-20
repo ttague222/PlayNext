@@ -31,6 +31,7 @@ import {
   activeSeason,
   visibleCollections,
   fetchCollectionPicks,
+  platformFilterKey,
 } from '../services/seasonalService';
 import { maybeOfferTonightReminder } from '../utils/tonightReminderPrompt';
 import { logSeasonalViewedOnce } from '../utils/seasonalViewed';
@@ -47,13 +48,28 @@ const isTodaysCache = (cache) => Boolean(cache) && cache.date === localDateStrin
 // Taps on a seasonal card closer together than this count as one.
 const DOUBLE_TAP_MS = 1000;
 
+// A promise, stable for the component's life, that resolves the first time
+// `ready` is true.
+const useReadyPromise = (ready) => {
+  const ref = useRef(null);
+  if (!ref.current) {
+    let resolve;
+    const promise = new Promise((r) => { resolve = r; });
+    ref.current = { promise, resolve };
+  }
+  useEffect(() => {
+    if (ready) ref.current.resolve();
+  }, [ready]);
+  return ref.current.promise;
+};
+
 // One seasonal collection: prefetches today's picks on focus (the service
 // caches per collection per local date and shares one in-flight request),
 // logs its daily view, and opens the picks on tap. Mirrors the Tonight card's
 // state and tap flow, kept per collection so two cards load independently.
 const SeasonalCollection = ({ collection, season, showHeaderImage, dateKey }) => {
   const navigation = useNavigation();
-  const { startCollectionSession, savedPlatforms } = useRecommendation();
+  const { startCollectionSession, savedPlatforms, savedPreferencesLoaded } = useRecommendation();
   const [status, setStatus] = useState('loading'); // hidden | loading | ready | error
   const [picks, setPicks] = useState(null);
 
@@ -66,11 +82,16 @@ const SeasonalCollection = ({ collection, season, showHeaderImage, dateKey }) =>
   collectionRef.current = collection;
   const mountedRef = useRef(true);
   useEffect(() => () => { mountedRef.current = false; }, []);
+  // The provider hydrates savedPlatforms from storage after this mounts; until
+  // it has, platformsRef holds a placeholder [] and a fetch would go out
+  // unfiltered and be cached for the day. Every load waits for it.
+  const savedPlatformsReady = useReadyPromise(savedPreferencesLoaded);
 
   // Resolves to today's picks, or null when there are none to show or the
   // load failed (the card then shows an empty-hidden or error state).
   const load = useCallback(async () => {
     if (mountedRef.current) setStatus((s) => (s === 'ready' ? s : 'loading'));
+    await savedPlatformsReady;
     try {
       const fresh = await fetchCollectionPicks(collectionRef.current, { platforms: platformsRef.current });
       if (!mountedRef.current) return fresh.games.length > 0 ? fresh : null;
@@ -85,7 +106,7 @@ const SeasonalCollection = ({ collection, season, showHeaderImage, dateKey }) =>
       if (mountedRef.current) setStatus('error');
       return null;
     }
-  }, []);
+  }, [savedPlatformsReady]);
 
   useFocusEffect(
     useCallback(() => {
@@ -108,8 +129,13 @@ const SeasonalCollection = ({ collection, season, showHeaderImage, dateKey }) =>
     try {
       logEvent('seasonal_collection_tapped', { collection_id: collection.id, season_id: season.id });
       // fetchCollectionPicks answers from the day's cache, so re-asking is
-      // cheap and also covers a card left open across midnight.
-      const ready = status === 'ready' && picks?.date === localDateString() ? picks : await load();
+      // cheap and also covers a card left open across midnight or a change
+      // of saved platforms since the card loaded.
+      const current =
+        status === 'ready' &&
+        picks?.date === localDateString() &&
+        picks?.platformFilter === platformFilterKey(platformsRef.current);
+      const ready = current ? picks : await load();
       if (ready && startCollectionSession(collection, ready)) {
         lastOpenedRef.current = Date.now();
         navigation.navigate('Results');
