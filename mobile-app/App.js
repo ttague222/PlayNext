@@ -22,6 +22,9 @@ import { SavedGamesProvider } from './src/context/SavedGamesContext';
 // Navigation
 import AppNavigator, { navigationRef } from './src/navigation/AppNavigator';
 
+// Seasonal theme
+import { SeasonalThemeRoot } from './src/theme/SeasonalThemeRoot';
+
 // Onboarding
 import WelcomeScreen, { hasSeenWelcome } from './src/screens/WelcomeScreen';
 
@@ -164,18 +167,20 @@ const App = () => {
   return (
     <GestureHandlerRootView style={{ flex: 1 }}>
       <SafeAreaProvider>
-        <AuthProvider>
-          <AdProvider>
-            <PremiumProvider>
-              <SavedGamesProvider>
-                <RecommendationProvider>
-                  <StatusBar style="light" />
-                  <AppNavigator />
-                </RecommendationProvider>
-              </SavedGamesProvider>
-            </PremiumProvider>
-          </AdProvider>
-        </AuthProvider>
+        <SeasonalThemeRoot>
+          <AuthProvider>
+            <AdProvider>
+              <PremiumProvider>
+                <SavedGamesProvider>
+                  <RecommendationProvider>
+                    <StatusBar style="light" />
+                    <AppNavigator />
+                  </RecommendationProvider>
+                </SavedGamesProvider>
+              </PremiumProvider>
+            </AdProvider>
+          </AuthProvider>
+        </SeasonalThemeRoot>
         {/* Follow-up push modal — inside SafeAreaProvider so useSafeAreaInsets works */}
         <FollowUpModal
           visible={!!followUpData}
