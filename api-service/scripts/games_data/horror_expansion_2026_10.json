@@ -1,0 +1,3748 @@
+[
+  {
+    "id": "luigis-mansion-2-hd",
+    "title": "Luigi's Mansion 2 HD",
+    "platforms": [
+      "switch"
+    ],
+    "year": 2024,
+    "genres": [
+      "horror",
+      "adventure",
+      "puzzle",
+      "ghost"
+    ],
+    "time_tags": [
+      30,
+      60,
+      90
+    ],
+    "energy": "low",
+    "moods": [
+      "charming",
+      "funny",
+      "spooky",
+      "cute"
+    ],
+    "play_style": [
+      "puzzle",
+      "action"
+    ],
+    "time_to_fun": "short",
+    "stop_friendliness": "checkpoints",
+    "multiplayer": [
+      "solo",
+      "local_coop",
+      "online_coop"
+    ],
+    "description": "Luigi vacuums up ghosts across a series of haunted mansions, one bite-sized mission at a time, with a co-op tower mode for up to four.",
+    "fun_fact": null,
+    "subscriptions": [],
+    "store_links": {
+      "nintendo": "https://www.nintendo.com/us/store/products/luigis-mansion-2-hd-switch/"
+    },
+    "content_warnings": [
+      "cartoon_violence"
+    ]
+  },
+  {
+    "id": "costume-quest",
+    "title": "Costume Quest",
+    "platforms": [
+      "pc",
+      "xbox"
+    ],
+    "year": 2010,
+    "genres": [
+      "horror",
+      "rpg",
+      "turn-based",
+      "comedy"
+    ],
+    "time_tags": [
+      30,
+      60,
+      90
+    ],
+    "energy": "low",
+    "moods": [
+      "charming",
+      "funny",
+      "whimsical",
+      "nostalgic"
+    ],
+    "play_style": [
+      "narrative",
+      "strategy"
+    ],
+    "time_to_fun": "short",
+    "stop_friendliness": "checkpoints",
+    "multiplayer": [
+      "solo"
+    ],
+    "description": "Trick-or-treat through the suburbs, a mall and a carnival, where your Halloween costume turns into the real thing in turn-based fights against monsters.",
+    "fun_fact": null,
+    "subscriptions": [
+      "xbox_game_pass"
+    ],
+    "store_links": {
+      "steam": "https://store.steampowered.com/app/115100/",
+      "xbox": "https://www.xbox.com/en-US/games/store/costume-quest/BR74RLMH966K",
+      "gog": "https://www.gog.com/en/game/costume_quest"
+    },
+    "content_warnings": [
+      "cartoon_violence"
+    ]
+  },
+  {
+    "id": "costume-quest-2",
+    "title": "Costume Quest 2",
+    "platforms": [
+      "pc",
+      "playstation",
+      "xbox"
+    ],
+    "year": 2014,
+    "genres": [
+      "horror",
+      "rpg",
+      "turn-based",
+      "comedy"
+    ],
+    "time_tags": [
+      30,
+      60,
+      90
+    ],
+    "energy": "low",
+    "moods": [
+      "charming",
+      "funny",
+      "whimsical",
+      "nostalgic"
+    ],
+    "play_style": [
+      "narrative",
+      "strategy"
+    ],
+    "time_to_fun": "short",
+    "stop_friendliness": "checkpoints",
+    "multiplayer": [
+      "solo"
+    ],
+    "description": "The Halloween RPG sequel: travel through time to stop a candy-hating dentist, with costumes that become heroes in turn-based fights.",
+    "fun_fact": null,
+    "subscriptions": [
+      "xbox_game_pass"
+    ],
+    "store_links": {
+      "steam": "https://store.steampowered.com/app/275180/",
+      "playstation": "https://store.playstation.com/en-us/product/UP1012-CUSA01202_00-COSTUMEQUEST0000",
+      "xbox": "https://www.xbox.com/en-US/games/store/costume-quest-2/BZ92FB6PWXFJ",
+      "gog": "https://www.gog.com/en/game/costume_quest_2"
+    },
+    "content_warnings": [
+      "cartoon_violence"
+    ]
+  },
+  {
+    "id": "pumpkin-jack",
+    "title": "Pumpkin Jack",
+    "platforms": [
+      "pc",
+      "playstation",
+      "xbox",
+      "switch"
+    ],
+    "year": 2020,
+    "genres": [
+      "horror",
+      "platformer",
+      "action",
+      "3d"
+    ],
+    "time_tags": [
+      30,
+      60
+    ],
+    "energy": "medium",
+    "moods": [
+      "charming",
+      "spooky",
+      "funny",
+      "nostalgic"
+    ],
+    "play_style": [
+      "action"
+    ],
+    "time_to_fun": "short",
+    "stop_friendliness": "checkpoints",
+    "multiplayer": [
+      "solo"
+    ],
+    "description": "A Halloween 3D action platformer where you play the Devil's pumpkin-headed champion, smashing skeletons and crows across spooky levels.",
+    "fun_fact": null,
+    "subscriptions": [],
+    "store_links": {
+      "steam": "https://store.steampowered.com/app/1186640/",
+      "playstation": "https://store.playstation.com/en-us/product/UP0825-PPSA03446_00-PUMPKINJACKSIEA5",
+      "xbox": "https://www.xbox.com/en-US/games/store/p/9N7TB1SB2M0K",
+      "nintendo": "https://www.nintendo.com/us/store/products/pumpkin-jack-switch/",
+      "gog": "https://www.gog.com/en/game/pumpkin_jack"
+    },
+    "content_warnings": [
+      "fantasy_violence"
+    ]
+  },
+  {
+    "id": "medievil-2019",
+    "title": "MediEvil",
+    "platforms": [
+      "playstation"
+    ],
+    "year": 2019,
+    "genres": [
+      "horror",
+      "action-adventure",
+      "remake",
+      "comedy"
+    ],
+    "time_tags": [
+      30,
+      60,
+      90
+    ],
+    "energy": "medium",
+    "moods": [
+      "funny",
+      "charming",
+      "gothic",
+      "nostalgic"
+    ],
+    "play_style": [
+      "action"
+    ],
+    "time_to_fun": "short",
+    "stop_friendliness": "checkpoints",
+    "multiplayer": [
+      "solo"
+    ],
+    "description": "Sir Daniel Fortesque, a clumsy skeleton knight raised from the dead, hacks through a cartoon-gothic kingdom in this remake of the PlayStation classic.",
+    "fun_fact": null,
+    "subscriptions": [
+      "playstation_plus"
+    ],
+    "store_links": {
+      "playstation": "https://store.playstation.com/en-us/product/UP9000-CUSA11227_00-MEDIEVILHD000001"
+    },
+    "content_warnings": [
+      "fantasy_violence"
+    ]
+  },
+  {
+    "id": "excavation-of-hobs-barrow",
+    "title": "The Excavation of Hob's Barrow",
+    "platforms": [
+      "pc",
+      "switch"
+    ],
+    "year": 2022,
+    "genres": [
+      "horror",
+      "point-and-click",
+      "adventure",
+      "folk-horror"
+    ],
+    "time_tags": [
+      30,
+      60,
+      90
+    ],
+    "energy": "low",
+    "moods": [
+      "atmospheric",
+      "mysterious",
+      "dark",
+      "unsettling"
+    ],
+    "play_style": [
+      "narrative",
+      "puzzle"
+    ],
+    "time_to_fun": "short",
+    "stop_friendliness": "anytime",
+    "multiplayer": [
+      "solo"
+    ],
+    "description": "A point-and-click folk horror mystery: a Victorian antiquarian comes to a remote moorland village to dig up a burial mound the locals want left alone.",
+    "fun_fact": null,
+    "subscriptions": [],
+    "store_links": {
+      "steam": "https://store.steampowered.com/app/1182310/",
+      "nintendo": "https://www.nintendo.com/us/store/products/the-excavation-of-hobs-barrow-switch/",
+      "gog": "https://www.gog.com/en/game/the_excavation_of_hobs_barrow"
+    },
+    "content_warnings": [
+      "horror_elements",
+      "mature_themes"
+    ]
+  },
+  {
+    "id": "the-last-door",
+    "title": "The Last Door",
+    "platforms": [
+      "pc",
+      "playstation",
+      "xbox",
+      "switch",
+      "mobile"
+    ],
+    "year": 2019,
+    "genres": [
+      "horror",
+      "point-and-click",
+      "adventure",
+      "lovecraftian"
+    ],
+    "time_tags": [
+      30,
+      60
+    ],
+    "energy": "low",
+    "moods": [
+      "atmospheric",
+      "mysterious",
+      "dark",
+      "retro"
+    ],
+    "play_style": [
+      "narrative",
+      "puzzle"
+    ],
+    "time_to_fun": "short",
+    "stop_friendliness": "anytime",
+    "multiplayer": [
+      "solo"
+    ],
+    "description": "A pixel-art point-and-click horror in Victorian England, where a letter from an old school friend pulls Jeremiah Devitt into something that should have stayed buried.",
+    "fun_fact": null,
+    "subscriptions": [],
+    "store_links": {
+      "steam": "https://store.steampowered.com/app/284390/",
+      "playstation": "https://store.playstation.com/en-us/product/UP1309-CUSA14104_00-0000000000000000",
+      "xbox": "https://www.xbox.com/en-US/games/store/p/9NL7M00G95C0",
+      "nintendo": "https://www.nintendo.com/us/store/products/the-last-door-complete-edition-switch/",
+      "gog": "https://www.gog.com/en/game/last_door_collectors_edition_the",
+      "ios": "https://apps.apple.com/us/app/the-last-door-collectors-edition/id926347646"
+    },
+    "content_warnings": [
+      "horror_elements"
+    ]
+  },
+  {
+    "id": "creepy-tale",
+    "title": "Creepy Tale",
+    "platforms": [
+      "pc",
+      "playstation"
+    ],
+    "year": 2020,
+    "genres": [
+      "horror",
+      "puzzle",
+      "adventure",
+      "indie"
+    ],
+    "time_tags": [
+      30,
+      60
+    ],
+    "energy": "low",
+    "moods": [
+      "atmospheric",
+      "dark",
+      "artistic",
+      "mysterious"
+    ],
+    "play_style": [
+      "puzzle"
+    ],
+    "time_to_fun": "short",
+    "stop_friendliness": "checkpoints",
+    "multiplayer": [
+      "solo"
+    ],
+    "description": "A short hand-drawn puzzle adventure through a dangerous fairy-tale forest, slipping past its monsters to uncover its secrets.",
+    "fun_fact": null,
+    "subscriptions": [],
+    "store_links": {
+      "steam": "https://store.steampowered.com/app/1224020/",
+      "playstation": "https://store.playstation.com/en-us/product/UP6673-CUSA30095_00-1998452081533309"
+    },
+    "content_warnings": [
+      "horror_elements"
+    ]
+  },
+  {
+    "id": "darq",
+    "title": "DARQ",
+    "platforms": [
+      "pc",
+      "playstation",
+      "xbox",
+      "switch"
+    ],
+    "year": 2019,
+    "genres": [
+      "horror",
+      "puzzle",
+      "indie",
+      "psychological"
+    ],
+    "time_tags": [
+      30,
+      60
+    ],
+    "energy": "low",
+    "moods": [
+      "surreal",
+      "dreamlike",
+      "unsettling",
+      "atmospheric"
+    ],
+    "play_style": [
+      "puzzle"
+    ],
+    "time_to_fun": "short",
+    "stop_friendliness": "checkpoints",
+    "multiplayer": [
+      "solo"
+    ],
+    "description": "Lloyd knows he is dreaming, so he bends gravity and the dream's rules to solve puzzles while staying hidden from what lives in the dark.",
+    "fun_fact": null,
+    "subscriptions": [],
+    "store_links": {
+      "steam": "https://store.steampowered.com/app/433550/",
+      "gog": "https://www.gog.com/en/game/darq",
+      "playstation": "https://store.playstation.com/en-us/product/UP3528-PPSA08711_00-0611380116610869",
+      "xbox": "https://www.xbox.com/en-US/games/store/p/9PHT99P0SM47",
+      "nintendo": "https://www.nintendo.com/us/store/products/darq-ultimate-edition-switch/"
+    },
+    "content_warnings": [
+      "horror_elements"
+    ]
+  },
+  {
+    "id": "sucker-for-love-first-date",
+    "title": "Sucker for Love: First Date",
+    "platforms": [
+      "pc",
+      "switch"
+    ],
+    "year": 2022,
+    "genres": [
+      "horror",
+      "dating-sim",
+      "comedy",
+      "lovecraftian"
+    ],
+    "time_tags": [
+      30,
+      60
+    ],
+    "energy": "low",
+    "moods": [
+      "funny",
+      "quirky",
+      "creepy",
+      "romantic"
+    ],
+    "play_style": [
+      "narrative",
+      "puzzle"
+    ],
+    "time_to_fun": "short",
+    "stop_friendliness": "checkpoints",
+    "multiplayer": [
+      "solo"
+    ],
+    "description": "A comedy dating sim where you try to romance Lovecraftian elder gods by performing summoning rituals in your apartment without losing your mind.",
+    "fun_fact": null,
+    "subscriptions": [],
+    "store_links": {
+      "steam": "https://store.steampowered.com/app/1574270/",
+      "nintendo": "https://www.nintendo.com/us/store/products/sucker-for-love-first-date-switch/",
+      "gog": "https://www.gog.com/en/game/sucker_for_love_first_date"
+    },
+    "content_warnings": [
+      "horror_elements",
+      "mature_themes"
+    ]
+  },
+  {
+    "id": "slay-the-princess",
+    "title": "Slay the Princess",
+    "platforms": [
+      "pc",
+      "playstation",
+      "xbox",
+      "switch"
+    ],
+    "year": 2023,
+    "genres": [
+      "horror",
+      "visual-novel",
+      "narrative",
+      "psychological"
+    ],
+    "time_tags": [
+      30,
+      60,
+      90
+    ],
+    "energy": "low",
+    "moods": [
+      "mysterious",
+      "dark",
+      "thought-provoking",
+      "surprising"
+    ],
+    "play_style": [
+      "narrative"
+    ],
+    "time_to_fun": "short",
+    "stop_friendliness": "anytime",
+    "multiplayer": [
+      "solo"
+    ],
+    "description": "A branching horror visual novel: you are sent to slay a princess locked in a cabin basement, and every choice you make changes who she becomes.",
+    "fun_fact": null,
+    "subscriptions": [],
+    "store_links": {
+      "steam": "https://store.steampowered.com/app/1989270/",
+      "gog": "https://www.gog.com/en/game/slay_the_princess",
+      "playstation": "https://store.playstation.com/en-us/product/UP0604-PPSA24423_00-0301710383857745",
+      "xbox": "https://www.xbox.com/en-US/games/store/p/9PG84GGVTSQV",
+      "nintendo": "https://www.nintendo.com/us/store/products/slay-the-princess-the-pristine-cut-switch/"
+    },
+    "content_warnings": [
+      "horror_elements",
+      "violence",
+      "mature_themes"
+    ]
+  },
+  {
+    "id": "ib",
+    "title": "Ib",
+    "platforms": [
+      "pc",
+      "playstation",
+      "switch"
+    ],
+    "year": 2022,
+    "genres": [
+      "horror",
+      "adventure",
+      "puzzle",
+      "pixel-art"
+    ],
+    "time_tags": [
+      30,
+      60,
+      90
+    ],
+    "energy": "low",
+    "moods": [
+      "mysterious",
+      "unsettling",
+      "artistic",
+      "charming"
+    ],
+    "play_style": [
+      "narrative",
+      "puzzle"
+    ],
+    "time_to_fun": "short",
+    "stop_friendliness": "checkpoints",
+    "multiplayer": [
+      "solo"
+    ],
+    "description": "A young girl visiting an art gallery gets pulled into a living exhibit, where she solves puzzles to escape as the paintings turn on her.",
+    "fun_fact": null,
+    "subscriptions": [],
+    "store_links": {
+      "steam": "https://store.steampowered.com/app/1901370/",
+      "playstation": "https://store.playstation.com/en-us/product/UP0969-PPSA17837_00-0218418806788350",
+      "nintendo": "https://www.nintendo.com/us/store/products/ib-switch/"
+    },
+    "content_warnings": [
+      "horror_elements"
+    ]
+  },
+  {
+    "id": "witchs-house-mv",
+    "title": "The Witch's House MV",
+    "platforms": [
+      "pc",
+      "playstation",
+      "xbox",
+      "switch"
+    ],
+    "year": 2018,
+    "genres": [
+      "horror",
+      "adventure",
+      "puzzle",
+      "pixel-art"
+    ],
+    "time_tags": [
+      30,
+      60
+    ],
+    "energy": "low",
+    "moods": [
+      "creepy",
+      "mysterious",
+      "dark"
+    ],
+    "play_style": [
+      "puzzle",
+      "narrative"
+    ],
+    "time_to_fun": "short",
+    "stop_friendliness": "checkpoints",
+    "multiplayer": [
+      "solo"
+    ],
+    "description": "Viola wanders into a witch's house in the forest and has to survive its deadly puzzle rooms to get back out.",
+    "fun_fact": null,
+    "subscriptions": [],
+    "store_links": {
+      "steam": "https://store.steampowered.com/app/885810/",
+      "gog": "https://www.gog.com/en/game/the_witchs_house_mv",
+      "playstation": "https://store.playstation.com/en-us/product/UP4127-CUSA35243_00-TWHMVUS000000000",
+      "xbox": "https://www.xbox.com/en-US/games/store/p/9PG7WQWL1DXB",
+      "nintendo": "https://www.nintendo.com/us/store/products/the-witchs-house-mv-switch/"
+    },
+    "content_warnings": [
+      "horror_elements",
+      "violence"
+    ]
+  },
+  {
+    "id": "corpse-party",
+    "title": "Corpse Party (2021)",
+    "platforms": [
+      "pc",
+      "playstation",
+      "xbox",
+      "switch"
+    ],
+    "year": 2021,
+    "genres": [
+      "horror",
+      "adventure",
+      "visual-novel",
+      "pixel-art"
+    ],
+    "time_tags": [
+      30,
+      60,
+      90
+    ],
+    "energy": "low",
+    "moods": [
+      "dark",
+      "disturbing",
+      "mysterious",
+      "story-rich"
+    ],
+    "play_style": [
+      "narrative",
+      "puzzle"
+    ],
+    "time_to_fun": "short",
+    "stop_friendliness": "checkpoints",
+    "multiplayer": [
+      "solo"
+    ],
+    "description": "Students try a friendship charm after school and wake up trapped in a haunted elementary school, in a pixel-art horror adventure known for its gore.",
+    "fun_fact": null,
+    "subscriptions": [],
+    "store_links": {
+      "steam": "https://store.steampowered.com/app/1273260/",
+      "gog": "https://www.gog.com/en/game/corpse_party_2021",
+      "playstation": "https://store.playstation.com/en-us/product/UP1023-CUSA25281_00-CORPSEPARTYBCRF0",
+      "xbox": "https://www.xbox.com/en-US/games/store/p/9P4JJ53K8CRF",
+      "nintendo": "https://www.nintendo.com/us/store/products/corpse-party-switch/"
+    },
+    "content_warnings": [
+      "gore",
+      "violence",
+      "mature_themes"
+    ]
+  },
+  {
+    "id": "paranormasight",
+    "title": "PARANORMASIGHT: The Seven Mysteries of Honjo",
+    "platforms": [
+      "pc",
+      "switch",
+      "mobile"
+    ],
+    "year": 2023,
+    "genres": [
+      "horror",
+      "mystery",
+      "visual-novel",
+      "adventure"
+    ],
+    "time_tags": [
+      30,
+      60,
+      90
+    ],
+    "energy": "low",
+    "moods": [
+      "mysterious",
+      "story-rich",
+      "creepy",
+      "intriguing"
+    ],
+    "play_style": [
+      "narrative",
+      "puzzle"
+    ],
+    "time_to_fun": "short",
+    "stop_friendliness": "anytime",
+    "multiplayer": [
+      "solo"
+    ],
+    "description": "A branching horror mystery in 1980s Tokyo, where people given curse powers by local ghost stories compete over a ritual said to bring back the dead.",
+    "fun_fact": null,
+    "subscriptions": [],
+    "store_links": {
+      "steam": "https://store.steampowered.com/app/2106840/",
+      "nintendo": "https://www.nintendo.com/us/store/products/paranormasight-the-seven-mysteries-of-honjo-switch/",
+      "ios": "https://apps.apple.com/us/app/paranormasight/id6443444225",
+      "android": "https://play.google.com/store/apps/details?id=com.square_enix.android_googleplay.paranoma"
+    },
+    "content_warnings": [
+      "horror_elements",
+      "violence"
+    ]
+  },
+  {
+    "id": "emio-the-smiling-man",
+    "title": "Emio - The Smiling Man: Famicom Detective Club",
+    "platforms": [
+      "switch"
+    ],
+    "year": 2024,
+    "genres": [
+      "horror",
+      "mystery",
+      "detective",
+      "visual-novel"
+    ],
+    "time_tags": [
+      30,
+      60,
+      90
+    ],
+    "energy": "low",
+    "moods": [
+      "mysterious",
+      "story-rich",
+      "dark"
+    ],
+    "play_style": [
+      "narrative",
+      "puzzle"
+    ],
+    "time_to_fun": "short",
+    "stop_friendliness": "anytime",
+    "multiplayer": [
+      "solo"
+    ],
+    "description": "A detective adventure about a murdered student found wearing a paper bag with a smile drawn on it, and the urban legend that seems to explain it.",
+    "fun_fact": null,
+    "subscriptions": [],
+    "store_links": {
+      "nintendo": "https://www.nintendo.com/us/store/products/emio-the-smiling-man-famicom-detective-club-switch/"
+    },
+    "content_warnings": [
+      "violence",
+      "mature_themes"
+    ]
+  },
+  {
+    "id": "spirit-hunter-death-mark",
+    "title": "Spirit Hunter: Death Mark",
+    "platforms": [
+      "pc",
+      "playstation",
+      "switch"
+    ],
+    "year": 2018,
+    "genres": [
+      "horror",
+      "visual-novel",
+      "mystery",
+      "adventure"
+    ],
+    "time_tags": [
+      30,
+      60,
+      90
+    ],
+    "energy": "low",
+    "moods": [
+      "creepy",
+      "mysterious",
+      "dark"
+    ],
+    "play_style": [
+      "narrative",
+      "puzzle"
+    ],
+    "time_to_fun": "short",
+    "stop_friendliness": "anytime",
+    "multiplayer": [
+      "solo"
+    ],
+    "description": "Branded with a mark that kills whoever carries it, an amnesiac man investigates urban legends and the spirits behind them before it's too late.",
+    "fun_fact": null,
+    "subscriptions": [],
+    "store_links": {
+      "steam": "https://store.steampowered.com/app/980830/",
+      "playstation": "https://store.playstation.com/en-us/product/UP1024-CUSA12916_00-EXPHORROR2018HRP",
+      "nintendo": "https://www.nintendo.com/us/store/products/spirit-hunter-death-mark-switch/"
+    },
+    "content_warnings": [
+      "horror_elements",
+      "violence"
+    ]
+  },
+  {
+    "id": "children-of-silentown",
+    "title": "Children of Silentown",
+    "platforms": [
+      "pc",
+      "playstation",
+      "xbox",
+      "switch"
+    ],
+    "year": 2023,
+    "genres": [
+      "horror",
+      "point-and-click",
+      "adventure",
+      "indie"
+    ],
+    "time_tags": [
+      30,
+      60,
+      90
+    ],
+    "energy": "low",
+    "moods": [
+      "dark",
+      "charming",
+      "mysterious",
+      "artistic"
+    ],
+    "play_style": [
+      "narrative",
+      "puzzle"
+    ],
+    "time_to_fun": "short",
+    "stop_friendliness": "checkpoints",
+    "multiplayer": [
+      "solo"
+    ],
+    "description": "Lucy grows up in a village surrounded by a monster-filled forest where people keep going missing, and sets out to find out why.",
+    "fun_fact": null,
+    "subscriptions": [],
+    "store_links": {
+      "steam": "https://store.steampowered.com/app/1108000/",
+      "gog": "https://www.gog.com/en/game/children_of_silentown",
+      "playstation": "https://store.playstation.com/en-us/product/UP1440-PPSA08688_00-XXXXXXXXXXXXXXXX",
+      "xbox": "https://www.xbox.com/en-US/games/store/p/9P5V25SV9NV3",
+      "nintendo": "https://www.nintendo.com/us/store/products/children-of-silentown-switch/"
+    },
+    "content_warnings": [
+      "horror_elements"
+    ]
+  },
+  {
+    "id": "rusty-lake-hotel",
+    "title": "Rusty Lake Hotel",
+    "platforms": [
+      "pc",
+      "mobile"
+    ],
+    "year": 2015,
+    "genres": [
+      "horror",
+      "puzzle",
+      "point-and-click",
+      "escape-room"
+    ],
+    "time_tags": [
+      15,
+      30,
+      60
+    ],
+    "energy": "low",
+    "moods": [
+      "surreal",
+      "mysterious",
+      "dark",
+      "clever"
+    ],
+    "play_style": [
+      "puzzle"
+    ],
+    "time_to_fun": "short",
+    "stop_friendliness": "anytime",
+    "multiplayer": [
+      "solo"
+    ],
+    "description": "Serve the animal guests of a surreal lakeside hotel through point-and-click puzzle rooms, where every dinner hides something dark.",
+    "fun_fact": null,
+    "subscriptions": [],
+    "store_links": {
+      "steam": "https://store.steampowered.com/app/435120/",
+      "gog": "https://www.gog.com/en/game/rusty_lake_hotel",
+      "ios": "https://apps.apple.com/us/app/rusty-lake-hotel/id1059911569",
+      "android": "https://play.google.com/store/apps/details?id=air.com.RustyLake.RustyLakeHotel"
+    },
+    "content_warnings": [
+      "horror_elements",
+      "violence"
+    ]
+  },
+  {
+    "id": "rusty-lake-roots",
+    "title": "Rusty Lake: Roots",
+    "platforms": [
+      "pc",
+      "mobile"
+    ],
+    "year": 2016,
+    "genres": [
+      "horror",
+      "puzzle",
+      "point-and-click",
+      "escape-room"
+    ],
+    "time_tags": [
+      15,
+      30,
+      60
+    ],
+    "energy": "low",
+    "moods": [
+      "surreal",
+      "mysterious",
+      "dark",
+      "clever"
+    ],
+    "play_style": [
+      "puzzle"
+    ],
+    "time_to_fun": "short",
+    "stop_friendliness": "anytime",
+    "multiplayer": [
+      "solo"
+    ],
+    "description": "Grow the Vanderboom family tree across generations through surreal point-and-click puzzles, each branch hiding something darker.",
+    "fun_fact": null,
+    "subscriptions": [],
+    "store_links": {
+      "steam": "https://store.steampowered.com/app/532110/",
+      "gog": "https://www.gog.com/en/game/rusty_lake_roots",
+      "ios": "https://apps.apple.com/us/app/rusty-lake-roots/id1142016085",
+      "android": "https://play.google.com/store/apps/details?id=air.com.RustyLake.RustyLakeRoots"
+    },
+    "content_warnings": [
+      "horror_elements",
+      "violence"
+    ]
+  },
+  {
+    "id": "the-exit-8",
+    "title": "The Exit 8",
+    "platforms": [
+      "pc",
+      "playstation",
+      "xbox",
+      "switch",
+      "mobile"
+    ],
+    "year": 2023,
+    "genres": [
+      "horror",
+      "walking-sim",
+      "puzzle",
+      "indie"
+    ],
+    "time_tags": [
+      15,
+      30,
+      60
+    ],
+    "energy": "low",
+    "moods": [
+      "unsettling",
+      "mysterious",
+      "surreal"
+    ],
+    "play_style": [
+      "puzzle"
+    ],
+    "time_to_fun": "short",
+    "stop_friendliness": "commitment",
+    "multiplayer": [
+      "solo"
+    ],
+    "description": "Walk an endless underground passage and watch for anything out of place: turn back if something is off, keep going if not, until you reach Exit 8.",
+    "fun_fact": null,
+    "subscriptions": [
+      "playstation_plus"
+    ],
+    "store_links": {
+      "steam": "https://store.steampowered.com/app/2653790/",
+      "playstation": "https://store.playstation.com/en-us/concept/10011105",
+      "xbox": "https://www.xbox.com/en-US/games/store/the-exit-8/9MWLQQK52CPP",
+      "nintendo": "https://www.nintendo.com/us/store/products/the-exit-8-switch/",
+      "ios": "https://apps.apple.com/us/app/the-exit-8/id6670469064",
+      "android": "https://play.google.com/store/apps/details?id=com.PLAYISM.TheExit8"
+    },
+    "content_warnings": [
+      "horror_elements"
+    ]
+  },
+  {
+    "id": "im-on-observation-duty",
+    "title": "I'm on Observation Duty",
+    "platforms": [
+      "pc"
+    ],
+    "year": 2019,
+    "genres": [
+      "horror",
+      "puzzle",
+      "indie",
+      "simulation"
+    ],
+    "time_tags": [
+      15,
+      30,
+      60
+    ],
+    "energy": "low",
+    "moods": [
+      "unsettling",
+      "mysterious",
+      "tense"
+    ],
+    "play_style": [
+      "puzzle"
+    ],
+    "time_to_fun": "short",
+    "stop_friendliness": "commitment",
+    "multiplayer": [
+      "solo"
+    ],
+    "description": "Work a night shift watching security cameras and report every anomaly, from moved furniture to things that should not be there.",
+    "fun_fact": null,
+    "subscriptions": [],
+    "store_links": {
+      "steam": "https://store.steampowered.com/app/1046820/"
+    },
+    "content_warnings": [
+      "horror_elements"
+    ]
+  },
+  {
+    "id": "home-safety-hotline",
+    "title": "Home Safety Hotline",
+    "platforms": [
+      "pc",
+      "playstation",
+      "xbox",
+      "switch"
+    ],
+    "year": 2024,
+    "genres": [
+      "horror",
+      "puzzle",
+      "simulation",
+      "indie"
+    ],
+    "time_tags": [
+      15,
+      30,
+      60
+    ],
+    "energy": "low",
+    "moods": [
+      "unsettling",
+      "quirky",
+      "retro",
+      "mysterious"
+    ],
+    "play_style": [
+      "puzzle"
+    ],
+    "time_to_fun": "short",
+    "stop_friendliness": "checkpoints",
+    "multiplayer": [
+      "solo"
+    ],
+    "description": "Answer calls on a home safety hotline and identify the pests and household hazards callers describe, some of them stranger than others.",
+    "fun_fact": null,
+    "subscriptions": [],
+    "store_links": {
+      "steam": "https://store.steampowered.com/app/2357910/",
+      "playstation": "https://store.playstation.com/en-us/concept/10011019",
+      "xbox": "https://www.xbox.com/en-US/games/store/home-safety-hotline/9P9NX35P7VNX",
+      "nintendo": "https://www.nintendo.com/us/store/products/home-safety-hotline-switch/"
+    },
+    "content_warnings": [
+      "horror_elements"
+    ]
+  },
+  {
+    "id": "amanda-the-adventurer",
+    "title": "Amanda the Adventurer",
+    "platforms": [
+      "pc",
+      "playstation",
+      "xbox",
+      "switch"
+    ],
+    "year": 2023,
+    "genres": [
+      "horror",
+      "puzzle",
+      "narrative",
+      "indie"
+    ],
+    "time_tags": [
+      15,
+      30,
+      60
+    ],
+    "energy": "low",
+    "moods": [
+      "creepy",
+      "unsettling",
+      "mysterious",
+      "nostalgic"
+    ],
+    "play_style": [
+      "puzzle",
+      "narrative"
+    ],
+    "time_to_fun": "short",
+    "stop_friendliness": "checkpoints",
+    "multiplayer": [
+      "solo"
+    ],
+    "description": "Play old VHS episodes of a children's show starring Amanda and her sheep friend Wooly, and do what Amanda says, or she might get angry.",
+    "fun_fact": null,
+    "subscriptions": [],
+    "store_links": {
+      "steam": "https://store.steampowered.com/app/2166060/",
+      "playstation": "https://store.playstation.com/en-us/concept/10011561",
+      "xbox": "https://www.xbox.com/en-US/games/store/amanda-the-adventurer/9N6L3MPP7381",
+      "nintendo": "https://www.nintendo.com/us/store/products/amanda-the-adventurer-switch/"
+    },
+    "content_warnings": [
+      "horror_elements"
+    ]
+  },
+  {
+    "id": "fear-the-spotlight",
+    "title": "Fear the Spotlight",
+    "platforms": [
+      "pc",
+      "playstation",
+      "xbox",
+      "switch"
+    ],
+    "year": 2024,
+    "genres": [
+      "horror",
+      "adventure",
+      "puzzle",
+      "retro"
+    ],
+    "time_tags": [
+      30,
+      60,
+      90
+    ],
+    "energy": "low",
+    "moods": [
+      "nostalgic",
+      "atmospheric",
+      "mysterious",
+      "creepy"
+    ],
+    "play_style": [
+      "narrative",
+      "puzzle"
+    ],
+    "time_to_fun": "short",
+    "stop_friendliness": "checkpoints",
+    "multiplayer": [
+      "solo"
+    ],
+    "description": "Two teens sneak into their school at night for a seance and the halls turn against them, in a short 90s-style horror adventure.",
+    "fun_fact": null,
+    "subscriptions": [],
+    "store_links": {
+      "steam": "https://store.steampowered.com/app/1959390/",
+      "playstation": "https://store.playstation.com/en-us/concept/10010737",
+      "xbox": "https://www.xbox.com/en-US/games/store/fear-the-spotlight/9NW2S9T1GH7X",
+      "nintendo": "https://www.nintendo.com/us/store/products/fear-the-spotlight-switch/"
+    },
+    "content_warnings": [
+      "horror_elements",
+      "violence"
+    ]
+  },
+  {
+    "id": "the-midnight-walk",
+    "title": "The Midnight Walk",
+    "platforms": [
+      "pc",
+      "playstation",
+      "switch"
+    ],
+    "year": 2025,
+    "genres": [
+      "horror",
+      "adventure",
+      "puzzle",
+      "stop-motion"
+    ],
+    "time_tags": [
+      30,
+      60,
+      90
+    ],
+    "energy": "low",
+    "moods": [
+      "dark",
+      "beautiful",
+      "artistic",
+      "atmospheric"
+    ],
+    "play_style": [
+      "narrative",
+      "puzzle"
+    ],
+    "time_to_fun": "short",
+    "stop_friendliness": "checkpoints",
+    "multiplayer": [
+      "solo"
+    ],
+    "description": "Travel a handmade clay world with a lost lantern creature, lighting your way and outsmarting the monsters that lurk in the dark.",
+    "fun_fact": null,
+    "subscriptions": [
+      "playstation_plus"
+    ],
+    "store_links": {
+      "steam": "https://store.steampowered.com/app/2863640/",
+      "playstation": "https://store.playstation.com/en-us/concept/10009390",
+      "nintendo": "https://www.nintendo.com/us/store/products/the-midnight-walk-switch-2/",
+      "gog": "https://www.gog.com/en/game/the_midnight_walk"
+    },
+    "content_warnings": [
+      "horror_elements"
+    ]
+  },
+  {
+    "id": "killer-frequency",
+    "title": "Killer Frequency",
+    "platforms": [
+      "pc",
+      "playstation",
+      "xbox",
+      "switch"
+    ],
+    "year": 2023,
+    "genres": [
+      "horror",
+      "comedy",
+      "narrative",
+      "puzzle"
+    ],
+    "time_tags": [
+      30,
+      60,
+      90
+    ],
+    "energy": "low",
+    "moods": [
+      "funny",
+      "tense",
+      "nostalgic",
+      "story-rich"
+    ],
+    "play_style": [
+      "narrative",
+      "puzzle"
+    ],
+    "time_to_fun": "short",
+    "stop_friendliness": "checkpoints",
+    "multiplayer": [
+      "solo"
+    ],
+    "description": "Host a late-night radio show in a small 1987 town and guide callers away from a masked killer, live on air.",
+    "fun_fact": null,
+    "subscriptions": [
+      "playstation_plus"
+    ],
+    "store_links": {
+      "steam": "https://store.steampowered.com/app/1903620/",
+      "playstation": "https://store.playstation.com/en-us/concept/10005847",
+      "xbox": "https://www.xbox.com/en-US/games/store/killer-frequency/9MTMSS84NW5R",
+      "nintendo": "https://www.nintendo.com/us/store/products/killer-frequency-switch/"
+    },
+    "content_warnings": [
+      "violence",
+      "horror_elements"
+    ]
+  },
+  {
+    "id": "look-outside",
+    "title": "Look Outside",
+    "platforms": [
+      "pc"
+    ],
+    "year": 2025,
+    "genres": [
+      "horror",
+      "rpg",
+      "turn-based",
+      "indie"
+    ],
+    "time_tags": [
+      30,
+      60,
+      90
+    ],
+    "energy": "medium",
+    "moods": [
+      "dark",
+      "creepy",
+      "mysterious",
+      "strategic"
+    ],
+    "play_style": [
+      "strategy",
+      "narrative"
+    ],
+    "time_to_fun": "short",
+    "stop_friendliness": "checkpoints",
+    "multiplayer": [
+      "solo"
+    ],
+    "description": "Anyone who looks out the window turns into a monster, so you stay inside your apartment building, scavenge supplies, meet its strange residents and fight in turn-based battles.",
+    "fun_fact": null,
+    "subscriptions": [],
+    "store_links": {
+      "steam": "https://store.steampowered.com/app/3373660/",
+      "gog": "https://www.gog.com/en/game/look_outside"
+    },
+    "content_warnings": [
+      "gore",
+      "violence",
+      "mature_themes"
+    ]
+  },
+  {
+    "id": "no-im-not-a-human",
+    "title": "No, I'm not a Human",
+    "platforms": [
+      "pc"
+    ],
+    "year": 2025,
+    "genres": [
+      "horror",
+      "simulation",
+      "narrative",
+      "indie"
+    ],
+    "time_tags": [
+      30,
+      60,
+      90
+    ],
+    "energy": "medium",
+    "moods": [
+      "tense",
+      "unsettling",
+      "mysterious",
+      "dark"
+    ],
+    "play_style": [
+      "narrative",
+      "puzzle"
+    ],
+    "time_to_fun": "short",
+    "stop_friendliness": "checkpoints",
+    "multiplayer": [
+      "solo"
+    ],
+    "description": "Locked inside your house at the end of the world, decide which visitors to let in and which ones are Visitors pretending to be human.",
+    "fun_fact": null,
+    "subscriptions": [],
+    "store_links": {
+      "steam": "https://store.steampowered.com/app/3180070/"
+    },
+    "content_warnings": [
+      "violence",
+      "horror_elements",
+      "mature_themes"
+    ]
+  },
+  {
+    "id": "thats-not-my-neighbor",
+    "title": "That's not my Neighbor",
+    "platforms": [
+      "pc"
+    ],
+    "year": 2025,
+    "genres": [
+      "horror",
+      "simulation",
+      "puzzle",
+      "indie"
+    ],
+    "time_tags": [
+      15,
+      30,
+      60
+    ],
+    "energy": "medium",
+    "moods": [
+      "tense",
+      "quirky",
+      "creepy",
+      "funny"
+    ],
+    "play_style": [
+      "puzzle"
+    ],
+    "time_to_fun": "short",
+    "stop_friendliness": "checkpoints",
+    "multiplayer": [
+      "solo"
+    ],
+    "description": "Work the front desk of a 1955 apartment building and check every resident's paperwork to keep doppelgangers out.",
+    "fun_fact": null,
+    "subscriptions": [],
+    "store_links": {
+      "steam": "https://store.steampowered.com/app/3431040/"
+    },
+    "content_warnings": [
+      "horror_elements",
+      "violence"
+    ]
+  },
+  {
+    "id": "mundaun",
+    "title": "Mundaun",
+    "platforms": [
+      "pc",
+      "playstation",
+      "xbox",
+      "switch"
+    ],
+    "year": 2021,
+    "genres": [
+      "horror",
+      "adventure",
+      "folk-horror",
+      "first-person"
+    ],
+    "time_tags": [
+      30,
+      60,
+      90
+    ],
+    "energy": "medium",
+    "moods": [
+      "atmospheric",
+      "unsettling",
+      "artistic",
+      "mysterious"
+    ],
+    "play_style": [
+      "narrative",
+      "puzzle"
+    ],
+    "time_to_fun": "medium",
+    "stop_friendliness": "checkpoints",
+    "multiplayer": [
+      "solo"
+    ],
+    "description": "A hand-pencilled folk horror adventure: return to your grandfather's Alpine village after his death and uncover a pact with the devil.",
+    "fun_fact": null,
+    "subscriptions": [],
+    "store_links": {
+      "steam": "https://store.steampowered.com/app/720350/",
+      "playstation": "https://store.playstation.com/en-us/concept/10001308",
+      "xbox": "https://www.xbox.com/en-US/games/store/mundaun/9P51H267F36F",
+      "nintendo": "https://www.nintendo.com/us/store/products/mundaun-switch/",
+      "gog": "https://www.gog.com/en/game/mundaun"
+    },
+    "content_warnings": [
+      "horror_elements",
+      "violence"
+    ]
+  },
+  {
+    "id": "world-of-horror",
+    "title": "World of Horror",
+    "platforms": [
+      "pc",
+      "playstation",
+      "switch"
+    ],
+    "year": 2023,
+    "genres": [
+      "horror",
+      "roguelike",
+      "rpg",
+      "turn-based"
+    ],
+    "time_tags": [
+      30,
+      60,
+      90
+    ],
+    "energy": "medium",
+    "moods": [
+      "creepy",
+      "retro",
+      "strategic",
+      "unsettling"
+    ],
+    "play_style": [
+      "strategy",
+      "narrative"
+    ],
+    "time_to_fun": "short",
+    "stop_friendliness": "checkpoints",
+    "multiplayer": [
+      "solo"
+    ],
+    "description": "A 1-bit roguelite inspired by Junji Ito and Lovecraft: solve cosmic horror mysteries in a Japanese seaside town, with turn-based fights and runs that end differently every time.",
+    "fun_fact": null,
+    "subscriptions": [],
+    "store_links": {
+      "steam": "https://store.steampowered.com/app/913740/",
+      "playstation": "https://store.playstation.com/en-us/concept/10006260",
+      "nintendo": "https://www.nintendo.com/us/store/products/world-of-horror-switch/",
+      "gog": "https://www.gog.com/en/game/world_of_horror"
+    },
+    "content_warnings": [
+      "gore",
+      "horror_elements"
+    ]
+  },
+  {
+    "id": "darkwood",
+    "title": "Darkwood",
+    "platforms": [
+      "pc",
+      "playstation",
+      "xbox",
+      "switch"
+    ],
+    "year": 2017,
+    "genres": [
+      "horror",
+      "survival",
+      "top-down",
+      "crafting"
+    ],
+    "time_tags": [
+      60,
+      90
+    ],
+    "energy": "medium",
+    "moods": [
+      "tense",
+      "atmospheric",
+      "dark",
+      "challenging"
+    ],
+    "play_style": [
+      "action",
+      "strategy"
+    ],
+    "time_to_fun": "medium",
+    "stop_friendliness": "checkpoints",
+    "multiplayer": [
+      "solo"
+    ],
+    "description": "Scavenge a cursed forest by day and barricade your hideout to survive the night, in a top-down survival horror.",
+    "fun_fact": null,
+    "subscriptions": [],
+    "store_links": {
+      "steam": "https://store.steampowered.com/app/274520/",
+      "playstation": "https://store.playstation.com/en-us/concept/232700",
+      "xbox": "https://www.xbox.com/en-US/games/store/darkwood/9N2H63Z2GLBC",
+      "nintendo": "https://www.nintendo.com/us/store/products/darkwood-switch/",
+      "gog": "https://www.gog.com/en/game/darkwood"
+    },
+    "content_warnings": [
+      "gore",
+      "violence",
+      "horror_elements"
+    ]
+  },
+  {
+    "id": "iron-lung",
+    "title": "Iron Lung",
+    "platforms": [
+      "pc",
+      "playstation",
+      "switch",
+      "mobile"
+    ],
+    "year": 2022,
+    "genres": [
+      "horror",
+      "simulation",
+      "indie",
+      "sci-fi"
+    ],
+    "time_tags": [
+      15,
+      30,
+      60
+    ],
+    "energy": "medium",
+    "moods": [
+      "tense",
+      "unsettling",
+      "terrifying",
+      "isolated"
+    ],
+    "play_style": [
+      "narrative",
+      "puzzle"
+    ],
+    "time_to_fun": "short",
+    "stop_friendliness": "commitment",
+    "multiplayer": [
+      "solo"
+    ],
+    "description": "Pilot a tiny windowless submarine through an ocean of blood on an alien moon, steering by map coordinates and grainy photos.",
+    "fun_fact": null,
+    "subscriptions": [],
+    "store_links": {
+      "steam": "https://store.steampowered.com/app/1846170/",
+      "playstation": "https://store.playstation.com/en-us/concept/10010468",
+      "nintendo": "https://www.nintendo.com/us/store/products/iron-lung-switch/",
+      "gog": "https://www.gog.com/en/game/iron_lung",
+      "android": "https://play.google.com/store/apps/details?id=com.DavidSzymanski.IronLung"
+    },
+    "content_warnings": [
+      "horror_elements"
+    ]
+  },
+  {
+    "id": "faith-unholy-trinity",
+    "title": "Faith: The Unholy Trinity",
+    "platforms": [
+      "pc",
+      "playstation",
+      "xbox",
+      "switch"
+    ],
+    "year": 2022,
+    "genres": [
+      "horror",
+      "retro",
+      "adventure",
+      "pixel-art"
+    ],
+    "time_tags": [
+      30,
+      60,
+      90
+    ],
+    "energy": "medium",
+    "moods": [
+      "retro",
+      "creepy",
+      "tense",
+      "dark"
+    ],
+    "play_style": [
+      "action",
+      "narrative"
+    ],
+    "time_to_fun": "short",
+    "stop_friendliness": "checkpoints",
+    "multiplayer": [
+      "solo"
+    ],
+    "description": "A pixel-art horror trilogy inspired by 8-bit games and the 1980s Satanic Panic, where a young priest faces demons and cultists with a crucifix.",
+    "fun_fact": null,
+    "subscriptions": [],
+    "store_links": {
+      "steam": "https://store.steampowered.com/app/1179080/",
+      "playstation": "https://store.playstation.com/en-us/concept/10016729",
+      "xbox": "https://www.xbox.com/en-US/games/store/faith-the-unholy-trinity/9NQG8RKD8RCH",
+      "nintendo": "https://www.nintendo.com/us/store/products/faith-the-unholy-trinity-switch/",
+      "gog": "https://www.gog.com/en/game/faith_the_unholy_trinity"
+    },
+    "content_warnings": [
+      "violence",
+      "gore",
+      "religious_imagery"
+    ]
+  },
+  {
+    "id": "the-mortuary-assistant",
+    "title": "The Mortuary Assistant",
+    "platforms": [
+      "pc",
+      "playstation",
+      "xbox",
+      "switch"
+    ],
+    "year": 2022,
+    "genres": [
+      "horror",
+      "simulation",
+      "first-person",
+      "indie"
+    ],
+    "time_tags": [
+      30,
+      60
+    ],
+    "energy": "medium",
+    "moods": [
+      "creepy",
+      "tense",
+      "terrifying",
+      "unsettling"
+    ],
+    "play_style": [
+      "puzzle",
+      "narrative"
+    ],
+    "time_to_fun": "short",
+    "stop_friendliness": "commitment",
+    "multiplayer": [
+      "solo"
+    ],
+    "description": "Embalm bodies alone on the night shift at a mortuary while identifying and banishing the demons haunting them, before one gets to you.",
+    "fun_fact": null,
+    "subscriptions": [],
+    "store_links": {
+      "steam": "https://store.steampowered.com/app/1295920/",
+      "playstation": "https://store.playstation.com/en-us/concept/10006285",
+      "xbox": "https://www.xbox.com/en-US/games/store/the-mortuary-assistant/9N8D86T5ZWKG",
+      "nintendo": "https://www.nintendo.com/us/store/products/the-mortuary-assistant-switch/"
+    },
+    "content_warnings": [
+      "gore",
+      "horror_elements",
+      "mature_themes"
+    ]
+  },
+  {
+    "id": "choo-choo-charles",
+    "title": "Choo-Choo Charles",
+    "platforms": [
+      "pc",
+      "playstation",
+      "xbox",
+      "switch",
+      "mobile"
+    ],
+    "year": 2022,
+    "genres": [
+      "horror",
+      "action",
+      "open-world",
+      "indie"
+    ],
+    "time_tags": [
+      30,
+      60,
+      90
+    ],
+    "energy": "medium",
+    "moods": [
+      "tense",
+      "scary",
+      "adventurous",
+      "quirky"
+    ],
+    "play_style": [
+      "action"
+    ],
+    "time_to_fun": "short",
+    "stop_friendliness": "checkpoints",
+    "multiplayer": [
+      "solo"
+    ],
+    "description": "Upgrade an old train and explore an open-world island to hunt down Charles, a monstrous spider train.",
+    "fun_fact": null,
+    "subscriptions": [],
+    "store_links": {
+      "steam": "https://store.steampowered.com/app/1766740/",
+      "playstation": "https://store.playstation.com/en-us/concept/10008639",
+      "xbox": "https://www.xbox.com/en-US/games/store/choo-choo-charles/9P17KJLSCR59",
+      "nintendo": "https://www.nintendo.com/us/store/products/choo-choo-charles-switch/",
+      "ios": "https://apps.apple.com/us/app/choo-choo-charles/id6761855524",
+      "android": "https://play.google.com/store/apps/details?id=com.TwoStarGames.ChooChooCharles"
+    },
+    "content_warnings": [
+      "violence",
+      "horror_elements"
+    ]
+  },
+  {
+    "id": "poppy-playtime",
+    "title": "Poppy Playtime: Chapter 1",
+    "platforms": [
+      "pc",
+      "playstation",
+      "xbox",
+      "switch",
+      "mobile"
+    ],
+    "year": 2021,
+    "genres": [
+      "horror",
+      "puzzle",
+      "first-person",
+      "indie"
+    ],
+    "time_tags": [
+      30,
+      60
+    ],
+    "energy": "medium",
+    "moods": [
+      "creepy",
+      "tense",
+      "scary"
+    ],
+    "play_style": [
+      "puzzle",
+      "action"
+    ],
+    "time_to_fun": "short",
+    "stop_friendliness": "checkpoints",
+    "multiplayer": [
+      "solo"
+    ],
+    "description": "Return to the abandoned Playtime Co. toy factory and solve puzzles with the GrabPack's stretchy hands while Huggy Wuggy hunts you.",
+    "fun_fact": null,
+    "subscriptions": [
+      "playstation_plus"
+    ],
+    "store_links": {
+      "steam": "https://store.steampowered.com/app/1721470/",
+      "playstation": "https://store.playstation.com/en-us/concept/10009028",
+      "xbox": "https://www.xbox.com/en-US/games/store/poppy-playtime-chapter-1/9NQGGN01771Z",
+      "nintendo": "https://www.nintendo.com/us/store/products/poppy-playtime-chapter-1-switch/",
+      "ios": "https://apps.apple.com/us/app/poppy-playtime-chapter-1/id1610947489",
+      "android": "https://play.google.com/store/apps/details?id=com.MOBGames.PoppyMobileChap1"
+    },
+    "content_warnings": [
+      "horror_elements"
+    ]
+  },
+  {
+    "id": "hello-neighbor",
+    "title": "Hello Neighbor",
+    "platforms": [
+      "pc",
+      "playstation",
+      "xbox",
+      "switch",
+      "mobile"
+    ],
+    "year": 2017,
+    "genres": [
+      "horror",
+      "stealth",
+      "puzzle",
+      "indie"
+    ],
+    "time_tags": [
+      30,
+      60,
+      90
+    ],
+    "energy": "medium",
+    "moods": [
+      "tense",
+      "quirky",
+      "mysterious",
+      "challenging"
+    ],
+    "play_style": [
+      "puzzle",
+      "action"
+    ],
+    "time_to_fun": "short",
+    "stop_friendliness": "checkpoints",
+    "multiplayer": [
+      "solo"
+    ],
+    "description": "Sneak into your neighbor's house to find out what he keeps in the basement, while he adapts to the way you play to catch you.",
+    "fun_fact": null,
+    "subscriptions": [
+      "playstation_plus"
+    ],
+    "store_links": {
+      "steam": "https://store.steampowered.com/app/521890/",
+      "gog": "https://www.gog.com/en/game/hello_neighbor",
+      "playstation": "https://store.playstation.com/en-us/concept/231096",
+      "xbox": "https://www.xbox.com/en-US/games/store/hello-neighbor/C0G1L18DT97K",
+      "nintendo": "https://www.nintendo.com/us/store/products/hello-neighbor-switch/",
+      "ios": "https://apps.apple.com/us/app/hello-neighbor/id1386358600",
+      "android": "https://play.google.com/store/apps/details?id=com.tinybuildgames.helloneighbor"
+    },
+    "content_warnings": [
+      "horror_elements"
+    ]
+  },
+  {
+    "id": "five-nights-at-freddys",
+    "title": "Five Nights at Freddy's",
+    "platforms": [
+      "pc",
+      "playstation",
+      "xbox",
+      "switch",
+      "mobile"
+    ],
+    "year": 2014,
+    "genres": [
+      "horror",
+      "strategy",
+      "indie",
+      "survival"
+    ],
+    "time_tags": [
+      15,
+      30
+    ],
+    "energy": "medium",
+    "moods": [
+      "tense",
+      "scary",
+      "nostalgic"
+    ],
+    "play_style": [
+      "strategy"
+    ],
+    "time_to_fun": "short",
+    "stop_friendliness": "checkpoints",
+    "multiplayer": [
+      "solo"
+    ],
+    "description": "Survive five nights as a pizzeria security guard, watching cameras and rationing power to keep the animatronics out of your office.",
+    "fun_fact": null,
+    "subscriptions": [],
+    "store_links": {
+      "steam": "https://store.steampowered.com/app/319510/",
+      "playstation": "https://store.playstation.com/en-us/concept/234740",
+      "xbox": "https://www.xbox.com/en-US/games/store/five-nights-at-freddys/9N5253J559LR",
+      "nintendo": "https://www.nintendo.com/us/store/products/five-nights-at-freddys-switch/",
+      "ios": "https://apps.apple.com/us/app/five-nights-at-freddys/id912536422",
+      "android": "https://play.google.com/store/apps/details?id=com.scottgames.fivenightsatfreddys"
+    },
+    "content_warnings": [
+      "horror_elements"
+    ]
+  },
+  {
+    "id": "fnaf-security-breach",
+    "title": "Five Nights at Freddy's: Security Breach",
+    "platforms": [
+      "pc",
+      "playstation",
+      "xbox",
+      "switch"
+    ],
+    "year": 2021,
+    "genres": [
+      "horror",
+      "stealth",
+      "action",
+      "open-world"
+    ],
+    "time_tags": [
+      30,
+      60,
+      90
+    ],
+    "energy": "medium",
+    "moods": [
+      "tense",
+      "colorful",
+      "scary"
+    ],
+    "play_style": [
+      "action",
+      "puzzle"
+    ],
+    "time_to_fun": "medium",
+    "stop_friendliness": "checkpoints",
+    "multiplayer": [
+      "solo"
+    ],
+    "description": "Spend the night locked in a huge mall-sized pizzeria as a boy named Gregory, hiding from rogue animatronics with help from Glamrock Freddy.",
+    "fun_fact": null,
+    "subscriptions": [],
+    "store_links": {
+      "steam": "https://store.steampowered.com/app/747660/",
+      "playstation": "https://store.playstation.com/en-us/concept/10001137",
+      "xbox": "https://www.xbox.com/en-US/games/store/five-nights-at-freddys-security-breach/9NMP8KFRTNCD",
+      "nintendo": "https://www.nintendo.com/us/store/products/five-nights-at-freddys-security-breach-switch/"
+    },
+    "content_warnings": [
+      "horror_elements",
+      "violence"
+    ]
+  },
+  {
+    "id": "fnaf-into-the-pit",
+    "title": "Five Nights at Freddy's: Into the Pit",
+    "platforms": [
+      "pc",
+      "playstation",
+      "xbox",
+      "switch"
+    ],
+    "year": 2024,
+    "genres": [
+      "horror",
+      "adventure",
+      "pixel-art",
+      "puzzle"
+    ],
+    "time_tags": [
+      30,
+      60
+    ],
+    "energy": "medium",
+    "moods": [
+      "tense",
+      "retro",
+      "mysterious",
+      "creepy"
+    ],
+    "play_style": [
+      "puzzle",
+      "narrative"
+    ],
+    "time_to_fun": "short",
+    "stop_friendliness": "checkpoints",
+    "multiplayer": [
+      "solo"
+    ],
+    "description": "Jump through a pizzeria ball pit that leads back to 1985 to save your town, in a pixel-art adventure based on a Fazbear Frights story.",
+    "fun_fact": null,
+    "subscriptions": [],
+    "store_links": {
+      "steam": "https://store.steampowered.com/app/2638370/",
+      "playstation": "https://store.playstation.com/en-us/concept/10009158",
+      "xbox": "https://www.xbox.com/en-US/games/store/five-nights-at-freddys-into-the-pit/9PMP3DDWDRNW",
+      "nintendo": "https://www.nintendo.com/us/store/products/five-nights-at-freddys-into-the-pit-switch/"
+    },
+    "content_warnings": [
+      "horror_elements"
+    ]
+  },
+  {
+    "id": "bendy-and-the-ink-machine",
+    "title": "Bendy and the Ink Machine",
+    "platforms": [
+      "pc",
+      "playstation",
+      "xbox",
+      "switch",
+      "mobile"
+    ],
+    "year": 2017,
+    "genres": [
+      "horror",
+      "puzzle",
+      "first-person",
+      "indie"
+    ],
+    "time_tags": [
+      30,
+      60,
+      90
+    ],
+    "energy": "medium",
+    "moods": [
+      "creepy",
+      "atmospheric",
+      "mysterious",
+      "nostalgic"
+    ],
+    "play_style": [
+      "narrative",
+      "puzzle",
+      "action"
+    ],
+    "time_to_fun": "short",
+    "stop_friendliness": "checkpoints",
+    "multiplayer": [
+      "solo"
+    ],
+    "description": "Return to your old animation studio and find it flooded with ink and haunted by a 1930s cartoon devil come to life.",
+    "fun_fact": null,
+    "subscriptions": [],
+    "store_links": {
+      "steam": "https://store.steampowered.com/app/622650/",
+      "gog": "https://www.gog.com/en/game/bendy_and_the_ink_machine",
+      "playstation": "https://store.playstation.com/en-us/concept/10013479",
+      "xbox": "https://www.xbox.com/en-US/games/store/bendy-and-the-ink-machine/BTQ96QTQ58F3",
+      "nintendo": "https://www.nintendo.com/us/store/products/bendy-and-the-ink-machine-switch/",
+      "ios": "https://apps.apple.com/us/app/bendy-and-the-ink-machine/id1437669537",
+      "android": "https://play.google.com/store/apps/details?id=com.jds.batim"
+    },
+    "content_warnings": [
+      "horror_elements",
+      "violence"
+    ]
+  },
+  {
+    "id": "bendy-and-the-dark-revival",
+    "title": "Bendy and the Dark Revival",
+    "platforms": [
+      "pc",
+      "playstation",
+      "xbox",
+      "switch",
+      "mobile"
+    ],
+    "year": 2022,
+    "genres": [
+      "horror",
+      "stealth",
+      "first-person",
+      "action"
+    ],
+    "time_tags": [
+      60,
+      90
+    ],
+    "energy": "medium",
+    "moods": [
+      "creepy",
+      "tense",
+      "atmospheric"
+    ],
+    "play_style": [
+      "action",
+      "narrative"
+    ],
+    "time_to_fun": "short",
+    "stop_friendliness": "checkpoints",
+    "multiplayer": [
+      "solo"
+    ],
+    "description": "Sneak, scavenge and fight ink creatures as animator Audrey in the sequel to Bendy and the Ink Machine.",
+    "fun_fact": null,
+    "subscriptions": [],
+    "store_links": {
+      "steam": "https://store.steampowered.com/app/1063660/",
+      "gog": "https://www.gog.com/en/game/bendy_and_the_dark_revival",
+      "playstation": "https://store.playstation.com/en-us/concept/10006221",
+      "xbox": "https://www.xbox.com/en-US/games/store/bendy-and-the-dark-revival/9P44XKC3S56V",
+      "nintendo": "https://www.nintendo.com/us/store/products/bendy-and-the-dark-revival-switch/",
+      "ios": "https://apps.apple.com/us/app/bendy-and-the-dark-revival/id6749306097",
+      "android": "https://play.google.com/store/apps/details?id=com.JoeyDrewStudios.BendyandtheDarkRevival"
+    },
+    "content_warnings": [
+      "horror_elements",
+      "violence"
+    ]
+  },
+  {
+    "id": "dark-pictures-man-of-medan",
+    "title": "The Dark Pictures Anthology: Man of Medan",
+    "platforms": [
+      "pc",
+      "playstation",
+      "xbox",
+      "switch"
+    ],
+    "year": 2019,
+    "genres": [
+      "horror",
+      "interactive-movie",
+      "narrative",
+      "choice-driven"
+    ],
+    "time_tags": [
+      60,
+      90
+    ],
+    "energy": "medium",
+    "moods": [
+      "cinematic",
+      "tense",
+      "scary",
+      "social"
+    ],
+    "play_style": [
+      "narrative"
+    ],
+    "time_to_fun": "medium",
+    "stop_friendliness": "checkpoints",
+    "multiplayer": [
+      "solo",
+      "local_coop",
+      "online_coop"
+    ],
+    "description": "Five friends on a diving trip end up on a WWII ghost ship in a choice-driven horror story you can play solo or with friends.",
+    "fun_fact": null,
+    "subscriptions": [],
+    "store_links": {
+      "steam": "https://store.steampowered.com/app/939850/",
+      "playstation": "https://store.playstation.com/en-us/concept/232935",
+      "xbox": "https://www.xbox.com/en-US/games/store/the-dark-pictures-anthology-man-of-medan/BZZ0Q9ZMM7GX",
+      "nintendo": "https://www.nintendo.com/us/store/products/the-dark-pictures-anthology-man-of-medan-switch/"
+    },
+    "content_warnings": [
+      "violence",
+      "gore",
+      "mature_themes"
+    ]
+  },
+  {
+    "id": "dark-pictures-house-of-ashes",
+    "title": "The Dark Pictures Anthology: House of Ashes",
+    "platforms": [
+      "pc",
+      "playstation",
+      "xbox"
+    ],
+    "year": 2021,
+    "genres": [
+      "horror",
+      "interactive-movie",
+      "narrative",
+      "choice-driven"
+    ],
+    "time_tags": [
+      60,
+      90
+    ],
+    "energy": "medium",
+    "moods": [
+      "cinematic",
+      "tense",
+      "scary",
+      "social"
+    ],
+    "play_style": [
+      "narrative"
+    ],
+    "time_to_fun": "medium",
+    "stop_friendliness": "checkpoints",
+    "multiplayer": [
+      "solo",
+      "local_coop",
+      "online_coop"
+    ],
+    "description": "At the end of the Iraq War, US soldiers and their enemies fall into a buried Sumerian temple and have to work together to survive the night.",
+    "fun_fact": null,
+    "subscriptions": [],
+    "store_links": {
+      "steam": "https://store.steampowered.com/app/1281590/",
+      "playstation": "https://store.playstation.com/en-us/product/UP0700-PPSA02595_00-SMGDARKPICTURESC",
+      "xbox": "https://www.xbox.com/en-US/games/store/the-dark-pictures-anthology-house-of-ashes/9PJVG73JW2V2"
+    },
+    "content_warnings": [
+      "violence",
+      "gore",
+      "mature_themes"
+    ]
+  },
+  {
+    "id": "dark-pictures-the-devil-in-me",
+    "title": "The Dark Pictures Anthology: The Devil in Me",
+    "platforms": [
+      "pc",
+      "playstation",
+      "xbox"
+    ],
+    "year": 2022,
+    "genres": [
+      "horror",
+      "interactive-movie",
+      "narrative",
+      "choice-driven"
+    ],
+    "time_tags": [
+      60,
+      90
+    ],
+    "energy": "medium",
+    "moods": [
+      "cinematic",
+      "tense",
+      "scary",
+      "disturbing"
+    ],
+    "play_style": [
+      "narrative"
+    ],
+    "time_to_fun": "medium",
+    "stop_friendliness": "checkpoints",
+    "multiplayer": [
+      "solo",
+      "local_coop",
+      "online_coop"
+    ],
+    "description": "A documentary crew is invited to a modern replica of serial killer H. H. Holmes' murder castle and finds out they are being watched.",
+    "fun_fact": null,
+    "subscriptions": [],
+    "store_links": {
+      "steam": "https://store.steampowered.com/app/1567020/",
+      "playstation": "https://store.playstation.com/en-us/concept/10004192",
+      "xbox": "https://www.xbox.com/en-US/games/store/the-dark-pictures-anthology-the-devil-in-me/9P7KK8SN99VB"
+    },
+    "content_warnings": [
+      "violence",
+      "gore",
+      "mature_themes"
+    ]
+  },
+  {
+    "id": "casting-of-frank-stone",
+    "title": "The Casting of Frank Stone",
+    "platforms": [
+      "pc",
+      "playstation",
+      "xbox"
+    ],
+    "year": 2024,
+    "genres": [
+      "horror",
+      "interactive-movie",
+      "narrative",
+      "choice-driven"
+    ],
+    "time_tags": [
+      60,
+      90
+    ],
+    "energy": "medium",
+    "moods": [
+      "cinematic",
+      "tense",
+      "scary"
+    ],
+    "play_style": [
+      "narrative"
+    ],
+    "time_to_fun": "medium",
+    "stop_friendliness": "checkpoints",
+    "multiplayer": [
+      "solo",
+      "local_coop"
+    ],
+    "description": "A choice-driven horror story set in the Dead by Daylight universe, where young friends get caught up in the violent legacy of killer Frank Stone.",
+    "fun_fact": null,
+    "subscriptions": [
+      "playstation_plus"
+    ],
+    "store_links": {
+      "steam": "https://store.steampowered.com/app/2223840/",
+      "playstation": "https://store.playstation.com/en-us/concept/10008245",
+      "xbox": "https://www.xbox.com/en-US/games/store/the-casting-of-frank-stone/9PG0PMB5Q0GT"
+    },
+    "content_warnings": [
+      "violence",
+      "gore",
+      "mature_themes"
+    ]
+  },
+  {
+    "id": "the-medium",
+    "title": "The Medium",
+    "platforms": [
+      "pc",
+      "playstation",
+      "xbox"
+    ],
+    "year": 2021,
+    "genres": [
+      "horror",
+      "adventure",
+      "psychological",
+      "narrative"
+    ],
+    "time_tags": [
+      60,
+      90
+    ],
+    "energy": "medium",
+    "moods": [
+      "atmospheric",
+      "mysterious",
+      "unsettling",
+      "cinematic"
+    ],
+    "play_style": [
+      "narrative",
+      "puzzle"
+    ],
+    "time_to_fun": "medium",
+    "stop_friendliness": "checkpoints",
+    "multiplayer": [
+      "solo"
+    ],
+    "description": "A medium explores an abandoned resort in both the real world and the spirit world at once, often shown side by side on a split screen.",
+    "fun_fact": null,
+    "subscriptions": [],
+    "store_links": {
+      "steam": "https://store.steampowered.com/app/1293160/",
+      "gog": "https://www.gog.com/en/game/the_medium",
+      "playstation": "https://store.playstation.com/en-us/product/UP4176-PPSA03717_00-5917275044455248",
+      "xbox": "https://www.xbox.com/en-US/games/store/the-medium/9NFSR96G6K4N"
+    },
+    "content_warnings": [
+      "violence",
+      "mature_themes"
+    ]
+  },
+  {
+    "id": "observer-system-redux",
+    "title": "Observer: System Redux",
+    "platforms": [
+      "pc",
+      "playstation",
+      "xbox",
+      "switch"
+    ],
+    "year": 2020,
+    "genres": [
+      "horror",
+      "cyberpunk",
+      "narrative",
+      "psychological"
+    ],
+    "time_tags": [
+      60,
+      90
+    ],
+    "energy": "medium",
+    "moods": [
+      "unsettling",
+      "atmospheric",
+      "psychological",
+      "mysterious"
+    ],
+    "play_style": [
+      "narrative",
+      "puzzle"
+    ],
+    "time_to_fun": "medium",
+    "stop_friendliness": "checkpoints",
+    "multiplayer": [
+      "solo"
+    ],
+    "description": "A cyberpunk detective hacks into suspects' minds to investigate a murder in a locked-down tenement in 2084 Krakow.",
+    "fun_fact": null,
+    "subscriptions": [
+      "playstation_plus"
+    ],
+    "store_links": {
+      "steam": "https://store.steampowered.com/app/1386900/",
+      "gog": "https://www.gog.com/en/game/observer_system_redux",
+      "playstation": "https://store.playstation.com/en-us/product/UP4176-PPSA02118_00-8840415776217330",
+      "xbox": "https://www.xbox.com/en-US/games/store/observer-system-redux/9PB3TP3MT2Q0",
+      "nintendo": "https://www.nintendo.com/us/store/products/observer-system-redux-switch-2/"
+    },
+    "content_warnings": [
+      "violence",
+      "gore",
+      "mature_themes"
+    ]
+  },
+  {
+    "id": "blair-witch",
+    "title": "Blair Witch",
+    "platforms": [
+      "pc",
+      "playstation",
+      "xbox",
+      "switch"
+    ],
+    "year": 2019,
+    "genres": [
+      "horror",
+      "psychological",
+      "narrative",
+      "first-person"
+    ],
+    "time_tags": [
+      60,
+      90
+    ],
+    "energy": "medium",
+    "moods": [
+      "tense",
+      "atmospheric",
+      "psychological",
+      "unsettling"
+    ],
+    "play_style": [
+      "narrative"
+    ],
+    "time_to_fun": "medium",
+    "stop_friendliness": "checkpoints",
+    "multiplayer": [
+      "solo"
+    ],
+    "description": "A former cop and his dog Bullet search the Black Hills Forest for a missing boy, in a psychological horror set in the Blair Witch universe.",
+    "fun_fact": null,
+    "subscriptions": [],
+    "store_links": {
+      "steam": "https://store.steampowered.com/app/1092660/",
+      "gog": "https://www.gog.com/en/game/blair_witch",
+      "playstation": "https://store.playstation.com/en-us/product/UP5969-CUSA18142_00-BLAIRWITCHUS0000",
+      "xbox": "https://www.xbox.com/en-US/games/store/blair-witch/9NG7LG421V0Q",
+      "nintendo": "https://www.nintendo.com/us/store/products/blair-witch-switch/"
+    },
+    "content_warnings": [
+      "violence",
+      "mature_themes"
+    ]
+  },
+  {
+    "id": "the-sinking-city",
+    "title": "The Sinking City",
+    "platforms": [
+      "pc",
+      "playstation",
+      "xbox",
+      "switch"
+    ],
+    "year": 2019,
+    "genres": [
+      "horror",
+      "open-world",
+      "detective",
+      "lovecraftian"
+    ],
+    "time_tags": [
+      60,
+      90,
+      120
+    ],
+    "energy": "medium",
+    "moods": [
+      "atmospheric",
+      "mysterious",
+      "dark"
+    ],
+    "play_style": [
+      "narrative",
+      "action"
+    ],
+    "time_to_fun": "medium",
+    "stop_friendliness": "checkpoints",
+    "multiplayer": [
+      "solo"
+    ],
+    "description": "Investigate a flooded 1920s New England city gripped by madness as a private detective, in an open-world Lovecraftian mystery.",
+    "fun_fact": null,
+    "subscriptions": [],
+    "store_links": {
+      "steam": "https://store.steampowered.com/app/750130/",
+      "gog": "https://www.gog.com/en/game/the_sinking_city_remastered",
+      "playstation": "https://store.playstation.com/en-us/product/UP5025-PPSA01771_00-TSCUA00000000003",
+      "xbox": "https://www.xbox.com/en-US/games/store/the-sinking-city-remastered/9P3XQ5QWLFJJ",
+      "nintendo": "https://www.nintendo.com/us/store/products/the-sinking-city-switch/"
+    },
+    "content_warnings": [
+      "violence",
+      "gore"
+    ]
+  },
+  {
+    "id": "call-of-cthulhu-2018",
+    "title": "Call of Cthulhu",
+    "platforms": [
+      "pc",
+      "playstation",
+      "xbox",
+      "switch"
+    ],
+    "year": 2018,
+    "genres": [
+      "horror",
+      "lovecraftian",
+      "detective",
+      "narrative"
+    ],
+    "time_tags": [
+      60,
+      90
+    ],
+    "energy": "medium",
+    "moods": [
+      "mysterious",
+      "atmospheric",
+      "dark",
+      "psychological"
+    ],
+    "play_style": [
+      "narrative",
+      "puzzle"
+    ],
+    "time_to_fun": "medium",
+    "stop_friendliness": "checkpoints",
+    "multiplayer": [
+      "solo"
+    ],
+    "description": "In 1924, private investigator Edward Pierce looks into the deaths of the Hawkins family on a remote island and tries to hold on to his sanity.",
+    "fun_fact": null,
+    "subscriptions": [
+      "playstation_plus"
+    ],
+    "store_links": {
+      "steam": "https://store.steampowered.com/app/399810/",
+      "gog": "https://www.gog.com/en/game/call_of_cthulhu",
+      "playstation": "https://store.playstation.com/en-us/concept/216117",
+      "xbox": "https://www.xbox.com/en-US/games/store/call-of-cthulhu/BQZ10L79X0FP",
+      "nintendo": "https://www.nintendo.com/us/store/products/call-of-cthulhu-switch/"
+    },
+    "content_warnings": [
+      "violence",
+      "mature_themes"
+    ]
+  },
+  {
+    "id": "scorn",
+    "title": "Scorn",
+    "platforms": [
+      "pc",
+      "playstation",
+      "xbox"
+    ],
+    "year": 2022,
+    "genres": [
+      "horror",
+      "puzzle",
+      "first-person",
+      "sci-fi"
+    ],
+    "time_tags": [
+      60,
+      90
+    ],
+    "energy": "medium",
+    "moods": [
+      "unsettling",
+      "atmospheric",
+      "disturbing",
+      "surreal"
+    ],
+    "play_style": [
+      "puzzle",
+      "action"
+    ],
+    "time_to_fun": "medium",
+    "stop_friendliness": "checkpoints",
+    "multiplayer": [
+      "solo"
+    ],
+    "description": "Explore a wordless biomechanical world of flesh and machinery, solving environmental puzzles with almost no guidance.",
+    "fun_fact": null,
+    "subscriptions": [],
+    "store_links": {
+      "steam": "https://store.steampowered.com/app/698670/",
+      "gog": "https://www.gog.com/en/game/scorn",
+      "playstation": "https://store.playstation.com/en-us/product/UP7581-PPSA07849_00-SCORN000000PS5US",
+      "xbox": "https://www.xbox.com/en-US/games/store/scorn/9NM3TNRPQXLR"
+    },
+    "content_warnings": [
+      "gore",
+      "violence"
+    ]
+  },
+  {
+    "id": "madison",
+    "title": "MADiSON",
+    "platforms": [
+      "pc",
+      "playstation",
+      "xbox",
+      "switch"
+    ],
+    "year": 2022,
+    "genres": [
+      "horror",
+      "psychological",
+      "first-person",
+      "puzzle"
+    ],
+    "time_tags": [
+      60,
+      90
+    ],
+    "energy": "medium",
+    "moods": [
+      "terrifying",
+      "tense",
+      "psychological"
+    ],
+    "play_style": [
+      "narrative",
+      "puzzle"
+    ],
+    "time_to_fun": "medium",
+    "stop_friendliness": "checkpoints",
+    "multiplayer": [
+      "solo"
+    ],
+    "description": "A first-person psychological horror where an instant camera links the living world and the beyond, and developing photos is how you solve puzzles and survive.",
+    "fun_fact": null,
+    "subscriptions": [],
+    "store_links": {
+      "steam": "https://store.steampowered.com/app/1670870/",
+      "gog": "https://www.gog.com/en/game/madison",
+      "playstation": "https://store.playstation.com/en-us/concept/10004909",
+      "xbox": "https://www.xbox.com/en-US/games/store/madison/9NH3QTH5N007",
+      "nintendo": "https://www.nintendo.com/us/store/products/madison-switch/"
+    },
+    "content_warnings": [
+      "gore",
+      "violence",
+      "mature_themes"
+    ]
+  },
+  {
+    "id": "the-coma-2",
+    "title": "The Coma 2: Vicious Sisters",
+    "platforms": [
+      "pc",
+      "playstation",
+      "xbox",
+      "switch"
+    ],
+    "year": 2020,
+    "genres": [
+      "horror",
+      "side-scroller",
+      "survival",
+      "indie"
+    ],
+    "time_tags": [
+      30,
+      60,
+      90
+    ],
+    "energy": "medium",
+    "moods": [
+      "tense",
+      "scary",
+      "atmospheric"
+    ],
+    "play_style": [
+      "action",
+      "puzzle"
+    ],
+    "time_to_fun": "short",
+    "stop_friendliness": "checkpoints",
+    "multiplayer": [
+      "solo"
+    ],
+    "description": "Mina Park wakes up at school at night and has to escape a nightmarish district while a demonic pursuer hunts her, in a hand-drawn Korean side-scrolling horror.",
+    "fun_fact": null,
+    "subscriptions": [],
+    "store_links": {
+      "steam": "https://store.steampowered.com/app/1045720/",
+      "gog": "https://www.gog.com/en/game/the_coma_2_vicious_sisters",
+      "playstation": "https://store.playstation.com/en-us/product/UP0825-CUSA18816_00-THECOMA2SIEA0000",
+      "xbox": "https://www.xbox.com/en-US/games/store/the-coma-2-vicious-sisters/9PH13JG7PZN2",
+      "nintendo": "https://www.nintendo.com/us/store/products/the-coma-2-vicious-sisters-switch/"
+    },
+    "content_warnings": [
+      "violence",
+      "horror_elements"
+    ]
+  },
+  {
+    "id": "fatal-frame-mask-lunar-eclipse",
+    "title": "Fatal Frame: Mask of the Lunar Eclipse",
+    "platforms": [
+      "pc",
+      "playstation",
+      "xbox",
+      "switch"
+    ],
+    "year": 2023,
+    "genres": [
+      "horror",
+      "survival-horror",
+      "japanese",
+      "remaster"
+    ],
+    "time_tags": [
+      60,
+      90
+    ],
+    "energy": "medium",
+    "moods": [
+      "scary",
+      "atmospheric",
+      "tense",
+      "mysterious"
+    ],
+    "play_style": [
+      "action",
+      "narrative"
+    ],
+    "time_to_fun": "medium",
+    "stop_friendliness": "checkpoints",
+    "multiplayer": [
+      "solo"
+    ],
+    "description": "Girls vanished during a festival on Rogetsu Isle; explore its abandoned places and fight ghosts with the Camera Obscura, a camera that repels whatever it photographs.",
+    "fun_fact": null,
+    "subscriptions": [],
+    "store_links": {
+      "steam": "https://store.steampowered.com/app/2130460/",
+      "playstation": "https://store.playstation.com/en-us/product/UP4108-PPSA10279_00-APPZEROMOL000000",
+      "xbox": "https://www.xbox.com/en-US/games/store/fatal-frame-mask-of-the-lunar-eclipse/9NGC0FV2R2M1",
+      "nintendo": "https://www.nintendo.com/us/store/products/fatal-frame-mask-of-the-lunar-eclipse-switch/"
+    },
+    "content_warnings": [
+      "violence",
+      "horror_elements"
+    ]
+  },
+  {
+    "id": "fatal-frame-maiden-black-water",
+    "title": "Fatal Frame: Maiden of Black Water",
+    "platforms": [
+      "pc",
+      "playstation",
+      "xbox",
+      "switch"
+    ],
+    "year": 2021,
+    "genres": [
+      "horror",
+      "survival-horror",
+      "japanese",
+      "remaster"
+    ],
+    "time_tags": [
+      60,
+      90
+    ],
+    "energy": "medium",
+    "moods": [
+      "scary",
+      "atmospheric",
+      "mysterious"
+    ],
+    "play_style": [
+      "action",
+      "narrative"
+    ],
+    "time_to_fun": "medium",
+    "stop_friendliness": "checkpoints",
+    "multiplayer": [
+      "solo"
+    ],
+    "description": "Search a haunted mountain for the missing and the dead, fighting ghosts with the Camera Obscura across three playable characters.",
+    "fun_fact": null,
+    "subscriptions": [],
+    "store_links": {
+      "steam": "https://store.steampowered.com/app/1732190/",
+      "playstation": "https://store.playstation.com/en-us/product/UP4108-PPSA04334_00-APPFOCUS00000000",
+      "xbox": "https://www.xbox.com/en-US/games/store/fatal-frame-maiden-of-black-water/9PB9TL3M9T48",
+      "nintendo": "https://www.nintendo.com/us/store/products/fatal-frame-maiden-of-black-water-switch/"
+    },
+    "content_warnings": [
+      "violence",
+      "horror_elements",
+      "mature_themes"
+    ]
+  },
+  {
+    "id": "silent-hill-the-short-message",
+    "title": "Silent Hill: The Short Message",
+    "platforms": [
+      "playstation"
+    ],
+    "year": 2024,
+    "genres": [
+      "horror",
+      "psychological",
+      "first-person",
+      "free-to-play"
+    ],
+    "time_tags": [
+      60,
+      90
+    ],
+    "energy": "medium",
+    "moods": [
+      "psychological",
+      "disturbing",
+      "tense"
+    ],
+    "play_style": [
+      "narrative"
+    ],
+    "time_to_fun": "short",
+    "stop_friendliness": "checkpoints",
+    "multiplayer": [
+      "solo"
+    ],
+    "description": "A free, short first-person Silent Hill story: a teenager follows messages from a friend into a decaying apartment block and flees a monster. It deals with bullying and self-harm.",
+    "fun_fact": null,
+    "subscriptions": [],
+    "store_links": {
+      "playstation": "https://store.playstation.com/en-us/product/UP0101-PPSA04877_00-2010396308939304"
+    },
+    "content_warnings": [
+      "mature_themes",
+      "violence",
+      "themes_of_death"
+    ]
+  },
+  {
+    "id": "resident-evil-hd-remaster",
+    "title": "Resident Evil HD Remaster",
+    "platforms": [
+      "pc",
+      "playstation",
+      "xbox",
+      "switch"
+    ],
+    "year": 2015,
+    "genres": [
+      "horror",
+      "survival-horror",
+      "remaster",
+      "puzzle"
+    ],
+    "time_tags": [
+      60,
+      90
+    ],
+    "energy": "medium",
+    "moods": [
+      "tense",
+      "scary",
+      "atmospheric",
+      "nostalgic"
+    ],
+    "play_style": [
+      "action",
+      "puzzle"
+    ],
+    "time_to_fun": "medium",
+    "stop_friendliness": "checkpoints",
+    "multiplayer": [
+      "solo"
+    ],
+    "description": "The 2002 remake of the original Resident Evil, remastered: explore the Spencer Mansion as Chris or Jill with scarce ammo and saves.",
+    "fun_fact": null,
+    "subscriptions": [],
+    "store_links": {
+      "steam": "https://store.steampowered.com/app/304240/",
+      "playstation": "https://store.playstation.com/en-us/product/UP0102-CUSA01068_00-BHRHDPS400000001",
+      "xbox": "https://www.xbox.com/en-us/games/store/resident-evil/bnzqj2fbtdm7",
+      "nintendo": "https://www.nintendo.com/us/store/products/resident-evil-switch/",
+      "gog": "https://www.gog.com/en/game/resident_evil_hd_remaster"
+    },
+    "content_warnings": [
+      "gore",
+      "violence"
+    ]
+  },
+  {
+    "id": "resident-evil-0",
+    "title": "Resident Evil 0",
+    "platforms": [
+      "pc",
+      "playstation",
+      "xbox",
+      "switch"
+    ],
+    "year": 2016,
+    "genres": [
+      "horror",
+      "survival-horror",
+      "remaster",
+      "puzzle"
+    ],
+    "time_tags": [
+      60,
+      90
+    ],
+    "energy": "medium",
+    "moods": [
+      "tense",
+      "scary",
+      "atmospheric",
+      "nostalgic"
+    ],
+    "play_style": [
+      "action",
+      "puzzle"
+    ],
+    "time_to_fun": "medium",
+    "stop_friendliness": "checkpoints",
+    "multiplayer": [
+      "solo"
+    ],
+    "description": "Rebecca Chambers and convict Billy Coen team up on a zombie-infested train, switching between partners to solve puzzles.",
+    "fun_fact": null,
+    "subscriptions": [],
+    "store_links": {
+      "steam": "https://store.steampowered.com/app/339340/",
+      "playstation": "https://store.playstation.com/en-us/product/UP0102-CUSA02337_00-BH0HD00000000001",
+      "xbox": "https://www.xbox.com/en-us/games/store/resident-evil-0/bxhg2gx28l23",
+      "nintendo": "https://www.nintendo.com/us/store/products/resident-evil-0-switch/",
+      "gog": "https://www.gog.com/en/game/resident_evil_0"
+    },
+    "content_warnings": [
+      "gore",
+      "violence"
+    ]
+  },
+  {
+    "id": "resident-evil-revelations",
+    "title": "Resident Evil Revelations",
+    "platforms": [
+      "pc",
+      "playstation",
+      "xbox",
+      "switch"
+    ],
+    "year": 2013,
+    "genres": [
+      "horror",
+      "survival-horror",
+      "action",
+      "shooter"
+    ],
+    "time_tags": [
+      30,
+      60,
+      90
+    ],
+    "energy": "high",
+    "moods": [
+      "tense",
+      "scary",
+      "action-packed"
+    ],
+    "play_style": [
+      "action"
+    ],
+    "time_to_fun": "short",
+    "stop_friendliness": "checkpoints",
+    "multiplayer": [
+      "solo",
+      "online_coop"
+    ],
+    "description": "Jill Valentine boards a derelict cruise ship in the Mediterranean to find her missing partner Chris, with a separate Raid Mode for online co-op.",
+    "fun_fact": null,
+    "subscriptions": [],
+    "store_links": {
+      "steam": "https://store.steampowered.com/app/222480/",
+      "playstation": "https://store.playstation.com/en-us/product/UP0102-CUSA06314_00-RERHDPS400000000",
+      "xbox": "https://www.xbox.com/en-US/games/store/resident-evil-revelations/bzp6x6hkwg1g",
+      "nintendo": "https://www.nintendo.com/us/store/products/resident-evil-revelations-switch/"
+    },
+    "content_warnings": [
+      "gore",
+      "violence"
+    ]
+  },
+  {
+    "id": "resident-evil-revelations-2",
+    "title": "Resident Evil Revelations 2",
+    "platforms": [
+      "pc",
+      "playstation",
+      "xbox",
+      "switch"
+    ],
+    "year": 2015,
+    "genres": [
+      "horror",
+      "survival-horror",
+      "action",
+      "co-op"
+    ],
+    "time_tags": [
+      30,
+      60,
+      90
+    ],
+    "energy": "high",
+    "moods": [
+      "tense",
+      "scary",
+      "cooperative"
+    ],
+    "play_style": [
+      "action"
+    ],
+    "time_to_fun": "short",
+    "stop_friendliness": "checkpoints",
+    "multiplayer": [
+      "solo",
+      "local_coop",
+      "online_coop"
+    ],
+    "description": "Claire Redfield and Moira Burton, and later Barry Burton, try to escape a prison island in an episodic survival horror where a second player can take the partner.",
+    "fun_fact": null,
+    "subscriptions": [],
+    "store_links": {
+      "steam": "https://store.steampowered.com/app/287290/",
+      "playstation": "https://store.playstation.com/en-us/product/UP0102-CUSA00924_00-BHR2DELUXE000000",
+      "xbox": "https://www.xbox.com/en-US/games/store/resident-evil-revelations-2-deluxe-edition/BX4JBN0GWCVB",
+      "nintendo": "https://www.nintendo.com/us/store/products/resident-evil-revelations-2-switch/"
+    },
+    "content_warnings": [
+      "gore",
+      "violence"
+    ]
+  },
+  {
+    "id": "the-evil-within",
+    "title": "The Evil Within",
+    "platforms": [
+      "pc",
+      "playstation",
+      "xbox"
+    ],
+    "year": 2014,
+    "genres": [
+      "horror",
+      "survival-horror",
+      "action",
+      "third-person"
+    ],
+    "time_tags": [
+      60,
+      90
+    ],
+    "energy": "high",
+    "moods": [
+      "terrifying",
+      "tense",
+      "brutal",
+      "challenging"
+    ],
+    "play_style": [
+      "action"
+    ],
+    "time_to_fun": "medium",
+    "stop_friendliness": "checkpoints",
+    "multiplayer": [
+      "solo"
+    ],
+    "description": "Detective Sebastian Castellanos fights through a nightmare world of traps and monsters with scarce ammo, from Resident Evil creator Shinji Mikami.",
+    "fun_fact": null,
+    "subscriptions": [
+      "xbox_game_pass"
+    ],
+    "store_links": {
+      "steam": "https://store.steampowered.com/app/268050/",
+      "playstation": "https://store.playstation.com/en-us/product/UP1003-CUSA00203_00-THEEVILWITHINENG",
+      "xbox": "https://www.xbox.com/en-US/games/store/the-evil-within/C2M8HBNVPT1T",
+      "gog": "https://www.gog.com/en/game/the_evil_within"
+    },
+    "content_warnings": [
+      "gore",
+      "violence"
+    ]
+  },
+  {
+    "id": "ghostwire-tokyo",
+    "title": "Ghostwire: Tokyo",
+    "platforms": [
+      "pc",
+      "playstation",
+      "xbox"
+    ],
+    "year": 2022,
+    "genres": [
+      "horror",
+      "action",
+      "open-world",
+      "first-person"
+    ],
+    "time_tags": [
+      30,
+      60,
+      90
+    ],
+    "energy": "high",
+    "moods": [
+      "atmospheric",
+      "action-packed",
+      "supernatural",
+      "stylish"
+    ],
+    "play_style": [
+      "action"
+    ],
+    "time_to_fun": "short",
+    "stop_friendliness": "checkpoints",
+    "multiplayer": [
+      "solo"
+    ],
+    "description": "Nearly everyone in Tokyo has vanished, and you fight the spirits left behind with hand-gesture magic across an empty city.",
+    "fun_fact": null,
+    "subscriptions": [
+      "xbox_game_pass"
+    ],
+    "store_links": {
+      "steam": "https://store.steampowered.com/app/1475810/",
+      "playstation": "https://store.playstation.com/en-us/product/UP1003-PPSA01337_00-GHOSTWIRETOKYOFG",
+      "xbox": "https://www.xbox.com/en-US/games/store/ghostwire-tokyo/9PKP39CL0C8D",
+      "gog": "https://www.gog.com/en/game/ghostwire_tokyo"
+    },
+    "content_warnings": [
+      "violence",
+      "horror_elements"
+    ]
+  },
+  {
+    "id": "amnesia-the-bunker",
+    "title": "Amnesia: The Bunker",
+    "platforms": [
+      "pc",
+      "playstation",
+      "xbox"
+    ],
+    "year": 2023,
+    "genres": [
+      "horror",
+      "survival-horror",
+      "first-person",
+      "immersive-sim"
+    ],
+    "time_tags": [
+      60,
+      90
+    ],
+    "energy": "high",
+    "moods": [
+      "terrifying",
+      "tense",
+      "atmospheric"
+    ],
+    "play_style": [
+      "action",
+      "puzzle"
+    ],
+    "time_to_fun": "medium",
+    "stop_friendliness": "checkpoints",
+    "multiplayer": [
+      "solo"
+    ],
+    "description": "Trapped in a WWI bunker with a creature that hunts by sound, keep the generator fueled and find a way out with whatever you can scavenge.",
+    "fun_fact": null,
+    "subscriptions": [],
+    "store_links": {
+      "steam": "https://store.steampowered.com/app/1944430/",
+      "playstation": "https://store.playstation.com/en-us/product/UP1192-CUSA40994_00-AMNESIATHEBUNKER",
+      "xbox": "https://www.xbox.com/en-US/games/store/amnesia-the-bunker/9PC15H56NGJK",
+      "gog": "https://www.gog.com/en/game/amnesia_the_bunker"
+    },
+    "content_warnings": [
+      "gore",
+      "violence"
+    ]
+  },
+  {
+    "id": "outlast-2",
+    "title": "Outlast 2",
+    "platforms": [
+      "pc",
+      "playstation",
+      "xbox",
+      "switch"
+    ],
+    "year": 2017,
+    "genres": [
+      "horror",
+      "survival-horror",
+      "first-person",
+      "stealth"
+    ],
+    "time_tags": [
+      60,
+      90
+    ],
+    "energy": "high",
+    "moods": [
+      "terrifying",
+      "tense",
+      "disturbing"
+    ],
+    "play_style": [
+      "action",
+      "narrative"
+    ],
+    "time_to_fun": "short",
+    "stop_friendliness": "checkpoints",
+    "multiplayer": [
+      "solo"
+    ],
+    "description": "A journalist searches for his wife in an Arizona desert ruled by a violent cult, with only a camcorder and nowhere safe to hide.",
+    "fun_fact": null,
+    "subscriptions": [
+      "playstation_plus"
+    ],
+    "store_links": {
+      "steam": "https://store.steampowered.com/app/414700/",
+      "playstation": "https://store.playstation.com/en-us/product/UP2113-CUSA06623_00-OUTLAST200000000",
+      "xbox": "https://www.xbox.com/en-US/games/store/outlast-2/BZVPNM21TCJC",
+      "nintendo": "https://www.nintendo.com/us/store/products/outlast-2-switch/",
+      "gog": "https://www.gog.com/en/game/outlast_2"
+    },
+    "content_warnings": [
+      "gore",
+      "violence",
+      "mature_themes",
+      "religious_imagery"
+    ]
+  },
+  {
+    "id": "clock-tower-rewind",
+    "title": "Clock Tower: Rewind",
+    "platforms": [
+      "pc",
+      "playstation",
+      "xbox",
+      "switch"
+    ],
+    "year": 2024,
+    "genres": [
+      "horror",
+      "point-and-click",
+      "retro",
+      "survival-horror"
+    ],
+    "time_tags": [
+      30,
+      60
+    ],
+    "energy": "medium",
+    "moods": [
+      "tense",
+      "retro",
+      "nostalgic",
+      "scary"
+    ],
+    "play_style": [
+      "puzzle",
+      "narrative"
+    ],
+    "time_to_fun": "short",
+    "stop_friendliness": "checkpoints",
+    "multiplayer": [
+      "solo"
+    ],
+    "description": "The 1995 point-and-click horror classic restored: Jennifer explores a mansion and hides from the Scissorman.",
+    "fun_fact": null,
+    "subscriptions": [],
+    "store_links": {
+      "steam": "https://store.steampowered.com/app/2794770/",
+      "playstation": "https://store.playstation.com/en-us/concept/10010305",
+      "xbox": "https://www.xbox.com/en-US/games/store/clock-tower-rewind/9PBZHQL8JMR5",
+      "nintendo": "https://www.nintendo.com/us/store/products/clock-tower-rewind-switch/",
+      "gog": "https://www.gog.com/en/game/clock_tower_rewind"
+    },
+    "content_warnings": [
+      "violence"
+    ]
+  },
+  {
+    "id": "alone-in-the-dark-2024",
+    "title": "Alone in the Dark",
+    "platforms": [
+      "pc",
+      "playstation",
+      "xbox"
+    ],
+    "year": 2024,
+    "genres": [
+      "horror",
+      "survival-horror",
+      "third-person",
+      "remake"
+    ],
+    "time_tags": [
+      60,
+      90
+    ],
+    "energy": "medium",
+    "moods": [
+      "atmospheric",
+      "mysterious",
+      "gothic"
+    ],
+    "play_style": [
+      "action",
+      "narrative"
+    ],
+    "time_to_fun": "medium",
+    "stop_friendliness": "checkpoints",
+    "multiplayer": [
+      "solo"
+    ],
+    "description": "Search a 1920s Louisiana mansion for a missing uncle as Emily Hartwood or detective Edward Carnby, in a reimagining of the original survival horror.",
+    "fun_fact": null,
+    "subscriptions": [],
+    "store_links": {
+      "steam": "https://store.steampowered.com/app/1310410/",
+      "playstation": "https://store.playstation.com/en-us/concept/10005283",
+      "xbox": "https://www.xbox.com/en-US/games/store/alone-in-the-dark/9MW67WG48XVX",
+      "gog": "https://www.gog.com/en/game/alone_in_the_dark"
+    },
+    "content_warnings": [
+      "violence",
+      "gore"
+    ]
+  },
+  {
+    "id": "dying-light",
+    "title": "Dying Light",
+    "platforms": [
+      "pc",
+      "playstation",
+      "xbox",
+      "switch"
+    ],
+    "year": 2015,
+    "genres": [
+      "horror",
+      "open-world",
+      "zombie",
+      "parkour"
+    ],
+    "time_tags": [
+      30,
+      60,
+      90
+    ],
+    "energy": "high",
+    "moods": [
+      "intense",
+      "tense",
+      "action-packed"
+    ],
+    "play_style": [
+      "action"
+    ],
+    "time_to_fun": "short",
+    "stop_friendliness": "checkpoints",
+    "multiplayer": [
+      "solo",
+      "online_coop",
+      "competitive"
+    ],
+    "description": "Parkour across a quarantined city by day and run for your life at night, when the infected get faster and deadlier, solo or with up to three friends.",
+    "fun_fact": null,
+    "subscriptions": [
+      "playstation_plus"
+    ],
+    "store_links": {
+      "steam": "https://store.steampowered.com/app/239140/",
+      "playstation": "https://store.playstation.com/en-us/product/UP1018-CUSA00078_00-PLATINUMEDITION1",
+      "xbox": "https://www.xbox.com/en-US/games/store/dying-light-definitive-edition/9N06V8XJ5G7L",
+      "nintendo": "https://www.nintendo.com/us/store/products/dying-light-definitive-edition-switch/",
+      "gog": "https://www.gog.com/en/game/dying_light_definitive_edition"
+    },
+    "content_warnings": [
+      "gore",
+      "violence"
+    ]
+  },
+  {
+    "id": "dying-light-2",
+    "title": "Dying Light 2 Stay Human",
+    "platforms": [
+      "pc",
+      "playstation",
+      "xbox"
+    ],
+    "year": 2022,
+    "genres": [
+      "horror",
+      "open-world",
+      "zombie",
+      "parkour"
+    ],
+    "time_tags": [
+      30,
+      60,
+      90
+    ],
+    "energy": "high",
+    "moods": [
+      "intense",
+      "tense",
+      "action-packed"
+    ],
+    "play_style": [
+      "action"
+    ],
+    "time_to_fun": "short",
+    "stop_friendliness": "checkpoints",
+    "multiplayer": [
+      "solo",
+      "online_coop"
+    ],
+    "description": "Parkour and fight through one of the last human cities after a zombie outbreak, where night brings out the worst of the infected.",
+    "fun_fact": null,
+    "subscriptions": [
+      "playstation_plus"
+    ],
+    "store_links": {
+      "steam": "https://store.steampowered.com/app/534380/",
+      "playstation": "https://store.playstation.com/en-us/product/UP3050-PPSA02261_00-DL2GAME0000000US",
+      "xbox": "https://www.xbox.com/en-US/games/store/dying-light-2-stay-human-reloaded-edition/BPCL0TXCGJ1W"
+    },
+    "content_warnings": [
+      "gore",
+      "violence"
+    ]
+  },
+  {
+    "id": "repo",
+    "title": "R.E.P.O.",
+    "platforms": [
+      "pc"
+    ],
+    "year": 2025,
+    "genres": [
+      "horror",
+      "co-op",
+      "comedy",
+      "physics"
+    ],
+    "time_tags": [
+      30,
+      60
+    ],
+    "energy": "high",
+    "moods": [
+      "funny",
+      "chaotic",
+      "scary",
+      "cooperative"
+    ],
+    "play_style": [
+      "action"
+    ],
+    "time_to_fun": "short",
+    "stop_friendliness": "checkpoints",
+    "multiplayer": [
+      "solo",
+      "online_coop"
+    ],
+    "description": "Up to six friends grab valuables from haunted places with physics-based hands while monsters hunt them, all with proximity voice chat.",
+    "fun_fact": null,
+    "subscriptions": [],
+    "store_links": {
+      "steam": "https://store.steampowered.com/app/3241660/"
+    },
+    "content_warnings": [
+      "horror_elements"
+    ]
+  },
+  {
+    "id": "carrion",
+    "title": "Carrion",
+    "platforms": [
+      "pc",
+      "playstation",
+      "xbox",
+      "switch",
+      "mobile"
+    ],
+    "year": 2020,
+    "genres": [
+      "horror",
+      "metroidvania",
+      "action",
+      "pixel-art"
+    ],
+    "time_tags": [
+      30,
+      60
+    ],
+    "energy": "high",
+    "moods": [
+      "action-packed",
+      "brutal",
+      "satisfying",
+      "chaotic"
+    ],
+    "play_style": [
+      "action"
+    ],
+    "time_to_fun": "short",
+    "stop_friendliness": "checkpoints",
+    "multiplayer": [
+      "solo"
+    ],
+    "description": "Play the monster: a shapeless creature breaking out of a research facility and growing as it consumes the people who held it.",
+    "fun_fact": null,
+    "subscriptions": [],
+    "store_links": {
+      "steam": "https://store.steampowered.com/app/953490/",
+      "playstation": "https://store.playstation.com/en-us/concept/10002805",
+      "xbox": "https://www.xbox.com/en-US/games/store/carrion/9NPKKNBJ258V",
+      "nintendo": "https://www.nintendo.com/us/store/products/carrion-switch/",
+      "gog": "https://www.gog.com/en/game/carrion",
+      "ios": "https://apps.apple.com/us/app/carrion/id6504567739",
+      "android": "https://play.google.com/store/apps/details?id=com.devolverdigital.carrion"
+    },
+    "content_warnings": [
+      "gore",
+      "violence"
+    ]
+  },
+  {
+    "id": "blood-refreshed-supply",
+    "title": "Blood: Refreshed Supply",
+    "platforms": [
+      "pc",
+      "playstation",
+      "xbox",
+      "switch"
+    ],
+    "year": 2025,
+    "genres": [
+      "horror",
+      "fps",
+      "retro",
+      "shooter"
+    ],
+    "time_tags": [
+      30,
+      60
+    ],
+    "energy": "high",
+    "moods": [
+      "retro",
+      "action-packed",
+      "nostalgic",
+      "brutal"
+    ],
+    "play_style": [
+      "action"
+    ],
+    "time_to_fun": "short",
+    "stop_friendliness": "anytime",
+    "multiplayer": [
+      "solo",
+      "local_coop",
+      "online_coop",
+      "competitive"
+    ],
+    "description": "The 1997 horror shooter restored for modern systems: undead gunslinger Caleb takes on a cult with flare guns, dynamite and voodoo dolls.",
+    "fun_fact": null,
+    "subscriptions": [],
+    "store_links": {
+      "steam": "https://store.steampowered.com/app/3884520/",
+      "playstation": "https://store.playstation.com/en-us/concept/10016705",
+      "xbox": "https://www.xbox.com/en-US/games/store/blood-refreshed-supply/9PD2QGLP9WJR",
+      "nintendo": "https://www.nintendo.com/us/store/products/blood-refreshed-supply-switch/",
+      "gog": "https://www.gog.com/en/game/blood_refreshed_supply"
+    },
+    "content_warnings": [
+      "gore",
+      "violence"
+    ]
+  },
+  {
+    "id": "the-sinking-city-2",
+    "title": "The Sinking City 2",
+    "platforms": [
+      "pc",
+      "playstation",
+      "xbox"
+    ],
+    "year": 2026,
+    "genres": [
+      "horror",
+      "survival-horror",
+      "lovecraftian",
+      "third-person"
+    ],
+    "time_tags": [
+      60,
+      90
+    ],
+    "energy": "medium",
+    "moods": [
+      "atmospheric",
+      "dark",
+      "tense"
+    ],
+    "play_style": [
+      "action",
+      "narrative"
+    ],
+    "time_to_fun": "medium",
+    "stop_friendliness": "checkpoints",
+    "multiplayer": [
+      "solo"
+    ],
+    "description": "A survival horror sequel set in a flooded 1920s Arkham, where you explore the city, face the dead and confront an eldritch god.",
+    "fun_fact": null,
+    "subscriptions": [],
+    "store_links": {
+      "steam": "https://store.steampowered.com/app/2825860/",
+      "gog": "https://www.gog.com/en/game/the_sinking_city_2",
+      "playstation": "https://store.playstation.com/en-us/concept/10009208",
+      "xbox": "https://www.xbox.com/en-US/games/store/the-sinking-city-2/9NFPC1Z6HSN4"
+    },
+    "content_warnings": [
+      "gore",
+      "violence",
+      "mature_themes"
+    ]
+  }
+]

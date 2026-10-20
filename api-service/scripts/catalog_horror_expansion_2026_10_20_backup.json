@@ -1,0 +1,4061 @@
+{
+ "taken_at": "2026-10-20T19:45:33.056811+00:00",
+ "retag_documents": {
+  "amnesia-rebirth": {
+   "name": "projects/playnxt-1a2c6/databases/(default)/documents/games/amnesia-rebirth",
+   "fields": {
+    "mood_tags": {
+     "arrayValue": {
+      "values": [
+       {
+        "stringValue": "terrifying"
+       },
+       {
+        "stringValue": "psychological"
+       },
+       {
+        "stringValue": "atmospheric"
+       },
+       {
+        "stringValue": "desperate"
+       }
+      ]
+     }
+    },
+    "platforms": {
+     "arrayValue": {
+      "values": [
+       {
+        "stringValue": "pc"
+       },
+       {
+        "stringValue": "playstation"
+       },
+       {
+        "stringValue": "xbox"
+       }
+      ]
+     }
+    },
+    "game_id": {
+     "stringValue": "amnesia-rebirth"
+    },
+    "subscription_services": {
+     "arrayValue": {}
+    },
+    "moods": {
+     "arrayValue": {
+      "values": [
+       {
+        "stringValue": "terrifying"
+       },
+       {
+        "stringValue": "psychological"
+       },
+       {
+        "stringValue": "atmospheric"
+       },
+       {
+        "stringValue": "desperate"
+       }
+      ]
+     }
+    },
+    "franchise": {
+     "nullValue": null
+    },
+    "year": {
+     "integerValue": "2020"
+    },
+    "title": {
+     "stringValue": "Amnesia: Rebirth"
+    },
+    "fun_fact": {
+     "stringValue": "Features a fear system that affects your sanity."
+    },
+    "content_warnings": {
+     "arrayValue": {
+      "values": [
+       {
+        "stringValue": "horror"
+       },
+       {
+        "stringValue": "psychological"
+       }
+      ]
+     }
+    },
+    "title_lower": {
+     "stringValue": "amnesia: rebirth"
+    },
+    "explanation_templates": {
+     "mapValue": {
+      "fields": {
+       "time_fit": {
+        "stringValue": "Easy to get into with a bit of learning."
+       },
+       "style_fit": {
+        "stringValue": "Rich storytelling pulls you into the experience."
+       },
+       "mood_fit": {
+        "stringValue": "Balanced experience that keeps you engaged without overwhelming."
+       },
+       "stop_fit": {
+        "stringValue": "Regular checkpoints let you pause when needed."
+       }
+      }
+     }
+    },
+    "stop_friendliness": {
+     "stringValue": "checkpoints"
+    },
+    "release_year": {
+     "integerValue": "2020"
+    },
+    "store_links": {
+     "mapValue": {
+      "fields": {
+       "playstation": {
+        "stringValue": "https://store.playstation.com/ru-ru/product/EP1188-CUSA19272_00-AMNESIAREBIRTH20"
+       },
+       "steam": {
+        "stringValue": "https://store.steampowered.com/app/999220/"
+       },
+       "gog": {
+        "stringValue": "https://www.gog.com/game/amnesia_rebirth"
+       }
+      }
+     }
+    },
+    "multiplayer_modes": {
+     "arrayValue": {
+      "values": [
+       {
+        "stringValue": "solo"
+       }
+      ]
+     }
+    },
+    "energy_level": {
+     "stringValue": "medium"
+    },
+    "updated_at": {
+     "timestampValue": "2026-05-31T21:27:33.161055Z"
+    },
+    "warnings": {
+     "arrayValue": {
+      "values": [
+       {
+        "stringValue": "horror"
+       },
+       {
+        "stringValue": "psychological"
+       }
+      ]
+     }
+    },
+    "genres": {
+     "arrayValue": {
+      "values": [
+       {
+        "stringValue": "survival-horror"
+       },
+       {
+        "stringValue": "psychological"
+       },
+       {
+        "stringValue": "narrative"
+       }
+      ]
+     }
+    },
+    "created_at": {
+     "timestampValue": "2026-01-30T17:07:18.630943Z"
+    },
+    "genre_tags": {
+     "arrayValue": {
+      "values": [
+       {
+        "stringValue": "survival-horror"
+       },
+       {
+        "stringValue": "psychological"
+       },
+       {
+        "stringValue": "narrative"
+       }
+      ]
+     }
+    },
+    "play_style": {
+     "arrayValue": {
+      "values": [
+       {
+        "stringValue": "narrative"
+       }
+      ]
+     }
+    },
+    "description_short": {
+     "stringValue": "Survive the Algerian desert's horrors."
+    },
+    "time_to_fun": {
+     "stringValue": "medium"
+    },
+    "time_tags": {
+     "arrayValue": {
+      "values": [
+       {
+        "integerValue": "60"
+       },
+       {
+        "integerValue": "90"
+       }
+      ]
+     }
+    }
+   },
+   "createTime": "2025-12-26T14:16:09.303768Z",
+   "updateTime": "2026-05-31T21:25:21.975527Z"
+  },
+  "bloodborne": {
+   "name": "projects/playnxt-1a2c6/databases/(default)/documents/games/bloodborne",
+   "fields": {
+    "stop_friendliness": {
+     "stringValue": "checkpoints"
+    },
+    "created_at": {
+     "timestampValue": "2026-01-30T17:07:21.133649Z"
+    },
+    "franchise": {
+     "nullValue": null
+    },
+    "moods": {
+     "arrayValue": {
+      "values": [
+       {
+        "stringValue": "gothic"
+       },
+       {
+        "stringValue": "aggressive"
+       },
+       {
+        "stringValue": "lovecraftian"
+       },
+       {
+        "stringValue": "atmospheric"
+       }
+      ]
+     }
+    },
+    "updated_at": {
+     "timestampValue": "2026-05-31T21:27:39.800004Z"
+    },
+    "subscription_services": {
+     "arrayValue": {}
+    },
+    "explanation_templates": {
+     "mapValue": {
+      "fields": {
+       "time_fit": {
+        "stringValue": "Easy to get into with a bit of learning."
+       },
+       "style_fit": {
+        "stringValue": "Fast-paced action keeps the adrenaline flowing."
+       },
+       "stop_fit": {
+        "stringValue": "Regular checkpoints let you pause when needed."
+       },
+       "mood_fit": {
+        "stringValue": "High-energy gameplay for when you want intensity."
+       }
+      }
+     }
+    },
+    "genres": {
+     "arrayValue": {
+      "values": [
+       {
+        "stringValue": "souls-like"
+       },
+       {
+        "stringValue": "action-rpg"
+       },
+       {
+        "stringValue": "gothic-horror"
+       }
+      ]
+     }
+    },
+    "time_to_fun": {
+     "stringValue": "medium"
+    },
+    "game_id": {
+     "stringValue": "bloodborne"
+    },
+    "store_links": {
+     "mapValue": {
+      "fields": {
+       "playstation": {
+        "stringValue": "https://store.playstation.com/en-us/product/UP9000-CUSA00900_00-BLOODBORNE000000"
+       }
+      }
+     }
+    },
+    "title_lower": {
+     "stringValue": "bloodborne"
+    },
+    "description_short": {
+     "stringValue": "Hunt beasts in a Victorian nightmare."
+    },
+    "energy_level": {
+     "stringValue": "high"
+    },
+    "multiplayer_modes": {
+     "arrayValue": {
+      "values": [
+       {
+        "stringValue": "solo"
+       },
+       {
+        "stringValue": "online_coop"
+       },
+       {
+        "stringValue": "competitive"
+       }
+      ]
+     }
+    },
+    "warnings": {
+     "arrayValue": {}
+    },
+    "platforms": {
+     "arrayValue": {
+      "values": [
+       {
+        "stringValue": "playstation"
+       }
+      ]
+     }
+    },
+    "time_tags": {
+     "arrayValue": {
+      "values": [
+       {
+        "integerValue": "60"
+       },
+       {
+        "integerValue": "90"
+       }
+      ]
+     }
+    },
+    "release_year": {
+     "integerValue": "2015"
+    },
+    "mood_tags": {
+     "arrayValue": {
+      "values": [
+       {
+        "stringValue": "gothic"
+       },
+       {
+        "stringValue": "aggressive"
+       },
+       {
+        "stringValue": "lovecraftian"
+       },
+       {
+        "stringValue": "atmospheric"
+       }
+      ]
+     }
+    },
+    "year": {
+     "integerValue": "2015"
+    },
+    "title": {
+     "stringValue": "Bloodborne"
+    },
+    "play_style": {
+     "arrayValue": {
+      "values": [
+       {
+        "stringValue": "action"
+       }
+      ]
+     }
+    },
+    "genre_tags": {
+     "arrayValue": {
+      "values": [
+       {
+        "stringValue": "souls-like"
+       },
+       {
+        "stringValue": "action-rpg"
+       },
+       {
+        "stringValue": "gothic-horror"
+       }
+      ]
+     }
+    },
+    "fun_fact": {
+     "stringValue": "The game shifts from gothic horror to cosmic horror midway through."
+    }
+   },
+   "createTime": "2025-12-26T14:16:11.827488Z",
+   "updateTime": "2026-08-24T16:51:32.766177Z"
+  },
+  "crow-country": {
+   "name": "projects/playnxt-1a2c6/databases/(default)/documents/games/crow-country",
+   "fields": {
+    "stop_friendliness": {
+     "stringValue": "checkpoints"
+    },
+    "description_short": {
+     "stringValue": "A PS1-style survival horror set in an abandoned theme park. Investigate mysteries with classic Resident Evil-inspired gameplay."
+    },
+    "updated_at": {
+     "timestampValue": "2026-05-31T21:27:50.728898Z"
+    },
+    "genres": {
+     "arrayValue": {
+      "values": [
+       {
+        "stringValue": "survival-horror"
+       },
+       {
+        "stringValue": "puzzle"
+       },
+       {
+        "stringValue": "indie"
+       },
+       {
+        "stringValue": "retro"
+       }
+      ]
+     }
+    },
+    "mood_tags": {
+     "arrayValue": {
+      "values": [
+       {
+        "stringValue": "atmospheric"
+       },
+       {
+        "stringValue": "mysterious"
+       },
+       {
+        "stringValue": "nostalgic"
+       },
+       {
+        "stringValue": "creepy"
+       }
+      ]
+     }
+    },
+    "description": {
+     "stringValue": "A PS1-style survival horror set in an abandoned theme park. Investigate mysteries with classic Resident Evil-inspired gameplay."
+    },
+    "multiplayer": {
+     "arrayValue": {
+      "values": [
+       {
+        "stringValue": "solo"
+       }
+      ]
+     }
+    },
+    "play_style": {
+     "arrayValue": {
+      "values": [
+       {
+        "stringValue": "action"
+       }
+      ]
+     }
+    },
+    "energy_level": {
+     "stringValue": "medium"
+    },
+    "year": {
+     "integerValue": "2024"
+    },
+    "energy": {
+     "stringValue": "medium"
+    },
+    "title": {
+     "stringValue": "Crow Country"
+    },
+    "time_tags": {
+     "arrayValue": {
+      "values": [
+       {
+        "integerValue": "15"
+       },
+       {
+        "integerValue": "30"
+       }
+      ]
+     }
+    },
+    "genre_tags": {
+     "arrayValue": {
+      "values": [
+       {
+        "stringValue": "survival-horror"
+       },
+       {
+        "stringValue": "puzzle"
+       },
+       {
+        "stringValue": "indie"
+       },
+       {
+        "stringValue": "retro"
+       }
+      ]
+     }
+    },
+    "release_year": {
+     "integerValue": "2024"
+    },
+    "multiplayer_modes": {
+     "arrayValue": {
+      "values": [
+       {
+        "stringValue": "solo"
+       }
+      ]
+     }
+    },
+    "store_links": {
+     "mapValue": {
+      "fields": {
+       "steam": {
+        "stringValue": "https://store.steampowered.com/app/1996010/Crow_Country/"
+       }
+      }
+     }
+    },
+    "fun_fact": {
+     "stringValue": "Made by just two developers at SFB Games, who are also known for making the cute puzzle game Snipperclips."
+    },
+    "time_to_fun": {
+     "stringValue": "short"
+    },
+    "title_lower": {
+     "stringValue": "crow country"
+    },
+    "platforms": {
+     "arrayValue": {
+      "values": [
+       {
+        "stringValue": "pc"
+       },
+       {
+        "stringValue": "playstation"
+       },
+       {
+        "stringValue": "xbox"
+       },
+       {
+        "stringValue": "switch"
+       }
+      ]
+     }
+    },
+    "category": {
+     "stringValue": "intense"
+    },
+    "moods": {
+     "arrayValue": {
+      "values": [
+       {
+        "stringValue": "atmospheric"
+       },
+       {
+        "stringValue": "mysterious"
+       },
+       {
+        "stringValue": "nostalgic"
+       },
+       {
+        "stringValue": "creepy"
+       }
+      ]
+     }
+    }
+   },
+   "createTime": "2026-02-19T16:28:39.559083Z",
+   "updateTime": "2026-05-31T21:25:39.522852Z"
+  },
+  "dead-space-remake": {
+   "name": "projects/playnxt-1a2c6/databases/(default)/documents/games/dead-space-remake",
+   "fields": {
+    "energy_level": {
+     "stringValue": "medium"
+    },
+    "stop_friendliness": {
+     "stringValue": "checkpoints"
+    },
+    "updated_at": {
+     "timestampValue": "2026-05-31T21:27:52.659261Z"
+    },
+    "time_to_fun": {
+     "stringValue": "short"
+    },
+    "game_id": {
+     "stringValue": "dead-space-remake"
+    },
+    "genres": {
+     "arrayValue": {
+      "values": [
+       {
+        "stringValue": "survival-horror"
+       },
+       {
+        "stringValue": "sci-fi"
+       },
+       {
+        "stringValue": "action"
+       }
+      ]
+     }
+    },
+    "created_at": {
+     "timestampValue": "2026-01-30T17:07:18.354550Z"
+    },
+    "subscription_services": {
+     "arrayValue": {
+      "values": [
+       {
+        "stringValue": "ea_play"
+       }
+      ]
+     }
+    },
+    "mood_tags": {
+     "arrayValue": {
+      "values": [
+       {
+        "stringValue": "terrifying"
+       },
+       {
+        "stringValue": "atmospheric"
+       },
+       {
+        "stringValue": "intense"
+       },
+       {
+        "stringValue": "isolated"
+       }
+      ]
+     }
+    },
+    "genre_tags": {
+     "arrayValue": {
+      "values": [
+       {
+        "stringValue": "survival-horror"
+       },
+       {
+        "stringValue": "sci-fi"
+       },
+       {
+        "stringValue": "action"
+       }
+      ]
+     }
+    },
+    "time_tags": {
+     "arrayValue": {
+      "values": [
+       {
+        "integerValue": "60"
+       },
+       {
+        "integerValue": "90"
+       }
+      ]
+     }
+    },
+    "fun_fact": {
+     "stringValue": "The necromorphs' audio uses slowed-down recordings of actual surgical procedures."
+    },
+    "franchise": {
+     "nullValue": null
+    },
+    "moods": {
+     "arrayValue": {
+      "values": [
+       {
+        "stringValue": "terrifying"
+       },
+       {
+        "stringValue": "atmospheric"
+       },
+       {
+        "stringValue": "intense"
+       },
+       {
+        "stringValue": "isolated"
+       }
+      ]
+     }
+    },
+    "description_short": {
+     "stringValue": "Survive the horrors of the USG Ishimura."
+    },
+    "explanation_templates": {
+     "mapValue": {
+      "fields": {
+       "style_fit": {
+        "stringValue": "Fast-paced action keeps the adrenaline flowing."
+       },
+       "stop_fit": {
+        "stringValue": "Regular checkpoints let you pause when needed."
+       },
+       "mood_fit": {
+        "stringValue": "Balanced experience that keeps you engaged without overwhelming."
+       },
+       "time_fit": {
+        "stringValue": "Quick to jump in - you'll be having fun in minutes."
+       }
+      }
+     }
+    },
+    "warnings": {
+     "arrayValue": {
+      "values": [
+       {
+        "stringValue": "horror"
+       },
+       {
+        "stringValue": "gore"
+       }
+      ]
+     }
+    },
+    "store_links": {
+     "mapValue": {
+      "fields": {
+       "playstation": {
+        "stringValue": "https://store.playstation.com/en-us/product/UP0006-PPSA03845_00-BEYONDPS5GAME000"
+       },
+       "steam": {
+        "stringValue": "https://store.steampowered.com/app/1693980/"
+       },
+       "xbox": {
+        "stringValue": "https://www.xbox.com/en-US/games/store/dead-space/9nlb6v0gnc9p"
+       }
+      }
+     }
+    },
+    "play_style": {
+     "arrayValue": {
+      "values": [
+       {
+        "stringValue": "action"
+       }
+      ]
+     }
+    },
+    "platforms": {
+     "arrayValue": {
+      "values": [
+       {
+        "stringValue": "pc"
+       },
+       {
+        "stringValue": "playstation"
+       },
+       {
+        "stringValue": "xbox"
+       }
+      ]
+     }
+    },
+    "title": {
+     "stringValue": "Dead Space Remake"
+    },
+    "multiplayer_modes": {
+     "arrayValue": {
+      "values": [
+       {
+        "stringValue": "solo"
+       }
+      ]
+     }
+    },
+    "title_lower": {
+     "stringValue": "dead space remake"
+    },
+    "release_year": {
+     "integerValue": "2023"
+    },
+    "content_warnings": {
+     "arrayValue": {
+      "values": [
+       {
+        "stringValue": "horror"
+       },
+       {
+        "stringValue": "gore"
+       }
+      ]
+     }
+    },
+    "year": {
+     "integerValue": "2023"
+    }
+   },
+   "createTime": "2025-12-26T14:16:08.863807Z",
+   "updateTime": "2026-10-19T14:55:43.055899Z"
+  },
+  "heaven-dust-2": {
+   "name": "projects/playnxt-1a2c6/databases/(default)/documents/games/heaven-dust-2",
+   "fields": {
+    "moods": {
+     "arrayValue": {
+      "values": [
+       {
+        "stringValue": "tense"
+       },
+       {
+        "stringValue": "mysterious"
+       },
+       {
+        "stringValue": "retro"
+       },
+       {
+        "stringValue": "puzzle"
+       }
+      ]
+     }
+    },
+    "stop_friendliness": {
+     "stringValue": "checkpoints"
+    },
+    "year": {
+     "integerValue": "2022"
+    },
+    "store_links": {
+     "mapValue": {
+      "fields": {
+       "steam": {
+        "stringValue": "https://store.steampowered.com/app/1515900/"
+       }
+      }
+     }
+    },
+    "energy_level": {
+     "stringValue": "low"
+    },
+    "game_id": {
+     "stringValue": "heaven-dust-2"
+    },
+    "title_lower": {
+     "stringValue": "heaven dust 2"
+    },
+    "time_to_fun": {
+     "stringValue": "short"
+    },
+    "multiplayer_modes": {
+     "arrayValue": {
+      "values": [
+       {
+        "stringValue": "solo"
+       }
+      ]
+     }
+    },
+    "description_short": {
+     "stringValue": "Solve puzzles and survive in a zombie-filled mansion."
+    },
+    "genres": {
+     "arrayValue": {
+      "values": [
+       {
+        "stringValue": "survival-horror"
+       },
+       {
+        "stringValue": "puzzle"
+       },
+       {
+        "stringValue": "indie"
+       }
+      ]
+     }
+    },
+    "release_year": {
+     "integerValue": "2022"
+    },
+    "mood_tags": {
+     "arrayValue": {
+      "values": [
+       {
+        "stringValue": "tense"
+       },
+       {
+        "stringValue": "mysterious"
+       },
+       {
+        "stringValue": "retro"
+       },
+       {
+        "stringValue": "puzzle"
+       }
+      ]
+     }
+    },
+    "subscription_services": {
+     "arrayValue": {}
+    },
+    "franchise": {
+     "nullValue": null
+    },
+    "genre_tags": {
+     "arrayValue": {
+      "values": [
+       {
+        "stringValue": "survival-horror"
+       },
+       {
+        "stringValue": "puzzle"
+       },
+       {
+        "stringValue": "indie"
+       }
+      ]
+     }
+    },
+    "title": {
+     "stringValue": "Heaven Dust 2"
+    },
+    "time_tags": {
+     "arrayValue": {
+      "values": [
+       {
+        "integerValue": "30"
+       },
+       {
+        "integerValue": "60"
+       }
+      ]
+     }
+    },
+    "updated_at": {
+     "timestampValue": "2026-05-31T21:28:06.426057Z"
+    },
+    "play_style": {
+     "arrayValue": {
+      "values": [
+       {
+        "stringValue": "puzzle"
+       }
+      ]
+     }
+    },
+    "explanation_templates": {
+     "mapValue": {
+      "fields": {
+       "mood_fit": {
+        "stringValue": "Perfect for unwinding - gentle pace lets you relax."
+       },
+       "stop_fit": {
+        "stringValue": "Regular checkpoints let you pause when needed."
+       },
+       "time_fit": {
+        "stringValue": "Quick to jump in - you'll be having fun in minutes."
+       },
+       "style_fit": {
+        "stringValue": "Satisfying puzzles that reward clever thinking."
+       }
+      }
+     }
+    },
+    "created_at": {
+     "timestampValue": "2026-01-30T17:06:58.804409Z"
+    },
+    "fun_fact": {
+     "stringValue": "The game is an homage to classic Resident Evil with isometric pixel art."
+    },
+    "warnings": {
+     "arrayValue": {}
+    },
+    "platforms": {
+     "arrayValue": {
+      "values": [
+       {
+        "stringValue": "pc"
+       },
+       {
+        "stringValue": "playstation"
+       },
+       {
+        "stringValue": "xbox"
+       },
+       {
+        "stringValue": "switch"
+       }
+      ]
+     }
+    }
+   },
+   "createTime": "2025-12-26T14:15:49.876226Z",
+   "updateTime": "2026-05-31T21:25:55.213218Z"
+  },
+  "layers-of-fear-2023": {
+   "name": "projects/playnxt-1a2c6/databases/(default)/documents/games/layers-of-fear-2023",
+   "fields": {
+    "created_at": {
+     "timestampValue": "2026-01-30T17:07:18.980433Z"
+    },
+    "stop_friendliness": {
+     "stringValue": "checkpoints"
+    },
+    "energy_level": {
+     "stringValue": "medium"
+    },
+    "franchise": {
+     "nullValue": null
+    },
+    "fun_fact": {
+     "stringValue": "The environment shifts and changes when you're not looking."
+    },
+    "warnings": {
+     "arrayValue": {
+      "values": [
+       {
+        "stringValue": "psychological_horror"
+       }
+      ]
+     }
+    },
+    "moods": {
+     "arrayValue": {
+      "values": [
+       {
+        "stringValue": "psychological"
+       },
+       {
+        "stringValue": "artistic"
+       },
+       {
+        "stringValue": "unsettling"
+       },
+       {
+        "stringValue": "atmospheric"
+       }
+      ]
+     }
+    },
+    "subscription_services": {
+     "arrayValue": {}
+    },
+    "store_links": {
+     "mapValue": {
+      "fields": {
+       "playstation": {
+        "stringValue": "https://store.playstation.com/concept/10004877"
+       },
+       "steam": {
+        "stringValue": "https://store.steampowered.com/app/1946700/Layers_of_Fears/"
+       },
+       "xbox": {
+        "stringValue": "https://www.microsoft.com/ru-tm/p/layers-of-fear-2023/9n4j5lfgpd87"
+       },
+       "gog": {
+        "stringValue": "https://www.gog.com/pl/game/layers_of_fear_2023"
+       }
+      }
+     }
+    },
+    "genre_tags": {
+     "arrayValue": {
+      "values": [
+       {
+        "stringValue": "psychological-horror"
+       },
+       {
+        "stringValue": "narrative"
+       },
+       {
+        "stringValue": "walking-sim"
+       }
+      ]
+     }
+    },
+    "time_tags": {
+     "arrayValue": {
+      "values": [
+       {
+        "integerValue": "60"
+       },
+       {
+        "integerValue": "90"
+       }
+      ]
+     }
+    },
+    "platforms": {
+     "arrayValue": {
+      "values": [
+       {
+        "stringValue": "pc"
+       },
+       {
+        "stringValue": "playstation"
+       },
+       {
+        "stringValue": "xbox"
+       }
+      ]
+     }
+    },
+    "description_short": {
+     "stringValue": "Combined remake of both Layers of Fear games."
+    },
+    "game_id": {
+     "stringValue": "layers-of-fear-2023"
+    },
+    "play_style": {
+     "arrayValue": {
+      "values": [
+       {
+        "stringValue": "narrative"
+       }
+      ]
+     }
+    },
+    "multiplayer_modes": {
+     "arrayValue": {
+      "values": [
+       {
+        "stringValue": "solo"
+       }
+      ]
+     }
+    },
+    "year": {
+     "integerValue": "2023"
+    },
+    "explanation_templates": {
+     "mapValue": {
+      "fields": {
+       "style_fit": {
+        "stringValue": "Rich storytelling pulls you into the experience."
+       },
+       "time_fit": {
+        "stringValue": "Quick to jump in - you'll be having fun in minutes."
+       },
+       "stop_fit": {
+        "stringValue": "Regular checkpoints let you pause when needed."
+       },
+       "mood_fit": {
+        "stringValue": "Balanced experience that keeps you engaged without overwhelming."
+       }
+      }
+     }
+    },
+    "title": {
+     "stringValue": "Layers of Fear (2023)"
+    },
+    "mood_tags": {
+     "arrayValue": {
+      "values": [
+       {
+        "stringValue": "psychological"
+       },
+       {
+        "stringValue": "artistic"
+       },
+       {
+        "stringValue": "unsettling"
+       },
+       {
+        "stringValue": "atmospheric"
+       }
+      ]
+     }
+    },
+    "time_to_fun": {
+     "stringValue": "short"
+    },
+    "release_year": {
+     "integerValue": "2023"
+    },
+    "genres": {
+     "arrayValue": {
+      "values": [
+       {
+        "stringValue": "psychological-horror"
+       },
+       {
+        "stringValue": "narrative"
+       },
+       {
+        "stringValue": "walking-sim"
+       }
+      ]
+     }
+    },
+    "title_lower": {
+     "stringValue": "layers of fear (2023)"
+    },
+    "content_warnings": {
+     "arrayValue": {
+      "values": [
+       {
+        "stringValue": "psychological_horror"
+       }
+      ]
+     }
+    },
+    "updated_at": {
+     "timestampValue": "2026-05-31T21:28:16.006739Z"
+    }
+   },
+   "createTime": "2025-12-26T14:16:09.811243Z",
+   "updateTime": "2026-05-31T21:26:04.791519Z"
+  },
+  "outlast-trials": {
+   "name": "projects/playnxt-1a2c6/databases/(default)/documents/games/outlast-trials",
+   "fields": {
+    "platforms": {
+     "arrayValue": {
+      "values": [
+       {
+        "stringValue": "pc"
+       },
+       {
+        "stringValue": "playstation"
+       },
+       {
+        "stringValue": "xbox"
+       }
+      ]
+     }
+    },
+    "moods": {
+     "arrayValue": {
+      "values": [
+       {
+        "stringValue": "terrifying"
+       },
+       {
+        "stringValue": "cooperative"
+       },
+       {
+        "stringValue": "tense"
+       },
+       {
+        "stringValue": "disturbing"
+       }
+      ]
+     }
+    },
+    "genres": {
+     "arrayValue": {
+      "values": [
+       {
+        "stringValue": "survival-horror"
+       },
+       {
+        "stringValue": "co-op"
+       },
+       {
+        "stringValue": "psychological"
+       }
+      ]
+     }
+    },
+    "warnings": {
+     "arrayValue": {
+      "values": [
+       {
+        "stringValue": "horror"
+       },
+       {
+        "stringValue": "disturbing"
+       }
+      ]
+     }
+    },
+    "release_year": {
+     "integerValue": "2024"
+    },
+    "description_short": {
+     "stringValue": "Cold War horror experiments with friends."
+    },
+    "genre_tags": {
+     "arrayValue": {
+      "values": [
+       {
+        "stringValue": "survival-horror"
+       },
+       {
+        "stringValue": "co-op"
+       },
+       {
+        "stringValue": "psychological"
+       }
+      ]
+     }
+    },
+    "multiplayer_modes": {
+     "arrayValue": {
+      "values": [
+       {
+        "stringValue": "solo"
+       },
+       {
+        "stringValue": "online_coop"
+       }
+      ]
+     }
+    },
+    "explanation_templates": {
+     "mapValue": {
+      "fields": {
+       "mood_fit": {
+        "stringValue": "Balanced experience that keeps you engaged without overwhelming."
+       },
+       "style_fit": {
+        "stringValue": "Fast-paced action keeps the adrenaline flowing."
+       },
+       "stop_fit": {
+        "stringValue": "Regular checkpoints let you pause when needed."
+       },
+       "time_fit": {
+        "stringValue": "Quick to jump in - you'll be having fun in minutes."
+       }
+      }
+     }
+    },
+    "content_warnings": {
+     "arrayValue": {
+      "values": [
+       {
+        "stringValue": "horror"
+       },
+       {
+        "stringValue": "disturbing"
+       }
+      ]
+     }
+    },
+    "year": {
+     "integerValue": "2024"
+    },
+    "created_at": {
+     "timestampValue": "2026-01-30T17:07:18.903146Z"
+    },
+    "time_tags": {
+     "arrayValue": {
+      "values": [
+       {
+        "integerValue": "30"
+       },
+       {
+        "integerValue": "60"
+       }
+      ]
+     }
+    },
+    "fun_fact": {
+     "stringValue": "The developers research actual CIA psychological experiments for inspiration."
+    },
+    "time_to_fun": {
+     "stringValue": "short"
+    },
+    "title_lower": {
+     "stringValue": "the outlast trials"
+    },
+    "updated_at": {
+     "timestampValue": "2026-05-31T21:28:27.892561Z"
+    },
+    "stop_friendliness": {
+     "stringValue": "checkpoints"
+    },
+    "mood_tags": {
+     "arrayValue": {
+      "values": [
+       {
+        "stringValue": "terrifying"
+       },
+       {
+        "stringValue": "cooperative"
+       },
+       {
+        "stringValue": "tense"
+       },
+       {
+        "stringValue": "disturbing"
+       }
+      ]
+     }
+    },
+    "energy_level": {
+     "stringValue": "medium"
+    },
+    "subscription_services": {
+     "arrayValue": {}
+    },
+    "game_id": {
+     "stringValue": "outlast-trials"
+    },
+    "franchise": {
+     "stringValue": "outlast"
+    },
+    "title": {
+     "stringValue": "The Outlast Trials"
+    },
+    "play_style": {
+     "arrayValue": {
+      "values": [
+       {
+        "stringValue": "action"
+       }
+      ]
+     }
+    },
+    "store_links": {
+     "mapValue": {
+      "fields": {
+       "steam": {
+        "stringValue": "https://store.steampowered.com/app/1304930/"
+       }
+      }
+     }
+    }
+   },
+   "createTime": "2025-12-26T14:16:09.741686Z",
+   "updateTime": "2026-05-31T21:26:16.678096Z"
+  },
+  "resident-evil-village": {
+   "name": "projects/playnxt-1a2c6/databases/(default)/documents/games/resident-evil-village",
+   "fields": {
+    "fun_fact": {
+     "stringValue": "Lady Dimitrescu became an internet phenomenon before release."
+    },
+    "store_links": {
+     "mapValue": {
+      "fields": {
+       "steam": {
+        "stringValue": "https://store.steampowered.com/app/1196590"
+       },
+       "playstation": {
+        "stringValue": "https://store.playstation.com/en-us/product/UP0102-PPSA01556_00-VILLAGEFULLGAMEX"
+       },
+       "xbox": {
+        "stringValue": "https://www.microsoft.com/ru-ru/p/resident-evil-village/9MTNPF414F65"
+       }
+      }
+     }
+    },
+    "explanation_templates": {
+     "mapValue": {
+      "fields": {
+       "time_fit": {
+        "stringValue": "Quick to jump in - you'll be having fun in minutes."
+       },
+       "mood_fit": {
+        "stringValue": "Balanced experience that keeps you engaged without overwhelming."
+       },
+       "style_fit": {
+        "stringValue": "Fast-paced action keeps the adrenaline flowing."
+       },
+       "stop_fit": {
+        "stringValue": "Regular checkpoints let you pause when needed."
+       }
+      }
+     }
+    },
+    "platforms": {
+     "arrayValue": {
+      "values": [
+       {
+        "stringValue": "pc"
+       },
+       {
+        "stringValue": "playstation"
+       },
+       {
+        "stringValue": "xbox"
+       },
+       {
+        "stringValue": "switch"
+       }
+      ]
+     }
+    },
+    "created_at": {
+     "timestampValue": "2026-01-30T17:07:18.494634Z"
+    },
+    "content_warnings": {
+     "arrayValue": {
+      "values": [
+       {
+        "stringValue": "horror"
+       },
+       {
+        "stringValue": "violence"
+       }
+      ]
+     }
+    },
+    "genre_tags": {
+     "arrayValue": {
+      "values": [
+       {
+        "stringValue": "survival-horror"
+       },
+       {
+        "stringValue": "action"
+       },
+       {
+        "stringValue": "gothic"
+       }
+      ]
+     }
+    },
+    "year": {
+     "integerValue": "2021"
+    },
+    "release_year": {
+     "integerValue": "2021"
+    },
+    "time_to_fun": {
+     "stringValue": "short"
+    },
+    "warnings": {
+     "arrayValue": {
+      "values": [
+       {
+        "stringValue": "horror"
+       },
+       {
+        "stringValue": "violence"
+       }
+      ]
+     }
+    },
+    "moods": {
+     "arrayValue": {
+      "values": [
+       {
+        "stringValue": "scary"
+       },
+       {
+        "stringValue": "gothic"
+       },
+       {
+        "stringValue": "action-packed"
+       },
+       {
+        "stringValue": "varied"
+       }
+      ]
+     }
+    },
+    "play_style": {
+     "arrayValue": {
+      "values": [
+       {
+        "stringValue": "action"
+       }
+      ]
+     }
+    },
+    "genres": {
+     "arrayValue": {
+      "values": [
+       {
+        "stringValue": "survival-horror"
+       },
+       {
+        "stringValue": "action"
+       },
+       {
+        "stringValue": "gothic"
+       }
+      ]
+     }
+    },
+    "multiplayer_modes": {
+     "arrayValue": {
+      "values": [
+       {
+        "stringValue": "solo"
+       }
+      ]
+     }
+    },
+    "mood_tags": {
+     "arrayValue": {
+      "values": [
+       {
+        "stringValue": "scary"
+       },
+       {
+        "stringValue": "gothic"
+       },
+       {
+        "stringValue": "action-packed"
+       },
+       {
+        "stringValue": "varied"
+       }
+      ]
+     }
+    },
+    "franchise": {
+     "stringValue": "resident_evil"
+    },
+    "subscription_services": {
+     "arrayValue": {
+      "values": [
+       {
+        "stringValue": "xbox_game_pass"
+       }
+      ]
+     }
+    },
+    "energy_level": {
+     "stringValue": "medium"
+    },
+    "game_id": {
+     "stringValue": "resident-evil-village"
+    },
+    "title_lower": {
+     "stringValue": "resident evil village"
+    },
+    "description_short": {
+     "stringValue": "Survive a village of horrors."
+    },
+    "updated_at": {
+     "timestampValue": "2026-05-31T21:28:34.099528Z"
+    },
+    "time_tags": {
+     "arrayValue": {
+      "values": [
+       {
+        "integerValue": "60"
+       },
+       {
+        "integerValue": "90"
+       }
+      ]
+     }
+    },
+    "stop_friendliness": {
+     "stringValue": "checkpoints"
+    },
+    "title": {
+     "stringValue": "Resident Evil Village"
+    }
+   },
+   "createTime": "2025-12-26T14:16:09.069666Z",
+   "updateTime": "2026-08-24T16:51:54.882057Z"
+  },
+  "signalis": {
+   "name": "projects/playnxt-1a2c6/databases/(default)/documents/games/signalis",
+   "fields": {
+    "mood_tags": {
+     "arrayValue": {
+      "values": [
+       {
+        "stringValue": "atmospheric"
+       },
+       {
+        "stringValue": "mysterious"
+       },
+       {
+        "stringValue": "retro"
+       },
+       {
+        "stringValue": "psychological"
+       }
+      ]
+     }
+    },
+    "platforms": {
+     "arrayValue": {
+      "values": [
+       {
+        "stringValue": "pc"
+       },
+       {
+        "stringValue": "playstation"
+       },
+       {
+        "stringValue": "xbox"
+       },
+       {
+        "stringValue": "switch"
+       }
+      ]
+     }
+    },
+    "content_warnings": {
+     "arrayValue": {
+      "values": [
+       {
+        "stringValue": "horror"
+       }
+      ]
+     }
+    },
+    "title": {
+     "stringValue": "Signalis"
+    },
+    "title_lower": {
+     "stringValue": "signalis"
+    },
+    "play_style": {
+     "arrayValue": {
+      "values": [
+       {
+        "stringValue": "action"
+       },
+       {
+        "stringValue": "narrative"
+       }
+      ]
+     }
+    },
+    "created_at": {
+     "timestampValue": "2026-01-30T17:07:18.776253Z"
+    },
+    "store_links": {
+     "mapValue": {
+      "fields": {
+       "steam": {
+        "stringValue": "https://store.steampowered.com/app/1262350/SIGNALIS/"
+       }
+      }
+     }
+    },
+    "genres": {
+     "arrayValue": {
+      "values": [
+       {
+        "stringValue": "survival-horror"
+       },
+       {
+        "stringValue": "retro"
+       },
+       {
+        "stringValue": "psychological"
+       }
+      ]
+     }
+    },
+    "fun_fact": {
+     "stringValue": "Inspired by PS1-era survival horror and anime."
+    },
+    "energy_level": {
+     "stringValue": "medium"
+    },
+    "game_id": {
+     "stringValue": "signalis"
+    },
+    "release_year": {
+     "integerValue": "2022"
+    },
+    "updated_at": {
+     "timestampValue": "2026-05-31T21:28:36.294129Z"
+    },
+    "time_tags": {
+     "arrayValue": {
+      "values": [
+       {
+        "integerValue": "60"
+       },
+       {
+        "integerValue": "90"
+       }
+      ]
+     }
+    },
+    "subscription_services": {
+     "arrayValue": {}
+    },
+    "warnings": {
+     "arrayValue": {
+      "values": [
+       {
+        "stringValue": "horror"
+       }
+      ]
+     }
+    },
+    "moods": {
+     "arrayValue": {
+      "values": [
+       {
+        "stringValue": "atmospheric"
+       },
+       {
+        "stringValue": "mysterious"
+       },
+       {
+        "stringValue": "retro"
+       },
+       {
+        "stringValue": "psychological"
+       }
+      ]
+     }
+    },
+    "year": {
+     "integerValue": "2022"
+    },
+    "multiplayer_modes": {
+     "arrayValue": {
+      "values": [
+       {
+        "stringValue": "solo"
+       }
+      ]
+     }
+    },
+    "stop_friendliness": {
+     "stringValue": "checkpoints"
+    },
+    "franchise": {
+     "nullValue": null
+    },
+    "time_to_fun": {
+     "stringValue": "short"
+    },
+    "explanation_templates": {
+     "mapValue": {
+      "fields": {
+       "mood_fit": {
+        "stringValue": "Balanced experience that keeps you engaged without overwhelming."
+       },
+       "stop_fit": {
+        "stringValue": "Regular checkpoints let you pause when needed."
+       },
+       "time_fit": {
+        "stringValue": "Quick to jump in - you'll be having fun in minutes."
+       },
+       "style_fit": {
+        "stringValue": "Fast-paced action keeps the adrenaline flowing."
+       }
+      }
+     }
+    },
+    "description_short": {
+     "stringValue": "Classic survival horror with anime aesthetics."
+    },
+    "genre_tags": {
+     "arrayValue": {
+      "values": [
+       {
+        "stringValue": "survival-horror"
+       },
+       {
+        "stringValue": "retro"
+       },
+       {
+        "stringValue": "psychological"
+       }
+      ]
+     }
+    }
+   },
+   "createTime": "2025-12-26T14:16:09.487121Z",
+   "updateTime": "2026-05-31T21:26:25.086347Z"
+  },
+  "silent-hill-2-remake": {
+   "name": "projects/playnxt-1a2c6/databases/(default)/documents/games/silent-hill-2-remake",
+   "fields": {
+    "franchise": {
+     "nullValue": null
+    },
+    "play_style": {
+     "arrayValue": {
+      "values": [
+       {
+        "stringValue": "narrative"
+       }
+      ]
+     }
+    },
+    "genre_tags": {
+     "arrayValue": {
+      "values": [
+       {
+        "stringValue": "survival-horror"
+       },
+       {
+        "stringValue": "psychological"
+       },
+       {
+        "stringValue": "narrative"
+       }
+      ]
+     }
+    },
+    "stop_friendliness": {
+     "stringValue": "checkpoints"
+    },
+    "moods": {
+     "arrayValue": {
+      "values": [
+       {
+        "stringValue": "disturbing"
+       },
+       {
+        "stringValue": "psychological"
+       },
+       {
+        "stringValue": "atmospheric"
+       },
+       {
+        "stringValue": "emotional"
+       }
+      ]
+     }
+    },
+    "mood_tags": {
+     "arrayValue": {
+      "values": [
+       {
+        "stringValue": "disturbing"
+       },
+       {
+        "stringValue": "psychological"
+       },
+       {
+        "stringValue": "atmospheric"
+       },
+       {
+        "stringValue": "emotional"
+       }
+      ]
+     }
+    },
+    "fun_fact": {
+     "stringValue": "Konami's original team created the monster 'Pyramid Head' in just 2 weeks."
+    },
+    "time_tags": {
+     "arrayValue": {
+      "values": [
+       {
+        "integerValue": "60"
+       },
+       {
+        "integerValue": "90"
+       }
+      ]
+     }
+    },
+    "energy_level": {
+     "stringValue": "medium"
+    },
+    "title": {
+     "stringValue": "Silent Hill 2 Remake"
+    },
+    "platforms": {
+     "arrayValue": {
+      "values": [
+       {
+        "stringValue": "pc"
+       },
+       {
+        "stringValue": "playstation"
+       },
+       {
+        "stringValue": "xbox"
+       }
+      ]
+     }
+    },
+    "content_warnings": {
+     "arrayValue": {
+      "values": [
+       {
+        "stringValue": "psychological_horror"
+       },
+       {
+        "stringValue": "disturbing"
+       }
+      ]
+     }
+    },
+    "explanation_templates": {
+     "mapValue": {
+      "fields": {
+       "style_fit": {
+        "stringValue": "Rich storytelling pulls you into the experience."
+       },
+       "stop_fit": {
+        "stringValue": "Regular checkpoints let you pause when needed."
+       },
+       "mood_fit": {
+        "stringValue": "Balanced experience that keeps you engaged without overwhelming."
+       },
+       "time_fit": {
+        "stringValue": "Easy to get into with a bit of learning."
+       }
+      }
+     }
+    },
+    "created_at": {
+     "timestampValue": "2026-01-30T17:07:18.424317Z"
+    },
+    "description_short": {
+     "stringValue": "The psychological horror masterpiece, remade."
+    },
+    "release_year": {
+     "integerValue": "2024"
+    },
+    "year": {
+     "integerValue": "2024"
+    },
+    "genres": {
+     "arrayValue": {
+      "values": [
+       {
+        "stringValue": "survival-horror"
+       },
+       {
+        "stringValue": "psychological"
+       },
+       {
+        "stringValue": "narrative"
+       }
+      ]
+     }
+    },
+    "updated_at": {
+     "timestampValue": "2026-05-31T21:28:36.366442Z"
+    },
+    "multiplayer_modes": {
+     "arrayValue": {
+      "values": [
+       {
+        "stringValue": "solo"
+       }
+      ]
+     }
+    },
+    "subscription_services": {
+     "arrayValue": {}
+    },
+    "store_links": {
+     "mapValue": {
+      "fields": {
+       "playstation": {
+        "stringValue": "https://store.playstation.com/en-us/concept/10005529"
+       },
+       "steam": {
+        "stringValue": "https://store.steampowered.com/app/2124490/SILENT_HILL_2/"
+       }
+      }
+     }
+    },
+    "title_lower": {
+     "stringValue": "silent hill 2 remake"
+    },
+    "game_id": {
+     "stringValue": "silent-hill-2-remake"
+    },
+    "warnings": {
+     "arrayValue": {
+      "values": [
+       {
+        "stringValue": "psychological_horror"
+       },
+       {
+        "stringValue": "disturbing"
+       }
+      ]
+     }
+    },
+    "time_to_fun": {
+     "stringValue": "medium"
+    }
+   },
+   "createTime": "2025-12-26T14:16:08.933733Z",
+   "updateTime": "2026-05-31T21:26:25.156064Z"
+  },
+  "soma": {
+   "name": "projects/playnxt-1a2c6/databases/(default)/documents/games/soma",
+   "fields": {
+    "title": {
+     "stringValue": "SOMA"
+    },
+    "stop_friendliness": {
+     "stringValue": "checkpoints"
+    },
+    "content_warnings": {
+     "arrayValue": {
+      "values": [
+       {
+        "stringValue": "horror"
+       },
+       {
+        "stringValue": "existential_themes"
+       }
+      ]
+     }
+    },
+    "year": {
+     "integerValue": "2015"
+    },
+    "subscription_services": {
+     "arrayValue": {}
+    },
+    "release_year": {
+     "integerValue": "2015"
+    },
+    "mood_tags": {
+     "arrayValue": {
+      "values": [
+       {
+        "stringValue": "philosophical"
+       },
+       {
+        "stringValue": "terrifying"
+       },
+       {
+        "stringValue": "existential"
+       },
+       {
+        "stringValue": "atmospheric"
+       }
+      ]
+     }
+    },
+    "moods": {
+     "arrayValue": {
+      "values": [
+       {
+        "stringValue": "philosophical"
+       },
+       {
+        "stringValue": "terrifying"
+       },
+       {
+        "stringValue": "existential"
+       },
+       {
+        "stringValue": "atmospheric"
+       }
+      ]
+     }
+    },
+    "title_lower": {
+     "stringValue": "soma"
+    },
+    "store_links": {
+     "mapValue": {
+      "fields": {
+       "playstation": {
+        "stringValue": "https://store.playstation.com/en-us/product/UP1192-CUSA03333_00-HPL3SOMAGAME2015"
+       },
+       "steam": {
+        "stringValue": "http://store.steampowered.com/app/282140/"
+       },
+       "gog": {
+        "stringValue": "http://www.gog.com/game/soma"
+       },
+       "xbox": {
+        "stringValue": "https://www.microsoft.com/en-us/store/p/soma/c23m2tc1zfpj?cid=msft_web_chart"
+       }
+      }
+     }
+    },
+    "time_to_fun": {
+     "stringValue": "medium"
+    },
+    "genres": {
+     "arrayValue": {
+      "values": [
+       {
+        "stringValue": "survival-horror"
+       },
+       {
+        "stringValue": "sci-fi"
+       },
+       {
+        "stringValue": "philosophical"
+       }
+      ]
+     }
+    },
+    "updated_at": {
+     "timestampValue": "2026-05-31T21:28:38.960630Z"
+    },
+    "franchise": {
+     "nullValue": null
+    },
+    "play_style": {
+     "arrayValue": {
+      "values": [
+       {
+        "stringValue": "narrative"
+       }
+      ]
+     }
+    },
+    "genre_tags": {
+     "arrayValue": {
+      "values": [
+       {
+        "stringValue": "survival-horror"
+       },
+       {
+        "stringValue": "sci-fi"
+       },
+       {
+        "stringValue": "philosophical"
+       }
+      ]
+     }
+    },
+    "explanation_templates": {
+     "mapValue": {
+      "fields": {
+       "mood_fit": {
+        "stringValue": "Balanced experience that keeps you engaged without overwhelming."
+       },
+       "style_fit": {
+        "stringValue": "Rich storytelling pulls you into the experience."
+       },
+       "stop_fit": {
+        "stringValue": "Regular checkpoints let you pause when needed."
+       },
+       "time_fit": {
+        "stringValue": "Easy to get into with a bit of learning."
+       }
+      }
+     }
+    },
+    "multiplayer_modes": {
+     "arrayValue": {
+      "values": [
+       {
+        "stringValue": "solo"
+       }
+      ]
+     }
+    },
+    "warnings": {
+     "arrayValue": {
+      "values": [
+       {
+        "stringValue": "horror"
+       },
+       {
+        "stringValue": "existential_themes"
+       }
+      ]
+     }
+    },
+    "time_tags": {
+     "arrayValue": {
+      "values": [
+       {
+        "integerValue": "60"
+       },
+       {
+        "integerValue": "90"
+       }
+      ]
+     }
+    },
+    "description_short": {
+     "stringValue": "Question consciousness in an underwater facility."
+    },
+    "platforms": {
+     "arrayValue": {
+      "values": [
+       {
+        "stringValue": "pc"
+       },
+       {
+        "stringValue": "playstation"
+       },
+       {
+        "stringValue": "xbox"
+       }
+      ]
+     }
+    },
+    "fun_fact": {
+     "stringValue": "Includes a 'Safe Mode' that removes enemy hostility for story focus."
+    },
+    "game_id": {
+     "stringValue": "soma"
+    },
+    "created_at": {
+     "timestampValue": "2026-01-30T17:07:18.712063Z"
+    },
+    "energy_level": {
+     "stringValue": "medium"
+    }
+   },
+   "createTime": "2025-12-26T14:16:09.369873Z",
+   "updateTime": "2026-05-31T21:26:27.745329Z"
+  },
+  "the-callisto-protocol": {
+   "name": "projects/playnxt-1a2c6/databases/(default)/documents/games/the-callisto-protocol",
+   "fields": {
+    "moods": {
+     "arrayValue": {
+      "values": [
+       {
+        "stringValue": "terrifying"
+       },
+       {
+        "stringValue": "brutal"
+       },
+       {
+        "stringValue": "atmospheric"
+       },
+       {
+        "stringValue": "cinematic"
+       }
+      ]
+     }
+    },
+    "multiplayer_modes": {
+     "arrayValue": {
+      "values": [
+       {
+        "stringValue": "solo"
+       }
+      ]
+     }
+    },
+    "warnings": {
+     "arrayValue": {
+      "values": [
+       {
+        "stringValue": "horror"
+       },
+       {
+        "stringValue": "gore"
+       }
+      ]
+     }
+    },
+    "title_lower": {
+     "stringValue": "the callisto protocol"
+    },
+    "genre_tags": {
+     "arrayValue": {
+      "values": [
+       {
+        "stringValue": "survival-horror"
+       },
+       {
+        "stringValue": "sci-fi"
+       },
+       {
+        "stringValue": "action"
+       }
+      ]
+     }
+    },
+    "energy_level": {
+     "stringValue": "medium"
+    },
+    "genres": {
+     "arrayValue": {
+      "values": [
+       {
+        "stringValue": "survival-horror"
+       },
+       {
+        "stringValue": "sci-fi"
+       },
+       {
+        "stringValue": "action"
+       }
+      ]
+     }
+    },
+    "description_short": {
+     "stringValue": "Survive a prison moon of horrors."
+    },
+    "platforms": {
+     "arrayValue": {
+      "values": [
+       {
+        "stringValue": "pc"
+       },
+       {
+        "stringValue": "playstation"
+       },
+       {
+        "stringValue": "xbox"
+       }
+      ]
+     }
+    },
+    "mood_tags": {
+     "arrayValue": {
+      "values": [
+       {
+        "stringValue": "terrifying"
+       },
+       {
+        "stringValue": "brutal"
+       },
+       {
+        "stringValue": "atmospheric"
+       },
+       {
+        "stringValue": "cinematic"
+       }
+      ]
+     }
+    },
+    "content_warnings": {
+     "arrayValue": {
+      "values": [
+       {
+        "stringValue": "horror"
+       },
+       {
+        "stringValue": "gore"
+       }
+      ]
+     }
+    },
+    "franchise": {
+     "nullValue": null
+    },
+    "updated_at": {
+     "timestampValue": "2026-05-31T21:28:44.340810Z"
+    },
+    "play_style": {
+     "arrayValue": {
+      "values": [
+       {
+        "stringValue": "action"
+       }
+      ]
+     }
+    },
+    "subscription_services": {
+     "arrayValue": {
+      "values": [
+       {
+        "stringValue": "playstation_plus"
+       }
+      ]
+     }
+    },
+    "fun_fact": {
+     "stringValue": "Made by the creator of Dead Space."
+    },
+    "stop_friendliness": {
+     "stringValue": "checkpoints"
+    },
+    "release_year": {
+     "integerValue": "2022"
+    },
+    "time_tags": {
+     "arrayValue": {
+      "values": [
+       {
+        "integerValue": "60"
+       },
+       {
+        "integerValue": "90"
+       }
+      ]
+     }
+    },
+    "year": {
+     "integerValue": "2022"
+    },
+    "title": {
+     "stringValue": "The Callisto Protocol"
+    },
+    "created_at": {
+     "timestampValue": "2026-01-30T17:07:18.561895Z"
+    },
+    "explanation_templates": {
+     "mapValue": {
+      "fields": {
+       "mood_fit": {
+        "stringValue": "Balanced experience that keeps you engaged without overwhelming."
+       },
+       "style_fit": {
+        "stringValue": "Fast-paced action keeps the adrenaline flowing."
+       },
+       "time_fit": {
+        "stringValue": "Quick to jump in - you'll be having fun in minutes."
+       },
+       "stop_fit": {
+        "stringValue": "Regular checkpoints let you pause when needed."
+       }
+      }
+     }
+    },
+    "store_links": {
+     "mapValue": {
+      "fields": {
+       "steam": {
+        "stringValue": "https://store.steampowered.com/app/1544020/"
+       },
+       "playstation": {
+        "stringValue": "https://store.playstation.com/en-us/product/UP5082-PPSA03351_00-5083427288229632"
+       }
+      }
+     }
+    },
+    "game_id": {
+     "stringValue": "the-callisto-protocol"
+    },
+    "time_to_fun": {
+     "stringValue": "short"
+    }
+   },
+   "createTime": "2025-12-26T14:16:09.141541Z",
+   "updateTime": "2026-08-24T16:51:59.478778Z"
+  },
+  "tormented-souls": {
+   "name": "projects/playnxt-1a2c6/databases/(default)/documents/games/tormented-souls",
+   "fields": {
+    "store_links": {
+     "mapValue": {
+      "fields": {
+       "xbox": {
+        "stringValue": "https://www.microsoft.com/en-us/p/tormented-souls/9mwz8jv5tsqg?cid=msft_web_chart"
+       },
+       "nintendo": {
+        "stringValue": "https://www.nintendo.com/us/store/products/tormented-souls-switch/"
+       },
+       "gog": {
+        "stringValue": "https://www.gog.com/game/tormented_souls"
+       },
+       "steam": {
+        "stringValue": "https://store.steampowered.com/app/1367590/Tormented_Souls/"
+       },
+       "playstation": {
+        "stringValue": "https://store.playstation.com/en-us/product/UP4293-CUSA29200_00-TORMENTEDSIEAPS4"
+       }
+      }
+     }
+    },
+    "platforms": {
+     "arrayValue": {
+      "values": [
+       {
+        "stringValue": "pc"
+       },
+       {
+        "stringValue": "playstation"
+       },
+       {
+        "stringValue": "xbox"
+       },
+       {
+        "stringValue": "switch"
+       }
+      ]
+     }
+    },
+    "subscription_services": {
+     "arrayValue": {}
+    },
+    "moods": {
+     "arrayValue": {
+      "values": [
+       {
+        "stringValue": "scary"
+       },
+       {
+        "stringValue": "nostalgic"
+       },
+       {
+        "stringValue": "atmospheric"
+       },
+       {
+        "stringValue": "puzzle-heavy"
+       }
+      ]
+     }
+    },
+    "warnings": {
+     "arrayValue": {
+      "values": [
+       {
+        "stringValue": "horror"
+       }
+      ]
+     }
+    },
+    "game_id": {
+     "stringValue": "tormented-souls"
+    },
+    "stop_friendliness": {
+     "stringValue": "checkpoints"
+    },
+    "title_lower": {
+     "stringValue": "tormented souls"
+    },
+    "genre_tags": {
+     "arrayValue": {
+      "values": [
+       {
+        "stringValue": "survival-horror"
+       },
+       {
+        "stringValue": "retro"
+       },
+       {
+        "stringValue": "puzzle"
+       }
+      ]
+     }
+    },
+    "genres": {
+     "arrayValue": {
+      "values": [
+       {
+        "stringValue": "survival-horror"
+       },
+       {
+        "stringValue": "retro"
+       },
+       {
+        "stringValue": "puzzle"
+       }
+      ]
+     }
+    },
+    "play_style": {
+     "arrayValue": {
+      "values": [
+       {
+        "stringValue": "puzzle"
+       }
+      ]
+     }
+    },
+    "time_to_fun": {
+     "stringValue": "short"
+    },
+    "time_tags": {
+     "arrayValue": {
+      "values": [
+       {
+        "integerValue": "60"
+       },
+       {
+        "integerValue": "90"
+       }
+      ]
+     }
+    },
+    "energy_level": {
+     "stringValue": "medium"
+    },
+    "explanation_templates": {
+     "mapValue": {
+      "fields": {
+       "mood_fit": {
+        "stringValue": "Balanced experience that keeps you engaged without overwhelming."
+       },
+       "time_fit": {
+        "stringValue": "Quick to jump in - you'll be having fun in minutes."
+       },
+       "style_fit": {
+        "stringValue": "Satisfying puzzles that reward clever thinking."
+       },
+       "stop_fit": {
+        "stringValue": "Regular checkpoints let you pause when needed."
+       }
+      }
+     }
+    },
+    "mood_tags": {
+     "arrayValue": {
+      "values": [
+       {
+        "stringValue": "scary"
+       },
+       {
+        "stringValue": "nostalgic"
+       },
+       {
+        "stringValue": "atmospheric"
+       },
+       {
+        "stringValue": "puzzle-heavy"
+       }
+      ]
+     }
+    },
+    "title": {
+     "stringValue": "Tormented Souls"
+    },
+    "year": {
+     "integerValue": "2021"
+    },
+    "franchise": {
+     "nullValue": null
+    },
+    "updated_at": {
+     "timestampValue": "2026-05-31T21:28:47.113077Z"
+    },
+    "description_short": {
+     "stringValue": "Classic fixed-camera survival horror."
+    },
+    "release_year": {
+     "integerValue": "2021"
+    },
+    "created_at": {
+     "timestampValue": "2026-01-30T17:07:18.838631Z"
+    },
+    "fun_fact": {
+     "stringValue": "A love letter to Resident Evil and Silent Hill."
+    },
+    "content_warnings": {
+     "arrayValue": {
+      "values": [
+       {
+        "stringValue": "horror"
+       }
+      ]
+     }
+    },
+    "multiplayer_modes": {
+     "arrayValue": {
+      "values": [
+       {
+        "stringValue": "solo"
+       }
+      ]
+     }
+    }
+   },
+   "createTime": "2025-12-26T14:16:09.556708Z",
+   "updateTime": "2026-05-31T21:26:35.899943Z"
+  },
+  "luigis-mansion-3": {
+   "name": "projects/playnxt-1a2c6/databases/(default)/documents/games/luigis-mansion-3",
+   "fields": {
+    "release_year": {
+     "integerValue": "2019"
+    },
+    "game_id": {
+     "stringValue": "luigis-mansion-3"
+    },
+    "created_at": {
+     "timestampValue": "2026-01-31T22:07:23.254472Z"
+    },
+    "multiplayer_modes": {
+     "arrayValue": {
+      "values": [
+       {
+        "stringValue": "solo"
+       },
+       {
+        "stringValue": "local_coop"
+       }
+      ]
+     }
+    },
+    "title": {
+     "stringValue": "Luigi's Mansion 3"
+    },
+    "time_to_fun": {
+     "stringValue": "short"
+    },
+    "platforms": {
+     "arrayValue": {
+      "values": [
+       {
+        "stringValue": "switch"
+       }
+      ]
+     }
+    },
+    "play_style": {
+     "arrayValue": {
+      "values": [
+       {
+        "stringValue": "puzzle_strategy"
+       }
+      ]
+     }
+    },
+    "mood_tags": {
+     "arrayValue": {
+      "values": [
+       {
+        "stringValue": "charming"
+       },
+       {
+        "stringValue": "fun"
+       },
+       {
+        "stringValue": "spooky"
+       },
+       {
+        "stringValue": "cooperative"
+       }
+      ]
+     }
+    },
+    "stop_friendliness": {
+     "stringValue": "anytime"
+    },
+    "genre_tags": {
+     "arrayValue": {
+      "values": [
+       {
+        "stringValue": "adventure"
+       },
+       {
+        "stringValue": "puzzle"
+       },
+       {
+        "stringValue": "co-op"
+       },
+       {
+        "stringValue": "ghost"
+       }
+      ]
+     }
+    },
+    "energy_level": {
+     "stringValue": "low"
+    },
+    "content_warnings": {
+     "arrayValue": {}
+    },
+    "title_lower": {
+     "stringValue": "luigi's mansion 3"
+    },
+    "year": {
+     "integerValue": "2019"
+    },
+    "genres": {
+     "arrayValue": {
+      "values": [
+       {
+        "stringValue": "adventure"
+       },
+       {
+        "stringValue": "puzzle"
+       },
+       {
+        "stringValue": "co-op"
+       },
+       {
+        "stringValue": "ghost"
+       }
+      ]
+     }
+    },
+    "avg_session_length": {
+     "integerValue": "45"
+    },
+    "explanation_templates": {
+     "mapValue": {
+      "fields": {
+       "mood_fit": {
+        "stringValue": "Charming spooky fun"
+       },
+       "time_fit": {
+        "stringValue": "Bust ghosts for {time} minutes"
+       },
+       "stop_fit": {
+        "stringValue": "Auto-saves frequently"
+       },
+       "style_fit": {
+        "stringValue": "Puzzle-focused ghost hunting"
+       }
+      }
+     }
+    },
+    "moods": {
+     "arrayValue": {
+      "values": [
+       {
+        "stringValue": "charming"
+       },
+       {
+        "stringValue": "fun"
+       },
+       {
+        "stringValue": "spooky"
+       },
+       {
+        "stringValue": "cooperative"
+       }
+      ]
+     }
+    },
+    "time_tags": {
+     "arrayValue": {
+      "values": [
+       {
+        "integerValue": "30"
+       },
+       {
+        "integerValue": "60"
+       }
+      ]
+     }
+    },
+    "updated_at": {
+     "timestampValue": "2026-01-31T22:07:23.254475Z"
+    },
+    "store_links": {
+     "mapValue": {
+      "fields": {
+       "nintendo": {
+        "stringValue": "https://www.nintendo.com/store/products/luigis-mansion-3-switch/"
+       }
+      }
+     }
+    },
+    "subscription_services": {
+     "arrayValue": {}
+    },
+    "description_short": {
+     "stringValue": "Luigi ghost-hunts through a haunted hotel."
+    }
+   },
+   "createTime": "2025-12-26T14:15:54.122444Z",
+   "updateTime": "2026-08-21T19:33:16.515202Z"
+  },
+  "omori": {
+   "name": "projects/playnxt-1a2c6/databases/(default)/documents/games/omori",
+   "fields": {
+    "genres": {
+     "arrayValue": {
+      "values": [
+       {
+        "stringValue": "rpg"
+       },
+       {
+        "stringValue": "psychological"
+       },
+       {
+        "stringValue": "indie"
+       },
+       {
+        "stringValue": "narrative"
+       }
+      ]
+     }
+    },
+    "fun_fact": {
+     "stringValue": "Development took 7 years after a wildly successful Kickstarter, becoming one of the most acclaimed indie RPGs."
+    },
+    "energy_level": {
+     "stringValue": "medium"
+    },
+    "category": {
+     "stringValue": "focused"
+    },
+    "updated_at": {
+     "timestampValue": "2026-05-31T21:40:21.230685Z"
+    },
+    "title": {
+     "stringValue": "Omori"
+    },
+    "time_to_fun": {
+     "stringValue": "short"
+    },
+    "play_style": {
+     "arrayValue": {
+      "values": [
+       {
+        "stringValue": "narrative"
+       }
+      ]
+     }
+    },
+    "description": {
+     "stringValue": "A surreal psychological RPG about a boy navigating dreamscapes and confronting real-world trauma. A deeply emotional journey."
+    },
+    "release_year": {
+     "integerValue": "2020"
+    },
+    "store_links": {
+     "mapValue": {
+      "fields": {
+       "nintendo": {
+        "stringValue": "https://www.nintendo.com/us/store/products/omori-switch/"
+       },
+       "steam": {
+        "stringValue": "https://store.steampowered.com/app/1150690/OMORI/"
+       }
+      }
+     }
+    },
+    "energy": {
+     "stringValue": "medium"
+    },
+    "time_tags": {
+     "arrayValue": {
+      "values": [
+       {
+        "integerValue": "30"
+       },
+       {
+        "integerValue": "60"
+       }
+      ]
+     }
+    },
+    "title_lower": {
+     "stringValue": "omori"
+    },
+    "year": {
+     "integerValue": "2020"
+    },
+    "multiplayer_modes": {
+     "arrayValue": {
+      "values": [
+       {
+        "stringValue": "solo"
+       }
+      ]
+     }
+    },
+    "moods": {
+     "arrayValue": {
+      "values": [
+       {
+        "stringValue": "emotional"
+       },
+       {
+        "stringValue": "dark"
+       },
+       {
+        "stringValue": "thought-provoking"
+       },
+       {
+        "stringValue": "beautiful"
+       }
+      ]
+     }
+    },
+    "platforms": {
+     "arrayValue": {
+      "values": [
+       {
+        "stringValue": "pc"
+       },
+       {
+        "stringValue": "playstation"
+       },
+       {
+        "stringValue": "xbox"
+       },
+       {
+        "stringValue": "switch"
+       }
+      ]
+     }
+    },
+    "multiplayer": {
+     "arrayValue": {
+      "values": [
+       {
+        "stringValue": "solo"
+       }
+      ]
+     }
+    },
+    "description_short": {
+     "stringValue": "A surreal psychological RPG about a boy navigating dreamscapes and confronting real-world trauma. A deeply emotional journey."
+    },
+    "genre_tags": {
+     "arrayValue": {
+      "values": [
+       {
+        "stringValue": "rpg"
+       },
+       {
+        "stringValue": "psychological"
+       },
+       {
+        "stringValue": "indie"
+       },
+       {
+        "stringValue": "narrative"
+       }
+      ]
+     }
+    },
+    "stop_friendliness": {
+     "stringValue": "checkpoints"
+    },
+    "mood_tags": {
+     "arrayValue": {
+      "values": [
+       {
+        "stringValue": "emotional"
+       },
+       {
+        "stringValue": "dark"
+       },
+       {
+        "stringValue": "thought-provoking"
+       },
+       {
+        "stringValue": "beautiful"
+       }
+      ]
+     }
+    }
+   },
+   "createTime": "2026-02-19T16:58:09.547298Z",
+   "updateTime": "2026-05-31T21:38:10.049514Z"
+  },
+  "darkest-dungeon": {
+   "name": "projects/playnxt-1a2c6/databases/(default)/documents/games/darkest-dungeon",
+   "fields": {
+    "description_short": {
+     "stringValue": "Manage a roster of flawed heroes through eldritch horrors."
+    },
+    "stop_friendliness": {
+     "stringValue": "anytime"
+    },
+    "created_at": {
+     "timestampValue": "2026-01-31T22:07:21.576292Z"
+    },
+    "time_to_fun": {
+     "stringValue": "medium"
+    },
+    "store_links": {
+     "mapValue": {
+      "fields": {
+       "steam": {
+        "stringValue": "https://store.steampowered.com/app/262060/Darkest_Dungeon/"
+       }
+      }
+     }
+    },
+    "time_tags": {
+     "arrayValue": {
+      "values": [
+       {
+        "integerValue": "30"
+       },
+       {
+        "integerValue": "60"
+       }
+      ]
+     }
+    },
+    "mood_tags": {
+     "arrayValue": {
+      "values": [
+       {
+        "stringValue": "dark"
+       },
+       {
+        "stringValue": "stressful"
+       },
+       {
+        "stringValue": "strategic"
+       },
+       {
+        "stringValue": "challenging"
+       }
+      ]
+     }
+    },
+    "title_lower": {
+     "stringValue": "darkest dungeon"
+    },
+    "content_warnings": {
+     "arrayValue": {
+      "values": [
+       {
+        "stringValue": "horror_elements"
+       },
+       {
+        "stringValue": "violence"
+       },
+       {
+        "stringValue": "mature_themes"
+       }
+      ]
+     }
+    },
+    "title": {
+     "stringValue": "Darkest Dungeon"
+    },
+    "updated_at": {
+     "timestampValue": "2026-01-31T22:07:21.576295Z"
+    },
+    "play_style": {
+     "arrayValue": {
+      "values": [
+       {
+        "stringValue": "puzzle_strategy"
+       }
+      ]
+     }
+    },
+    "genres": {
+     "arrayValue": {
+      "values": [
+       {
+        "stringValue": "roguelike"
+       },
+       {
+        "stringValue": "turn-based"
+       },
+       {
+        "stringValue": "gothic"
+       },
+       {
+        "stringValue": "indie"
+       }
+      ]
+     }
+    },
+    "avg_session_length": {
+     "integerValue": "45"
+    },
+    "genre_tags": {
+     "arrayValue": {
+      "values": [
+       {
+        "stringValue": "roguelike"
+       },
+       {
+        "stringValue": "turn-based"
+       },
+       {
+        "stringValue": "gothic"
+       },
+       {
+        "stringValue": "indie"
+       }
+      ]
+     }
+    },
+    "explanation_templates": {
+     "mapValue": {
+      "fields": {
+       "time_fit": {
+        "stringValue": "Run a dungeon in {time} minutes"
+       },
+       "mood_fit": {
+        "stringValue": "Crushing gothic horror"
+       },
+       "style_fit": {
+        "stringValue": "Stress management RPG"
+       },
+       "stop_fit": {
+        "stringValue": "Save between expeditions"
+       }
+      }
+     }
+    },
+    "platforms": {
+     "arrayValue": {
+      "values": [
+       {
+        "stringValue": "pc"
+       },
+       {
+        "stringValue": "playstation"
+       },
+       {
+        "stringValue": "xbox"
+       },
+       {
+        "stringValue": "switch"
+       }
+      ]
+     }
+    },
+    "game_id": {
+     "stringValue": "darkest-dungeon"
+    },
+    "subscription_services": {
+     "arrayValue": {}
+    },
+    "moods": {
+     "arrayValue": {
+      "values": [
+       {
+        "stringValue": "dark"
+       },
+       {
+        "stringValue": "stressful"
+       },
+       {
+        "stringValue": "strategic"
+       },
+       {
+        "stringValue": "challenging"
+       }
+      ]
+     }
+    },
+    "release_year": {
+     "integerValue": "2016"
+    },
+    "multiplayer_modes": {
+     "arrayValue": {
+      "values": [
+       {
+        "stringValue": "solo"
+       }
+      ]
+     }
+    },
+    "year": {
+     "integerValue": "2016"
+    },
+    "energy_level": {
+     "stringValue": "medium"
+    }
+   },
+   "createTime": "2026-01-31T22:03:44.229503Z",
+   "updateTime": "2026-08-21T19:33:04.639234Z"
+  },
+  "darkest-dungeon-2": {
+   "name": "projects/playnxt-1a2c6/databases/(default)/documents/games/darkest-dungeon-2",
+   "fields": {
+    "subscription_services": {
+     "arrayValue": {}
+    },
+    "game_id": {
+     "stringValue": "darkest-dungeon-2"
+    },
+    "moods": {
+     "arrayValue": {
+      "values": [
+       {
+        "stringValue": "dark"
+       },
+       {
+        "stringValue": "stressful"
+       },
+       {
+        "stringValue": "strategic"
+       },
+       {
+        "stringValue": "challenging"
+       }
+      ]
+     }
+    },
+    "genre_tags": {
+     "arrayValue": {
+      "values": [
+       {
+        "stringValue": "roguelike"
+       },
+       {
+        "stringValue": "turn-based"
+       },
+       {
+        "stringValue": "gothic"
+       },
+       {
+        "stringValue": "road-trip"
+       }
+      ]
+     }
+    },
+    "mood_tags": {
+     "arrayValue": {
+      "values": [
+       {
+        "stringValue": "dark"
+       },
+       {
+        "stringValue": "stressful"
+       },
+       {
+        "stringValue": "strategic"
+       },
+       {
+        "stringValue": "challenging"
+       }
+      ]
+     }
+    },
+    "store_links": {
+     "mapValue": {
+      "fields": {
+       "steam": {
+        "stringValue": "https://store.steampowered.com/app/1940340/Darkest_Dungeon_II/"
+       }
+      }
+     }
+    },
+    "platforms": {
+     "arrayValue": {
+      "values": [
+       {
+        "stringValue": "pc"
+       },
+       {
+        "stringValue": "playstation"
+       },
+       {
+        "stringValue": "xbox"
+       }
+      ]
+     }
+    },
+    "title_lower": {
+     "stringValue": "darkest dungeon ii"
+    },
+    "genres": {
+     "arrayValue": {
+      "values": [
+       {
+        "stringValue": "roguelike"
+       },
+       {
+        "stringValue": "turn-based"
+       },
+       {
+        "stringValue": "gothic"
+       },
+       {
+        "stringValue": "road-trip"
+       }
+      ]
+     }
+    },
+    "play_style": {
+     "arrayValue": {
+      "values": [
+       {
+        "stringValue": "puzzle_strategy"
+       }
+      ]
+     }
+    },
+    "year": {
+     "integerValue": "2023"
+    },
+    "updated_at": {
+     "timestampValue": "2026-01-31T22:07:21.654971Z"
+    },
+    "time_to_fun": {
+     "stringValue": "medium"
+    },
+    "avg_session_length": {
+     "integerValue": "75"
+    },
+    "title": {
+     "stringValue": "Darkest Dungeon II"
+    },
+    "description_short": {
+     "stringValue": "Take a desperate road trip through the apocalypse."
+    },
+    "explanation_templates": {
+     "mapValue": {
+      "fields": {
+       "time_fit": {
+        "stringValue": "Progress on your journey for {time} minutes"
+       },
+       "style_fit": {
+        "stringValue": "Roguelike road trip horror"
+       },
+       "mood_fit": {
+        "stringValue": "Apocalyptic stress management"
+       },
+       "stop_fit": {
+        "stringValue": "Save at inns"
+       }
+      }
+     }
+    },
+    "created_at": {
+     "timestampValue": "2026-01-31T22:07:21.654969Z"
+    },
+    "stop_friendliness": {
+     "stringValue": "checkpoints"
+    },
+    "time_tags": {
+     "arrayValue": {
+      "values": [
+       {
+        "integerValue": "60"
+       },
+       {
+        "integerValue": "90"
+       }
+      ]
+     }
+    },
+    "multiplayer_modes": {
+     "arrayValue": {
+      "values": [
+       {
+        "stringValue": "solo"
+       }
+      ]
+     }
+    },
+    "content_warnings": {
+     "arrayValue": {
+      "values": [
+       {
+        "stringValue": "horror_elements"
+       },
+       {
+        "stringValue": "violence"
+       },
+       {
+        "stringValue": "mature_themes"
+       }
+      ]
+     }
+    },
+    "energy_level": {
+     "stringValue": "medium"
+    },
+    "release_year": {
+     "integerValue": "2023"
+    }
+   },
+   "createTime": "2026-01-31T22:03:44.311038Z",
+   "updateTime": "2026-08-21T19:33:04.767488Z"
+  },
+  "left-4-dead-2": {
+   "name": "projects/playnxt-1a2c6/databases/(default)/documents/games/left-4-dead-2",
+   "fields": {
+    "warnings": {
+     "arrayValue": {
+      "values": [
+       {
+        "stringValue": "violence"
+       },
+       {
+        "stringValue": "gore"
+       }
+      ]
+     }
+    },
+    "release_year": {
+     "integerValue": "2009"
+    },
+    "title": {
+     "stringValue": "Left 4 Dead 2"
+    },
+    "franchise": {
+     "nullValue": null
+    },
+    "year": {
+     "integerValue": "2009"
+    },
+    "platforms": {
+     "arrayValue": {
+      "values": [
+       {
+        "stringValue": "pc"
+       },
+       {
+        "stringValue": "playstation"
+       },
+       {
+        "stringValue": "xbox"
+       }
+      ]
+     }
+    },
+    "moods": {
+     "arrayValue": {
+      "values": [
+       {
+        "stringValue": "intense"
+       },
+       {
+        "stringValue": "cooperative"
+       },
+       {
+        "stringValue": "classic"
+       },
+       {
+        "stringValue": "zombie"
+       }
+      ]
+     }
+    },
+    "time_to_fun": {
+     "stringValue": "short"
+    },
+    "fun_fact": {
+     "stringValue": "Still has an active modding community 15+ years later."
+    },
+    "mood_tags": {
+     "arrayValue": {
+      "values": [
+       {
+        "stringValue": "intense"
+       },
+       {
+        "stringValue": "cooperative"
+       },
+       {
+        "stringValue": "classic"
+       },
+       {
+        "stringValue": "zombie"
+       }
+      ]
+     }
+    },
+    "time_tags": {
+     "arrayValue": {
+      "values": [
+       {
+        "integerValue": "30"
+       },
+       {
+        "integerValue": "60"
+       }
+      ]
+     }
+    },
+    "play_style": {
+     "arrayValue": {
+      "values": [
+       {
+        "stringValue": "action"
+       }
+      ]
+     }
+    },
+    "genre_tags": {
+     "arrayValue": {
+      "values": [
+       {
+        "stringValue": "co-op"
+       },
+       {
+        "stringValue": "zombie"
+       },
+       {
+        "stringValue": "shooter"
+       }
+      ]
+     }
+    },
+    "multiplayer_modes": {
+     "arrayValue": {
+      "values": [
+       {
+        "stringValue": "solo"
+       },
+       {
+        "stringValue": "local_coop"
+       },
+       {
+        "stringValue": "online_coop"
+       },
+       {
+        "stringValue": "competitive"
+       }
+      ]
+     }
+    },
+    "explanation_templates": {
+     "mapValue": {
+      "fields": {
+       "mood_fit": {
+        "stringValue": "High-energy gameplay for when you want intensity."
+       },
+       "time_fit": {
+        "stringValue": "Quick to jump in - you'll be having fun in minutes."
+       },
+       "style_fit": {
+        "stringValue": "Fast-paced action keeps the adrenaline flowing."
+       },
+       "stop_fit": {
+        "stringValue": "Regular checkpoints let you pause when needed."
+       }
+      }
+     }
+    },
+    "updated_at": {
+     "timestampValue": "2026-05-31T21:28:16.142868Z"
+    },
+    "stop_friendliness": {
+     "stringValue": "checkpoints"
+    },
+    "genres": {
+     "arrayValue": {
+      "values": [
+       {
+        "stringValue": "co-op"
+       },
+       {
+        "stringValue": "zombie"
+       },
+       {
+        "stringValue": "shooter"
+       }
+      ]
+     }
+    },
+    "subscription_services": {
+     "arrayValue": {}
+    },
+    "energy_level": {
+     "stringValue": "high"
+    },
+    "description_short": {
+     "stringValue": "The legendary zombie co-op shooter."
+    },
+    "created_at": {
+     "timestampValue": "2026-01-30T17:07:25.535098Z"
+    },
+    "title_lower": {
+     "stringValue": "left 4 dead 2"
+    },
+    "game_id": {
+     "stringValue": "left-4-dead-2"
+    },
+    "content_warnings": {
+     "arrayValue": {
+      "values": [
+       {
+        "stringValue": "violence"
+       },
+       {
+        "stringValue": "gore"
+       }
+      ]
+     }
+    },
+    "store_links": {
+     "mapValue": {
+      "fields": {
+       "xbox": {
+        "stringValue": "https://marketplace.xbox.com/en-US/Product/Left-4-Dead-2/66acd000-77fe-1000-9115-d802454108d4"
+       },
+       "steam": {
+        "stringValue": "http://store.steampowered.com/app/550/"
+       }
+      }
+     }
+    }
+   },
+   "createTime": "2025-12-26T14:16:16.249084Z",
+   "updateTime": "2026-05-31T21:26:04.925111Z"
+  },
+  "back-4-blood": {
+   "name": "projects/playnxt-1a2c6/databases/(default)/documents/games/back-4-blood",
+   "fields": {
+    "subscription_services": {
+     "arrayValue": {}
+    },
+    "warnings": {
+     "arrayValue": {
+      "values": [
+       {
+        "stringValue": "violence"
+       },
+       {
+        "stringValue": "horror"
+       }
+      ]
+     }
+    },
+    "mood_tags": {
+     "arrayValue": {
+      "values": [
+       {
+        "stringValue": "intense"
+       },
+       {
+        "stringValue": "cooperative"
+       },
+       {
+        "stringValue": "zombie"
+       },
+       {
+        "stringValue": "nostalgic"
+       }
+      ]
+     }
+    },
+    "created_at": {
+     "timestampValue": "2026-01-30T17:07:25.454223Z"
+    },
+    "energy_level": {
+     "stringValue": "high"
+    },
+    "multiplayer_modes": {
+     "arrayValue": {
+      "values": [
+       {
+        "stringValue": "solo"
+       },
+       {
+        "stringValue": "online_coop"
+       }
+      ]
+     }
+    },
+    "moods": {
+     "arrayValue": {
+      "values": [
+       {
+        "stringValue": "intense"
+       },
+       {
+        "stringValue": "cooperative"
+       },
+       {
+        "stringValue": "zombie"
+       },
+       {
+        "stringValue": "nostalgic"
+       }
+      ]
+     }
+    },
+    "play_style": {
+     "arrayValue": {
+      "values": [
+       {
+        "stringValue": "action"
+       }
+      ]
+     }
+    },
+    "release_year": {
+     "integerValue": "2021"
+    },
+    "time_to_fun": {
+     "stringValue": "short"
+    },
+    "game_id": {
+     "stringValue": "back-4-blood"
+    },
+    "genres": {
+     "arrayValue": {
+      "values": [
+       {
+        "stringValue": "co-op"
+       },
+       {
+        "stringValue": "zombie"
+       },
+       {
+        "stringValue": "shooter"
+       }
+      ]
+     }
+    },
+    "store_links": {
+     "mapValue": {
+      "fields": {
+       "xbox": {
+        "stringValue": "https://www.microsoft.com/en-us/p/back-4-blood-standard-edition/9p5gsh8dlb28?cid=msft_web_chart"
+       },
+       "steam": {
+        "stringValue": "https://store.steampowered.com/app/924970/Back_4_Blood/"
+       },
+       "playstation": {
+        "stringValue": "https://store.playstation.com/en-us/product/UP1018-PPSA01695_00-BACK4BLOOD000000"
+       }
+      }
+     }
+    },
+    "title": {
+     "stringValue": "Back 4 Blood"
+    },
+    "content_warnings": {
+     "arrayValue": {
+      "values": [
+       {
+        "stringValue": "violence"
+       },
+       {
+        "stringValue": "horror"
+       }
+      ]
+     }
+    },
+    "fun_fact": {
+     "stringValue": "Made by the original Left 4 Dead developers."
+    },
+    "platforms": {
+     "arrayValue": {
+      "values": [
+       {
+        "stringValue": "pc"
+       },
+       {
+        "stringValue": "playstation"
+       },
+       {
+        "stringValue": "xbox"
+       }
+      ]
+     }
+    },
+    "genre_tags": {
+     "arrayValue": {
+      "values": [
+       {
+        "stringValue": "co-op"
+       },
+       {
+        "stringValue": "zombie"
+       },
+       {
+        "stringValue": "shooter"
+       }
+      ]
+     }
+    },
+    "title_lower": {
+     "stringValue": "back 4 blood"
+    },
+    "year": {
+     "integerValue": "2021"
+    },
+    "franchise": {
+     "nullValue": null
+    },
+    "description_short": {
+     "stringValue": "Spiritual successor to Left 4 Dead."
+    },
+    "explanation_templates": {
+     "mapValue": {
+      "fields": {
+       "style_fit": {
+        "stringValue": "Fast-paced action keeps the adrenaline flowing."
+       },
+       "time_fit": {
+        "stringValue": "Quick to jump in - you'll be having fun in minutes."
+       },
+       "stop_fit": {
+        "stringValue": "Regular checkpoints let you pause when needed."
+       },
+       "mood_fit": {
+        "stringValue": "High-energy gameplay for when you want intensity."
+       }
+      }
+     }
+    },
+    "time_tags": {
+     "arrayValue": {
+      "values": [
+       {
+        "integerValue": "30"
+       },
+       {
+        "integerValue": "60"
+       }
+      ]
+     }
+    },
+    "stop_friendliness": {
+     "stringValue": "checkpoints"
+    },
+    "updated_at": {
+     "timestampValue": "2026-05-31T21:27:36.688933Z"
+    }
+   },
+   "createTime": "2025-12-26T14:16:16.178770Z",
+   "updateTime": "2026-08-24T16:51:31.581809Z"
+  }
+ },
+ "new_ids_confirmed_absent": [
+  "luigis-mansion-2-hd",
+  "costume-quest",
+  "costume-quest-2",
+  "pumpkin-jack",
+  "medievil-2019",
+  "excavation-of-hobs-barrow",
+  "the-last-door",
+  "creepy-tale",
+  "darq",
+  "sucker-for-love-first-date",
+  "slay-the-princess",
+  "ib",
+  "witchs-house-mv",
+  "corpse-party",
+  "paranormasight",
+  "emio-the-smiling-man",
+  "spirit-hunter-death-mark",
+  "children-of-silentown",
+  "rusty-lake-hotel",
+  "rusty-lake-roots",
+  "the-exit-8",
+  "im-on-observation-duty",
+  "home-safety-hotline",
+  "amanda-the-adventurer",
+  "fear-the-spotlight",
+  "the-midnight-walk",
+  "killer-frequency",
+  "look-outside",
+  "no-im-not-a-human",
+  "thats-not-my-neighbor",
+  "mundaun",
+  "world-of-horror",
+  "darkwood",
+  "iron-lung",
+  "faith-unholy-trinity",
+  "the-mortuary-assistant",
+  "choo-choo-charles",
+  "poppy-playtime",
+  "hello-neighbor",
+  "five-nights-at-freddys",
+  "fnaf-security-breach",
+  "fnaf-into-the-pit",
+  "bendy-and-the-ink-machine",
+  "bendy-and-the-dark-revival",
+  "dark-pictures-man-of-medan",
+  "dark-pictures-house-of-ashes",
+  "dark-pictures-the-devil-in-me",
+  "casting-of-frank-stone",
+  "the-medium",
+  "observer-system-redux",
+  "blair-witch",
+  "the-sinking-city",
+  "call-of-cthulhu-2018",
+  "scorn",
+  "madison",
+  "the-coma-2",
+  "fatal-frame-mask-lunar-eclipse",
+  "fatal-frame-maiden-black-water",
+  "silent-hill-the-short-message",
+  "resident-evil-hd-remaster",
+  "resident-evil-0",
+  "resident-evil-revelations",
+  "resident-evil-revelations-2",
+  "the-evil-within",
+  "ghostwire-tokyo",
+  "amnesia-the-bunker",
+  "outlast-2",
+  "clock-tower-rewind",
+  "alone-in-the-dark-2024",
+  "dying-light",
+  "dying-light-2",
+  "repo",
+  "carrion",
+  "blood-refreshed-supply",
+  "the-sinking-city-2"
+ ]
+}
