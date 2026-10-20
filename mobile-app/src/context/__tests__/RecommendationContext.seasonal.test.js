@@ -92,6 +92,11 @@ beforeEach(() => {
   AsyncStorage.getItem.mockImplementation(() => Promise.resolve(null));
 });
 
+it('exposes the saved platform filter, empty by default', async () => {
+  await renderCtx();
+  expect(ctx.savedPlatforms).toEqual([]);
+});
+
 it('seeds a session from the collection with no network call', async () => {
   await renderCtx();
   await act(async () => {

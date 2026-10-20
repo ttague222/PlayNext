@@ -23,8 +23,17 @@ import { Ionicons } from '@expo/vector-icons';
 import { useRecommendation } from '../context/RecommendationContext';
 import { useSavedGames } from '../context/SavedGamesContext';
 import TonightCard from '../components/TonightCard';
+import SeasonalCard from '../components/SeasonalCard';
 import { getLastContext, getCachedPicks, fetchTonightsPicks, recordTonightView, localDateString } from '../services/tonightService';
+import {
+  loadSeasonalContent,
+  getCachedSeasonalContentSync,
+  activeSeason,
+  visibleCollections,
+  fetchCollectionPicks,
+} from '../services/seasonalService';
 import { maybeOfferTonightReminder } from '../utils/tonightReminderPrompt';
+import { logSeasonalViewedOnce } from '../utils/seasonalViewed';
 import { logEvent } from '../services/analyticsService';
 import { useTheme } from '../theme/ThemeContext';
 import { alpha } from '../theme/palette';
@@ -34,6 +43,95 @@ const { width: SCREEN_WIDTH } = Dimensions.get('window');
 // An app parked on the Play tab across midnight keeps yesterday's picks in
 // state with no refocus; every path that reuses the in-memory card checks this.
 const isTodaysCache = (cache) => Boolean(cache) && cache.date === localDateString();
+
+// Taps on a seasonal card closer together than this count as one.
+const DOUBLE_TAP_MS = 1000;
+
+// One seasonal collection: prefetches today's picks on focus (the service
+// caches per collection per local date and shares one in-flight request),
+// logs its daily view, and opens the picks on tap. Mirrors the Tonight card's
+// state and tap flow, kept per collection so two cards load independently.
+const SeasonalCollection = ({ collection, season, showHeaderImage, dateKey }) => {
+  const navigation = useNavigation();
+  const { startCollectionSession, savedPlatforms } = useRecommendation();
+  const [status, setStatus] = useState('loading'); // hidden | loading | ready | error
+  const [picks, setPicks] = useState(null);
+
+  // Read via refs so a new savedPlatforms array, or a re-parsed copy of the
+  // same collection after a content refresh, can't give load a new identity
+  // and re-trigger the focus effect.
+  const platformsRef = useRef(savedPlatforms);
+  platformsRef.current = savedPlatforms || [];
+  const collectionRef = useRef(collection);
+  collectionRef.current = collection;
+  const mountedRef = useRef(true);
+  useEffect(() => () => { mountedRef.current = false; }, []);
+
+  // Resolves to today's picks, or null when there are none to show or the
+  // load failed (the card then shows an empty-hidden or error state).
+  const load = useCallback(async () => {
+    if (mountedRef.current) setStatus((s) => (s === 'ready' ? s : 'loading'));
+    try {
+      const fresh = await fetchCollectionPicks(collectionRef.current, { platforms: platformsRef.current });
+      if (!mountedRef.current) return fresh.games.length > 0 ? fresh : null;
+      if (fresh.games.length === 0) {
+        setStatus('hidden');
+        return null;
+      }
+      setPicks(fresh);
+      setStatus('ready');
+      return fresh;
+    } catch {
+      if (mountedRef.current) setStatus('error');
+      return null;
+    }
+  }, []);
+
+  useFocusEffect(
+    useCallback(() => {
+      load();
+    }, [load])
+  );
+
+  const visible = status !== 'hidden';
+  useEffect(() => {
+    if (visible) logSeasonalViewedOnce(collection.id, season.id);
+  }, [visible, collection.id, season.id, dateKey]);
+
+  // A ready card opens without awaiting anything, so the in-flight flag alone
+  // would release before a second tap lands; the timestamp covers that window.
+  const openingRef = useRef(false);
+  const lastOpenedRef = useRef(0);
+  const handlePress = useCallback(async () => {
+    if (openingRef.current || Date.now() - lastOpenedRef.current < DOUBLE_TAP_MS) return;
+    openingRef.current = true;
+    try {
+      logEvent('seasonal_collection_tapped', { collection_id: collection.id, season_id: season.id });
+      // fetchCollectionPicks answers from the day's cache, so re-asking is
+      // cheap and also covers a card left open across midnight.
+      const ready = status === 'ready' && picks?.date === localDateString() ? picks : await load();
+      if (ready && startCollectionSession(collection, ready)) {
+        lastOpenedRef.current = Date.now();
+        navigation.navigate('Results');
+      }
+    } finally {
+      openingRef.current = false;
+    }
+  }, [status, picks, load, collection, season.id, startCollectionSession, navigation]);
+
+  if (!visible) return null;
+  return (
+    <SeasonalCard
+      collection={collection}
+      picks={picks}
+      status={status}
+      seasonName={season.name}
+      headerImage={showHeaderImage ? season.header_image : null}
+      onPress={handlePress}
+      onRetry={load}
+    />
+  );
+};
 
 const PlayScreen = () => {
   const navigation = useNavigation();
@@ -101,6 +199,26 @@ const PlayScreen = () => {
       loadTonight();
     }, [loadTonight])
   );
+
+  // Seasonal calendar: bundled/last-loaded copy for the first render, then a
+  // (cached, 6h-throttled) refresh on focus. Which season is live is always
+  // decided here from the device date, never by the payload.
+  const [seasonalContent, setSeasonalContent] = useState(getCachedSeasonalContentSync);
+  const [today, setToday] = useState(localDateString);
+  useFocusEffect(
+    useCallback(() => {
+      let live = true;
+      setToday(localDateString());
+      loadSeasonalContent().then((content) => {
+        if (live) setSeasonalContent(content);
+      });
+      return () => {
+        live = false;
+      };
+    }, [])
+  );
+  const season = activeSeason(seasonalContent, today);
+  const collections = visibleCollections(season, today);
 
   // Resolves to whether the picks actually opened: startTonightSession
   // rejects a cache with no games or no context.
@@ -302,9 +420,19 @@ const PlayScreen = () => {
             />
           )}
 
-          {/* Feature Pills: the Tonight card replaces them once it shows (the
-              screen would overflow into the stats bar with both) */}
-          {tonightStatus === 'hidden' && (
+          {collections.map((collection, index) => (
+            <SeasonalCollection
+              key={collection.id}
+              collection={collection}
+              season={season}
+              showHeaderImage={index === 0}
+              dateKey={today}
+            />
+          ))}
+
+          {/* Feature Pills: the Tonight or a seasonal card replaces them once
+              one shows (the screen would overflow into the stats bar) */}
+          {tonightStatus === 'hidden' && collections.length === 0 && (
             <View style={styles.features}>
               <View style={styles.featurePill}>
                 <Ionicons name="time-outline" size={16} color="#a78bfa" />

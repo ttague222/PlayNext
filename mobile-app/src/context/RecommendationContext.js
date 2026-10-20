@@ -677,6 +677,7 @@ export const RecommendationProvider = ({ children }) => {
     fallbackMessage,
     shownGameIds,
     collectionId, // Seasonal collection behind the current session, else null
+    savedPlatforms, // Saved platform filter (read-only); seasonal cards fetch with it
     historyVersion, // Increments when signals are recorded, used to trigger history refresh
 
     // Actions
