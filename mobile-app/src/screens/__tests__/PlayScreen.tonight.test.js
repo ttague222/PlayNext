@@ -17,6 +17,8 @@ jest.mock('../../context/RecommendationContext', () => ({
   useRecommendation: () => ({
     startSession: jest.fn(),
     resetPreferences: jest.fn(),
+    savedPlatforms: [],
+    savedPreferencesLoaded: true,
     startTonightSession: mockStartTonightSession,
   }),
 }));
@@ -30,6 +32,14 @@ jest.mock('../../services/tonightService', () => ({
   recordTonightView: jest.fn(() => Promise.resolve()),
   // Matches CACHE.date so ready-card taps pass the stale-day guard.
   localDateString: jest.fn(() => '2026-10-05'),
+}));
+// Out of season: keeps these tests off the real seasonal API and the card out of the way.
+jest.mock('../../services/seasonalService', () => ({
+  loadSeasonalContent: jest.fn(() => Promise.resolve({ schema_version: 1, seasons: [] })),
+  getCachedSeasonalContentSync: () => ({ schema_version: 1, seasons: [] }),
+  activeSeason: () => null,
+  visibleCollections: () => [],
+  fetchCollectionPicks: jest.fn(),
 }));
 jest.mock('../../utils/tonightReminderPrompt', () => ({
   maybeOfferTonightReminder: jest.fn(() => Promise.resolve(false)),

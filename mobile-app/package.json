@@ -9,6 +9,7 @@
     "web": "expo start --web",
     "lint": "eslint . --ext .js,.jsx,.ts,.tsx",
     "test": "jest",
+    "sync-seasonal": "node scripts/sync-seasonal.js",
     "test:e2e": "detox test --configuration ios.sim.debug"
   },
   "dependencies": {

@@ -4,6 +4,26 @@
  * cta.screen values are navigation route names; params optional.
  */
 export const CHANGELOG = {
+  '1.8.0': {
+    title: 'Picks for the season',
+    features: [
+      {
+        icon: 'leaf-outline',
+        headline: 'Seasonal picks on the Play tab',
+        body: 'Each season now has a few picks made for it, like couch co-op for a long weekend. Tap one and you get three games that fit.',
+      },
+      {
+        icon: 'color-palette-outline',
+        headline: 'The app changes with the season',
+        body: 'The backgrounds shift with the time of year. Buttons and everything you tap stay the same.',
+      },
+      {
+        icon: 'skull-outline',
+        headline: 'Horror for every mood',
+        body: 'The Horror filter is now there whatever mood you pick, not just when you want something intense.',
+      },
+    ],
+  },
   '1.7.0': {
     title: 'Share your picks',
     features: [

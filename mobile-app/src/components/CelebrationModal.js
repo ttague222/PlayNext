@@ -18,6 +18,7 @@ import {
 import { LinearGradient } from 'expo-linear-gradient';
 import { shareGameCard } from '../services/shareService';
 import ShareCard from './ShareCard';
+import { useTheme } from '../theme/ThemeContext';
 
 const CelebrationModal = ({
   visible,
@@ -34,6 +35,7 @@ const CelebrationModal = ({
   const fadeAnim = useRef(new Animated.Value(0)).current;
   const funFactAnim = useRef(new Animated.Value(0)).current;
   const buttonsAnim = useRef(new Animated.Value(0)).current;
+  const theme = useTheme();
   const [isAnimatingOut, setIsAnimatingOut] = useState(false);
 
   useEffect(() => {
@@ -227,7 +229,7 @@ const CelebrationModal = ({
               onPress={handleKeepBrowsing}
             >
               <LinearGradient
-                colors={isAnimatingOut ? ['#888', '#666'] : ['#f857a6', '#ff5858']}
+                colors={isAnimatingOut ? ['#888', '#666'] : [theme.accent.brand, theme.accent.brandEnd]}
                 start={{ x: 0, y: 0 }}
                 end={{ x: 1, y: 0 }}
                 style={styles.keepBrowsingGradient}

@@ -23,6 +23,8 @@ import { useRecommendation } from '../context/RecommendationContext';
 import { usePremium } from '../context/PremiumContext';
 import api from '../services/api';
 import { logEvent } from '../services/analyticsService';
+import { useTheme } from '../theme/ThemeContext';
+import { alpha } from '../theme/palette';
 
 const TIME_OPTIONS = [
   { value: 15, label: '15 min', description: 'Quick break', icon: '⚡' },
@@ -36,6 +38,7 @@ const TimeSelectScreen = () => {
   const navigation = useNavigation();
   const { preferences, updatePreference } = useRecommendation();
   const { isPremium } = usePremium();
+  const theme = useTheme();
   const [isNavigating, setIsNavigating] = useState(false);
 
   // Backlog Mode (premium): whether a Steam library is synced.
@@ -103,7 +106,7 @@ const TimeSelectScreen = () => {
 
   return (
     <LinearGradient
-      colors={['#0f0c29', '#302b63', '#24243e']}
+      colors={theme.bg.flow}
       style={styles.container}
     >
       <SafeAreaView style={styles.safeArea} edges={['top', 'left', 'right', 'bottom']}>
@@ -125,7 +128,7 @@ const TimeSelectScreen = () => {
         >
           {/* Progress indicator */}
           <View style={styles.progress}>
-            <View style={[styles.progressDot, styles.progressActive]} />
+            <View style={[styles.progressDot, styles.progressActive, { shadowColor: theme.glow.brand }]} />
             <View style={styles.progressLine} />
             <View style={styles.progressDot} />
             <View style={styles.progressLine} />
@@ -147,7 +150,7 @@ const TimeSelectScreen = () => {
               <Text
                 style={[
                   styles.modePillText,
-                  !preferences.libraryOnly && styles.modePillTextActive,
+                  !preferences.libraryOnly && [styles.modePillTextActive, { color: theme.onAccent.brandSmall }],
                 ]}
               >
                 Anything
@@ -162,14 +165,14 @@ const TimeSelectScreen = () => {
                 <Ionicons
                   name="lock-closed"
                   size={13}
-                  color={preferences.libraryOnly ? '#ffffff' : '#a0a0a0'}
+                  color={preferences.libraryOnly ? theme.onAccent.brandSmall : '#a0a0a0'}
                   style={styles.modePillIcon}
                 />
               )}
               <Text
                 style={[
                   styles.modePillText,
-                  preferences.libraryOnly && styles.modePillTextActive,
+                  preferences.libraryOnly && [styles.modePillTextActive, { color: theme.onAccent.brandSmall }],
                 ]}
               >
                 My backlog
@@ -204,6 +207,7 @@ const TimeSelectScreen = () => {
                     style={({ pressed }) => [
                       styles.optionButton,
                       isSelected && styles.optionSelected,
+                      isSelected && { shadowColor: theme.glow.brand },
                       pressed && styles.optionPressed,
                       isNavigating && styles.optionDisabled,
                     ]}
@@ -211,7 +215,7 @@ const TimeSelectScreen = () => {
                   >
                     {isSelected && (
                       <LinearGradient
-                        colors={['rgba(248, 87, 166, 0.2)', 'rgba(255, 88, 88, 0.1)']}
+                        colors={[alpha(theme.accent.brand, 0.2), alpha(theme.accent.brandEnd, 0.1)]}
                         style={StyleSheet.absoluteFill}
                         start={{ x: 0, y: 0 }}
                         end={{ x: 1, y: 0 }}

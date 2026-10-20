@@ -6,6 +6,8 @@ import React, { useEffect, useState } from 'react';
 import { View, Text, TouchableOpacity, Image, StyleSheet } from 'react-native';
 import { Ionicons } from '@expo/vector-icons';
 import { getGameImage } from '../services/gameImages';
+import { useTheme } from '../theme/ThemeContext';
+import { alpha } from '../theme/palette';
 
 const MOOD_LABELS = {
   wind_down: 'Wind down',
@@ -58,10 +60,15 @@ const Thumb = ({ game }) => {
  * @param {Function} onChangePress - jump into the normal input flow
  */
 const TonightCard = ({ status, context, games, onPress, onChangePress }) => {
+  const theme = useTheme();
+  // Seasonal accent when a season is live; otherwise today's pink literals.
+  const season = theme.accent.season;
+  const accent = season ?? '#f857a6';
+  const borderColor = season ? alpha(season, 0.25) : 'rgba(248, 87, 166, 0.25)';
   return (
     <TouchableOpacity
       testID="tonight-card"
-      style={styles.card}
+      style={[styles.card, { borderColor }]}
       onPress={onPress}
       activeOpacity={0.8}
       accessibilityRole="button"
@@ -69,7 +76,7 @@ const TonightCard = ({ status, context, games, onPress, onChangePress }) => {
     >
       <View style={styles.headerRow}>
         <View style={styles.headerLeft}>
-          <Ionicons name="moon-outline" size={16} color="#f857a6" />
+          <Ionicons name="moon-outline" size={16} color={accent} />
           <Text style={styles.title}>Tonight's Picks</Text>
         </View>
         <TouchableOpacity
@@ -78,7 +85,7 @@ const TonightCard = ({ status, context, games, onPress, onChangePress }) => {
           accessibilityRole="button"
           accessibilityLabel="Change tonight's settings"
         >
-          <Text style={styles.change}>Change</Text>
+          <Text style={[styles.change, { color: theme.accent.brand }]}>Change</Text>
         </TouchableOpacity>
       </View>
       <Text style={styles.contextLine}>{formatContextLine(context)}</Text>

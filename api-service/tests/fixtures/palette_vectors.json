@@ -1,0 +1,146 @@
+{
+  "contrast": [
+    [
+      "#ffffff",
+      "#f857a6",
+      3.04
+    ],
+    [
+      "#0a0a1a",
+      "#f857a6",
+      6.45
+    ],
+    [
+      "#808080",
+      "#302b63",
+      3.22
+    ],
+    [
+      "#a0a0a0",
+      "#302b63",
+      4.86
+    ]
+  ],
+  "delta_e": [
+    [
+      "#f0a33a",
+      "#f59e0b",
+      3.09
+    ],
+    [
+      "#ff8a3d",
+      "#f59e0b",
+      12.95
+    ],
+    [
+      "#a8dcf0",
+      "#06b6d4",
+      14.8
+    ],
+    [
+      "#ffd23f",
+      "#fbbf24",
+      5.5
+    ]
+  ],
+  "palettes": [
+    {
+      "name": "spooky",
+      "palette": {
+        "bg_gradient": [
+          "#0d0716",
+          "#22103a",
+          "#2e1546"
+        ],
+        "bg_decor": "#ff8a3d",
+        "accent_season": "#ff8a3d",
+        "on_accent_season": "#1a0b00"
+      },
+      "safe": true
+    },
+    {
+      "name": "harvest",
+      "palette": {
+        "bg_gradient": [
+          "#120a06",
+          "#2a1610",
+          "#3a2114"
+        ],
+        "bg_decor": "#f0a33a",
+        "accent_season": "#f0a33a",
+        "on_accent_season": "#1f1300"
+      },
+      "safe": false
+    },
+    {
+      "name": "summer",
+      "palette": {
+        "bg_gradient": [
+          "#06141c",
+          "#0b2a3a",
+          "#0d2f40"
+        ],
+        "bg_decor": "#ffd23f",
+        "accent_season": "#ffd23f",
+        "on_accent_season": "#1a1400"
+      },
+      "safe": false
+    },
+    {
+      "name": "winter-holidays",
+      "palette": {
+        "bg_gradient": [
+          "#060d1f",
+          "#0f1e3d",
+          "#1b2b52"
+        ],
+        "bg_decor": "#7cc4ff",
+        "accent_season": "#7cc4ff",
+        "on_accent_season": "#04121f"
+      },
+      "safe": true
+    },
+    {
+      "name": "deep-winter",
+      "palette": {
+        "bg_gradient": [
+          "#070b14",
+          "#101a2a",
+          "#1b2638"
+        ],
+        "bg_decor": "#ffb867",
+        "accent_season": "#a8dcf0",
+        "on_accent_season": "#062030"
+      },
+      "safe": true
+    },
+    {
+      "name": "spring",
+      "palette": {
+        "bg_gradient": [
+          "#08120d",
+          "#11261b",
+          "#1a3526"
+        ],
+        "bg_decor": "#ffa3c8",
+        "accent_season": "#ffa3c8",
+        "on_accent_season": "#2a0716"
+      },
+      "safe": true
+    },
+    {
+      "name": "spooky-white-text-on-accent",
+      "palette": {
+        "bg_gradient": [
+          "#0d0716",
+          "#22103a",
+          "#2e1546"
+        ],
+        "bg_decor": "#ff8a3d",
+        "accent_season": "#ff8a3d",
+        "on_accent_season": "#ffffff"
+      },
+      "safe": false
+    }
+  ]
+}

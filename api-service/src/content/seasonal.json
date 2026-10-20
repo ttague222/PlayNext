@@ -1,0 +1,215 @@
+{
+  "schema_version": 1,
+  "seasons": [
+    {
+      "id": "harvest-2026",
+      "name": "Harvest",
+      "starts": "2026-11-01",
+      "ends": "2026-11-30",
+      "palette": {
+        "bg_gradient": [
+          "#120a06",
+          "#2a1610",
+          "#3a2114"
+        ],
+        "bg_decor": "#b5652e",
+        "accent_season": "#c87941",
+        "on_accent_season": "#1f1300"
+      },
+      "collections": [
+        {
+          "id": "harvest-2026-long-weekend",
+          "title": "Couch co-op for the long weekend",
+          "blurb": "Everyone's home and there's room on the couch. Games you can play together, side by side.",
+          "params": {
+            "time_available": 60,
+            "energy_mood": "casual",
+            "session_type": "couch_coop"
+          }
+        }
+      ]
+    },
+    {
+      "id": "winter-holidays-2026",
+      "name": "Winter Holidays",
+      "starts": "2026-12-01",
+      "ends": "2027-01-07",
+      "palette": {
+        "bg_gradient": [
+          "#060d1f",
+          "#0f1e3d",
+          "#1b2b52"
+        ],
+        "bg_decor": "#e8f2ff",
+        "accent_season": "#7cc4ff",
+        "on_accent_season": "#04121f"
+      },
+      "collections": [
+        {
+          "id": "winter-holidays-2026-break",
+          "title": "Settle in for the holiday break",
+          "blurb": "Nowhere to be for once. Something cozy and easygoing to sink a couple of hours into.",
+          "params": {
+            "time_available": 120,
+            "energy_mood": "casual"
+          }
+        },
+        {
+          "id": "winter-holidays-2026-hidden-gems",
+          "title": "Find a hidden gem over the break",
+          "blurb": "Smaller games you might have missed, picked for a slow day off.",
+          "params": {
+            "time_available": 120,
+            "energy_mood": "casual",
+            "discovery_mode": "surprise"
+          }
+        }
+      ]
+    },
+    {
+      "id": "deep-winter-2027",
+      "name": "Deep Winter",
+      "starts": "2027-01-08",
+      "ends": "2027-02-28",
+      "palette": {
+        "bg_gradient": [
+          "#070b14",
+          "#101a2a",
+          "#1b2638"
+        ],
+        "bg_decor": "#ffb867",
+        "accent_season": "#a8dcf0",
+        "on_accent_season": "#062030"
+      },
+      "collections": [
+        {
+          "id": "deep-winter-2027-winter-blues",
+          "title": "Something gentle for the winter blues",
+          "blurb": "Short days, long nights. Something calm and pretty to get lost in for a while.",
+          "params": {
+            "time_available": 90,
+            "energy_mood": "wind_down"
+          }
+        },
+        {
+          "id": "deep-winter-2027-valentines",
+          "title": "Cozy co-op for two",
+          "blurb": "Grab a blanket and a second controller. Gentle games to play side by side tonight.",
+          "params": {
+            "time_available": 60,
+            "energy_mood": "wind_down",
+            "session_type": "couch_coop"
+          },
+          "starts": "2027-02-14",
+          "ends": "2027-02-14"
+        }
+      ]
+    },
+    {
+      "id": "spring-2027",
+      "name": "Spring",
+      "starts": "2027-03-01",
+      "ends": "2027-04-30",
+      "palette": {
+        "bg_gradient": [
+          "#08120d",
+          "#11261b",
+          "#1a3526"
+        ],
+        "bg_decor": "#6fcf8f",
+        "accent_season": "#ffa3c8",
+        "on_accent_season": "#2a0716"
+      },
+      "collections": [
+        {
+          "id": "spring-2027-fresh-starts",
+          "title": "Fresh starts: try something new",
+          "blurb": "Longer days, clearer head. A smart game you might not know yet, for one good hour.",
+          "params": {
+            "time_available": 60,
+            "energy_mood": "focused",
+            "discovery_mode": "surprise"
+          }
+        }
+      ]
+    },
+    {
+      "id": "summer-2027",
+      "name": "Summer",
+      "starts": "2027-05-01",
+      "ends": "2027-08-31",
+      "palette": {
+        "bg_gradient": [
+          "#06141c",
+          "#0b2a3a",
+          "#0d2f40"
+        ],
+        "bg_decor": "#ffb35c",
+        "accent_season": "#ffec94",
+        "on_accent_season": "#1a1400"
+      },
+      "collections": [
+        {
+          "id": "summer-2027-slow-afternoons",
+          "title": "Slow summer afternoons",
+          "blurb": "Too hot to do much else? Something easygoing that's happy to fill a couple of hours.",
+          "params": {
+            "time_available": 120,
+            "energy_mood": "casual"
+          }
+        },
+        {
+          "id": "summer-2027-big-rpg",
+          "title": "Start a big RPG this summer",
+          "blurb": "You finally have the time. An RPG to sink into, one long evening at a time.",
+          "params": {
+            "time_available": 120,
+            "energy_mood": "focused",
+            "genres": [
+              "rpg"
+            ]
+          }
+        }
+      ]
+    },
+    {
+      "id": "spooky-2027",
+      "name": "Spooky",
+      "starts": "2027-09-01",
+      "ends": "2027-10-31",
+      "palette": {
+        "bg_gradient": [
+          "#0d0716",
+          "#22103a",
+          "#2e1546"
+        ],
+        "bg_decor": "#ff8a3d",
+        "accent_season": "#ff8a3d",
+        "on_accent_season": "#1a0b00"
+      },
+      "collections": [
+        {
+          "id": "spooky-2027-scares",
+          "title": "Spooky games for a dark night",
+          "blurb": "Unsettling stories and strange places, the kind you play with the lights off.",
+          "params": {
+            "time_available": 60,
+            "energy_mood": "casual",
+            "genres": [
+              "horror"
+            ]
+          }
+        },
+        {
+          "id": "spooky-2027-cozy-autumn",
+          "title": "Cozy games for autumn evenings",
+          "blurb": "Not in the mood for scares? Grab a warm drink and something gentle that's in no hurry.",
+          "params": {
+            "time_available": 60,
+            "energy_mood": "wind_down"
+          }
+        }
+      ]
+    }
+  ]
+}

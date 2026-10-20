@@ -16,6 +16,7 @@ import {
 } from 'react-native';
 import { LinearGradient } from 'expo-linear-gradient';
 import { BlurView } from 'expo-blur';
+import { useTheme } from '../theme/ThemeContext';
 
 const AdOrPremiumModal = ({
   visible,
@@ -24,6 +25,7 @@ const AdOrPremiumModal = ({
   onCancel,
   isAdLoading = false,
 }) => {
+  const theme = useTheme();
   return (
     <Modal
       visible={visible}
@@ -83,7 +85,7 @@ const AdOrPremiumModal = ({
                   No ads, ever. One-time purchase.
                 </Text>
                 <LinearGradient
-                  colors={['#f857a6', '#ff5858']}
+                  colors={[theme.accent.brand, theme.accent.brandEnd]}
                   start={{ x: 0, y: 0 }}
                   end={{ x: 1, y: 0 }}
                   style={[styles.optionButton, styles.premiumButton]}

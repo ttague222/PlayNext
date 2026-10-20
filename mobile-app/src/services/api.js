@@ -85,6 +85,8 @@ const api = {
    * @param {string} params.energy_mood - Current mood (wind_down, casual, focused, intense)
    * @param {string} [params.play_style] - Play style filter
    * @param {string} [params.platform] - Platform filter
+   * @param {string[]|null} [params.platforms] - Platform filters (null = any)
+   * @param {string[]|null} [params.genres] - Genre filters (null = any)
    * @param {string} [params.session_type] - Session type (solo, couch_coop, online_friends, any)
    * @param {string} [params.discovery_mode] - Discovery mode (familiar, surprise)
    * @param {string} [params.session_id] - Session ID for tracking
@@ -434,6 +436,20 @@ const api = {
    */
   createShare: async (payload) => {
     const response = await apiClient.post('/shares', payload);
+    return response.data;
+  },
+
+  // ============================================
+  // Seasonal content
+  // ============================================
+
+  /**
+   * Get the seasonal calendar (seasons, palettes, collections).
+   * Only seasonalService calls this; screens read through that service.
+   * @returns {Promise<object>} SeasonalContent, schema_version 1
+   */
+  getSeasonal: async () => {
+    const response = await apiClient.get('/seasonal');
     return response.data;
   },
 

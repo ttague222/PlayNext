@@ -1,6 +1,16 @@
 import React from 'react';
 import { render, screen } from '@testing-library/react-native';
+import vectors from '../../../../api-service/tests/fixtures/palette_vectors.json';
+import { ThemeProvider } from '../../theme/ThemeContext';
 import ShareCard from '../ShareCard';
+
+// Record every LinearGradient's props so the tests can read its colors.
+const mockGradients = [];
+jest.mock('expo-linear-gradient', () => ({
+  LinearGradient: (props) => { mockGradients.push(props); return props.children; },
+}));
+
+const spooky = vectors.palettes.find((p) => p.name === 'spooky').palette;
 
 const game = {
   title: 'Hades',
@@ -75,5 +85,25 @@ describe('ShareCard', () => {
     await render(<ShareCard picks={[{ title: 'Celeste' }]} />);
     expect(screen.getByText('playnxt.io')).toBeTruthy();
     expect(screen.getByText('What to play, in your free time')).toBeTruthy();
+  });
+});
+
+describe('ShareCard background', () => {
+  beforeEach(() => {
+    mockGradients.length = 0;
+  });
+
+  it('renders the share gradient without a ThemeProvider', async () => {
+    await render(<ShareCard picks={[game]} />);
+    expect(mockGradients[0].colors).toEqual(['#0f0c29', '#1a1a2e', '#16213e']);
+  });
+
+  it('keeps the share gradient under a seasonal theme (the shared image never changes with the season)', async () => {
+    await render(
+      <ThemeProvider palette={spooky}>
+        <ShareCard picks={[game]} />
+      </ThemeProvider>
+    );
+    expect(mockGradients[0].colors).toEqual(['#0f0c29', '#1a1a2e', '#16213e']);
   });
 });

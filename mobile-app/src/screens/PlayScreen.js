@@ -23,15 +23,142 @@ import { Ionicons } from '@expo/vector-icons';
 import { useRecommendation } from '../context/RecommendationContext';
 import { useSavedGames } from '../context/SavedGamesContext';
 import TonightCard from '../components/TonightCard';
+import SeasonalCard from '../components/SeasonalCard';
 import { getLastContext, getCachedPicks, fetchTonightsPicks, recordTonightView, localDateString } from '../services/tonightService';
+import {
+  loadSeasonalContent,
+  getCachedSeasonalContentSync,
+  activeSeason,
+  visibleCollections,
+  fetchCollectionPicks,
+  platformFilterKey,
+} from '../services/seasonalService';
 import { maybeOfferTonightReminder } from '../utils/tonightReminderPrompt';
+import { logSeasonalViewedOnce } from '../utils/seasonalViewed';
 import { logEvent } from '../services/analyticsService';
+import { useTheme } from '../theme/ThemeContext';
+import { alpha } from '../theme/palette';
 
 const { width: SCREEN_WIDTH } = Dimensions.get('window');
 
 // An app parked on the Play tab across midnight keeps yesterday's picks in
 // state with no refocus; every path that reuses the in-memory card checks this.
 const isTodaysCache = (cache) => Boolean(cache) && cache.date === localDateString();
+
+// Taps on a seasonal card closer together than this count as one.
+const DOUBLE_TAP_MS = 1000;
+
+// A promise, stable for the component's life, that resolves the first time
+// `ready` is true.
+const useReadyPromise = (ready) => {
+  const ref = useRef(null);
+  if (!ref.current) {
+    let resolve;
+    const promise = new Promise((r) => { resolve = r; });
+    ref.current = { promise, resolve };
+  }
+  useEffect(() => {
+    if (ready) ref.current.resolve();
+  }, [ready]);
+  return ref.current.promise;
+};
+
+// One seasonal collection: prefetches today's picks on focus (the service
+// caches per collection, platform filter and local date, and shares one
+// in-flight request),
+// logs its daily view, and opens the picks on tap. Mirrors the Tonight card's
+// state and tap flow, kept per collection so two cards load independently.
+const SeasonalCollection = ({ collection, season, showHeaderImage, dateKey }) => {
+  const navigation = useNavigation();
+  const { startCollectionSession, savedPlatforms, savedPreferencesLoaded } = useRecommendation();
+  const [status, setStatus] = useState('loading'); // hidden | loading | ready | error
+  const [picks, setPicks] = useState(null);
+
+  // Read via refs so a new savedPlatforms array, or a re-parsed copy of the
+  // same collection after a content refresh, can't give load a new identity
+  // and re-trigger the focus effect.
+  const platformsRef = useRef(savedPlatforms);
+  platformsRef.current = savedPlatforms || [];
+  const collectionRef = useRef(collection);
+  collectionRef.current = collection;
+  const mountedRef = useRef(true);
+  useEffect(() => () => { mountedRef.current = false; }, []);
+  // The provider hydrates savedPlatforms from storage after this mounts; until
+  // it has, platformsRef holds a placeholder [] and a fetch would go out
+  // unfiltered and be cached for the day. Every load waits for it.
+  const savedPlatformsReady = useReadyPromise(savedPreferencesLoaded);
+
+  // Resolves to today's picks, or null when there are none to show or the
+  // load failed (the card then shows an empty-hidden or error state).
+  const load = useCallback(async () => {
+    if (mountedRef.current) setStatus((s) => (s === 'ready' ? s : 'loading'));
+    await savedPlatformsReady;
+    try {
+      const fresh = await fetchCollectionPicks(collectionRef.current, { platforms: platformsRef.current });
+      if (!mountedRef.current) return fresh.games.length > 0 ? fresh : null;
+      if (fresh.games.length === 0) {
+        setStatus('hidden');
+        return null;
+      }
+      setPicks(fresh);
+      setStatus('ready');
+      return fresh;
+    } catch {
+      if (mountedRef.current) setStatus('error');
+      return null;
+    }
+  }, [savedPlatformsReady]);
+
+  useFocusEffect(
+    useCallback(() => {
+      load();
+    }, [load])
+  );
+
+  const visible = status !== 'hidden';
+  useEffect(() => {
+    if (visible) logSeasonalViewedOnce(collection.id, season.id);
+  }, [visible, collection.id, season.id, dateKey]);
+
+  // A ready card opens without awaiting anything, so the in-flight flag alone
+  // would release before a second tap lands; the timestamp covers that window.
+  const openingRef = useRef(false);
+  const lastOpenedRef = useRef(0);
+  const handlePress = useCallback(async () => {
+    if (openingRef.current || Date.now() - lastOpenedRef.current < DOUBLE_TAP_MS) return;
+    openingRef.current = true;
+    try {
+      logEvent('seasonal_collection_tapped', { collection_id: collection.id, season_id: season.id });
+      // fetchCollectionPicks answers from the day's cache, so re-asking is
+      // cheap and also covers a card left open across midnight or a change
+      // of saved platforms since the card loaded.
+      const current =
+        status === 'ready' &&
+        picks?.date === localDateString() &&
+        picks?.platformFilter === platformFilterKey(platformsRef.current);
+      const ready = current ? picks : await load();
+      if (ready && startCollectionSession(collection, ready)) {
+        lastOpenedRef.current = Date.now();
+        navigation.navigate('Results');
+      }
+    } finally {
+      openingRef.current = false;
+    }
+  }, [status, picks, load, collection, season.id, startCollectionSession, navigation]);
+
+  if (!visible) return null;
+  return (
+    <SeasonalCard
+      collection={collection}
+      picks={picks}
+      status={status}
+      seasonName={season.name}
+      headerImage={showHeaderImage ? season.header_image : null}
+      onPress={handlePress}
+      onRetry={load}
+    />
+  );
+};
 
 const PlayScreen = () => {
   const navigation = useNavigation();
@@ -42,6 +169,7 @@ const PlayScreen = () => {
     startTonightSession,
   } = useRecommendation();
   const { notForMeGameIds } = useSavedGames();
+  const theme = useTheme();
 
   // Animations
   const pulseAnim = useRef(new Animated.Value(1)).current;
@@ -98,6 +226,26 @@ const PlayScreen = () => {
       loadTonight();
     }, [loadTonight])
   );
+
+  // Seasonal calendar: bundled/last-loaded copy for the first render, then a
+  // (cached, 6h-throttled) refresh on focus. Which season is live is always
+  // decided here from the device date, never by the payload.
+  const [seasonalContent, setSeasonalContent] = useState(getCachedSeasonalContentSync);
+  const [today, setToday] = useState(localDateString);
+  useFocusEffect(
+    useCallback(() => {
+      let live = true;
+      setToday(localDateString());
+      loadSeasonalContent().then((content) => {
+        if (live) setSeasonalContent(content);
+      });
+      return () => {
+        live = false;
+      };
+    }, [])
+  );
+  const season = activeSeason(seasonalContent, today);
+  const collections = visibleCollections(season, today);
 
   // Resolves to whether the picks actually opened: startTonightSession
   // rejects a cache with no games or no context.
@@ -233,14 +381,14 @@ const PlayScreen = () => {
 
   return (
     <LinearGradient
-      colors={['#0a0a1a', '#1a1a2e', '#16213e']}
+      colors={theme.bg.home}
       style={styles.container}
     >
       <SafeAreaView style={styles.safeArea} edges={['top', 'left', 'right', 'bottom']}>
         {/* Background decoration */}
         <View style={styles.bgDecoration}>
-          <View style={[styles.bgCircle, styles.bgCircle1]} />
-          <View style={[styles.bgCircle, styles.bgCircle2]} />
+          <View style={[styles.bgCircle, styles.bgCircle1, { backgroundColor: theme.bg.decor ?? '#f857a6' }]} />
+          <View style={[styles.bgCircle, styles.bgCircle2, { backgroundColor: theme.bg.decor ?? '#667eea' }]} />
         </View>
 
         <ScrollView
@@ -251,32 +399,32 @@ const PlayScreen = () => {
           {/* Center Icon */}
           <Animated.View style={[styles.iconContainer, { transform: [{ translateY: floatAnim }] }]}>
             <LinearGradient
-              colors={['rgba(248, 87, 166, 0.15)', 'rgba(255, 88, 88, 0.1)']}
-              style={styles.iconBg}
+              colors={[alpha(theme.accent.brand, 0.15), alpha(theme.accent.brandEnd, 0.1)]}
+              style={[styles.iconBg, { borderColor: alpha(theme.accent.brand, 0.3) }]}
             >
-              <Ionicons name="game-controller" size={56} color="#f857a6" />
+              <Ionicons name="game-controller" size={56} color={theme.accent.brand} />
             </LinearGradient>
           </Animated.View>
 
           {/* Header */}
           <View style={styles.header}>
             <Text style={styles.logo}>
-              Play<Text style={styles.logoAccent}>Nxt</Text>
+              Play<Text style={[styles.logoAccent, { color: theme.accent.brand }]}>Nxt</Text>
             </Text>
             <Text style={styles.tagline}>Find your perfect game</Text>
           </View>
 
           {/* Main CTA */}
           <View style={styles.ctaContainer}>
-            <Animated.View style={[styles.ctaGlow, { opacity: glowOpacity }]} />
+            <Animated.View style={[styles.ctaGlow, { backgroundColor: theme.glow.brand, opacity: glowOpacity }]} />
             <Animated.View style={{ transform: [{ scale: pulseAnim }] }}>
               <TouchableOpacity
-                style={styles.ctaButton}
+                style={[styles.ctaButton, { shadowColor: theme.glow.brand }]}
                 onPress={handleStart}
                 activeOpacity={0.9}
               >
                 <LinearGradient
-                  colors={['#f857a6', '#ff5858']}
+                  colors={[theme.accent.brand, theme.accent.brandEnd]}
                   start={{ x: 0, y: 0 }}
                   end={{ x: 1, y: 0 }}
                   style={styles.ctaGradient}
@@ -299,9 +447,19 @@ const PlayScreen = () => {
             />
           )}
 
-          {/* Feature Pills: the Tonight card replaces them once it shows (the
-              screen would overflow into the stats bar with both) */}
-          {tonightStatus === 'hidden' && (
+          {collections.map((collection, index) => (
+            <SeasonalCollection
+              key={collection.id}
+              collection={collection}
+              season={season}
+              showHeaderImage={index === 0}
+              dateKey={today}
+            />
+          ))}
+
+          {/* Feature Pills: the Tonight or a seasonal card replaces them once
+              one shows (the screen would overflow into the stats bar) */}
+          {tonightStatus === 'hidden' && collections.length === 0 && (
             <View style={styles.features}>
               <View style={styles.featurePill}>
                 <Ionicons name="time-outline" size={16} color="#a78bfa" />

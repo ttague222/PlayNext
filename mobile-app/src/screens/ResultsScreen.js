@@ -18,6 +18,7 @@ import {
 import { SafeAreaView } from 'react-native-safe-area-context';
 import { useNavigation } from '@react-navigation/native';
 import { LinearGradient } from 'expo-linear-gradient';
+import { useTheme } from '../theme/ThemeContext';
 import { useRecommendation } from '../context/RecommendationContext';
 import { usePremium } from '../context/PremiumContext';
 import { useSavedGames, BUCKET_TYPES } from '../context/SavedGamesContext';
@@ -40,6 +41,7 @@ import { maybeRequestReview } from '../utils/reviewPrompt';
 
 const ResultsScreen = () => {
   const navigation = useNavigation();
+  const theme = useTheme();
   const {
     recommendations,
     loading,
@@ -516,13 +518,13 @@ const ResultsScreen = () => {
   if (loading && (recommendations.length === 0 || !isInPlaceBusy)) {
     return (
       <LinearGradient
-        colors={['#0f0c29', '#302b63', '#24243e']}
+        colors={theme.bg.flow}
         style={styles.container}
       >
         <SafeAreaView style={styles.centered} edges={['top', 'left', 'right', 'bottom']}>
           <Animated.Text style={styles.loadingEmoji}>🎮</Animated.Text>
           <Text style={styles.loadingText}>Finding your perfect game...</Text>
-          <ActivityIndicator color="#f857a6" size="large" style={{ marginTop: 20 }} />
+          <ActivityIndicator color={theme.accent.brand} size="large" style={{ marginTop: 20 }} />
         </SafeAreaView>
       </LinearGradient>
     );
@@ -533,16 +535,16 @@ const ResultsScreen = () => {
   if (error && recommendations.length === 0) {
     return (
       <LinearGradient
-        colors={['#0f0c29', '#302b63', '#24243e']}
+        colors={theme.bg.flow}
         style={styles.container}
       >
         <SafeAreaView style={styles.centered} edges={['top', 'left', 'right', 'bottom']}>
           <Text style={styles.errorEmoji}>😕</Text>
           <Text style={styles.errorText}>Something went wrong</Text>
-          <Text style={styles.errorDetail}>{error}</Text>
+          <Text style={[styles.errorDetail, { color: theme.text.secondary }]}>{error}</Text>
           <TouchableOpacity style={styles.retryButton} onPress={handleReroll}>
             <LinearGradient
-              colors={['#f857a6', '#ff5858']}
+              colors={[theme.accent.brand, theme.accent.brandEnd]}
               style={styles.retryGradient}
             >
               <Text style={styles.retryText}>Try Again</Text>
@@ -555,7 +557,7 @@ const ResultsScreen = () => {
 
   return (
     <LinearGradient
-      colors={['#0f0c29', '#302b63', '#24243e']}
+      colors={theme.bg.flow}
       style={styles.container}
     >
       <SafeAreaView style={styles.safeArea} edges={['top', 'left', 'right', 'bottom']}>
@@ -581,7 +583,7 @@ const ResultsScreen = () => {
           >
             <Text style={styles.headerEmoji}>🎯</Text>
             <Text style={styles.title}>Your perfect picks</Text>
-            <Text style={styles.subtitle}>
+            <Text style={[styles.subtitle, { color: theme.text.muted }]}>
               Based on your time & mood
             </Text>
             {fallbackApplied && fallbackMessage && (
@@ -618,7 +620,7 @@ const ResultsScreen = () => {
               <Text style={styles.noResultsText}>
                 No games found matching your criteria
               </Text>
-              <Text style={styles.noResultsHint}>
+              <Text style={[styles.noResultsHint, { color: theme.text.secondary }]}>
                 Try adjusting your filters
               </Text>
             </View>
@@ -645,12 +647,12 @@ const ResultsScreen = () => {
                   {isRerolling ? 'Finding more...' : isAdLoading ? 'Loading...' : 'Show different games'}
                 </Text>
                 {!isPremium && !isRerolling && !isAdLoading && (isDailyCapHit || rerollsUntilAdText) && (
-                  <Text style={styles.rerollsRemaining}>
+                  <Text style={[styles.rerollsRemaining, { color: theme.text.muted }]}>
                     {isDailyCapHit ? 'No rerolls left today' : rerollsUntilAdText}
                   </Text>
                 )}
                 {isPremium && !isRerolling && (
-                  <Text style={styles.rerollsRemaining}>Unlimited rerolls</Text>
+                  <Text style={[styles.rerollsRemaining, { color: theme.text.muted }]}>Unlimited rerolls</Text>
                 )}
               </View>
             </TouchableOpacity>
