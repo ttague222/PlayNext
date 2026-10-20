@@ -23,6 +23,8 @@ import ShimmerBlock from './ShimmerBlock';
 import FadeSlideIn from './FadeSlideIn';
 import MatchPill from './MatchPill';
 import useReducedMotion from '../hooks/useReducedMotion';
+import { useTheme } from '../theme/ThemeContext';
+import { alpha } from '../theme/palette';
 import { getGameImage } from '../services/gameImages';
 import {
   generateStoreAffiliateLink,
@@ -164,7 +166,10 @@ const GameCard = ({
   isSaved = false,
 }) => {
   const [imageUrl, setImageUrl] = useState(null);
-  const [fallbackColors, setFallbackColors] = useState(['#667eea', '#764ba2']);
+  const theme = useTheme();
+  // null until the image service supplies title-based colors; until then (or if
+  // it fails) the tile uses the theme's flow gradient stops.
+  const [fallbackColors, setFallbackColors] = useState(null);
   const [imageLoading, setImageLoading] = useState(true);
   const [imageError, setImageError] = useState(false);
   const reducedMotion = useReducedMotion();
@@ -466,11 +471,17 @@ const GameCard = ({
           ],
         }}
       >
-      <View style={[styles.card, rank === 1 && styles.cardTopPick]}>
+      <View
+        style={[
+          styles.card,
+          rank === 1 && styles.cardTopPick,
+          rank === 1 && { borderColor: alpha(theme.accent.brand, 0.5) },
+        ]}
+      >
         {/* Top Pick Glow - background effect */}
         {rank === 1 && (
           <LinearGradient
-            colors={['rgba(248, 87, 166, 0.2)', 'rgba(248, 87, 166, 0)']}
+            colors={[alpha(theme.accent.brand, 0.2), alpha(theme.accent.brand, 0)]}
             style={styles.topPickGlow}
           />
         )}
@@ -492,7 +503,7 @@ const GameCard = ({
             />
           ) : (
             <LinearGradient
-              colors={fallbackColors}
+              colors={fallbackColors ?? [theme.bg.flow[1], theme.bg.flow[2]]}
               start={{ x: 0, y: 0 }}
               end={{ x: 1, y: 1 }}
               style={styles.thumbnailPlaceholder}
@@ -504,7 +515,7 @@ const GameCard = ({
           {imageLoading && <ShimmerBlock style={styles.thumbnailShimmer} />}
           {/* Hero scrim — soft darkening vignette, never opaque */}
           <LinearGradient
-            colors={['transparent', 'rgba(15, 12, 41, 0.30)', 'rgba(15, 12, 41, 0.55)']}
+            colors={['transparent', alpha(theme.overlay.scrim, 0.30), alpha(theme.overlay.scrim, 0.55)]}
             locations={[0.45, 0.78, 1]}
             style={styles.heroScrim}
             pointerEvents="none"
@@ -513,7 +524,7 @@ const GameCard = ({
           {rank === 1 && (
             <View style={styles.topPickBadge}>
               <LinearGradient
-                colors={['#f857a6', '#ff5858']}
+                colors={[theme.accent.brand, theme.accent.brandEnd]}
                 start={{ x: 0, y: 0 }}
                 end={{ x: 1, y: 0 }}
                 style={styles.topPickGradient}
@@ -537,7 +548,7 @@ const GameCard = ({
               entranceIndex={entranceIndex}
             />
           </View>
-          <Text style={styles.platforms}>
+          <Text style={[styles.platforms, { color: theme.text.muted }]}>
             {validatedPlatforms.map((p) => PLATFORM_LABELS[p] || p).join(' · ')}
           </Text>
         </View>
@@ -548,7 +559,11 @@ const GameCard = ({
         {/* Primary CTA — above the fold (P0.1) */}
         <View testID="card-cta">
           <PressableScale
-            style={[styles.acceptButton, (isSwapping || isAccepting) && styles.buttonDisabled]}
+            style={[
+              styles.acceptButton,
+              { shadowColor: theme.glow.brand },
+              (isSwapping || isAccepting) && styles.buttonDisabled,
+            ]}
             onPress={(isSwapping || isAccepting) ? undefined : onAccept}
             disabled={isSwapping || isAccepting}
             accessibilityLabel="I'll play this"
@@ -556,7 +571,7 @@ const GameCard = ({
             pressedOverlayStyle={{ borderRadius: styles.acceptButton.borderRadius }}
           >
             <LinearGradient
-              colors={(isSwapping || isAccepting) ? ['#888', '#666'] : ['#f857a6', '#ff5858']}
+              colors={(isSwapping || isAccepting) ? ['#888', '#666'] : [theme.accent.brand, theme.accent.brandEnd]}
               start={{ x: 0, y: 0 }}
               end={{ x: 1, y: 0 }}
               style={styles.acceptGradient}

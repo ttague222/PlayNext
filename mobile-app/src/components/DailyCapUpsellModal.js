@@ -1,6 +1,7 @@
 import React from 'react';
 import { View, Text, Pressable, StyleSheet, Modal } from 'react-native';
 import { LinearGradient } from 'expo-linear-gradient';
+import { useTheme } from '../theme/ThemeContext';
 
 /**
  * Shown when a free user hits their daily reroll cap (10/day).
@@ -11,6 +12,7 @@ import { LinearGradient } from 'expo-linear-gradient';
  *   onDismiss: () => void    — close modal, no reroll
  */
 const DailyCapUpsellModal = ({ visible, onGoPremium, onDismiss, priceString = '$1.99' }) => {
+  const theme = useTheme();
   return (
     <Modal visible={visible} transparent animationType="fade" onRequestClose={onDismiss}>
       <View style={styles.overlay}>
@@ -28,7 +30,7 @@ const DailyCapUpsellModal = ({ visible, onGoPremium, onDismiss, priceString = '$
             accessibilityLabel={`Unlock unlimited rerolls for ${priceString}`}
           >
             <LinearGradient
-              colors={['#f857a6', '#ff5858']}
+              colors={[theme.accent.brand, theme.accent.brandEnd]}
               start={{ x: 0, y: 0 }}
               end={{ x: 1, y: 0 }}
               style={styles.premiumGradient}

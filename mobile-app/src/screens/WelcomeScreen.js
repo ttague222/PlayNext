@@ -18,6 +18,7 @@ import { SafeAreaView } from 'react-native-safe-area-context';
 import { LinearGradient } from 'expo-linear-gradient';
 import AsyncStorage from '@react-native-async-storage/async-storage';
 import { Ionicons, MaterialCommunityIcons } from '@expo/vector-icons';
+import { useTheme } from '../theme/ThemeContext';
 
 const { width } = Dimensions.get('window');
 
@@ -68,6 +69,7 @@ const SlideIcon = ({ icon, iconType }) => {
 };
 
 const WelcomeScreen = ({ onComplete }) => {
+  const theme = useTheme();
   const [currentSlide, setCurrentSlide] = useState(0);
   const fadeAnim = useRef(new Animated.Value(1)).current;
   const slideAnim = useRef(new Animated.Value(0)).current;
@@ -175,7 +177,7 @@ const WelcomeScreen = ({ onComplete }) => {
           activeOpacity={0.9}
         >
           <LinearGradient
-            colors={isLastSlide ? ['#f857a6', '#ff5858'] : ['#6366f1', '#8b5cf6']}
+            colors={isLastSlide ? [theme.accent.brand, theme.accent.brandEnd] : ['#6366f1', '#8b5cf6']}
             start={{ x: 0, y: 0 }}
             end={{ x: 1, y: 0 }}
             style={styles.actionGradient}

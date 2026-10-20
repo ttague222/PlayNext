@@ -14,6 +14,7 @@
 import React, { forwardRef } from 'react';
 import { StyleSheet, Text, View } from 'react-native';
 import { LinearGradient } from 'expo-linear-gradient';
+import { useTheme } from '../theme/ThemeContext';
 
 export const SHARE_CARD_WIDTH = 360;
 export const SHARE_CARD_HEIGHT = 450;
@@ -169,6 +170,7 @@ const PickRow = ({ game, rank }: { game: ShareGame; rank: number }) => {
 
 const ShareCard = forwardRef<View, ShareCardProps>(
   ({ picks, timeAvailable, energyMood }, ref) => {
+    const theme = useTheme();
     const games = (picks || []).slice(0, 3);
     const timeLabel = timeAvailable ? TIME_LABELS[timeAvailable] : null;
     const moodLabel = energyMood ? MOOD_LABELS[energyMood] : null;
@@ -177,7 +179,7 @@ const ShareCard = forwardRef<View, ShareCardProps>(
     return (
       <View ref={ref} collapsable={false} style={styles.card}>
         <LinearGradient
-          colors={['#0f0c29', '#1a1a2e', '#16213e']}
+          colors={theme.share.gradient}
           style={StyleSheet.absoluteFill}
           start={{ x: 0, y: 0 }}
           end={{ x: 1, y: 1 }}
