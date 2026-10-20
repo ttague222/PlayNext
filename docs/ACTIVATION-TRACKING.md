@@ -37,7 +37,8 @@ events; only opening them counts.
 
 A seasonal session carries `collection_id` (for example
 `harvest-2026-long-weekend`) on `recommendation_started`,
-`recommendation_viewed`, `rec_requested`, `game_selected` and `rec_accepted`.
+`recommendation_viewed`, `rec_requested` (reroll only for a collection tap; the tap
+itself logs just `recommendation_started` and `recommendation_viewed`), `game_selected` and `rec_accepted`.
 Rerolls inside the collection keep it. The two collection events also carry
 `season_id` (for example `harvest-2026`). Outside a seasonal session none of
 these events carries either param.

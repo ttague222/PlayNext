@@ -85,7 +85,7 @@ Confirm each event, with `collection_id = harvest-2026-long-weekend`:
 - [ ] `seasonal_collection_tapped`: `collection_id`, `season_id = harvest-2026`
 - [ ] `recommendation_started`: `pick_source = seasonal`, `collection_id`, plus `minutes = 60`, `mood = casual`
 - [ ] `recommendation_viewed`: `pick_source = seasonal`, `collection_id`, `result_count`. No `latency_ms` on the collection tap.
-- [ ] `rec_requested`: `pick_source = seasonal`, `collection_id`, on the reroll too (`is_reroll = true`)
+- [ ] `rec_requested` (fires on the reroll only, not on the collection tap): `pick_source = seasonal`, `collection_id`, `is_reroll = true`
 - [ ] `recommendation_viewed` after the reroll: still carries `collection_id`
 - [ ] `game_selected`: `pick_source = seasonal`, `collection_id`, `game_id`, `rank`
 - [ ] `rec_accepted`: `pick_source = seasonal`, `collection_id`
