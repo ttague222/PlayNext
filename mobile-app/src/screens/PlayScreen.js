@@ -26,6 +26,8 @@ import TonightCard from '../components/TonightCard';
 import { getLastContext, getCachedPicks, fetchTonightsPicks, recordTonightView, localDateString } from '../services/tonightService';
 import { maybeOfferTonightReminder } from '../utils/tonightReminderPrompt';
 import { logEvent } from '../services/analyticsService';
+import { useTheme } from '../theme/ThemeContext';
+import { alpha } from '../theme/palette';
 
 const { width: SCREEN_WIDTH } = Dimensions.get('window');
 
@@ -42,6 +44,7 @@ const PlayScreen = () => {
     startTonightSession,
   } = useRecommendation();
   const { notForMeGameIds } = useSavedGames();
+  const theme = useTheme();
 
   // Animations
   const pulseAnim = useRef(new Animated.Value(1)).current;
@@ -233,14 +236,14 @@ const PlayScreen = () => {
 
   return (
     <LinearGradient
-      colors={['#0a0a1a', '#1a1a2e', '#16213e']}
+      colors={theme.bg.home}
       style={styles.container}
     >
       <SafeAreaView style={styles.safeArea} edges={['top', 'left', 'right', 'bottom']}>
         {/* Background decoration */}
         <View style={styles.bgDecoration}>
-          <View style={[styles.bgCircle, styles.bgCircle1]} />
-          <View style={[styles.bgCircle, styles.bgCircle2]} />
+          <View style={[styles.bgCircle, styles.bgCircle1, { backgroundColor: theme.bg.decor ?? '#f857a6' }]} />
+          <View style={[styles.bgCircle, styles.bgCircle2, { backgroundColor: theme.bg.decor ?? '#667eea' }]} />
         </View>
 
         <ScrollView
@@ -251,32 +254,32 @@ const PlayScreen = () => {
           {/* Center Icon */}
           <Animated.View style={[styles.iconContainer, { transform: [{ translateY: floatAnim }] }]}>
             <LinearGradient
-              colors={['rgba(248, 87, 166, 0.15)', 'rgba(255, 88, 88, 0.1)']}
-              style={styles.iconBg}
+              colors={[alpha(theme.accent.brand, 0.15), alpha(theme.accent.brandEnd, 0.1)]}
+              style={[styles.iconBg, { borderColor: alpha(theme.accent.brand, 0.3) }]}
             >
-              <Ionicons name="game-controller" size={56} color="#f857a6" />
+              <Ionicons name="game-controller" size={56} color={theme.accent.brand} />
             </LinearGradient>
           </Animated.View>
 
           {/* Header */}
           <View style={styles.header}>
             <Text style={styles.logo}>
-              Play<Text style={styles.logoAccent}>Nxt</Text>
+              Play<Text style={[styles.logoAccent, { color: theme.accent.brand }]}>Nxt</Text>
             </Text>
             <Text style={styles.tagline}>Find your perfect game</Text>
           </View>
 
           {/* Main CTA */}
           <View style={styles.ctaContainer}>
-            <Animated.View style={[styles.ctaGlow, { opacity: glowOpacity }]} />
+            <Animated.View style={[styles.ctaGlow, { backgroundColor: theme.glow.brand, opacity: glowOpacity }]} />
             <Animated.View style={{ transform: [{ scale: pulseAnim }] }}>
               <TouchableOpacity
-                style={styles.ctaButton}
+                style={[styles.ctaButton, { shadowColor: theme.glow.brand }]}
                 onPress={handleStart}
                 activeOpacity={0.9}
               >
                 <LinearGradient
-                  colors={['#f857a6', '#ff5858']}
+                  colors={[theme.accent.brand, theme.accent.brandEnd]}
                   start={{ x: 0, y: 0 }}
                   end={{ x: 1, y: 0 }}
                   style={styles.ctaGradient}
