@@ -157,43 +157,6 @@
     }
   },
   {
-    "id": "resident-evil-9-requiem",
-    "title": "Resident Evil 9: Requiem",
-    "platforms": [
-      "pc",
-      "playstation",
-      "xbox"
-    ],
-    "year": 2026,
-    "genres": [
-      "action",
-      "horror"
-    ],
-    "time_tags": [
-      60,
-      90,
-      120
-    ],
-    "energy": "high",
-    "moods": [
-      "intense",
-      "immersive"
-    ],
-    "play_style": [
-      "action",
-      "narrative"
-    ],
-    "time_to_fun": "medium",
-    "stop_friendliness": "checkpoints",
-    "multiplayer": [
-      "solo"
-    ],
-    "description": "Capcom's flagship survival horror returns with Requiem, trading nowhere-to-hide dread for everything the series learned since Village.",
-    "store_links": {
-      "steam": "https://store.steampowered.com/app/3764200/Resident_Evil_Requiem/"
-    }
-  },
-  {
     "id": "dispatch-game",
     "title": "Dispatch",
     "platforms": [

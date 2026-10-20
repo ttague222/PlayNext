@@ -1,0 +1,346 @@
+{
+ "taken_at": "2026-10-20T19:58:33.919105+00:00",
+ "documents": {
+  "resident-evil-requiem": {
+   "name": "projects/playnxt-1a2c6/databases/(default)/documents/games/resident-evil-requiem",
+   "fields": {
+    "genres": {
+     "arrayValue": {
+      "values": [
+       {
+        "stringValue": "horror"
+       },
+       {
+        "stringValue": "survival"
+       },
+       {
+        "stringValue": "action"
+       }
+      ]
+     }
+    },
+    "game_id": {
+     "stringValue": "resident-evil-requiem"
+    },
+    "moods": {
+     "arrayValue": {
+      "values": [
+       {
+        "stringValue": "scary"
+       },
+       {
+        "stringValue": "tense"
+       },
+       {
+        "stringValue": "atmospheric"
+       }
+      ]
+     }
+    },
+    "description_short": {
+     "stringValue": "The ninth mainline Resident Evil, blending survival horror and action."
+    },
+    "mood_tags": {
+     "arrayValue": {
+      "values": [
+       {
+        "stringValue": "scary"
+       },
+       {
+        "stringValue": "tense"
+       },
+       {
+        "stringValue": "atmospheric"
+       }
+      ]
+     }
+    },
+    "genre_tags": {
+     "arrayValue": {
+      "values": [
+       {
+        "stringValue": "horror"
+       },
+       {
+        "stringValue": "survival"
+       },
+       {
+        "stringValue": "action"
+       }
+      ]
+     }
+    },
+    "created_at": {
+     "timestampValue": "2026-05-31T20:34:23.982336Z"
+    },
+    "fun_fact": {
+     "stringValue": "Also released on Nintendo Switch 2 alongside other platforms."
+    },
+    "time_tags": {
+     "arrayValue": {
+      "values": [
+       {
+        "integerValue": "60"
+       },
+       {
+        "integerValue": "90"
+       }
+      ]
+     }
+    },
+    "stop_friendliness": {
+     "stringValue": "checkpoints"
+    },
+    "year": {
+     "integerValue": "2026"
+    },
+    "energy_level": {
+     "stringValue": "high"
+    },
+    "release_year": {
+     "integerValue": "2026"
+    },
+    "title": {
+     "stringValue": "Resident Evil Requiem"
+    },
+    "multiplayer_modes": {
+     "arrayValue": {
+      "values": [
+       {
+        "stringValue": "solo"
+       }
+      ]
+     }
+    },
+    "store_links": {
+     "mapValue": {
+      "fields": {
+       "steam": {
+        "stringValue": "https://store.steampowered.com/app/3764200/Resident_Evil_Requiem/"
+       }
+      }
+     }
+    },
+    "updated_at": {
+     "timestampValue": "2026-05-31T20:34:23.982339Z"
+    },
+    "play_style": {
+     "arrayValue": {
+      "values": [
+       {
+        "stringValue": "action"
+       }
+      ]
+     }
+    },
+    "subscription_services": {
+     "arrayValue": {}
+    },
+    "time_to_fun": {
+     "stringValue": "medium"
+    },
+    "platforms": {
+     "arrayValue": {
+      "values": [
+       {
+        "stringValue": "pc"
+       },
+       {
+        "stringValue": "playstation"
+       },
+       {
+        "stringValue": "xbox"
+       },
+       {
+        "stringValue": "switch"
+       }
+      ]
+     }
+    },
+    "explanation_templates": {
+     "mapValue": {
+      "fields": {
+       "time_fit": {
+        "stringValue": "Chapters provide natural breaks."
+       },
+       "mood_fit": {
+        "stringValue": "Classic survival horror tension."
+       },
+       "stop_fit": {
+        "stringValue": "Save at checkpoints."
+       }
+      }
+     }
+    }
+   },
+   "createTime": "2026-05-31T20:32:12.712952Z",
+   "updateTime": "2026-08-21T19:33:24.386076Z"
+  },
+  "resident-evil-9-requiem": {
+   "name": "projects/playnxt-1a2c6/databases/(default)/documents/games/resident-evil-9-requiem",
+   "fields": {
+    "mood_tags": {
+     "arrayValue": {
+      "values": [
+       {
+        "stringValue": "intense"
+       },
+       {
+        "stringValue": "immersive"
+       }
+      ]
+     }
+    },
+    "description_short": {
+     "stringValue": "Capcom's flagship survival horror returns with Requiem, trading nowhere-to-hide dread for everything the series learned since Village."
+    },
+    "subscription_services": {
+     "arrayValue": {}
+    },
+    "warnings": {
+     "arrayValue": {}
+    },
+    "platforms": {
+     "arrayValue": {
+      "values": [
+       {
+        "stringValue": "pc"
+       },
+       {
+        "stringValue": "playstation"
+       },
+       {
+        "stringValue": "xbox"
+       }
+      ]
+     }
+    },
+    "explanation_templates": {
+     "mapValue": {
+      "fields": {
+       "stop_fit": {
+        "stringValue": "Best enjoyed in longer sessions"
+       },
+       "time_fit": {
+        "stringValue": "Get your adrenaline pumping in {time} minutes"
+       },
+       "style_fit": {
+        "stringValue": "Rich story to get lost in"
+       },
+       "mood_fit": {
+        "stringValue": "Intense action when you're ready for it"
+       }
+      }
+     }
+    },
+    "genre_tags": {
+     "arrayValue": {
+      "values": [
+       {
+        "stringValue": "action"
+       },
+       {
+        "stringValue": "horror"
+       }
+      ]
+     }
+    },
+    "time_to_fun": {
+     "stringValue": "medium"
+    },
+    "updated_at": {
+     "timestampValue": "2026-09-23T15:51:49.498293Z"
+    },
+    "year": {
+     "integerValue": "2026"
+    },
+    "store_links": {
+     "mapValue": {
+      "fields": {
+       "steam": {
+        "stringValue": "https://store.steampowered.com/app/3764200/Resident_Evil_Requiem/"
+       }
+      }
+     }
+    },
+    "play_style": {
+     "arrayValue": {
+      "values": [
+       {
+        "stringValue": "action"
+       },
+       {
+        "stringValue": "narrative"
+       }
+      ]
+     }
+    },
+    "energy_level": {
+     "stringValue": "high"
+    },
+    "moods": {
+     "arrayValue": {
+      "values": [
+       {
+        "stringValue": "intense"
+       },
+       {
+        "stringValue": "immersive"
+       }
+      ]
+     }
+    },
+    "genres": {
+     "arrayValue": {
+      "values": [
+       {
+        "stringValue": "action"
+       },
+       {
+        "stringValue": "horror"
+       }
+      ]
+     }
+    },
+    "stop_friendliness": {
+     "stringValue": "checkpoints"
+    },
+    "title": {
+     "stringValue": "Resident Evil 9: Requiem"
+    },
+    "game_id": {
+     "stringValue": "resident-evil-9-requiem"
+    },
+    "time_tags": {
+     "arrayValue": {
+      "values": [
+       {
+        "integerValue": "60"
+       },
+       {
+        "integerValue": "90"
+       },
+       {
+        "integerValue": "120"
+       }
+      ]
+     }
+    },
+    "multiplayer_modes": {
+     "arrayValue": {
+      "values": [
+       {
+        "stringValue": "solo"
+       }
+      ]
+     }
+    },
+    "release_year": {
+     "integerValue": "2026"
+    }
+   },
+   "createTime": "2026-08-21T18:06:11.639662Z",
+   "updateTime": "2026-09-23T15:50:52.063187Z"
+  }
+ }
+}
