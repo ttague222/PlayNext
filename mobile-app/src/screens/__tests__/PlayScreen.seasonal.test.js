@@ -156,7 +156,7 @@ it('a tap refetches when the saved platforms changed since the card loaded', asy
 
 it('shows the seasonal card in season, prefetching with the saved platforms', async () => {
   const { findByText, getByText } = await render(<PlayScreen />);
-  await findByText('Couch co-op for the long weekend');
+  await findByText("Couch co-op for when everyone's over");
   await findByText('Hades');
   getByText('60 min · Casual · Couch co-op');
   getByText('Harvest');
@@ -167,7 +167,7 @@ it('shows no card between seasons and makes no picks request', async () => {
   localDateString.mockReturnValue('2026-10-25');
   const { findByText, queryByText } = await render(<PlayScreen />);
   await findByText('Time-matched');
-  expect(queryByText('Couch co-op for the long weekend')).toBeNull();
+  expect(queryByText("Couch co-op for when everyone's over")).toBeNull();
   expect(fetchCollectionPicks).not.toHaveBeenCalled();
   expect(viewedCalls()).toHaveLength(0);
 });
@@ -183,7 +183,7 @@ it('keeps the hero Start Playing CTA ahead of the seasonal card', async () => {
   await screen.findByText('Hades');
   const tree = JSON.stringify(screen.toJSON());
   const cta = tree.indexOf('Start Playing');
-  const card = tree.indexOf('Couch co-op for the long weekend');
+  const card = tree.indexOf("Couch co-op for when everyone's over");
   expect(cta).toBeGreaterThan(-1);
   expect(card).toBeGreaterThan(cta);
 });
@@ -239,7 +239,7 @@ it('hides the card when the picks come back empty', async () => {
   fetchCollectionPicks.mockResolvedValue({ ...PICKS, games: [] });
   const { queryByText } = await render(<PlayScreen />);
   await waitFor(() => expect(fetchCollectionPicks).toHaveBeenCalled());
-  await waitFor(() => expect(queryByText('Couch co-op for the long weekend')).toBeNull());
+  await waitFor(() => expect(queryByText("Couch co-op for when everyone's over")).toBeNull());
 });
 
 describe('seasonal_collection_viewed', () => {

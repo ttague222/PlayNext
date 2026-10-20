@@ -19,8 +19,8 @@
       "collections": [
         {
           "id": "harvest-2026-long-weekend",
-          "title": "Couch co-op for the long weekend",
-          "blurb": "Everyone's home and there's room on the couch. Games you can play together, side by side.",
+          "title": "Couch co-op for when everyone's over",
+          "blurb": "Friends or family over and room on the couch? Games you can play together, side by side.",
           "params": {
             "time_available": 60,
             "energy_mood": "casual",
@@ -56,7 +56,7 @@
         },
         {
           "id": "winter-holidays-2026-hidden-gems",
-          "title": "Find a hidden gem over the break",
+          "title": "Try something smaller over the break",
           "blurb": "Smaller games you might have missed, picked for a slow day off.",
           "params": {
             "time_available": 120,
@@ -160,7 +160,7 @@
         },
         {
           "id": "summer-2027-big-rpg",
-          "title": "Start a big RPG this summer",
+          "title": "Start an RPG this summer",
           "blurb": "You finally have the time. An RPG to sink into, one long evening at a time.",
           "params": {
             "time_available": 120,

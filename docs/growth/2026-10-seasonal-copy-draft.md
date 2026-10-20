@@ -42,10 +42,10 @@ rating. Contrast: white min 14.92, secondary on mid 6.58, brand on lightest 4.91
 on-accent 5.44, accent on mid 5.13. The copper is also 10.8 from Spooky's orange,
 so November reads as its own season after Halloween.
 
-### Couch co-op for the long weekend
+### Couch co-op for when everyone's over
 
 - **id:** `harvest-2026-long-weekend`
-- **Blurb:** Everyone's home and there's room on the couch. Games you can play together, side by side.
+- **Blurb:** Friends or family over and room on the couch? Games you can play together, side by side.
 - **Params:** 60 min, Casual, `session_type: couch_coop`
 - **Tally:** Spiritfarer 9, Sea of Stars 7, Coral Island 6, Kingdom Two Crowns 6,
   LEGO Batman: Legacy of the Dark Knight 6, Wattam 5, Chicory 3, Kirby and the
@@ -84,7 +84,7 @@ secondary on mid 6.31, brand on lightest 4.56, on-accent 10.07, accent on mid 8.
   adventures with long session support. "Cozy and easygoing" and "a couple of
   hours" match the 120 minute Casual params.
 
-### Find a hidden gem over the break
+### Try something smaller over the break
 
 - **id:** `winter-holidays-2026-hidden-gems`
 - **Blurb:** Smaller games you might have missed, picked for a slow day off.
@@ -210,7 +210,7 @@ Closest failing butter: `#ffe08a` at 11.5 from rating.
 - **Why it's true:** low-energy life sims and gentle puzzlers that support a two
   hour session. "Easygoing" and "a couple of hours" match.
 
-### Start a big RPG this summer
+### Start an RPG this summer
 
 - **id:** `summer-2027-big-rpg`
 - **Blurb:** You finally have the time. An RPG to sink into, one long evening at a time.
@@ -273,13 +273,13 @@ margin of the six, but it passes. Contrast: white min 16.01, secondary on mid
 
 ## Changes from the brief and why
 
-1. **"Got new games? Play this first" is now "Find a hidden gem over the break".**
+1. **"Got new games? Play this first" is now "Try something smaller over the break".**
    The engine can't know what anyone unwrapped, so the original title promised
    something no params can deliver. Surprise mode (indie boost, AAA and popularity
    penalty, favors games the user hasn't touched) supports a "something new to you"
    hook honestly. It is also the differentiator from the holiday break collection
    (same 120 min Casual, different discovery mode).
-2. **"Games for a long flight" is now "Start a big RPG this summer".** A flight
+2. **"Games for a long flight" is now "Start an RPG this summer".** A flight
    needs a portable, offline game. Collections can't set platforms or offline play,
    so a PC-only or always-online pick could show up. The RPG genre filter at 120 min
    Focused is a differentiator from "Slow summer afternoons" that the tally backs.
@@ -312,12 +312,12 @@ cozy autumn (mood and genre).
 
 ## Tom to approve
 
-- [ ] Harvest copy: "Couch co-op for the long weekend" and its blurb (hard gate for the content PR)
-- [ ] Harvest palette: copper accent `#c87941` with russet decor `#b5652e`
-- [ ] Summer palette: butter yellow accent `#ffec94` with sun decor `#ffb35c`
-- [ ] Holiday reframe: "Find a hidden gem over the break" instead of "Got new games? Play this first"
-- [ ] Summer reframe: "Start a big RPG this summer" instead of "Games for a long flight"
-- [ ] Spring with surprise mode, or back to plain 60 min Focused
-- [ ] Valentine's on Wind Down instead of Casual
-- [ ] Copy for Winter Holidays, Deep Winter, Spring, Summer and Spooky (editable after release)
-- [ ] Decor colors for the five seasons the spec left open
+- [x] Harvest copy: "Couch co-op for when everyone's over" and its blurb (hard gate for the content PR)
+- [x] Harvest palette: copper accent `#c87941` with russet decor `#b5652e`
+- [x] Summer palette: butter yellow accent `#ffec94` with sun decor `#ffb35c`
+- [x] Holiday reframe: "Try something smaller over the break" instead of "Got new games? Play this first"
+- [x] Summer reframe: "Start an RPG this summer" instead of "Games for a long flight"
+- [x] Spring with surprise mode, or back to plain 60 min Focused
+- [x] Valentine's on Wind Down instead of Casual
+- [x] Copy for Winter Holidays, Deep Winter, Spring, Summer and Spooky (editable after release)
+- [x] Decor colors for the five seasons the spec left open
