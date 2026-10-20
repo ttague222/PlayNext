@@ -147,6 +147,34 @@ which rewrites both the saved context and the day's picks. Time and mood are
 carried, never omitted — every request still satisfies §3. Fully anonymous;
 no backend additions (`src/services/tonightService.js`).
 
+### 4.6 Seasonal Collections and Themes **[SHIPPING 1.8.0]**
+
+A seasonal collection is a short, dated framing for the normal engine, such as
+"Couch co-op for the long weekend": a title, a blurb and a fixed set of inputs
+(time, mood, and optionally session type or discovery mode). The Play tab shows
+the active season's collections as cards, and tapping one starts a standard
+session with those inputs. Time and mood are always set by the collection, so
+§3 still holds, and the picks are always live `/api/recommend` output for the
+collection's params. A collection never hand-picks games.
+
+Season content (dates, palette, collections) is one remote file, served by
+`GET /api/seasonal` from `api-service/src/content/seasonal.json`, with a copy
+bundled in the app (`src/config/seasonal.fallback.json`) so an offline first
+launch still shows the right season. A season may also restyle the app's
+backgrounds and decor. The palette is hybrid: backgrounds, decorative shapes
+and non-interactive highlights follow the season, while brand pink stays on
+every tappable element, and mood, status and rating colors never change. A
+palette that fails the contrast and color-distance checks is rejected in CI and
+again on device, and the season falls back to the default palette (the card
+still shows). Fully anonymous, no account needed.
+
+Also in 1.8.0: the Horror genre chip is offered for every mood, not just
+Intense and Focused (the engine already returned horror at every mood).
+
+Design and acceptance criteria:
+`docs/superpowers/specs/2026-10-20-seasonal-themes-design.md`. Events:
+`docs/ACTIVATION-TRACKING.md`.
+
 ---
 
 ## 5. Recommendation Engine Requirements

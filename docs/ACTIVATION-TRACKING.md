@@ -10,13 +10,15 @@ Older events (`rec_requested`, `rec_accepted`, `share_completed`,
 | Event | Fires when | Params |
 |---|---|---|
 | `app_first_open` | First launch of a fresh install | `platform` ios/android, `app_version`, `install_source` |
-| `recommendation_started` | User submits time + mood (not on reroll) | `minutes`, `mood`, `platform_filter`, `library_mode` |
-| `recommendation_viewed` | A non-empty set of picks is on screen: initial, reroll, or opening Tonight's Picks | `result_count`, `latency_ms` (not for Tonight's Picks, which open from cache), `install_source`, `pick_source` |
-| `game_selected` ⭐ | User taps "I'll play this!" on a pick | `game_id`, `rank` 1-3, `minutes`, `mood`, `pick_source` |
+| `recommendation_started` | User submits time + mood (not on reroll), or taps a seasonal collection | `minutes`, `mood`, `platform_filter`, `library_mode`, `pick_source`, plus `collection_id` for a seasonal session |
+| `recommendation_viewed` | A non-empty set of picks is on screen: initial, reroll, opening Tonight's Picks, or opening a seasonal collection | `result_count`, `latency_ms` (not for Tonight's Picks or a collection tap, which open from cache), `install_source`, `pick_source`, plus `collection_id` for a seasonal session |
+| `game_selected` ⭐ | User taps "I'll play this!" on a pick | `game_id`, `rank` 1-3, `minutes`, `mood`, `pick_source`, plus `collection_id` for a seasonal session |
 | `result_shared` | Share sheet completes (app) or a share link is made (web) | `surface` card/link, `scenario`, `game_count`, plus `share_channel`, `time_bucket`, `mood`, `num_picks` on web |
 | `share_open` | A /s/<share-id> page is opened (web only) | `share_id`, `sharer_token`, `utm_source=share`, `time_bucket`, `mood`, `num_picks` |
 | `app_open_from_share` | The app opens from a playnxt.io/s/* link (Universal/App Links; cold or warm) | `share_id` |
 | `premium_purchase` | Unlock succeeds | `platform`, `entry_screen` |
+| `seasonal_collection_viewed` | A seasonal collection card is on the Play tab; once per collection per local day | `collection_id`, `season_id` |
+| `seasonal_collection_tapped` | User taps a seasonal collection card | `collection_id`, `season_id` |
 
 Every event logged after startup also carries `install_source` (set as a
 default event parameter), and the user has `install_source` / `install_campaign`
@@ -24,10 +26,33 @@ user properties. Register `install_source` as a custom dimension (event scope,
 and user scope for the property) in Firebase before the release ships;
 registration isn't retroactive.
 
-`pick_source` is `flow` (user went through time + mood) or `tonight` (opened
-Tonight's Picks from the Play tab). `rec_requested` / `rec_accepted` carry it
-too. Tonight's Picks precompute in the background without firing any of these
+`pick_source` is `flow` (user went through time + mood), `tonight` (opened
+Tonight's Picks from the Play tab) or `seasonal` (tapped a seasonal
+collection). `rec_requested` / `rec_accepted` carry it too, and as of 1.8.0 so
+does `recommendation_started`, for every source (it had none before).
+Tonight's Picks precompute in the background without firing any of these
 events; only opening them counts.
+
+## Seasonal collections (1.8.0)
+
+A seasonal session carries `collection_id` (for example
+`harvest-2026-long-weekend`) on `recommendation_started`,
+`recommendation_viewed`, `rec_requested`, `game_selected` and `rec_accepted`.
+Rerolls inside the collection keep it. The two collection events also carry
+`season_id` (for example `harvest-2026`). Outside a seasonal session none of
+these events carries either param.
+
+- **Register `collection_id` and `season_id` as event-scoped custom
+  dimensions** in Firebase before the release ships. Registration isn't
+  retroactive, and display names can't contain parentheses.
+- **`seasonal_collection_viewed` is deduped per local day** per collection
+  (last-logged date kept in AsyncStorage), so it counts days a user saw the
+  card, not renders. Compare it against `seasonal_collection_tapped` for the
+  card's tap rate, and `game_selected` filtered on `pick_source = seasonal` for
+  activation from collections.
+- **The picks are live engine output**, so a collection tap fires
+  `recommendation_started` with the collection's own minutes and mood, not the
+  user's last session.
 
 ## Where this differs from the brief, and why
 
@@ -111,7 +136,8 @@ New scenario pages: put the link in `iosCampaignUrl` in
 ## Code
 
 - `mobile-app/src/services/attributionService.ts`: referrer parsing, `install_source`, `app_first_open`
-- `mobile-app/src/context/RecommendationContext.js`: started, viewed, selected
+- `mobile-app/src/context/RecommendationContext.js`: started, viewed, selected (and `collection_id` for seasonal sessions)
+- `mobile-app/src/screens/PlayScreen.js`: `seasonal_collection_tapped`; `mobile-app/src/utils/seasonalViewed.ts`: `seasonal_collection_viewed` and its once-per-day dedupe
 - `mobile-app/src/services/shareService.js`: result_shared (app)
 - `mobile-app/src/services/deepLinkService.js`: app_open_from_share (wired in `navigation/AppNavigator.js`)
 - `playnxt-web/src/share.js`: result_shared (web), via `resultSharedParams`
