@@ -86,7 +86,7 @@ describe('PlayScreen under the Spooky palette', () => {
     expect(startPlayingColors()).toEqual(['#f857a6', '#ff5858']);
   });
 
-  it('tints the Tonight card with the season accent', async () => {
+  it('tints the Tonight card border with the season accent but keeps Change brand pink', async () => {
     getLastContext.mockResolvedValue(CONTEXT);
     getCachedPicks.mockResolvedValue(CACHE);
     const { getByTestId, getByText } = await render(
@@ -98,7 +98,8 @@ describe('PlayScreen under the Spooky palette', () => {
     const card = getByTestId('tonight-card');
     const flat = StyleSheet.flatten(card.props.style);
     expect(flat.borderColor).toBe('rgba(255,138,61,0.25)');
-    expect(StyleSheet.flatten(getByText('Change').props.style).color).toBe(spooky.accent_season);
+    // Change is tappable: brand pink stays locked, only non-interactive accents are seasonal.
+    expect(StyleSheet.flatten(getByText('Change').props.style).color).toBe('#f857a6');
   });
 });
 

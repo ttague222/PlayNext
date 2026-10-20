@@ -85,7 +85,7 @@ const TonightCard = ({ status, context, games, onPress, onChangePress }) => {
           accessibilityRole="button"
           accessibilityLabel="Change tonight's settings"
         >
-          <Text style={[styles.change, { color: accent }]}>Change</Text>
+          <Text style={[styles.change, { color: theme.accent.brand }]}>Change</Text>
         </TouchableOpacity>
       </View>
       <Text style={styles.contextLine}>{formatContextLine(context)}</Text>
