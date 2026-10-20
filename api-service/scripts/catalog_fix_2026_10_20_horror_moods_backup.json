@@ -1,0 +1,1836 @@
+{
+ "taken_at": "2026-10-20T22:04:49.389835+00:00",
+ "documents": {
+  "bramble-mountain-king": {
+   "name": "projects/playnxt-1a2c6/databases/(default)/documents/games/bramble-mountain-king",
+   "fields": {
+    "game_id": {
+     "stringValue": "bramble-mountain-king"
+    },
+    "energy_level": {
+     "stringValue": "low"
+    },
+    "year": {
+     "integerValue": "2023"
+    },
+    "genre_tags": {
+     "arrayValue": {
+      "values": [
+       {
+        "stringValue": "adventure"
+       },
+       {
+        "stringValue": "horror"
+       },
+       {
+        "stringValue": "indie"
+       }
+      ]
+     }
+    },
+    "time_tags": {
+     "arrayValue": {
+      "values": [
+       {
+        "integerValue": "30"
+       },
+       {
+        "integerValue": "60"
+       },
+       {
+        "integerValue": "90"
+       }
+      ]
+     }
+    },
+    "subscription_services": {
+     "arrayValue": {}
+    },
+    "multiplayer_modes": {
+     "arrayValue": {
+      "values": [
+       {
+        "stringValue": "solo"
+       }
+      ]
+     }
+    },
+    "explanation_templates": {
+     "mapValue": {
+      "fields": {
+       "time_fit": {
+        "stringValue": "Perfect for a relaxing {time}-minute session"
+       },
+       "stop_fit": {
+        "stringValue": "Easy to pause whenever you need"
+       },
+       "mood_fit": {
+        "stringValue": "Unwind and enjoy at your own pace"
+       },
+       "style_fit": {
+        "stringValue": "Rich story to get lost in"
+       }
+      }
+     }
+    },
+    "title": {
+     "stringValue": "Bramble: The Mountain King"
+    },
+    "warnings": {
+     "arrayValue": {}
+    },
+    "platforms": {
+     "arrayValue": {
+      "values": [
+       {
+        "stringValue": "pc"
+       },
+       {
+        "stringValue": "playstation"
+       },
+       {
+        "stringValue": "xbox"
+       },
+       {
+        "stringValue": "switch"
+       }
+      ]
+     }
+    },
+    "store_links": {
+     "mapValue": {
+      "fields": {
+       "steam": {
+        "stringValue": "https://store.steampowered.com/app/1623940/Bramble_The_Mountain_King/"
+       },
+       "gog": {
+        "stringValue": "https://www.gog.com/game/bramble_the_mountain_king"
+       }
+      }
+     }
+    },
+    "stop_friendliness": {
+     "stringValue": "checkpoints"
+    },
+    "mood_tags": {
+     "arrayValue": {
+      "values": [
+       {
+        "stringValue": "beautiful"
+       },
+       {
+        "stringValue": "intense"
+       },
+       {
+        "stringValue": "immersive"
+       }
+      ]
+     }
+    },
+    "release_year": {
+     "integerValue": "2023"
+    },
+    "moods": {
+     "arrayValue": {
+      "values": [
+       {
+        "stringValue": "beautiful"
+       },
+       {
+        "stringValue": "intense"
+       },
+       {
+        "stringValue": "immersive"
+       }
+      ]
+     }
+    },
+    "play_style": {
+     "arrayValue": {
+      "values": [
+       {
+        "stringValue": "narrative"
+       }
+      ]
+     }
+    },
+    "updated_at": {
+     "timestampValue": "2026-09-23T15:51:32.385395Z"
+    },
+    "genres": {
+     "arrayValue": {
+      "values": [
+       {
+        "stringValue": "adventure"
+       },
+       {
+        "stringValue": "horror"
+       },
+       {
+        "stringValue": "indie"
+       }
+      ]
+     }
+    },
+    "description_short": {
+     "stringValue": "A small boy in huge Nordic folklore: gorgeous and grim, where trolls are exactly as terrifying as the old tales say."
+    },
+    "time_to_fun": {
+     "stringValue": "short"
+    }
+   },
+   "createTime": "2026-08-24T15:53:51.932369Z",
+   "updateTime": "2026-09-23T15:50:34.966829Z"
+  },
+  "bulb-boy": {
+   "name": "projects/playnxt-1a2c6/databases/(default)/documents/games/bulb-boy",
+   "fields": {
+    "release_year": {
+     "integerValue": "2015"
+    },
+    "title": {
+     "stringValue": "Bulb Boy"
+    },
+    "updated_at": {
+     "timestampValue": "2026-09-23T15:51:32.877456Z"
+    },
+    "mood_tags": {
+     "arrayValue": {
+      "values": [
+       {
+        "stringValue": "creative"
+       },
+       {
+        "stringValue": "intense"
+       },
+       {
+        "stringValue": "charming"
+       }
+      ]
+     }
+    },
+    "energy_level": {
+     "stringValue": "low"
+    },
+    "time_tags": {
+     "arrayValue": {
+      "values": [
+       {
+        "integerValue": "15"
+       },
+       {
+        "integerValue": "30"
+       },
+       {
+        "integerValue": "60"
+       }
+      ]
+     }
+    },
+    "explanation_templates": {
+     "mapValue": {
+      "fields": {
+       "style_fit": {
+        "stringValue": "Rich story to get lost in"
+       },
+       "stop_fit": {
+        "stringValue": "Easy to pause whenever you need"
+       },
+       "time_fit": {
+        "stringValue": "Perfect for a relaxing {time}-minute session"
+       },
+       "mood_fit": {
+        "stringValue": "Unwind and enjoy at your own pace"
+       }
+      }
+     }
+    },
+    "subscription_services": {
+     "arrayValue": {}
+    },
+    "multiplayer_modes": {
+     "arrayValue": {
+      "values": [
+       {
+        "stringValue": "solo"
+       }
+      ]
+     }
+    },
+    "platforms": {
+     "arrayValue": {
+      "values": [
+       {
+        "stringValue": "pc"
+       },
+       {
+        "stringValue": "switch"
+       },
+       {
+        "stringValue": "mobile"
+       }
+      ]
+     }
+    },
+    "stop_friendliness": {
+     "stringValue": "checkpoints"
+    },
+    "time_to_fun": {
+     "stringValue": "short"
+    },
+    "play_style": {
+     "arrayValue": {
+      "values": [
+       {
+        "stringValue": "puzzle"
+       },
+       {
+        "stringValue": "narrative"
+       }
+      ]
+     }
+    },
+    "warnings": {
+     "arrayValue": {}
+    },
+    "game_id": {
+     "stringValue": "bulb-boy"
+    },
+    "genres": {
+     "arrayValue": {
+      "values": [
+       {
+        "stringValue": "adventure"
+       },
+       {
+        "stringValue": "horror"
+       },
+       {
+        "stringValue": "indie"
+       }
+      ]
+     }
+    },
+    "genre_tags": {
+     "arrayValue": {
+      "values": [
+       {
+        "stringValue": "adventure"
+       },
+       {
+        "stringValue": "horror"
+       },
+       {
+        "stringValue": "indie"
+       }
+      ]
+     }
+    },
+    "store_links": {
+     "mapValue": {
+      "fields": {
+       "steam": {
+        "stringValue": "http://store.steampowered.com/app/390290/"
+       },
+       "gog": {
+        "stringValue": "http://www.gog.com/game/bulb_boy"
+       },
+       "playstation": {
+        "stringValue": "https://store.playstation.com/en-us/product/UP2381-CUSA11017_00-BULBBOY000000000"
+       },
+       "ios": {
+        "stringValue": "https://apps.apple.com/us/app/bulb-boy/id1078931259?mt=12&uo=4"
+       },
+       "nintendo": {
+        "stringValue": "https://www.nintendo.com/games/detail/bulb-boy-switch"
+       },
+       "android": {
+        "stringValue": "https://play.google.com/store/apps/details?id=com.bulbware.bulbboyandroid&hl=en&gl=us"
+       },
+       "xbox": {
+        "stringValue": "https://www.microsoft.com/en-us/p/bulb-boy/brg9wk6s3pjv?cid=msft_web_chart"
+       }
+      }
+     }
+    },
+    "description_short": {
+     "stringValue": "A boy with a lightbulb head defends his home from grotesque dark: horror-cute in a single evening."
+    },
+    "moods": {
+     "arrayValue": {
+      "values": [
+       {
+        "stringValue": "creative"
+       },
+       {
+        "stringValue": "intense"
+       },
+       {
+        "stringValue": "charming"
+       }
+      ]
+     }
+    },
+    "year": {
+     "integerValue": "2015"
+    }
+   },
+   "createTime": "2026-08-24T15:28:01.262054Z",
+   "updateTime": "2026-09-23T15:50:35.454880Z"
+  },
+  "detention": {
+   "name": "projects/playnxt-1a2c6/databases/(default)/documents/games/detention",
+   "fields": {
+    "platforms": {
+     "arrayValue": {
+      "values": [
+       {
+        "stringValue": "pc"
+       },
+       {
+        "stringValue": "playstation"
+       },
+       {
+        "stringValue": "switch"
+       },
+       {
+        "stringValue": "mobile"
+       }
+      ]
+     }
+    },
+    "genres": {
+     "arrayValue": {
+      "values": [
+       {
+        "stringValue": "horror"
+       },
+       {
+        "stringValue": "adventure"
+       },
+       {
+        "stringValue": "narrative"
+       }
+      ]
+     }
+    },
+    "multiplayer_modes": {
+     "arrayValue": {
+      "values": [
+       {
+        "stringValue": "solo"
+       }
+      ]
+     }
+    },
+    "subscription_services": {
+     "arrayValue": {}
+    },
+    "year": {
+     "integerValue": "2017"
+    },
+    "time_to_fun": {
+     "stringValue": "short"
+    },
+    "game_id": {
+     "stringValue": "detention"
+    },
+    "explanation_templates": {
+     "mapValue": {
+      "fields": {
+       "mood_fit": {
+        "stringValue": "Unwind and enjoy at your own pace"
+       },
+       "stop_fit": {
+        "stringValue": "Easy to pause whenever you need"
+       },
+       "time_fit": {
+        "stringValue": "Perfect for a relaxing {time}-minute session"
+       },
+       "style_fit": {
+        "stringValue": "Rich story to get lost in"
+       }
+      }
+     }
+    },
+    "updated_at": {
+     "timestampValue": "2026-09-23T15:51:35.879681Z"
+    },
+    "time_tags": {
+     "arrayValue": {
+      "values": [
+       {
+        "integerValue": "30"
+       },
+       {
+        "integerValue": "60"
+       },
+       {
+        "integerValue": "90"
+       }
+      ]
+     }
+    },
+    "genre_tags": {
+     "arrayValue": {
+      "values": [
+       {
+        "stringValue": "horror"
+       },
+       {
+        "stringValue": "adventure"
+       },
+       {
+        "stringValue": "narrative"
+       }
+      ]
+     }
+    },
+    "description_short": {
+     "stringValue": "Horror rooted in 1960s Taiwan under martial law: quiet, devastating, and unlike anything else in the genre."
+    },
+    "play_style": {
+     "arrayValue": {
+      "values": [
+       {
+        "stringValue": "narrative"
+       },
+       {
+        "stringValue": "puzzle"
+       }
+      ]
+     }
+    },
+    "stop_friendliness": {
+     "stringValue": "checkpoints"
+    },
+    "release_year": {
+     "integerValue": "2017"
+    },
+    "title": {
+     "stringValue": "Detention"
+    },
+    "warnings": {
+     "arrayValue": {}
+    },
+    "moods": {
+     "arrayValue": {
+      "values": [
+       {
+        "stringValue": "intense"
+       },
+       {
+        "stringValue": "immersive"
+       }
+      ]
+     }
+    },
+    "energy_level": {
+     "stringValue": "low"
+    },
+    "store_links": {
+     "mapValue": {
+      "fields": {
+       "steam": {
+        "stringValue": "http://store.steampowered.com/app/555220/"
+       },
+       "ios": {
+        "stringValue": "https://apps.apple.com/us/app/detention/id1456212639?uo=4"
+       },
+       "playstation": {
+        "stringValue": "https://store.playstation.com/en-us/product/UP4223-CUSA09510_00-COCONUTDETENTION"
+       },
+       "nintendo": {
+        "stringValue": "https://www.nintendo.com/games/detail/detention-switch"
+       }
+      }
+     }
+    },
+    "mood_tags": {
+     "arrayValue": {
+      "values": [
+       {
+        "stringValue": "intense"
+       },
+       {
+        "stringValue": "immersive"
+       }
+      ]
+     }
+    }
+   },
+   "createTime": "2026-08-24T15:08:39.880403Z",
+   "updateTime": "2026-09-23T15:50:38.464078Z"
+  },
+  "doki-doki-literature-club": {
+   "name": "projects/playnxt-1a2c6/databases/(default)/documents/games/doki-doki-literature-club",
+   "fields": {
+    "updated_at": {
+     "timestampValue": "2026-09-23T15:51:37.058709Z"
+    },
+    "description_short": {
+     "stringValue": "Just a cute poetry club, nothing to worry about: free, famous, and best gone into blind."
+    },
+    "play_style": {
+     "arrayValue": {
+      "values": [
+       {
+        "stringValue": "narrative"
+       }
+      ]
+     }
+    },
+    "year": {
+     "integerValue": "2017"
+    },
+    "release_year": {
+     "integerValue": "2017"
+    },
+    "store_links": {
+     "mapValue": {
+      "fields": {
+       "steam": {
+        "stringValue": "http://store.steampowered.com/app/698780/"
+       }
+      }
+     }
+    },
+    "subscription_services": {
+     "arrayValue": {}
+    },
+    "platforms": {
+     "arrayValue": {
+      "values": [
+       {
+        "stringValue": "pc"
+       },
+       {
+        "stringValue": "playstation"
+       },
+       {
+        "stringValue": "xbox"
+       },
+       {
+        "stringValue": "switch"
+       }
+      ]
+     }
+    },
+    "game_id": {
+     "stringValue": "doki-doki-literature-club"
+    },
+    "title": {
+     "stringValue": "Doki Doki Literature Club!"
+    },
+    "explanation_templates": {
+     "mapValue": {
+      "fields": {
+       "time_fit": {
+        "stringValue": "Perfect for a relaxing {time}-minute session"
+       },
+       "style_fit": {
+        "stringValue": "Rich story to get lost in"
+       },
+       "mood_fit": {
+        "stringValue": "Unwind and enjoy at your own pace"
+       },
+       "stop_fit": {
+        "stringValue": "Easy to pause whenever you need"
+       }
+      }
+     }
+    },
+    "time_tags": {
+     "arrayValue": {
+      "values": [
+       {
+        "integerValue": "30"
+       },
+       {
+        "integerValue": "60"
+       },
+       {
+        "integerValue": "90"
+       }
+      ]
+     }
+    },
+    "energy_level": {
+     "stringValue": "low"
+    },
+    "multiplayer_modes": {
+     "arrayValue": {
+      "values": [
+       {
+        "stringValue": "solo"
+       }
+      ]
+     }
+    },
+    "genre_tags": {
+     "arrayValue": {
+      "values": [
+       {
+        "stringValue": "narrative"
+       },
+       {
+        "stringValue": "horror"
+       },
+       {
+        "stringValue": "indie"
+       }
+      ]
+     }
+    },
+    "time_to_fun": {
+     "stringValue": "medium"
+    },
+    "genres": {
+     "arrayValue": {
+      "values": [
+       {
+        "stringValue": "narrative"
+       },
+       {
+        "stringValue": "horror"
+       },
+       {
+        "stringValue": "indie"
+       }
+      ]
+     }
+    },
+    "warnings": {
+     "arrayValue": {}
+    },
+    "moods": {
+     "arrayValue": {
+      "values": [
+       {
+        "stringValue": "immersive"
+       },
+       {
+        "stringValue": "intense"
+       }
+      ]
+     }
+    },
+    "mood_tags": {
+     "arrayValue": {
+      "values": [
+       {
+        "stringValue": "immersive"
+       },
+       {
+        "stringValue": "intense"
+       }
+      ]
+     }
+    },
+    "stop_friendliness": {
+     "stringValue": "anytime"
+    }
+   },
+   "createTime": "2026-08-24T14:31:59.480728Z",
+   "updateTime": "2026-09-23T15:50:39.643499Z"
+  },
+  "sally-face": {
+   "name": "projects/playnxt-1a2c6/databases/(default)/documents/games/sally-face",
+   "fields": {
+    "release_year": {
+     "integerValue": "2016"
+    },
+    "title": {
+     "stringValue": "Sally Face"
+    },
+    "updated_at": {
+     "timestampValue": "2026-09-23T15:51:50.281813Z"
+    },
+    "genres": {
+     "arrayValue": {
+      "values": [
+       {
+        "stringValue": "adventure"
+       },
+       {
+        "stringValue": "horror"
+       },
+       {
+        "stringValue": "indie"
+       }
+      ]
+     }
+    },
+    "explanation_templates": {
+     "mapValue": {
+      "fields": {
+       "mood_fit": {
+        "stringValue": "Unwind and enjoy at your own pace"
+       },
+       "style_fit": {
+        "stringValue": "Rich story to get lost in"
+       },
+       "time_fit": {
+        "stringValue": "Perfect for a relaxing {time}-minute session"
+       },
+       "stop_fit": {
+        "stringValue": "Easy to pause whenever you need"
+       }
+      }
+     }
+    },
+    "game_id": {
+     "stringValue": "sally-face"
+    },
+    "platforms": {
+     "arrayValue": {
+      "values": [
+       {
+        "stringValue": "pc"
+       },
+       {
+        "stringValue": "playstation"
+       },
+       {
+        "stringValue": "xbox"
+       },
+       {
+        "stringValue": "switch"
+       },
+       {
+        "stringValue": "mobile"
+       }
+      ]
+     }
+    },
+    "genre_tags": {
+     "arrayValue": {
+      "values": [
+       {
+        "stringValue": "adventure"
+       },
+       {
+        "stringValue": "horror"
+       },
+       {
+        "stringValue": "indie"
+       }
+      ]
+     }
+    },
+    "stop_friendliness": {
+     "stringValue": "checkpoints"
+    },
+    "energy_level": {
+     "stringValue": "low"
+    },
+    "time_to_fun": {
+     "stringValue": "short"
+    },
+    "mood_tags": {
+     "arrayValue": {
+      "values": [
+       {
+        "stringValue": "immersive"
+       },
+       {
+        "stringValue": "intense"
+       },
+       {
+        "stringValue": "creative"
+       }
+      ]
+     }
+    },
+    "play_style": {
+     "arrayValue": {
+      "values": [
+       {
+        "stringValue": "narrative"
+       },
+       {
+        "stringValue": "puzzle"
+       }
+      ]
+     }
+    },
+    "time_tags": {
+     "arrayValue": {
+      "values": [
+       {
+        "integerValue": "30"
+       },
+       {
+        "integerValue": "60"
+       },
+       {
+        "integerValue": "90"
+       }
+      ]
+     }
+    },
+    "warnings": {
+     "arrayValue": {}
+    },
+    "multiplayer_modes": {
+     "arrayValue": {
+      "values": [
+       {
+        "stringValue": "solo"
+       }
+      ]
+     }
+    },
+    "description_short": {
+     "stringValue": "A boy with a prosthetic face investigates his apartment building's darkness: a cult-adored horror mystery."
+    },
+    "moods": {
+     "arrayValue": {
+      "values": [
+       {
+        "stringValue": "immersive"
+       },
+       {
+        "stringValue": "intense"
+       },
+       {
+        "stringValue": "creative"
+       }
+      ]
+     }
+    },
+    "year": {
+     "integerValue": "2016"
+    },
+    "store_links": {
+     "mapValue": {
+      "fields": {
+       "playstation": {
+        "stringValue": "https://store.playstation.com/en-us/product/UP7083-CUSA28680_00-9473825684854058"
+       },
+       "nintendo": {
+        "stringValue": "https://www.nintendo.com/store/products/sally-face-switch/"
+       },
+       "gog": {
+        "stringValue": "http://www.gog.com/game/sally_face"
+       },
+       "steam": {
+        "stringValue": "http://store.steampowered.com/app/541570/"
+       }
+      }
+     }
+    },
+    "subscription_services": {
+     "arrayValue": {}
+    }
+   },
+   "createTime": "2026-08-24T15:53:50.759776Z",
+   "updateTime": "2026-09-23T15:50:52.844898Z"
+  },
+  "stories-untold": {
+   "name": "projects/playnxt-1a2c6/databases/(default)/documents/games/stories-untold",
+   "fields": {
+    "time_to_fun": {
+     "stringValue": "short"
+    },
+    "store_links": {
+     "mapValue": {
+      "fields": {
+       "nintendo": {
+        "stringValue": "https://www.nintendo.com/games/detail/stories-untold-switch/"
+       },
+       "xbox": {
+        "stringValue": "https://www.microsoft.com/en-us/p/stories-untold/9ns4z73tm0k5?cid=msft_web_chart"
+       },
+       "steam": {
+        "stringValue": "http://store.steampowered.com/app/558420/"
+       },
+       "epic": {
+        "stringValue": "https://www.epicgames.com/store/product/stories-untold/home"
+       },
+       "gog": {
+        "stringValue": "http://www.gog.com/game/stories_untold"
+       },
+       "playstation": {
+        "stringValue": "https://store.playstation.com/en-us/product/UP3643-CUSA17597_00-STORIESUNTOLDUS0"
+       }
+      }
+     }
+    },
+    "release_year": {
+     "integerValue": "2017"
+    },
+    "platforms": {
+     "arrayValue": {
+      "values": [
+       {
+        "stringValue": "pc"
+       },
+       {
+        "stringValue": "playstation"
+       },
+       {
+        "stringValue": "xbox"
+       },
+       {
+        "stringValue": "switch"
+       }
+      ]
+     }
+    },
+    "time_tags": {
+     "arrayValue": {
+      "values": [
+       {
+        "integerValue": "30"
+       },
+       {
+        "integerValue": "60"
+       }
+      ]
+     }
+    },
+    "genres": {
+     "arrayValue": {
+      "values": [
+       {
+        "stringValue": "horror"
+       },
+       {
+        "stringValue": "narrative"
+       },
+       {
+        "stringValue": "puzzle"
+       }
+      ]
+     }
+    },
+    "explanation_templates": {
+     "mapValue": {
+      "fields": {
+       "style_fit": {
+        "stringValue": "Rich story to get lost in"
+       },
+       "time_fit": {
+        "stringValue": "Perfect for a relaxing {time}-minute session"
+       },
+       "mood_fit": {
+        "stringValue": "Unwind and enjoy at your own pace"
+       },
+       "stop_fit": {
+        "stringValue": "Easy to pause whenever you need"
+       }
+      }
+     }
+    },
+    "moods": {
+     "arrayValue": {
+      "values": [
+       {
+        "stringValue": "intense"
+       },
+       {
+        "stringValue": "immersive"
+       },
+       {
+        "stringValue": "creative"
+       }
+      ]
+     }
+    },
+    "warnings": {
+     "arrayValue": {}
+    },
+    "mood_tags": {
+     "arrayValue": {
+      "values": [
+       {
+        "stringValue": "intense"
+       },
+       {
+        "stringValue": "immersive"
+       },
+       {
+        "stringValue": "creative"
+       }
+      ]
+     }
+    },
+    "stop_friendliness": {
+     "stringValue": "checkpoints"
+    },
+    "multiplayer_modes": {
+     "arrayValue": {
+      "values": [
+       {
+        "stringValue": "solo"
+       }
+      ]
+     }
+    },
+    "updated_at": {
+     "timestampValue": "2026-09-23T15:51:51.976170Z"
+    },
+    "year": {
+     "integerValue": "2017"
+    },
+    "game_id": {
+     "stringValue": "stories-untold"
+    },
+    "energy_level": {
+     "stringValue": "low"
+    },
+    "play_style": {
+     "arrayValue": {
+      "values": [
+       {
+        "stringValue": "narrative"
+       },
+       {
+        "stringValue": "puzzle"
+       }
+      ]
+     }
+    },
+    "subscription_services": {
+     "arrayValue": {}
+    },
+    "description_short": {
+     "stringValue": "Four 80s-tech horror vignettes typed into old terminals: the text adventure that watches back."
+    },
+    "genre_tags": {
+     "arrayValue": {
+      "values": [
+       {
+        "stringValue": "horror"
+       },
+       {
+        "stringValue": "narrative"
+       },
+       {
+        "stringValue": "puzzle"
+       }
+      ]
+     }
+    },
+    "title": {
+     "stringValue": "Stories Untold"
+    }
+   },
+   "createTime": "2026-08-24T15:37:25.511507Z",
+   "updateTime": "2026-09-23T15:50:54.544347Z"
+  },
+  "vanishing-of-ethan-carter": {
+   "name": "projects/playnxt-1a2c6/databases/(default)/documents/games/vanishing-of-ethan-carter",
+   "fields": {
+    "time_tags": {
+     "arrayValue": {
+      "values": [
+       {
+        "integerValue": "30"
+       },
+       {
+        "integerValue": "60"
+       },
+       {
+        "integerValue": "90"
+       }
+      ]
+     }
+    },
+    "energy_level": {
+     "stringValue": "low"
+    },
+    "store_links": {
+     "mapValue": {
+      "fields": {
+       "nintendo": {
+        "stringValue": "https://www.nintendo.com/games/detail/the-vanishing-of-ethan-carter-switch/"
+       },
+       "gog": {
+        "stringValue": "http://www.gog.com/game/the_vanishing_of_ethan_carter"
+       },
+       "xbox": {
+        "stringValue": "https://www.microsoft.com/en-us/store/p/the-vanishing-of-ethan-carter/bs8ssr429s95"
+       },
+       "epic": {
+        "stringValue": "https://www.epicgames.com/store/en-US/p/the-vanishing-of-ethan-carter"
+       },
+       "playstation": {
+        "stringValue": "https://store.playstation.com/en-us/product/UP1210-CUSA03130_00-ETHANCARTERPS4US"
+       },
+       "steam": {
+        "stringValue": "http://store.steampowered.com/app/258520/"
+       }
+      }
+     }
+    },
+    "stop_friendliness": {
+     "stringValue": "anytime"
+    },
+    "genres": {
+     "arrayValue": {
+      "values": [
+       {
+        "stringValue": "adventure"
+       },
+       {
+        "stringValue": "narrative"
+       },
+       {
+        "stringValue": "horror"
+       }
+      ]
+     }
+    },
+    "warnings": {
+     "arrayValue": {}
+    },
+    "mood_tags": {
+     "arrayValue": {
+      "values": [
+       {
+        "stringValue": "immersive"
+       },
+       {
+        "stringValue": "beautiful"
+       },
+       {
+        "stringValue": "intense"
+       }
+      ]
+     }
+    },
+    "explanation_templates": {
+     "mapValue": {
+      "fields": {
+       "time_fit": {
+        "stringValue": "Perfect for a relaxing {time}-minute session"
+       },
+       "mood_fit": {
+        "stringValue": "Unwind and enjoy at your own pace"
+       },
+       "stop_fit": {
+        "stringValue": "Easy to pause whenever you need"
+       },
+       "style_fit": {
+        "stringValue": "Rich story to get lost in"
+       }
+      }
+     }
+    },
+    "play_style": {
+     "arrayValue": {
+      "values": [
+       {
+        "stringValue": "narrative"
+       }
+      ]
+     }
+    },
+    "moods": {
+     "arrayValue": {
+      "values": [
+       {
+        "stringValue": "immersive"
+       },
+       {
+        "stringValue": "beautiful"
+       },
+       {
+        "stringValue": "intense"
+       }
+      ]
+     }
+    },
+    "subscription_services": {
+     "arrayValue": {}
+    },
+    "year": {
+     "integerValue": "2014"
+    },
+    "genre_tags": {
+     "arrayValue": {
+      "values": [
+       {
+        "stringValue": "adventure"
+       },
+       {
+        "stringValue": "narrative"
+       },
+       {
+        "stringValue": "horror"
+       }
+      ]
+     }
+    },
+    "platforms": {
+     "arrayValue": {
+      "values": [
+       {
+        "stringValue": "pc"
+       },
+       {
+        "stringValue": "playstation"
+       },
+       {
+        "stringValue": "xbox"
+       },
+       {
+        "stringValue": "switch"
+       }
+      ]
+     }
+    },
+    "release_year": {
+     "integerValue": "2014"
+    },
+    "updated_at": {
+     "timestampValue": "2026-09-23T15:51:55.891497Z"
+    },
+    "time_to_fun": {
+     "stringValue": "short"
+    },
+    "title": {
+     "stringValue": "The Vanishing of Ethan Carter"
+    },
+    "description_short": {
+     "stringValue": "A detective who sees the dead walks into a photoreal valley: quiet, gorgeous, and quietly wrong."
+    },
+    "game_id": {
+     "stringValue": "vanishing-of-ethan-carter"
+    },
+    "multiplayer_modes": {
+     "arrayValue": {
+      "values": [
+       {
+        "stringValue": "solo"
+       }
+      ]
+     }
+    }
+   },
+   "createTime": "2026-08-24T15:37:20.439283Z",
+   "updateTime": "2026-09-23T15:50:58.462167Z"
+  },
+  "tiny-bunny": {
+   "name": "projects/playnxt-1a2c6/databases/(default)/documents/games/tiny-bunny",
+   "fields": {
+    "explanation_templates": {
+     "mapValue": {
+      "fields": {
+       "time_fit": {
+        "stringValue": "Perfect for a relaxing {time}-minute session"
+       },
+       "style_fit": {
+        "stringValue": "Rich story to get lost in"
+       },
+       "mood_fit": {
+        "stringValue": "Unwind and enjoy at your own pace"
+       },
+       "stop_fit": {
+        "stringValue": "Easy to pause whenever you need"
+       }
+      }
+     }
+    },
+    "release_year": {
+     "integerValue": "2025"
+    },
+    "platforms": {
+     "arrayValue": {
+      "values": [
+       {
+        "stringValue": "pc"
+       }
+      ]
+     }
+    },
+    "mood_tags": {
+     "arrayValue": {
+      "values": [
+       {
+        "stringValue": "immersive"
+       },
+       {
+        "stringValue": "intense"
+       }
+      ]
+     }
+    },
+    "title": {
+     "stringValue": "Tiny Bunny"
+    },
+    "time_tags": {
+     "arrayValue": {
+      "values": [
+       {
+        "integerValue": "30"
+       },
+       {
+        "integerValue": "60"
+       },
+       {
+        "integerValue": "90"
+       },
+       {
+        "integerValue": "120"
+       }
+      ]
+     }
+    },
+    "time_to_fun": {
+     "stringValue": "medium"
+    },
+    "multiplayer_modes": {
+     "arrayValue": {
+      "values": [
+       {
+        "stringValue": "solo"
+       }
+      ]
+     }
+    },
+    "genres": {
+     "arrayValue": {
+      "values": [
+       {
+        "stringValue": "narrative"
+       },
+       {
+        "stringValue": "horror"
+       },
+       {
+        "stringValue": "indie"
+       }
+      ]
+     }
+    },
+    "store_links": {
+     "mapValue": {
+      "fields": {
+       "steam": {
+        "stringValue": "https://store.steampowered.com/app/1421250/Tiny_Bunny/"
+       }
+      }
+     }
+    },
+    "subscription_services": {
+     "arrayValue": {}
+    },
+    "energy_level": {
+     "stringValue": "low"
+    },
+    "updated_at": {
+     "timestampValue": "2026-09-23T15:51:54.621269Z"
+    },
+    "description_short": {
+     "stringValue": "A slow-burn horror visual novel set in a snowbound Siberian village where the forest whispers back."
+    },
+    "stop_friendliness": {
+     "stringValue": "anytime"
+    },
+    "play_style": {
+     "arrayValue": {
+      "values": [
+       {
+        "stringValue": "narrative"
+       }
+      ]
+     }
+    },
+    "game_id": {
+     "stringValue": "tiny-bunny"
+    },
+    "warnings": {
+     "arrayValue": {}
+    },
+    "moods": {
+     "arrayValue": {
+      "values": [
+       {
+        "stringValue": "immersive"
+       },
+       {
+        "stringValue": "intense"
+       }
+      ]
+     }
+    },
+    "year": {
+     "integerValue": "2025"
+    },
+    "genre_tags": {
+     "arrayValue": {
+      "values": [
+       {
+        "stringValue": "narrative"
+       },
+       {
+        "stringValue": "horror"
+       },
+       {
+        "stringValue": "indie"
+       }
+      ]
+     }
+    }
+   },
+   "createTime": "2026-08-21T18:06:11.389240Z",
+   "updateTime": "2026-09-23T15:50:57.179857Z"
+  },
+  "visage": {
+   "name": "projects/playnxt-1a2c6/databases/(default)/documents/games/visage",
+   "fields": {
+    "multiplayer_modes": {
+     "arrayValue": {
+      "values": [
+       {
+        "stringValue": "solo"
+       }
+      ]
+     }
+    },
+    "updated_at": {
+     "timestampValue": "2026-09-23T15:51:55.965637Z"
+    },
+    "description_short": {
+     "stringValue": "P.T.'s true heir: a suburban house whose hauntings escalate so slowly you doubt your own eyes."
+    },
+    "year": {
+     "integerValue": "2020"
+    },
+    "genres": {
+     "arrayValue": {
+      "values": [
+       {
+        "stringValue": "horror"
+       },
+       {
+        "stringValue": "indie"
+       }
+      ]
+     }
+    },
+    "moods": {
+     "arrayValue": {
+      "values": [
+       {
+        "stringValue": "intense"
+       },
+       {
+        "stringValue": "immersive"
+       }
+      ]
+     }
+    },
+    "play_style": {
+     "arrayValue": {
+      "values": [
+       {
+        "stringValue": "narrative"
+       },
+       {
+        "stringValue": "puzzle"
+       }
+      ]
+     }
+    },
+    "stop_friendliness": {
+     "stringValue": "checkpoints"
+    },
+    "genre_tags": {
+     "arrayValue": {
+      "values": [
+       {
+        "stringValue": "horror"
+       },
+       {
+        "stringValue": "indie"
+       }
+      ]
+     }
+    },
+    "explanation_templates": {
+     "mapValue": {
+      "fields": {
+       "stop_fit": {
+        "stringValue": "Easy to pause whenever you need"
+       },
+       "mood_fit": {
+        "stringValue": "Unwind and enjoy at your own pace"
+       },
+       "style_fit": {
+        "stringValue": "Rich story to get lost in"
+       },
+       "time_fit": {
+        "stringValue": "Perfect for a relaxing {time}-minute session"
+       }
+      }
+     }
+    },
+    "time_tags": {
+     "arrayValue": {
+      "values": [
+       {
+        "integerValue": "30"
+       },
+       {
+        "integerValue": "60"
+       },
+       {
+        "integerValue": "90"
+       }
+      ]
+     }
+    },
+    "time_to_fun": {
+     "stringValue": "medium"
+    },
+    "warnings": {
+     "arrayValue": {}
+    },
+    "store_links": {
+     "mapValue": {
+      "fields": {
+       "playstation": {
+        "stringValue": "https://store.playstation.com/en-us/product/UP3376-CUSA20594_00-SSVISAGEGAMEPACK"
+       },
+       "xbox": {
+        "stringValue": "https://www.microsoft.com/en-us/p/visage/9p9v698v6mvr?cid=msft_web_chart"
+       },
+       "steam": {
+        "stringValue": "https://store.steampowered.com/app/594330/"
+       },
+       "gog": {
+        "stringValue": "http://www.gog.com/game/visage"
+       }
+      }
+     }
+    },
+    "subscription_services": {
+     "arrayValue": {}
+    },
+    "game_id": {
+     "stringValue": "visage"
+    },
+    "platforms": {
+     "arrayValue": {
+      "values": [
+       {
+        "stringValue": "pc"
+       },
+       {
+        "stringValue": "playstation"
+       },
+       {
+        "stringValue": "xbox"
+       }
+      ]
+     }
+    },
+    "release_year": {
+     "integerValue": "2020"
+    },
+    "title": {
+     "stringValue": "Visage"
+    },
+    "energy_level": {
+     "stringValue": "low"
+    },
+    "mood_tags": {
+     "arrayValue": {
+      "values": [
+       {
+        "stringValue": "intense"
+       },
+       {
+        "stringValue": "immersive"
+       }
+      ]
+     }
+    }
+   },
+   "createTime": "2026-08-24T15:37:25.756973Z",
+   "updateTime": "2026-09-23T15:50:58.521518Z"
+  },
+  "year-walk": {
+   "name": "projects/playnxt-1a2c6/databases/(default)/documents/games/year-walk",
+   "fields": {
+    "game_id": {
+     "stringValue": "year-walk"
+    },
+    "explanation_templates": {
+     "mapValue": {
+      "fields": {
+       "stop_fit": {
+        "stringValue": "Easy to pause whenever you need"
+       },
+       "time_fit": {
+        "stringValue": "Perfect for a relaxing {time}-minute session"
+       },
+       "style_fit": {
+        "stringValue": "Rich story to get lost in"
+       },
+       "mood_fit": {
+        "stringValue": "Unwind and enjoy at your own pace"
+       }
+      }
+     }
+    },
+    "mood_tags": {
+     "arrayValue": {
+      "values": [
+       {
+        "stringValue": "immersive"
+       },
+       {
+        "stringValue": "intense"
+       },
+       {
+        "stringValue": "beautiful"
+       }
+      ]
+     }
+    },
+    "updated_at": {
+     "timestampValue": "2026-09-23T15:51:57.388138Z"
+    },
+    "energy_level": {
+     "stringValue": "low"
+    },
+    "title": {
+     "stringValue": "Year Walk"
+    },
+    "play_style": {
+     "arrayValue": {
+      "values": [
+       {
+        "stringValue": "puzzle"
+       },
+       {
+        "stringValue": "narrative"
+       }
+      ]
+     }
+    },
+    "genre_tags": {
+     "arrayValue": {
+      "values": [
+       {
+        "stringValue": "adventure"
+       },
+       {
+        "stringValue": "horror"
+       },
+       {
+        "stringValue": "indie"
+       }
+      ]
+     }
+    },
+    "stop_friendliness": {
+     "stringValue": "anytime"
+    },
+    "warnings": {
+     "arrayValue": {}
+    },
+    "platforms": {
+     "arrayValue": {
+      "values": [
+       {
+        "stringValue": "pc"
+       },
+       {
+        "stringValue": "mobile"
+       }
+      ]
+     }
+    },
+    "year": {
+     "integerValue": "2013"
+    },
+    "moods": {
+     "arrayValue": {
+      "values": [
+       {
+        "stringValue": "immersive"
+       },
+       {
+        "stringValue": "intense"
+       },
+       {
+        "stringValue": "beautiful"
+       }
+      ]
+     }
+    },
+    "genres": {
+     "arrayValue": {
+      "values": [
+       {
+        "stringValue": "adventure"
+       },
+       {
+        "stringValue": "horror"
+       },
+       {
+        "stringValue": "indie"
+       }
+      ]
+     }
+    },
+    "time_tags": {
+     "arrayValue": {
+      "values": [
+       {
+        "integerValue": "30"
+       },
+       {
+        "integerValue": "60"
+       }
+      ]
+     }
+    },
+    "description_short": {
+     "stringValue": "Swedish folklore in the winter dark: a short, chilling vision quest built on real myth."
+    },
+    "store_links": {
+     "mapValue": {
+      "fields": {
+       "ios": {
+        "stringValue": "https://apps.apple.com/us/app/year-walk/id836510153?mt=12&uo=4"
+       },
+       "steam": {
+        "stringValue": "http://store.steampowered.com/app/269050/"
+       },
+       "nintendo": {
+        "stringValue": "https://www.nintendo.com/games/detail/_ZZW77uwVSe45vgPtsZMhnsc6INz0IiM"
+       }
+      }
+     }
+    },
+    "multiplayer_modes": {
+     "arrayValue": {
+      "values": [
+       {
+        "stringValue": "solo"
+       }
+      ]
+     }
+    },
+    "release_year": {
+     "integerValue": "2013"
+    },
+    "subscription_services": {
+     "arrayValue": {}
+    },
+    "time_to_fun": {
+     "stringValue": "short"
+    }
+   },
+   "createTime": "2026-08-24T15:28:00.605289Z",
+   "updateTime": "2026-09-23T15:50:59.940586Z"
+  }
+ }
+}
