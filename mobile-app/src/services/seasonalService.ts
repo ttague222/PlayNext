@@ -62,6 +62,8 @@ export type SeasonalContent = {
 export type CollectionPicks = {
   date: string;
   collectionId: string;
+  /** platformFilterKey of the platforms these picks were fetched for. */
+  platformFilter: string;
   sessionId: string;
   games: object[];
   fallbackApplied: boolean;
@@ -79,7 +81,7 @@ const BUNDLED: SeasonalContent = bundledContent as SeasonalContent;
 
 // Last content loaded this session; null until loadSeasonalContent succeeds.
 let memoryContent: SeasonalContent | null = null;
-// Per-collection in-flight picks requests (see fetchCollectionPicks).
+// In-flight picks requests per collection and platform filter (see fetchCollectionPicks).
 const inFlightPicks = new Map<string, Promise<CollectionPicks>>();
 // Tail of the picks-cache write queue (see storePicks).
 let picksWriteQueue: Promise<void> = Promise.resolve();
@@ -192,7 +194,16 @@ export function visibleCollections(season: Season | null, date: string = localDa
   return [...windowed, ...evergreen].slice(0, MAX_VISIBLE_COLLECTIONS);
 }
 
-const picksKey = (collectionId: string, date: string) => `${collectionId}|${date}`;
+/**
+ * Cache identity of a platform filter: sorted and comma-joined, so the same
+ * platforms in any order share picks; no filter is its own key, 'all'. Mirrors
+ * the platform_filter analytics param in RecommendationContext.
+ */
+export const platformFilterKey = (platforms?: string[] | null): string =>
+  platforms?.length ? [...platforms].sort().join(',') : 'all';
+
+const picksKey = (collectionId: string, date: string, platformFilter: string) =>
+  `${collectionId}|${date}|${platformFilter}`;
 
 async function readPicksCache(): Promise<Record<string, CollectionPicks>> {
   try {
@@ -215,27 +226,35 @@ async function readPicksCache(): Promise<Record<string, CollectionPicks>> {
 function storePicks(picks: CollectionPicks): Promise<void> {
   const step = picksWriteQueue.then(async () => {
     const entries = Object.entries(await readPicksCache()).filter(([, p]) => p?.date === picks.date);
-    const next = { ...Object.fromEntries(entries), [picksKey(picks.collectionId, picks.date)]: picks };
+    const key = picksKey(picks.collectionId, picks.date, picks.platformFilter);
+    const next = { ...Object.fromEntries(entries), [key]: picks };
     await AsyncStorage.setItem(COLLECTION_PICKS_KEY, JSON.stringify(next));
   });
   picksWriteQueue = step.catch(() => {});
   return step;
 }
 
-/** Cached picks for this collection on `date`, or null when missing, stale, empty, or unreadable. */
+/**
+ * Cached picks for this collection, platform filter and `date`, or null when
+ * missing, stale, empty, or unreadable. Picks fetched for other platforms
+ * never match.
+ */
 export async function getCachedCollectionPicks(
   collectionId: string,
-  date: string = localDateString(),
+  { platforms = [], date = localDateString() }: { platforms?: string[]; date?: string } = {},
 ): Promise<CollectionPicks | null> {
-  const entry = (await readPicksCache())[picksKey(collectionId, date)];
+  const platformFilter = platformFilterKey(platforms);
+  const entry = (await readPicksCache())[picksKey(collectionId, date, platformFilter)];
   if (!entry || entry.date !== date || entry.collectionId !== collectionId) return null;
+  if (entry.platformFilter !== platformFilter) return null;
   if (!Array.isArray(entry.games) || entry.games.length === 0) return null;
   return entry;
 }
 
 /**
- * Today's picks for a seasonal collection, fetched and cached on the first call
- * of the day. Concurrent callers for the same collection share one request.
+ * Today's picks for a seasonal collection under the user's platform filter,
+ * fetched and cached on the first call of the day for that filter. Concurrent
+ * callers for the same collection and filter share one request.
  * Throws on API failure; the card shows its error state.
  *
  * The single-flight guard wraps the ENTIRE body, including the cache check:
@@ -246,12 +265,14 @@ export async function fetchCollectionPicks(
   collection: Collection,
   { platforms = [] }: { platforms?: string[] } = {},
 ): Promise<CollectionPicks> {
-  const existing = inFlightPicks.get(collection.id);
+  const platformFilter = platformFilterKey(platforms);
+  const flightKey = `${collection.id}|${platformFilter}`;
+  const existing = inFlightPicks.get(flightKey);
   if (existing) return existing;
 
   const request = (async (): Promise<CollectionPicks> => {
     const date = localDateString();
-    const cached = await getCachedCollectionPicks(collection.id, date);
+    const cached = await getCachedCollectionPicks(collection.id, { platforms, date });
     if (cached) return cached;
 
     const response = await api.getRecommendations({
@@ -264,6 +285,7 @@ export async function fetchCollectionPicks(
     const picks: CollectionPicks = {
       date,
       collectionId: collection.id,
+      platformFilter,
       sessionId: response.session_id,
       games: response.recommendations,
       fallbackApplied: Boolean(response.fallback_applied),
@@ -279,10 +301,10 @@ export async function fetchCollectionPicks(
     return picks;
   })();
 
-  inFlightPicks.set(collection.id, request);
+  inFlightPicks.set(flightKey, request);
   try {
     return await request;
   } finally {
-    inFlightPicks.delete(collection.id);
+    inFlightPicks.delete(flightKey);
   }
 }

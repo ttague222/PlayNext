@@ -27,6 +27,7 @@ import {
   visibleCollections,
   fetchCollectionPicks,
   getCachedCollectionPicks,
+  platformFilterKey,
   __resetSeasonalServiceForTests,
 } from '../seasonalService';
 import { localDateString } from '../tonightService';
@@ -261,6 +262,7 @@ describe('collection picks', () => {
     expect(result).toEqual({
       date: today,
       collectionId: 'col-a',
+      platformFilter: 'pc',
       sessionId: 'srv-1',
       games: response.recommendations,
       fallbackApplied: true,
@@ -325,10 +327,10 @@ describe('collection picks', () => {
 
   it('does not return a cached result for another date', async () => {
     store[COLLECTION_PICKS_KEY] = JSON.stringify({
-      'col-a|2020-01-01': { date: '2020-01-01', collectionId: 'col-a', sessionId: 'old', games: [{ game_id: 'old' }], fallbackApplied: false, fallbackMessage: null },
+      'col-a|2020-01-01|all': { date: '2020-01-01', collectionId: 'col-a', platformFilter: 'all', sessionId: 'old', games: [{ game_id: 'old' }], fallbackApplied: false, fallbackMessage: null },
     });
-    expect(await getCachedCollectionPicks('col-a', '2020-01-02')).toBeNull();
-    expect((await getCachedCollectionPicks('col-a', '2020-01-01')).sessionId).toBe('old');
+    expect(await getCachedCollectionPicks('col-a', { date: '2020-01-02' })).toBeNull();
+    expect((await getCachedCollectionPicks('col-a', { date: '2020-01-01' })).sessionId).toBe('old');
 
     api.getRecommendations.mockResolvedValue(response);
     const result = await fetchCollectionPicks(collectionA, { platforms: [] });
@@ -348,12 +350,12 @@ describe('collection picks', () => {
 
   it('prunes stale entries so the cache stays small', async () => {
     store[COLLECTION_PICKS_KEY] = JSON.stringify({
-      'col-a|2020-01-01': { date: '2020-01-01', collectionId: 'col-a', sessionId: 'old', games: [{ game_id: 'old' }], fallbackApplied: false, fallbackMessage: null },
+      'col-a|2020-01-01|all': { date: '2020-01-01', collectionId: 'col-a', platformFilter: 'all', sessionId: 'old', games: [{ game_id: 'old' }], fallbackApplied: false, fallbackMessage: null },
     });
     api.getRecommendations.mockResolvedValue(response);
     await fetchCollectionPicks(collectionA, { platforms: [] });
     const stored = JSON.parse(store[COLLECTION_PICKS_KEY]);
-    expect(Object.keys(stored)).toEqual([`col-a|${today}`]);
+    expect(Object.keys(stored)).toEqual([`col-a|${today}|all`]);
   });
 
   it('returns the picks even when the cache write fails', async () => {
@@ -375,6 +377,49 @@ describe('collection picks', () => {
     api.getRecommendations.mockResolvedValueOnce(response);
     const retry = await fetchCollectionPicks(collectionA, { platforms: [] });
     expect(retry.sessionId).toBe('srv-1');
+  });
+
+  it('does not return picks cached for one platform filter to another', async () => {
+    api.getRecommendations.mockResolvedValue({ ...response, session_id: 'srv-pc' });
+    const pc = await fetchCollectionPicks(collectionA, { platforms: ['pc'] });
+    expect(await getCachedCollectionPicks('col-a', { platforms: ['pc'] })).toEqual(pc);
+    expect(await getCachedCollectionPicks('col-a', { platforms: ['switch'] })).toBeNull();
+    expect(await getCachedCollectionPicks('col-a')).toBeNull();
+
+    api.getRecommendations.mockResolvedValue({ ...response, session_id: 'srv-switch' });
+    const sw = await fetchCollectionPicks(collectionA, { platforms: ['switch'] });
+    expect(sw.sessionId).toBe('srv-switch');
+    expect(api.getRecommendations).toHaveBeenCalledTimes(2);
+    expect(api.getRecommendations.mock.calls[1][0].platforms).toEqual(['switch']);
+  });
+
+  it('treats the same platforms in any order as one filter', async () => {
+    api.getRecommendations.mockResolvedValue(response);
+    const first = await fetchCollectionPicks(collectionA, { platforms: ['switch', 'pc'] });
+    const second = await fetchCollectionPicks(collectionA, { platforms: ['pc', 'switch'] });
+    expect(api.getRecommendations).toHaveBeenCalledTimes(1);
+    expect(second).toEqual(first);
+    expect(first.platformFilter).toBe(platformFilterKey(['pc', 'switch']));
+  });
+
+  it('does not single-flight requests for different platform filters', async () => {
+    let resolvePc;
+    api.getRecommendations
+      .mockReturnValueOnce(new Promise((r) => { resolvePc = r; }))
+      .mockResolvedValueOnce({ ...response, session_id: 'srv-switch' });
+    const pPc = fetchCollectionPicks(collectionA, { platforms: ['pc'] });
+    const pSwitch = fetchCollectionPicks(collectionA, { platforms: ['switch'] });
+    resolvePc({ ...response, session_id: 'srv-pc' });
+    const [pc, sw] = await Promise.all([pPc, pSwitch]);
+    expect(api.getRecommendations).toHaveBeenCalledTimes(2);
+    expect(pc.sessionId).toBe('srv-pc');
+    expect(sw.sessionId).toBe('srv-switch');
+  });
+
+  it('platformFilterKey sorts and joins, with a distinct key for no filter', () => {
+    expect(platformFilterKey(['switch', 'pc'])).toBe('pc,switch');
+    expect(platformFilterKey([])).toBe('all');
+    expect(platformFilterKey(undefined)).toBe('all');
   });
 
   it('getCachedCollectionPicks tolerates corrupt storage', async () => {
