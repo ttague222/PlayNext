@@ -10,7 +10,7 @@ smuggled into a collection.
 from datetime import date
 from typing import Annotated, List, Literal, Optional
 
-from pydantic import BaseModel, ConfigDict, Field, HttpUrl
+from pydantic import BaseModel, ConfigDict, Field, HttpUrl, model_validator
 
 from src.models.recommendation import DiscoveryMode, EnergyMood, SessionType
 
@@ -45,6 +45,16 @@ class Collection(BaseModel):
     params: CollectionParams
     starts: Optional[date] = None
     ends: Optional[date] = None
+
+    @model_validator(mode="after")
+    def _window_has_both_bounds(self) -> "Collection":
+        # The app treats a collection as windowed only when both bounds are set,
+        # so a half window would be served here but never shown there.
+        if (self.starts is None) != (self.ends is None):
+            raise ValueError(
+                f"collection {self.id}: set both starts and ends, or neither"
+            )
+        return self
 
 
 class Palette(BaseModel):

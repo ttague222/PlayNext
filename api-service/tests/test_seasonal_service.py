@@ -228,6 +228,16 @@ def test_micro_moment_window_end_before_start_rejected():
     assert any("ends before it starts" in e for e in errors)
 
 
+@pytest.mark.parametrize(
+    "window", [{"starts": "2026-11-10"}, {"ends": "2026-11-12"}], ids=["only-starts", "only-ends"]
+)
+def test_half_windowed_collection_rejected(window):
+    # The app only shows a windowed collection when both bounds are set.
+    data = _content(_season(collections=[_collection("m", 45, **window)]))
+    with pytest.raises(ValidationError, match="both starts and ends, or neither"):
+        SeasonalContent.model_validate(data)
+
+
 def test_failing_palette_rejected():
     errors = _errors(_season("harvest-2026", palette="harvest"))
     assert any("focused" in e.lower() for e in errors)
