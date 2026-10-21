@@ -5,17 +5,22 @@
  */
 export const CHANGELOG = {
   '1.8.0': {
-    title: 'Picks for the season',
+    title: 'Seasonal picks and better sharing',
     features: [
       {
         icon: 'leaf-outline',
         headline: 'Seasonal picks on the Play tab',
-        body: "Starting November 1, each season has a few picks made for it, like couch co-op for when everyone's over. Tap one and you get three games that fit.",
+        body: "Starting November 1, each season has a few picks made for it, like couch co-op for when everyone's over, and the app's colors change to match. Tap one and you get three games that fit.",
       },
       {
-        icon: 'color-palette-outline',
-        headline: 'The app changes with the season',
-        body: 'The backgrounds shift with the time of year. Buttons and everything you tap stay the same.',
+        icon: 'share-social-outline',
+        headline: 'One card, all three picks',
+        body: 'Sharing your results now sends a single card with every pick and why it fits, plus a link that shows friends exactly what you got.',
+      },
+      {
+        icon: 'link-outline',
+        headline: 'Share links open in the app',
+        body: "Tap a friend's PlayNxt link and it opens right here instead of the browser.",
       },
       {
         icon: 'skull-outline',

@@ -1,7 +1,8 @@
-Picks for the season.
+Seasonal picks and better sharing.
 
-• New: seasonal picks on the Play tab, starting November 1. Each season brings a couple of collections made for it, like couch co-op for when everyone's over. Tap one for three games that fit.
-• The app's colors change with the season too. Buttons and everything you tap stay the same.
+• New: seasonal picks on the Play tab, starting November 1. Each season brings a couple of collections made for it, like couch co-op for when everyone's over, and the app's colors change to match. Tap one for three games that fit.
+• Sharing got a big upgrade: send all three of your picks as one card, with a link that shows friends exactly what you got.
+• PlayNxt share links now open directly in the app.
 • Horror for every mood. The Horror filter now shows up whatever mood you pick, and there are a lot more horror games to choose from.
 • Small fixes and polish throughout.
 
