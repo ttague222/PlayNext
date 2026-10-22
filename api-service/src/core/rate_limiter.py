@@ -28,7 +28,8 @@ def get_real_ip(request: Request) -> str:
 
 limiter = Limiter(
     key_func=get_real_ip,
-    default_limits=[f"{settings.rate_limit_requests}/minute"]
+    default_limits=[f"{settings.rate_limit_requests}/minute"],
+    enabled=settings.rate_limit_enabled,
 )
 
 
