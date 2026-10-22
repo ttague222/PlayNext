@@ -15,6 +15,10 @@ from ..models import Game, GameCreate, GameSummary, Platform
 
 logger = logging.getLogger("playnext-api.games")
 
+# Catalog stats read every game document, so serve them from memory for a
+# while. The catalog changes a few times a week; stale counts are harmless.
+STATS_CACHE_SECONDS = 600
+
 
 def is_released(release_date: Optional[str], today: Optional[date] = None) -> bool:
     """True unless release_date is a valid future ISO date.
@@ -37,6 +41,7 @@ class GameService:
 
     def __init__(self):
         self.collection = get_collection(GAMES_COLLECTION)
+        self._stats_cache: Optional[tuple[datetime, dict]] = None
 
     def _to_summary(self, doc_id: str, data: dict) -> GameSummary:
         """Build a GameSummary from a Firestore doc id + its data dict."""
@@ -211,7 +216,11 @@ class GameService:
             return False
 
     async def get_catalog_stats(self) -> dict:
-        """Get statistics about the game catalog."""
+        """Get statistics about the game catalog (cached for STATS_CACHE_SECONDS)."""
+        now = datetime.now(timezone.utc)
+        if self._stats_cache and now - self._stats_cache[0] < timedelta(seconds=STATS_CACHE_SECONDS):
+            return self._stats_cache[1]
+
         try:
             docs = list(self.collection.stream())
             total = len(docs)
@@ -233,12 +242,14 @@ class GameService:
                 if energy:
                     energy_levels[energy] = energy_levels.get(energy, 0) + 1
 
-            return {
+            stats = {
                 "total_games": total,
                 "by_platform": platforms,
                 "by_play_style": play_styles,
                 "by_energy_level": energy_levels,
             }
+            self._stats_cache = (now, stats)
+            return stats
         except Exception as e:
             logger.error(f"Error getting catalog stats: {e}")
             return {"total_games": 0}

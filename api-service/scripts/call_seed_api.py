@@ -1,7 +1,15 @@
 """
 Call the seed API endpoint with the game data from all category files.
+
+The endpoint is admin only. Set:
+  PLAYNXT_API_URL      e.g. https://<api-host>/api
+  PLAYNXT_ADMIN_TOKEN  a Firebase ID token for an account with the `admin` claim
+
+Most catalog changes go straight to Firestore with the add_*.py scripts;
+this is only for bulk seeding through the API.
 """
 import json
+import os
 import httpx
 import sys
 from pathlib import Path
@@ -31,7 +39,8 @@ except ImportError:
     INTENSE_GAMES = []
     print("Warning: Could not import intense games")
 
-API_URL = "https://playnxt-api-234522821472.us-central1.run.app/api/games/seed"
+API_URL = os.environ.get("PLAYNXT_API_URL", "").rstrip("/") + "/games/seed"
+ADMIN_TOKEN = os.environ.get("PLAYNXT_ADMIN_TOKEN", "")
 
 
 def seed_category(name: str, games: list) -> int:
@@ -56,6 +65,7 @@ def seed_category(name: str, games: list) -> int:
             response = httpx.post(
                 API_URL,
                 json=batch,
+                headers={"Authorization": f"Bearer {ADMIN_TOKEN}"},
                 timeout=120.0
             )
 
@@ -77,6 +87,10 @@ def seed_category(name: str, games: list) -> int:
 
 
 def main():
+    if not os.environ.get("PLAYNXT_API_URL") or not ADMIN_TOKEN:
+        print("Set PLAYNXT_API_URL and PLAYNXT_ADMIN_TOKEN first (see the docstring).")
+        sys.exit(1)
+
     print(f"PlayNxt Game Seeder")
     print(f"===================")
     print(f"API: {API_URL}")

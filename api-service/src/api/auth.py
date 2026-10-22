@@ -39,6 +39,9 @@ async def get_current_user(
             "email": decoded_token.get("email"),
             "email_verified": decoded_token.get("email_verified", False),
             "is_anonymous": decoded_token.get("firebase", {}).get("sign_in_provider") == "anonymous",
+            # Custom claim, set server-side with the Admin SDK. Only a literal
+            # True counts, so a stray truthy value can't grant admin.
+            "is_admin": decoded_token.get("admin") is True,
         }
     except auth.InvalidIdTokenError:
         logger.warning("Invalid ID token provided")
@@ -72,6 +75,31 @@ async def require_authenticated_user(
             status_code=status.HTTP_401_UNAUTHORIZED,
             detail="Authentication required",
             headers={"WWW-Authenticate": "Bearer"},
+        )
+    return user
+
+
+async def require_admin(
+    user: Optional[dict] = Depends(get_current_user)
+) -> dict:
+    """
+    Require a non-anonymous user with the `admin` custom claim.
+
+    Every app install signs in anonymously, so a valid token alone proves
+    nothing. Grant the claim with
+    `auth.set_custom_user_claims(uid, {"admin": True})`.
+    """
+    if user is None:
+        raise HTTPException(
+            status_code=status.HTTP_401_UNAUTHORIZED,
+            detail="Authentication required",
+            headers={"WWW-Authenticate": "Bearer"},
+        )
+    if user["is_anonymous"] or not user["is_admin"]:
+        logger.warning(f"Admin route denied for uid={user['uid']}")
+        raise HTTPException(
+            status_code=status.HTTP_403_FORBIDDEN,
+            detail="Admin privileges required",
         )
     return user
 

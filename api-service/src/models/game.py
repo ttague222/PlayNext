@@ -7,7 +7,8 @@ Pydantic models for game data and metadata.
 from datetime import datetime
 from enum import Enum
 from typing import Optional
-from pydantic import BaseModel, Field
+from urllib.parse import urlparse
+from pydantic import BaseModel, Field, field_validator
 
 
 class EnergyLevel(str, Enum):
@@ -87,6 +88,32 @@ class StoreLinks(BaseModel):
     other: Optional[dict[str, str]] = None
 
 
+def check_store_links(links: dict) -> None:
+    """
+    Raise ValueError unless every store link is an absolute http(s) URL.
+
+    Store links are rendered as clickable links in the app and on playnxt.io,
+    so a `javascript:` or `data:` value would run in the viewer's browser.
+    Checked on writes only, so existing catalog records still load.
+    """
+    if not isinstance(links, dict):
+        raise ValueError("store_links must be an object")
+
+    urls = []
+    for store, value in links.items():
+        if value is None:
+            continue
+        if store == "other" and isinstance(value, dict):
+            urls.extend((f"other.{k}", v) for k, v in value.items())
+        else:
+            urls.append((store, value))
+
+    for store, url in urls:
+        parsed = urlparse(url) if isinstance(url, str) else None
+        if parsed is None or parsed.scheme not in ("http", "https") or not parsed.netloc:
+            raise ValueError(f"store_links.{store} must be an http(s) URL")
+
+
 class GameBase(BaseModel):
     """Base game model with common fields."""
     title: str
@@ -116,6 +143,12 @@ class GameCreate(GameBase):
     subscription_services: list[str] = Field(default_factory=list)
     content_warnings: list[str] = Field(default_factory=list)
     store_links: StoreLinks = Field(default_factory=StoreLinks)
+
+    @field_validator("store_links")
+    @classmethod
+    def store_links_must_be_http(cls, links: StoreLinks) -> StoreLinks:
+        check_store_links(links.model_dump())
+        return links
 
 
 class Game(GameBase):

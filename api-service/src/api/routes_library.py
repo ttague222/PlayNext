@@ -6,8 +6,9 @@ API endpoints for syncing platform libraries (Steam).
 
 import logging
 
-from fastapi import APIRouter, Depends, HTTPException
+from fastapi import APIRouter, Depends, HTTPException, Request
 
+from ..core.rate_limiter import limiter
 from ..models import SteamSyncRequest, SteamSyncResult, SteamLibraryStatus
 from ..services import get_library_service
 from ..services.library_service import SteamApiError, SyncCooldownError
@@ -19,8 +20,10 @@ router = APIRouter(prefix="/library", tags=["Library"])
 
 
 @router.post("/steam/sync", response_model=SteamSyncResult)
+@limiter.limit("5/minute")
 async def sync_steam_library(
-    request: SteamSyncRequest,
+    request: Request,
+    body: SteamSyncRequest,
     user: dict = Depends(require_authenticated_user)
 ):
     """
@@ -32,7 +35,7 @@ async def sync_steam_library(
     """
     try:
         service = get_library_service()
-        return await service.sync_steam_library(user["uid"], request.profile)
+        return await service.sync_steam_library(user["uid"], body.profile)
     except SyncCooldownError as e:
         raise HTTPException(status_code=429, detail=str(e))
     except ValueError as e:
