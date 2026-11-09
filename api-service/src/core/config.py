@@ -56,7 +56,9 @@ class Settings(BaseSettings):
     # no attribution token and no why/match text — set it in production.
     share_token_salt: str = ""
 
-    # Rate Limiting
+    # Rate Limiting (per client IP, per instance). RATE_LIMIT_ENABLED=false is
+    # the kill switch if Cloud Run ever buckets every user under one IP.
+    rate_limit_enabled: bool = True
     rate_limit_requests: int = 100
     rate_limit_window: int = 60  # seconds
 

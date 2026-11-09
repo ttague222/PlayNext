@@ -7,11 +7,12 @@ API endpoints for game catalog management.
 import logging
 from typing import Optional
 
-from fastapi import APIRouter, Depends, HTTPException, Query
+from fastapi import APIRouter, Depends, HTTPException, Query, Request
 
-from ..models import Game, GameCreate, GameSummary, Platform
+from ..core.rate_limiter import limiter
+from ..models import Game, GameCreate, GameSummary, Platform, check_store_links
 from ..services import get_game_service
-from .auth import require_authenticated_user
+from .auth import require_admin
 
 logger = logging.getLogger("playnext-api.routes.games")
 
@@ -35,11 +36,13 @@ async def list_games(
 
 
 @router.get("/stats")
-async def get_catalog_stats():
+@limiter.limit("10/minute")
+async def get_catalog_stats(request: Request):
     """
     Get statistics about the game catalog.
 
     Returns counts of games by platform, play style, and energy level.
+    Rate limited because an uncached call reads the whole catalog.
     """
     service = get_game_service()
     return await service.get_catalog_stats()
@@ -81,12 +84,12 @@ async def get_game(game_id: str):
 @router.post("", response_model=Game)
 async def create_game(
     game: GameCreate,
-    user: dict = Depends(require_authenticated_user)
+    user: dict = Depends(require_admin)
 ):
     """
     Add a new game to the catalog.
 
-    Requires authentication. This endpoint is primarily for admin use.
+    Admin only (`admin` custom claim).
     """
     service = get_game_service()
 
@@ -105,13 +108,15 @@ async def create_game(
 async def update_game(
     game_id: str,
     updates: dict,
-    user: dict = Depends(require_authenticated_user)
+    user: dict = Depends(require_admin)
 ):
     """
     Update an existing game.
 
-    Requires authentication. This endpoint is primarily for admin use.
+    Admin only (`admin` custom claim).
     """
+    _check_links_or_422(updates)
+
     service = get_game_service()
     game = await service.update_game(game_id, updates)
 
@@ -124,12 +129,12 @@ async def update_game(
 @router.delete("/{game_id}")
 async def delete_game(
     game_id: str,
-    user: dict = Depends(require_authenticated_user)
+    user: dict = Depends(require_admin)
 ):
     """
     Delete a game from the catalog.
 
-    Requires authentication. This endpoint is primarily for admin use.
+    Admin only (`admin` custom claim).
     """
     service = get_game_service()
     success = await service.delete_game(game_id)
@@ -141,13 +146,19 @@ async def delete_game(
 
 
 @router.post("/seed")
-async def seed_games(games: list[dict]):
+async def seed_games(
+    games: list[dict],
+    user: dict = Depends(require_admin)
+):
     """
     Bulk seed games into the catalog.
 
-    This is a temporary endpoint for initial data seeding.
-    Accepts a list of game objects and adds them to Firestore.
+    Admin only (`admin` custom claim). Accepts a list of game objects and
+    writes them to Firestore, replacing any existing record with the same ID.
     """
+    for game_data in games:
+        _check_links_or_422(game_data)
+
     service = get_game_service()
     success_count = 0
     failed = []
@@ -164,3 +175,13 @@ async def seed_games(games: list[dict]):
         "success": success_count,
         "failed": failed
     }
+
+
+def _check_links_or_422(game_data: dict) -> None:
+    """Reject a raw game payload whose store links aren't http(s) URLs."""
+    if "store_links" not in game_data:
+        return
+    try:
+        check_store_links(game_data["store_links"])
+    except ValueError as e:
+        raise HTTPException(status_code=422, detail=str(e))

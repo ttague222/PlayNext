@@ -13,6 +13,7 @@ from fastapi.middleware.cors import CORSMiddleware
 from fastapi.responses import JSONResponse
 from slowapi import _rate_limit_exceeded_handler
 from slowapi.errors import RateLimitExceeded
+from slowapi.middleware import SlowAPIMiddleware
 
 from .core.config import settings
 from .core.logging_config import setup_logging
@@ -75,9 +76,11 @@ app = FastAPI(
     redoc_url="/redoc" if settings.debug else None,
 )
 
-# Add rate limiting
+# Add rate limiting. The middleware applies default_limits to every route;
+# routes with their own @limiter.limit use that instead.
 app.state.limiter = limiter
 app.add_exception_handler(RateLimitExceeded, _rate_limit_exceeded_handler)
+app.add_middleware(SlowAPIMiddleware)
 
 # Add CORS middleware
 app.add_middleware(

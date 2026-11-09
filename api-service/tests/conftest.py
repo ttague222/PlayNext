@@ -8,6 +8,20 @@ from unittest.mock import MagicMock, patch
 from fastapi.testclient import TestClient
 
 
+@pytest.fixture(autouse=True)
+def no_rate_limits():
+    """Every TestClient request shares one IP, so limits would trip across tests.
+
+    Tests that exercise limits turn the limiter back on themselves.
+    """
+    from src.core.rate_limiter import limiter
+    limiter.enabled = False
+    limiter.reset()
+    yield
+    limiter.enabled = False
+    limiter.reset()
+
+
 @pytest.fixture
 def mock_firebase():
     """Prevent real Firebase initialization during tests."""

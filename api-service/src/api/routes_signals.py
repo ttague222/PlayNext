@@ -7,8 +7,9 @@ API endpoints for recording user preference signals.
 import logging
 from typing import Optional
 
-from fastapi import APIRouter, Depends, HTTPException
+from fastapi import APIRouter, Depends, HTTPException, Request
 
+from ..core.rate_limiter import limiter
 from ..models import (
     UserSignal,
     UserSignalCreate,
@@ -67,7 +68,9 @@ async def submit_feedback(
 
 
 @router.post("/accept")
+@limiter.limit("30/minute")
 async def accept_recommendation(
+    request: Request,
     game_id: str,
     session_id: str,
     game_title: Optional[str] = None,

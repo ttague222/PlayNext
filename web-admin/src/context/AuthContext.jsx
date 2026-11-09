@@ -22,13 +22,23 @@ export const AuthProvider = ({ children }) => {
   const [error, setError] = useState(null);
 
   useEffect(() => {
-    const unsubscribe = onAuthStateChanged(auth, (firebaseUser) => {
+    const unsubscribe = onAuthStateChanged(auth, async (firebaseUser) => {
       if (firebaseUser) {
+        // The API checks the same `admin` custom claim on every write; this
+        // only keeps non-admins out of the dashboard UI.
+        let isAdmin = false;
+        try {
+          const { claims } = await firebaseUser.getIdTokenResult();
+          isAdmin = claims.admin === true && !firebaseUser.isAnonymous;
+        } catch (err) {
+          setError(err.message);
+        }
         setUser({
           uid: firebaseUser.uid,
           email: firebaseUser.email,
           displayName: firebaseUser.displayName,
           photoURL: firebaseUser.photoURL,
+          isAdmin,
         });
       } else {
         setUser(null);
@@ -74,6 +84,7 @@ export const AuthProvider = ({ children }) => {
     loading,
     error,
     isAuthenticated: !!user,
+    isAdmin: !!user?.isAdmin,
     signInWithEmail,
     signInWithGoogle,
     signOut,
