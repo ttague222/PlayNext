@@ -418,7 +418,7 @@ GENRE_FILL_GAMES = [
         "fun_fact": "Named after legendary coach John Madden since 1988.",
         "explanation_templates": {"time_fit": "Games take 30-45 minutes.", "mood_fit": "Strategic football action.", "stop_fit": "Save at halftime or after games."},
         "subscription_services": ["ea_play"],
-        "store_links": {"steam": "https://store.steampowered.com/app/2417330/Madden_NFL_25/"}
+        "store_links": {"steam": "https://store.steampowered.com/app/2582560/"}
     },
     {
         "game_id": "mlb-the-show-24",

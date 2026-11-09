@@ -1,0 +1,2804 @@
+{
+ "taken_at": "2026-11-09T22:30:09.518760+00:00",
+ "documents": {
+  "1000xresist": {
+   "name": "projects/playnxt-1a2c6/databases/(default)/documents/games/1000xresist",
+   "fields": {
+    "store_links": {
+     "mapValue": {
+      "fields": {
+       "steam": {
+        "stringValue": "https://store.steampowered.com/app/1389100/1000xRESIST/"
+       }
+      }
+     }
+    },
+    "release_year": {
+     "integerValue": "2024"
+    },
+    "title_lower": {
+     "stringValue": "1000xresist"
+    },
+    "description_short": {
+     "stringValue": "A profoundly original narrative about memory, resistance, and identity in a world devastated by alien occupation. A storytelling masterpiece."
+    },
+    "stop_friendliness": {
+     "stringValue": "checkpoints"
+    },
+    "mood_tags": {
+     "arrayValue": {
+      "values": [
+       {
+        "stringValue": "emotional"
+       },
+       {
+        "stringValue": "thought-provoking"
+       },
+       {
+        "stringValue": "immersive"
+       },
+       {
+        "stringValue": "unique"
+       }
+      ]
+     }
+    },
+    "description": {
+     "stringValue": "A profoundly original narrative about memory, resistance, and identity in a world devastated by alien occupation. A storytelling masterpiece."
+    },
+    "subscription_services": {
+     "arrayValue": {
+      "values": [
+       {
+        "stringValue": "xbox_game_pass"
+       }
+      ]
+     }
+    },
+    "title": {
+     "stringValue": "1000xRESIST"
+    },
+    "year": {
+     "integerValue": "2024"
+    },
+    "genre_tags": {
+     "arrayValue": {
+      "values": [
+       {
+        "stringValue": "narrative"
+       },
+       {
+        "stringValue": "adventure"
+       },
+       {
+        "stringValue": "sci-fi"
+       },
+       {
+        "stringValue": "indie"
+       }
+      ]
+     }
+    },
+    "multiplayer": {
+     "arrayValue": {
+      "values": [
+       {
+        "stringValue": "solo"
+       }
+      ]
+     }
+    },
+    "time_to_fun": {
+     "stringValue": "short"
+    },
+    "time_tags": {
+     "arrayValue": {
+      "values": [
+       {
+        "integerValue": "30"
+       },
+       {
+        "integerValue": "60"
+       }
+      ]
+     }
+    },
+    "genres": {
+     "arrayValue": {
+      "values": [
+       {
+        "stringValue": "narrative"
+       },
+       {
+        "stringValue": "adventure"
+       },
+       {
+        "stringValue": "sci-fi"
+       },
+       {
+        "stringValue": "indie"
+       }
+      ]
+     }
+    },
+    "category": {
+     "stringValue": "focused"
+    },
+    "moods": {
+     "arrayValue": {
+      "values": [
+       {
+        "stringValue": "emotional"
+       },
+       {
+        "stringValue": "thought-provoking"
+       },
+       {
+        "stringValue": "immersive"
+       },
+       {
+        "stringValue": "unique"
+       }
+      ]
+     }
+    },
+    "play_style": {
+     "arrayValue": {
+      "values": [
+       {
+        "stringValue": "narrative"
+       }
+      ]
+     }
+    },
+    "fun_fact": {
+     "stringValue": "Achieved a 100% critic recommendation score on OpenCritic, one of very few indie games to do so."
+    },
+    "platforms": {
+     "arrayValue": {
+      "values": [
+       {
+        "stringValue": "pc"
+       },
+       {
+        "stringValue": "switch"
+       },
+       {
+        "stringValue": "playstation"
+       },
+       {
+        "stringValue": "xbox"
+       }
+      ]
+     }
+    },
+    "energy": {
+     "stringValue": "low"
+    },
+    "multiplayer_modes": {
+     "arrayValue": {
+      "values": [
+       {
+        "stringValue": "solo"
+       }
+      ]
+     }
+    },
+    "energy_level": {
+     "stringValue": "low"
+    },
+    "updated_at": {
+     "timestampValue": "2026-05-31T21:27:28.635260Z"
+    }
+   },
+   "createTime": "2026-02-19T16:28:43.235925Z",
+   "updateTime": "2026-08-24T16:51:28.511267Z"
+  },
+  "caravan-sandwitch": {
+   "name": "projects/playnxt-1a2c6/databases/(default)/documents/games/caravan-sandwitch",
+   "fields": {
+    "description_short": {
+     "stringValue": "Drive a van through a sun-drenched Provençal landscape searching for your missing sister. A combat-free exploration adventure."
+    },
+    "stop_friendliness": {
+     "stringValue": "anytime"
+    },
+    "time_tags": {
+     "arrayValue": {
+      "values": [
+       {
+        "integerValue": "15"
+       },
+       {
+        "integerValue": "30"
+       }
+      ]
+     }
+    },
+    "year": {
+     "integerValue": "2024"
+    },
+    "title_lower": {
+     "stringValue": "caravan sandwitch"
+    },
+    "store_links": {
+     "mapValue": {
+      "fields": {
+       "steam": {
+        "stringValue": "https://store.steampowered.com/app/2264260/Caravan_SandWitch/"
+       }
+      }
+     }
+    },
+    "multiplayer_modes": {
+     "arrayValue": {
+      "values": [
+       {
+        "stringValue": "solo"
+       }
+      ]
+     }
+    },
+    "genres": {
+     "arrayValue": {
+      "values": [
+       {
+        "stringValue": "adventure"
+       },
+       {
+        "stringValue": "exploration"
+       },
+       {
+        "stringValue": "cozy"
+       },
+       {
+        "stringValue": "indie"
+       }
+      ]
+     }
+    },
+    "description": {
+     "stringValue": "Drive a van through a sun-drenched Provençal landscape searching for your missing sister. A combat-free exploration adventure."
+    },
+    "play_style": {
+     "arrayValue": {
+      "values": [
+       {
+        "stringValue": "sandbox_creative"
+       }
+      ]
+     }
+    },
+    "updated_at": {
+     "timestampValue": "2026-05-31T21:27:46.268571Z"
+    },
+    "genre_tags": {
+     "arrayValue": {
+      "values": [
+       {
+        "stringValue": "adventure"
+       },
+       {
+        "stringValue": "exploration"
+       },
+       {
+        "stringValue": "cozy"
+       },
+       {
+        "stringValue": "indie"
+       }
+      ]
+     }
+    },
+    "moods": {
+     "arrayValue": {
+      "values": [
+       {
+        "stringValue": "peaceful"
+       },
+       {
+        "stringValue": "atmospheric"
+       },
+       {
+        "stringValue": "heartwarming"
+       },
+       {
+        "stringValue": "adventurous"
+       }
+      ]
+     }
+    },
+    "release_year": {
+     "integerValue": "2024"
+    },
+    "category": {
+     "stringValue": "wind_down"
+    },
+    "platforms": {
+     "arrayValue": {
+      "values": [
+       {
+        "stringValue": "pc"
+       },
+       {
+        "stringValue": "playstation"
+       },
+       {
+        "stringValue": "switch"
+       }
+      ]
+     }
+    },
+    "energy_level": {
+     "stringValue": "low"
+    },
+    "fun_fact": {
+     "stringValue": "Set on a fictional planet inspired by the south of France, with no combat or fail states — just exploration and conversation."
+    },
+    "energy": {
+     "stringValue": "low"
+    },
+    "mood_tags": {
+     "arrayValue": {
+      "values": [
+       {
+        "stringValue": "peaceful"
+       },
+       {
+        "stringValue": "atmospheric"
+       },
+       {
+        "stringValue": "heartwarming"
+       },
+       {
+        "stringValue": "adventurous"
+       }
+      ]
+     }
+    },
+    "multiplayer": {
+     "arrayValue": {
+      "values": [
+       {
+        "stringValue": "solo"
+       }
+      ]
+     }
+    },
+    "time_to_fun": {
+     "stringValue": "short"
+    },
+    "title": {
+     "stringValue": "Caravan SandWitch"
+    }
+   },
+   "createTime": "2026-02-19T16:58:17.724011Z",
+   "updateTime": "2026-05-31T21:25:35.069332Z"
+  },
+  "citizen-sleeper-2": {
+   "name": "projects/playnxt-1a2c6/databases/(default)/documents/games/citizen-sleeper-2",
+   "fields": {
+    "time_to_fun": {
+     "stringValue": "short"
+    },
+    "category": {
+     "stringValue": "focused"
+    },
+    "fun_fact": {
+     "stringValue": "Creator Gareth Damian Martin developed the game's tabletop RPG-inspired mechanics from their background in game design theory."
+    },
+    "time_tags": {
+     "arrayValue": {
+      "values": [
+       {
+        "integerValue": "30"
+       },
+       {
+        "integerValue": "60"
+       }
+      ]
+     }
+    },
+    "description": {
+     "stringValue": "A dice-based narrative RPG about survival on the edges of a corporate-controlled galaxy. Features evocative writing and meaningful choices."
+    },
+    "description_short": {
+     "stringValue": "A dice-based narrative RPG about survival on the edges of a corporate-controlled galaxy. Features evocative writing and meaningful choices."
+    },
+    "moods": {
+     "arrayValue": {
+      "values": [
+       {
+        "stringValue": "atmospheric"
+       },
+       {
+        "stringValue": "thoughtful"
+       },
+       {
+        "stringValue": "immersive"
+       },
+       {
+        "stringValue": "sci-fi"
+       }
+      ]
+     }
+    },
+    "stop_friendliness": {
+     "stringValue": "anytime"
+    },
+    "energy_level": {
+     "stringValue": "low"
+    },
+    "multiplayer": {
+     "arrayValue": {
+      "values": [
+       {
+        "stringValue": "solo"
+       }
+      ]
+     }
+    },
+    "title_lower": {
+     "stringValue": "citizen sleeper 2: starward vector"
+    },
+    "updated_at": {
+     "timestampValue": "2026-05-31T21:27:48.560836Z"
+    },
+    "year": {
+     "integerValue": "2025"
+    },
+    "store_links": {
+     "mapValue": {
+      "fields": {
+       "steam": {
+        "stringValue": "https://store.steampowered.com/app/2212070/Citizen_Sleeper_2_Starward_Vector/"
+       }
+      }
+     }
+    },
+    "genres": {
+     "arrayValue": {
+      "values": [
+       {
+        "stringValue": "rpg"
+       },
+       {
+        "stringValue": "narrative"
+       },
+       {
+        "stringValue": "dice-based"
+       },
+       {
+        "stringValue": "indie"
+       }
+      ]
+     }
+    },
+    "genre_tags": {
+     "arrayValue": {
+      "values": [
+       {
+        "stringValue": "rpg"
+       },
+       {
+        "stringValue": "narrative"
+       },
+       {
+        "stringValue": "dice-based"
+       },
+       {
+        "stringValue": "indie"
+       }
+      ]
+     }
+    },
+    "energy": {
+     "stringValue": "low"
+    },
+    "title": {
+     "stringValue": "Citizen Sleeper 2: Starward Vector"
+    },
+    "multiplayer_modes": {
+     "arrayValue": {
+      "values": [
+       {
+        "stringValue": "solo"
+       }
+      ]
+     }
+    },
+    "mood_tags": {
+     "arrayValue": {
+      "values": [
+       {
+        "stringValue": "atmospheric"
+       },
+       {
+        "stringValue": "thoughtful"
+       },
+       {
+        "stringValue": "immersive"
+       },
+       {
+        "stringValue": "sci-fi"
+       }
+      ]
+     }
+    },
+    "release_year": {
+     "integerValue": "2025"
+    },
+    "platforms": {
+     "arrayValue": {
+      "values": [
+       {
+        "stringValue": "pc"
+       },
+       {
+        "stringValue": "playstation"
+       },
+       {
+        "stringValue": "xbox"
+       }
+      ]
+     }
+    },
+    "play_style": {
+     "arrayValue": {
+      "values": [
+       {
+        "stringValue": "narrative"
+       }
+      ]
+     }
+    }
+   },
+   "createTime": "2026-02-19T16:28:42.337421Z",
+   "updateTime": "2026-05-31T21:25:37.355292Z"
+  },
+  "clair-obscur-expedition-33": {
+   "name": "projects/playnxt-1a2c6/databases/(default)/documents/games/clair-obscur-expedition-33",
+   "fields": {
+    "genre_tags": {
+     "arrayValue": {
+      "values": [
+       {
+        "stringValue": "rpg"
+       },
+       {
+        "stringValue": "turn-based"
+       },
+       {
+        "stringValue": "action"
+       }
+      ]
+     }
+    },
+    "updated_at": {
+     "timestampValue": "2026-05-31T21:27:48.777812Z"
+    },
+    "created_at": {
+     "timestampValue": "2026-01-30T17:07:20.845336Z"
+    },
+    "stop_friendliness": {
+     "stringValue": "checkpoints"
+    },
+    "store_links": {
+     "mapValue": {
+      "fields": {
+       "playstation": {
+        "stringValue": "https://store.playstation.com/en-us/concept/10008592"
+       },
+       "steam": {
+        "stringValue": "https://store.steampowered.com/app/2500870/Clair_Obscur_Expedition_33/"
+       },
+       "xbox": {
+        "stringValue": "https://www.xbox.com/en-US/games/store/clair-obscur-expedition-33/9p1f3hgfc7wv"
+       }
+      }
+     }
+    },
+    "multiplayer_modes": {
+     "arrayValue": {
+      "values": [
+       {
+        "stringValue": "solo"
+       }
+      ]
+     }
+    },
+    "play_style": {
+     "arrayValue": {
+      "values": [
+       {
+        "stringValue": "strategy"
+       },
+       {
+        "stringValue": "narrative"
+       }
+      ]
+     }
+    },
+    "time_to_fun": {
+     "stringValue": "medium"
+    },
+    "year": {
+     "integerValue": "2025"
+    },
+    "mood_tags": {
+     "arrayValue": {
+      "values": [
+       {
+        "stringValue": "atmospheric"
+       },
+       {
+        "stringValue": "mysterious"
+       },
+       {
+        "stringValue": "immersive"
+       },
+       {
+        "stringValue": "dramatic"
+       }
+      ]
+     }
+    },
+    "platforms": {
+     "arrayValue": {
+      "values": [
+       {
+        "stringValue": "pc"
+       },
+       {
+        "stringValue": "playstation"
+       },
+       {
+        "stringValue": "xbox"
+       }
+      ]
+     }
+    },
+    "energy_level": {
+     "stringValue": "medium"
+    },
+    "warnings": {
+     "arrayValue": {}
+    },
+    "fun_fact": {
+     "stringValue": "Features a unique blend of turn-based combat with real-time reaction mechanics inspired by action games."
+    },
+    "title_lower": {
+     "stringValue": "clair obscur: expedition 33"
+    },
+    "release_year": {
+     "integerValue": "2025"
+    },
+    "subscription_services": {
+     "arrayValue": {
+      "values": [
+       {
+        "stringValue": "playstation_plus"
+       }
+      ]
+     }
+    },
+    "description_short": {
+     "stringValue": "A turn-based RPG where every year the Paintress paints a number, and all who reach that age vanish."
+    },
+    "title": {
+     "stringValue": "Clair Obscur: Expedition 33"
+    },
+    "moods": {
+     "arrayValue": {
+      "values": [
+       {
+        "stringValue": "atmospheric"
+       },
+       {
+        "stringValue": "mysterious"
+       },
+       {
+        "stringValue": "immersive"
+       },
+       {
+        "stringValue": "dramatic"
+       }
+      ]
+     }
+    },
+    "time_tags": {
+     "arrayValue": {
+      "values": [
+       {
+        "integerValue": "60"
+       },
+       {
+        "integerValue": "90"
+       }
+      ]
+     }
+    },
+    "game_id": {
+     "stringValue": "clair-obscur-expedition-33"
+    },
+    "genres": {
+     "arrayValue": {
+      "values": [
+       {
+        "stringValue": "rpg"
+       },
+       {
+        "stringValue": "turn-based"
+       },
+       {
+        "stringValue": "action"
+       }
+      ]
+     }
+    },
+    "franchise": {
+     "nullValue": null
+    },
+    "explanation_templates": {
+     "mapValue": {
+      "fields": {
+       "time_fit": {
+        "stringValue": "Easy to get into with a bit of learning."
+       },
+       "style_fit": {
+        "stringValue": "Deep strategic gameplay for thoughtful decisions."
+       },
+       "stop_fit": {
+        "stringValue": "Regular checkpoints let you pause when needed."
+       },
+       "mood_fit": {
+        "stringValue": "Balanced experience that keeps you engaged without overwhelming."
+       }
+      }
+     }
+    }
+   },
+   "createTime": "2026-01-30T17:03:40.783507Z",
+   "updateTime": "2026-10-19T14:29:59.622641Z"
+  },
+  "elden-ring-nightreign": {
+   "name": "projects/playnxt-1a2c6/databases/(default)/documents/games/elden-ring-nightreign",
+   "fields": {
+    "stop_friendliness": {
+     "stringValue": "checkpoints"
+    },
+    "moods": {
+     "arrayValue": {
+      "values": [
+       {
+        "stringValue": "challenging"
+       },
+       {
+        "stringValue": "social"
+       },
+       {
+        "stringValue": "epic"
+       },
+       {
+        "stringValue": "rewarding"
+       }
+      ]
+     }
+    },
+    "multiplayer": {
+     "arrayValue": {
+      "values": [
+       {
+        "stringValue": "online_coop"
+       }
+      ]
+     }
+    },
+    "platforms": {
+     "arrayValue": {
+      "values": [
+       {
+        "stringValue": "pc"
+       },
+       {
+        "stringValue": "playstation"
+       },
+       {
+        "stringValue": "xbox"
+       }
+      ]
+     }
+    },
+    "description": {
+     "stringValue": "A standalone co-op roguelike spin-off of Elden Ring. Team up with two other players to survive shrinking nights and defeat powerful bosses."
+    },
+    "store_links": {
+     "mapValue": {
+      "fields": {
+       "steam": {
+        "stringValue": "https://store.steampowered.com/app/2953010/ELDEN_RING_NIGHTREIGN/"
+       }
+      }
+     }
+    },
+    "description_short": {
+     "stringValue": "A standalone co-op roguelike spin-off of Elden Ring. Team up with two other players to survive shrinking nights and defeat powerful bosses."
+    },
+    "multiplayer_modes": {
+     "arrayValue": {
+      "values": [
+       {
+        "stringValue": "online_coop"
+       }
+      ]
+     }
+    },
+    "title": {
+     "stringValue": "Elden Ring Nightreign"
+    },
+    "energy": {
+     "stringValue": "high"
+    },
+    "mood_tags": {
+     "arrayValue": {
+      "values": [
+       {
+        "stringValue": "challenging"
+       },
+       {
+        "stringValue": "social"
+       },
+       {
+        "stringValue": "epic"
+       },
+       {
+        "stringValue": "rewarding"
+       }
+      ]
+     }
+    },
+    "year": {
+     "integerValue": "2025"
+    },
+    "release_year": {
+     "integerValue": "2025"
+    },
+    "title_lower": {
+     "stringValue": "elden ring nightreign"
+    },
+    "time_tags": {
+     "arrayValue": {
+      "values": [
+       {
+        "integerValue": "30"
+       },
+       {
+        "integerValue": "60"
+       }
+      ]
+     }
+    },
+    "play_style": {
+     "arrayValue": {
+      "values": [
+       {
+        "stringValue": "action"
+       }
+      ]
+     }
+    },
+    "fun_fact": {
+     "stringValue": "FromSoftware's first dedicated co-op game, blending Souls combat with roguelike structure."
+    },
+    "genres": {
+     "arrayValue": {
+      "values": [
+       {
+        "stringValue": "souls-like"
+       },
+       {
+        "stringValue": "co-op"
+       },
+       {
+        "stringValue": "roguelike"
+       },
+       {
+        "stringValue": "action-rpg"
+       }
+      ]
+     }
+    },
+    "energy_level": {
+     "stringValue": "high"
+    },
+    "updated_at": {
+     "timestampValue": "2026-05-31T21:27:56.133057Z"
+    },
+    "genre_tags": {
+     "arrayValue": {
+      "values": [
+       {
+        "stringValue": "souls-like"
+       },
+       {
+        "stringValue": "co-op"
+       },
+       {
+        "stringValue": "roguelike"
+       },
+       {
+        "stringValue": "action-rpg"
+       }
+      ]
+     }
+    },
+    "category": {
+     "stringValue": "intense"
+    },
+    "time_to_fun": {
+     "stringValue": "short"
+    }
+   },
+   "createTime": "2026-02-19T16:58:08.639348Z",
+   "updateTime": "2026-05-31T21:25:44.916024Z"
+  },
+  "final-fantasy-16": {
+   "name": "projects/playnxt-1a2c6/databases/(default)/documents/games/final-fantasy-16",
+   "fields": {
+    "subscription_services": {
+     "arrayValue": {}
+    },
+    "created_at": {
+     "timestampValue": "2026-01-31T22:07:11.861937Z"
+    },
+    "description_short": {
+     "stringValue": "A dark, mature Final Fantasy with epic Eikon battles."
+    },
+    "mood_tags": {
+     "arrayValue": {
+      "values": [
+       {
+        "stringValue": "epic"
+       },
+       {
+        "stringValue": "emotional"
+       },
+       {
+        "stringValue": "action-packed"
+       },
+       {
+        "stringValue": "story-rich"
+       }
+      ]
+     }
+    },
+    "energy_level": {
+     "stringValue": "high"
+    },
+    "genre_tags": {
+     "arrayValue": {
+      "values": [
+       {
+        "stringValue": "action-rpg"
+       },
+       {
+        "stringValue": "jrpg"
+       },
+       {
+        "stringValue": "fantasy"
+       },
+       {
+        "stringValue": "narrative"
+       }
+      ]
+     }
+    },
+    "avg_session_length": {
+     "integerValue": "90"
+    },
+    "multiplayer_modes": {
+     "arrayValue": {
+      "values": [
+       {
+        "stringValue": "solo"
+       }
+      ]
+     }
+    },
+    "updated_at": {
+     "timestampValue": "2026-01-31T22:07:11.861940Z"
+    },
+    "moods": {
+     "arrayValue": {
+      "values": [
+       {
+        "stringValue": "epic"
+       },
+       {
+        "stringValue": "emotional"
+       },
+       {
+        "stringValue": "action-packed"
+       },
+       {
+        "stringValue": "story-rich"
+       }
+      ]
+     }
+    },
+    "game_id": {
+     "stringValue": "final-fantasy-16"
+    },
+    "title_lower": {
+     "stringValue": "final fantasy xvi"
+    },
+    "play_style": {
+     "arrayValue": {
+      "values": [
+       {
+        "stringValue": "action"
+       },
+       {
+        "stringValue": "narrative"
+       }
+      ]
+     }
+    },
+    "title": {
+     "stringValue": "Final Fantasy XVI"
+    },
+    "content_warnings": {
+     "arrayValue": {
+      "values": [
+       {
+        "stringValue": "violence"
+       },
+       {
+        "stringValue": "mature_themes"
+       }
+      ]
+     }
+    },
+    "time_to_fun": {
+     "stringValue": "medium"
+    },
+    "platforms": {
+     "arrayValue": {
+      "values": [
+       {
+        "stringValue": "pc"
+       },
+       {
+        "stringValue": "playstation"
+       },
+       {
+        "stringValue": "xbox"
+       }
+      ]
+     }
+    },
+    "stop_friendliness": {
+     "stringValue": "checkpoints"
+    },
+    "release_year": {
+     "integerValue": "2023"
+    },
+    "genres": {
+     "arrayValue": {
+      "values": [
+       {
+        "stringValue": "action-rpg"
+       },
+       {
+        "stringValue": "jrpg"
+       },
+       {
+        "stringValue": "fantasy"
+       },
+       {
+        "stringValue": "narrative"
+       }
+      ]
+     }
+    },
+    "store_links": {
+     "mapValue": {
+      "fields": {
+       "steam": {
+        "stringValue": "https://store.steampowered.com/app/1850690/FINAL_FANTASY_XVI/"
+       }
+      }
+     }
+    },
+    "explanation_templates": {
+     "mapValue": {
+      "fields": {
+       "style_fit": {
+        "stringValue": "Action-focused Final Fantasy"
+       },
+       "time_fit": {
+        "stringValue": "Progress through the story for {time} minutes"
+       },
+       "mood_fit": {
+        "stringValue": "Epic dark fantasy action"
+       },
+       "stop_fit": {
+        "stringValue": "Save at hideaway and checkpoints"
+       }
+      }
+     }
+    },
+    "year": {
+     "integerValue": "2023"
+    },
+    "time_tags": {
+     "arrayValue": {
+      "values": [
+       {
+        "integerValue": "60"
+       },
+       {
+        "integerValue": "90"
+       }
+      ]
+     }
+    }
+   },
+   "createTime": "2025-12-17T19:53:03.997609Z",
+   "updateTime": "2026-08-21T19:33:09.300864Z"
+  },
+  "garden-witch-life": {
+   "name": "projects/playnxt-1a2c6/databases/(default)/documents/games/garden-witch-life",
+   "fields": {
+    "stop_friendliness": {
+     "stringValue": "anytime"
+    },
+    "genre_tags": {
+     "arrayValue": {
+      "values": [
+       {
+        "stringValue": "cozy"
+       },
+       {
+        "stringValue": "simulation"
+       },
+       {
+        "stringValue": "farming"
+       },
+       {
+        "stringValue": "indie"
+       }
+      ]
+     }
+    },
+    "title_lower": {
+     "stringValue": "garden witch life"
+    },
+    "multiplayer_modes": {
+     "arrayValue": {
+      "values": [
+       {
+        "stringValue": "solo"
+       }
+      ]
+     }
+    },
+    "moods": {
+     "arrayValue": {
+      "values": [
+       {
+        "stringValue": "cozy"
+       },
+       {
+        "stringValue": "relaxing"
+       },
+       {
+        "stringValue": "wholesome"
+       },
+       {
+        "stringValue": "creative"
+       }
+      ]
+     }
+    },
+    "title": {
+     "stringValue": "Garden Witch Life"
+    },
+    "description_short": {
+     "stringValue": "Build a cozy witch garden, brew potions, and decorate your cottage. A relaxing life sim with beautiful hand-drawn art."
+    },
+    "store_links": {
+     "mapValue": {
+      "fields": {
+       "steam": {
+        "stringValue": "https://store.steampowered.com/app/1525310/Garden_Witch_Life/"
+       }
+      }
+     }
+    },
+    "mood_tags": {
+     "arrayValue": {
+      "values": [
+       {
+        "stringValue": "cozy"
+       },
+       {
+        "stringValue": "relaxing"
+       },
+       {
+        "stringValue": "wholesome"
+       },
+       {
+        "stringValue": "creative"
+       }
+      ]
+     }
+    },
+    "updated_at": {
+     "timestampValue": "2026-05-31T21:28:00.710285Z"
+    },
+    "energy_level": {
+     "stringValue": "low"
+    },
+    "play_style": {
+     "arrayValue": {
+      "values": [
+       {
+        "stringValue": "sandbox_creative"
+       }
+      ]
+     }
+    },
+    "multiplayer": {
+     "arrayValue": {
+      "values": [
+       {
+        "stringValue": "solo"
+       }
+      ]
+     }
+    },
+    "time_to_fun": {
+     "stringValue": "short"
+    },
+    "description": {
+     "stringValue": "Build a cozy witch garden, brew potions, and decorate your cottage. A relaxing life sim with beautiful hand-drawn art."
+    },
+    "year": {
+     "integerValue": "2024"
+    },
+    "energy": {
+     "stringValue": "low"
+    },
+    "time_tags": {
+     "arrayValue": {
+      "values": [
+       {
+        "integerValue": "15"
+       },
+       {
+        "integerValue": "30"
+       }
+      ]
+     }
+    },
+    "category": {
+     "stringValue": "wind_down"
+    },
+    "release_year": {
+     "integerValue": "2024"
+    },
+    "platforms": {
+     "arrayValue": {
+      "values": [
+       {
+        "stringValue": "pc"
+       },
+       {
+        "stringValue": "switch"
+       }
+      ]
+     }
+    },
+    "genres": {
+     "arrayValue": {
+      "values": [
+       {
+        "stringValue": "cozy"
+       },
+       {
+        "stringValue": "simulation"
+       },
+       {
+        "stringValue": "farming"
+       },
+       {
+        "stringValue": "indie"
+       }
+      ]
+     }
+    },
+    "fun_fact": {
+     "stringValue": "Features a fully customizable garden that grows and changes with the seasons."
+    }
+   },
+   "createTime": "2026-02-19T16:58:17.031098Z",
+   "updateTime": "2026-05-31T21:25:49.502437Z"
+  },
+  "gimmick-2": {
+   "name": "projects/playnxt-1a2c6/databases/(default)/documents/games/gimmick-2",
+   "fields": {
+    "description_short": {
+     "stringValue": "The sequel to the cult NES classic. Throw star-shaped projectiles with physics-based mechanics in this charming platformer."
+    },
+    "genres": {
+     "arrayValue": {
+      "values": [
+       {
+        "stringValue": "platformer"
+       },
+       {
+        "stringValue": "retro"
+       },
+       {
+        "stringValue": "indie"
+       }
+      ]
+     }
+    },
+    "fun_fact": {
+     "stringValue": "The original Gimmick! (1992) is considered one of the rarest and most technically impressive NES games ever made."
+    },
+    "multiplayer_modes": {
+     "arrayValue": {
+      "values": [
+       {
+        "stringValue": "solo"
+       }
+      ]
+     }
+    },
+    "energy": {
+     "stringValue": "medium"
+    },
+    "multiplayer": {
+     "arrayValue": {
+      "values": [
+       {
+        "stringValue": "solo"
+       }
+      ]
+     }
+    },
+    "category": {
+     "stringValue": "casual"
+    },
+    "title_lower": {
+     "stringValue": "gimmick! 2"
+    },
+    "mood_tags": {
+     "arrayValue": {
+      "values": [
+       {
+        "stringValue": "charming"
+       },
+       {
+        "stringValue": "challenging"
+       },
+       {
+        "stringValue": "nostalgic"
+       },
+       {
+        "stringValue": "fun"
+       }
+      ]
+     }
+    },
+    "store_links": {
+     "mapValue": {
+      "fields": {
+       "steam": {
+        "stringValue": "https://store.steampowered.com/app/2483510/Gimmick_2/"
+       }
+      }
+     }
+    },
+    "title": {
+     "stringValue": "Gimmick! 2"
+    },
+    "description": {
+     "stringValue": "The sequel to the cult NES classic. Throw star-shaped projectiles with physics-based mechanics in this charming platformer."
+    },
+    "play_style": {
+     "arrayValue": {
+      "values": [
+       {
+        "stringValue": "action"
+       }
+      ]
+     }
+    },
+    "year": {
+     "integerValue": "2025"
+    },
+    "stop_friendliness": {
+     "stringValue": "checkpoints"
+    },
+    "genre_tags": {
+     "arrayValue": {
+      "values": [
+       {
+        "stringValue": "platformer"
+       },
+       {
+        "stringValue": "retro"
+       },
+       {
+        "stringValue": "indie"
+       }
+      ]
+     }
+    },
+    "updated_at": {
+     "timestampValue": "2026-05-31T21:28:01.397990Z"
+    },
+    "release_year": {
+     "integerValue": "2025"
+    },
+    "moods": {
+     "arrayValue": {
+      "values": [
+       {
+        "stringValue": "charming"
+       },
+       {
+        "stringValue": "challenging"
+       },
+       {
+        "stringValue": "nostalgic"
+       },
+       {
+        "stringValue": "fun"
+       }
+      ]
+     }
+    },
+    "time_to_fun": {
+     "stringValue": "short"
+    },
+    "platforms": {
+     "arrayValue": {
+      "values": [
+       {
+        "stringValue": "pc"
+       },
+       {
+        "stringValue": "playstation"
+       },
+       {
+        "stringValue": "xbox"
+       },
+       {
+        "stringValue": "switch"
+       }
+      ]
+     }
+    },
+    "energy_level": {
+     "stringValue": "medium"
+    },
+    "time_tags": {
+     "arrayValue": {
+      "values": [
+       {
+        "integerValue": "15"
+       },
+       {
+        "integerValue": "30"
+       }
+      ]
+     }
+    }
+   },
+   "createTime": "2026-02-19T17:00:45.240691Z",
+   "updateTime": "2026-05-31T21:25:50.204638Z"
+  },
+  "madden-25": {
+   "name": "projects/playnxt-1a2c6/databases/(default)/documents/games/madden-25",
+   "fields": {
+    "created_at": {
+     "timestampValue": "2026-01-30T17:07:10.470194Z"
+    },
+    "release_year": {
+     "integerValue": "2024"
+    },
+    "genres": {
+     "arrayValue": {
+      "values": [
+       {
+        "stringValue": "sports"
+       },
+       {
+        "stringValue": "football"
+       },
+       {
+        "stringValue": "simulation"
+       }
+      ]
+     }
+    },
+    "stop_friendliness": {
+     "stringValue": "checkpoints"
+    },
+    "moods": {
+     "arrayValue": {
+      "values": [
+       {
+        "stringValue": "competitive"
+       },
+       {
+        "stringValue": "exciting"
+       },
+       {
+        "stringValue": "strategic"
+       },
+       {
+        "stringValue": "realistic"
+       }
+      ]
+     }
+    },
+    "multiplayer_modes": {
+     "arrayValue": {
+      "values": [
+       {
+        "stringValue": "solo"
+       },
+       {
+        "stringValue": "local_coop"
+       },
+       {
+        "stringValue": "online_coop"
+       },
+       {
+        "stringValue": "competitive"
+       }
+      ]
+     }
+    },
+    "play_style": {
+     "arrayValue": {
+      "values": [
+       {
+        "stringValue": "action"
+       },
+       {
+        "stringValue": "strategy"
+       }
+      ]
+     }
+    },
+    "energy_level": {
+     "stringValue": "medium"
+    },
+    "fun_fact": {
+     "stringValue": "Named after legendary coach and commentator John Madden."
+    },
+    "updated_at": {
+     "timestampValue": "2026-05-31T21:28:18.963133Z"
+    },
+    "description_short": {
+     "stringValue": "American football simulation."
+    },
+    "warnings": {
+     "arrayValue": {}
+    },
+    "explanation_templates": {
+     "mapValue": {
+      "fields": {
+       "mood_fit": {
+        "stringValue": "Balanced experience that keeps you engaged without overwhelming."
+       },
+       "stop_fit": {
+        "stringValue": "Regular checkpoints let you pause when needed."
+       },
+       "style_fit": {
+        "stringValue": "Fast-paced action keeps the adrenaline flowing."
+       },
+       "time_fit": {
+        "stringValue": "Quick to jump in - you'll be having fun in minutes."
+       }
+      }
+     }
+    },
+    "title_lower": {
+     "stringValue": "madden nfl 25"
+    },
+    "year": {
+     "integerValue": "2024"
+    },
+    "title": {
+     "stringValue": "Madden NFL 25"
+    },
+    "time_tags": {
+     "arrayValue": {
+      "values": [
+       {
+        "integerValue": "30"
+       },
+       {
+        "integerValue": "60"
+       }
+      ]
+     }
+    },
+    "mood_tags": {
+     "arrayValue": {
+      "values": [
+       {
+        "stringValue": "competitive"
+       },
+       {
+        "stringValue": "exciting"
+       },
+       {
+        "stringValue": "strategic"
+       },
+       {
+        "stringValue": "realistic"
+       },
+       {
+        "stringValue": "sports"
+       }
+      ]
+     }
+    },
+    "genre_tags": {
+     "arrayValue": {
+      "values": [
+       {
+        "stringValue": "sports"
+       },
+       {
+        "stringValue": "football"
+       },
+       {
+        "stringValue": "simulation"
+       }
+      ]
+     }
+    },
+    "time_to_fun": {
+     "stringValue": "short"
+    },
+    "franchise": {
+     "nullValue": null
+    },
+    "game_id": {
+     "stringValue": "madden-25"
+    },
+    "store_links": {
+     "mapValue": {
+      "fields": {
+       "xbox": {
+        "stringValue": "https://www.microsoft.com/en-us/store/p/madden-nfl-25/c3cf8lr1rfkh"
+       },
+       "steam": {
+        "stringValue": "https://store.steampowered.com/app/2417330/Madden_NFL_25/"
+       }
+      }
+     }
+    },
+    "platforms": {
+     "arrayValue": {
+      "values": [
+       {
+        "stringValue": "pc"
+       },
+       {
+        "stringValue": "playstation"
+       },
+       {
+        "stringValue": "xbox"
+       }
+      ]
+     }
+    },
+    "subscription_services": {
+     "arrayValue": {
+      "values": [
+       {
+        "stringValue": "ea_play"
+       }
+      ]
+     }
+    }
+   },
+   "createTime": "2025-12-26T14:16:01.245637Z",
+   "updateTime": "2026-08-21T17:21:41.138132Z"
+  },
+  "max-payne": {
+   "name": "projects/playnxt-1a2c6/databases/(default)/documents/games/max-payne",
+   "fields": {
+    "time_to_fun": {
+     "stringValue": "short"
+    },
+    "multiplayer_modes": {
+     "arrayValue": {
+      "values": [
+       {
+        "stringValue": "solo"
+       }
+      ]
+     }
+    },
+    "play_style": {
+     "arrayValue": {
+      "values": [
+       {
+        "stringValue": "action"
+       }
+      ]
+     }
+    },
+    "explanation_templates": {
+     "mapValue": {
+      "fields": {
+       "stop_fit": {
+        "stringValue": "Best enjoyed in longer sessions"
+       },
+       "style_fit": {
+        "stringValue": "Fast-paced gameplay"
+       },
+       "time_fit": {
+        "stringValue": "Get your adrenaline pumping in {time} minutes"
+       },
+       "mood_fit": {
+        "stringValue": "Intense action when you're ready for it"
+       }
+      }
+     }
+    },
+    "description_short": {
+     "stringValue": "Bullet-time was born here: a noir graphic novel with a gun in each hand and snow that never stops."
+    },
+    "year": {
+     "integerValue": "2001"
+    },
+    "game_id": {
+     "stringValue": "max-payne"
+    },
+    "time_tags": {
+     "arrayValue": {
+      "values": [
+       {
+        "integerValue": "30"
+       },
+       {
+        "integerValue": "60"
+       },
+       {
+        "integerValue": "90"
+       }
+      ]
+     }
+    },
+    "platforms": {
+     "arrayValue": {
+      "values": [
+       {
+        "stringValue": "pc"
+       },
+       {
+        "stringValue": "playstation"
+       },
+       {
+        "stringValue": "xbox"
+       },
+       {
+        "stringValue": "mobile"
+       }
+      ]
+     }
+    },
+    "genres": {
+     "arrayValue": {
+      "values": [
+       {
+        "stringValue": "shooter"
+       },
+       {
+        "stringValue": "action"
+       },
+       {
+        "stringValue": "narrative"
+       }
+      ]
+     }
+    },
+    "moods": {
+     "arrayValue": {
+      "values": [
+       {
+        "stringValue": "intense"
+       },
+       {
+        "stringValue": "nostalgic"
+       },
+       {
+        "stringValue": "immersive"
+       }
+      ]
+     }
+    },
+    "title": {
+     "stringValue": "Max Payne"
+    },
+    "energy_level": {
+     "stringValue": "high"
+    },
+    "mood_tags": {
+     "arrayValue": {
+      "values": [
+       {
+        "stringValue": "intense"
+       },
+       {
+        "stringValue": "nostalgic"
+       },
+       {
+        "stringValue": "immersive"
+       }
+      ]
+     }
+    },
+    "stop_friendliness": {
+     "stringValue": "checkpoints"
+    },
+    "subscription_services": {
+     "arrayValue": {}
+    },
+    "genre_tags": {
+     "arrayValue": {
+      "values": [
+       {
+        "stringValue": "shooter"
+       },
+       {
+        "stringValue": "action"
+       },
+       {
+        "stringValue": "narrative"
+       }
+      ]
+     }
+    },
+    "updated_at": {
+     "timestampValue": "2026-09-23T15:51:45.144891Z"
+    },
+    "warnings": {
+     "arrayValue": {}
+    },
+    "release_year": {
+     "integerValue": "2001"
+    },
+    "store_links": {
+     "mapValue": {
+      "fields": {
+       "playstation": {
+        "stringValue": "https://store.playstation.com/en-us/product/UP1004-CUSA03513_00-SLUS202300000001"
+       },
+       "xbox": {
+        "stringValue": "https://marketplace.xbox.com/en-US/Product/Max-Payne/66acd000-77fe-1000-9115-d8025454084c"
+       },
+       "steam": {
+        "stringValue": "http://store.steampowered.com/app/202570/"
+       }
+      }
+     }
+    }
+   },
+   "createTime": "2026-08-24T14:31:59.181726Z",
+   "updateTime": "2026-09-23T15:50:47.721044Z"
+  },
+  "tiny-bookshop": {
+   "name": "projects/playnxt-1a2c6/databases/(default)/documents/games/tiny-bookshop",
+   "fields": {
+    "subscription_services": {
+     "arrayValue": {
+      "values": [
+       {
+        "stringValue": "xbox_game_pass"
+       }
+      ]
+     }
+    },
+    "platforms": {
+     "arrayValue": {
+      "values": [
+       {
+        "stringValue": "pc"
+       },
+       {
+        "stringValue": "switch"
+       }
+      ]
+     }
+    },
+    "title_lower": {
+     "stringValue": "tiny bookshop"
+    },
+    "mood_tags": {
+     "arrayValue": {
+      "values": [
+       {
+        "stringValue": "cozy"
+       },
+       {
+        "stringValue": "relaxing"
+       },
+       {
+        "stringValue": "charming"
+       },
+       {
+        "stringValue": "heartwarming"
+       }
+      ]
+     }
+    },
+    "time_to_fun": {
+     "stringValue": "short"
+    },
+    "genres": {
+     "arrayValue": {
+      "values": [
+       {
+        "stringValue": "cozy"
+       },
+       {
+        "stringValue": "simulation"
+       },
+       {
+        "stringValue": "narrative"
+       },
+       {
+        "stringValue": "indie"
+       }
+      ]
+     }
+    },
+    "fun_fact": {
+     "stringValue": "Achieved Overwhelmingly Positive reviews on Steam with a 96% rating, making it one of 2024's best-reviewed cozy games."
+    },
+    "energy_level": {
+     "stringValue": "low"
+    },
+    "genre_tags": {
+     "arrayValue": {
+      "values": [
+       {
+        "stringValue": "cozy"
+       },
+       {
+        "stringValue": "simulation"
+       },
+       {
+        "stringValue": "narrative"
+       },
+       {
+        "stringValue": "indie"
+       }
+      ]
+     }
+    },
+    "release_year": {
+     "integerValue": "2024"
+    },
+    "description_short": {
+     "stringValue": "Run your own mobile bookshop, traveling to beaches, parks, and cafes. Recommend books to customers and build relationships."
+    },
+    "updated_at": {
+     "timestampValue": "2026-05-31T21:28:46.141604Z"
+    },
+    "description": {
+     "stringValue": "Run your own mobile bookshop, traveling to beaches, parks, and cafes. Recommend books to customers and build relationships."
+    },
+    "multiplayer_modes": {
+     "arrayValue": {
+      "values": [
+       {
+        "stringValue": "solo"
+       }
+      ]
+     }
+    },
+    "title": {
+     "stringValue": "Tiny Bookshop"
+    },
+    "energy": {
+     "stringValue": "low"
+    },
+    "store_links": {
+     "mapValue": {
+      "fields": {
+       "steam": {
+        "stringValue": "https://store.steampowered.com/app/2576010/Tiny_Bookshop/"
+       }
+      }
+     }
+    },
+    "play_style": {
+     "arrayValue": {
+      "values": [
+       {
+        "stringValue": "sandbox_creative"
+       }
+      ]
+     }
+    },
+    "time_tags": {
+     "arrayValue": {
+      "values": [
+       {
+        "integerValue": "15"
+       },
+       {
+        "integerValue": "30"
+       }
+      ]
+     }
+    },
+    "stop_friendliness": {
+     "stringValue": "anytime"
+    },
+    "category": {
+     "stringValue": "wind_down"
+    },
+    "year": {
+     "integerValue": "2024"
+    },
+    "multiplayer": {
+     "arrayValue": {
+      "values": [
+       {
+        "stringValue": "solo"
+       }
+      ]
+     }
+    },
+    "moods": {
+     "arrayValue": {
+      "values": [
+       {
+        "stringValue": "cozy"
+       },
+       {
+        "stringValue": "relaxing"
+       },
+       {
+        "stringValue": "charming"
+       },
+       {
+        "stringValue": "heartwarming"
+       }
+      ]
+     }
+    }
+   },
+   "createTime": "2026-02-19T16:28:48.934032Z",
+   "updateTime": "2026-08-24T16:52:00.706248Z"
+  },
+  "wanderstop": {
+   "name": "projects/playnxt-1a2c6/databases/(default)/documents/games/wanderstop",
+   "fields": {
+    "title_lower": {
+     "stringValue": "wanderstop"
+    },
+    "genres": {
+     "arrayValue": {
+      "values": [
+       {
+        "stringValue": "cozy"
+       },
+       {
+        "stringValue": "narrative"
+       },
+       {
+        "stringValue": "simulation"
+       },
+       {
+        "stringValue": "indie"
+       }
+      ]
+     }
+    },
+    "multiplayer": {
+     "arrayValue": {
+      "values": [
+       {
+        "stringValue": "solo"
+       }
+      ]
+     }
+    },
+    "fun_fact": {
+     "stringValue": "From the creator of The Stanley Parable, exploring themes of burnout and finding peace after a life of conflict."
+    },
+    "title": {
+     "stringValue": "Wanderstop"
+    },
+    "mood_tags": {
+     "arrayValue": {
+      "values": [
+       {
+        "stringValue": "cozy"
+       },
+       {
+        "stringValue": "thoughtful"
+       },
+       {
+        "stringValue": "peaceful"
+       },
+       {
+        "stringValue": "emotional"
+       }
+      ]
+     }
+    },
+    "multiplayer_modes": {
+     "arrayValue": {
+      "values": [
+       {
+        "stringValue": "solo"
+       }
+      ]
+     }
+    },
+    "category": {
+     "stringValue": "wind_down"
+    },
+    "genre_tags": {
+     "arrayValue": {
+      "values": [
+       {
+        "stringValue": "cozy"
+       },
+       {
+        "stringValue": "narrative"
+       },
+       {
+        "stringValue": "simulation"
+       },
+       {
+        "stringValue": "indie"
+       }
+      ]
+     }
+    },
+    "store_links": {
+     "mapValue": {
+      "fields": {
+       "steam": {
+        "stringValue": "https://store.steampowered.com/app/2667280/Wanderstop/"
+       }
+      }
+     }
+    },
+    "energy_level": {
+     "stringValue": "low"
+    },
+    "stop_friendliness": {
+     "stringValue": "anytime"
+    },
+    "time_tags": {
+     "arrayValue": {
+      "values": [
+       {
+        "integerValue": "15"
+       },
+       {
+        "integerValue": "30"
+       }
+      ]
+     }
+    },
+    "energy": {
+     "stringValue": "low"
+    },
+    "description": {
+     "stringValue": "A retired warrior runs a peaceful tea shop. Grow herbs, brew tea, and serve customers while reflecting on a life of adventure."
+    },
+    "platforms": {
+     "arrayValue": {
+      "values": [
+       {
+        "stringValue": "pc"
+       },
+       {
+        "stringValue": "playstation"
+       }
+      ]
+     }
+    },
+    "year": {
+     "integerValue": "2025"
+    },
+    "moods": {
+     "arrayValue": {
+      "values": [
+       {
+        "stringValue": "cozy"
+       },
+       {
+        "stringValue": "thoughtful"
+       },
+       {
+        "stringValue": "peaceful"
+       },
+       {
+        "stringValue": "emotional"
+       }
+      ]
+     }
+    },
+    "play_style": {
+     "arrayValue": {
+      "values": [
+       {
+        "stringValue": "sandbox_creative"
+       }
+      ]
+     }
+    },
+    "time_to_fun": {
+     "stringValue": "short"
+    },
+    "updated_at": {
+     "timestampValue": "2026-05-31T21:28:49.247415Z"
+    },
+    "release_year": {
+     "integerValue": "2025"
+    },
+    "description_short": {
+     "stringValue": "A retired warrior runs a peaceful tea shop. Grow herbs, brew tea, and serve customers while reflecting on a life of adventure."
+    }
+   },
+   "createTime": "2026-02-19T16:28:47.923402Z",
+   "updateTime": "2026-05-31T21:26:38.045803Z"
+  },
+  "world-of-goo-2": {
+   "name": "projects/playnxt-1a2c6/databases/(default)/documents/games/world-of-goo-2",
+   "fields": {
+    "updated_at": {
+     "timestampValue": "2026-05-31T21:40:23.936643Z"
+    },
+    "title_lower": {
+     "stringValue": "world of goo 2"
+    },
+    "play_style": {
+     "arrayValue": {
+      "values": [
+       {
+        "stringValue": "puzzle"
+       }
+      ]
+     }
+    },
+    "description_short": {
+     "stringValue": "Build structures with goo balls in this long-awaited sequel to the indie classic. New goo types and liquid physics add creative puzzle-solving."
+    },
+    "platforms": {
+     "arrayValue": {
+      "values": [
+       {
+        "stringValue": "pc"
+       },
+       {
+        "stringValue": "switch"
+       }
+      ]
+     }
+    },
+    "year": {
+     "integerValue": "2024"
+    },
+    "stop_friendliness": {
+     "stringValue": "anytime"
+    },
+    "moods": {
+     "arrayValue": {
+      "values": [
+       {
+        "stringValue": "creative"
+       },
+       {
+        "stringValue": "quirky"
+       },
+       {
+        "stringValue": "relaxing"
+       },
+       {
+        "stringValue": "satisfying"
+       }
+      ]
+     }
+    },
+    "release_year": {
+     "integerValue": "2024"
+    },
+    "genre_tags": {
+     "arrayValue": {
+      "values": [
+       {
+        "stringValue": "puzzle"
+       },
+       {
+        "stringValue": "physics"
+       },
+       {
+        "stringValue": "indie"
+       }
+      ]
+     }
+    },
+    "multiplayer_modes": {
+     "arrayValue": {
+      "values": [
+       {
+        "stringValue": "solo"
+       }
+      ]
+     }
+    },
+    "energy": {
+     "stringValue": "low"
+    },
+    "description": {
+     "stringValue": "Build structures with goo balls in this long-awaited sequel to the indie classic. New goo types and liquid physics add creative puzzle-solving."
+    },
+    "fun_fact": {
+     "stringValue": "Came 16 years after the original World of Goo, one of the longest sequel gaps in indie gaming history."
+    },
+    "energy_level": {
+     "stringValue": "low"
+    },
+    "store_links": {
+     "mapValue": {
+      "fields": {
+       "nintendo": {
+        "stringValue": "https://www.nintendo.com/us/store/products/world-of-goo-2-switch/"
+       },
+       "steam": {
+        "stringValue": "https://store.steampowered.com/app/2683940/World_of_Goo_2/"
+       }
+      }
+     }
+    },
+    "category": {
+     "stringValue": "wind_down"
+    },
+    "multiplayer": {
+     "arrayValue": {
+      "values": [
+       {
+        "stringValue": "solo"
+       }
+      ]
+     }
+    },
+    "mood_tags": {
+     "arrayValue": {
+      "values": [
+       {
+        "stringValue": "creative"
+       },
+       {
+        "stringValue": "quirky"
+       },
+       {
+        "stringValue": "relaxing"
+       },
+       {
+        "stringValue": "satisfying"
+       }
+      ]
+     }
+    },
+    "time_to_fun": {
+     "stringValue": "short"
+    },
+    "genres": {
+     "arrayValue": {
+      "values": [
+       {
+        "stringValue": "puzzle"
+       },
+       {
+        "stringValue": "physics"
+       },
+       {
+        "stringValue": "indie"
+       }
+      ]
+     }
+    },
+    "time_tags": {
+     "arrayValue": {
+      "values": [
+       {
+        "integerValue": "15"
+       },
+       {
+        "integerValue": "30"
+       }
+      ]
+     }
+    },
+    "title": {
+     "stringValue": "World of Goo 2"
+    }
+   },
+   "createTime": "2026-02-19T16:58:17.244813Z",
+   "updateTime": "2026-05-31T21:38:12.757294Z"
+  },
+  "league-of-legends": {
+   "name": "projects/playnxt-1a2c6/databases/(default)/documents/games/league-of-legends",
+   "fields": {
+    "play_style": {
+     "arrayValue": {
+      "values": [
+       {
+        "stringValue": "strategy"
+       },
+       {
+        "stringValue": "action"
+       }
+      ]
+     }
+    },
+    "year": {
+     "integerValue": "2009"
+    },
+    "description_short": {
+     "stringValue": "The world's biggest MOBA — 5v5 team battles."
+    },
+    "created_at": {
+     "timestampValue": "2026-06-01T00:42:30.781924Z"
+    },
+    "explanation_templates": {
+     "mapValue": {}
+    },
+    "stop_friendliness": {
+     "stringValue": "commitment"
+    },
+    "store_links": {
+     "mapValue": {
+      "fields": {
+       "epic": {
+        "stringValue": "https://www.epicgames.com/store/en-US/p/league-of-legends"
+       },
+       "steam": {
+        "stringValue": "https://store.steampowered.com/app/20590"
+       }
+      }
+     }
+    },
+    "genre_tags": {
+     "arrayValue": {
+      "values": [
+       {
+        "stringValue": "moba"
+       },
+       {
+        "stringValue": "strategy"
+       },
+       {
+        "stringValue": "competitive"
+       },
+       {
+        "stringValue": "multiplayer"
+       }
+      ]
+     }
+    },
+    "platforms": {
+     "arrayValue": {
+      "values": [
+       {
+        "stringValue": "pc"
+       }
+      ]
+     }
+    },
+    "release_year": {
+     "integerValue": "2009"
+    },
+    "fun_fact": {
+     "stringValue": "Its World Championship fills arenas worldwide."
+    },
+    "mood_tags": {
+     "arrayValue": {
+      "values": [
+       {
+        "stringValue": "competitive"
+       },
+       {
+        "stringValue": "strategic"
+       },
+       {
+        "stringValue": "team-based"
+       }
+      ]
+     }
+    },
+    "time_tags": {
+     "arrayValue": {
+      "values": [
+       {
+        "integerValue": "30"
+       },
+       {
+        "integerValue": "60"
+       }
+      ]
+     }
+    },
+    "moods": {
+     "arrayValue": {
+      "values": [
+       {
+        "stringValue": "competitive"
+       },
+       {
+        "stringValue": "strategic"
+       },
+       {
+        "stringValue": "team-based"
+       }
+      ]
+     }
+    },
+    "updated_at": {
+     "timestampValue": "2026-06-01T00:42:30.781930Z"
+    },
+    "title": {
+     "stringValue": "League of Legends"
+    },
+    "energy_level": {
+     "stringValue": "high"
+    },
+    "genres": {
+     "arrayValue": {
+      "values": [
+       {
+        "stringValue": "moba"
+       },
+       {
+        "stringValue": "strategy"
+       },
+       {
+        "stringValue": "competitive"
+       },
+       {
+        "stringValue": "multiplayer"
+       }
+      ]
+     }
+    },
+    "multiplayer_modes": {
+     "arrayValue": {
+      "values": [
+       {
+        "stringValue": "competitive"
+       },
+       {
+        "stringValue": "online_coop"
+       }
+      ]
+     }
+    },
+    "subscription_services": {
+     "arrayValue": {
+      "values": [
+       {
+        "stringValue": "xbox_game_pass"
+       }
+      ]
+     }
+    },
+    "time_to_fun": {
+     "stringValue": "medium"
+    },
+    "game_id": {
+     "stringValue": "league-of-legends"
+    }
+   },
+   "createTime": "2026-06-01T00:40:19.936765Z",
+   "updateTime": "2026-08-24T16:51:48.025300Z"
+  },
+  "suika-game": {
+   "name": "projects/playnxt-1a2c6/databases/(default)/documents/games/suika-game",
+   "fields": {
+    "platforms": {
+     "arrayValue": {
+      "values": [
+       {
+        "stringValue": "switch"
+       },
+       {
+        "stringValue": "pc"
+       },
+       {
+        "stringValue": "playstation"
+       }
+      ]
+     }
+    },
+    "mood_tags": {
+     "arrayValue": {
+      "values": [
+       {
+        "stringValue": "relaxing"
+       },
+       {
+        "stringValue": "addictive"
+       },
+       {
+        "stringValue": "fun"
+       },
+       {
+        "stringValue": "simple"
+       }
+      ]
+     }
+    },
+    "fun_fact": {
+     "stringValue": "Originally a Japanese web game that went massively viral worldwide after being featured by streamers."
+    },
+    "energy_level": {
+     "stringValue": "low"
+    },
+    "multiplayer_modes": {
+     "arrayValue": {
+      "values": [
+       {
+        "stringValue": "solo"
+       }
+      ]
+     }
+    },
+    "moods": {
+     "arrayValue": {
+      "values": [
+       {
+        "stringValue": "relaxing"
+       },
+       {
+        "stringValue": "addictive"
+       },
+       {
+        "stringValue": "fun"
+       },
+       {
+        "stringValue": "simple"
+       }
+      ]
+     }
+    },
+    "subscription_services": {
+     "arrayValue": {
+      "values": [
+       {
+        "stringValue": "apple_arcade"
+       }
+      ]
+     }
+    },
+    "description_short": {
+     "stringValue": "Drop and merge fruits in this deceptively simple physics puzzle. Combine matching fruits to create bigger ones — don't overflow the box!"
+    },
+    "time_tags": {
+     "arrayValue": {
+      "values": [
+       {
+        "integerValue": "15"
+       }
+      ]
+     }
+    },
+    "store_links": {
+     "mapValue": {
+      "fields": {
+       "steam": {
+        "stringValue": "https://store.steampowered.com/app/2537240/Suika_Game/"
+       },
+       "nintendo": {
+        "stringValue": "https://www.nintendo.com/us/store/products/suika-game-switch/"
+       }
+      }
+     }
+    },
+    "release_year": {
+     "integerValue": "2024"
+    },
+    "updated_at": {
+     "timestampValue": "2026-05-31T21:28:42.621995Z"
+    },
+    "category": {
+     "stringValue": "casual"
+    },
+    "energy": {
+     "stringValue": "low"
+    },
+    "stop_friendliness": {
+     "stringValue": "anytime"
+    },
+    "description": {
+     "stringValue": "Drop and merge fruits in this deceptively simple physics puzzle. Combine matching fruits to create bigger ones — don't overflow the box!"
+    },
+    "title": {
+     "stringValue": "Suika Game"
+    },
+    "play_style": {
+     "arrayValue": {
+      "values": [
+       {
+        "stringValue": "puzzle"
+       }
+      ]
+     }
+    },
+    "year": {
+     "integerValue": "2024"
+    },
+    "time_to_fun": {
+     "stringValue": "short"
+    },
+    "genres": {
+     "arrayValue": {
+      "values": [
+       {
+        "stringValue": "puzzle"
+       },
+       {
+        "stringValue": "casual"
+       },
+       {
+        "stringValue": "indie"
+       }
+      ]
+     }
+    },
+    "multiplayer": {
+     "arrayValue": {
+      "values": [
+       {
+        "stringValue": "solo"
+       }
+      ]
+     }
+    },
+    "genre_tags": {
+     "arrayValue": {
+      "values": [
+       {
+        "stringValue": "puzzle"
+       },
+       {
+        "stringValue": "casual"
+       },
+       {
+        "stringValue": "indie"
+       }
+      ]
+     }
+    },
+    "title_lower": {
+     "stringValue": "suika game"
+    }
+   },
+   "createTime": "2026-02-19T16:58:15.451614Z",
+   "updateTime": "2026-08-24T16:51:58.590538Z"
+  }
+ }
+}

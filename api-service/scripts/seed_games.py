@@ -2159,7 +2159,7 @@ SEED_GAMES = [
         "avg_session_length": 90,
         "subscription_services": [],
         "content_warnings": ["violence", "mature_themes"],
-        "store_links": {"steam": "https://store.steampowered.com/app/1850690/FINAL_FANTASY_XVI/"}
+        "store_links": {"steam": "https://store.steampowered.com/app/2515020/"}
     },
     {
         "game_id": "final-fantasy-7-rebirth",
