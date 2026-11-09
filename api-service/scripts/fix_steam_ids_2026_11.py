@@ -8,6 +8,10 @@ before this was written, and cover_url is set from that app's header_image.
 League of Legends (Riot client only) and Suika Game (no official Steam release;
 the Steam matches are clones) are not on Steam, so their Steam link is removed.
 
+Correction, same day: Suika Game IS on Steam (app 4572790, Aladdin X,
+2026-07-26); the title search only surfaced clones. fix_suika_game_2026_11.py
+restores its link and adds the missing mobile platform.
+
 Pre-write documents: catalog_fix_2026_11_09_steam_ids_backup.json (same
 folder), written before any change. Refuses to write if any record's Steam link
 changed since the 2026-11-09 review, or if any record already has a cover_url.

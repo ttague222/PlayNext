@@ -1,0 +1,184 @@
+{
+ "taken_at": "2026-11-09T22:33:23.700508+00:00",
+ "document": {
+  "name": "projects/playnxt-1a2c6/databases/(default)/documents/games/suika-game",
+  "fields": {
+   "release_year": {
+    "integerValue": "2024"
+   },
+   "energy": {
+    "stringValue": "low"
+   },
+   "title_lower": {
+    "stringValue": "suika game"
+   },
+   "year": {
+    "integerValue": "2024"
+   },
+   "play_style": {
+    "arrayValue": {
+     "values": [
+      {
+       "stringValue": "puzzle"
+      }
+     ]
+    }
+   },
+   "time_to_fun": {
+    "stringValue": "short"
+   },
+   "category": {
+    "stringValue": "casual"
+   },
+   "genre_tags": {
+    "arrayValue": {
+     "values": [
+      {
+       "stringValue": "puzzle"
+      },
+      {
+       "stringValue": "casual"
+      },
+      {
+       "stringValue": "indie"
+      }
+     ]
+    }
+   },
+   "platforms": {
+    "arrayValue": {
+     "values": [
+      {
+       "stringValue": "switch"
+      },
+      {
+       "stringValue": "pc"
+      },
+      {
+       "stringValue": "playstation"
+      }
+     ]
+    }
+   },
+   "time_tags": {
+    "arrayValue": {
+     "values": [
+      {
+       "integerValue": "15"
+      }
+     ]
+    }
+   },
+   "store_links": {
+    "mapValue": {
+     "fields": {
+      "nintendo": {
+       "stringValue": "https://www.nintendo.com/us/store/products/suika-game-switch/"
+      }
+     }
+    }
+   },
+   "stop_friendliness": {
+    "stringValue": "anytime"
+   },
+   "updated_at": {
+    "timestampValue": "2026-11-09T22:30:09.519939Z"
+   },
+   "energy_level": {
+    "stringValue": "low"
+   },
+   "multiplayer": {
+    "arrayValue": {
+     "values": [
+      {
+       "stringValue": "solo"
+      }
+     ]
+    }
+   },
+   "moods": {
+    "arrayValue": {
+     "values": [
+      {
+       "stringValue": "relaxing"
+      },
+      {
+       "stringValue": "addictive"
+      },
+      {
+       "stringValue": "fun"
+      },
+      {
+       "stringValue": "simple"
+      }
+     ]
+    }
+   },
+   "description": {
+    "stringValue": "Drop and merge fruits in this deceptively simple physics puzzle. Combine matching fruits to create bigger ones — don't overflow the box!"
+   },
+   "multiplayer_modes": {
+    "arrayValue": {
+     "values": [
+      {
+       "stringValue": "solo"
+      }
+     ]
+    }
+   },
+   "subscription_services": {
+    "arrayValue": {
+     "values": [
+      {
+       "stringValue": "apple_arcade"
+      }
+     ]
+    }
+   },
+   "description_short": {
+    "stringValue": "Drop and merge fruits in this deceptively simple physics puzzle. Combine matching fruits to create bigger ones — don't overflow the box!"
+   },
+   "genres": {
+    "arrayValue": {
+     "values": [
+      {
+       "stringValue": "puzzle"
+      },
+      {
+       "stringValue": "casual"
+      },
+      {
+       "stringValue": "indie"
+      }
+     ]
+    }
+   },
+   "title": {
+    "stringValue": "Suika Game"
+   },
+   "fun_fact": {
+    "stringValue": "Originally a Japanese web game that went massively viral worldwide after being featured by streamers."
+   },
+   "mood_tags": {
+    "arrayValue": {
+     "values": [
+      {
+       "stringValue": "relaxing"
+      },
+      {
+       "stringValue": "addictive"
+      },
+      {
+       "stringValue": "fun"
+      },
+      {
+       "stringValue": "simple"
+      }
+     ]
+    }
+   }
+  },
+  "createTime": "2026-02-19T16:58:15.451614Z",
+  "updateTime": "2026-11-09T22:28:09.534345Z"
+ }
+}
