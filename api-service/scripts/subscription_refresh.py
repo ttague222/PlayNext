@@ -1,29 +1,34 @@
 """Refresh subscription_services membership from authoritative catalogs.
 
-Sources (fetched 2026-08-24, stored in subscription_data/):
+Sources (stored in subscription_data/, re-fetched by
+fetch_subscription_sources.py):
 - xbox_game_pass.json   — official catalog.gamepass.com sigls (console + PC),
                           titles hydrated via displaycatalog.mp.microsoft.com
 - playstation_plus.json — playstation.com/en-us/ps-plus/games/ A-Z Game Catalog
 - apple_arcade.json     — Pocket Gamer maintained list (Apple publishes no API)
 - netflix_games.json    — whats-on-netflix.com maintained list
+- ea_play.json          — the "EA Play Games" sigl in Microsoft's catalog, i.e.
+                          EA Play as surfaced on Xbox (EA publishes no list)
 
 Matching is exact on normalized titles after stripping storefront noise
 (platform suffixes, trademark glyphs, Arcade "+" variants, "Netflix
-Edition"). No fuzzy matching — a wrong subscription claim is worse than a
-missing one.
+Edition", a short list of publisher prefixes). No fuzzy matching and no
+substring matching — a wrong subscription claim is worse than a missing one.
 
-REPLACEMENT semantics for the four managed services: a game's membership in
-{xbox_game_pass, playstation_plus, apple_arcade, netflix_games} is recomputed
-from the source lists (services churn monthly; stale tags mislead). Tags for
-unmanaged services (ea_play, ubisoft_plus, nintendo_switch_online) are
-preserved untouched.
+REPLACEMENT semantics for the five managed services: a game's membership in
+{xbox_game_pass, playstation_plus, apple_arcade, netflix_games, ea_play} is
+recomputed from the source lists (services churn monthly; stale tags
+mislead). Tags for unmanaged services (ubisoft_plus,
+nintendo_switch_online) are preserved untouched.
 
 Usage:
     python subscription_refresh.py          # dry run
     python subscription_refresh.py --apply
 
-Refresh cadence: re-fetch the four lists and re-run monthly (the Game Pass
-sigl ids and page URLs are in this docstring's sources).
+Refresh cadence: re-fetch the lists and re-run weekly — Game Pass rotates
+mid-month, so a monthly cadence leaves departed titles claiming coverage for
+up to ~19 days (docs/CATALOG-AUDIT-2026-10-19.md, B1). The sigl ids and page
+URLs live in fetch_subscription_sources.py.
 """
 
 import json
@@ -40,7 +45,8 @@ BASE = f"https://firestore.googleapis.com/v1/projects/{PROJECT}/databases/(defau
 SCRIPT_DIR = Path(__file__).parent
 DATA_DIR = SCRIPT_DIR / "subscription_data"
 
-MANAGED = ["xbox_game_pass", "playstation_plus", "apple_arcade", "netflix_games"]
+MANAGED = ["xbox_game_pass", "playstation_plus", "apple_arcade", "netflix_games",
+           "ea_play"]
 
 # storefront noise stripped before normalizing; order matters (longest first)
 SUFFIX_PATTERNS = [
@@ -50,6 +56,19 @@ SUFFIX_PATTERNS = [
     r":\s*netflix edition$", r"\s+netflix edition$",
     r"\s*standard edition$", r"\s*cross-gen digital edition$",
     r"\s*\(\d{4}(\s+video game)?\)$",
+    # Xbox SKU suffixes: "Madden NFL 25 Xbox One", "... Xbox Series X|S"
+    r"\s*[-:]?\s*xbox series x\s*\|\s*s$", r"\s*[-:]?\s*xbox one$",
+]
+
+# Publisher prefixes storefronts carry and our catalog titles do not, e.g.
+# source "Tom Clancy's The Division 2" vs record "The Division 2". Stripping
+# them keeps matching exact (both sides are normalized the same way) — it is
+# not fuzzy or substring matching. Both straight and curly apostrophes occur.
+PREFIX_PATTERNS = [
+    r"^tom clancy\s*['’]s\s+",
+    r"^sid meier\s*['’]s\s+",
+    r"^disney\s*['’]s\s+",
+    r"^marvel\s*['’]s\s+",
 ]
 
 
@@ -59,6 +78,8 @@ def clean(title: str) -> str:
     t = t.replace("™", " ").replace("®", " ").replace("©", " ")
     t = t.rstrip("+").strip()
     for pat in SUFFIX_PATTERNS:
+        t = re.sub(pat, "", t)
+    for pat in PREFIX_PATTERNS:
         t = re.sub(pat, "", t)
     return re.sub(r"[^a-z0-9]+", " ", t).strip()
 

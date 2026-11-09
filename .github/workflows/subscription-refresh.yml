@@ -1,8 +1,13 @@
-# PlayNxt - Monthly subscription catalog refresh
+# PlayNxt - Weekly subscription catalog refresh
 #
-# Re-fetches the four subscription source lists (Game Pass official API,
+# Re-fetches the five subscription source lists (Game Pass official API,
 # PlayStation's PS Plus page, Pocket Gamer's Apple Arcade list, What's on
-# Netflix) and recomputes subscription_services membership in Firestore.
+# Netflix, EA Play via Microsoft's catalog) and recomputes
+# subscription_services membership in Firestore.
+#
+# Weekly, not monthly: Game Pass rotates mid-month, so a monthly cadence left
+# departed titles falsely claiming coverage for up to ~19 days (see
+# docs/CATALOG-AUDIT-2026-10-19.md, B1).
 #
 # The fetcher is fail-safe: a source that errors or parses too few titles is
 # skipped and the committed list is used instead (stale-but-sane), so a page
@@ -15,7 +20,7 @@ name: Subscription Refresh
 
 on:
   schedule:
-    - cron: '0 9 3 * *'   # 3rd of each month, 09:00 UTC
+    - cron: '0 9 * * 1'   # every Monday, 09:00 UTC
   workflow_dispatch:
 
 jobs:
@@ -68,6 +73,6 @@ jobs:
           if git diff --cached --quiet; then
             echo "No source list changes."
           else
-            git commit -m "chore: monthly subscription source refresh [skip ci]"
+            git commit -m "chore: weekly subscription source refresh [skip ci]"
             git push
           fi

@@ -1,10 +1,12 @@
-"""Fetch the four subscription source lists into subscription_data/.
+"""Fetch the five subscription source lists into subscription_data/.
 
 Companion to subscription_refresh.py — run this first, then the refresh.
-Designed for unattended CI use (monthly GitHub Actions cron):
+Designed for unattended CI use (weekly GitHub Actions cron):
 
 - xbox_game_pass: official catalog.gamepass.com sigls (console + PC),
   titles hydrated via displaycatalog.mp.microsoft.com. Deterministic API.
+- ea_play: the "EA Play Games" sigl in the same Microsoft catalog, through
+  the same pipeline. EA publishes no machine-readable vault list.
 - playstation_plus: playstation.com A-Z Game Catalog page; titles live in
   data-dtm-label attributes on store links (module "PS Plus Games List").
 - apple_arcade: Pocket Gamer's maintained list; titles are the
@@ -41,11 +43,21 @@ GAMEPASS_SIGLS = {
     "pc": "f6f1f99f-9b49-4ccd-b3bf-4d9767a77f5e",
 }
 
+# This is EA Play *as surfaced on Xbox* — the "EA Play Games" sigl in
+# Microsoft's catalog, read through the same sigl + displaycatalog pipeline as
+# Game Pass. The PC (EA app) and PlayStation EA Play vaults are near-identical
+# but can differ at the margin, so a title in one and not the others is
+# possible. EA itself publishes no machine-readable list.
+EA_PLAY_SIGLS = {
+    "xbox": "b8900d09-a491-44cc-916e-32b5acae621b",
+}
+
 MIN_COUNT = {
     "xbox_game_pass": 400,
     "playstation_plus": 150,
     "apple_arcade": 100,
     "netflix_games": 60,
+    "ea_play": 60,   # 96 titles when the sigl was verified 2026-10-19
 }
 
 
@@ -54,9 +66,10 @@ def get(url):
         urllib.request.Request(url, headers=UA), timeout=30).read().decode("utf-8", "ignore")
 
 
-def fetch_gamepass():
+def fetch_sigl_titles(sigls):
+    """Resolve a set of catalog.gamepass.com sigls to product titles."""
     ids = set()
-    for sigl in GAMEPASS_SIGLS.values():
+    for sigl in sigls:
         url = f"https://catalog.gamepass.com/sigls/v2?id={sigl}&language=en-us&market=US"
         ids.update(x["id"] for x in json.loads(get(url)) if "id" in x)
     titles = set()
@@ -71,6 +84,14 @@ def fetch_gamepass():
                 titles.add(lp["ProductTitle"])
         time.sleep(0.2)
     return titles
+
+
+def fetch_gamepass():
+    return fetch_sigl_titles(GAMEPASS_SIGLS.values())
+
+
+def fetch_ea_play():
+    return fetch_sigl_titles(EA_PLAY_SIGLS.values())
 
 
 def fetch_psplus():
@@ -118,6 +139,7 @@ def main():
         "playstation_plus": fetch_psplus,
         "apple_arcade": fetch_apple_arcade,
         "netflix_games": fetch_netflix,
+        "ea_play": fetch_ea_play,
     }
     failed = []
     for name, fn in fetchers.items():
