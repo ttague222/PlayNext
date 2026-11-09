@@ -1,8 +1,9 @@
 /**
  * Game Image Service
  *
- * Fetches game cover images from RAWG API with caching.
- * Falls back to stylized placeholders when API key not configured or image not found.
+ * Prefers the cover_url stored on the catalog record (served by the API).
+ * Without one, searches RAWG by title with caching, and falls back to
+ * stylized placeholders when there is no key, no match or RAWG is down.
  */
 
 import AsyncStorage from '@react-native-async-storage/async-storage';
@@ -12,6 +13,9 @@ const RAWG_API_KEY = Constants.expoConfig?.extra?.rawgApiKey || process.env.EXPO
 const RAWG_BASE_URL = 'https://api.rawg.io/api';
 const CACHE_PREFIX = 'game_image_';
 const CACHE_EXPIRY = 7 * 24 * 60 * 60 * 1000; // 7 days
+// RAWG went unreachable in November 2026 and requests hung for ~20s before
+// failing, holding every card on its loading state. Give up sooner.
+export const RAWG_TIMEOUT_MS = 6000;
 
 // In-memory cache for faster access during session
 const memoryCache = new Map();
@@ -89,10 +93,13 @@ const fetchFromRAWG = async (gameTitle) => {
     return null;
   }
 
+  const controller = new AbortController();
+  const timer = setTimeout(() => controller.abort(), RAWG_TIMEOUT_MS);
   try {
     const searchQuery = encodeURIComponent(gameTitle);
     const response = await fetch(
-      `${RAWG_BASE_URL}/games?key=${RAWG_API_KEY}&search=${searchQuery}&page_size=1`
+      `${RAWG_BASE_URL}/games?key=${RAWG_API_KEY}&search=${searchQuery}&page_size=1`,
+      { signal: controller.signal }
     );
 
     if (!response.ok) {
@@ -108,6 +115,8 @@ const fetchFromRAWG = async (gameTitle) => {
     }
   } catch (error) {
     console.warn('RAWG fetch error:', error);
+  } finally {
+    clearTimeout(timer);
   }
 
   return null;
@@ -115,10 +124,15 @@ const fetchFromRAWG = async (gameTitle) => {
 
 /**
  * Get game image URL
- * Returns object with imageUrl (or null) and fallback gradient colors
+ * Returns object with imageUrl (or null) and fallback gradient colors.
+ * coverUrl is the catalog record's cover_url; when present it is used as is.
  */
-export const getGameImage = async (gameId, gameTitle) => {
+export const getGameImage = async (gameId, gameTitle, coverUrl) => {
   const fallbackColors = generateGradientColors(gameTitle);
+
+  if (coverUrl) {
+    return { imageUrl: coverUrl, fallbackColors };
+  }
 
   // Check cache first
   const cachedUrl = await getCachedImage(gameId);
@@ -151,7 +165,7 @@ export const preloadGameImages = async (games) => {
   if (!RAWG_API_KEY) return;
 
   const promises = games.map((game) =>
-    getGameImage(game.game_id, game.title).catch(() => null)
+    getGameImage(game.game_id, game.title, game.cover_url).catch(() => null)
   );
 
   await Promise.allSettled(promises);

@@ -27,11 +27,11 @@ const Thumb = ({ game }) => {
   const [uri, setUri] = useState(null);
   useEffect(() => {
     let mounted = true;
-    getGameImage(game.game_id, game.title)
+    getGameImage(game.game_id, game.title, game.cover_url)
       .then((img) => { if (mounted) setUri(img?.imageUrl || null); })
       .catch(() => {});
     return () => { mounted = false; };
-  }, [game.game_id, game.title]);
+  }, [game.game_id, game.title, game.cover_url]);
 
   return (
     <View style={styles.thumbWrap}>
