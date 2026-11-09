@@ -220,7 +220,7 @@ const GameDetailScreen = () => {
       }
 
       // Fetch image
-      const imageResult = await getGameImage(gameId, gameData.title || gameTitle);
+      const imageResult = await getGameImage(gameId, gameData.title || gameTitle, gameData.cover_url);
       setImageUrl(imageResult.imageUrl);
       setFallbackColors(imageResult.fallbackColors);
     } catch (err) {
@@ -248,7 +248,11 @@ const GameDetailScreen = () => {
         });
         // Still try to fetch image
         try {
-          const imageResult = await getGameImage(gameId, savedGameData.game_title || gameTitle);
+          const imageResult = await getGameImage(
+            gameId,
+            savedGameData.game_title || gameTitle,
+            savedGameData.cover_url
+          );
           setImageUrl(imageResult.imageUrl);
           setFallbackColors(imageResult.fallbackColors);
         } catch {

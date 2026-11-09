@@ -42,13 +42,13 @@ export function formatCollectionContext(params: CollectionParams): string {
   return parts.join(' · ');
 }
 
-type Game = { game_id: string; title: string };
+type Game = { game_id: string; title: string; cover_url?: string | null };
 
 const Thumb = ({ game }: { game: Game }) => {
   const [uri, setUri] = useState<string | null>(null);
   useEffect(() => {
     let mounted = true;
-    getGameImage(game.game_id, game.title)
+    getGameImage(game.game_id, game.title, game.cover_url)
       .then((img: { imageUrl?: string | null } | null) => {
         if (mounted) setUri(img?.imageUrl || null);
       })
@@ -56,7 +56,7 @@ const Thumb = ({ game }: { game: Game }) => {
     return () => {
       mounted = false;
     };
-  }, [game.game_id, game.title]);
+  }, [game.game_id, game.title, game.cover_url]);
 
   return (
     <View style={styles.thumbWrap}>

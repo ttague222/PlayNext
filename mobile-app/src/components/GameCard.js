@@ -206,7 +206,7 @@ const GameCard = ({
   useEffect(() => {
     const fetchImage = async () => {
       try {
-        const result = await getGameImage(game.game_id, game.title);
+        const result = await getGameImage(game.game_id, game.title, game.cover_url);
         setImageUrl(result.imageUrl);
         setFallbackColors(result.fallbackColors);
       } catch (error) {
@@ -216,7 +216,7 @@ const GameCard = ({
       }
     };
     fetchImage();
-  }, [game.game_id, game.title]);
+  }, [game.game_id, game.title, game.cover_url]);
 
   // --- Save confirmation motion (M3) ---
   // Bookmark spring-pop + label crossfade when isSaved flips false -> true.

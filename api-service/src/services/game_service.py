@@ -48,6 +48,7 @@ class GameService:
             time_to_fun=data.get("time_to_fun", "medium"),
             stop_friendliness=data.get("stop_friendliness", "checkpoints"),
             release_date=data.get("release_date"),
+            cover_url=data.get("cover_url") or None,
         )
 
     async def get_game(self, game_id: str) -> Optional[Game]:

@@ -102,6 +102,10 @@ class GameBase(BaseModel):
     multiplayer_modes: list[MultiplayerMode] = Field(default_factory=list)
     description_short: str
     fun_fact: Optional[str] = Field(default=None, description="Interesting trivia about the game")
+    cover_url: Optional[str] = Field(
+        default=None,
+        description="Cover image URL stored on the catalog record; clients fall back to a RAWG lookup when empty.",
+    )
     release_date: Optional[str] = Field(
         default=None,
         description="ISO release date (YYYY-MM-DD). Future date = upcoming, excluded from recommendations.",
@@ -142,3 +146,4 @@ class GameSummary(BaseModel):
     time_to_fun: TimeToFun
     stop_friendliness: StopFriendliness
     release_date: Optional[str] = None
+    cover_url: Optional[str] = None

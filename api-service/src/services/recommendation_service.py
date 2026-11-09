@@ -1575,6 +1575,7 @@ class RecommendationService:
             subscription_services=game.get("subscription_services", []),
             store_links=store_links,
             fun_fact=game.get("fun_fact"),
+            cover_url=game.get("cover_url") or None,
             match_score=match_score,
             in_library=bool(in_library_ids and game["game_id"] in in_library_ids),
             pick_token=pick_token,
