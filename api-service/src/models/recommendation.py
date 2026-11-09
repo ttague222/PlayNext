@@ -156,6 +156,10 @@ class GameRecommendation(BaseModel):
     subscription_services: list[str] = Field(default_factory=list)
     store_links: Optional[StoreLinks] = Field(default=None, description="Links to purchase the game")
     fun_fact: Optional[str] = Field(default=None, description="Interesting trivia about the game")
+    cover_url: Optional[str] = Field(
+        default=None,
+        description="Cover image URL from the catalog record; clients fall back to a RAWG lookup when empty.",
+    )
     match_score: float = Field(
         ...,
         ge=0.0,
