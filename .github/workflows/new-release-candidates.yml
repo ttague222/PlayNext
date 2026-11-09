@@ -39,12 +39,19 @@ jobs:
         working-directory: api-service/scripts
         run: python new_release_candidates.py
 
+      # One branch and PR per month. With a single shared branch, each run
+      # force-pushed over the previous month's PR, wiping any curation that
+      # had not been merged yet. UTC, matching the script's file name.
+      - name: Month
+        id: month
+        run: echo "month=$(date -u +%Y-%m)" >> "$GITHUB_OUTPUT"
+
       - name: Open candidate PR
         uses: peter-evans/create-pull-request@v7
         with:
-          branch: catalog/new-release-candidates
-          commit-message: "data: monthly new-release candidates (uncurated)"
-          title: "Catalog: new-release candidates for review"
+          branch: catalog/new-release-candidates-${{ steps.month.outputs.month }}
+          commit-message: "data: new-release candidates for ${{ steps.month.outputs.month }} (uncurated)"
+          title: "Catalog: new-release candidates for ${{ steps.month.outputs.month }}"
           body: |
             Automated monthly candidate list from Steam (popular releases from the
             last 45 days and the most-wishlisted ones due in the next 60, with
